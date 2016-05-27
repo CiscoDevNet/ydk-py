@@ -7,7 +7,7 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
@@ -36,15 +36,15 @@ _meta_table = {
             'im-state-unknown':'IM_STATE_UNKNOWN',
             'im-state-last':'IM_STATE_LAST',
         }, 'Cisco-IOS-XR-ifmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-ifmgr-oper']),
-    'InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation.CapsulationDampening' : {
-        'meta_info' : _MetaInfoClass('InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation.CapsulationDampening',
+    'InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening' : {
+        'meta_info' : _MetaInfoClass('InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening',
             False, 
             [
-            _MetaInfoClassMember('flaps', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('penalty', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of underlying state flaps
+                '''                Dampening penalty of the interface
                 ''',
-                'flaps',
+                'penalty',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('is-suppressed-enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -52,17 +52,58 @@ _meta_table = {
                 ''',
                 'is_suppressed_enabled',
                 'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('seconds-remaining', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Remaining period of suppression in secs
+                ''',
+                'seconds_remaining',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('flaps', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of underlying state flaps
+                ''',
+                'flaps',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
+                [], [], 
+                '''                Underlying state of the node
+                ''',
+                'state',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-ifmgr-oper',
+            'interface-dampening',
+            _yang_ns._namespaces['Cisco-IOS-XR-ifmgr-oper'],
+        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper'
+        ),
+    },
+    'InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation.CapsulationDampening' : {
+        'meta_info' : _MetaInfoClass('InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation.CapsulationDampening',
+            False, 
+            [
             _MetaInfoClassMember('penalty', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Dampening penalty of the interface
                 ''',
                 'penalty',
                 'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('is-suppressed-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Flag showing if state is suppressed
+                ''',
+                'is_suppressed_enabled',
+                'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('seconds-remaining', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Remaining period of suppression in secs
                 ''',
                 'seconds_remaining',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('flaps', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of underlying state flaps
+                ''',
+                'flaps',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
                 [], [], 
@@ -100,68 +141,27 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper'
         ),
     },
-    'InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening' : {
-        'meta_info' : _MetaInfoClass('InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening',
-            False, 
-            [
-            _MetaInfoClassMember('flaps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of underlying state flaps
-                ''',
-                'flaps',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('is-suppressed-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Flag showing if state is suppressed
-                ''',
-                'is_suppressed_enabled',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('penalty', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Dampening penalty of the interface
-                ''',
-                'penalty',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('seconds-remaining', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Remaining period of suppression in secs
-                ''',
-                'seconds_remaining',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
-                [], [], 
-                '''                Underlying state of the node
-                ''',
-                'state',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-ifmgr-oper',
-            'interface-dampening',
-            _yang_ns._namespaces['Cisco-IOS-XR-ifmgr-oper'],
-        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper'
-        ),
-    },
     'InterfaceDampening.Interfaces.Interface.IfDampening' : {
         'meta_info' : _MetaInfoClass('InterfaceDampening.Interfaces.Interface.IfDampening',
             False, 
             [
-            _MetaInfoClassMember('capsulation', REFERENCE_LIST, 'Capsulation' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation', 
-                [], [], 
-                '''                Dampening information for capsulations
-                ''',
-                'capsulation',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('half-life', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Configured decay half life in mins
-                ''',
-                'half_life',
-                'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('interface-dampening', REFERENCE_CLASS, 'InterfaceDampening' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening', 
                 [], [], 
                 '''                Interface dampening
                 ''',
                 'interface_dampening',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('state-transition-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The number of times the state has changed
+                ''',
+                'state_transition_count',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('last-state-transition-time', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The time elasped after the last state transition
+                ''',
+                'last_state_transition_time',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('is-dampening-enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -169,11 +169,23 @@ _meta_table = {
                 ''',
                 'is_dampening_enabled',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('last-state-transition-time', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('half-life', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                The time elasped after the last state transition
+                '''                Configured decay half life in mins
                 ''',
-                'last_state_transition_time',
+                'half_life',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('reuse-threshold', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Configured reuse threshold
+                ''',
+                'reuse_threshold',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('suppress-threshold', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Value of suppress threshold
+                ''',
+                'suppress_threshold',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('maximum-suppress-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -187,23 +199,11 @@ _meta_table = {
                 ''',
                 'restart_penalty',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('reuse-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Configured reuse threshold
+            _MetaInfoClassMember('capsulation', REFERENCE_LIST, 'Capsulation' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation', 
+                [], [], 
+                '''                Dampening information for capsulations
                 ''',
-                'reuse_threshold',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('state-transition-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The number of times the state has changed
-                ''',
-                'state_transition_count',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('suppress-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Value of suppress threshold
-                ''',
-                'suppress_threshold',
+                'capsulation',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             ],
             'Cisco-IOS-XR-ifmgr-oper',
@@ -253,15 +253,15 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper'
         ),
     },
-    'InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation.CapsulationDampening' : {
-        'meta_info' : _MetaInfoClass('InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation.CapsulationDampening',
+    'InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening' : {
+        'meta_info' : _MetaInfoClass('InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening',
             False, 
             [
-            _MetaInfoClassMember('flaps', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('penalty', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of underlying state flaps
+                '''                Dampening penalty of the interface
                 ''',
-                'flaps',
+                'penalty',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('is-suppressed-enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -269,17 +269,58 @@ _meta_table = {
                 ''',
                 'is_suppressed_enabled',
                 'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('seconds-remaining', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Remaining period of suppression in secs
+                ''',
+                'seconds_remaining',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('flaps', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of underlying state flaps
+                ''',
+                'flaps',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
+                [], [], 
+                '''                Underlying state of the node
+                ''',
+                'state',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-ifmgr-oper',
+            'interface-dampening',
+            _yang_ns._namespaces['Cisco-IOS-XR-ifmgr-oper'],
+        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper'
+        ),
+    },
+    'InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation.CapsulationDampening' : {
+        'meta_info' : _MetaInfoClass('InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation.CapsulationDampening',
+            False, 
+            [
             _MetaInfoClassMember('penalty', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Dampening penalty of the interface
                 ''',
                 'penalty',
                 'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('is-suppressed-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Flag showing if state is suppressed
+                ''',
+                'is_suppressed_enabled',
+                'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('seconds-remaining', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Remaining period of suppression in secs
                 ''',
                 'seconds_remaining',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('flaps', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of underlying state flaps
+                ''',
+                'flaps',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
                 [], [], 
@@ -317,47 +358,6 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper'
         ),
     },
-    'InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening' : {
-        'meta_info' : _MetaInfoClass('InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening',
-            False, 
-            [
-            _MetaInfoClassMember('flaps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of underlying state flaps
-                ''',
-                'flaps',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('is-suppressed-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Flag showing if state is suppressed
-                ''',
-                'is_suppressed_enabled',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('penalty', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Dampening penalty of the interface
-                ''',
-                'penalty',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('seconds-remaining', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Remaining period of suppression in secs
-                ''',
-                'seconds_remaining',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
-                [], [], 
-                '''                Underlying state of the node
-                ''',
-                'state',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-ifmgr-oper',
-            'interface-dampening',
-            _yang_ns._namespaces['Cisco-IOS-XR-ifmgr-oper'],
-        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper'
-        ),
-    },
     'InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle' : {
         'meta_info' : _MetaInfoClass('InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle',
             False, 
@@ -368,23 +368,23 @@ _meta_table = {
                 ''',
                 'interface_handle_name',
                 'Cisco-IOS-XR-ifmgr-oper', True),
-            _MetaInfoClassMember('capsulation', REFERENCE_LIST, 'Capsulation' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation', 
-                [], [], 
-                '''                Dampening information for capsulations
-                ''',
-                'capsulation',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('half-life', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Configured decay half life in mins
-                ''',
-                'half_life',
-                'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('interface-dampening', REFERENCE_CLASS, 'InterfaceDampening' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening', 
                 [], [], 
                 '''                Interface dampening
                 ''',
                 'interface_dampening',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('state-transition-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The number of times the state has changed
+                ''',
+                'state_transition_count',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('last-state-transition-time', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The time elasped after the last state transition
+                ''',
+                'last_state_transition_time',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('is-dampening-enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -392,11 +392,23 @@ _meta_table = {
                 ''',
                 'is_dampening_enabled',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('last-state-transition-time', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('half-life', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                The time elasped after the last state transition
+                '''                Configured decay half life in mins
                 ''',
-                'last_state_transition_time',
+                'half_life',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('reuse-threshold', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Configured reuse threshold
+                ''',
+                'reuse_threshold',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('suppress-threshold', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Value of suppress threshold
+                ''',
+                'suppress_threshold',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('maximum-suppress-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -410,23 +422,11 @@ _meta_table = {
                 ''',
                 'restart_penalty',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('reuse-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Configured reuse threshold
+            _MetaInfoClassMember('capsulation', REFERENCE_LIST, 'Capsulation' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation', 
+                [], [], 
+                '''                Dampening information for capsulations
                 ''',
-                'reuse_threshold',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('state-transition-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The number of times the state has changed
-                ''',
-                'state_transition_count',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('suppress-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Value of suppress threshold
-                ''',
-                'suppress_threshold',
+                'capsulation',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             ],
             'Cisco-IOS-XR-ifmgr-oper',
@@ -452,15 +452,15 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper'
         ),
     },
-    'InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation.CapsulationDampening' : {
-        'meta_info' : _MetaInfoClass('InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation.CapsulationDampening',
+    'InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening' : {
+        'meta_info' : _MetaInfoClass('InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening',
             False, 
             [
-            _MetaInfoClassMember('flaps', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('penalty', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of underlying state flaps
+                '''                Dampening penalty of the interface
                 ''',
-                'flaps',
+                'penalty',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('is-suppressed-enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -468,17 +468,58 @@ _meta_table = {
                 ''',
                 'is_suppressed_enabled',
                 'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('seconds-remaining', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Remaining period of suppression in secs
+                ''',
+                'seconds_remaining',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('flaps', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of underlying state flaps
+                ''',
+                'flaps',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
+                [], [], 
+                '''                Underlying state of the node
+                ''',
+                'state',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-ifmgr-oper',
+            'interface-dampening',
+            _yang_ns._namespaces['Cisco-IOS-XR-ifmgr-oper'],
+        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper'
+        ),
+    },
+    'InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation.CapsulationDampening' : {
+        'meta_info' : _MetaInfoClass('InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation.CapsulationDampening',
+            False, 
+            [
             _MetaInfoClassMember('penalty', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Dampening penalty of the interface
                 ''',
                 'penalty',
                 'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('is-suppressed-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Flag showing if state is suppressed
+                ''',
+                'is_suppressed_enabled',
+                'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('seconds-remaining', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Remaining period of suppression in secs
                 ''',
                 'seconds_remaining',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('flaps', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of underlying state flaps
+                ''',
+                'flaps',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
                 [], [], 
@@ -516,47 +557,6 @@ _meta_table = {
         'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper'
         ),
     },
-    'InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening' : {
-        'meta_info' : _MetaInfoClass('InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening',
-            False, 
-            [
-            _MetaInfoClassMember('flaps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of underlying state flaps
-                ''',
-                'flaps',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('is-suppressed-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Flag showing if state is suppressed
-                ''',
-                'is_suppressed_enabled',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('penalty', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Dampening penalty of the interface
-                ''',
-                'penalty',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('seconds-remaining', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Remaining period of suppression in secs
-                ''',
-                'seconds_remaining',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
-                [], [], 
-                '''                Underlying state of the node
-                ''',
-                'state',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-ifmgr-oper',
-            'interface-dampening',
-            _yang_ns._namespaces['Cisco-IOS-XR-ifmgr-oper'],
-        'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper'
-        ),
-    },
     'InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface' : {
         'meta_info' : _MetaInfoClass('InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface',
             False, 
@@ -567,23 +567,23 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ifmgr-oper', True),
-            _MetaInfoClassMember('capsulation', REFERENCE_LIST, 'Capsulation' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation', 
-                [], [], 
-                '''                Dampening information for capsulations
-                ''',
-                'capsulation',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('half-life', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Configured decay half life in mins
-                ''',
-                'half_life',
-                'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('interface-dampening', REFERENCE_CLASS, 'InterfaceDampening' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening', 
                 [], [], 
                 '''                Interface dampening
                 ''',
                 'interface_dampening',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('state-transition-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The number of times the state has changed
+                ''',
+                'state_transition_count',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('last-state-transition-time', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The time elasped after the last state transition
+                ''',
+                'last_state_transition_time',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('is-dampening-enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -591,11 +591,23 @@ _meta_table = {
                 ''',
                 'is_dampening_enabled',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('last-state-transition-time', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('half-life', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                The time elasped after the last state transition
+                '''                Configured decay half life in mins
                 ''',
-                'last_state_transition_time',
+                'half_life',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('reuse-threshold', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Configured reuse threshold
+                ''',
+                'reuse_threshold',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('suppress-threshold', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Value of suppress threshold
+                ''',
+                'suppress_threshold',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('maximum-suppress-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -609,23 +621,11 @@ _meta_table = {
                 ''',
                 'restart_penalty',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('reuse-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Configured reuse threshold
+            _MetaInfoClassMember('capsulation', REFERENCE_LIST, 'Capsulation' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation', 
+                [], [], 
+                '''                Dampening information for capsulations
                 ''',
-                'reuse_threshold',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('state-transition-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The number of times the state has changed
-                ''',
-                'state_transition_count',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('suppress-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Value of suppress threshold
-                ''',
-                'suppress_threshold',
+                'capsulation',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             ],
             'Cisco-IOS-XR-ifmgr-oper',
@@ -768,12 +768,29 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ifmgr-oper', True),
-            _MetaInfoClassMember('actual-line-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
-                [], [], 
-                '''                Line protocol state with no translation of error
-                disable or shutdown
+            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface
                 ''',
-                'actual_line_state',
+                'interface',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Parent Interface
+                ''',
+                'parent_interface',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Interface type
+                ''',
+                'type',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
+                [], [], 
+                '''                Operational state
+                ''',
+                'state',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('actual-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
                 [], [], 
@@ -782,11 +799,18 @@ _meta_table = {
                 ''',
                 'actual_state',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Interface bandwidth (Kb/s)
+            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
+                [], [], 
+                '''                Line protocol state
                 ''',
-                'bandwidth',
+                'line_state',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('actual-line-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
+                [], [], 
+                '''                Line protocol state with no translation of error
+                disable or shutdown
+                ''',
+                'actual_line_state',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('encapsulation', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -800,41 +824,11 @@ _meta_table = {
                 ''',
                 'encapsulation_type_string',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface
-                ''',
-                'interface',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('l2-transport', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                L2 transport
-                ''',
-                'l2_transport',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
-                [], [], 
-                '''                Line protocol state
-                ''',
-                'line_state',
-                'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                MTU in bytes
                 ''',
                 'mtu',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Parent Interface
-                ''',
-                'parent_interface',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
-                [], [], 
-                '''                Operational state
-                ''',
-                'state',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('sub-interface-mtu-overhead', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -842,11 +836,17 @@ _meta_table = {
                 ''',
                 'sub_interface_mtu_overhead',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('l2-transport', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Interface type
+                '''                L2 transport
                 ''',
-                'type',
+                'l2_transport',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Interface bandwidth (Kb/s)
+                ''',
+                'bandwidth',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             ],
             'Cisco-IOS-XR-ifmgr-oper',
@@ -925,12 +925,29 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ifmgr-oper', True),
-            _MetaInfoClassMember('actual-line-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
-                [], [], 
-                '''                Line protocol state with no translation of error
-                disable or shutdown
+            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface
                 ''',
-                'actual_line_state',
+                'interface',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Parent Interface
+                ''',
+                'parent_interface',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Interface type
+                ''',
+                'type',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
+                [], [], 
+                '''                Operational state
+                ''',
+                'state',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('actual-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
                 [], [], 
@@ -939,11 +956,18 @@ _meta_table = {
                 ''',
                 'actual_state',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Interface bandwidth (Kb/s)
+            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
+                [], [], 
+                '''                Line protocol state
                 ''',
-                'bandwidth',
+                'line_state',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('actual-line-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
+                [], [], 
+                '''                Line protocol state with no translation of error
+                disable or shutdown
+                ''',
+                'actual_line_state',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('encapsulation', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -957,41 +981,11 @@ _meta_table = {
                 ''',
                 'encapsulation_type_string',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface
-                ''',
-                'interface',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('l2-transport', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                L2 transport
-                ''',
-                'l2_transport',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
-                [], [], 
-                '''                Line protocol state
-                ''',
-                'line_state',
-                'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                MTU in bytes
                 ''',
                 'mtu',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Parent Interface
-                ''',
-                'parent_interface',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
-                [], [], 
-                '''                Operational state
-                ''',
-                'state',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('sub-interface-mtu-overhead', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -999,11 +993,17 @@ _meta_table = {
                 ''',
                 'sub_interface_mtu_overhead',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('l2-transport', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Interface type
+                '''                L2 transport
                 ''',
-                'type',
+                'l2_transport',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Interface bandwidth (Kb/s)
+                ''',
+                'bandwidth',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             ],
             'Cisco-IOS-XR-ifmgr-oper',
@@ -1083,12 +1083,29 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ifmgr-oper', True),
-            _MetaInfoClassMember('actual-line-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
-                [], [], 
-                '''                Line protocol state with no translation of error
-                disable or shutdown
+            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface
                 ''',
-                'actual_line_state',
+                'interface',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Parent Interface
+                ''',
+                'parent_interface',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Interface type
+                ''',
+                'type',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
+                [], [], 
+                '''                Operational state
+                ''',
+                'state',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('actual-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
                 [], [], 
@@ -1097,11 +1114,18 @@ _meta_table = {
                 ''',
                 'actual_state',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Interface bandwidth (Kb/s)
+            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
+                [], [], 
+                '''                Line protocol state
                 ''',
-                'bandwidth',
+                'line_state',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('actual-line-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
+                [], [], 
+                '''                Line protocol state with no translation of error
+                disable or shutdown
+                ''',
+                'actual_line_state',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('encapsulation', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1115,41 +1139,11 @@ _meta_table = {
                 ''',
                 'encapsulation_type_string',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface
-                ''',
-                'interface',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('l2-transport', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                L2 transport
-                ''',
-                'l2_transport',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('line-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
-                [], [], 
-                '''                Line protocol state
-                ''',
-                'line_state',
-                'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                MTU in bytes
                 ''',
                 'mtu',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Parent Interface
-                ''',
-                'parent_interface',
-                'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.ifmgr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnumEnum', 
-                [], [], 
-                '''                Operational state
-                ''',
-                'state',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('sub-interface-mtu-overhead', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1157,11 +1151,17 @@ _meta_table = {
                 ''',
                 'sub_interface_mtu_overhead',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('l2-transport', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Interface type
+                '''                L2 transport
                 ''',
-                'type',
+                'l2_transport',
+                'Cisco-IOS-XR-ifmgr-oper', False),
+            _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Interface bandwidth (Kb/s)
+                ''',
+                'bandwidth',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             ],
             'Cisco-IOS-XR-ifmgr-oper',
@@ -1280,17 +1280,17 @@ _meta_table = {
     },
 }
 _meta_table['InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation.CapsulationDampening']['meta_info'].parent =_meta_table['InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation']['meta_info']
-_meta_table['InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation']['meta_info'].parent =_meta_table['InterfaceDampening.Interfaces.Interface.IfDampening']['meta_info']
 _meta_table['InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening']['meta_info'].parent =_meta_table['InterfaceDampening.Interfaces.Interface.IfDampening']['meta_info']
+_meta_table['InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation']['meta_info'].parent =_meta_table['InterfaceDampening.Interfaces.Interface.IfDampening']['meta_info']
 _meta_table['InterfaceDampening.Interfaces.Interface.IfDampening']['meta_info'].parent =_meta_table['InterfaceDampening.Interfaces.Interface']['meta_info']
 _meta_table['InterfaceDampening.Interfaces.Interface']['meta_info'].parent =_meta_table['InterfaceDampening.Interfaces']['meta_info']
 _meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation.CapsulationDampening']['meta_info'].parent =_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation']['meta_info']
-_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation']['meta_info'].parent =_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle']['meta_info']
 _meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening']['meta_info'].parent =_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle']['meta_info']
+_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation']['meta_info'].parent =_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle']['meta_info']
 _meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle']['meta_info'].parent =_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles']['meta_info']
 _meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation.CapsulationDampening']['meta_info'].parent =_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation']['meta_info']
-_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation']['meta_info'].parent =_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface']['meta_info']
 _meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening']['meta_info'].parent =_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface']['meta_info']
+_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation']['meta_info'].parent =_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface']['meta_info']
 _meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface']['meta_info'].parent =_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces']['meta_info']
 _meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles']['meta_info'].parent =_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening']['meta_info']
 _meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces']['meta_info'].parent =_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening']['meta_info']

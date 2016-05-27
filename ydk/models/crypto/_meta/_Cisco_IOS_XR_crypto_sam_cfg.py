@@ -7,7 +7,7 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
@@ -63,23 +63,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Crypto.Ssh.Client',
             False, 
             [
-            _MetaInfoClassMember('client-vrf', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
-                '''                Source interface VRF for ssh client sessions
-                ''',
-                'client_vrf',
-                'Cisco-IOS-XR-crypto-ssh-cfg', False),
-            _MetaInfoClassMember('dscp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 63)], [], 
-                '''                Cisco sshd DSCP value
-                ''',
-                'dscp',
-                'Cisco-IOS-XR-crypto-ssh-cfg', False),
             _MetaInfoClassMember('host-public-key', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Filename - where to store known host file
                 ''',
                 'host_public_key',
+                'Cisco-IOS-XR-crypto-ssh-cfg', False),
+            _MetaInfoClassMember('client-vrf', ATTRIBUTE, 'str' , None, None, 
+                [(0, 32)], [], 
+                '''                Source interface VRF for ssh client sessions
+                ''',
+                'client_vrf',
                 'Cisco-IOS-XR-crypto-ssh-cfg', False),
             _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
@@ -87,61 +81,15 @@ _meta_table = {
                 ''',
                 'source_interface',
                 'Cisco-IOS-XR-crypto-ssh-cfg', False),
+            _MetaInfoClassMember('dscp', ATTRIBUTE, 'int' , None, None, 
+                [(0, 63)], [], 
+                '''                Cisco sshd DSCP value
+                ''',
+                'dscp',
+                'Cisco-IOS-XR-crypto-ssh-cfg', False),
             ],
             'Cisco-IOS-XR-crypto-ssh-cfg',
             'client',
-            _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-cfg'],
-        'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_cfg'
-        ),
-    },
-    'Crypto.Ssh.Server.NetconfVrfTable.Vrf' : {
-        'meta_info' : _MetaInfoClass('Crypto.Ssh.Server.NetconfVrfTable.Vrf',
-            False, 
-            [
-            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
-                '''                Enter VRF name
-                ''',
-                'vrf_name',
-                'Cisco-IOS-XR-crypto-ssh-cfg', True),
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable to use VRF
-                ''',
-                'enable',
-                'Cisco-IOS-XR-crypto-ssh-cfg', False),
-            _MetaInfoClassMember('ipv4-access-list', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
-                '''                SSH v4 access-list name
-                ''',
-                'ipv4_access_list',
-                'Cisco-IOS-XR-crypto-ssh-cfg', False),
-            _MetaInfoClassMember('ipv6-access-list', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
-                '''                SSH v6 access-list name
-                ''',
-                'ipv6_access_list',
-                'Cisco-IOS-XR-crypto-ssh-cfg', False),
-            ],
-            'Cisco-IOS-XR-crypto-ssh-cfg',
-            'vrf',
-            _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-cfg'],
-        'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_cfg'
-        ),
-    },
-    'Crypto.Ssh.Server.NetconfVrfTable' : {
-        'meta_info' : _MetaInfoClass('Crypto.Ssh.Server.NetconfVrfTable',
-            False, 
-            [
-            _MetaInfoClassMember('vrf', REFERENCE_LIST, 'Vrf' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_cfg', 'Crypto.Ssh.Server.NetconfVrfTable.Vrf', 
-                [], [], 
-                '''                Enter VRF name
-                ''',
-                'vrf',
-                'Cisco-IOS-XR-crypto-ssh-cfg', False),
-            ],
-            'Cisco-IOS-XR-crypto-ssh-cfg',
-            'netconf-vrf-table',
             _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-cfg'],
         'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_cfg'
         ),
@@ -198,21 +146,79 @@ _meta_table = {
         'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_cfg'
         ),
     },
+    'Crypto.Ssh.Server.NetconfVrfTable.Vrf' : {
+        'meta_info' : _MetaInfoClass('Crypto.Ssh.Server.NetconfVrfTable.Vrf',
+            False, 
+            [
+            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 32)], [], 
+                '''                Enter VRF name
+                ''',
+                'vrf_name',
+                'Cisco-IOS-XR-crypto-ssh-cfg', True),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable to use VRF
+                ''',
+                'enable',
+                'Cisco-IOS-XR-crypto-ssh-cfg', False),
+            _MetaInfoClassMember('ipv4-access-list', ATTRIBUTE, 'str' , None, None, 
+                [(0, 32)], [], 
+                '''                SSH v4 access-list name
+                ''',
+                'ipv4_access_list',
+                'Cisco-IOS-XR-crypto-ssh-cfg', False),
+            _MetaInfoClassMember('ipv6-access-list', ATTRIBUTE, 'str' , None, None, 
+                [(0, 32)], [], 
+                '''                SSH v6 access-list name
+                ''',
+                'ipv6_access_list',
+                'Cisco-IOS-XR-crypto-ssh-cfg', False),
+            ],
+            'Cisco-IOS-XR-crypto-ssh-cfg',
+            'vrf',
+            _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-cfg'],
+        'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_cfg'
+        ),
+    },
+    'Crypto.Ssh.Server.NetconfVrfTable' : {
+        'meta_info' : _MetaInfoClass('Crypto.Ssh.Server.NetconfVrfTable',
+            False, 
+            [
+            _MetaInfoClassMember('vrf', REFERENCE_LIST, 'Vrf' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_cfg', 'Crypto.Ssh.Server.NetconfVrfTable.Vrf', 
+                [], [], 
+                '''                Enter VRF name
+                ''',
+                'vrf',
+                'Cisco-IOS-XR-crypto-ssh-cfg', False),
+            ],
+            'Cisco-IOS-XR-crypto-ssh-cfg',
+            'netconf-vrf-table',
+            _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-cfg'],
+        'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_cfg'
+        ),
+    },
     'Crypto.Ssh.Server' : {
         'meta_info' : _MetaInfoClass('Crypto.Ssh.Server',
             False, 
             [
-            _MetaInfoClassMember('dscp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 63)], [], 
-                '''                Cisco sshd DSCP value
-                ''',
-                'dscp',
-                'Cisco-IOS-XR-crypto-ssh-cfg', False),
-            _MetaInfoClassMember('logging', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('vrf-table', REFERENCE_CLASS, 'VrfTable' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_cfg', 'Crypto.Ssh.Server.VrfTable', 
                 [], [], 
-                '''                Enable ssh server logging
+                '''                Cisco sshd VRF name
                 ''',
-                'logging',
+                'vrf_table',
+                'Cisco-IOS-XR-crypto-ssh-cfg', False),
+            _MetaInfoClassMember('netconf-vrf-table', REFERENCE_CLASS, 'NetconfVrfTable' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_cfg', 'Crypto.Ssh.Server.NetconfVrfTable', 
+                [], [], 
+                '''                Cisco sshd Netconf VRF name
+                ''',
+                'netconf_vrf_table',
+                'Cisco-IOS-XR-crypto-ssh-cfg', False),
+            _MetaInfoClassMember('session-limit', ATTRIBUTE, 'int' , None, None, 
+                [(1, 1024)], [], 
+                '''                Cisco sshd session-limit of service requests
+                ''',
+                'session_limit',
                 'Cisco-IOS-XR-crypto-ssh-cfg', False),
             _MetaInfoClassMember('netconf', ATTRIBUTE, 'int' , None, None, 
                 [(1, 65535)], [], 
@@ -221,11 +227,17 @@ _meta_table = {
                 ''',
                 'netconf',
                 'Cisco-IOS-XR-crypto-ssh-cfg', False),
-            _MetaInfoClassMember('netconf-vrf-table', REFERENCE_CLASS, 'NetconfVrfTable' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_cfg', 'Crypto.Ssh.Server.NetconfVrfTable', 
+            _MetaInfoClassMember('v2', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Cisco sshd Netconf VRF name
+                '''                Cisco sshd force protocol version 2 only
                 ''',
-                'netconf_vrf_table',
+                'v2',
+                'Cisco-IOS-XR-crypto-ssh-cfg', False),
+            _MetaInfoClassMember('logging', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable ssh server logging
+                ''',
+                'logging',
                 'Cisco-IOS-XR-crypto-ssh-cfg', False),
             _MetaInfoClassMember('rate-limit', ATTRIBUTE, 'int' , None, None, 
                 [(1, 600)], [], 
@@ -233,29 +245,17 @@ _meta_table = {
                 ''',
                 'rate_limit',
                 'Cisco-IOS-XR-crypto-ssh-cfg', False),
-            _MetaInfoClassMember('session-limit', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1024)], [], 
-                '''                Cisco sshd session-limit of service requests
-                ''',
-                'session_limit',
-                'Cisco-IOS-XR-crypto-ssh-cfg', False),
             _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
                 [(5, 120)], [], 
                 '''                Timeout value between 5-120 seconds defalut 30
                 ''',
                 'timeout',
                 'Cisco-IOS-XR-crypto-ssh-cfg', False),
-            _MetaInfoClassMember('v2', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Cisco sshd force protocol version 2 only
+            _MetaInfoClassMember('dscp', ATTRIBUTE, 'int' , None, None, 
+                [(0, 63)], [], 
+                '''                Cisco sshd DSCP value
                 ''',
-                'v2',
-                'Cisco-IOS-XR-crypto-ssh-cfg', False),
-            _MetaInfoClassMember('vrf-table', REFERENCE_CLASS, 'VrfTable' , 'ydk.models.crypto.Cisco_IOS_XR_crypto_sam_cfg', 'Crypto.Ssh.Server.VrfTable', 
-                [], [], 
-                '''                Cisco sshd VRF name
-                ''',
-                'vrf_table',
+                'dscp',
                 'Cisco-IOS-XR-crypto-ssh-cfg', False),
             ],
             'Cisco-IOS-XR-crypto-ssh-cfg',
@@ -312,10 +312,10 @@ _meta_table = {
     },
 }
 _meta_table['Crypto.Sam.PromptInterval']['meta_info'].parent =_meta_table['Crypto.Sam']['meta_info']
-_meta_table['Crypto.Ssh.Server.NetconfVrfTable.Vrf']['meta_info'].parent =_meta_table['Crypto.Ssh.Server.NetconfVrfTable']['meta_info']
 _meta_table['Crypto.Ssh.Server.VrfTable.Vrf']['meta_info'].parent =_meta_table['Crypto.Ssh.Server.VrfTable']['meta_info']
-_meta_table['Crypto.Ssh.Server.NetconfVrfTable']['meta_info'].parent =_meta_table['Crypto.Ssh.Server']['meta_info']
+_meta_table['Crypto.Ssh.Server.NetconfVrfTable.Vrf']['meta_info'].parent =_meta_table['Crypto.Ssh.Server.NetconfVrfTable']['meta_info']
 _meta_table['Crypto.Ssh.Server.VrfTable']['meta_info'].parent =_meta_table['Crypto.Ssh.Server']['meta_info']
+_meta_table['Crypto.Ssh.Server.NetconfVrfTable']['meta_info'].parent =_meta_table['Crypto.Ssh.Server']['meta_info']
 _meta_table['Crypto.Ssh.Client']['meta_info'].parent =_meta_table['Crypto.Ssh']['meta_info']
 _meta_table['Crypto.Ssh.Server']['meta_info'].parent =_meta_table['Crypto.Ssh']['meta_info']
 _meta_table['Crypto.Sam']['meta_info'].parent =_meta_table['Crypto']['meta_info']

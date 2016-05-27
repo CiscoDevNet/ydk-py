@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -381,25 +381,25 @@ class EtherLinkOam(object):
     	Table of Ethernet Link OAM enabled interfaces within Discovery Info container
     	**type**\: :py:class:`DiscoveryInfoInterfaces <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.DiscoveryInfoInterfaces>`
     
-    .. attribute:: event_log_entry_interfaces
-    
-    	Table of Ethernet Link OAM enabled interfaces within Event Log Entry container
-    	**type**\: :py:class:`EventLogEntryInterfaces <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.EventLogEntryInterfaces>`
-    
     .. attribute:: interface_state_interfaces
     
     	Table of Ethernet Link OAM enabled interfaces within Interface State container
     	**type**\: :py:class:`InterfaceStateInterfaces <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.InterfaceStateInterfaces>`
+    
+    .. attribute:: running_config_interfaces
+    
+    	Table of Ethernet Link OAM enabled interfaces within Running Config container
+    	**type**\: :py:class:`RunningConfigInterfaces <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.RunningConfigInterfaces>`
     
     .. attribute:: nodes
     
     	Node table for node\-specific operational data
     	**type**\: :py:class:`Nodes <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.Nodes>`
     
-    .. attribute:: running_config_interfaces
+    .. attribute:: event_log_entry_interfaces
     
-    	Table of Ethernet Link OAM enabled interfaces within Running Config container
-    	**type**\: :py:class:`RunningConfigInterfaces <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.RunningConfigInterfaces>`
+    	Table of Ethernet Link OAM enabled interfaces within Event Log Entry container
+    	**type**\: :py:class:`EventLogEntryInterfaces <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.EventLogEntryInterfaces>`
     
     .. attribute:: stats_interfaces
     
@@ -416,14 +416,14 @@ class EtherLinkOam(object):
     def __init__(self):
         self.discovery_info_interfaces = EtherLinkOam.DiscoveryInfoInterfaces()
         self.discovery_info_interfaces.parent = self
-        self.event_log_entry_interfaces = EtherLinkOam.EventLogEntryInterfaces()
-        self.event_log_entry_interfaces.parent = self
         self.interface_state_interfaces = EtherLinkOam.InterfaceStateInterfaces()
         self.interface_state_interfaces.parent = self
-        self.nodes = EtherLinkOam.Nodes()
-        self.nodes.parent = self
         self.running_config_interfaces = EtherLinkOam.RunningConfigInterfaces()
         self.running_config_interfaces.parent = self
+        self.nodes = EtherLinkOam.Nodes()
+        self.nodes.parent = self
+        self.event_log_entry_interfaces = EtherLinkOam.EventLogEntryInterfaces()
+        self.event_log_entry_interfaces.parent = self
         self.stats_interfaces = EtherLinkOam.StatsInterfaces()
         self.stats_interfaces.parent = self
 
@@ -457,128 +457,12 @@ class EtherLinkOam(object):
             Ethernet Link OAM interface to get Discovery
             Info for
             
-            .. attribute:: member_interface
+            .. attribute:: member_interface  <key>
             
             	Member Interface
             	**type**\: str
             
             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-            
-            .. attribute:: local_evaluating
-            
-            	Is the local OAM session evaluating?
-            	**type**\: bool
-            
-            .. attribute:: local_function_event
-            
-            	Local event support
-            	**type**\: bool
-            
-            .. attribute:: local_function_event_valid
-            
-            	Has this value been received successfully?
-            	**type**\: bool
-            
-            .. attribute:: local_function_loopback
-            
-            	Local loopback support
-            	**type**\: bool
-            
-            .. attribute:: local_function_loopback_valid
-            
-            	Has this value been received successfully?
-            	**type**\: bool
-            
-            .. attribute:: local_function_unidirectional
-            
-            	Local Unidirectional support
-            	**type**\: bool
-            
-            .. attribute:: local_function_unidirectional_valid
-            
-            	Has this value been received successfully?
-            	**type**\: bool
-            
-            .. attribute:: local_functionvariable
-            
-            	Local variable retreival support
-            	**type**\: bool
-            
-            .. attribute:: local_functionvariable_valid
-            
-            	Has this value been received successfully?
-            	**type**\: bool
-            
-            .. attribute:: local_mode
-            
-            	Local Mode (passive/active)
-            	**type**\: :py:class:`ModeEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ModeEnum>`
-            
-            .. attribute:: local_mode_valid
-            
-            	Has this value been received successfully?
-            	**type**\: bool
-            
-            .. attribute:: local_mtu
-            
-            	Local MTU
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: local_mtu_valid
-            
-            	Has this value been received successfully?
-            	**type**\: bool
-            
-            .. attribute:: local_mwd_key
-            
-            	Local Mis\-wiring Detection key
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: local_mwd_key_valid
-            
-            	Has this value been received successfully?
-            	**type**\: bool
-            
-            .. attribute:: local_operational
-            
-            	Is the local OAM session operational?
-            	**type**\: bool
-            
-            .. attribute:: local_revision
-            
-            	Local revision
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: local_revisionvalid
-            
-            	Has this value been received successfully?
-            	**type**\: bool
-            
-            .. attribute:: loopback_mode
-            
-            	The loopback mode the interface is in
-            	**type**\: :py:class:`LoopbackStatusEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.LoopbackStatusEnum>`
-            
-            .. attribute:: loopback_mode_valid
-            
-            	Has this value been received successfully?
-            	**type**\: bool
-            
-            .. attribute:: miswired
-            
-            	Has the interface mis\-wired?
-            	**type**\: bool
-            
-            .. attribute:: miswired_valid
-            
-            	Has this value been received successfully?
-            	**type**\: bool
             
             .. attribute:: name
             
@@ -590,41 +474,70 @@ class EtherLinkOam(object):
             	Operational status
             	**type**\: :py:class:`OperationalStateEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.OperationalStateEnum>`
             
-            .. attribute:: operational_status_valid
+            .. attribute:: loopback_mode
             
-            	Has this value been received successfully?
+            	The loopback mode the interface is in
+            	**type**\: :py:class:`LoopbackStatusEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.LoopbackStatusEnum>`
+            
+            .. attribute:: local_mode
+            
+            	Local Mode (passive/active)
+            	**type**\: :py:class:`ModeEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ModeEnum>`
+            
+            .. attribute:: miswired
+            
+            	Has the interface mis\-wired?
             	**type**\: bool
             
-            .. attribute:: remote_event
+            .. attribute:: local_mwd_key
             
-            	Remote event support
+            	Local Mis\-wiring Detection key
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: local_function_unidirectional
+            
+            	Local Unidirectional support
             	**type**\: bool
             
-            .. attribute:: remote_event_valid
+            .. attribute:: local_function_loopback
             
-            	Has this value been received successfully?
+            	Local loopback support
             	**type**\: bool
             
-            .. attribute:: remote_loopback
+            .. attribute:: local_function_event
             
-            	Remote loopback support
+            	Local event support
             	**type**\: bool
             
-            .. attribute:: remote_loopback_valid
+            .. attribute:: local_functionvariable
             
-            	Has this value been received successfully?
+            	Local variable retreival support
             	**type**\: bool
             
-            .. attribute:: remote_mac_address
+            .. attribute:: local_revision
             
-            	Remote MAC address
-            	**type**\: str
+            	Local revision
+            	**type**\: int
             
-            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+            	**range:** 0..4294967295
             
-            .. attribute:: remote_mac_address_valid
+            .. attribute:: local_mtu
             
-            	Has this value been received successfully?
+            	Local MTU
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: local_operational
+            
+            	Is the local OAM session operational?
+            	**type**\: bool
+            
+            .. attribute:: local_evaluating
+            
+            	Is the local OAM session evaluating?
             	**type**\: bool
             
             .. attribute:: remote_mode
@@ -632,9 +545,24 @@ class EtherLinkOam(object):
             	Remote Mode (passive/active)
             	**type**\: :py:class:`ModeEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ModeEnum>`
             
-            .. attribute:: remote_mode_valid
+            .. attribute:: remote_unidirectional
             
-            	Has this value been received successfully?
+            	Remote unidirectional support
+            	**type**\: bool
+            
+            .. attribute:: remote_loopback
+            
+            	Remote loopback support
+            	**type**\: bool
+            
+            .. attribute:: remote_event
+            
+            	Remote event support
+            	**type**\: bool
+            
+            .. attribute:: remote_variable
+            
+            	Remote variable retreival support
             	**type**\: bool
             
             .. attribute:: remote_mtu
@@ -644,66 +572,12 @@ class EtherLinkOam(object):
             
             	**range:** 0..4294967295
             
-            .. attribute:: remote_mtu_valid
+            .. attribute:: remote_mac_address
             
-            	Has this value been received successfully?
-            	**type**\: bool
+            	Remote MAC address
+            	**type**\: str
             
-            .. attribute:: remote_mwd_key
-            
-            	Remote Mis\-wiring Detection key
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: remote_mwd_key_valid
-            
-            	Has this value been received successfully?
-            	**type**\: bool
-            
-            .. attribute:: remote_revision
-            
-            	Remote revision
-            	**type**\: int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: remote_revisionvalid
-            
-            	Has this value been received successfully?
-            	**type**\: bool
-            
-            .. attribute:: remote_unidirectional
-            
-            	Remote unidirectional support
-            	**type**\: bool
-            
-            .. attribute:: remote_unidirectional_valid
-            
-            	Has this value been received successfully?
-            	**type**\: bool
-            
-            .. attribute:: remote_variable
-            
-            	Remote variable retreival support
-            	**type**\: bool
-            
-            .. attribute:: remote_variable_valid
-            
-            	Has this value been received successfully?
-            	**type**\: bool
-            
-            .. attribute:: remote_vendor_info
-            
-            	Remote vendor info
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: remote_vendor_info_valid
-            
-            	Has this value been received successfully?
-            	**type**\: bool
+            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
             .. attribute:: remote_vendor_oui
             
@@ -712,7 +586,133 @@ class EtherLinkOam(object):
             
             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
             
+            .. attribute:: remote_revision
+            
+            	Remote revision
+            	**type**\: int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: remote_vendor_info
+            
+            	Remote vendor info
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: remote_mwd_key
+            
+            	Remote Mis\-wiring Detection key
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: operational_status_valid
+            
+            	Has this value been received successfully?
+            	**type**\: bool
+            
+            .. attribute:: loopback_mode_valid
+            
+            	Has this value been received successfully?
+            	**type**\: bool
+            
+            .. attribute:: local_mode_valid
+            
+            	Has this value been received successfully?
+            	**type**\: bool
+            
+            .. attribute:: miswired_valid
+            
+            	Has this value been received successfully?
+            	**type**\: bool
+            
+            .. attribute:: local_mwd_key_valid
+            
+            	Has this value been received successfully?
+            	**type**\: bool
+            
+            .. attribute:: local_function_unidirectional_valid
+            
+            	Has this value been received successfully?
+            	**type**\: bool
+            
+            .. attribute:: local_function_loopback_valid
+            
+            	Has this value been received successfully?
+            	**type**\: bool
+            
+            .. attribute:: local_function_event_valid
+            
+            	Has this value been received successfully?
+            	**type**\: bool
+            
+            .. attribute:: local_functionvariable_valid
+            
+            	Has this value been received successfully?
+            	**type**\: bool
+            
+            .. attribute:: local_revisionvalid
+            
+            	Has this value been received successfully?
+            	**type**\: bool
+            
+            .. attribute:: local_mtu_valid
+            
+            	Has this value been received successfully?
+            	**type**\: bool
+            
+            .. attribute:: remote_mode_valid
+            
+            	Has this value been received successfully?
+            	**type**\: bool
+            
+            .. attribute:: remote_unidirectional_valid
+            
+            	Has this value been received successfully?
+            	**type**\: bool
+            
+            .. attribute:: remote_loopback_valid
+            
+            	Has this value been received successfully?
+            	**type**\: bool
+            
+            .. attribute:: remote_event_valid
+            
+            	Has this value been received successfully?
+            	**type**\: bool
+            
+            .. attribute:: remote_variable_valid
+            
+            	Has this value been received successfully?
+            	**type**\: bool
+            
+            .. attribute:: remote_mtu_valid
+            
+            	Has this value been received successfully?
+            	**type**\: bool
+            
+            .. attribute:: remote_mac_address_valid
+            
+            	Has this value been received successfully?
+            	**type**\: bool
+            
             .. attribute:: remote_vendor_oui_valid
+            
+            	Has this value been received successfully?
+            	**type**\: bool
+            
+            .. attribute:: remote_revisionvalid
+            
+            	Has this value been received successfully?
+            	**type**\: bool
+            
+            .. attribute:: remote_vendor_info_valid
+            
+            	Has this value been received successfully?
+            	**type**\: bool
+            
+            .. attribute:: remote_mwd_key_valid
             
             	Has this value been received successfully?
             	**type**\: bool
@@ -727,53 +727,53 @@ class EtherLinkOam(object):
             def __init__(self):
                 self.parent = None
                 self.member_interface = None
-                self.local_evaluating = None
-                self.local_function_event = None
-                self.local_function_event_valid = None
-                self.local_function_loopback = None
-                self.local_function_loopback_valid = None
-                self.local_function_unidirectional = None
-                self.local_function_unidirectional_valid = None
-                self.local_functionvariable = None
-                self.local_functionvariable_valid = None
-                self.local_mode = None
-                self.local_mode_valid = None
-                self.local_mtu = None
-                self.local_mtu_valid = None
-                self.local_mwd_key = None
-                self.local_mwd_key_valid = None
-                self.local_operational = None
-                self.local_revision = None
-                self.local_revisionvalid = None
-                self.loopback_mode = None
-                self.loopback_mode_valid = None
-                self.miswired = None
-                self.miswired_valid = None
                 self.name = None
                 self.operational_status = None
-                self.operational_status_valid = None
-                self.remote_event = None
-                self.remote_event_valid = None
-                self.remote_loopback = None
-                self.remote_loopback_valid = None
-                self.remote_mac_address = None
-                self.remote_mac_address_valid = None
+                self.loopback_mode = None
+                self.local_mode = None
+                self.miswired = None
+                self.local_mwd_key = None
+                self.local_function_unidirectional = None
+                self.local_function_loopback = None
+                self.local_function_event = None
+                self.local_functionvariable = None
+                self.local_revision = None
+                self.local_mtu = None
+                self.local_operational = None
+                self.local_evaluating = None
                 self.remote_mode = None
-                self.remote_mode_valid = None
-                self.remote_mtu = None
-                self.remote_mtu_valid = None
-                self.remote_mwd_key = None
-                self.remote_mwd_key_valid = None
-                self.remote_revision = None
-                self.remote_revisionvalid = None
                 self.remote_unidirectional = None
-                self.remote_unidirectional_valid = None
+                self.remote_loopback = None
+                self.remote_event = None
                 self.remote_variable = None
-                self.remote_variable_valid = None
-                self.remote_vendor_info = None
-                self.remote_vendor_info_valid = None
+                self.remote_mtu = None
+                self.remote_mac_address = None
                 self.remote_vendor_oui = None
+                self.remote_revision = None
+                self.remote_vendor_info = None
+                self.remote_mwd_key = None
+                self.operational_status_valid = None
+                self.loopback_mode_valid = None
+                self.local_mode_valid = None
+                self.miswired_valid = None
+                self.local_mwd_key_valid = None
+                self.local_function_unidirectional_valid = None
+                self.local_function_loopback_valid = None
+                self.local_function_event_valid = None
+                self.local_functionvariable_valid = None
+                self.local_revisionvalid = None
+                self.local_mtu_valid = None
+                self.remote_mode_valid = None
+                self.remote_unidirectional_valid = None
+                self.remote_loopback_valid = None
+                self.remote_event_valid = None
+                self.remote_variable_valid = None
+                self.remote_mtu_valid = None
+                self.remote_mac_address_valid = None
                 self.remote_vendor_oui_valid = None
+                self.remote_revisionvalid = None
+                self.remote_vendor_info_valid = None
+                self.remote_mwd_key_valid = None
 
             @property
             def _common_path(self):
@@ -792,145 +792,145 @@ class EtherLinkOam(object):
                 if self.member_interface is not None:
                     return True
 
-                if self.local_evaluating is not None:
-                    return True
-
-                if self.local_function_event is not None:
-                    return True
-
-                if self.local_function_event_valid is not None:
-                    return True
-
-                if self.local_function_loopback is not None:
-                    return True
-
-                if self.local_function_loopback_valid is not None:
-                    return True
-
-                if self.local_function_unidirectional is not None:
-                    return True
-
-                if self.local_function_unidirectional_valid is not None:
-                    return True
-
-                if self.local_functionvariable is not None:
-                    return True
-
-                if self.local_functionvariable_valid is not None:
-                    return True
-
-                if self.local_mode is not None:
-                    return True
-
-                if self.local_mode_valid is not None:
-                    return True
-
-                if self.local_mtu is not None:
-                    return True
-
-                if self.local_mtu_valid is not None:
-                    return True
-
-                if self.local_mwd_key is not None:
-                    return True
-
-                if self.local_mwd_key_valid is not None:
-                    return True
-
-                if self.local_operational is not None:
-                    return True
-
-                if self.local_revision is not None:
-                    return True
-
-                if self.local_revisionvalid is not None:
-                    return True
-
-                if self.loopback_mode is not None:
-                    return True
-
-                if self.loopback_mode_valid is not None:
-                    return True
-
-                if self.miswired is not None:
-                    return True
-
-                if self.miswired_valid is not None:
-                    return True
-
                 if self.name is not None:
                     return True
 
                 if self.operational_status is not None:
                     return True
 
-                if self.operational_status_valid is not None:
+                if self.loopback_mode is not None:
                     return True
 
-                if self.remote_event is not None:
+                if self.local_mode is not None:
                     return True
 
-                if self.remote_event_valid is not None:
+                if self.miswired is not None:
                     return True
 
-                if self.remote_loopback is not None:
+                if self.local_mwd_key is not None:
                     return True
 
-                if self.remote_loopback_valid is not None:
+                if self.local_function_unidirectional is not None:
                     return True
 
-                if self.remote_mac_address is not None:
+                if self.local_function_loopback is not None:
                     return True
 
-                if self.remote_mac_address_valid is not None:
+                if self.local_function_event is not None:
+                    return True
+
+                if self.local_functionvariable is not None:
+                    return True
+
+                if self.local_revision is not None:
+                    return True
+
+                if self.local_mtu is not None:
+                    return True
+
+                if self.local_operational is not None:
+                    return True
+
+                if self.local_evaluating is not None:
                     return True
 
                 if self.remote_mode is not None:
                     return True
 
-                if self.remote_mode_valid is not None:
-                    return True
-
-                if self.remote_mtu is not None:
-                    return True
-
-                if self.remote_mtu_valid is not None:
-                    return True
-
-                if self.remote_mwd_key is not None:
-                    return True
-
-                if self.remote_mwd_key_valid is not None:
-                    return True
-
-                if self.remote_revision is not None:
-                    return True
-
-                if self.remote_revisionvalid is not None:
-                    return True
-
                 if self.remote_unidirectional is not None:
                     return True
 
-                if self.remote_unidirectional_valid is not None:
+                if self.remote_loopback is not None:
+                    return True
+
+                if self.remote_event is not None:
                     return True
 
                 if self.remote_variable is not None:
                     return True
 
-                if self.remote_variable_valid is not None:
+                if self.remote_mtu is not None:
                     return True
 
-                if self.remote_vendor_info is not None:
-                    return True
-
-                if self.remote_vendor_info_valid is not None:
+                if self.remote_mac_address is not None:
                     return True
 
                 if self.remote_vendor_oui is not None:
                     return True
 
+                if self.remote_revision is not None:
+                    return True
+
+                if self.remote_vendor_info is not None:
+                    return True
+
+                if self.remote_mwd_key is not None:
+                    return True
+
+                if self.operational_status_valid is not None:
+                    return True
+
+                if self.loopback_mode_valid is not None:
+                    return True
+
+                if self.local_mode_valid is not None:
+                    return True
+
+                if self.miswired_valid is not None:
+                    return True
+
+                if self.local_mwd_key_valid is not None:
+                    return True
+
+                if self.local_function_unidirectional_valid is not None:
+                    return True
+
+                if self.local_function_loopback_valid is not None:
+                    return True
+
+                if self.local_function_event_valid is not None:
+                    return True
+
+                if self.local_functionvariable_valid is not None:
+                    return True
+
+                if self.local_revisionvalid is not None:
+                    return True
+
+                if self.local_mtu_valid is not None:
+                    return True
+
+                if self.remote_mode_valid is not None:
+                    return True
+
+                if self.remote_unidirectional_valid is not None:
+                    return True
+
+                if self.remote_loopback_valid is not None:
+                    return True
+
+                if self.remote_event_valid is not None:
+                    return True
+
+                if self.remote_variable_valid is not None:
+                    return True
+
+                if self.remote_mtu_valid is not None:
+                    return True
+
+                if self.remote_mac_address_valid is not None:
+                    return True
+
                 if self.remote_vendor_oui_valid is not None:
+                    return True
+
+                if self.remote_revisionvalid is not None:
+                    return True
+
+                if self.remote_vendor_info_valid is not None:
+                    return True
+
+                if self.remote_mwd_key_valid is not None:
                     return True
 
                 return False
@@ -965,6 +965,1487 @@ class EtherLinkOam(object):
             return meta._meta_table['EtherLinkOam.DiscoveryInfoInterfaces']['meta_info']
 
 
+    class InterfaceStateInterfaces(object):
+        """
+        Table of Ethernet Link OAM enabled interfaces
+        within Interface State container
+        
+        .. attribute:: interface_state_interface
+        
+        	Ethernet Link OAM interface to get Interface State for
+        	**type**\: list of :py:class:`InterfaceStateInterface <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface>`
+        
+        
+
+        """
+
+        _prefix = 'ethernet-link-oam-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.interface_state_interface = YList()
+            self.interface_state_interface.parent = self
+            self.interface_state_interface.name = 'interface_state_interface'
+
+
+        class InterfaceStateInterface(object):
+            """
+            Ethernet Link OAM interface to get Interface
+            State for
+            
+            .. attribute:: member_interface  <key>
+            
+            	Member Interface
+            	**type**\: str
+            
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            
+            .. attribute:: errors
+            
+            	The errors that have occurred on this interface
+            	**type**\: :py:class:`Errors <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.Errors>`
+            
+            .. attribute:: efd_triggers
+            
+            	Any present EFD triggers
+            	**type**\: :py:class:`EfdTriggers <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.EfdTriggers>`
+            
+            .. attribute:: protocol_code
+            
+            	The state the protocol is in
+            	**type**\: :py:class:`ProtocolStateEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ProtocolStateEnum>`
+            
+            .. attribute:: rx_fault
+            
+            	Has a uni\-directional link\-fault been detected?
+            	**type**\: bool
+            
+            .. attribute:: local_mwd_key
+            
+            	The local MWD key
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: remote_mwd_key_present
+            
+            	Does the remote side have an MWD key?
+            	**type**\: bool
+            
+            .. attribute:: remote_mwd_key
+            
+            	The remote MWD key
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'ethernet-link-oam-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.member_interface = None
+                self.errors = EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.Errors()
+                self.errors.parent = self
+                self.efd_triggers = EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.EfdTriggers()
+                self.efd_triggers.parent = self
+                self.protocol_code = None
+                self.rx_fault = None
+                self.local_mwd_key = None
+                self.remote_mwd_key_present = None
+                self.remote_mwd_key = None
+
+
+            class Errors(object):
+                """
+                The errors that have occurred on this interface
+                
+                .. attribute:: pfi_reason
+                
+                	Reason for the Interface Management error (if applicable)
+                	**type**\: str
+                
+                .. attribute:: pfi_error_code
+                
+                	The Interface Management error/success code
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: platform_reason
+                
+                	Reason for the platform error (if applicable)
+                	**type**\: str
+                
+                .. attribute:: platform_error_code
+                
+                	The platform error/success code
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: spio_reason
+                
+                	Reason for the Packet I/O error (if applicable)
+                	**type**\: str
+                
+                .. attribute:: spio_error_code
+                
+                	The Packet I/O error/success code
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: epi_reason
+                
+                	Reason for the Packet error (if applicable)
+                	**type**\: str
+                
+                .. attribute:: epi_error_code
+                
+                	The Packet error/success code
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: caps_add_reason
+                
+                	Reason for the caps add error (if applicable)
+                	**type**\: str
+                
+                .. attribute:: caps_add_error_code
+                
+                	The caps add error/success code
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                
+
+                """
+
+                _prefix = 'ethernet-link-oam-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.pfi_reason = None
+                    self.pfi_error_code = None
+                    self.platform_reason = None
+                    self.platform_error_code = None
+                    self.spio_reason = None
+                    self.spio_error_code = None
+                    self.epi_reason = None
+                    self.epi_error_code = None
+                    self.caps_add_reason = None
+                    self.caps_add_error_code = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-oper:errors'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.pfi_reason is not None:
+                        return True
+
+                    if self.pfi_error_code is not None:
+                        return True
+
+                    if self.platform_reason is not None:
+                        return True
+
+                    if self.platform_error_code is not None:
+                        return True
+
+                    if self.spio_reason is not None:
+                        return True
+
+                    if self.spio_error_code is not None:
+                        return True
+
+                    if self.epi_reason is not None:
+                        return True
+
+                    if self.epi_error_code is not None:
+                        return True
+
+                    if self.caps_add_reason is not None:
+                        return True
+
+                    if self.caps_add_error_code is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+                    return meta._meta_table['EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.Errors']['meta_info']
+
+
+            class EfdTriggers(object):
+                """
+                Any present EFD triggers
+                
+                .. attribute:: link_fault_received
+                
+                	Link\-fault messages being received
+                	**type**\: bool
+                
+                .. attribute:: discovery_timed_out
+                
+                	The discovery process has timed out
+                	**type**\: bool
+                
+                .. attribute:: capabilities_conflict
+                
+                	A capabilities conflict has been detected
+                	**type**\: bool
+                
+                .. attribute:: wiring_conflict
+                
+                	A wiring conflict has been detected
+                	**type**\: bool
+                
+                .. attribute:: session_down
+                
+                	The 802.3 OAM session is down
+                	**type**\: bool
+                
+                
+
+                """
+
+                _prefix = 'ethernet-link-oam-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.link_fault_received = None
+                    self.discovery_timed_out = None
+                    self.capabilities_conflict = None
+                    self.wiring_conflict = None
+                    self.session_down = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-oper:efd-triggers'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.link_fault_received is not None:
+                        return True
+
+                    if self.discovery_timed_out is not None:
+                        return True
+
+                    if self.capabilities_conflict is not None:
+                        return True
+
+                    if self.wiring_conflict is not None:
+                        return True
+
+                    if self.session_down is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+                    return meta._meta_table['EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.EfdTriggers']['meta_info']
+
+            @property
+            def _common_path(self):
+                if self.member_interface is None:
+                    raise YPYDataValidationError('Key property member_interface is None')
+
+                return '/Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/Cisco-IOS-XR-ethernet-link-oam-oper:interface-state-interfaces/Cisco-IOS-XR-ethernet-link-oam-oper:interface-state-interface[Cisco-IOS-XR-ethernet-link-oam-oper:member-interface = ' + str(self.member_interface) + ']'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.member_interface is not None:
+                    return True
+
+                if self.errors is not None and self.errors._has_data():
+                    return True
+
+                if self.efd_triggers is not None and self.efd_triggers._has_data():
+                    return True
+
+                if self.protocol_code is not None:
+                    return True
+
+                if self.rx_fault is not None:
+                    return True
+
+                if self.local_mwd_key is not None:
+                    return True
+
+                if self.remote_mwd_key_present is not None:
+                    return True
+
+                if self.remote_mwd_key is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+                return meta._meta_table['EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/Cisco-IOS-XR-ethernet-link-oam-oper:interface-state-interfaces'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.interface_state_interface is not None:
+                for child_ref in self.interface_state_interface:
+                    if child_ref._has_data():
+                        return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+            return meta._meta_table['EtherLinkOam.InterfaceStateInterfaces']['meta_info']
+
+
+    class RunningConfigInterfaces(object):
+        """
+        Table of Ethernet Link OAM enabled interfaces
+        within Running Config container
+        
+        .. attribute:: running_config_interface
+        
+        	Ethernet Link OAM interface to get Running Config for
+        	**type**\: list of :py:class:`RunningConfigInterface <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.RunningConfigInterfaces.RunningConfigInterface>`
+        
+        
+
+        """
+
+        _prefix = 'ethernet-link-oam-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.running_config_interface = YList()
+            self.running_config_interface.parent = self
+            self.running_config_interface.name = 'running_config_interface'
+
+
+        class RunningConfigInterface(object):
+            """
+            Ethernet Link OAM interface to get Running
+            Config for
+            
+            .. attribute:: member_interface  <key>
+            
+            	Member Interface
+            	**type**\: str
+            
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            
+            .. attribute:: fast_hello_interval_enabled
+            
+            	Is 100ms hello interval time enabled?
+            	**type**\: bool
+            
+            .. attribute:: link_monitor_enabled
+            
+            	Is link monitoring enabled?
+            	**type**\: bool
+            
+            .. attribute:: remote_loopback_enabled
+            
+            	Is remote loopback enabled?
+            	**type**\: bool
+            
+            .. attribute:: mib_retrieval_enabled
+            
+            	Is MIB retrieval enabled?
+            	**type**\: bool
+            
+            .. attribute:: udlf_enabled
+            
+            	Is uni\-directional link\-fault detection enabled?
+            	**type**\: bool
+            
+            .. attribute:: mode
+            
+            	Configured mode
+            	**type**\: :py:class:`ModeEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ModeEnum>`
+            
+            .. attribute:: connection_timeout
+            
+            	Connection timeout
+            	**type**\: int
+            
+            	**range:** 0..255
+            
+            .. attribute:: symbol_period_window
+            
+            	Symbol period event window size
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: symbol_period_threshold_low
+            
+            	Low symbol period event threshold
+            	**type**\: int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: symbol_period_threshold_high
+            
+            	High symbol period event threshold
+            	**type**\: int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: frame_window
+            
+            	Frame event window size
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: frame_threshold_low
+            
+            	Frame event low threshold
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: frame_threshold_high
+            
+            	Frame event high threshold
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: frame_period_window
+            
+            	Frame period event window size
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: frame_period_threshold_low
+            
+            	Frame period event low threshold
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: frame_period_threshold_high
+            
+            	Frame period event high threshold
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: frame_seconds_window
+            
+            	Frame seconds event high threshold
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: frame_seconds_threshold_low
+            
+            	Frame seconds event high threshold
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: frame_seconds_threshold_high
+            
+            	Frame seconds event high threshold
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: high_threshold_action
+            
+            	Action to perform when a high threshold is breached
+            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
+            
+            .. attribute:: link_fault_action
+            
+            	Action to perform when a link fault occurs
+            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
+            
+            .. attribute:: dying_gasp_action
+            
+            	Action to perform when a dying gasp occurs
+            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
+            
+            .. attribute:: critical_event_action
+            
+            	Action to perform when a critical event occurs
+            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
+            
+            .. attribute:: discovery_timeout_action
+            
+            	Action to perform when a discovery timeout occurs
+            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
+            
+            .. attribute:: capabilities_conflict_action
+            
+            	Action to perform when a capabilities conflict occurs
+            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
+            
+            .. attribute:: wiring_conflict_action
+            
+            	Action to perform when a wiring conflict occurs
+            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
+            
+            .. attribute:: session_up_action
+            
+            	Action to perform when a session comes up
+            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
+            
+            .. attribute:: session_down_action
+            
+            	Action to perform when a session comes down
+            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
+            
+            .. attribute:: remote_loopback_action
+            
+            	Action to perform when a session enters or exits remote loopback
+            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
+            
+            .. attribute:: require_remote_mode
+            
+            	The mode that is required of the remote peer
+            	**type**\: :py:class:`ModeEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ModeEnum>`
+            
+            .. attribute:: require_remote_mib_retrieval
+            
+            	Require the remote peer to support MIB retrieval
+            	**type**\: bool
+            
+            .. attribute:: require_loopback
+            
+            	Require the remote peer to support loopback mode
+            	**type**\: bool
+            
+            .. attribute:: require_link_monitoring
+            
+            	Require the remote peer to support link monitoring
+            	**type**\: bool
+            
+            .. attribute:: fast_hello_interval_enabled_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: link_monitoring_enabled_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: remote_loopback_enabled_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: mib_retrieval_enabled_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: udlf_enabled_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: mode_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: connection_timeout_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: symbol_period_window_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: symbol_period_threshold_low_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: symbol_period_threshold_high_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: frame_window_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: frame_threshold_low_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: frame_threshold_high_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: frame_period_window_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: frame_period_threshold_low_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: frame_period_threshold_high_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: frame_seconds_window_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: frame_seconds_threshold_low_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: frame_seconds_threshold_high_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: high_threshold_action_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: link_fault_action_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: dying_gasp_action_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: critical_event_action_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: discovery_timeout_action_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: capabilities_conflict_action_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: wiring_conflict_action_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: session_down_action_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: session_up_action_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: remote_loopback_action_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: require_mode_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: require_mib_retrieval_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: require_loopback_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            .. attribute:: require_link_monitoring_overridden
+            
+            	Is this configuration information an interface override?
+            	**type**\: bool
+            
+            
+
+            """
+
+            _prefix = 'ethernet-link-oam-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.member_interface = None
+                self.fast_hello_interval_enabled = None
+                self.link_monitor_enabled = None
+                self.remote_loopback_enabled = None
+                self.mib_retrieval_enabled = None
+                self.udlf_enabled = None
+                self.mode = None
+                self.connection_timeout = None
+                self.symbol_period_window = None
+                self.symbol_period_threshold_low = None
+                self.symbol_period_threshold_high = None
+                self.frame_window = None
+                self.frame_threshold_low = None
+                self.frame_threshold_high = None
+                self.frame_period_window = None
+                self.frame_period_threshold_low = None
+                self.frame_period_threshold_high = None
+                self.frame_seconds_window = None
+                self.frame_seconds_threshold_low = None
+                self.frame_seconds_threshold_high = None
+                self.high_threshold_action = None
+                self.link_fault_action = None
+                self.dying_gasp_action = None
+                self.critical_event_action = None
+                self.discovery_timeout_action = None
+                self.capabilities_conflict_action = None
+                self.wiring_conflict_action = None
+                self.session_up_action = None
+                self.session_down_action = None
+                self.remote_loopback_action = None
+                self.require_remote_mode = None
+                self.require_remote_mib_retrieval = None
+                self.require_loopback = None
+                self.require_link_monitoring = None
+                self.fast_hello_interval_enabled_overridden = None
+                self.link_monitoring_enabled_overridden = None
+                self.remote_loopback_enabled_overridden = None
+                self.mib_retrieval_enabled_overridden = None
+                self.udlf_enabled_overridden = None
+                self.mode_overridden = None
+                self.connection_timeout_overridden = None
+                self.symbol_period_window_overridden = None
+                self.symbol_period_threshold_low_overridden = None
+                self.symbol_period_threshold_high_overridden = None
+                self.frame_window_overridden = None
+                self.frame_threshold_low_overridden = None
+                self.frame_threshold_high_overridden = None
+                self.frame_period_window_overridden = None
+                self.frame_period_threshold_low_overridden = None
+                self.frame_period_threshold_high_overridden = None
+                self.frame_seconds_window_overridden = None
+                self.frame_seconds_threshold_low_overridden = None
+                self.frame_seconds_threshold_high_overridden = None
+                self.high_threshold_action_overridden = None
+                self.link_fault_action_overridden = None
+                self.dying_gasp_action_overridden = None
+                self.critical_event_action_overridden = None
+                self.discovery_timeout_action_overridden = None
+                self.capabilities_conflict_action_overridden = None
+                self.wiring_conflict_action_overridden = None
+                self.session_down_action_overridden = None
+                self.session_up_action_overridden = None
+                self.remote_loopback_action_overridden = None
+                self.require_mode_overridden = None
+                self.require_mib_retrieval_overridden = None
+                self.require_loopback_overridden = None
+                self.require_link_monitoring_overridden = None
+
+            @property
+            def _common_path(self):
+                if self.member_interface is None:
+                    raise YPYDataValidationError('Key property member_interface is None')
+
+                return '/Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/Cisco-IOS-XR-ethernet-link-oam-oper:running-config-interfaces/Cisco-IOS-XR-ethernet-link-oam-oper:running-config-interface[Cisco-IOS-XR-ethernet-link-oam-oper:member-interface = ' + str(self.member_interface) + ']'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.member_interface is not None:
+                    return True
+
+                if self.fast_hello_interval_enabled is not None:
+                    return True
+
+                if self.link_monitor_enabled is not None:
+                    return True
+
+                if self.remote_loopback_enabled is not None:
+                    return True
+
+                if self.mib_retrieval_enabled is not None:
+                    return True
+
+                if self.udlf_enabled is not None:
+                    return True
+
+                if self.mode is not None:
+                    return True
+
+                if self.connection_timeout is not None:
+                    return True
+
+                if self.symbol_period_window is not None:
+                    return True
+
+                if self.symbol_period_threshold_low is not None:
+                    return True
+
+                if self.symbol_period_threshold_high is not None:
+                    return True
+
+                if self.frame_window is not None:
+                    return True
+
+                if self.frame_threshold_low is not None:
+                    return True
+
+                if self.frame_threshold_high is not None:
+                    return True
+
+                if self.frame_period_window is not None:
+                    return True
+
+                if self.frame_period_threshold_low is not None:
+                    return True
+
+                if self.frame_period_threshold_high is not None:
+                    return True
+
+                if self.frame_seconds_window is not None:
+                    return True
+
+                if self.frame_seconds_threshold_low is not None:
+                    return True
+
+                if self.frame_seconds_threshold_high is not None:
+                    return True
+
+                if self.high_threshold_action is not None:
+                    return True
+
+                if self.link_fault_action is not None:
+                    return True
+
+                if self.dying_gasp_action is not None:
+                    return True
+
+                if self.critical_event_action is not None:
+                    return True
+
+                if self.discovery_timeout_action is not None:
+                    return True
+
+                if self.capabilities_conflict_action is not None:
+                    return True
+
+                if self.wiring_conflict_action is not None:
+                    return True
+
+                if self.session_up_action is not None:
+                    return True
+
+                if self.session_down_action is not None:
+                    return True
+
+                if self.remote_loopback_action is not None:
+                    return True
+
+                if self.require_remote_mode is not None:
+                    return True
+
+                if self.require_remote_mib_retrieval is not None:
+                    return True
+
+                if self.require_loopback is not None:
+                    return True
+
+                if self.require_link_monitoring is not None:
+                    return True
+
+                if self.fast_hello_interval_enabled_overridden is not None:
+                    return True
+
+                if self.link_monitoring_enabled_overridden is not None:
+                    return True
+
+                if self.remote_loopback_enabled_overridden is not None:
+                    return True
+
+                if self.mib_retrieval_enabled_overridden is not None:
+                    return True
+
+                if self.udlf_enabled_overridden is not None:
+                    return True
+
+                if self.mode_overridden is not None:
+                    return True
+
+                if self.connection_timeout_overridden is not None:
+                    return True
+
+                if self.symbol_period_window_overridden is not None:
+                    return True
+
+                if self.symbol_period_threshold_low_overridden is not None:
+                    return True
+
+                if self.symbol_period_threshold_high_overridden is not None:
+                    return True
+
+                if self.frame_window_overridden is not None:
+                    return True
+
+                if self.frame_threshold_low_overridden is not None:
+                    return True
+
+                if self.frame_threshold_high_overridden is not None:
+                    return True
+
+                if self.frame_period_window_overridden is not None:
+                    return True
+
+                if self.frame_period_threshold_low_overridden is not None:
+                    return True
+
+                if self.frame_period_threshold_high_overridden is not None:
+                    return True
+
+                if self.frame_seconds_window_overridden is not None:
+                    return True
+
+                if self.frame_seconds_threshold_low_overridden is not None:
+                    return True
+
+                if self.frame_seconds_threshold_high_overridden is not None:
+                    return True
+
+                if self.high_threshold_action_overridden is not None:
+                    return True
+
+                if self.link_fault_action_overridden is not None:
+                    return True
+
+                if self.dying_gasp_action_overridden is not None:
+                    return True
+
+                if self.critical_event_action_overridden is not None:
+                    return True
+
+                if self.discovery_timeout_action_overridden is not None:
+                    return True
+
+                if self.capabilities_conflict_action_overridden is not None:
+                    return True
+
+                if self.wiring_conflict_action_overridden is not None:
+                    return True
+
+                if self.session_down_action_overridden is not None:
+                    return True
+
+                if self.session_up_action_overridden is not None:
+                    return True
+
+                if self.remote_loopback_action_overridden is not None:
+                    return True
+
+                if self.require_mode_overridden is not None:
+                    return True
+
+                if self.require_mib_retrieval_overridden is not None:
+                    return True
+
+                if self.require_loopback_overridden is not None:
+                    return True
+
+                if self.require_link_monitoring_overridden is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+                return meta._meta_table['EtherLinkOam.RunningConfigInterfaces.RunningConfigInterface']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/Cisco-IOS-XR-ethernet-link-oam-oper:running-config-interfaces'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.running_config_interface is not None:
+                for child_ref in self.running_config_interface:
+                    if child_ref._has_data():
+                        return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+            return meta._meta_table['EtherLinkOam.RunningConfigInterfaces']['meta_info']
+
+
+    class Nodes(object):
+        """
+        Node table for node\-specific operational data
+        
+        .. attribute:: node
+        
+        	Node\-specific data for a particular node
+        	**type**\: list of :py:class:`Node <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.Nodes.Node>`
+        
+        
+
+        """
+
+        _prefix = 'ethernet-link-oam-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.node = YList()
+            self.node.parent = self
+            self.node.name = 'node'
+
+
+        class Node(object):
+            """
+            Node\-specific data for a particular node
+            
+            .. attribute:: node_name  <key>
+            
+            	Node
+            	**type**\: str
+            
+            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            
+            .. attribute:: summary
+            
+            	Ethernet Link OAM Summary information for the entire node
+            	**type**\: :py:class:`Summary <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.Nodes.Node.Summary>`
+            
+            
+
+            """
+
+            _prefix = 'ethernet-link-oam-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.node_name = None
+                self.summary = EtherLinkOam.Nodes.Node.Summary()
+                self.summary.parent = self
+
+
+            class Summary(object):
+                """
+                Ethernet Link OAM Summary information for the
+                entire node
+                
+                .. attribute:: interfaces
+                
+                	The number of interfaces with 802.3 OAM configured
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: port_down
+                
+                	The number of interfaces in 'Port Down' state
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: passive_wait
+                
+                	The number of interfaces in 'Passive Wait' state
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: active_send
+                
+                	The number of interfaces in 'Active Send' state
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: evaluating
+                
+                	The number of interfaces in 'Evaluating' state
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: local_accept
+                
+                	The number of interfaces in 'Local Accept' state
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: local_reject
+                
+                	The number of interfaces in 'Local Reject' state
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: remote_reject
+                
+                	The number of interfaces in 'Remote Reject' state
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: operational
+                
+                	The number of interfaces in 'Operational' state
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: loopback_mode
+                
+                	The number of interfaces in loopback mode
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: miswired_connections
+                
+                	The number of miswired connections
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: events
+                
+                	The number of events recorded
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: local_events
+                
+                	The number of local events recorded
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: local_symbol_period
+                
+                	The number of local symbol period events recorded
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: local_frame
+                
+                	The mumber of local frame error events recorded
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: local_frame_period
+                
+                	The number of local frame period events recorded
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: local_frame_seconds
+                
+                	The number of local frame second events recoded
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: remote_events
+                
+                	The number of remote events recorded
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: remote_symbol_period
+                
+                	The number of remote symbol period events recorded
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: remote_frame
+                
+                	The mumber of remote frame error events recorded
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: remote_frame_period
+                
+                	The number of remote frame period events recorded
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: remote_frame_seconds
+                
+                	The number of remote frame second events recoded
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                
+
+                """
+
+                _prefix = 'ethernet-link-oam-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.interfaces = None
+                    self.port_down = None
+                    self.passive_wait = None
+                    self.active_send = None
+                    self.evaluating = None
+                    self.local_accept = None
+                    self.local_reject = None
+                    self.remote_reject = None
+                    self.operational = None
+                    self.loopback_mode = None
+                    self.miswired_connections = None
+                    self.events = None
+                    self.local_events = None
+                    self.local_symbol_period = None
+                    self.local_frame = None
+                    self.local_frame_period = None
+                    self.local_frame_seconds = None
+                    self.remote_events = None
+                    self.remote_symbol_period = None
+                    self.remote_frame = None
+                    self.remote_frame_period = None
+                    self.remote_frame_seconds = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-oper:summary'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.interfaces is not None:
+                        return True
+
+                    if self.port_down is not None:
+                        return True
+
+                    if self.passive_wait is not None:
+                        return True
+
+                    if self.active_send is not None:
+                        return True
+
+                    if self.evaluating is not None:
+                        return True
+
+                    if self.local_accept is not None:
+                        return True
+
+                    if self.local_reject is not None:
+                        return True
+
+                    if self.remote_reject is not None:
+                        return True
+
+                    if self.operational is not None:
+                        return True
+
+                    if self.loopback_mode is not None:
+                        return True
+
+                    if self.miswired_connections is not None:
+                        return True
+
+                    if self.events is not None:
+                        return True
+
+                    if self.local_events is not None:
+                        return True
+
+                    if self.local_symbol_period is not None:
+                        return True
+
+                    if self.local_frame is not None:
+                        return True
+
+                    if self.local_frame_period is not None:
+                        return True
+
+                    if self.local_frame_seconds is not None:
+                        return True
+
+                    if self.remote_events is not None:
+                        return True
+
+                    if self.remote_symbol_period is not None:
+                        return True
+
+                    if self.remote_frame is not None:
+                        return True
+
+                    if self.remote_frame_period is not None:
+                        return True
+
+                    if self.remote_frame_seconds is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+                    return meta._meta_table['EtherLinkOam.Nodes.Node.Summary']['meta_info']
+
+            @property
+            def _common_path(self):
+                if self.node_name is None:
+                    raise YPYDataValidationError('Key property node_name is None')
+
+                return '/Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/Cisco-IOS-XR-ethernet-link-oam-oper:nodes/Cisco-IOS-XR-ethernet-link-oam-oper:node[Cisco-IOS-XR-ethernet-link-oam-oper:node-name = ' + str(self.node_name) + ']'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.node_name is not None:
+                    return True
+
+                if self.summary is not None and self.summary._has_data():
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+                return meta._meta_table['EtherLinkOam.Nodes.Node']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/Cisco-IOS-XR-ethernet-link-oam-oper:nodes'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.node is not None:
+                for child_ref in self.node:
+                    if child_ref._has_data():
+                        return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
+            return meta._meta_table['EtherLinkOam.Nodes']['meta_info']
+
+
     class EventLogEntryInterfaces(object):
         """
         Table of Ethernet Link OAM enabled interfaces
@@ -994,7 +2475,7 @@ class EtherLinkOam(object):
             Ethernet Link OAM enabled interface to get
             Event Log Entry for
             
-            .. attribute:: member_interface
+            .. attribute:: member_interface  <key>
             
             	Member Interface
             	**type**\: str
@@ -1049,21 +2530,16 @@ class EtherLinkOam(object):
                     Ethernet Link OAM Event Log Entry Index to
                     get data for
                     
-                    .. attribute:: event_log_entry_index
+                    .. attribute:: event_log_entry_index  <key>
                     
                     	Event Log Entry index
                     	**type**\: str
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
-                    .. attribute:: action_taken
+                    .. attribute:: index
                     
-                    	Local action taken (If applicable)
-                    	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
-                    
-                    .. attribute:: event_total
-                    
-                    	Total number of times event has occurred
+                    	Index in the log entries table
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -1075,45 +2551,12 @@ class EtherLinkOam(object):
                     
                     	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
-                    .. attribute:: index
-                    
-                    	Index in the log entries table
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: local_high_threshold
-                    
-                    	Size of the local high threshold (If applicable) . For remote threshold events this is scaled for comparison with the Breaching Value. This is to account for different local and remote window sizes
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: location
-                    
-                    	Where the event occurred
-                    	**type**\: :py:class:`LogLocationEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.LogLocationEnum>`
-                    
                     .. attribute:: oui
                     
                     	OUI for the log entry
                     	**type**\: str
                     
                     	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                    
-                    .. attribute:: running_total
-                    
-                    	The running total number of errors seen since OAM was enabled on the interface(If applicable)
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: threshold
-                    
-                    	Size of the threshold (If applicable)
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
                     
                     .. attribute:: timestamp
                     
@@ -1127,6 +2570,44 @@ class EtherLinkOam(object):
                     	Type of event that this entry describes
                     	**type**\: :py:class:`LogEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.LogEnum>`
                     
+                    .. attribute:: location
+                    
+                    	Where the event occurred
+                    	**type**\: :py:class:`LogLocationEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.LogLocationEnum>`
+                    
+                    .. attribute:: event_total
+                    
+                    	Total number of times event has occurred
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: action_taken
+                    
+                    	Local action taken (If applicable)
+                    	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
+                    
+                    .. attribute:: window
+                    
+                    	Size of the window (If applicable)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: threshold
+                    
+                    	Size of the threshold (If applicable)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: local_high_threshold
+                    
+                    	Size of the local high threshold (If applicable) . For remote threshold events this is scaled for comparison with the Breaching Value. This is to account for different local and remote window sizes
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
                     .. attribute:: value
                     
                     	Breaching value (If applicable)
@@ -1134,9 +2615,9 @@ class EtherLinkOam(object):
                     
                     	**range:** 0..18446744073709551615
                     
-                    .. attribute:: window
+                    .. attribute:: running_total
                     
-                    	Size of the window (If applicable)
+                    	The running total number of errors seen since OAM was enabled on the interface(If applicable)
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
@@ -1151,19 +2632,19 @@ class EtherLinkOam(object):
                     def __init__(self):
                         self.parent = None
                         self.event_log_entry_index = None
-                        self.action_taken = None
-                        self.event_total = None
-                        self.handle = None
                         self.index = None
-                        self.local_high_threshold = None
-                        self.location = None
+                        self.handle = None
                         self.oui = None
-                        self.running_total = None
-                        self.threshold = None
                         self.timestamp = None
                         self.type = None
-                        self.value = None
+                        self.location = None
+                        self.event_total = None
+                        self.action_taken = None
                         self.window = None
+                        self.threshold = None
+                        self.local_high_threshold = None
+                        self.value = None
+                        self.running_total = None
 
                     @property
                     def _common_path(self):
@@ -1184,31 +2665,13 @@ class EtherLinkOam(object):
                         if self.event_log_entry_index is not None:
                             return True
 
-                        if self.action_taken is not None:
-                            return True
-
-                        if self.event_total is not None:
+                        if self.index is not None:
                             return True
 
                         if self.handle is not None:
                             return True
 
-                        if self.index is not None:
-                            return True
-
-                        if self.local_high_threshold is not None:
-                            return True
-
-                        if self.location is not None:
-                            return True
-
                         if self.oui is not None:
-                            return True
-
-                        if self.running_total is not None:
-                            return True
-
-                        if self.threshold is not None:
                             return True
 
                         if self.timestamp is not None:
@@ -1217,10 +2680,28 @@ class EtherLinkOam(object):
                         if self.type is not None:
                             return True
 
-                        if self.value is not None:
+                        if self.location is not None:
+                            return True
+
+                        if self.event_total is not None:
+                            return True
+
+                        if self.action_taken is not None:
                             return True
 
                         if self.window is not None:
+                            return True
+
+                        if self.threshold is not None:
+                            return True
+
+                        if self.local_high_threshold is not None:
+                            return True
+
+                        if self.value is not None:
+                            return True
+
+                        if self.running_total is not None:
                             return True
 
                         return False
@@ -1308,1487 +2789,6 @@ class EtherLinkOam(object):
             return meta._meta_table['EtherLinkOam.EventLogEntryInterfaces']['meta_info']
 
 
-    class InterfaceStateInterfaces(object):
-        """
-        Table of Ethernet Link OAM enabled interfaces
-        within Interface State container
-        
-        .. attribute:: interface_state_interface
-        
-        	Ethernet Link OAM interface to get Interface State for
-        	**type**\: list of :py:class:`InterfaceStateInterface <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface>`
-        
-        
-
-        """
-
-        _prefix = 'ethernet-link-oam-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.interface_state_interface = YList()
-            self.interface_state_interface.parent = self
-            self.interface_state_interface.name = 'interface_state_interface'
-
-
-        class InterfaceStateInterface(object):
-            """
-            Ethernet Link OAM interface to get Interface
-            State for
-            
-            .. attribute:: member_interface
-            
-            	Member Interface
-            	**type**\: str
-            
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-            
-            .. attribute:: efd_triggers
-            
-            	Any present EFD triggers
-            	**type**\: :py:class:`EfdTriggers <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.EfdTriggers>`
-            
-            .. attribute:: errors
-            
-            	The errors that have occurred on this interface
-            	**type**\: :py:class:`Errors <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.Errors>`
-            
-            .. attribute:: local_mwd_key
-            
-            	The local MWD key
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: protocol_code
-            
-            	The state the protocol is in
-            	**type**\: :py:class:`ProtocolStateEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ProtocolStateEnum>`
-            
-            .. attribute:: remote_mwd_key
-            
-            	The remote MWD key
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: remote_mwd_key_present
-            
-            	Does the remote side have an MWD key?
-            	**type**\: bool
-            
-            .. attribute:: rx_fault
-            
-            	Has a uni\-directional link\-fault been detected?
-            	**type**\: bool
-            
-            
-
-            """
-
-            _prefix = 'ethernet-link-oam-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.member_interface = None
-                self.efd_triggers = EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.EfdTriggers()
-                self.efd_triggers.parent = self
-                self.errors = EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.Errors()
-                self.errors.parent = self
-                self.local_mwd_key = None
-                self.protocol_code = None
-                self.remote_mwd_key = None
-                self.remote_mwd_key_present = None
-                self.rx_fault = None
-
-
-            class EfdTriggers(object):
-                """
-                Any present EFD triggers
-                
-                .. attribute:: capabilities_conflict
-                
-                	A capabilities conflict has been detected
-                	**type**\: bool
-                
-                .. attribute:: discovery_timed_out
-                
-                	The discovery process has timed out
-                	**type**\: bool
-                
-                .. attribute:: link_fault_received
-                
-                	Link\-fault messages being received
-                	**type**\: bool
-                
-                .. attribute:: session_down
-                
-                	The 802.3 OAM session is down
-                	**type**\: bool
-                
-                .. attribute:: wiring_conflict
-                
-                	A wiring conflict has been detected
-                	**type**\: bool
-                
-                
-
-                """
-
-                _prefix = 'ethernet-link-oam-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.capabilities_conflict = None
-                    self.discovery_timed_out = None
-                    self.link_fault_received = None
-                    self.session_down = None
-                    self.wiring_conflict = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-oper:efd-triggers'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.capabilities_conflict is not None:
-                        return True
-
-                    if self.discovery_timed_out is not None:
-                        return True
-
-                    if self.link_fault_received is not None:
-                        return True
-
-                    if self.session_down is not None:
-                        return True
-
-                    if self.wiring_conflict is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
-                    return meta._meta_table['EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.EfdTriggers']['meta_info']
-
-
-            class Errors(object):
-                """
-                The errors that have occurred on this interface
-                
-                .. attribute:: caps_add_error_code
-                
-                	The caps add error/success code
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: caps_add_reason
-                
-                	Reason for the caps add error (if applicable)
-                	**type**\: str
-                
-                .. attribute:: epi_error_code
-                
-                	The Packet error/success code
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: epi_reason
-                
-                	Reason for the Packet error (if applicable)
-                	**type**\: str
-                
-                .. attribute:: pfi_error_code
-                
-                	The Interface Management error/success code
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: pfi_reason
-                
-                	Reason for the Interface Management error (if applicable)
-                	**type**\: str
-                
-                .. attribute:: platform_error_code
-                
-                	The platform error/success code
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: platform_reason
-                
-                	Reason for the platform error (if applicable)
-                	**type**\: str
-                
-                .. attribute:: spio_error_code
-                
-                	The Packet I/O error/success code
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: spio_reason
-                
-                	Reason for the Packet I/O error (if applicable)
-                	**type**\: str
-                
-                
-
-                """
-
-                _prefix = 'ethernet-link-oam-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.caps_add_error_code = None
-                    self.caps_add_reason = None
-                    self.epi_error_code = None
-                    self.epi_reason = None
-                    self.pfi_error_code = None
-                    self.pfi_reason = None
-                    self.platform_error_code = None
-                    self.platform_reason = None
-                    self.spio_error_code = None
-                    self.spio_reason = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-oper:errors'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.caps_add_error_code is not None:
-                        return True
-
-                    if self.caps_add_reason is not None:
-                        return True
-
-                    if self.epi_error_code is not None:
-                        return True
-
-                    if self.epi_reason is not None:
-                        return True
-
-                    if self.pfi_error_code is not None:
-                        return True
-
-                    if self.pfi_reason is not None:
-                        return True
-
-                    if self.platform_error_code is not None:
-                        return True
-
-                    if self.platform_reason is not None:
-                        return True
-
-                    if self.spio_error_code is not None:
-                        return True
-
-                    if self.spio_reason is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
-                    return meta._meta_table['EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.Errors']['meta_info']
-
-            @property
-            def _common_path(self):
-                if self.member_interface is None:
-                    raise YPYDataValidationError('Key property member_interface is None')
-
-                return '/Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/Cisco-IOS-XR-ethernet-link-oam-oper:interface-state-interfaces/Cisco-IOS-XR-ethernet-link-oam-oper:interface-state-interface[Cisco-IOS-XR-ethernet-link-oam-oper:member-interface = ' + str(self.member_interface) + ']'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.member_interface is not None:
-                    return True
-
-                if self.efd_triggers is not None and self.efd_triggers._has_data():
-                    return True
-
-                if self.errors is not None and self.errors._has_data():
-                    return True
-
-                if self.local_mwd_key is not None:
-                    return True
-
-                if self.protocol_code is not None:
-                    return True
-
-                if self.remote_mwd_key is not None:
-                    return True
-
-                if self.remote_mwd_key_present is not None:
-                    return True
-
-                if self.rx_fault is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
-                return meta._meta_table['EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/Cisco-IOS-XR-ethernet-link-oam-oper:interface-state-interfaces'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.interface_state_interface is not None:
-                for child_ref in self.interface_state_interface:
-                    if child_ref._has_data():
-                        return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
-            return meta._meta_table['EtherLinkOam.InterfaceStateInterfaces']['meta_info']
-
-
-    class Nodes(object):
-        """
-        Node table for node\-specific operational data
-        
-        .. attribute:: node
-        
-        	Node\-specific data for a particular node
-        	**type**\: list of :py:class:`Node <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.Nodes.Node>`
-        
-        
-
-        """
-
-        _prefix = 'ethernet-link-oam-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.node = YList()
-            self.node.parent = self
-            self.node.name = 'node'
-
-
-        class Node(object):
-            """
-            Node\-specific data for a particular node
-            
-            .. attribute:: node_name
-            
-            	Node
-            	**type**\: str
-            
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
-            .. attribute:: summary
-            
-            	Ethernet Link OAM Summary information for the entire node
-            	**type**\: :py:class:`Summary <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.Nodes.Node.Summary>`
-            
-            
-
-            """
-
-            _prefix = 'ethernet-link-oam-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.node_name = None
-                self.summary = EtherLinkOam.Nodes.Node.Summary()
-                self.summary.parent = self
-
-
-            class Summary(object):
-                """
-                Ethernet Link OAM Summary information for the
-                entire node
-                
-                .. attribute:: active_send
-                
-                	The number of interfaces in 'Active Send' state
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: evaluating
-                
-                	The number of interfaces in 'Evaluating' state
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: events
-                
-                	The number of events recorded
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: interfaces
-                
-                	The number of interfaces with 802.3 OAM configured
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: local_accept
-                
-                	The number of interfaces in 'Local Accept' state
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: local_events
-                
-                	The number of local events recorded
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: local_frame
-                
-                	The mumber of local frame error events recorded
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: local_frame_period
-                
-                	The number of local frame period events recorded
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: local_frame_seconds
-                
-                	The number of local frame second events recoded
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: local_reject
-                
-                	The number of interfaces in 'Local Reject' state
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: local_symbol_period
-                
-                	The number of local symbol period events recorded
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: loopback_mode
-                
-                	The number of interfaces in loopback mode
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: miswired_connections
-                
-                	The number of miswired connections
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: operational
-                
-                	The number of interfaces in 'Operational' state
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: passive_wait
-                
-                	The number of interfaces in 'Passive Wait' state
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: port_down
-                
-                	The number of interfaces in 'Port Down' state
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: remote_events
-                
-                	The number of remote events recorded
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: remote_frame
-                
-                	The mumber of remote frame error events recorded
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: remote_frame_period
-                
-                	The number of remote frame period events recorded
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: remote_frame_seconds
-                
-                	The number of remote frame second events recoded
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: remote_reject
-                
-                	The number of interfaces in 'Remote Reject' state
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: remote_symbol_period
-                
-                	The number of remote symbol period events recorded
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                
-
-                """
-
-                _prefix = 'ethernet-link-oam-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.active_send = None
-                    self.evaluating = None
-                    self.events = None
-                    self.interfaces = None
-                    self.local_accept = None
-                    self.local_events = None
-                    self.local_frame = None
-                    self.local_frame_period = None
-                    self.local_frame_seconds = None
-                    self.local_reject = None
-                    self.local_symbol_period = None
-                    self.loopback_mode = None
-                    self.miswired_connections = None
-                    self.operational = None
-                    self.passive_wait = None
-                    self.port_down = None
-                    self.remote_events = None
-                    self.remote_frame = None
-                    self.remote_frame_period = None
-                    self.remote_frame_seconds = None
-                    self.remote_reject = None
-                    self.remote_symbol_period = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-oper:summary'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.active_send is not None:
-                        return True
-
-                    if self.evaluating is not None:
-                        return True
-
-                    if self.events is not None:
-                        return True
-
-                    if self.interfaces is not None:
-                        return True
-
-                    if self.local_accept is not None:
-                        return True
-
-                    if self.local_events is not None:
-                        return True
-
-                    if self.local_frame is not None:
-                        return True
-
-                    if self.local_frame_period is not None:
-                        return True
-
-                    if self.local_frame_seconds is not None:
-                        return True
-
-                    if self.local_reject is not None:
-                        return True
-
-                    if self.local_symbol_period is not None:
-                        return True
-
-                    if self.loopback_mode is not None:
-                        return True
-
-                    if self.miswired_connections is not None:
-                        return True
-
-                    if self.operational is not None:
-                        return True
-
-                    if self.passive_wait is not None:
-                        return True
-
-                    if self.port_down is not None:
-                        return True
-
-                    if self.remote_events is not None:
-                        return True
-
-                    if self.remote_frame is not None:
-                        return True
-
-                    if self.remote_frame_period is not None:
-                        return True
-
-                    if self.remote_frame_seconds is not None:
-                        return True
-
-                    if self.remote_reject is not None:
-                        return True
-
-                    if self.remote_symbol_period is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
-                    return meta._meta_table['EtherLinkOam.Nodes.Node.Summary']['meta_info']
-
-            @property
-            def _common_path(self):
-                if self.node_name is None:
-                    raise YPYDataValidationError('Key property node_name is None')
-
-                return '/Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/Cisco-IOS-XR-ethernet-link-oam-oper:nodes/Cisco-IOS-XR-ethernet-link-oam-oper:node[Cisco-IOS-XR-ethernet-link-oam-oper:node-name = ' + str(self.node_name) + ']'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.node_name is not None:
-                    return True
-
-                if self.summary is not None and self.summary._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
-                return meta._meta_table['EtherLinkOam.Nodes.Node']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/Cisco-IOS-XR-ethernet-link-oam-oper:nodes'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.node is not None:
-                for child_ref in self.node:
-                    if child_ref._has_data():
-                        return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
-            return meta._meta_table['EtherLinkOam.Nodes']['meta_info']
-
-
-    class RunningConfigInterfaces(object):
-        """
-        Table of Ethernet Link OAM enabled interfaces
-        within Running Config container
-        
-        .. attribute:: running_config_interface
-        
-        	Ethernet Link OAM interface to get Running Config for
-        	**type**\: list of :py:class:`RunningConfigInterface <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.RunningConfigInterfaces.RunningConfigInterface>`
-        
-        
-
-        """
-
-        _prefix = 'ethernet-link-oam-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.running_config_interface = YList()
-            self.running_config_interface.parent = self
-            self.running_config_interface.name = 'running_config_interface'
-
-
-        class RunningConfigInterface(object):
-            """
-            Ethernet Link OAM interface to get Running
-            Config for
-            
-            .. attribute:: member_interface
-            
-            	Member Interface
-            	**type**\: str
-            
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-            
-            .. attribute:: capabilities_conflict_action
-            
-            	Action to perform when a capabilities conflict occurs
-            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
-            
-            .. attribute:: capabilities_conflict_action_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: connection_timeout
-            
-            	Connection timeout
-            	**type**\: int
-            
-            	**range:** 0..255
-            
-            .. attribute:: connection_timeout_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: critical_event_action
-            
-            	Action to perform when a critical event occurs
-            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
-            
-            .. attribute:: critical_event_action_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: discovery_timeout_action
-            
-            	Action to perform when a discovery timeout occurs
-            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
-            
-            .. attribute:: discovery_timeout_action_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: dying_gasp_action
-            
-            	Action to perform when a dying gasp occurs
-            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
-            
-            .. attribute:: dying_gasp_action_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: fast_hello_interval_enabled
-            
-            	Is 100ms hello interval time enabled?
-            	**type**\: bool
-            
-            .. attribute:: fast_hello_interval_enabled_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: frame_period_threshold_high
-            
-            	Frame period event high threshold
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: frame_period_threshold_high_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: frame_period_threshold_low
-            
-            	Frame period event low threshold
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: frame_period_threshold_low_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: frame_period_window
-            
-            	Frame period event window size
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: frame_period_window_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: frame_seconds_threshold_high
-            
-            	Frame seconds event high threshold
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: frame_seconds_threshold_high_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: frame_seconds_threshold_low
-            
-            	Frame seconds event high threshold
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: frame_seconds_threshold_low_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: frame_seconds_window
-            
-            	Frame seconds event high threshold
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: frame_seconds_window_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: frame_threshold_high
-            
-            	Frame event high threshold
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: frame_threshold_high_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: frame_threshold_low
-            
-            	Frame event low threshold
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: frame_threshold_low_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: frame_window
-            
-            	Frame event window size
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: frame_window_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: high_threshold_action
-            
-            	Action to perform when a high threshold is breached
-            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
-            
-            .. attribute:: high_threshold_action_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: link_fault_action
-            
-            	Action to perform when a link fault occurs
-            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
-            
-            .. attribute:: link_fault_action_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: link_monitor_enabled
-            
-            	Is link monitoring enabled?
-            	**type**\: bool
-            
-            .. attribute:: link_monitoring_enabled_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: mib_retrieval_enabled
-            
-            	Is MIB retrieval enabled?
-            	**type**\: bool
-            
-            .. attribute:: mib_retrieval_enabled_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: mode
-            
-            	Configured mode
-            	**type**\: :py:class:`ModeEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ModeEnum>`
-            
-            .. attribute:: mode_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: remote_loopback_action
-            
-            	Action to perform when a session enters or exits remote loopback
-            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
-            
-            .. attribute:: remote_loopback_action_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: remote_loopback_enabled
-            
-            	Is remote loopback enabled?
-            	**type**\: bool
-            
-            .. attribute:: remote_loopback_enabled_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: require_link_monitoring
-            
-            	Require the remote peer to support link monitoring
-            	**type**\: bool
-            
-            .. attribute:: require_link_monitoring_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: require_loopback
-            
-            	Require the remote peer to support loopback mode
-            	**type**\: bool
-            
-            .. attribute:: require_loopback_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: require_mib_retrieval_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: require_mode_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: require_remote_mib_retrieval
-            
-            	Require the remote peer to support MIB retrieval
-            	**type**\: bool
-            
-            .. attribute:: require_remote_mode
-            
-            	The mode that is required of the remote peer
-            	**type**\: :py:class:`ModeEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ModeEnum>`
-            
-            .. attribute:: session_down_action
-            
-            	Action to perform when a session comes down
-            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
-            
-            .. attribute:: session_down_action_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: session_up_action
-            
-            	Action to perform when a session comes up
-            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
-            
-            .. attribute:: session_up_action_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: symbol_period_threshold_high
-            
-            	High symbol period event threshold
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: symbol_period_threshold_high_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: symbol_period_threshold_low
-            
-            	Low symbol period event threshold
-            	**type**\: int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: symbol_period_threshold_low_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: symbol_period_window
-            
-            	Symbol period event window size
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: symbol_period_window_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: udlf_enabled
-            
-            	Is uni\-directional link\-fault detection enabled?
-            	**type**\: bool
-            
-            .. attribute:: udlf_enabled_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            .. attribute:: wiring_conflict_action
-            
-            	Action to perform when a wiring conflict occurs
-            	**type**\: :py:class:`ActionEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
-            
-            .. attribute:: wiring_conflict_action_overridden
-            
-            	Is this configuration information an interface override?
-            	**type**\: bool
-            
-            
-
-            """
-
-            _prefix = 'ethernet-link-oam-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.member_interface = None
-                self.capabilities_conflict_action = None
-                self.capabilities_conflict_action_overridden = None
-                self.connection_timeout = None
-                self.connection_timeout_overridden = None
-                self.critical_event_action = None
-                self.critical_event_action_overridden = None
-                self.discovery_timeout_action = None
-                self.discovery_timeout_action_overridden = None
-                self.dying_gasp_action = None
-                self.dying_gasp_action_overridden = None
-                self.fast_hello_interval_enabled = None
-                self.fast_hello_interval_enabled_overridden = None
-                self.frame_period_threshold_high = None
-                self.frame_period_threshold_high_overridden = None
-                self.frame_period_threshold_low = None
-                self.frame_period_threshold_low_overridden = None
-                self.frame_period_window = None
-                self.frame_period_window_overridden = None
-                self.frame_seconds_threshold_high = None
-                self.frame_seconds_threshold_high_overridden = None
-                self.frame_seconds_threshold_low = None
-                self.frame_seconds_threshold_low_overridden = None
-                self.frame_seconds_window = None
-                self.frame_seconds_window_overridden = None
-                self.frame_threshold_high = None
-                self.frame_threshold_high_overridden = None
-                self.frame_threshold_low = None
-                self.frame_threshold_low_overridden = None
-                self.frame_window = None
-                self.frame_window_overridden = None
-                self.high_threshold_action = None
-                self.high_threshold_action_overridden = None
-                self.link_fault_action = None
-                self.link_fault_action_overridden = None
-                self.link_monitor_enabled = None
-                self.link_monitoring_enabled_overridden = None
-                self.mib_retrieval_enabled = None
-                self.mib_retrieval_enabled_overridden = None
-                self.mode = None
-                self.mode_overridden = None
-                self.remote_loopback_action = None
-                self.remote_loopback_action_overridden = None
-                self.remote_loopback_enabled = None
-                self.remote_loopback_enabled_overridden = None
-                self.require_link_monitoring = None
-                self.require_link_monitoring_overridden = None
-                self.require_loopback = None
-                self.require_loopback_overridden = None
-                self.require_mib_retrieval_overridden = None
-                self.require_mode_overridden = None
-                self.require_remote_mib_retrieval = None
-                self.require_remote_mode = None
-                self.session_down_action = None
-                self.session_down_action_overridden = None
-                self.session_up_action = None
-                self.session_up_action_overridden = None
-                self.symbol_period_threshold_high = None
-                self.symbol_period_threshold_high_overridden = None
-                self.symbol_period_threshold_low = None
-                self.symbol_period_threshold_low_overridden = None
-                self.symbol_period_window = None
-                self.symbol_period_window_overridden = None
-                self.udlf_enabled = None
-                self.udlf_enabled_overridden = None
-                self.wiring_conflict_action = None
-                self.wiring_conflict_action_overridden = None
-
-            @property
-            def _common_path(self):
-                if self.member_interface is None:
-                    raise YPYDataValidationError('Key property member_interface is None')
-
-                return '/Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/Cisco-IOS-XR-ethernet-link-oam-oper:running-config-interfaces/Cisco-IOS-XR-ethernet-link-oam-oper:running-config-interface[Cisco-IOS-XR-ethernet-link-oam-oper:member-interface = ' + str(self.member_interface) + ']'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.member_interface is not None:
-                    return True
-
-                if self.capabilities_conflict_action is not None:
-                    return True
-
-                if self.capabilities_conflict_action_overridden is not None:
-                    return True
-
-                if self.connection_timeout is not None:
-                    return True
-
-                if self.connection_timeout_overridden is not None:
-                    return True
-
-                if self.critical_event_action is not None:
-                    return True
-
-                if self.critical_event_action_overridden is not None:
-                    return True
-
-                if self.discovery_timeout_action is not None:
-                    return True
-
-                if self.discovery_timeout_action_overridden is not None:
-                    return True
-
-                if self.dying_gasp_action is not None:
-                    return True
-
-                if self.dying_gasp_action_overridden is not None:
-                    return True
-
-                if self.fast_hello_interval_enabled is not None:
-                    return True
-
-                if self.fast_hello_interval_enabled_overridden is not None:
-                    return True
-
-                if self.frame_period_threshold_high is not None:
-                    return True
-
-                if self.frame_period_threshold_high_overridden is not None:
-                    return True
-
-                if self.frame_period_threshold_low is not None:
-                    return True
-
-                if self.frame_period_threshold_low_overridden is not None:
-                    return True
-
-                if self.frame_period_window is not None:
-                    return True
-
-                if self.frame_period_window_overridden is not None:
-                    return True
-
-                if self.frame_seconds_threshold_high is not None:
-                    return True
-
-                if self.frame_seconds_threshold_high_overridden is not None:
-                    return True
-
-                if self.frame_seconds_threshold_low is not None:
-                    return True
-
-                if self.frame_seconds_threshold_low_overridden is not None:
-                    return True
-
-                if self.frame_seconds_window is not None:
-                    return True
-
-                if self.frame_seconds_window_overridden is not None:
-                    return True
-
-                if self.frame_threshold_high is not None:
-                    return True
-
-                if self.frame_threshold_high_overridden is not None:
-                    return True
-
-                if self.frame_threshold_low is not None:
-                    return True
-
-                if self.frame_threshold_low_overridden is not None:
-                    return True
-
-                if self.frame_window is not None:
-                    return True
-
-                if self.frame_window_overridden is not None:
-                    return True
-
-                if self.high_threshold_action is not None:
-                    return True
-
-                if self.high_threshold_action_overridden is not None:
-                    return True
-
-                if self.link_fault_action is not None:
-                    return True
-
-                if self.link_fault_action_overridden is not None:
-                    return True
-
-                if self.link_monitor_enabled is not None:
-                    return True
-
-                if self.link_monitoring_enabled_overridden is not None:
-                    return True
-
-                if self.mib_retrieval_enabled is not None:
-                    return True
-
-                if self.mib_retrieval_enabled_overridden is not None:
-                    return True
-
-                if self.mode is not None:
-                    return True
-
-                if self.mode_overridden is not None:
-                    return True
-
-                if self.remote_loopback_action is not None:
-                    return True
-
-                if self.remote_loopback_action_overridden is not None:
-                    return True
-
-                if self.remote_loopback_enabled is not None:
-                    return True
-
-                if self.remote_loopback_enabled_overridden is not None:
-                    return True
-
-                if self.require_link_monitoring is not None:
-                    return True
-
-                if self.require_link_monitoring_overridden is not None:
-                    return True
-
-                if self.require_loopback is not None:
-                    return True
-
-                if self.require_loopback_overridden is not None:
-                    return True
-
-                if self.require_mib_retrieval_overridden is not None:
-                    return True
-
-                if self.require_mode_overridden is not None:
-                    return True
-
-                if self.require_remote_mib_retrieval is not None:
-                    return True
-
-                if self.require_remote_mode is not None:
-                    return True
-
-                if self.session_down_action is not None:
-                    return True
-
-                if self.session_down_action_overridden is not None:
-                    return True
-
-                if self.session_up_action is not None:
-                    return True
-
-                if self.session_up_action_overridden is not None:
-                    return True
-
-                if self.symbol_period_threshold_high is not None:
-                    return True
-
-                if self.symbol_period_threshold_high_overridden is not None:
-                    return True
-
-                if self.symbol_period_threshold_low is not None:
-                    return True
-
-                if self.symbol_period_threshold_low_overridden is not None:
-                    return True
-
-                if self.symbol_period_window is not None:
-                    return True
-
-                if self.symbol_period_window_overridden is not None:
-                    return True
-
-                if self.udlf_enabled is not None:
-                    return True
-
-                if self.udlf_enabled_overridden is not None:
-                    return True
-
-                if self.wiring_conflict_action is not None:
-                    return True
-
-                if self.wiring_conflict_action_overridden is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
-                return meta._meta_table['EtherLinkOam.RunningConfigInterfaces.RunningConfigInterface']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/Cisco-IOS-XR-ethernet-link-oam-oper:running-config-interfaces'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.running_config_interface is not None:
-                for child_ref in self.running_config_interface:
-                    if child_ref._has_data():
-                        return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_link_oam_oper as meta
-            return meta._meta_table['EtherLinkOam.RunningConfigInterfaces']['meta_info']
-
-
     class StatsInterfaces(object):
         """
         Table of Ethernet Link OAM enabled interfaces
@@ -2817,37 +2817,16 @@ class EtherLinkOam(object):
             """
             Ethernet Link OAM interface to get Stats for
             
-            .. attribute:: member_interface
+            .. attribute:: member_interface  <key>
             
             	Member Interface
             	**type**\: str
             
             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
-            .. attribute:: duplicate_event_notification_rx
+            .. attribute:: information_tx
             
-            	Number of duplicate event notification OAMPDUs received
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: duplicate_event_notification_tx
-            
-            	Number of duplicate event notification OAMPDUs transmitted
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: fixed_frames_rx
-            
-            	Number of RX frames 'fixed' by OAM
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: frames_lost_due_to_oam
-            
-            	Number of frames lost due to OAM
+            	Number of information OAMPDUs transmitted
             	**type**\: int
             
             	**range:** 0..4294967295
@@ -2859,93 +2838,9 @@ class EtherLinkOam(object):
             
             	**range:** 0..4294967295
             
-            .. attribute:: information_tx
+            .. attribute:: unique_event_notification_tx
             
-            	Number of information OAMPDUs transmitted
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: local_error_frame_period_records
-            
-            	Number of local error frame period records
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: local_error_frame_records
-            
-            	Number of local error frame records
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: local_error_frame_second_records
-            
-            	Number of local error frame second records
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: local_error_symbol_period_records
-            
-            	Number of local error symbol period records
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: loopback_control_rx
-            
-            	Number of loopback control OAMPDUs received
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: loopback_control_tx
-            
-            	Number of loopback control OAMPDUs transmitted
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: org_specific_rx
-            
-            	Number of organization specific OAMPDUs received
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: org_specific_tx
-            
-            	Number of organization specific OAMPDUs transmitted
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: remote_error_frame_period_records
-            
-            	Number of remote error frame period records
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: remote_error_frame_records
-            
-            	Number of remote error frame records
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: remote_error_frame_second_records
-            
-            	Number of remote error frame second records
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: remote_error_symbol_period_records
-            
-            	Number of remote error symbol period records
+            	Number of unique event notification OAMPDUs transmitted
             	**type**\: int
             
             	**range:** 0..4294967295
@@ -2957,30 +2852,30 @@ class EtherLinkOam(object):
             
             	**range:** 0..4294967295
             
-            .. attribute:: unique_event_notification_tx
+            .. attribute:: duplicate_event_notification_tx
             
-            	Number of unique event notification OAMPDUs transmitted
+            	Number of duplicate event notification OAMPDUs transmitted
             	**type**\: int
             
             	**range:** 0..4294967295
             
-            .. attribute:: unsupported_codes_rx
+            .. attribute:: duplicate_event_notification_rx
             
-            	Number of OAMPDUs with unsupported codes received
+            	Number of duplicate event notification OAMPDUs received
             	**type**\: int
             
             	**range:** 0..4294967295
             
-            .. attribute:: unsupported_codes_tx
+            .. attribute:: loopback_control_tx
             
-            	Number of OAMPDUs with unsupported codes transmitted
+            	Number of loopback control OAMPDUs transmitted
             	**type**\: int
             
             	**range:** 0..4294967295
             
-            .. attribute:: variable_request_rx
+            .. attribute:: loopback_control_rx
             
-            	Number of variable request OAMPDUs received
+            	Number of loopback control OAMPDUs received
             	**type**\: int
             
             	**range:** 0..4294967295
@@ -2992,9 +2887,9 @@ class EtherLinkOam(object):
             
             	**range:** 0..4294967295
             
-            .. attribute:: variable_response_rx
+            .. attribute:: variable_request_rx
             
-            	Number of variable response OAMPDUs received
+            	Number of variable request OAMPDUs received
             	**type**\: int
             
             	**range:** 0..4294967295
@@ -3002,6 +2897,111 @@ class EtherLinkOam(object):
             .. attribute:: variable_response_tx
             
             	Number of variable response OAMPDUs transmitted
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: variable_response_rx
+            
+            	Number of variable response OAMPDUs received
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: org_specific_tx
+            
+            	Number of organization specific OAMPDUs transmitted
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: org_specific_rx
+            
+            	Number of organization specific OAMPDUs received
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: unsupported_codes_tx
+            
+            	Number of OAMPDUs with unsupported codes transmitted
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: unsupported_codes_rx
+            
+            	Number of OAMPDUs with unsupported codes received
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: frames_lost_due_to_oam
+            
+            	Number of frames lost due to OAM
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: fixed_frames_rx
+            
+            	Number of RX frames 'fixed' by OAM
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: local_error_symbol_period_records
+            
+            	Number of local error symbol period records
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: local_error_frame_records
+            
+            	Number of local error frame records
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: local_error_frame_period_records
+            
+            	Number of local error frame period records
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: local_error_frame_second_records
+            
+            	Number of local error frame second records
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: remote_error_symbol_period_records
+            
+            	Number of remote error symbol period records
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: remote_error_frame_records
+            
+            	Number of remote error frame records
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: remote_error_frame_period_records
+            
+            	Number of remote error frame period records
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: remote_error_frame_second_records
+            
+            	Number of remote error frame second records
             	**type**\: int
             
             	**range:** 0..4294967295
@@ -3016,32 +3016,32 @@ class EtherLinkOam(object):
             def __init__(self):
                 self.parent = None
                 self.member_interface = None
-                self.duplicate_event_notification_rx = None
-                self.duplicate_event_notification_tx = None
-                self.fixed_frames_rx = None
-                self.frames_lost_due_to_oam = None
-                self.information_rx = None
                 self.information_tx = None
-                self.local_error_frame_period_records = None
-                self.local_error_frame_records = None
-                self.local_error_frame_second_records = None
-                self.local_error_symbol_period_records = None
-                self.loopback_control_rx = None
-                self.loopback_control_tx = None
-                self.org_specific_rx = None
-                self.org_specific_tx = None
-                self.remote_error_frame_period_records = None
-                self.remote_error_frame_records = None
-                self.remote_error_frame_second_records = None
-                self.remote_error_symbol_period_records = None
-                self.unique_event_notification_rx = None
+                self.information_rx = None
                 self.unique_event_notification_tx = None
-                self.unsupported_codes_rx = None
-                self.unsupported_codes_tx = None
-                self.variable_request_rx = None
+                self.unique_event_notification_rx = None
+                self.duplicate_event_notification_tx = None
+                self.duplicate_event_notification_rx = None
+                self.loopback_control_tx = None
+                self.loopback_control_rx = None
                 self.variable_request_tx = None
-                self.variable_response_rx = None
+                self.variable_request_rx = None
                 self.variable_response_tx = None
+                self.variable_response_rx = None
+                self.org_specific_tx = None
+                self.org_specific_rx = None
+                self.unsupported_codes_tx = None
+                self.unsupported_codes_rx = None
+                self.frames_lost_due_to_oam = None
+                self.fixed_frames_rx = None
+                self.local_error_symbol_period_records = None
+                self.local_error_frame_records = None
+                self.local_error_frame_period_records = None
+                self.local_error_frame_second_records = None
+                self.remote_error_symbol_period_records = None
+                self.remote_error_frame_records = None
+                self.remote_error_frame_period_records = None
+                self.remote_error_frame_second_records = None
 
             @property
             def _common_path(self):
@@ -3060,82 +3060,82 @@ class EtherLinkOam(object):
                 if self.member_interface is not None:
                     return True
 
-                if self.duplicate_event_notification_rx is not None:
-                    return True
-
-                if self.duplicate_event_notification_tx is not None:
-                    return True
-
-                if self.fixed_frames_rx is not None:
-                    return True
-
-                if self.frames_lost_due_to_oam is not None:
+                if self.information_tx is not None:
                     return True
 
                 if self.information_rx is not None:
                     return True
 
-                if self.information_tx is not None:
-                    return True
-
-                if self.local_error_frame_period_records is not None:
-                    return True
-
-                if self.local_error_frame_records is not None:
-                    return True
-
-                if self.local_error_frame_second_records is not None:
-                    return True
-
-                if self.local_error_symbol_period_records is not None:
-                    return True
-
-                if self.loopback_control_rx is not None:
-                    return True
-
-                if self.loopback_control_tx is not None:
-                    return True
-
-                if self.org_specific_rx is not None:
-                    return True
-
-                if self.org_specific_tx is not None:
-                    return True
-
-                if self.remote_error_frame_period_records is not None:
-                    return True
-
-                if self.remote_error_frame_records is not None:
-                    return True
-
-                if self.remote_error_frame_second_records is not None:
-                    return True
-
-                if self.remote_error_symbol_period_records is not None:
+                if self.unique_event_notification_tx is not None:
                     return True
 
                 if self.unique_event_notification_rx is not None:
                     return True
 
-                if self.unique_event_notification_tx is not None:
+                if self.duplicate_event_notification_tx is not None:
                     return True
 
-                if self.unsupported_codes_rx is not None:
+                if self.duplicate_event_notification_rx is not None:
                     return True
 
-                if self.unsupported_codes_tx is not None:
+                if self.loopback_control_tx is not None:
                     return True
 
-                if self.variable_request_rx is not None:
+                if self.loopback_control_rx is not None:
                     return True
 
                 if self.variable_request_tx is not None:
                     return True
 
-                if self.variable_response_rx is not None:
+                if self.variable_request_rx is not None:
                     return True
 
                 if self.variable_response_tx is not None:
+                    return True
+
+                if self.variable_response_rx is not None:
+                    return True
+
+                if self.org_specific_tx is not None:
+                    return True
+
+                if self.org_specific_rx is not None:
+                    return True
+
+                if self.unsupported_codes_tx is not None:
+                    return True
+
+                if self.unsupported_codes_rx is not None:
+                    return True
+
+                if self.frames_lost_due_to_oam is not None:
+                    return True
+
+                if self.fixed_frames_rx is not None:
+                    return True
+
+                if self.local_error_symbol_period_records is not None:
+                    return True
+
+                if self.local_error_frame_records is not None:
+                    return True
+
+                if self.local_error_frame_period_records is not None:
+                    return True
+
+                if self.local_error_frame_second_records is not None:
+                    return True
+
+                if self.remote_error_symbol_period_records is not None:
+                    return True
+
+                if self.remote_error_frame_records is not None:
+                    return True
+
+                if self.remote_error_frame_period_records is not None:
+                    return True
+
+                if self.remote_error_frame_second_records is not None:
                     return True
 
                 return False
@@ -3184,16 +3184,16 @@ class EtherLinkOam(object):
         if self.discovery_info_interfaces is not None and self.discovery_info_interfaces._has_data():
             return True
 
-        if self.event_log_entry_interfaces is not None and self.event_log_entry_interfaces._has_data():
+        if self.interface_state_interfaces is not None and self.interface_state_interfaces._has_data():
             return True
 
-        if self.interface_state_interfaces is not None and self.interface_state_interfaces._has_data():
+        if self.running_config_interfaces is not None and self.running_config_interfaces._has_data():
             return True
 
         if self.nodes is not None and self.nodes._has_data():
             return True
 
-        if self.running_config_interfaces is not None and self.running_config_interfaces._has_data():
+        if self.event_log_entry_interfaces is not None and self.event_log_entry_interfaces._has_data():
             return True
 
         if self.stats_interfaces is not None and self.stats_interfaces._has_data():

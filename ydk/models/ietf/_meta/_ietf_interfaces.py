@@ -7,7 +7,7 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
@@ -98,6 +98,24 @@ _meta_table = {
                 ''',
                 'description',
                 'ietf-interfaces', False),
+            _MetaInfoClassMember('type', REFERENCE_IDENTITY_CLASS, 'InterfaceType_Identity' , 'ydk.models.ietf.ietf_interfaces', 'InterfaceType_Identity', 
+                [], [], 
+                '''                The type of the interface.
+                
+                When an interface entry is created, a server MAY
+                initialize the type leaf with a valid value, e.g., if it
+                is possible to derive the type from the name of the
+                interface.
+                
+                If a client tries to set the type of an interface to a
+                value that can never be used by the system, e.g., if the
+                type is not supported or if the type does not match the
+                name of the interface, the server MUST reject the request.
+                A NETCONF server MUST reply with an rpc-error with the
+                error-tag 'invalid-value' in this case.
+                ''',
+                'type',
+                'ietf-interfaces', False),
             _MetaInfoClassMember('enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                This leaf contains the configured, desired state of the
@@ -127,24 +145,6 @@ _meta_table = {
                 no 'lower-layer-if' entries), and 'disabled' otherwise.
                 ''',
                 'link_up_down_trap_enable',
-                'ietf-interfaces', False),
-            _MetaInfoClassMember('type', REFERENCE_IDENTITY_CLASS, 'InterfaceType_Identity' , 'ydk.models.ietf.ietf_interfaces', 'InterfaceType_Identity', 
-                [], [], 
-                '''                The type of the interface.
-                
-                When an interface entry is created, a server MAY
-                initialize the type leaf with a valid value, e.g., if it
-                is possible to derive the type from the name of the
-                interface.
-                
-                If a client tries to set the type of an interface to a
-                value that can never be used by the system, e.g., if the
-                type is not supported or if the type does not match the
-                name of the interface, the server MUST reject the request.
-                A NETCONF server MUST reply with an rpc-error with the
-                error-tag 'invalid-value' in this case.
-                ''',
-                'type',
                 'ietf-interfaces', False),
             ],
             'ietf-interfaces',
@@ -181,29 +181,6 @@ _meta_table = {
         'ydk.models.ietf.ietf_interfaces'
         ),
     },
-    'InterfacesState.Interface.Bandwidth' : {
-        'meta_info' : _MetaInfoClass('InterfacesState.Interface.Bandwidth',
-            False, 
-            [
-            _MetaInfoClassMember('units', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Units of the bandwidth.
-                ''',
-                'units',
-                'ietf-interfaces-ext', False),
-            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Raw value for the bandwidth.
-                ''',
-                'value',
-                'ietf-interfaces-ext', False),
-            ],
-            'ietf-interfaces-ext',
-            'bandwidth',
-            _yang_ns._namespaces['ietf-interfaces-ext'],
-        'ydk.models.ietf.ietf_interfaces'
-        ),
-    },
     'InterfacesState.Interface.Statistics' : {
         'meta_info' : _MetaInfoClass('InterfacesState.Interface.Statistics',
             False, 
@@ -219,6 +196,31 @@ _meta_table = {
                 ''',
                 'discontinuity_time',
                 'ietf-interfaces', False),
+            _MetaInfoClassMember('in-octets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                The total number of octets received on the interface,
+                including framing characters.
+                
+                Discontinuities in the value of this counter can occur
+                at re-initialization of the management system, and at
+                other times as indicated by the value of
+                'discontinuity-time'.
+                ''',
+                'in_octets',
+                'ietf-interfaces', False),
+            _MetaInfoClassMember('in-unicast-pkts', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                The number of packets, delivered by this sub-layer to a
+                higher (sub-)layer, that were not addressed to a
+                multicast or broadcast address at this sub-layer.
+                
+                Discontinuities in the value of this counter can occur
+                at re-initialization of the management system, and at
+                other times as indicated by the value of
+                'discontinuity-time'.
+                ''',
+                'in_unicast_pkts',
+                'ietf-interfaces', False),
             _MetaInfoClassMember('in-broadcast-pkts', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                The number of packets, delivered by this sub-layer to a
@@ -231,6 +233,20 @@ _meta_table = {
                 'discontinuity-time'.
                 ''',
                 'in_broadcast_pkts',
+                'ietf-interfaces', False),
+            _MetaInfoClassMember('in-multicast-pkts', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                The number of packets, delivered by this sub-layer to a
+                higher (sub-)layer, that were addressed to a multicast
+                address at this sub-layer.  For a MAC-layer protocol,
+                this includes both Group and Functional addresses.
+                
+                Discontinuities in the value of this counter can occur
+                at re-initialization of the management system, and at
+                other times as indicated by the value of
+                'discontinuity-time'.
+                ''',
+                'in_multicast_pkts',
                 'ietf-interfaces', False),
             _MetaInfoClassMember('in-discards', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -264,51 +280,6 @@ _meta_table = {
                 ''',
                 'in_errors',
                 'ietf-interfaces', False),
-            _MetaInfoClassMember('in-multicast-pkts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                The number of packets, delivered by this sub-layer to a
-                higher (sub-)layer, that were addressed to a multicast
-                address at this sub-layer.  For a MAC-layer protocol,
-                this includes both Group and Functional addresses.
-                
-                Discontinuities in the value of this counter can occur
-                at re-initialization of the management system, and at
-                other times as indicated by the value of
-                'discontinuity-time'.
-                ''',
-                'in_multicast_pkts',
-                'ietf-interfaces', False),
-            _MetaInfoClassMember('in-octets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                The total number of octets received on the interface,
-                including framing characters.
-                
-                Discontinuities in the value of this counter can occur
-                at re-initialization of the management system, and at
-                other times as indicated by the value of
-                'discontinuity-time'.
-                ''',
-                'in_octets',
-                'ietf-interfaces', False),
-            _MetaInfoClassMember('in-pkts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                total packets input
-                ''',
-                'in_pkts',
-                'ietf-interfaces-ext', False),
-            _MetaInfoClassMember('in-unicast-pkts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                The number of packets, delivered by this sub-layer to a
-                higher (sub-)layer, that were not addressed to a
-                multicast or broadcast address at this sub-layer.
-                
-                Discontinuities in the value of this counter can occur
-                at re-initialization of the management system, and at
-                other times as indicated by the value of
-                'discontinuity-time'.
-                ''',
-                'in_unicast_pkts',
-                'ietf-interfaces', False),
             _MetaInfoClassMember('in-unknown-protos', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                For packet-oriented interfaces, the number of packets
@@ -328,6 +299,32 @@ _meta_table = {
                 ''',
                 'in_unknown_protos',
                 'ietf-interfaces', False),
+            _MetaInfoClassMember('out-octets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                The total number of octets transmitted out of the
+                interface, including framing characters.
+                
+                Discontinuities in the value of this counter can occur
+                at re-initialization of the management system, and at
+                other times as indicated by the value of
+                'discontinuity-time'.
+                ''',
+                'out_octets',
+                'ietf-interfaces', False),
+            _MetaInfoClassMember('out-unicast-pkts', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                The total number of packets that higher-level protocols
+                requested be transmitted, and that were not addressed
+                to a multicast or broadcast address at this sub-layer,
+                including those that were discarded or not sent.
+                
+                Discontinuities in the value of this counter can occur
+                at re-initialization of the management system, and at
+                other times as indicated by the value of
+                'discontinuity-time'.
+                ''',
+                'out_unicast_pkts',
+                'ietf-interfaces', False),
             _MetaInfoClassMember('out-broadcast-pkts', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                The total number of packets that higher-level protocols
@@ -341,6 +338,22 @@ _meta_table = {
                 'discontinuity-time'.
                 ''',
                 'out_broadcast_pkts',
+                'ietf-interfaces', False),
+            _MetaInfoClassMember('out-multicast-pkts', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                The total number of packets that higher-level protocols
+                requested be transmitted, and that were addressed to a
+                multicast address at this sub-layer, including those
+                that were discarded or not sent.  For a MAC-layer
+                protocol, this includes both Group and Functional
+                addresses.
+                
+                Discontinuities in the value of this counter can occur
+                at re-initialization of the management system, and at
+                other times as indicated by the value of
+                'discontinuity-time'.
+                ''',
+                'out_multicast_pkts',
                 'ietf-interfaces', False),
             _MetaInfoClassMember('out-discards', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -375,58 +388,45 @@ _meta_table = {
                 ''',
                 'out_errors',
                 'ietf-interfaces', False),
-            _MetaInfoClassMember('out-multicast-pkts', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('in-pkts', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                The total number of packets that higher-level protocols
-                requested be transmitted, and that were addressed to a
-                multicast address at this sub-layer, including those
-                that were discarded or not sent.  For a MAC-layer
-                protocol, this includes both Group and Functional
-                addresses.
-                
-                Discontinuities in the value of this counter can occur
-                at re-initialization of the management system, and at
-                other times as indicated by the value of
-                'discontinuity-time'.
+                '''                total packets input
                 ''',
-                'out_multicast_pkts',
-                'ietf-interfaces', False),
-            _MetaInfoClassMember('out-octets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                The total number of octets transmitted out of the
-                interface, including framing characters.
-                
-                Discontinuities in the value of this counter can occur
-                at re-initialization of the management system, and at
-                other times as indicated by the value of
-                'discontinuity-time'.
-                ''',
-                'out_octets',
-                'ietf-interfaces', False),
+                'in_pkts',
+                'ietf-interfaces-ext', False),
             _MetaInfoClassMember('out-pkts', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                total packets output
                 ''',
                 'out_pkts',
                 'ietf-interfaces-ext', False),
-            _MetaInfoClassMember('out-unicast-pkts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                The total number of packets that higher-level protocols
-                requested be transmitted, and that were not addressed
-                to a multicast or broadcast address at this sub-layer,
-                including those that were discarded or not sent.
-                
-                Discontinuities in the value of this counter can occur
-                at re-initialization of the management system, and at
-                other times as indicated by the value of
-                'discontinuity-time'.
-                ''',
-                'out_unicast_pkts',
-                'ietf-interfaces', False),
             ],
             'ietf-interfaces',
             'statistics',
             _yang_ns._namespaces['ietf-interfaces'],
+        'ydk.models.ietf.ietf_interfaces'
+        ),
+    },
+    'InterfacesState.Interface.Bandwidth' : {
+        'meta_info' : _MetaInfoClass('InterfacesState.Interface.Bandwidth',
+            False, 
+            [
+            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Raw value for the bandwidth.
+                ''',
+                'value',
+                'ietf-interfaces-ext', False),
+            _MetaInfoClassMember('units', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Units of the bandwidth.
+                ''',
+                'units',
+                'ietf-interfaces-ext', False),
+            ],
+            'ietf-interfaces-ext',
+            'bandwidth',
+            _yang_ns._namespaces['ietf-interfaces-ext'],
         'ydk.models.ietf.ietf_interfaces'
         ),
     },
@@ -462,6 +462,12 @@ _meta_table = {
                 ''',
                 'name',
                 'ietf-interfaces', True),
+            _MetaInfoClassMember('type', REFERENCE_IDENTITY_CLASS, 'InterfaceType_Identity' , 'ydk.models.ietf.ietf_interfaces', 'InterfaceType_Identity', 
+                [], [], 
+                '''                The type of the interface.
+                ''',
+                'type',
+                'ietf-interfaces', False),
             _MetaInfoClassMember('admin-status', REFERENCE_ENUM_CLASS, 'AdminStatusEnum' , 'ydk.models.ietf.ietf_interfaces', 'InterfacesState.Interface.AdminStatusEnum', 
                 [], [], 
                 '''                The desired state of the interface.
@@ -470,25 +476,13 @@ _meta_table = {
                 ''',
                 'admin_status',
                 'ietf-interfaces', False),
-            _MetaInfoClassMember('bandwidth', REFERENCE_CLASS, 'Bandwidth' , 'ydk.models.ietf.ietf_interfaces', 'InterfacesState.Interface.Bandwidth', 
+            _MetaInfoClassMember('oper-status', REFERENCE_ENUM_CLASS, 'OperStatusEnum' , 'ydk.models.ietf.ietf_interfaces', 'InterfacesState.Interface.OperStatusEnum', 
                 [], [], 
-                '''                Bandwidth data for an interface.
+                '''                The current operational state of the interface.
+                
+                This leaf has the same semantics as ifOperStatus.
                 ''',
-                'bandwidth',
-                'ietf-interfaces-ext', False),
-            _MetaInfoClassMember('higher-layer-if', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], [], 
-                '''                A list of references to interfaces layered on top of this
-                interface.
-                ''',
-                'higher_layer_if',
-                'ietf-interfaces', False),
-            _MetaInfoClassMember('if-index', ATTRIBUTE, 'int' , None, None, 
-                [(1, 2147483647)], [], 
-                '''                The ifIndex value for the ifEntry represented by this
-                interface.
-                ''',
-                'if_index',
+                'oper_status',
                 'ietf-interfaces', False),
             _MetaInfoClassMember('last-change', ATTRIBUTE, 'str' , None, None, 
                 [], ['\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
@@ -499,20 +493,12 @@ _meta_table = {
                 ''',
                 'last_change',
                 'ietf-interfaces', False),
-            _MetaInfoClassMember('lower-layer-if', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], [], 
-                '''                A list of references to interfaces layered underneath this
+            _MetaInfoClassMember('if-index', ATTRIBUTE, 'int' , None, None, 
+                [(1, 2147483647)], [], 
+                '''                The ifIndex value for the ifEntry represented by this
                 interface.
                 ''',
-                'lower_layer_if',
-                'ietf-interfaces', False),
-            _MetaInfoClassMember('oper-status', REFERENCE_ENUM_CLASS, 'OperStatusEnum' , 'ydk.models.ietf.ietf_interfaces', 'InterfacesState.Interface.OperStatusEnum', 
-                [], [], 
-                '''                The current operational state of the interface.
-                
-                This leaf has the same semantics as ifOperStatus.
-                ''',
-                'oper_status',
+                'if_index',
                 'ietf-interfaces', False),
             _MetaInfoClassMember('phys-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
@@ -527,6 +513,20 @@ _meta_table = {
                 (e.g., a serial line), this node is not present.
                 ''',
                 'phys_address',
+                'ietf-interfaces', False),
+            _MetaInfoClassMember('higher-layer-if', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                A list of references to interfaces layered on top of this
+                interface.
+                ''',
+                'higher_layer_if',
+                'ietf-interfaces', False),
+            _MetaInfoClassMember('lower-layer-if', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                A list of references to interfaces layered underneath this
+                interface.
+                ''',
+                'lower_layer_if',
                 'ietf-interfaces', False),
             _MetaInfoClassMember('speed', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
@@ -545,12 +545,12 @@ _meta_table = {
                 ''',
                 'statistics',
                 'ietf-interfaces', False),
-            _MetaInfoClassMember('type', REFERENCE_IDENTITY_CLASS, 'InterfaceType_Identity' , 'ydk.models.ietf.ietf_interfaces', 'InterfaceType_Identity', 
+            _MetaInfoClassMember('bandwidth', REFERENCE_CLASS, 'Bandwidth' , 'ydk.models.ietf.ietf_interfaces', 'InterfacesState.Interface.Bandwidth', 
                 [], [], 
-                '''                The type of the interface.
+                '''                Bandwidth data for an interface.
                 ''',
-                'type',
-                'ietf-interfaces', False),
+                'bandwidth',
+                'ietf-interfaces-ext', False),
             ],
             'ietf-interfaces',
             'interface',
@@ -581,6 +581,6 @@ _meta_table = {
     },
 }
 _meta_table['Interfaces.Interface']['meta_info'].parent =_meta_table['Interfaces']['meta_info']
-_meta_table['InterfacesState.Interface.Bandwidth']['meta_info'].parent =_meta_table['InterfacesState.Interface']['meta_info']
 _meta_table['InterfacesState.Interface.Statistics']['meta_info'].parent =_meta_table['InterfacesState.Interface']['meta_info']
+_meta_table['InterfacesState.Interface.Bandwidth']['meta_info'].parent =_meta_table['InterfacesState.Interface']['meta_info']
 _meta_table['InterfacesState.Interface']['meta_info'].parent =_meta_table['InterfacesState']['meta_info']

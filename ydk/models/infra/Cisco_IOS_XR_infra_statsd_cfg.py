@@ -22,7 +22,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -77,17 +77,17 @@ class Statistics(object):
             Collection polling period for service
             accounting collectors
             
-            .. attribute:: polling_disable
-            
-            	Disable periodic statistics polling for service accounting collectors
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
             .. attribute:: polling_period
             
             	Collection polling period for service accounting collectors
             	**type**\: int
             
             	**range:** 30..3600
+            
+            .. attribute:: polling_disable
+            
+            	Disable periodic statistics polling for service accounting collectors
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             
 
@@ -98,8 +98,8 @@ class Statistics(object):
 
             def __init__(self):
                 self.parent = None
-                self.polling_disable = None
                 self.polling_period = None
+                self.polling_disable = None
 
             @property
             def _common_path(self):
@@ -113,10 +113,10 @@ class Statistics(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.polling_disable is not None:
+                if self.polling_period is not None:
                     return True
 
-                if self.polling_period is not None:
+                if self.polling_disable is not None:
                     return True
 
                 return False

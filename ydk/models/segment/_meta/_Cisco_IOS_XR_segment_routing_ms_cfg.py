@@ -7,7 +7,7 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
@@ -64,11 +64,11 @@ _meta_table = {
                 ''',
                 'mask',
                 'Cisco-IOS-XR-segment-routing-ms-cfg', True),
-            _MetaInfoClassMember('flag-attached', REFERENCE_ENUM_CLASS, 'SrmsMiFlagEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_cfg', 'SrmsMiFlagEnum', 
-                [], [], 
-                '''                Enable/Disable Attached flag
+            _MetaInfoClassMember('sid-start', ATTRIBUTE, 'int' , None, None, 
+                [(0, 1048575)], [], 
+                '''                Start of SID index range
                 ''',
-                'flag_attached',
+                'sid_start',
                 'Cisco-IOS-XR-segment-routing-ms-cfg', False),
             _MetaInfoClassMember('sid-range', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
@@ -76,11 +76,11 @@ _meta_table = {
                 ''',
                 'sid_range',
                 'Cisco-IOS-XR-segment-routing-ms-cfg', False),
-            _MetaInfoClassMember('sid-start', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1048575)], [], 
-                '''                Start of SID index range
+            _MetaInfoClassMember('flag-attached', REFERENCE_ENUM_CLASS, 'SrmsMiFlagEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_cfg', 'SrmsMiFlagEnum', 
+                [], [], 
+                '''                Enable/Disable Attached flag
                 ''',
-                'sid_start',
+                'flag_attached',
                 'Cisco-IOS-XR-segment-routing-ms-cfg', False),
             ],
             'Cisco-IOS-XR-segment-routing-ms-cfg',
@@ -110,12 +110,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Sr',
             False, 
             [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                enable SR
-                ''',
-                'enable',
-                'Cisco-IOS-XR-segment-routing-ms-cfg', False),
             _MetaInfoClassMember('global-block', REFERENCE_CLASS, 'GlobalBlock' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_cfg', 'Sr.GlobalBlock', 
                 [], [], 
                 '''                Global Block Segment Routing
@@ -127,6 +121,12 @@ _meta_table = {
                 '''                Mapping Server
                 ''',
                 'mappings',
+                'Cisco-IOS-XR-segment-routing-ms-cfg', False),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                enable SR
+                ''',
+                'enable',
                 'Cisco-IOS-XR-segment-routing-ms-cfg', False),
             ],
             'Cisco-IOS-XR-segment-routing-ms-cfg',

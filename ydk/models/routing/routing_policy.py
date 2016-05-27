@@ -63,12 +63,16 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
 
+from ydk.models.bgp.bgp_policy import BgpSetCommunityOptionTypeEnum
+from ydk.models.bgp.bgp_types import AfiSafiType_Identity
+from ydk.models.bgp.bgp_types import BgpOriginAttrTypeEnum
 from ydk.models.policy.policy_types import MatchSetOptionsRestrictedTypeEnum
+from ydk.models.policy.policy_types import MatchSetOptionsTypeEnum
 
 class DefaultPolicyTypeEnum(Enum):
     """
@@ -133,20 +137,25 @@ class RoutingPolicy(object):
         Predefined sets of attributes used in policy match
         statements
         
-        .. attribute:: neighbor_sets
-        
-        	Enclosing container for defined neighbor sets for matching
-        	**type**\: :py:class:`NeighborSets <ydk.models.routing.routing_policy.RoutingPolicy.DefinedSets.NeighborSets>`
-        
         .. attribute:: prefix_sets
         
         	Enclosing container for defined prefix sets for matching
         	**type**\: :py:class:`PrefixSets <ydk.models.routing.routing_policy.RoutingPolicy.DefinedSets.PrefixSets>`
         
+        .. attribute:: neighbor_sets
+        
+        	Enclosing container for defined neighbor sets for matching
+        	**type**\: :py:class:`NeighborSets <ydk.models.routing.routing_policy.RoutingPolicy.DefinedSets.NeighborSets>`
+        
         .. attribute:: tag_sets
         
         	Enclosing container for defined tag sets for matching
         	**type**\: :py:class:`TagSets <ydk.models.routing.routing_policy.RoutingPolicy.DefinedSets.TagSets>`
+        
+        .. attribute:: bgp_defined_sets
+        
+        	BGP\-related set definitions for policy match conditions
+        	**type**\: :py:class:`BgpDefinedSets <ydk.models.routing.routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets>`
         
         
 
@@ -157,164 +166,14 @@ class RoutingPolicy(object):
 
         def __init__(self):
             self.parent = None
-            self.neighbor_sets = RoutingPolicy.DefinedSets.NeighborSets()
-            self.neighbor_sets.parent = self
             self.prefix_sets = RoutingPolicy.DefinedSets.PrefixSets()
             self.prefix_sets.parent = self
+            self.neighbor_sets = RoutingPolicy.DefinedSets.NeighborSets()
+            self.neighbor_sets.parent = self
             self.tag_sets = RoutingPolicy.DefinedSets.TagSets()
             self.tag_sets.parent = self
-
-
-        class NeighborSets(object):
-            """
-            Enclosing container for defined neighbor sets for matching
-            
-            .. attribute:: neighbor_set
-            
-            	Definitions for neighbor sets
-            	**type**\: list of :py:class:`NeighborSet <ydk.models.routing.routing_policy.RoutingPolicy.DefinedSets.NeighborSets.NeighborSet>`
-            
-            
-
-            """
-
-            _prefix = 'rpol'
-            _revision = '2015-05-15'
-
-            def __init__(self):
-                self.parent = None
-                self.neighbor_set = YList()
-                self.neighbor_set.parent = self
-                self.neighbor_set.name = 'neighbor_set'
-
-
-            class NeighborSet(object):
-                """
-                Definitions for neighbor sets
-                
-                .. attribute:: neighbor_set_name
-                
-                	name / label of the neighbor set \-\- this is used to reference the set in match conditions
-                	**type**\: str
-                
-                .. attribute:: neighbor
-                
-                	list of addresses that are part of the neighbor set
-                	**type**\: list of :py:class:`Neighbor <ydk.models.routing.routing_policy.RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Neighbor>`
-                
-                
-
-                """
-
-                _prefix = 'rpol'
-                _revision = '2015-05-15'
-
-                def __init__(self):
-                    self.parent = None
-                    self.neighbor_set_name = None
-                    self.neighbor = YList()
-                    self.neighbor.parent = self
-                    self.neighbor.name = 'neighbor'
-
-
-                class Neighbor(object):
-                    """
-                    list of addresses that are part of the neighbor set
-                    
-                    .. attribute:: address
-                    
-                    	IP address of the neighbor set member
-                    	**type**\: one of { str | str }
-                    
-                    
-
-                    """
-
-                    _prefix = 'rpol'
-                    _revision = '2015-05-15'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.address = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                        if self.address is None:
-                            raise YPYDataValidationError('Key property address is None')
-
-                        return self.parent._common_path +'/routing-policy:neighbor[routing-policy:address = ' + str(self.address) + ']'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.address is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.routing._meta import _routing_policy as meta
-                        return meta._meta_table['RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Neighbor']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.neighbor_set_name is None:
-                        raise YPYDataValidationError('Key property neighbor_set_name is None')
-
-                    return '/routing-policy:routing-policy/routing-policy:defined-sets/routing-policy:neighbor-sets/routing-policy:neighbor-set[routing-policy:neighbor-set-name = ' + str(self.neighbor_set_name) + ']'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.neighbor_set_name is not None:
-                        return True
-
-                    if self.neighbor is not None:
-                        for child_ref in self.neighbor:
-                            if child_ref._has_data():
-                                return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.routing._meta import _routing_policy as meta
-                    return meta._meta_table['RoutingPolicy.DefinedSets.NeighborSets.NeighborSet']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/routing-policy:routing-policy/routing-policy:defined-sets/routing-policy:neighbor-sets'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.neighbor_set is not None:
-                    for child_ref in self.neighbor_set:
-                        if child_ref._has_data():
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.routing._meta import _routing_policy as meta
-                return meta._meta_table['RoutingPolicy.DefinedSets.NeighborSets']['meta_info']
+            self.bgp_defined_sets = RoutingPolicy.DefinedSets.BgpDefinedSets()
+            self.bgp_defined_sets.parent = self
 
 
         class PrefixSets(object):
@@ -344,7 +203,7 @@ class RoutingPolicy(object):
                 """
                 List of the defined prefix sets
                 
-                .. attribute:: prefix_set_name
+                .. attribute:: prefix_set_name  <key>
                 
                 	name / label of the prefix set \-\- this is used to reference the set in match conditions
                 	**type**\: str
@@ -373,12 +232,24 @@ class RoutingPolicy(object):
                     """
                     List of prefix expressions that are part of the set
                     
-                    .. attribute:: ip_prefix
+                    .. attribute:: ip_prefix  <key>
                     
                     	The prefix member in CIDR notation \-\- while the prefix may be either IPv4 or IPv6, most implementations require all members of the prefix set to be the same address family.  Mixing address types in the same prefix set is likely to cause an error
-                    	**type**\: one of { str | str }
+                    	**type**\: one of the below types:
                     
-                    .. attribute:: masklength_range
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+                    
+                    
+                    ----
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                    
+                    
+                    ----
+                    .. attribute:: masklength_range  <key>
                     
                     	Defines a range for the masklength, or 'exact' if the prefix has an exact length.  Example\: 10.3.192.0/21 through 10.3.192.0/24 would be expressed as prefix\: 10.3.192.0/21, masklength\-range\: 21..24.  Example\: 10.3.192.0/21 would be expressed as prefix\: 10.3.192.0/21, masklength\-range\: exact
                     	**type**\: str
@@ -482,6 +353,170 @@ class RoutingPolicy(object):
                 return meta._meta_table['RoutingPolicy.DefinedSets.PrefixSets']['meta_info']
 
 
+        class NeighborSets(object):
+            """
+            Enclosing container for defined neighbor sets for matching
+            
+            .. attribute:: neighbor_set
+            
+            	Definitions for neighbor sets
+            	**type**\: list of :py:class:`NeighborSet <ydk.models.routing.routing_policy.RoutingPolicy.DefinedSets.NeighborSets.NeighborSet>`
+            
+            
+
+            """
+
+            _prefix = 'rpol'
+            _revision = '2015-05-15'
+
+            def __init__(self):
+                self.parent = None
+                self.neighbor_set = YList()
+                self.neighbor_set.parent = self
+                self.neighbor_set.name = 'neighbor_set'
+
+
+            class NeighborSet(object):
+                """
+                Definitions for neighbor sets
+                
+                .. attribute:: neighbor_set_name  <key>
+                
+                	name / label of the neighbor set \-\- this is used to reference the set in match conditions
+                	**type**\: str
+                
+                .. attribute:: neighbor
+                
+                	list of addresses that are part of the neighbor set
+                	**type**\: list of :py:class:`Neighbor <ydk.models.routing.routing_policy.RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Neighbor>`
+                
+                
+
+                """
+
+                _prefix = 'rpol'
+                _revision = '2015-05-15'
+
+                def __init__(self):
+                    self.parent = None
+                    self.neighbor_set_name = None
+                    self.neighbor = YList()
+                    self.neighbor.parent = self
+                    self.neighbor.name = 'neighbor'
+
+
+                class Neighbor(object):
+                    """
+                    list of addresses that are part of the neighbor set
+                    
+                    .. attribute:: address  <key>
+                    
+                    	IP address of the neighbor set member
+                    	**type**\: one of the below types:
+                    
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    
+                    ----
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    
+                    ----
+                    
+
+                    """
+
+                    _prefix = 'rpol'
+                    _revision = '2015-05-15'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.address = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        if self.address is None:
+                            raise YPYDataValidationError('Key property address is None')
+
+                        return self.parent._common_path +'/routing-policy:neighbor[routing-policy:address = ' + str(self.address) + ']'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.address is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.routing._meta import _routing_policy as meta
+                        return meta._meta_table['RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Neighbor']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.neighbor_set_name is None:
+                        raise YPYDataValidationError('Key property neighbor_set_name is None')
+
+                    return '/routing-policy:routing-policy/routing-policy:defined-sets/routing-policy:neighbor-sets/routing-policy:neighbor-set[routing-policy:neighbor-set-name = ' + str(self.neighbor_set_name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.neighbor_set_name is not None:
+                        return True
+
+                    if self.neighbor is not None:
+                        for child_ref in self.neighbor:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.routing._meta import _routing_policy as meta
+                    return meta._meta_table['RoutingPolicy.DefinedSets.NeighborSets.NeighborSet']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/routing-policy:routing-policy/routing-policy:defined-sets/routing-policy:neighbor-sets'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.neighbor_set is not None:
+                    for child_ref in self.neighbor_set:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.routing._meta import _routing_policy as meta
+                return meta._meta_table['RoutingPolicy.DefinedSets.NeighborSets']['meta_info']
+
+
         class TagSets(object):
             """
             Enclosing container for defined tag sets for matching
@@ -509,7 +544,7 @@ class RoutingPolicy(object):
                 """
                 Definitions for tag sets
                 
-                .. attribute:: tag_set_name
+                .. attribute:: tag_set_name  <key>
                 
                 	name / label of the tag set \-\- this is used to reference the set in match conditions
                 	**type**\: str
@@ -538,11 +573,23 @@ class RoutingPolicy(object):
                     """
                     list of tags that are part of the tag set
                     
-                    .. attribute:: value
+                    .. attribute:: value  <key>
                     
                     	Value of the tag set member
-                    	**type**\: one of { int | str }
+                    	**type**\: one of the below types:
                     
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+                    ----
+                    	**type**\: str
+                    
+                    	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                    
+                    
+                    ----
                     
 
                     """
@@ -633,6 +680,417 @@ class RoutingPolicy(object):
                 from ydk.models.routing._meta import _routing_policy as meta
                 return meta._meta_table['RoutingPolicy.DefinedSets.TagSets']['meta_info']
 
+
+        class BgpDefinedSets(object):
+            """
+            BGP\-related set definitions for policy match conditions
+            
+            .. attribute:: community_sets
+            
+            	Enclosing container for community sets
+            	**type**\: :py:class:`CommunitySets <ydk.models.routing.routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets>`
+            
+            .. attribute:: ext_community_sets
+            
+            	Enclosing container for extended community sets
+            	**type**\: :py:class:`ExtCommunitySets <ydk.models.routing.routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets>`
+            
+            .. attribute:: as_path_sets
+            
+            	Enclosing container for AS path sets
+            	**type**\: :py:class:`AsPathSets <ydk.models.routing.routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets>`
+            
+            
+
+            """
+
+            _prefix = 'bgp-pol'
+            _revision = '2015-05-15'
+
+            def __init__(self):
+                self.parent = None
+                self.community_sets = RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets()
+                self.community_sets.parent = self
+                self.ext_community_sets = RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets()
+                self.ext_community_sets.parent = self
+                self.as_path_sets = RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets()
+                self.as_path_sets.parent = self
+
+
+            class CommunitySets(object):
+                """
+                Enclosing container for community sets
+                
+                .. attribute:: community_set
+                
+                	Definitions for community sets
+                	**type**\: list of :py:class:`CommunitySet <ydk.models.routing.routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet>`
+                
+                
+
+                """
+
+                _prefix = 'bgp-pol'
+                _revision = '2015-05-15'
+
+                def __init__(self):
+                    self.parent = None
+                    self.community_set = YList()
+                    self.community_set.parent = self
+                    self.community_set.name = 'community_set'
+
+
+                class CommunitySet(object):
+                    """
+                    Definitions for community sets
+                    
+                    .. attribute:: community_set_name  <key>
+                    
+                    	name / label of the community set \-\- this is used to reference the set in match conditions
+                    	**type**\: str
+                    
+                    .. attribute:: community_member
+                    
+                    	members of the community set
+                    	**type**\: one of the below types:
+                    
+                    	**type**\: list of int
+                    
+                    	**range:** 65536..4294901759
+                    
+                    
+                    ----
+                    	**type**\: list of str
+                    
+                    	**pattern:** ([0\-9]+\:[0\-9]+)
+                    
+                    
+                    ----
+                    
+                    ----
+                    	**type**\: list of str
+                    
+                    
+                    ----
+                    	**type**\: list of str
+                    
+                    
+                    ----
+                    
+
+                    """
+
+                    _prefix = 'bgp-pol'
+                    _revision = '2015-05-15'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.community_set_name = None
+                        self.community_member = YLeafList()
+                        self.community_member.parent = self
+                        self.community_member.name = 'community_member'
+
+                    @property
+                    def _common_path(self):
+                        if self.community_set_name is None:
+                            raise YPYDataValidationError('Key property community_set_name is None')
+
+                        return '/routing-policy:routing-policy/routing-policy:defined-sets/bgp-policy:bgp-defined-sets/bgp-policy:community-sets/bgp-policy:community-set[bgp-policy:community-set-name = ' + str(self.community_set_name) + ']'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.community_set_name is not None:
+                            return True
+
+                        if self.community_member is not None:
+                            for child in self.community_member:
+                                if child is not None:
+                                    return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.routing._meta import _routing_policy as meta
+                        return meta._meta_table['RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet']['meta_info']
+
+                @property
+                def _common_path(self):
+
+                    return '/routing-policy:routing-policy/routing-policy:defined-sets/bgp-policy:bgp-defined-sets/bgp-policy:community-sets'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.community_set is not None:
+                        for child_ref in self.community_set:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.routing._meta import _routing_policy as meta
+                    return meta._meta_table['RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets']['meta_info']
+
+
+            class ExtCommunitySets(object):
+                """
+                Enclosing container for extended community sets
+                
+                .. attribute:: ext_community_set
+                
+                	Definitions for extended community sets
+                	**type**\: list of :py:class:`ExtCommunitySet <ydk.models.routing.routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet>`
+                
+                
+
+                """
+
+                _prefix = 'bgp-pol'
+                _revision = '2015-05-15'
+
+                def __init__(self):
+                    self.parent = None
+                    self.ext_community_set = YList()
+                    self.ext_community_set.parent = self
+                    self.ext_community_set.name = 'ext_community_set'
+
+
+                class ExtCommunitySet(object):
+                    """
+                    Definitions for extended community sets
+                    
+                    .. attribute:: ext_community_set_name  <key>
+                    
+                    	name / label of the extended community set \-\- this is used to reference the set in match conditions
+                    	**type**\: str
+                    
+                    .. attribute:: ext_community_member
+                    
+                    	members of the extended community set
+                    	**type**\: one of the below types:
+                    
+                    	**type**\: list of str
+                    
+                    	**pattern:** ([0\-9\\.]+(\:[0\-9]+)?\:[0\-9]+)
+                    
+                    
+                    ----
+                    	**type**\: list of str
+                    
+                    
+                    ----
+                    
+
+                    """
+
+                    _prefix = 'bgp-pol'
+                    _revision = '2015-05-15'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.ext_community_set_name = None
+                        self.ext_community_member = YLeafList()
+                        self.ext_community_member.parent = self
+                        self.ext_community_member.name = 'ext_community_member'
+
+                    @property
+                    def _common_path(self):
+                        if self.ext_community_set_name is None:
+                            raise YPYDataValidationError('Key property ext_community_set_name is None')
+
+                        return '/routing-policy:routing-policy/routing-policy:defined-sets/bgp-policy:bgp-defined-sets/bgp-policy:ext-community-sets/bgp-policy:ext-community-set[bgp-policy:ext-community-set-name = ' + str(self.ext_community_set_name) + ']'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.ext_community_set_name is not None:
+                            return True
+
+                        if self.ext_community_member is not None:
+                            for child in self.ext_community_member:
+                                if child is not None:
+                                    return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.routing._meta import _routing_policy as meta
+                        return meta._meta_table['RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet']['meta_info']
+
+                @property
+                def _common_path(self):
+
+                    return '/routing-policy:routing-policy/routing-policy:defined-sets/bgp-policy:bgp-defined-sets/bgp-policy:ext-community-sets'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.ext_community_set is not None:
+                        for child_ref in self.ext_community_set:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.routing._meta import _routing_policy as meta
+                    return meta._meta_table['RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets']['meta_info']
+
+
+            class AsPathSets(object):
+                """
+                Enclosing container for AS path sets
+                
+                .. attribute:: as_path_set
+                
+                	Definitions for AS path sets
+                	**type**\: list of :py:class:`AsPathSet <ydk.models.routing.routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet>`
+                
+                
+
+                """
+
+                _prefix = 'bgp-pol'
+                _revision = '2015-05-15'
+
+                def __init__(self):
+                    self.parent = None
+                    self.as_path_set = YList()
+                    self.as_path_set.parent = self
+                    self.as_path_set.name = 'as_path_set'
+
+
+                class AsPathSet(object):
+                    """
+                    Definitions for AS path sets
+                    
+                    .. attribute:: as_path_set_name  <key>
+                    
+                    	name of the AS path set \-\- this is used to reference the set in match conditions
+                    	**type**\: str
+                    
+                    .. attribute:: as_path_set_member
+                    
+                    	AS path expression \-\- list of ASes in the set
+                    	**type**\: list of str
+                    
+                    
+
+                    """
+
+                    _prefix = 'bgp-pol'
+                    _revision = '2015-05-15'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.as_path_set_name = None
+                        self.as_path_set_member = YLeafList()
+                        self.as_path_set_member.parent = self
+                        self.as_path_set_member.name = 'as_path_set_member'
+
+                    @property
+                    def _common_path(self):
+                        if self.as_path_set_name is None:
+                            raise YPYDataValidationError('Key property as_path_set_name is None')
+
+                        return '/routing-policy:routing-policy/routing-policy:defined-sets/bgp-policy:bgp-defined-sets/bgp-policy:as-path-sets/bgp-policy:as-path-set[bgp-policy:as-path-set-name = ' + str(self.as_path_set_name) + ']'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.as_path_set_name is not None:
+                            return True
+
+                        if self.as_path_set_member is not None:
+                            for child in self.as_path_set_member:
+                                if child is not None:
+                                    return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.routing._meta import _routing_policy as meta
+                        return meta._meta_table['RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet']['meta_info']
+
+                @property
+                def _common_path(self):
+
+                    return '/routing-policy:routing-policy/routing-policy:defined-sets/bgp-policy:bgp-defined-sets/bgp-policy:as-path-sets'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.as_path_set is not None:
+                        for child_ref in self.as_path_set:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.routing._meta import _routing_policy as meta
+                    return meta._meta_table['RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/routing-policy:routing-policy/routing-policy:defined-sets/bgp-policy:bgp-defined-sets'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.community_sets is not None and self.community_sets._has_data():
+                    return True
+
+                if self.ext_community_sets is not None and self.ext_community_sets._has_data():
+                    return True
+
+                if self.as_path_sets is not None and self.as_path_sets._has_data():
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.routing._meta import _routing_policy as meta
+                return meta._meta_table['RoutingPolicy.DefinedSets.BgpDefinedSets']['meta_info']
+
         @property
         def _common_path(self):
 
@@ -645,13 +1103,16 @@ class RoutingPolicy(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.neighbor_sets is not None and self.neighbor_sets._has_data():
-                return True
-
             if self.prefix_sets is not None and self.prefix_sets._has_data():
                 return True
 
+            if self.neighbor_sets is not None and self.neighbor_sets._has_data():
+                return True
+
             if self.tag_sets is not None and self.tag_sets._has_data():
+                return True
+
+            if self.bgp_defined_sets is not None and self.bgp_defined_sets._has_data():
                 return True
 
             return False
@@ -693,7 +1154,7 @@ class RoutingPolicy(object):
             referenced (by name) in policy chains specified in import/
             export configuration statements.
             
-            .. attribute:: name
+            .. attribute:: name  <key>
             
             	Name of the top\-level policy definition \-\- this name  is used in references to the current policy
             	**type**\: str
@@ -747,20 +1208,20 @@ class RoutingPolicy(object):
                     specified (see the description of policy evaluation
                     at the top of this module.
                     
-                    .. attribute:: name
+                    .. attribute:: name  <key>
                     
                     	name of the policy statement
                     	**type**\: str
-                    
-                    .. attribute:: actions
-                    
-                    	Action statements for this policy statement
-                    	**type**\: :py:class:`Actions <ydk.models.routing.routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions>`
                     
                     .. attribute:: conditions
                     
                     	Condition statements for this policy statement
                     	**type**\: :py:class:`Conditions <ydk.models.routing.routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions>`
+                    
+                    .. attribute:: actions
+                    
+                    	Action statements for this policy statement
+                    	**type**\: :py:class:`Actions <ydk.models.routing.routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions>`
                     
                     
 
@@ -772,121 +1233,10 @@ class RoutingPolicy(object):
                     def __init__(self):
                         self.parent = None
                         self.name = None
-                        self.actions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions()
-                        self.actions.parent = self
                         self.conditions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions()
                         self.conditions.parent = self
-
-
-                    class Actions(object):
-                        """
-                        Action statements for this policy
-                        statement
-                        
-                        .. attribute:: accept_route
-                        
-                        	accepts the route into the routing table
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
-                        .. attribute:: igp_actions
-                        
-                        	Actions to set IGP route attributes; these actions apply to multiple IGPs
-                        	**type**\: :py:class:`IgpActions <ydk.models.routing.routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions>`
-                        
-                        .. attribute:: reject_route
-                        
-                        	rejects the route
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'rpol'
-                        _revision = '2015-05-15'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.accept_route = None
-                            self.igp_actions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions()
-                            self.igp_actions.parent = self
-                            self.reject_route = None
-
-
-                        class IgpActions(object):
-                            """
-                            Actions to set IGP route attributes; these actions
-                            apply to multiple IGPs
-                            
-                            .. attribute:: set_tag
-                            
-                            	Set the tag value for OSPF or IS\-IS routes
-                            	**type**\: one of { int | str }
-                            
-                            
-
-                            """
-
-                            _prefix = 'rpol'
-                            _revision = '2015-05-15'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.set_tag = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/routing-policy:igp-actions'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.set_tag is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.routing._meta import _routing_policy as meta
-                                return meta._meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/routing-policy:actions'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.accept_route is not None:
-                                return True
-
-                            if self.igp_actions is not None and self.igp_actions._has_data():
-                                return True
-
-                            if self.reject_route is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.routing._meta import _routing_policy as meta
-                            return meta._meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions']['meta_info']
+                        self.actions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions()
+                        self.actions.parent = self
 
 
                     class Conditions(object):
@@ -899,30 +1249,35 @@ class RoutingPolicy(object):
                         	Applies the statements from the specified policy definition and then returns control the current policy statement. Note that the called policy may itself call other policies (subject to implementation limitations). This is intended to provide a policy 'subroutine' capability.  The called policy should contain an explicit or a default route disposition that returns an effective true (accept\-route) or false (reject\-route), otherwise the behavior may be ambiguous and implementation dependent
                         	**type**\: str
                         
-                        .. attribute:: igp_conditions
+                        .. attribute:: match_prefix_set
                         
-                        	Policy conditions for IGP attributes
-                        	**type**\: :py:class:`IgpConditions <ydk.models.routing.routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions>`
-                        
-                        .. attribute:: install_protocol_eq
-                        
-                        	Condition to check the protocol / method used to install which installed the route into the local routing table
-                        	**type**\: str
+                        	Match a referenced prefix\-set according to the logic defined in the match\-set\-options leaf
+                        	**type**\: :py:class:`MatchPrefixSet <ydk.models.routing.routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet>`
                         
                         .. attribute:: match_neighbor_set
                         
                         	Match a referenced neighbor set according to the logic defined in the match\-set\-options\-leaf
                         	**type**\: :py:class:`MatchNeighborSet <ydk.models.routing.routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet>`
                         
-                        .. attribute:: match_prefix_set
-                        
-                        	Match a referenced prefix\-set according to the logic defined in the match\-set\-options leaf
-                        	**type**\: :py:class:`MatchPrefixSet <ydk.models.routing.routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet>`
-                        
                         .. attribute:: match_tag_set
                         
                         	Match a referenced tag set according to the logic defined in the match\-options\-set leaf
                         	**type**\: :py:class:`MatchTagSet <ydk.models.routing.routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet>`
+                        
+                        .. attribute:: install_protocol_eq
+                        
+                        	Condition to check the protocol / method used to install which installed the route into the local routing table
+                        	**type**\: str
+                        
+                        .. attribute:: igp_conditions
+                        
+                        	Policy conditions for IGP attributes
+                        	**type**\: :py:class:`IgpConditions <ydk.models.routing.routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions>`
+                        
+                        .. attribute:: bgp_conditions
+                        
+                        	Policy conditions for matching BGP\-specific defined sets or comparing BGP\-specific attributes
+                        	**type**\: :py:class:`BgpConditions <ydk.models.routing.routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions>`
                         
                         
 
@@ -934,12 +1289,215 @@ class RoutingPolicy(object):
                         def __init__(self):
                             self.parent = None
                             self.call_policy = None
+                            self.match_prefix_set = None
+                            self.match_neighbor_set = None
+                            self.match_tag_set = None
+                            self.install_protocol_eq = None
                             self.igp_conditions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions()
                             self.igp_conditions.parent = self
-                            self.install_protocol_eq = None
-                            self.match_neighbor_set = None
-                            self.match_prefix_set = None
-                            self.match_tag_set = None
+                            self.bgp_conditions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions()
+                            self.bgp_conditions.parent = self
+
+
+                        class MatchPrefixSet(object):
+                            """
+                            Match a referenced prefix\-set according to the logic
+                            defined in the match\-set\-options leaf
+                            
+                            .. attribute:: prefix_set
+                            
+                            	References a defined prefix set
+                            	**type**\: str
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            .. attribute:: match_set_options
+                            
+                            	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
+                            	**type**\: :py:class:`MatchSetOptionsRestrictedTypeEnum <ydk.models.policy.policy_types.MatchSetOptionsRestrictedTypeEnum>`
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            
+
+                            This class is a :ref:`presence class<presence-class>`
+
+                            """
+
+                            _prefix = 'rpol'
+                            _revision = '2015-05-15'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.prefix_set = None
+                                self.match_set_options = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/routing-policy:match-prefix-set'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.prefix_set is not None:
+                                    return True
+
+                                if self.match_set_options is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.routing._meta import _routing_policy as meta
+                                return meta._meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet']['meta_info']
+
+
+                        class MatchNeighborSet(object):
+                            """
+                            Match a referenced neighbor set according to the logic
+                            defined in the match\-set\-options\-leaf
+                            
+                            .. attribute:: neighbor_set
+                            
+                            	References a defined neighbor set
+                            	**type**\: str
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            .. attribute:: match_set_options
+                            
+                            	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
+                            	**type**\: :py:class:`MatchSetOptionsRestrictedTypeEnum <ydk.models.policy.policy_types.MatchSetOptionsRestrictedTypeEnum>`
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            
+
+                            This class is a :ref:`presence class<presence-class>`
+
+                            """
+
+                            _prefix = 'rpol'
+                            _revision = '2015-05-15'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.neighbor_set = None
+                                self.match_set_options = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/routing-policy:match-neighbor-set'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.neighbor_set is not None:
+                                    return True
+
+                                if self.match_set_options is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.routing._meta import _routing_policy as meta
+                                return meta._meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet']['meta_info']
+
+
+                        class MatchTagSet(object):
+                            """
+                            Match a referenced tag set according to the logic defined
+                            in the match\-options\-set leaf
+                            
+                            .. attribute:: tag_set
+                            
+                            	References a defined tag set
+                            	**type**\: str
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            .. attribute:: match_set_options
+                            
+                            	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
+                            	**type**\: :py:class:`MatchSetOptionsRestrictedTypeEnum <ydk.models.policy.policy_types.MatchSetOptionsRestrictedTypeEnum>`
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            
+
+                            This class is a :ref:`presence class<presence-class>`
+
+                            """
+
+                            _prefix = 'rpol'
+                            _revision = '2015-05-15'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.tag_set = None
+                                self.match_set_options = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/routing-policy:match-tag-set'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.tag_set is not None:
+                                    return True
+
+                                if self.match_set_options is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.routing._meta import _routing_policy as meta
+                                return meta._meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet']['meta_info']
 
 
                         class IgpConditions(object):
@@ -978,51 +1536,480 @@ class RoutingPolicy(object):
                                 return meta._meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions']['meta_info']
 
 
-                        class MatchNeighborSet(object):
+                        class BgpConditions(object):
                             """
-                            Match a referenced neighbor set according to the logic
-                            defined in the match\-set\-options\-leaf
+                            Policy conditions for matching
+                            BGP\-specific defined sets or comparing BGP\-specific
+                            attributes
                             
-                            .. attribute:: match_set_options
+                            .. attribute:: match_community_set
                             
-                            	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
-                            	**type**\: :py:class:`MatchSetOptionsRestrictedTypeEnum <ydk.models.policy.policy_types.MatchSetOptionsRestrictedTypeEnum>`
+                            	Match a referenced community\-set according to the logic defined in the match\-set\-options leaf
+                            	**type**\: :py:class:`MatchCommunitySet <ydk.models.routing.routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet>`
                             
-                            .. attribute:: _is_presence
+                            .. attribute:: match_ext_community_set
                             
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
+                            	Match a referenced extended community\-set according to the logic defined in the match\-set\-options leaf
+                            	**type**\: :py:class:`MatchExtCommunitySet <ydk.models.routing.routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet>`
                             
-                            .. attribute:: neighbor_set
+                            .. attribute:: match_as_path_set
                             
-                            	References a defined neighbor set
-                            	**type**\: str
+                            	Match a referenced as\-path set according to the logic defined in the match\-set\-options leaf
+                            	**type**\: :py:class:`MatchAsPathSet <ydk.models.routing.routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet>`
                             
-                            .. attribute:: _is_presence
+                            .. attribute:: med_eq
                             
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
+                            	Condition to check if the received MED value is equal to the specified value
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: origin_eq
+                            
+                            	Condition to check if the route origin is equal to the specified value
+                            	**type**\: :py:class:`BgpOriginAttrTypeEnum <ydk.models.bgp.bgp_types.BgpOriginAttrTypeEnum>`
+                            
+                            .. attribute:: next_hop_in
+                            
+                            	List of next hop addresses to check for in the route update
+                            	**type**\: one of the below types:
+                            
+                            	**type**\: list of str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             
-
-                            This class is a :ref:`presence class<presence-class>`
+                            ----
+                            	**type**\: list of str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            .. attribute:: afi_safi_in
+                            
+                            	List of address families which the NLRI may be within
+                            	**type**\: list of :py:class:`AfiSafiType_Identity <ydk.models.bgp.bgp_types.AfiSafiType_Identity>`
+                            
+                            .. attribute:: local_pref_eq
+                            
+                            	Condition to check if the local pref attribute is equal to the specified value
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: community_count
+                            
+                            	Value and comparison operations for conditions based on the number of communities in the route update
+                            	**type**\: :py:class:`CommunityCount <ydk.models.routing.routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount>`
+                            
+                            .. attribute:: as_path_length
+                            
+                            	Value and comparison operations for conditions based on the length of the AS path in the route update
+                            	**type**\: :py:class:`AsPathLength <ydk.models.routing.routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength>`
+                            
+                            .. attribute:: route_type
+                            
+                            	Condition to check the route type in the route update
+                            	**type**\: :py:class:`RouteTypeEnum <ydk.models.routing.routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.RouteTypeEnum>`
+                            
+                            
 
                             """
 
-                            _prefix = 'rpol'
+                            _prefix = 'bgp-pol'
                             _revision = '2015-05-15'
 
                             def __init__(self):
                                 self.parent = None
-                                self.match_set_options = None
-                                self.neighbor_set = None
+                                self.match_community_set = None
+                                self.match_ext_community_set = None
+                                self.match_as_path_set = None
+                                self.med_eq = None
+                                self.origin_eq = None
+                                self.next_hop_in = YLeafList()
+                                self.next_hop_in.parent = self
+                                self.next_hop_in.name = 'next_hop_in'
+                                self.afi_safi_in = YList()
+                                self.afi_safi_in.parent = self
+                                self.afi_safi_in.name = 'afi_safi_in'
+                                self.local_pref_eq = None
+                                self.community_count = None
+                                self.as_path_length = None
+                                self.route_type = None
+
+                            class RouteTypeEnum(Enum):
+                                """
+                                RouteTypeEnum
+
+                                Condition to check the route type in the route update
+
+                                .. data:: INTERNAL = 0
+
+                                	route type is internal
+
+                                .. data:: EXTERNAL = 1
+
+                                	route type is external
+
+                                """
+
+                                INTERNAL = 0
+
+                                EXTERNAL = 1
+
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.routing._meta import _routing_policy as meta
+                                    return meta._meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.RouteTypeEnum']
+
+
+
+                            class MatchCommunitySet(object):
+                                """
+                                Match a referenced community\-set according to the logic
+                                defined in the match\-set\-options leaf
+                                
+                                .. attribute:: community_set
+                                
+                                	References a defined community set
+                                	**type**\: str
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
+                                .. attribute:: match_set_options
+                                
+                                	Optional parameter that governs the behaviour of the match operation
+                                	**type**\: :py:class:`MatchSetOptionsTypeEnum <ydk.models.policy.policy_types.MatchSetOptionsTypeEnum>`
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
+                                
+
+                                This class is a :ref:`presence class<presence-class>`
+
+                                """
+
+                                _prefix = 'bgp-pol'
+                                _revision = '2015-05-15'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.community_set = None
+                                    self.match_set_options = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/bgp-policy:match-community-set'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.community_set is not None:
+                                        return True
+
+                                    if self.match_set_options is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.routing._meta import _routing_policy as meta
+                                    return meta._meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet']['meta_info']
+
+
+                            class MatchExtCommunitySet(object):
+                                """
+                                Match a referenced extended community\-set according to the
+                                logic defined in the match\-set\-options leaf
+                                
+                                .. attribute:: ext_community_set
+                                
+                                	References a defined extended community set
+                                	**type**\: str
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
+                                .. attribute:: match_set_options
+                                
+                                	Optional parameter that governs the behaviour of the match operation
+                                	**type**\: :py:class:`MatchSetOptionsTypeEnum <ydk.models.policy.policy_types.MatchSetOptionsTypeEnum>`
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
+                                
+
+                                This class is a :ref:`presence class<presence-class>`
+
+                                """
+
+                                _prefix = 'bgp-pol'
+                                _revision = '2015-05-15'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.ext_community_set = None
+                                    self.match_set_options = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/bgp-policy:match-ext-community-set'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.ext_community_set is not None:
+                                        return True
+
+                                    if self.match_set_options is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.routing._meta import _routing_policy as meta
+                                    return meta._meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet']['meta_info']
+
+
+                            class MatchAsPathSet(object):
+                                """
+                                Match a referenced as\-path set according to the logic
+                                defined in the match\-set\-options leaf
+                                
+                                .. attribute:: as_path_set
+                                
+                                	References a defined AS path set
+                                	**type**\: str
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
+                                .. attribute:: match_set_options
+                                
+                                	Optional parameter that governs the behaviour of the match operation
+                                	**type**\: :py:class:`MatchSetOptionsTypeEnum <ydk.models.policy.policy_types.MatchSetOptionsTypeEnum>`
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
+                                
+
+                                This class is a :ref:`presence class<presence-class>`
+
+                                """
+
+                                _prefix = 'bgp-pol'
+                                _revision = '2015-05-15'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.as_path_set = None
+                                    self.match_set_options = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/bgp-policy:match-as-path-set'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.as_path_set is not None:
+                                        return True
+
+                                    if self.match_set_options is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.routing._meta import _routing_policy as meta
+                                    return meta._meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet']['meta_info']
+
+
+                            class CommunityCount(object):
+                                """
+                                Value and comparison operations for conditions based on the
+                                number of communities in the route update
+                                
+                                .. attribute:: operator
+                                
+                                	type of comparison to be performed
+                                	**type**\: str
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
+                                .. attribute:: value
+                                
+                                	value to compare with the community count
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
+                                
+
+                                This class is a :ref:`presence class<presence-class>`
+
+                                """
+
+                                _prefix = 'bgp-pol'
+                                _revision = '2015-05-15'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.operator = None
+                                    self.value = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/bgp-policy:community-count'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.operator is not None:
+                                        return True
+
+                                    if self.value is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.routing._meta import _routing_policy as meta
+                                    return meta._meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount']['meta_info']
+
+
+                            class AsPathLength(object):
+                                """
+                                Value and comparison operations for conditions based on the
+                                length of the AS path in the route update
+                                
+                                .. attribute:: operator
+                                
+                                	type of comparison to be performed
+                                	**type**\: str
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
+                                .. attribute:: value
+                                
+                                	value to compare with the community count
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
+                                
+
+                                This class is a :ref:`presence class<presence-class>`
+
+                                """
+
+                                _prefix = 'bgp-pol'
+                                _revision = '2015-05-15'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.operator = None
+                                    self.value = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/bgp-policy:as-path-length'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.operator is not None:
+                                        return True
+
+                                    if self.value is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.routing._meta import _routing_policy as meta
+                                    return meta._meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength']['meta_info']
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYDataValidationError('parent is not set . Cannot derive path.')
 
-                                return self.parent._common_path +'/routing-policy:match-neighbor-set'
+                                return self.parent._common_path +'/bgp-policy:bgp-conditions'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
@@ -1031,77 +2018,41 @@ class RoutingPolicy(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.match_set_options is not None:
+                                if self.match_community_set is not None and self.match_community_set._has_data():
                                     return True
 
-                                if self.neighbor_set is not None:
+                                if self.match_ext_community_set is not None and self.match_ext_community_set._has_data():
                                     return True
 
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.routing._meta import _routing_policy as meta
-                                return meta._meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet']['meta_info']
-
-
-                        class MatchPrefixSet(object):
-                            """
-                            Match a referenced prefix\-set according to the logic
-                            defined in the match\-set\-options leaf
-                            
-                            .. attribute:: match_set_options
-                            
-                            	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
-                            	**type**\: :py:class:`MatchSetOptionsRestrictedTypeEnum <ydk.models.policy.policy_types.MatchSetOptionsRestrictedTypeEnum>`
-                            
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
-                            .. attribute:: prefix_set
-                            
-                            	References a defined prefix set
-                            	**type**\: str
-                            
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
-                            
-
-                            This class is a :ref:`presence class<presence-class>`
-
-                            """
-
-                            _prefix = 'rpol'
-                            _revision = '2015-05-15'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.match_set_options = None
-                                self.prefix_set = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/routing-policy:match-prefix-set'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.match_set_options is not None:
+                                if self.match_as_path_set is not None and self.match_as_path_set._has_data():
                                     return True
 
-                                if self.prefix_set is not None:
+                                if self.med_eq is not None:
+                                    return True
+
+                                if self.origin_eq is not None:
+                                    return True
+
+                                if self.next_hop_in is not None:
+                                    for child in self.next_hop_in:
+                                        if child is not None:
+                                            return True
+
+                                if self.afi_safi_in is not None:
+                                    for child_ref in self.afi_safi_in:
+                                        if child_ref._has_data():
+                                            return True
+
+                                if self.local_pref_eq is not None:
+                                    return True
+
+                                if self.community_count is not None and self.community_count._has_data():
+                                    return True
+
+                                if self.as_path_length is not None and self.as_path_length._has_data():
+                                    return True
+
+                                if self.route_type is not None:
                                     return True
 
                                 return False
@@ -1109,74 +2060,7 @@ class RoutingPolicy(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.routing._meta import _routing_policy as meta
-                                return meta._meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet']['meta_info']
-
-
-                        class MatchTagSet(object):
-                            """
-                            Match a referenced tag set according to the logic defined
-                            in the match\-options\-set leaf
-                            
-                            .. attribute:: match_set_options
-                            
-                            	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
-                            	**type**\: :py:class:`MatchSetOptionsRestrictedTypeEnum <ydk.models.policy.policy_types.MatchSetOptionsRestrictedTypeEnum>`
-                            
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
-                            .. attribute:: tag_set
-                            
-                            	References a defined tag set
-                            	**type**\: str
-                            
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
-                            
-
-                            This class is a :ref:`presence class<presence-class>`
-
-                            """
-
-                            _prefix = 'rpol'
-                            _revision = '2015-05-15'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.match_set_options = None
-                                self.tag_set = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/routing-policy:match-tag-set'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.match_set_options is not None:
-                                    return True
-
-                                if self.tag_set is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.routing._meta import _routing_policy as meta
-                                return meta._meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet']['meta_info']
+                                return meta._meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -1195,19 +2079,22 @@ class RoutingPolicy(object):
                             if self.call_policy is not None:
                                 return True
 
-                            if self.igp_conditions is not None and self.igp_conditions._has_data():
-                                return True
-
-                            if self.install_protocol_eq is not None:
+                            if self.match_prefix_set is not None and self.match_prefix_set._has_data():
                                 return True
 
                             if self.match_neighbor_set is not None and self.match_neighbor_set._has_data():
                                 return True
 
-                            if self.match_prefix_set is not None and self.match_prefix_set._has_data():
+                            if self.match_tag_set is not None and self.match_tag_set._has_data():
                                 return True
 
-                            if self.match_tag_set is not None and self.match_tag_set._has_data():
+                            if self.install_protocol_eq is not None:
+                                return True
+
+                            if self.igp_conditions is not None and self.igp_conditions._has_data():
+                                return True
+
+                            if self.bgp_conditions is not None and self.bgp_conditions._has_data():
                                 return True
 
                             return False
@@ -1216,6 +2103,529 @@ class RoutingPolicy(object):
                         def _meta_info():
                             from ydk.models.routing._meta import _routing_policy as meta
                             return meta._meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions']['meta_info']
+
+
+                    class Actions(object):
+                        """
+                        Action statements for this policy
+                        statement
+                        
+                        .. attribute:: accept_route
+                        
+                        	accepts the route into the routing table
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: reject_route
+                        
+                        	rejects the route
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: igp_actions
+                        
+                        	Actions to set IGP route attributes; these actions apply to multiple IGPs
+                        	**type**\: :py:class:`IgpActions <ydk.models.routing.routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions>`
+                        
+                        .. attribute:: bgp_actions
+                        
+                        	Definitions for policy action statements that change BGP\-specific attributes of the route
+                        	**type**\: :py:class:`BgpActions <ydk.models.routing.routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'rpol'
+                        _revision = '2015-05-15'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.accept_route = None
+                            self.reject_route = None
+                            self.igp_actions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions()
+                            self.igp_actions.parent = self
+                            self.bgp_actions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions()
+                            self.bgp_actions.parent = self
+
+
+                        class IgpActions(object):
+                            """
+                            Actions to set IGP route attributes; these actions
+                            apply to multiple IGPs
+                            
+                            .. attribute:: set_tag
+                            
+                            	Set the tag value for OSPF or IS\-IS routes
+                            	**type**\: one of the below types:
+                            
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+                            ----
+                            	**type**\: str
+                            
+                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            
+                            ----
+                            
+
+                            """
+
+                            _prefix = 'rpol'
+                            _revision = '2015-05-15'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.set_tag = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/routing-policy:igp-actions'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.set_tag is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.routing._meta import _routing_policy as meta
+                                return meta._meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions']['meta_info']
+
+
+                        class BgpActions(object):
+                            """
+                            Definitions for policy action statements that
+                            change BGP\-specific attributes of the route
+                            
+                            .. attribute:: set_as_path_prepend
+                            
+                            	action to prepend local AS number to the AS\-path a specified number of times
+                            	**type**\: :py:class:`SetAsPathPrepend <ydk.models.routing.routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend>`
+                            
+                            .. attribute:: set_community
+                            
+                            	action to set the community attributes of the route, along with options to modify how the community is modified
+                            	**type**\: :py:class:`SetCommunity <ydk.models.routing.routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity>`
+                            
+                            .. attribute:: set_ext_community
+                            
+                            	Action to set the extended community attributes of the route, along with options to modify how the community is modified
+                            	**type**\: :py:class:`SetExtCommunity <ydk.models.routing.routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity>`
+                            
+                            .. attribute:: set_route_origin
+                            
+                            	set the origin attribute to the specified value
+                            	**type**\: :py:class:`BgpOriginAttrTypeEnum <ydk.models.bgp.bgp_types.BgpOriginAttrTypeEnum>`
+                            
+                            .. attribute:: set_local_pref
+                            
+                            	set the local pref attribute on the route update
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: set_next_hop
+                            
+                            	set the next\-hop attribute in the route update
+                            	**type**\: one of the below types:
+                            
+                            	**type**\: str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            	**type**\: str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            
+                            ----
+                            	**type**\: :py:class:`BgpNextHopTypeEnum <ydk.models.bgp.bgp_policy.BgpNextHopTypeEnum>`
+                            
+                            
+                            ----
+                            .. attribute:: set_med
+                            
+                            	set the med metric attribute in the route update
+                            	**type**\: one of the below types:
+                            
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+                            ----
+                            	**type**\: str
+                            
+                            	**pattern:** ^[+\-][0\-9]+
+                            
+                            
+                            ----
+                            	**type**\: :py:class:`BgpSetMedTypeEnum <ydk.models.bgp.bgp_policy.BgpSetMedTypeEnum>`
+                            
+                            
+                            ----
+                            
+
+                            """
+
+                            _prefix = 'bgp-pol'
+                            _revision = '2015-05-15'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.set_as_path_prepend = None
+                                self.set_community = None
+                                self.set_ext_community = None
+                                self.set_route_origin = None
+                                self.set_local_pref = None
+                                self.set_next_hop = None
+                                self.set_med = None
+
+
+                            class SetAsPathPrepend(object):
+                                """
+                                action to prepend local AS number to the AS\-path a
+                                specified number of times
+                                
+                                .. attribute:: repeat_n
+                                
+                                	number of times to prepend the local AS number
+                                	**type**\: int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
+                                
+
+                                This class is a :ref:`presence class<presence-class>`
+
+                                """
+
+                                _prefix = 'bgp-pol'
+                                _revision = '2015-05-15'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.repeat_n = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/bgp-policy:set-as-path-prepend'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.repeat_n is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.routing._meta import _routing_policy as meta
+                                    return meta._meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend']['meta_info']
+
+
+                            class SetCommunity(object):
+                                """
+                                action to set the community attributes of the route, along
+                                with options to modify how the community is modified
+                                
+                                .. attribute:: communities
+                                
+                                	Set the community values for the update inline with a list
+                                	**type**\: one of the below types:
+                                
+                                	**type**\: list of int
+                                
+                                	**range:** 65536..4294901759
+                                
+                                
+                                ----
+                                	**type**\: list of str
+                                
+                                	**pattern:** ([0\-9]+\:[0\-9]+)
+                                
+                                
+                                ----
+                                
+                                ----
+                                	**type**\: list of str
+                                
+                                
+                                ----
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
+                                .. attribute:: community_set_ref
+                                
+                                	References a defined community set by name
+                                	**type**\: str
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
+                                .. attribute:: options
+                                
+                                	Options for modifying the community attribute with the specified values.  These options apply to both methods of setting the community attribute
+                                	**type**\: :py:class:`BgpSetCommunityOptionTypeEnum <ydk.models.bgp.bgp_policy.BgpSetCommunityOptionTypeEnum>`
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
+                                
+
+                                This class is a :ref:`presence class<presence-class>`
+
+                                """
+
+                                _prefix = 'bgp-pol'
+                                _revision = '2015-05-15'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.communities = YLeafList()
+                                    self.communities.parent = self
+                                    self.communities.name = 'communities'
+                                    self.community_set_ref = None
+                                    self.options = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/bgp-policy:set-community'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.communities is not None:
+                                        for child in self.communities:
+                                            if child is not None:
+                                                return True
+
+                                    if self.community_set_ref is not None:
+                                        return True
+
+                                    if self.options is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.routing._meta import _routing_policy as meta
+                                    return meta._meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity']['meta_info']
+
+
+                            class SetExtCommunity(object):
+                                """
+                                Action to set the extended community attributes of the
+                                route, along with options to modify how the community is
+                                modified
+                                
+                                .. attribute:: communities
+                                
+                                	Set the community values for the update inline with a list
+                                	**type**\: one of the below types:
+                                
+                                	**type**\: list of str
+                                
+                                	**pattern:** ([0\-9\\.]+(\:[0\-9]+)?\:[0\-9]+)
+                                
+                                
+                                ----
+                                	**type**\: list of str
+                                
+                                
+                                ----
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
+                                .. attribute:: ext_community_set_ref
+                                
+                                	References a defined extended community set by name
+                                	**type**\: str
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
+                                .. attribute:: options
+                                
+                                	options for modifying the extended community attribute with the specified values. These options apply to both methods of setting the community attribute
+                                	**type**\: :py:class:`BgpSetCommunityOptionTypeEnum <ydk.models.bgp.bgp_policy.BgpSetCommunityOptionTypeEnum>`
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
+                                
+
+                                This class is a :ref:`presence class<presence-class>`
+
+                                """
+
+                                _prefix = 'bgp-pol'
+                                _revision = '2015-05-15'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.communities = YLeafList()
+                                    self.communities.parent = self
+                                    self.communities.name = 'communities'
+                                    self.ext_community_set_ref = None
+                                    self.options = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/bgp-policy:set-ext-community'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.communities is not None:
+                                        for child in self.communities:
+                                            if child is not None:
+                                                return True
+
+                                    if self.ext_community_set_ref is not None:
+                                        return True
+
+                                    if self.options is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.routing._meta import _routing_policy as meta
+                                    return meta._meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/bgp-policy:bgp-actions'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.set_as_path_prepend is not None and self.set_as_path_prepend._has_data():
+                                    return True
+
+                                if self.set_community is not None and self.set_community._has_data():
+                                    return True
+
+                                if self.set_ext_community is not None and self.set_ext_community._has_data():
+                                    return True
+
+                                if self.set_route_origin is not None:
+                                    return True
+
+                                if self.set_local_pref is not None:
+                                    return True
+
+                                if self.set_next_hop is not None:
+                                    return True
+
+                                if self.set_med is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.routing._meta import _routing_policy as meta
+                                return meta._meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/routing-policy:actions'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.accept_route is not None:
+                                return True
+
+                            if self.reject_route is not None:
+                                return True
+
+                            if self.igp_actions is not None and self.igp_actions._has_data():
+                                return True
+
+                            if self.bgp_actions is not None and self.bgp_actions._has_data():
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.routing._meta import _routing_policy as meta
+                            return meta._meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -1236,10 +2646,10 @@ class RoutingPolicy(object):
                         if self.name is not None:
                             return True
 
-                        if self.actions is not None and self.actions._has_data():
+                        if self.conditions is not None and self.conditions._has_data():
                             return True
 
-                        if self.conditions is not None and self.conditions._has_data():
+                        if self.actions is not None and self.actions._has_data():
                             return True
 
                         return False

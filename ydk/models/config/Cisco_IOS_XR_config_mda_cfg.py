@@ -19,7 +19,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -53,12 +53,17 @@ class ActiveNodes(object):
         """
         The configuration for an active node
         
-        .. attribute:: node_name
+        .. attribute:: node_name  <key>
         
         	The identifier for this node
         	**type**\: str
         
         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+        
+        .. attribute:: lpts_local
+        
+        	lpts node specific configuration commands
+        	**type**\: :py:class:`LptsLocal <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal>`
         
         .. attribute:: cisco_ios_xr_watchd_cfg_watchdog_node_threshold
         
@@ -70,11 +75,6 @@ class ActiveNodes(object):
         	Watchdog threshold configuration
         	**type**\: :py:class:`CiscoIosXrWdCfg_WatchdogNodeThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold>`
         
-        .. attribute:: lpts_local
-        
-        	lpts node specific configuration commands
-        	**type**\: :py:class:`LptsLocal <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal>`
-        
         
 
         """
@@ -85,257 +85,27 @@ class ActiveNodes(object):
         def __init__(self):
             self.parent = None
             self.node_name = None
+            self.lpts_local = ActiveNodes.ActiveNode.LptsLocal()
+            self.lpts_local.parent = self
             self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold = ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold()
             self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold.parent = self
             self.cisco_ios_xr_wd_cfg_watchdog_node_threshold = ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold()
             self.cisco_ios_xr_wd_cfg_watchdog_node_threshold.parent = self
-            self.lpts_local = ActiveNodes.ActiveNode.LptsLocal()
-            self.lpts_local.parent = self
-
-
-        class CiscoIosXrWatchdCfg_WatchdogNodeThreshold(object):
-            """
-            watchdog node threshold
-            
-            .. attribute:: memory_threshold
-            
-            	Memory thresholds
-            	**type**\: :py:class:`MemoryThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold>`
-            
-            
-
-            """
-
-            _prefix = 'watchd-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.memory_threshold = ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold()
-                self.memory_threshold.parent = self
-
-
-            class MemoryThreshold(object):
-                """
-                Memory thresholds
-                
-                .. attribute:: critical
-                
-                	Threshold, Range(3, severe)
-                	**type**\: int
-                
-                	**range:** 3..40
-                
-                .. attribute:: minor
-                
-                	Threshold, Range(5, 40)
-                	**type**\: int
-                
-                	**range:** 5..40
-                
-                .. attribute:: severe
-                
-                	Threshold, Range(4, minor)
-                	**type**\: int
-                
-                	**range:** 4..40
-                
-                
-
-                """
-
-                _prefix = 'watchd-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.critical = None
-                    self.minor = None
-                    self.severe = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-watchd-cfg:memory-threshold'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.critical is not None:
-                        return True
-
-                    if self.minor is not None:
-                        return True
-
-                    if self.severe is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                    return meta._meta_table['ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold']['meta_info']
-
-            @property
-            def _common_path(self):
-                if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                return self.parent._common_path +'/Cisco-IOS-XR-watchd-cfg:Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.memory_threshold is not None and self.memory_threshold._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                return meta._meta_table['ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold']['meta_info']
-
-
-        class CiscoIosXrWdCfg_WatchdogNodeThreshold(object):
-            """
-            Watchdog threshold configuration
-            
-            .. attribute:: memory_threshold
-            
-            	Memory thresholds
-            	**type**\: :py:class:`MemoryThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold>`
-            
-            
-
-            """
-
-            _prefix = 'wd-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.memory_threshold = ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold()
-                self.memory_threshold.parent = self
-
-
-            class MemoryThreshold(object):
-                """
-                Memory thresholds
-                
-                .. attribute:: critical
-                
-                	Threshold, Range(3, severe)
-                	**type**\: int
-                
-                	**range:** 3..40
-                
-                .. attribute:: minor
-                
-                	Threshold, Range(5, 40)
-                	**type**\: int
-                
-                	**range:** 5..40
-                
-                .. attribute:: severe
-                
-                	Threshold, Range(4, minor)
-                	**type**\: int
-                
-                	**range:** 4..40
-                
-                
-
-                """
-
-                _prefix = 'wd-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.critical = None
-                    self.minor = None
-                    self.severe = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-wd-cfg:memory-threshold'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.critical is not None:
-                        return True
-
-                    if self.minor is not None:
-                        return True
-
-                    if self.severe is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                    return meta._meta_table['ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold']['meta_info']
-
-            @property
-            def _common_path(self):
-                if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                return self.parent._common_path +'/Cisco-IOS-XR-wd-cfg:Cisco-IOS-XR-wd-cfg_watchdog-node-threshold'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.memory_threshold is not None and self.memory_threshold._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                return meta._meta_table['ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold']['meta_info']
 
 
         class LptsLocal(object):
             """
             lpts node specific configuration commands
             
-            .. attribute:: ipolicer_local
-            
-            	Node specific Pre IFIB (Internal Forwarding Information Base) Configuration
-            	**type**\: :py:class:`IpolicerLocal <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal>`
-            
             .. attribute:: ipolicer_local_tables
             
             	Node specific Pre IFIB (Internal Forwarding Information Base) Configuration
             	**type**\: :py:class:`IpolicerLocalTables <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables>`
+            
+            .. attribute:: ipolicer_local
+            
+            	Node specific Pre IFIB (Internal Forwarding Information Base) Configuration
+            	**type**\: :py:class:`IpolicerLocal <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal>`
             
             
 
@@ -346,241 +116,9 @@ class ActiveNodes(object):
 
             def __init__(self):
                 self.parent = None
-                self.ipolicer_local = None
                 self.ipolicer_local_tables = ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables()
                 self.ipolicer_local_tables.parent = self
-
-
-            class IpolicerLocal(object):
-                """
-                Node specific Pre IFIB (Internal Forwarding
-                Information Base) Configuration
-                
-                .. attribute:: enable
-                
-                	Enabled
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: flows
-                
-                	Table for Flows
-                	**type**\: :py:class:`Flows <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows>`
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                
-
-                This class is a :ref:`presence class<presence-class>`
-
-                """
-
-                _prefix = 'lpts-pre-ifib-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.enable = None
-                    self.flows = ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows()
-                    self.flows.parent = self
-
-
-                class Flows(object):
-                    """
-                    Table for Flows
-                    
-                    .. attribute:: flow
-                    
-                    	selected flow type
-                    	**type**\: list of :py:class:`Flow <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'lpts-pre-ifib-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.flow = YList()
-                        self.flow.parent = self
-                        self.flow.name = 'flow'
-
-
-                    class Flow(object):
-                        """
-                        selected flow type
-                        
-                        .. attribute:: flow_type
-                        
-                        	LPTS Flow Type
-                        	**type**\: :py:class:`LptsFlowEnum <ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlowEnum>`
-                        
-                        .. attribute:: precedences
-                        
-                        	TOS Precedence value(s)
-                        	**type**\: :py:class:`Precedences <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences>`
-                        
-                        .. attribute:: rate
-                        
-                        	Configured rate value
-                        	**type**\: int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        
-
-                        """
-
-                        _prefix = 'lpts-pre-ifib-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.flow_type = None
-                            self.precedences = ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences()
-                            self.precedences.parent = self
-                            self.rate = None
-
-
-                        class Precedences(object):
-                            """
-                            TOS Precedence value(s)
-                            
-                            .. attribute:: precedence
-                            
-                            	Precedence values
-                            	**type**\: list of one of { list of :py:class:`LptsPreIFibPrecedenceNumberEnum <ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsPreIFibPrecedenceNumberEnum>` | list of int }
-                            
-                            
-
-                            """
-
-                            _prefix = 'lpts-pre-ifib-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.precedence = []
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:precedences'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.precedence is not None:
-                                    for child in self.precedence:
-                                        if child is not None:
-                                            return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                                return meta._meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                            if self.flow_type is None:
-                                raise YPYDataValidationError('Key property flow_type is None')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:flow[Cisco-IOS-XR-lpts-pre-ifib-cfg:flow-type = ' + str(self.flow_type) + ']'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.flow_type is not None:
-                                return True
-
-                            if self.precedences is not None and self.precedences._has_data():
-                                return True
-
-                            if self.rate is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                            return meta._meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:flows'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.flow is not None:
-                            for child_ref in self.flow:
-                                if child_ref._has_data():
-                                    return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                        return meta._meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer-local'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.enable is not None:
-                        return True
-
-                    if self.flows is not None and self.flows._has_data():
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                    return meta._meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal']['meta_info']
+                self.ipolicer_local = None
 
 
             class IpolicerLocalTables(object):
@@ -612,7 +150,7 @@ class ActiveNodes(object):
                     Pre IFIB (Internal Forwarding Information
                     Base) configuration table
                     
-                    .. attribute:: id1
+                    .. attribute:: id1  <key>
                     
                     	none
                     	**type**\: str
@@ -665,7 +203,7 @@ class ActiveNodes(object):
                             """
                             Table of NP names
                             
-                            .. attribute:: id1
+                            .. attribute:: id1  <key>
                             
                             	none
                             	**type**\: int
@@ -801,6 +339,250 @@ class ActiveNodes(object):
                     from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
                     return meta._meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables']['meta_info']
 
+
+            class IpolicerLocal(object):
+                """
+                Node specific Pre IFIB (Internal Forwarding
+                Information Base) Configuration
+                
+                .. attribute:: enable
+                
+                	Enabled
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: flows
+                
+                	Table for Flows
+                	**type**\: :py:class:`Flows <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                
+
+                This class is a :ref:`presence class<presence-class>`
+
+                """
+
+                _prefix = 'lpts-pre-ifib-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.enable = None
+                    self.flows = ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows()
+                    self.flows.parent = self
+
+
+                class Flows(object):
+                    """
+                    Table for Flows
+                    
+                    .. attribute:: flow
+                    
+                    	selected flow type
+                    	**type**\: list of :py:class:`Flow <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'lpts-pre-ifib-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.flow = YList()
+                        self.flow.parent = self
+                        self.flow.name = 'flow'
+
+
+                    class Flow(object):
+                        """
+                        selected flow type
+                        
+                        .. attribute:: flow_type  <key>
+                        
+                        	LPTS Flow Type
+                        	**type**\: :py:class:`LptsFlowEnum <ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlowEnum>`
+                        
+                        .. attribute:: precedences
+                        
+                        	TOS Precedence value(s)
+                        	**type**\: :py:class:`Precedences <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences>`
+                        
+                        .. attribute:: rate
+                        
+                        	Configured rate value
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        
+
+                        """
+
+                        _prefix = 'lpts-pre-ifib-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.flow_type = None
+                            self.precedences = ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences()
+                            self.precedences.parent = self
+                            self.rate = None
+
+
+                        class Precedences(object):
+                            """
+                            TOS Precedence value(s)
+                            
+                            .. attribute:: precedence
+                            
+                            	Precedence values
+                            	**type**\: one of the below types:
+                            
+                            	**type**\: list of :py:class:`LptsPreIFibPrecedenceNumberEnum <ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsPreIFibPrecedenceNumberEnum>`
+                            
+                            
+                            ----
+                            	**type**\: list of int
+                            
+                            	**range:** 0..7
+                            
+                            
+                            ----
+                            
+
+                            """
+
+                            _prefix = 'lpts-pre-ifib-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.precedence = YLeafList()
+                                self.precedence.parent = self
+                                self.precedence.name = 'precedence'
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:precedences'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.precedence is not None:
+                                    for child in self.precedence:
+                                        if child is not None:
+                                            return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
+                                return meta._meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            if self.flow_type is None:
+                                raise YPYDataValidationError('Key property flow_type is None')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:flow[Cisco-IOS-XR-lpts-pre-ifib-cfg:flow-type = ' + str(self.flow_type) + ']'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.flow_type is not None:
+                                return True
+
+                            if self.precedences is not None and self.precedences._has_data():
+                                return True
+
+                            if self.rate is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
+                            return meta._meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:flows'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.flow is not None:
+                            for child_ref in self.flow:
+                                if child_ref._has_data():
+                                    return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
+                        return meta._meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer-local'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.enable is not None:
+                        return True
+
+                    if self.flows is not None and self.flows._has_data():
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
+                    return meta._meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal']['meta_info']
+
             @property
             def _common_path(self):
                 if self.parent is None:
@@ -815,10 +597,10 @@ class ActiveNodes(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.ipolicer_local is not None and self.ipolicer_local._has_data():
+                if self.ipolicer_local_tables is not None and self.ipolicer_local_tables._has_data():
                     return True
 
-                if self.ipolicer_local_tables is not None and self.ipolicer_local_tables._has_data():
+                if self.ipolicer_local is not None and self.ipolicer_local._has_data():
                     return True
 
                 return False
@@ -827,6 +609,236 @@ class ActiveNodes(object):
             def _meta_info():
                 from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
                 return meta._meta_table['ActiveNodes.ActiveNode.LptsLocal']['meta_info']
+
+
+        class CiscoIosXrWatchdCfg_WatchdogNodeThreshold(object):
+            """
+            watchdog node threshold
+            
+            .. attribute:: memory_threshold
+            
+            	Memory thresholds
+            	**type**\: :py:class:`MemoryThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold>`
+            
+            
+
+            """
+
+            _prefix = 'watchd-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.memory_threshold = ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold()
+                self.memory_threshold.parent = self
+
+
+            class MemoryThreshold(object):
+                """
+                Memory thresholds
+                
+                .. attribute:: minor
+                
+                	Threshold, Range(5, 40)
+                	**type**\: int
+                
+                	**range:** 5..40
+                
+                .. attribute:: severe
+                
+                	Threshold, Range(4, minor)
+                	**type**\: int
+                
+                	**range:** 4..40
+                
+                .. attribute:: critical
+                
+                	Threshold, Range(3, severe)
+                	**type**\: int
+                
+                	**range:** 3..40
+                
+                
+
+                """
+
+                _prefix = 'watchd-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.minor = None
+                    self.severe = None
+                    self.critical = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-watchd-cfg:memory-threshold'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.minor is not None:
+                        return True
+
+                    if self.severe is not None:
+                        return True
+
+                    if self.critical is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
+                    return meta._meta_table['ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold']['meta_info']
+
+            @property
+            def _common_path(self):
+                if self.parent is None:
+                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                return self.parent._common_path +'/Cisco-IOS-XR-watchd-cfg:Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.memory_threshold is not None and self.memory_threshold._has_data():
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
+                return meta._meta_table['ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold']['meta_info']
+
+
+        class CiscoIosXrWdCfg_WatchdogNodeThreshold(object):
+            """
+            Watchdog threshold configuration
+            
+            .. attribute:: memory_threshold
+            
+            	Memory thresholds
+            	**type**\: :py:class:`MemoryThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold>`
+            
+            
+
+            """
+
+            _prefix = 'wd-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.memory_threshold = ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold()
+                self.memory_threshold.parent = self
+
+
+            class MemoryThreshold(object):
+                """
+                Memory thresholds
+                
+                .. attribute:: minor
+                
+                	Threshold, Range(5, 40)
+                	**type**\: int
+                
+                	**range:** 5..40
+                
+                .. attribute:: severe
+                
+                	Threshold, Range(4, minor)
+                	**type**\: int
+                
+                	**range:** 4..40
+                
+                .. attribute:: critical
+                
+                	Threshold, Range(3, severe)
+                	**type**\: int
+                
+                	**range:** 3..40
+                
+                
+
+                """
+
+                _prefix = 'wd-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.minor = None
+                    self.severe = None
+                    self.critical = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-wd-cfg:memory-threshold'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.minor is not None:
+                        return True
+
+                    if self.severe is not None:
+                        return True
+
+                    if self.critical is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
+                    return meta._meta_table['ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold']['meta_info']
+
+            @property
+            def _common_path(self):
+                if self.parent is None:
+                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                return self.parent._common_path +'/Cisco-IOS-XR-wd-cfg:Cisco-IOS-XR-wd-cfg_watchdog-node-threshold'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.memory_threshold is not None and self.memory_threshold._has_data():
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
+                return meta._meta_table['ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold']['meta_info']
 
         @property
         def _common_path(self):
@@ -845,13 +857,13 @@ class ActiveNodes(object):
             if self.node_name is not None:
                 return True
 
+            if self.lpts_local is not None and self.lpts_local._has_data():
+                return True
+
             if self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold is not None and self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold._has_data():
                 return True
 
             if self.cisco_ios_xr_wd_cfg_watchdog_node_threshold is not None and self.cisco_ios_xr_wd_cfg_watchdog_node_threshold._has_data():
-                return True
-
-            if self.lpts_local is not None and self.lpts_local._has_data():
                 return True
 
             return False
@@ -912,12 +924,17 @@ class PreconfiguredNodes(object):
         """
         The configuration for a non\-active node
         
-        .. attribute:: node_name
+        .. attribute:: node_name  <key>
         
         	The identifier for this node
         	**type**\: str
         
         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+        
+        .. attribute:: lpts_local
+        
+        	lpts node specific configuration commands
+        	**type**\: :py:class:`LptsLocal <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal>`
         
         .. attribute:: cisco_ios_xr_watchd_cfg_watchdog_node_threshold
         
@@ -929,11 +946,6 @@ class PreconfiguredNodes(object):
         	Watchdog threshold configuration
         	**type**\: :py:class:`CiscoIosXrWdCfg_WatchdogNodeThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold>`
         
-        .. attribute:: lpts_local
-        
-        	lpts node specific configuration commands
-        	**type**\: :py:class:`LptsLocal <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal>`
-        
         
 
         """
@@ -944,257 +956,27 @@ class PreconfiguredNodes(object):
         def __init__(self):
             self.parent = None
             self.node_name = None
+            self.lpts_local = PreconfiguredNodes.PreconfiguredNode.LptsLocal()
+            self.lpts_local.parent = self
             self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold()
             self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold.parent = self
             self.cisco_ios_xr_wd_cfg_watchdog_node_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold()
             self.cisco_ios_xr_wd_cfg_watchdog_node_threshold.parent = self
-            self.lpts_local = PreconfiguredNodes.PreconfiguredNode.LptsLocal()
-            self.lpts_local.parent = self
-
-
-        class CiscoIosXrWatchdCfg_WatchdogNodeThreshold(object):
-            """
-            watchdog node threshold
-            
-            .. attribute:: memory_threshold
-            
-            	Memory thresholds
-            	**type**\: :py:class:`MemoryThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold>`
-            
-            
-
-            """
-
-            _prefix = 'watchd-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.memory_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold()
-                self.memory_threshold.parent = self
-
-
-            class MemoryThreshold(object):
-                """
-                Memory thresholds
-                
-                .. attribute:: critical
-                
-                	Threshold, Range(3, severe)
-                	**type**\: int
-                
-                	**range:** 3..40
-                
-                .. attribute:: minor
-                
-                	Threshold, Range(5, 40)
-                	**type**\: int
-                
-                	**range:** 5..40
-                
-                .. attribute:: severe
-                
-                	Threshold, Range(4, minor)
-                	**type**\: int
-                
-                	**range:** 4..40
-                
-                
-
-                """
-
-                _prefix = 'watchd-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.critical = None
-                    self.minor = None
-                    self.severe = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-watchd-cfg:memory-threshold'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.critical is not None:
-                        return True
-
-                    if self.minor is not None:
-                        return True
-
-                    if self.severe is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                    return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold']['meta_info']
-
-            @property
-            def _common_path(self):
-                if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                return self.parent._common_path +'/Cisco-IOS-XR-watchd-cfg:Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.memory_threshold is not None and self.memory_threshold._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold']['meta_info']
-
-
-        class CiscoIosXrWdCfg_WatchdogNodeThreshold(object):
-            """
-            Watchdog threshold configuration
-            
-            .. attribute:: memory_threshold
-            
-            	Memory thresholds
-            	**type**\: :py:class:`MemoryThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold>`
-            
-            
-
-            """
-
-            _prefix = 'wd-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.memory_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold()
-                self.memory_threshold.parent = self
-
-
-            class MemoryThreshold(object):
-                """
-                Memory thresholds
-                
-                .. attribute:: critical
-                
-                	Threshold, Range(3, severe)
-                	**type**\: int
-                
-                	**range:** 3..40
-                
-                .. attribute:: minor
-                
-                	Threshold, Range(5, 40)
-                	**type**\: int
-                
-                	**range:** 5..40
-                
-                .. attribute:: severe
-                
-                	Threshold, Range(4, minor)
-                	**type**\: int
-                
-                	**range:** 4..40
-                
-                
-
-                """
-
-                _prefix = 'wd-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.critical = None
-                    self.minor = None
-                    self.severe = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-wd-cfg:memory-threshold'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.critical is not None:
-                        return True
-
-                    if self.minor is not None:
-                        return True
-
-                    if self.severe is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                    return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold']['meta_info']
-
-            @property
-            def _common_path(self):
-                if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                return self.parent._common_path +'/Cisco-IOS-XR-wd-cfg:Cisco-IOS-XR-wd-cfg_watchdog-node-threshold'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.memory_threshold is not None and self.memory_threshold._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold']['meta_info']
 
 
         class LptsLocal(object):
             """
             lpts node specific configuration commands
             
-            .. attribute:: ipolicer_local
-            
-            	Node specific Pre IFIB (Internal Forwarding Information Base) Configuration
-            	**type**\: :py:class:`IpolicerLocal <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal>`
-            
             .. attribute:: ipolicer_local_tables
             
             	Node specific Pre IFIB (Internal Forwarding Information Base) Configuration
             	**type**\: :py:class:`IpolicerLocalTables <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables>`
+            
+            .. attribute:: ipolicer_local
+            
+            	Node specific Pre IFIB (Internal Forwarding Information Base) Configuration
+            	**type**\: :py:class:`IpolicerLocal <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal>`
             
             
 
@@ -1205,241 +987,9 @@ class PreconfiguredNodes(object):
 
             def __init__(self):
                 self.parent = None
-                self.ipolicer_local = None
                 self.ipolicer_local_tables = PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables()
                 self.ipolicer_local_tables.parent = self
-
-
-            class IpolicerLocal(object):
-                """
-                Node specific Pre IFIB (Internal Forwarding
-                Information Base) Configuration
-                
-                .. attribute:: enable
-                
-                	Enabled
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: flows
-                
-                	Table for Flows
-                	**type**\: :py:class:`Flows <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows>`
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                
-
-                This class is a :ref:`presence class<presence-class>`
-
-                """
-
-                _prefix = 'lpts-pre-ifib-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.enable = None
-                    self.flows = PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows()
-                    self.flows.parent = self
-
-
-                class Flows(object):
-                    """
-                    Table for Flows
-                    
-                    .. attribute:: flow
-                    
-                    	selected flow type
-                    	**type**\: list of :py:class:`Flow <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'lpts-pre-ifib-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.flow = YList()
-                        self.flow.parent = self
-                        self.flow.name = 'flow'
-
-
-                    class Flow(object):
-                        """
-                        selected flow type
-                        
-                        .. attribute:: flow_type
-                        
-                        	LPTS Flow Type
-                        	**type**\: :py:class:`LptsFlowEnum <ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlowEnum>`
-                        
-                        .. attribute:: precedences
-                        
-                        	TOS Precedence value(s)
-                        	**type**\: :py:class:`Precedences <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences>`
-                        
-                        .. attribute:: rate
-                        
-                        	Configured rate value
-                        	**type**\: int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        
-
-                        """
-
-                        _prefix = 'lpts-pre-ifib-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.flow_type = None
-                            self.precedences = PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences()
-                            self.precedences.parent = self
-                            self.rate = None
-
-
-                        class Precedences(object):
-                            """
-                            TOS Precedence value(s)
-                            
-                            .. attribute:: precedence
-                            
-                            	Precedence values
-                            	**type**\: list of one of { list of :py:class:`LptsPreIFibPrecedenceNumberEnum <ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsPreIFibPrecedenceNumberEnum>` | list of int }
-                            
-                            
-
-                            """
-
-                            _prefix = 'lpts-pre-ifib-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.precedence = []
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:precedences'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.precedence is not None:
-                                    for child in self.precedence:
-                                        if child is not None:
-                                            return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                                return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                            if self.flow_type is None:
-                                raise YPYDataValidationError('Key property flow_type is None')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:flow[Cisco-IOS-XR-lpts-pre-ifib-cfg:flow-type = ' + str(self.flow_type) + ']'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.flow_type is not None:
-                                return True
-
-                            if self.precedences is not None and self.precedences._has_data():
-                                return True
-
-                            if self.rate is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                            return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:flows'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.flow is not None:
-                            for child_ref in self.flow:
-                                if child_ref._has_data():
-                                    return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                        return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer-local'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.enable is not None:
-                        return True
-
-                    if self.flows is not None and self.flows._has_data():
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
-                    return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal']['meta_info']
+                self.ipolicer_local = None
 
 
             class IpolicerLocalTables(object):
@@ -1471,7 +1021,7 @@ class PreconfiguredNodes(object):
                     Pre IFIB (Internal Forwarding Information
                     Base) configuration table
                     
-                    .. attribute:: id1
+                    .. attribute:: id1  <key>
                     
                     	none
                     	**type**\: str
@@ -1524,7 +1074,7 @@ class PreconfiguredNodes(object):
                             """
                             Table of NP names
                             
-                            .. attribute:: id1
+                            .. attribute:: id1  <key>
                             
                             	none
                             	**type**\: int
@@ -1660,6 +1210,250 @@ class PreconfiguredNodes(object):
                     from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
                     return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables']['meta_info']
 
+
+            class IpolicerLocal(object):
+                """
+                Node specific Pre IFIB (Internal Forwarding
+                Information Base) Configuration
+                
+                .. attribute:: enable
+                
+                	Enabled
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: flows
+                
+                	Table for Flows
+                	**type**\: :py:class:`Flows <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows>`
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                
+
+                This class is a :ref:`presence class<presence-class>`
+
+                """
+
+                _prefix = 'lpts-pre-ifib-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.enable = None
+                    self.flows = PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows()
+                    self.flows.parent = self
+
+
+                class Flows(object):
+                    """
+                    Table for Flows
+                    
+                    .. attribute:: flow
+                    
+                    	selected flow type
+                    	**type**\: list of :py:class:`Flow <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'lpts-pre-ifib-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.flow = YList()
+                        self.flow.parent = self
+                        self.flow.name = 'flow'
+
+
+                    class Flow(object):
+                        """
+                        selected flow type
+                        
+                        .. attribute:: flow_type  <key>
+                        
+                        	LPTS Flow Type
+                        	**type**\: :py:class:`LptsFlowEnum <ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlowEnum>`
+                        
+                        .. attribute:: precedences
+                        
+                        	TOS Precedence value(s)
+                        	**type**\: :py:class:`Precedences <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences>`
+                        
+                        .. attribute:: rate
+                        
+                        	Configured rate value
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        
+
+                        """
+
+                        _prefix = 'lpts-pre-ifib-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.flow_type = None
+                            self.precedences = PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences()
+                            self.precedences.parent = self
+                            self.rate = None
+
+
+                        class Precedences(object):
+                            """
+                            TOS Precedence value(s)
+                            
+                            .. attribute:: precedence
+                            
+                            	Precedence values
+                            	**type**\: one of the below types:
+                            
+                            	**type**\: list of :py:class:`LptsPreIFibPrecedenceNumberEnum <ydk.models.lpts.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsPreIFibPrecedenceNumberEnum>`
+                            
+                            
+                            ----
+                            	**type**\: list of int
+                            
+                            	**range:** 0..7
+                            
+                            
+                            ----
+                            
+
+                            """
+
+                            _prefix = 'lpts-pre-ifib-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.precedence = YLeafList()
+                                self.precedence.parent = self
+                                self.precedence.name = 'precedence'
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:precedences'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.precedence is not None:
+                                    for child in self.precedence:
+                                        if child is not None:
+                                            return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
+                                return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            if self.flow_type is None:
+                                raise YPYDataValidationError('Key property flow_type is None')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:flow[Cisco-IOS-XR-lpts-pre-ifib-cfg:flow-type = ' + str(self.flow_type) + ']'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.flow_type is not None:
+                                return True
+
+                            if self.precedences is not None and self.precedences._has_data():
+                                return True
+
+                            if self.rate is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
+                            return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:flows'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.flow is not None:
+                            for child_ref in self.flow:
+                                if child_ref._has_data():
+                                    return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
+                        return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer-local'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.enable is not None:
+                        return True
+
+                    if self.flows is not None and self.flows._has_data():
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
+                    return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal']['meta_info']
+
             @property
             def _common_path(self):
                 if self.parent is None:
@@ -1674,10 +1468,10 @@ class PreconfiguredNodes(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.ipolicer_local is not None and self.ipolicer_local._has_data():
+                if self.ipolicer_local_tables is not None and self.ipolicer_local_tables._has_data():
                     return True
 
-                if self.ipolicer_local_tables is not None and self.ipolicer_local_tables._has_data():
+                if self.ipolicer_local is not None and self.ipolicer_local._has_data():
                     return True
 
                 return False
@@ -1686,6 +1480,236 @@ class PreconfiguredNodes(object):
             def _meta_info():
                 from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
                 return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal']['meta_info']
+
+
+        class CiscoIosXrWatchdCfg_WatchdogNodeThreshold(object):
+            """
+            watchdog node threshold
+            
+            .. attribute:: memory_threshold
+            
+            	Memory thresholds
+            	**type**\: :py:class:`MemoryThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold>`
+            
+            
+
+            """
+
+            _prefix = 'watchd-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.memory_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold()
+                self.memory_threshold.parent = self
+
+
+            class MemoryThreshold(object):
+                """
+                Memory thresholds
+                
+                .. attribute:: minor
+                
+                	Threshold, Range(5, 40)
+                	**type**\: int
+                
+                	**range:** 5..40
+                
+                .. attribute:: severe
+                
+                	Threshold, Range(4, minor)
+                	**type**\: int
+                
+                	**range:** 4..40
+                
+                .. attribute:: critical
+                
+                	Threshold, Range(3, severe)
+                	**type**\: int
+                
+                	**range:** 3..40
+                
+                
+
+                """
+
+                _prefix = 'watchd-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.minor = None
+                    self.severe = None
+                    self.critical = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-watchd-cfg:memory-threshold'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.minor is not None:
+                        return True
+
+                    if self.severe is not None:
+                        return True
+
+                    if self.critical is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
+                    return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold']['meta_info']
+
+            @property
+            def _common_path(self):
+                if self.parent is None:
+                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                return self.parent._common_path +'/Cisco-IOS-XR-watchd-cfg:Cisco-IOS-XR-watchd-cfg_watchdog-node-threshold'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.memory_threshold is not None and self.memory_threshold._has_data():
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
+                return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold']['meta_info']
+
+
+        class CiscoIosXrWdCfg_WatchdogNodeThreshold(object):
+            """
+            Watchdog threshold configuration
+            
+            .. attribute:: memory_threshold
+            
+            	Memory thresholds
+            	**type**\: :py:class:`MemoryThreshold <ydk.models.config.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold>`
+            
+            
+
+            """
+
+            _prefix = 'wd-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.memory_threshold = PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold()
+                self.memory_threshold.parent = self
+
+
+            class MemoryThreshold(object):
+                """
+                Memory thresholds
+                
+                .. attribute:: minor
+                
+                	Threshold, Range(5, 40)
+                	**type**\: int
+                
+                	**range:** 5..40
+                
+                .. attribute:: severe
+                
+                	Threshold, Range(4, minor)
+                	**type**\: int
+                
+                	**range:** 4..40
+                
+                .. attribute:: critical
+                
+                	Threshold, Range(3, severe)
+                	**type**\: int
+                
+                	**range:** 3..40
+                
+                
+
+                """
+
+                _prefix = 'wd-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.minor = None
+                    self.severe = None
+                    self.critical = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-wd-cfg:memory-threshold'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.minor is not None:
+                        return True
+
+                    if self.severe is not None:
+                        return True
+
+                    if self.critical is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
+                    return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold']['meta_info']
+
+            @property
+            def _common_path(self):
+                if self.parent is None:
+                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                return self.parent._common_path +'/Cisco-IOS-XR-wd-cfg:Cisco-IOS-XR-wd-cfg_watchdog-node-threshold'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.memory_threshold is not None and self.memory_threshold._has_data():
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.config._meta import _Cisco_IOS_XR_config_mda_cfg as meta
+                return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold']['meta_info']
 
         @property
         def _common_path(self):
@@ -1704,13 +1728,13 @@ class PreconfiguredNodes(object):
             if self.node_name is not None:
                 return True
 
+            if self.lpts_local is not None and self.lpts_local._has_data():
+                return True
+
             if self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold is not None and self.cisco_ios_xr_watchd_cfg_watchdog_node_threshold._has_data():
                 return True
 
             if self.cisco_ios_xr_wd_cfg_watchdog_node_threshold is not None and self.cisco_ios_xr_wd_cfg_watchdog_node_threshold._has_data():
-                return True
-
-            if self.lpts_local is not None and self.lpts_local._has_data():
                 return True
 
             return False

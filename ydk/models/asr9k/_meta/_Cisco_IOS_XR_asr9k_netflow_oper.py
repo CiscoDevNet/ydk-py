@@ -7,7 +7,7 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
@@ -29,122 +29,15 @@ _meta_table = {
             'unspecified':'UNSPECIFIED',
             'udp':'UDP',
         }, 'Cisco-IOS-XR-asr9k-netflow-oper', _yang_ns._namespaces['Cisco-IOS-XR-asr9k-netflow-oper']),
-    'NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Collector' : {
-        'meta_info' : _MetaInfoClass('NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Collector',
-            False, 
-            [
-            _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Destination IPv4 address in AAA.BBB.CCC.DDD
-                format
-                ''',
-                'destination_address',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Transport destination port number
-                ''',
-                'destination_port',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('dscp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                DSCP
-                ''',
-                'dscp',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Source IPv4 address in AAA.BBB.CCC.DDD format
-                ''',
-                'source_address',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Source interface name
-                ''',
-                'source_interface',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('transport-protocol', REFERENCE_ENUM_CLASS, 'NfmgrFemEdmTransProtoEnum' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper', 'NfmgrFemEdmTransProtoEnum', 
-                [], [], 
-                '''                Transport protocol
-                ''',
-                'transport_protocol',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                VRF name
-                ''',
-                'vrf_name',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            ],
-            'Cisco-IOS-XR-asr9k-netflow-oper',
-            'collector',
-            _yang_ns._namespaces['Cisco-IOS-XR-asr9k-netflow-oper'],
-        'ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper'
-        ),
-    },
-    'NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Ipfix' : {
-        'meta_info' : _MetaInfoClass('NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Ipfix',
-            False, 
-            [
-            _MetaInfoClassMember('common-template-export-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Common template export timeout in seconds
-                ''',
-                'common_template_export_timeout',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('data-template-export-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Data template export timeout in seconds
-                ''',
-                'data_template_export_timeout',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('interface-table-export-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Interface table export timeout in seconds
-                ''',
-                'interface_table_export_timeout',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('options-template-export-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Options template export timeout in seconds
-                ''',
-                'options_template_export_timeout',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('sampler-table-export-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Sampler table export timeout in seconds
-                ''',
-                'sampler_table_export_timeout',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('vrf-table-export-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                VRF table export timeout in seconds
-                ''',
-                'vrf_table_export_timeout',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            ],
-            'Cisco-IOS-XR-asr9k-netflow-oper',
-            'ipfix',
-            _yang_ns._namespaces['Cisco-IOS-XR-asr9k-netflow-oper'],
-        'ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper'
-        ),
-    },
     'NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Version9' : {
         'meta_info' : _MetaInfoClass('NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Version9',
             False, 
             [
-            _MetaInfoClassMember('common-template-export-timeout', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('sampler-table-export-timeout', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Common template export timeout in seconds
+                '''                Sampler table export timeout in seconds
                 ''',
-                'common_template_export_timeout',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('data-template-export-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Data template export timeout in seconds
-                ''',
-                'data_template_export_timeout',
+                'sampler_table_export_timeout',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
             _MetaInfoClassMember('interface-table-export-timeout', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -152,23 +45,29 @@ _meta_table = {
                 ''',
                 'interface_table_export_timeout',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('vrf-table-export-timeout', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                VRF table export timeout in seconds
+                ''',
+                'vrf_table_export_timeout',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
             _MetaInfoClassMember('options-template-export-timeout', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Options template export timeout in seconds
                 ''',
                 'options_template_export_timeout',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('sampler-table-export-timeout', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('data-template-export-timeout', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Sampler table export timeout in seconds
+                '''                Data template export timeout in seconds
                 ''',
-                'sampler_table_export_timeout',
+                'data_template_export_timeout',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('vrf-table-export-timeout', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('common-template-export-timeout', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                VRF table export timeout in seconds
+                '''                Common template export timeout in seconds
                 ''',
-                'vrf_table_export_timeout',
+                'common_template_export_timeout',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
             ],
             'Cisco-IOS-XR-asr9k-netflow-oper',
@@ -177,10 +76,63 @@ _meta_table = {
         'ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper'
         ),
     },
+    'NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Ipfix' : {
+        'meta_info' : _MetaInfoClass('NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Ipfix',
+            False, 
+            [
+            _MetaInfoClassMember('sampler-table-export-timeout', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Sampler table export timeout in seconds
+                ''',
+                'sampler_table_export_timeout',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('interface-table-export-timeout', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Interface table export timeout in seconds
+                ''',
+                'interface_table_export_timeout',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('vrf-table-export-timeout', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                VRF table export timeout in seconds
+                ''',
+                'vrf_table_export_timeout',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('options-template-export-timeout', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Options template export timeout in seconds
+                ''',
+                'options_template_export_timeout',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('data-template-export-timeout', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Data template export timeout in seconds
+                ''',
+                'data_template_export_timeout',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('common-template-export-timeout', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Common template export timeout in seconds
+                ''',
+                'common_template_export_timeout',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            ],
+            'Cisco-IOS-XR-asr9k-netflow-oper',
+            'ipfix',
+            _yang_ns._namespaces['Cisco-IOS-XR-asr9k-netflow-oper'],
+        'ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper'
+        ),
+    },
     'NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version' : {
         'meta_info' : _MetaInfoClass('NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version',
             False, 
             [
+            _MetaInfoClassMember('version9', REFERENCE_CLASS, 'Version9' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper', 'NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Version9', 
+                [], [], 
+                '''                version9
+                ''',
+                'version9',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
             _MetaInfoClassMember('ipfix', REFERENCE_CLASS, 'Ipfix' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper', 'NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Ipfix', 
                 [], [], 
                 '''                ipfix
@@ -193,15 +145,63 @@ _meta_table = {
                 ''',
                 'version',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('version9', REFERENCE_CLASS, 'Version9' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper', 'NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Version9', 
-                [], [], 
-                '''                version9
-                ''',
-                'version9',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
             ],
             'Cisco-IOS-XR-asr9k-netflow-oper',
             'version',
+            _yang_ns._namespaces['Cisco-IOS-XR-asr9k-netflow-oper'],
+        'ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper'
+        ),
+    },
+    'NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Collector' : {
+        'meta_info' : _MetaInfoClass('NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Collector',
+            False, 
+            [
+            _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Destination IPv4 address in AAA.BBB.CCC.DDD
+                format
+                ''',
+                'destination_address',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Source IPv4 address in AAA.BBB.CCC.DDD format
+                ''',
+                'source_address',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                VRF name
+                ''',
+                'vrf_name',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Source interface name
+                ''',
+                'source_interface',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('dscp', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                DSCP
+                ''',
+                'dscp',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('transport-protocol', REFERENCE_ENUM_CLASS, 'NfmgrFemEdmTransProtoEnum' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper', 'NfmgrFemEdmTransProtoEnum', 
+                [], [], 
+                '''                Transport protocol
+                ''',
+                'transport_protocol',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Transport destination port number
+                ''',
+                'destination_port',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            ],
+            'Cisco-IOS-XR-asr9k-netflow-oper',
+            'collector',
             _yang_ns._namespaces['Cisco-IOS-XR-asr9k-netflow-oper'],
         'ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper'
         ),
@@ -216,11 +216,11 @@ _meta_table = {
                 ''',
                 'exporter_name',
                 'Cisco-IOS-XR-asr9k-netflow-oper', True),
-            _MetaInfoClassMember('collector', REFERENCE_LIST, 'Collector' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper', 'NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Collector', 
+            _MetaInfoClassMember('version', REFERENCE_CLASS, 'Version' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper', 'NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version', 
                 [], [], 
-                '''                Export collector array
+                '''                Export version data
                 ''',
-                'collector',
+                'version',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
             _MetaInfoClassMember('id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -234,11 +234,11 @@ _meta_table = {
                 ''',
                 'name',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('version', REFERENCE_CLASS, 'Version' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper', 'NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version', 
+            _MetaInfoClassMember('collector', REFERENCE_LIST, 'Collector' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper', 'NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Collector', 
                 [], [], 
-                '''                Export version data
+                '''                Export collector array
                 ''',
-                'version',
+                'collector',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
             ],
             'Cisco-IOS-XR-asr9k-netflow-oper',
@@ -291,49 +291,6 @@ _meta_table = {
                 ''',
                 'monitor_name',
                 'Cisco-IOS-XR-asr9k-netflow-oper', True),
-            _MetaInfoClassMember('cache-active-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Cache active flow timeout in seconds
-                ''',
-                'cache_active_timeout',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('cache-aging-mode', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Aging mode for flow cache
-                ''',
-                'cache_aging_mode',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('cache-inactive-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Cache inactive flow timeout in seconds
-                ''',
-                'cache_inactive_timeout',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('cache-max-entry', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Max num of entries in flow cache
-                ''',
-                'cache_max_entry',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('cache-timeout-rate-limit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Maximum number of entries to age each second
-                ''',
-                'cache_timeout_rate_limit',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('cache-update-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Cache update timeout in seconds
-                ''',
-                'cache_update_timeout',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('exporter', REFERENCE_LIST, 'Exporter' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper', 'NetFlow.Configuration.FlowMonitorMaps.FlowMonitorMap.Exporter', 
-                [], [], 
-                '''                Name of the flow exporters used by the flow
-                monitor
-                ''',
-                'exporter',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False, max_elements=8),
             _MetaInfoClassMember('id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Unique ID in the global flow monitor ID space
@@ -346,11 +303,53 @@ _meta_table = {
                 ''',
                 'name',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('record-map', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the flow record map
+                ''',
+                'record_map',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('cache-aging-mode', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Aging mode for flow cache
+                ''',
+                'cache_aging_mode',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
             _MetaInfoClassMember('number-of-labels', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of MPLS labels in key
                 ''',
                 'number_of_labels',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('cache-max-entry', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Max num of entries in flow cache
+                ''',
+                'cache_max_entry',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('cache-active-timeout', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Cache active flow timeout in seconds
+                ''',
+                'cache_active_timeout',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('cache-inactive-timeout', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Cache inactive flow timeout in seconds
+                ''',
+                'cache_inactive_timeout',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('cache-update-timeout', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Cache update timeout in seconds
+                ''',
+                'cache_update_timeout',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('cache-timeout-rate-limit', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Maximum number of entries to age each second
+                ''',
+                'cache_timeout_rate_limit',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
             _MetaInfoClassMember('options', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -358,12 +357,13 @@ _meta_table = {
                 ''',
                 'options',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('record-map', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('exporter', REFERENCE_LIST, 'Exporter' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper', 'NetFlow.Configuration.FlowMonitorMaps.FlowMonitorMap.Exporter', 
                 [], [], 
-                '''                Name of the flow record map
+                '''                Name of the flow exporters used by the flow
+                monitor
                 ''',
-                'record_map',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+                'exporter',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-asr9k-netflow-oper',
             'flow-monitor-map',
@@ -473,6 +473,42 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('NetFlow.Statistics.Statistic.Producer.Statistics',
             False, 
             [
+            _MetaInfoClassMember('ipv4-ingress-flows', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                IPv4 ingress flows
+                ''',
+                'ipv4_ingress_flows',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('ipv4-egress-flows', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                IPv4 egress flows
+                ''',
+                'ipv4_egress_flows',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('ipv6-ingress-flows', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                IPv6 ingress flows
+                ''',
+                'ipv6_ingress_flows',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('ipv6-egress-flows', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                IPv6 egress flows
+                ''',
+                'ipv6_egress_flows',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('mpls-ingress-flows', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                MPLS ingress flows
+                ''',
+                'mpls_ingress_flows',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('mpls-egress-flows', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                MPLS egress flows
+                ''',
+                'mpls_egress_flows',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
             _MetaInfoClassMember('drops-no-space', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Drops (no space)
@@ -485,60 +521,11 @@ _meta_table = {
                 ''',
                 'drops_others',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('flow-packet-counts', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('unknown-ingress-flows', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Number of Rxed Flow Packets
+                '''                Unknown ingress flows
                 ''',
-                'flow_packet_counts',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('ipv4-egress-flows', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                IPv4 egress flows
-                ''',
-                'ipv4_egress_flows',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('ipv4-ingress-flows', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                IPv4 ingress flows
-                ''',
-                'ipv4_ingress_flows',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('ipv6-egress-flows', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                IPv6 egress flows
-                ''',
-                'ipv6_egress_flows',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('ipv6-ingress-flows', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                IPv6 ingress flows
-                ''',
-                'ipv6_ingress_flows',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('last-cleared', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Last time Statistics cleared in 'Mon Jan 1 12:00
-                :00 2xxx' format
-                ''',
-                'last_cleared',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('mpls-egress-flows', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                MPLS egress flows
-                ''',
-                'mpls_egress_flows',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('mpls-ingress-flows', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                MPLS ingress flows
-                ''',
-                'mpls_ingress_flows',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('spp-rx-counts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of Rxed SPP Packets
-                ''',
-                'spp_rx_counts',
+                'unknown_ingress_flows',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
             _MetaInfoClassMember('unknown-egress-flows', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
@@ -546,17 +533,30 @@ _meta_table = {
                 ''',
                 'unknown_egress_flows',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('unknown-ingress-flows', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Unknown ingress flows
-                ''',
-                'unknown_ingress_flows',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
             _MetaInfoClassMember('waiting-servers', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Number of waiting servers
                 ''',
                 'waiting_servers',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('spp-rx-counts', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of Rxed SPP Packets
+                ''',
+                'spp_rx_counts',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('flow-packet-counts', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of Rxed Flow Packets
+                ''',
+                'flow_packet_counts',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('last-cleared', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Last time Statistics cleared in 'Mon Jan 1 12:00
+                :00 2xxx' format
+                ''',
+                'last_cleared',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
             ],
             'Cisco-IOS-XR-asr9k-netflow-oper',
@@ -644,29 +644,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector',
             False, 
             [
-            _MetaInfoClassMember('bytes-dropped', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Bytes dropped
-                ''',
-                'bytes_dropped',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('bytes-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Bytes sent
-                ''',
-                'bytes_sent',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
             _MetaInfoClassMember('destination-address', REFERENCE_CLASS, 'DestinationAddress' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper', 'NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector.DestinationAddress', 
                 [], [], 
                 '''                Destination address
                 ''',
                 'destination_address',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Destination port number
+            _MetaInfoClassMember('source-address', REFERENCE_CLASS, 'SourceAddress' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper', 'NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector.SourceAddress', 
+                [], [], 
+                '''                Source address
                 ''',
-                'destination_port',
+                'source_address',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
             _MetaInfoClassMember('exporter-state', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -674,11 +662,65 @@ _meta_table = {
                 ''',
                 'exporter_state',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('flow-bytes-dropped', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Flow bytes dropped
+            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                VRF Name
                 ''',
-                'flow_bytes_dropped',
+                'vrf_name',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Destination port number
+                ''',
+                'destination_port',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('souce-port', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Source port number
+                ''',
+                'souce_port',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('transport-protocol', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Transport protocol
+                ''',
+                'transport_protocol',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('packets-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Packets sent
+                ''',
+                'packets_sent',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('flows-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Flows sent
+                ''',
+                'flows_sent',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('templates-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Templates sent
+                ''',
+                'templates_sent',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('option-templates-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Option templates sent
+                ''',
+                'option_templates_sent',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('option-data-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Option data sent
+                ''',
+                'option_data_sent',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('bytes-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Bytes sent
+                ''',
+                'bytes_sent',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
             _MetaInfoClassMember('flow-bytes-sent', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
@@ -686,17 +728,89 @@ _meta_table = {
                 ''',
                 'flow_bytes_sent',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('template-bytes-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Template bytes sent
+                ''',
+                'template_bytes_sent',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('option-template-bytes-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Option template bytes sent
+                ''',
+                'option_template_bytes_sent',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('option-data-bytes-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Option data bytes sent
+                ''',
+                'option_data_bytes_sent',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('packets-dropped', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Packets dropped
+                ''',
+                'packets_dropped',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
             _MetaInfoClassMember('flows-dropped', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Flows dropped
                 ''',
                 'flows_dropped',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('flows-sent', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('templates-dropped', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Flows sent
+                '''                Templates dropped
                 ''',
-                'flows_sent',
+                'templates_dropped',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('option-templates-dropped', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Option templates dropped
+                ''',
+                'option_templates_dropped',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('option-data-dropped', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Option data dropped
+                ''',
+                'option_data_dropped',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('bytes-dropped', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Bytes dropped
+                ''',
+                'bytes_dropped',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('flow-bytes-dropped', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Flow bytes dropped
+                ''',
+                'flow_bytes_dropped',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('template-bytes-dropped', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Template bytes dropped
+                ''',
+                'template_bytes_dropped',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('option-template-bytes-dropped', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Option template bytes dropped
+                ''',
+                'option_template_bytes_dropped',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('option-data-bytes-dropped', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Option data dropped
+                ''',
+                'option_data_bytes_dropped',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('last-hour-packest-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Total packets exported over the last one hour
+                ''',
+                'last_hour_packest_sent',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
             _MetaInfoClassMember('last-hour-bytes-sent', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
@@ -710,11 +824,11 @@ _meta_table = {
                 ''',
                 'last_hour_flows_sent',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('last-hour-packest-sent', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-minute-packets', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Total packets exported over the last one hour
+                '''                Total packets exported over the last one minute
                 ''',
-                'last_hour_packest_sent',
+                'last_minute_packets',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
             _MetaInfoClassMember('last-minute-bytes-sent', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
@@ -728,11 +842,11 @@ _meta_table = {
                 ''',
                 'last_minute_flows_sent',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('last-minute-packets', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('last-second-packets-sent', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Total packets exported over the last one minute
+                '''                Total packets exported over the last one second
                 ''',
-                'last_minute_packets',
+                'last_second_packets_sent',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
             _MetaInfoClassMember('last-second-bytes-sent', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
@@ -746,120 +860,6 @@ _meta_table = {
                 ''',
                 'last_second_flows_sent',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('last-second-packets-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Total packets exported over the last one second
-                ''',
-                'last_second_packets_sent',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('option-data-bytes-dropped', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Option data dropped
-                ''',
-                'option_data_bytes_dropped',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('option-data-bytes-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Option data bytes sent
-                ''',
-                'option_data_bytes_sent',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('option-data-dropped', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Option data dropped
-                ''',
-                'option_data_dropped',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('option-data-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Option data sent
-                ''',
-                'option_data_sent',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('option-template-bytes-dropped', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Option template bytes dropped
-                ''',
-                'option_template_bytes_dropped',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('option-template-bytes-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Option template bytes sent
-                ''',
-                'option_template_bytes_sent',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('option-templates-dropped', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Option templates dropped
-                ''',
-                'option_templates_dropped',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('option-templates-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Option templates sent
-                ''',
-                'option_templates_sent',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('packets-dropped', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Packets dropped
-                ''',
-                'packets_dropped',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('packets-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Packets sent
-                ''',
-                'packets_sent',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('souce-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Source port number
-                ''',
-                'souce_port',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('source-address', REFERENCE_CLASS, 'SourceAddress' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper', 'NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector.SourceAddress', 
-                [], [], 
-                '''                Source address
-                ''',
-                'source_address',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('template-bytes-dropped', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Template bytes dropped
-                ''',
-                'template_bytes_dropped',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('template-bytes-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Template bytes sent
-                ''',
-                'template_bytes_sent',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('templates-dropped', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Templates dropped
-                ''',
-                'templates_dropped',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('templates-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Templates sent
-                ''',
-                'templates_sent',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('transport-protocol', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Transport protocol
-                ''',
-                'transport_protocol',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                VRF Name
-                ''',
-                'vrf_name',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
             ],
             'Cisco-IOS-XR-asr9k-netflow-oper',
             'collector',
@@ -871,11 +871,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic',
             False, 
             [
-            _MetaInfoClassMember('collector', REFERENCE_LIST, 'Collector' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper', 'NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector', 
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Statistics of all collectors
+                '''                Exporter name
                 ''',
-                'collector',
+                'name',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
             _MetaInfoClassMember('memory-usage', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -883,17 +883,17 @@ _meta_table = {
                 ''',
                 'memory_usage',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Exporter name
-                ''',
-                'name',
-                'Cisco-IOS-XR-asr9k-netflow-oper', False),
             _MetaInfoClassMember('used-by-flow-monitor', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], [], 
                 '''                List of flow monitors that use the exporter
                 ''',
                 'used_by_flow_monitor',
+                'Cisco-IOS-XR-asr9k-netflow-oper', False),
+            _MetaInfoClassMember('collector', REFERENCE_LIST, 'Collector' , 'ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper', 'NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector', 
+                [], [], 
+                '''                Statistics of all collectors
+                ''',
+                'collector',
                 'Cisco-IOS-XR-asr9k-netflow-oper', False),
             ],
             'Cisco-IOS-XR-asr9k-netflow-oper',
@@ -1047,10 +1047,10 @@ _meta_table = {
         ),
     },
 }
-_meta_table['NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Ipfix']['meta_info'].parent =_meta_table['NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version']['meta_info']
 _meta_table['NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Version9']['meta_info'].parent =_meta_table['NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version']['meta_info']
-_meta_table['NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Collector']['meta_info'].parent =_meta_table['NetFlow.Configuration.FlowExporterMaps.FlowExporterMap']['meta_info']
+_meta_table['NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Ipfix']['meta_info'].parent =_meta_table['NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version']['meta_info']
 _meta_table['NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version']['meta_info'].parent =_meta_table['NetFlow.Configuration.FlowExporterMaps.FlowExporterMap']['meta_info']
+_meta_table['NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Collector']['meta_info'].parent =_meta_table['NetFlow.Configuration.FlowExporterMaps.FlowExporterMap']['meta_info']
 _meta_table['NetFlow.Configuration.FlowExporterMaps.FlowExporterMap']['meta_info'].parent =_meta_table['NetFlow.Configuration.FlowExporterMaps']['meta_info']
 _meta_table['NetFlow.Configuration.FlowMonitorMaps.FlowMonitorMap.Exporter']['meta_info'].parent =_meta_table['NetFlow.Configuration.FlowMonitorMaps.FlowMonitorMap']['meta_info']
 _meta_table['NetFlow.Configuration.FlowMonitorMaps.FlowMonitorMap']['meta_info'].parent =_meta_table['NetFlow.Configuration.FlowMonitorMaps']['meta_info']

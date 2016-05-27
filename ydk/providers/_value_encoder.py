@@ -18,10 +18,12 @@
    Value encoder.
 
 """
+import logging
+
 from ydk._core._dm_meta_info import REFERENCE_BITS, \
-                                 REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS
+    REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_LEAFLIST
 from ydk.errors import YPYDataValidationError, YPYError
-from ydk.types import Empty, Decimal64
+from ydk.types import Empty, Decimal64, YListItem
 
 import ydk.models._yang_ns as _yang_ns
 
@@ -76,6 +78,9 @@ class ValueEncoder(object):
                 text = str(value)
             elif member.ptype == 'long' and isinstance(value, long):
                 text = str(value)
+            else:
+                ydk_logger = logging.getLogger('ydk.providers.NetconfServiceProvider')
+                ydk_logger.info('Could not encode leaf {0}, type: {1}, {2} value: {3}'.format(member.name, member.mtype, member.ptype, value))
 
             return text
 

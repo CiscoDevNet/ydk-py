@@ -7,7 +7,7 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
@@ -501,73 +501,8 @@ _meta_table = {
             'ingress':'INGRESS',
             'bidirectional':'BIDIRECTIONAL',
         }, 'Cisco-IOS-XR-drivers-media-eth-oper', _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper']),
-    'EthernetInterface.Berts.Bert.BertStatus' : {
-        'meta_info' : _MetaInfoClass('EthernetInterface.Berts.Bert.BertStatus',
-            False, 
-            [
-            _MetaInfoClassMember('bert-state-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                State
-                ''',
-                'bert_state_enabled',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('data-availability', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Flag indicating available data
-                ''',
-                'data_availability',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('device-under-test', REFERENCE_ENUM_CLASS, 'EthernetDevEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetDevEnum', 
-                [], [], 
-                '''                Device being tested
-                ''',
-                'device_under_test',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('error-type', REFERENCE_ENUM_CLASS, 'EthernetBertErrCntEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetBertErrCntEnum', 
-                [], [], 
-                '''                Bit, block or frame error
-                ''',
-                'error_type',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('interface-device', REFERENCE_ENUM_CLASS, 'EthernetDevIfEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetDevIfEnum', 
-                [], [], 
-                '''                Interface being tested
-                ''',
-                'interface_device',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('receive-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Receive count (if 0x1 set in flag)
-                ''',
-                'receive_count',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('receive-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received errors (if 0x4 set in flag)
-                ''',
-                'receive_errors',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('test-pattern', REFERENCE_ENUM_CLASS, 'EthernetBertPatternEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetBertPatternEnum', 
-                [], [], 
-                '''                Test pattern
-                ''',
-                'test_pattern',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transmit-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmit count (if 0x2 set in flag)
-                ''',
-                'transmit_count',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            ],
-            'Cisco-IOS-XR-drivers-media-eth-oper',
-            'bert-status',
-            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
-        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
-        ),
-    },
-    'EthernetInterface.Berts.Bert' : {
-        'meta_info' : _MetaInfoClass('EthernetInterface.Berts.Bert',
+    'EthernetInterface.Statistics.Statistic' : {
+        'meta_info' : _MetaInfoClass('EthernetInterface.Statistics.Statistic',
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
@@ -576,44 +511,831 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-drivers-media-eth-oper', True),
-            _MetaInfoClassMember('bert-status', REFERENCE_CLASS, 'BertStatus' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Berts.Bert.BertStatus', 
-                [], [], 
-                '''                Current test status
+            _MetaInfoClassMember('received-total-bytes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Total octets of all frames
                 ''',
-                'bert_status',
+                'received_total_bytes',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('port-bert-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Port BERT interval
+            _MetaInfoClassMember('received-good-bytes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Total octets of all good frames
                 ''',
-                'port_bert_interval',
+                'received_good_bytes',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('time-left', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Remaining time for this test in seconds
+            _MetaInfoClassMember('received-total-frames', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                All frames, good or bad
                 ''',
-                'time_left',
+                'received_total_frames',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('received8021q-frames', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                All 802.1Q frames
+                ''',
+                'received8021q_frames',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('received-pause-frames', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                All pause frames
+                ''',
+                'received_pause_frames',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('received-unknown-opcodes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Unsupported MAC Control frames
+                ''',
+                'received_unknown_opcodes',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('received-total64-octet-frames', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                All 64 Octet Frame Count
+                ''',
+                'received_total64_octet_frames',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('received-total-octet-frames-from65-to127', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                All 65-127 Octet Frame Count
+                ''',
+                'received_total_octet_frames_from65_to127',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('received-total-octet-frames-from128-to255', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                All 128-255 Octet Frame Count
+                ''',
+                'received_total_octet_frames_from128_to255',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('received-total-octet-frames-from256-to511', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                All 256-511 Octet Frame Count
+                ''',
+                'received_total_octet_frames_from256_to511',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('received-total-octet-frames-from512-to1023', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                All 512-1023 Octet Frame Count
+                ''',
+                'received_total_octet_frames_from512_to1023',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('received-total-octet-frames-from1024-to1518', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                All 1024-1518 Octet Frame Count
+                ''',
+                'received_total_octet_frames_from1024_to1518',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('received-total-octet-frames-from1519-to-max', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                All > 1518 Octet Frame Count
+                ''',
+                'received_total_octet_frames_from1519_to_max',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('received-good-frames', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received Good Frames
+                ''',
+                'received_good_frames',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('received-unicast-frames', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received unicast Frames
+                ''',
+                'received_unicast_frames',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('received-multicast-frames', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received multicast Frames
+                ''',
+                'received_multicast_frames',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('received-broadcast-frames', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received broadcast Frames
+                ''',
+                'received_broadcast_frames',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('number-of-buffer-overrun-packets-dropped', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Drops due to buffer overrun
+                ''',
+                'number_of_buffer_overrun_packets_dropped',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('number-of-aborted-packets-dropped', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Drops due to packet abort
+                ''',
+                'number_of_aborted_packets_dropped',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('numberof-invalid-vlan-id-packets-dropped', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Drops due to invalid VLAN id
+                ''',
+                'numberof_invalid_vlan_id_packets_dropped',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('invalid-dest-mac-drop-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Drops due to the destination MAC not matching
+                ''',
+                'invalid_dest_mac_drop_packets',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('invalid-encap-drop-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Drops due to the encapsulation or ether type not
+                matching
+                ''',
+                'invalid_encap_drop_packets',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('number-of-miscellaneous-packets-dropped', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Any other drops not counted
+                ''',
+                'number_of_miscellaneous_packets_dropped',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('dropped-giant-packets-greaterthan-mru', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Good frames > MRU, dropped
+                ''',
+                'dropped_giant_packets_greaterthan_mru',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('dropped-ether-stats-undersize-pkts', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Good frames < 64 Octet, dropped
+                ''',
+                'dropped_ether_stats_undersize_pkts',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('dropped-jabbers-packets-greaterthan-mru', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Bad Frames > MRU, dropped
+                ''',
+                'dropped_jabbers_packets_greaterthan_mru',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('dropped-ether-stats-fragments', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Bad Frames < 64 Octet, dropped
+                ''',
+                'dropped_ether_stats_fragments',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('dropped-packets-with-crc-align-errors', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Frames 64 - MRU with CRC error
+                ''',
+                'dropped_packets_with_crc_align_errors',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('ether-stats-collisions', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                All collision events
+                ''',
+                'ether_stats_collisions',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('symbol-errors', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Symbol errors
+                ''',
+                'symbol_errors',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('dropped-miscellaneous-error-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Any other errors not counted
+                ''',
+                'dropped_miscellaneous_error_packets',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('rfc2819-ether-stats-oversized-pkts', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                RFC2819 etherStatsOversizedPkts
+                ''',
+                'rfc2819_ether_stats_oversized_pkts',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('rfc2819-ether-stats-jabbers', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                RFC2819 etherStatsJabbers
+                ''',
+                'rfc2819_ether_stats_jabbers',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('rfc2819-ether-stats-crc-align-errors', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                RFC2819 etherStatsCRCAlignErrors
+                ''',
+                'rfc2819_ether_stats_crc_align_errors',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('rfc3635dot3-stats-alignment-errors', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                RFC3635 dot3StatsAlignmentErrors
+                ''',
+                'rfc3635dot3_stats_alignment_errors',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('total-bytes-transmitted', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Total octets of all frames
+                ''',
+                'total_bytes_transmitted',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('total-good-bytes-transmitted', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Total octets of all good frames
+                ''',
+                'total_good_bytes_transmitted',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('total-frames-transmitted', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                All frames, good or bad
+                ''',
+                'total_frames_transmitted',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transmitted8021q-frames', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                All 802.1Q frames
+                ''',
+                'transmitted8021q_frames',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transmitted-total-pause-frames', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                All pause frames
+                ''',
+                'transmitted_total_pause_frames',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transmitted-total64-octet-frames', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                All 64 Octet Frame Count
+                ''',
+                'transmitted_total64_octet_frames',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transmitted-total-octet-frames-from65-to127', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                All 65-127 Octet Frame Count
+                ''',
+                'transmitted_total_octet_frames_from65_to127',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transmitted-total-octet-frames-from128-to255', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                All 128-255 Octet Frame Count
+                ''',
+                'transmitted_total_octet_frames_from128_to255',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transmitted-total-octet-frames-from256-to511', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                All 256-511 Octet Frame Count
+                ''',
+                'transmitted_total_octet_frames_from256_to511',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transmitted-total-octet-frames-from512-to1023', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                All 512-1023 Octet Frame Count
+                ''',
+                'transmitted_total_octet_frames_from512_to1023',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transmitted-total-octet-frames-from1024-to1518', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                All 1024-1518 Octet Frame Count
+                ''',
+                'transmitted_total_octet_frames_from1024_to1518',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transmitted-total-octet-frames-from1518-to-max', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                All > 1518 Octet Frame Count
+                ''',
+                'transmitted_total_octet_frames_from1518_to_max',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transmitted-good-frames', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted Good Frames
+                ''',
+                'transmitted_good_frames',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transmitted-unicast-frames', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted unicast Frames
+                ''',
+                'transmitted_unicast_frames',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transmitted-multicast-frames', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted multicast Frames
+                ''',
+                'transmitted_multicast_frames',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transmitted-broadcast-frames', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted broadcast Frames
+                ''',
+                'transmitted_broadcast_frames',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('buffer-underrun-packet-drops', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Drops due to buffer underrun
+                ''',
+                'buffer_underrun_packet_drops',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('aborted-packet-drops', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Drops due to packet abort
+                ''',
+                'aborted_packet_drops',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('uncounted-dropped-frames', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Any other drops not counted
+                ''',
+                'uncounted_dropped_frames',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('miscellaneous-output-errors', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Any other errors not counted
+                ''',
+                'miscellaneous_output_errors',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
             ],
             'Cisco-IOS-XR-drivers-media-eth-oper',
-            'bert',
+            'statistic',
             _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
         'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
         ),
     },
-    'EthernetInterface.Berts' : {
-        'meta_info' : _MetaInfoClass('EthernetInterface.Berts',
+    'EthernetInterface.Statistics' : {
+        'meta_info' : _MetaInfoClass('EthernetInterface.Statistics',
             False, 
             [
-            _MetaInfoClassMember('bert', REFERENCE_LIST, 'Bert' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Berts.Bert', 
+            _MetaInfoClassMember('statistic', REFERENCE_LIST, 'Statistic' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Statistics.Statistic', 
                 [], [], 
-                '''                Ethernet BERT information
+                '''                Ethernet statistics information
                 ''',
-                'bert',
+                'statistic',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
             ],
             'Cisco-IOS-XR-drivers-media-eth-oper',
-            'berts',
+            'statistics',
+            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
+        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
+        ),
+    },
+    'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity' : {
+        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity',
+            False, 
+            [
+            _MetaInfoClassMember('wavelength-valid', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                The wavelength 'per lane' field is valid
+                ''',
+                'wavelength_valid',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transmit-power-valid', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                The transmit power 'per lane' field is valid
+                ''',
+                'transmit_power_valid',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('receive-power-valid', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                The receive power 'per lane' field is valid
+                ''',
+                'receive_power_valid',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('laser-bias-valid', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                The laser bias 'per lane' field is valid
+                ''',
+                'laser_bias_valid',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            ],
+            'Cisco-IOS-XR-drivers-media-eth-oper',
+            'lane-field-validity',
+            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
+        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
+        ),
+    },
+    'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity' : {
+        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity',
+            False, 
+            [
+            _MetaInfoClassMember('temperature-valid', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                The temperature fields are valid
+                ''',
+                'temperature_valid',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('voltage-valid', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                The voltage fields are valid
+                ''',
+                'voltage_valid',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('laser-bias-valid', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                The laser bias fields are valid
+                ''',
+                'laser_bias_valid',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transmit-power-valid', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                The transmit power fields are valid
+                ''',
+                'transmit_power_valid',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('receive-power-valid', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                The receive power fields are valid
+                ''',
+                'receive_power_valid',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            ],
+            'Cisco-IOS-XR-drivers-media-eth-oper',
+            'field-validity',
+            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
+        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
+        ),
+    },
+    'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds' : {
+        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds',
+            False, 
+            [
+            _MetaInfoClassMember('field-validity', REFERENCE_CLASS, 'FieldValidity' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity', 
+                [], [], 
+                '''                Field validity
+                ''',
+                'field_validity',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transceiver-temperature-alarm-high', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Transceiver high temperature alarm threshold
+                (mDegrees C)
+                ''',
+                'transceiver_temperature_alarm_high',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transceiver-temperature-warning-high', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Transceiver high temperature warning threshold
+                (mDegrees C)
+                ''',
+                'transceiver_temperature_warning_high',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transceiver-temperature-warning-low', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Transceiver low temperature warning threshold
+                (mDegrees C)
+                ''',
+                'transceiver_temperature_warning_low',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transceiver-temperature-alarm-low', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Transceiver low temperature alarm threshold
+                (mDegrees C)
+                ''',
+                'transceiver_temperature_alarm_low',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transceiver-voltage-alarm-high', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Transceiver high voltage alarm threshold (mV)
+                ''',
+                'transceiver_voltage_alarm_high',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transceiver-voltage-warning-high', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Transceiver high voltage warning threshold (mV)
+                ''',
+                'transceiver_voltage_warning_high',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transceiver-voltage-warning-low', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Transceiver low voltage warning threshold (mV)
+                ''',
+                'transceiver_voltage_warning_low',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transceiver-voltage-alarm-low', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Transceiver low voltage alarm threshold (mV)
+                ''',
+                'transceiver_voltage_alarm_low',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('laser-bias-alarm-high', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Laser bias high alarm threshold (mA)
+                ''',
+                'laser_bias_alarm_high',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('laser-bias-warning-high', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Laser bias high warning threshold (mA)
+                ''',
+                'laser_bias_warning_high',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('laser-bias-warning-low', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Laser bias low warning threshold (mA)
+                ''',
+                'laser_bias_warning_low',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('laser-bias-alarm-low', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Laser bias low alarm threshold (mA)
+                ''',
+                'laser_bias_alarm_low',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('optical-transmit-power-alarm-high', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                High optical transmit power alarm threshold (mW)
+                ''',
+                'optical_transmit_power_alarm_high',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('optical-transmit-power-warning-high', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                High optical transmit power warning threshold
+                (mW)
+                ''',
+                'optical_transmit_power_warning_high',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('optical-transmit-power-warning-low', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Low optical transmit power warning threshold
+                (mW)
+                ''',
+                'optical_transmit_power_warning_low',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('optical-transmit-power-alarm-low', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Low optical transmit power alarm threshold (mW)
+                ''',
+                'optical_transmit_power_alarm_low',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('optical-receive-power-alarm-high', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                High optical receive power alarm threshold (mW)
+                ''',
+                'optical_receive_power_alarm_high',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('optical-receive-power-warning-high', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                High optical receive power warning threshold
+                (mW)
+                ''',
+                'optical_receive_power_warning_high',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('optical-receive-power-warning-low', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Low optical receive power warning threshold (mW)
+                ''',
+                'optical_receive_power_warning_low',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('optical-receive-power-alarm-low', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Low optical receive power alarm threshold (mW)
+                ''',
+                'optical_receive_power_alarm_low',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            ],
+            'Cisco-IOS-XR-drivers-media-eth-oper',
+            'dig-opt-mon-alarm-thresholds',
+            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
+        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
+        ),
+    },
+    'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms' : {
+        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms',
+            False, 
+            [
+            _MetaInfoClassMember('transceiver-temperature', REFERENCE_ENUM_CLASS, 'EtherDomAlarmEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarmEnum', 
+                [], [], 
+                '''                Transceiver Temperature Alarm
+                ''',
+                'transceiver_temperature',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transceiver-voltage', REFERENCE_ENUM_CLASS, 'EtherDomAlarmEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarmEnum', 
+                [], [], 
+                '''                Transceiver Voltage Alarm
+                ''',
+                'transceiver_voltage',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transmit-laser-power', REFERENCE_ENUM_CLASS, 'EtherDomAlarmEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarmEnum', 
+                [], [], 
+                '''                Transmit Laser Power Alarm
+                ''',
+                'transmit_laser_power',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('received-laser-power', REFERENCE_ENUM_CLASS, 'EtherDomAlarmEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarmEnum', 
+                [], [], 
+                '''                Received Optical Power Alarm
+                ''',
+                'received_laser_power',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('laser-bias-current', REFERENCE_ENUM_CLASS, 'EtherDomAlarmEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarmEnum', 
+                [], [], 
+                '''                Laser Bias Current Alarm
+                ''',
+                'laser_bias_current',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            ],
+            'Cisco-IOS-XR-drivers-media-eth-oper',
+            'dig-opt-mon-alarms',
+            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
+        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
+        ),
+    },
+    'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm' : {
+        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm',
+            False, 
+            [
+            _MetaInfoClassMember('transmit-laser-power', REFERENCE_ENUM_CLASS, 'EtherDomAlarmEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarmEnum', 
+                [], [], 
+                '''                Transmit Laser Power Alarm
+                ''',
+                'transmit_laser_power',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('received-laser-power', REFERENCE_ENUM_CLASS, 'EtherDomAlarmEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarmEnum', 
+                [], [], 
+                '''                Received Optical Power Alarm
+                ''',
+                'received_laser_power',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('laser-bias-current', REFERENCE_ENUM_CLASS, 'EtherDomAlarmEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarmEnum', 
+                [], [], 
+                '''                Laser Bias Current Alarm
+                ''',
+                'laser_bias_current',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            ],
+            'Cisco-IOS-XR-drivers-media-eth-oper',
+            'dig-opt-mon-alarm',
+            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
+        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
+        ),
+    },
+    'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane' : {
+        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane',
+            False, 
+            [
+            _MetaInfoClassMember('dig-opt-mon-alarm', REFERENCE_CLASS, 'DigOptMonAlarm' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm', 
+                [], [], 
+                '''                Digital Optical Monitoring alarms
+                ''',
+                'dig_opt_mon_alarm',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('center-wavelength', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Center Wavelength (nm*1000)
+                ''',
+                'center_wavelength',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transmit-laser-power', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Transmit Laser Power (dBm*1000)
+                ''',
+                'transmit_laser_power',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('received-laser-power', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Received Optical Power (dBm*1000)
+                ''',
+                'received_laser_power',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('laser-bias-current', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Laser Bias Current (uAmps)
+                ''',
+                'laser_bias_current',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            ],
+            'Cisco-IOS-XR-drivers-media-eth-oper',
+            'lane',
+            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
+        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
+        ),
+    },
+    'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails' : {
+        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails',
+            False, 
+            [
+            _MetaInfoClassMember('lane-field-validity', REFERENCE_CLASS, 'LaneFieldValidity' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity', 
+                [], [], 
+                '''                Digital Optical Monitoring (per lane
+                information) validity
+                ''',
+                'lane_field_validity',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('dig-opt-mon-alarm-thresholds', REFERENCE_CLASS, 'DigOptMonAlarmThresholds' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds', 
+                [], [], 
+                '''                Digital Optical Monitoring alarm thresholds
+                ''',
+                'dig_opt_mon_alarm_thresholds',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('dig-opt-mon-alarms', REFERENCE_CLASS, 'DigOptMonAlarms' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms', 
+                [], [], 
+                '''                Digital Optical Monitoring alarms
+                ''',
+                'dig_opt_mon_alarms',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('vendor', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the port optics manufacturer
+                ''',
+                'vendor',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('vendor-part-number', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Part number for the port optics
+                ''',
+                'vendor_part_number',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('vendor-serial-number', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Serial number for the port optics
+                ''',
+                'vendor_serial_number',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transceiver-temperature', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                The temperature of the transceiver (mDegrees C)
+                ''',
+                'transceiver_temperature',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transceiver-voltage', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                The input voltage to the transceiver (mV)
+                ''',
+                'transceiver_voltage',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('optics-wavelength', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Wavelength of the optics being used in nm * 1000
+                ''',
+                'optics_wavelength',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('lane', REFERENCE_LIST, 'Lane' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane', 
+                [], [], 
+                '''                Digital Optical Monitoring (per lane
+                information)
+                ''',
+                'lane',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            ],
+            'Cisco-IOS-XR-drivers-media-eth-oper',
+            'phy-details',
+            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
+        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
+        ),
+    },
+    'EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails' : {
+        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails',
+            False, 
+            [
+            _MetaInfoClassMember('fec', REFERENCE_ENUM_CLASS, 'EthernetFecEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetFecEnum', 
+                [], [], 
+                '''                Port operational FEC type
+                ''',
+                'fec',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('corrected-codeword-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Corrected codeword error count
+                ''',
+                'corrected_codeword_count',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('uncorrected-codeword-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Uncorrected codeword error count
+                ''',
+                'uncorrected_codeword_count',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            ],
+            'Cisco-IOS-XR-drivers-media-eth-oper',
+            'fec-details',
+            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
+        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
+        ),
+    },
+    'EthernetInterface.Interfaces.Interface.PhyInfo' : {
+        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.PhyInfo',
+            False, 
+            [
+            _MetaInfoClassMember('phy-details', REFERENCE_CLASS, 'PhyDetails' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails', 
+                [], [], 
+                '''                Details about the PHY
+                ''',
+                'phy_details',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('fec-details', REFERENCE_CLASS, 'FecDetails' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails', 
+                [], [], 
+                '''                Forward Error Correction information
+                ''',
+                'fec_details',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('media-type', REFERENCE_ENUM_CLASS, 'EthernetMediaEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetMediaEnum', 
+                [], [], 
+                '''                Port media type
+                ''',
+                'media_type',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('phy-present', REFERENCE_ENUM_CLASS, 'EtherPhyPresentEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherPhyPresentEnum', 
+                [], [], 
+                '''                Presence of PHY
+                ''',
+                'phy_present',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('loopback', REFERENCE_ENUM_CLASS, 'EthernetLoopbackEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetLoopbackEnum', 
+                [], [], 
+                '''                Port operational loopback
+                ''',
+                'loopback',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            ],
+            'Cisco-IOS-XR-drivers-media-eth-oper',
+            'phy-info',
             _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
         'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
         ),
@@ -627,28 +1349,6 @@ _meta_table = {
                 '''                TRUE if autonegotiation is enabled
                 ''',
                 'autoneg_enabled',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('config-override', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                If true, configuration overrides negotiated
-                settings.  If false, negotiated settings in
-                effect
-                ''',
-                'config_override',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('duplex', REFERENCE_ENUM_CLASS, 'EthernetDuplexEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetDuplexEnum', 
-                [], [], 
-                '''                Restricted duplex (if relevant bit is set in
-                mask)
-                ''',
-                'duplex',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('flowcontrol', REFERENCE_ENUM_CLASS, 'EtherFlowcontrolEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherFlowcontrolEnum', 
-                [], [], 
-                '''                Restricted flowcontrol (if relevant bit is set
-                in mask)
-                ''',
-                'flowcontrol',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
             _MetaInfoClassMember('mask', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -664,9 +1364,184 @@ _meta_table = {
                 ''',
                 'speed',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('duplex', REFERENCE_ENUM_CLASS, 'EthernetDuplexEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetDuplexEnum', 
+                [], [], 
+                '''                Restricted duplex (if relevant bit is set in
+                mask)
+                ''',
+                'duplex',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('flowcontrol', REFERENCE_ENUM_CLASS, 'EtherFlowcontrolEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherFlowcontrolEnum', 
+                [], [], 
+                '''                Restricted flowcontrol (if relevant bit is set
+                in mask)
+                ''',
+                'flowcontrol',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('config-override', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                If true, configuration overrides negotiated
+                settings.  If false, negotiated settings in
+                effect
+                ''',
+                'config_override',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
             ],
             'Cisco-IOS-XR-drivers-media-eth-oper',
             'autoneg',
+            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
+        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
+        ),
+    },
+    'EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms' : {
+        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms',
+            False, 
+            [
+            _MetaInfoClassMember('received-loss-of-signal-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
+                [], [], 
+                '''                Received Loss of Signal
+                ''',
+                'received_loss_of_signal_alarm',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('pcs-loss-of-block-lock-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
+                [], [], 
+                '''                PCS Loss of Block Lock
+                ''',
+                'pcs_loss_of_block_lock_alarm',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('local-fault-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
+                [], [], 
+                '''                Local Fault
+                ''',
+                'local_fault_alarm',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('remote-fault-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
+                [], [], 
+                '''                Remote Fault
+                ''',
+                'remote_fault_alarm',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('sd-ber-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
+                [], [], 
+                '''                SD BER
+                ''',
+                'sd_ber_alarm',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('sf-ber-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
+                [], [], 
+                '''                SF BER
+                ''',
+                'sf_ber_alarm',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('loss-of-synchronization-data-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
+                [], [], 
+                '''                Loss of Synchronization Data
+                ''',
+                'loss_of_synchronization_data_alarm',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('hi-ber-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
+                [], [], 
+                '''                Hi BER
+                ''',
+                'hi_ber_alarm',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('squelch-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
+                [], [], 
+                '''                Squelch
+                ''',
+                'squelch_alarm',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            ],
+            'Cisco-IOS-XR-drivers-media-eth-oper',
+            'current-alarms',
+            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
+        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
+        ),
+    },
+    'EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms' : {
+        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms',
+            False, 
+            [
+            _MetaInfoClassMember('received-loss-of-signal-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
+                [], [], 
+                '''                Received Loss of Signal
+                ''',
+                'received_loss_of_signal_alarm',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('pcs-loss-of-block-lock-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
+                [], [], 
+                '''                PCS Loss of Block Lock
+                ''',
+                'pcs_loss_of_block_lock_alarm',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('local-fault-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
+                [], [], 
+                '''                Local Fault
+                ''',
+                'local_fault_alarm',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('remote-fault-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
+                [], [], 
+                '''                Remote Fault
+                ''',
+                'remote_fault_alarm',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('sd-ber-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
+                [], [], 
+                '''                SD BER
+                ''',
+                'sd_ber_alarm',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('sf-ber-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
+                [], [], 
+                '''                SF BER
+                ''',
+                'sf_ber_alarm',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('loss-of-synchronization-data-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
+                [], [], 
+                '''                Loss of Synchronization Data
+                ''',
+                'loss_of_synchronization_data_alarm',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('hi-ber-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
+                [], [], 
+                '''                Hi BER
+                ''',
+                'hi_ber_alarm',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('squelch-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
+                [], [], 
+                '''                Squelch
+                ''',
+                'squelch_alarm',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            ],
+            'Cisco-IOS-XR-drivers-media-eth-oper',
+            'previous-alarms',
+            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
+        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
+        ),
+    },
+    'EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts' : {
+        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts',
+            False, 
+            [
+            _MetaInfoClassMember('sync-header-errors', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Sync-header error count
+                ''',
+                'sync_header_errors',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('pcsbip-errors', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                PCS BIP error count
+                ''',
+                'pcsbip_errors',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            ],
+            'Cisco-IOS-XR-drivers-media-eth-oper',
+            'error-counts',
             _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
         'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
         ),
@@ -675,29 +1550,29 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings',
             False, 
             [
-            _MetaInfoClassMember('signal-degrade-alarm', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Report alarm to indicate signal degrade
-                ''',
-                'signal_degrade_alarm',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
             _MetaInfoClassMember('signal-degrade-threshold', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                BER threshold for signal to degrade
                 ''',
                 'signal_degrade_threshold',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('signal-fail-alarm', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('signal-degrade-alarm', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
-                '''                Report alarm to indicate signal failure
+                '''                Report alarm to indicate signal degrade
                 ''',
-                'signal_fail_alarm',
+                'signal_degrade_alarm',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
             _MetaInfoClassMember('signal-fail-threshold', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                BER threshold for signal to fail
                 ''',
                 'signal_fail_threshold',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('signal-fail-alarm', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Report alarm to indicate signal failure
+                ''',
+                'signal_fail_alarm',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
             _MetaInfoClassMember('signal-remote-fault', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
@@ -735,159 +1610,6 @@ _meta_table = {
         'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
         ),
     },
-    'EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms' : {
-        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms',
-            False, 
-            [
-            _MetaInfoClassMember('hi-ber-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
-                [], [], 
-                '''                Hi BER
-                ''',
-                'hi_ber_alarm',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('local-fault-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
-                [], [], 
-                '''                Local Fault
-                ''',
-                'local_fault_alarm',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('loss-of-synchronization-data-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
-                [], [], 
-                '''                Loss of Synchronization Data
-                ''',
-                'loss_of_synchronization_data_alarm',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('pcs-loss-of-block-lock-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
-                [], [], 
-                '''                PCS Loss of Block Lock
-                ''',
-                'pcs_loss_of_block_lock_alarm',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('received-loss-of-signal-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
-                [], [], 
-                '''                Received Loss of Signal
-                ''',
-                'received_loss_of_signal_alarm',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('remote-fault-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
-                [], [], 
-                '''                Remote Fault
-                ''',
-                'remote_fault_alarm',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('sd-ber-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
-                [], [], 
-                '''                SD BER
-                ''',
-                'sd_ber_alarm',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('sf-ber-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
-                [], [], 
-                '''                SF BER
-                ''',
-                'sf_ber_alarm',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('squelch-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
-                [], [], 
-                '''                Squelch
-                ''',
-                'squelch_alarm',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            ],
-            'Cisco-IOS-XR-drivers-media-eth-oper',
-            'current-alarms',
-            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
-        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
-        ),
-    },
-    'EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts' : {
-        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts',
-            False, 
-            [
-            _MetaInfoClassMember('pcsbip-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                PCS BIP error count
-                ''',
-                'pcsbip_errors',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('sync-header-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Sync-header error count
-                ''',
-                'sync_header_errors',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            ],
-            'Cisco-IOS-XR-drivers-media-eth-oper',
-            'error-counts',
-            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
-        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
-        ),
-    },
-    'EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms' : {
-        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms',
-            False, 
-            [
-            _MetaInfoClassMember('hi-ber-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
-                [], [], 
-                '''                Hi BER
-                ''',
-                'hi_ber_alarm',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('local-fault-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
-                [], [], 
-                '''                Local Fault
-                ''',
-                'local_fault_alarm',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('loss-of-synchronization-data-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
-                [], [], 
-                '''                Loss of Synchronization Data
-                ''',
-                'loss_of_synchronization_data_alarm',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('pcs-loss-of-block-lock-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
-                [], [], 
-                '''                PCS Loss of Block Lock
-                ''',
-                'pcs_loss_of_block_lock_alarm',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('received-loss-of-signal-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
-                [], [], 
-                '''                Received Loss of Signal
-                ''',
-                'received_loss_of_signal_alarm',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('remote-fault-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
-                [], [], 
-                '''                Remote Fault
-                ''',
-                'remote_fault_alarm',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('sd-ber-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
-                [], [], 
-                '''                SD BER
-                ''',
-                'sd_ber_alarm',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('sf-ber-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
-                [], [], 
-                '''                SF BER
-                ''',
-                'sf_ber_alarm',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('squelch-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
-                [], [], 
-                '''                Squelch
-                ''',
-                'squelch_alarm',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            ],
-            'Cisco-IOS-XR-drivers-media-eth-oper',
-            'previous-alarms',
-            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
-        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
-        ),
-    },
     'EthernetInterface.Interfaces.Interface.Layer1Info' : {
         'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.Layer1Info',
             False, 
@@ -898,11 +1620,23 @@ _meta_table = {
                 ''',
                 'autoneg',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('bandwidth-utilization', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Bandwidth utilization (hundredths of a percent)
+            _MetaInfoClassMember('current-alarms', REFERENCE_CLASS, 'CurrentAlarms' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms', 
+                [], [], 
+                '''                Current alarms
                 ''',
-                'bandwidth_utilization',
+                'current_alarms',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('previous-alarms', REFERENCE_CLASS, 'PreviousAlarms' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms', 
+                [], [], 
+                '''                Previous alarms
+                ''',
+                'previous_alarms',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('error-counts', REFERENCE_CLASS, 'ErrorCounts' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts', 
+                [], [], 
+                '''                Statistics for detected errors
+                ''',
+                'error_counts',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
             _MetaInfoClassMember('ber-monitoring', REFERENCE_CLASS, 'BerMonitoring' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring', 
                 [], [], 
@@ -910,23 +1644,29 @@ _meta_table = {
                 ''',
                 'ber_monitoring',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('current-alarms', REFERENCE_CLASS, 'CurrentAlarms' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms', 
+            _MetaInfoClassMember('link-state', REFERENCE_ENUM_CLASS, 'EtherLinkStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherLinkStateEnum', 
                 [], [], 
-                '''                Current alarms
+                '''                Link state
                 ''',
-                'current_alarms',
+                'link_state',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('led-state', REFERENCE_ENUM_CLASS, 'EtherLedStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherLedStateEnum', 
+                [], [], 
+                '''                State of the LED
+                ''',
+                'led_state',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'EthernetSpeedEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetSpeedEnum', 
+                [], [], 
+                '''                Port operational speed
+                ''',
+                'speed',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
             _MetaInfoClassMember('duplex', REFERENCE_ENUM_CLASS, 'EthernetDuplexEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetDuplexEnum', 
                 [], [], 
                 '''                Port operational duplexity
                 ''',
                 'duplex',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('error-counts', REFERENCE_CLASS, 'ErrorCounts' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts', 
-                [], [], 
-                '''                Statistics for detected errors
-                ''',
-                'error_counts',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
             _MetaInfoClassMember('flowcontrol', REFERENCE_ENUM_CLASS, 'EtherFlowcontrolEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherFlowcontrolEnum', 
                 [], [], 
@@ -946,33 +1686,33 @@ _meta_table = {
                 ''',
                 'laser_squelch_enabled',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('led-state', REFERENCE_ENUM_CLASS, 'EtherLedStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherLedStateEnum', 
-                [], [], 
-                '''                State of the LED
+            _MetaInfoClassMember('bandwidth-utilization', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Bandwidth utilization (hundredths of a percent)
                 ''',
-                'led_state',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('link-state', REFERENCE_ENUM_CLASS, 'EtherLinkStateEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherLinkStateEnum', 
-                [], [], 
-                '''                Link state
-                ''',
-                'link_state',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('previous-alarms', REFERENCE_CLASS, 'PreviousAlarms' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms', 
-                [], [], 
-                '''                Previous alarms
-                ''',
-                'previous_alarms',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('speed', REFERENCE_ENUM_CLASS, 'EthernetSpeedEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetSpeedEnum', 
-                [], [], 
-                '''                Port operational speed
-                ''',
-                'speed',
+                'bandwidth_utilization',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
             ],
             'Cisco-IOS-XR-drivers-media-eth-oper',
             'layer1-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
+        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
+        ),
+    },
+    'EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters' : {
+        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters',
+            False, 
+            [
+            _MetaInfoClassMember('unicast-mac-address', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC addresses in the unicast ingress destination
+                MAC filter
+                ''',
+                'unicast_mac_address',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            ],
+            'Cisco-IOS-XR-drivers-media-eth-oper',
+            'unicast-mac-filters',
             _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
         'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
         ),
@@ -1004,19 +1744,19 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters',
             False, 
             [
-            _MetaInfoClassMember('multicast-mac-address', REFERENCE_LIST, 'MulticastMacAddress' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress', 
-                [], [], 
-                '''                MAC addresses in the multicast ingress
-                destination MAC filter
-                ''',
-                'multicast_mac_address',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
             _MetaInfoClassMember('multicast-promiscuous', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Whether the port is in multicast promiscuous
                 mode
                 ''',
                 'multicast_promiscuous',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('multicast-mac-address', REFERENCE_LIST, 'MulticastMacAddress' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress', 
+                [], [], 
+                '''                MAC addresses in the multicast ingress
+                destination MAC filter
+                ''',
+                'multicast_mac_address',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
             ],
             'Cisco-IOS-XR-drivers-media-eth-oper',
@@ -1025,45 +1765,15 @@ _meta_table = {
         'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
         ),
     },
-    'EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters' : {
-        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters',
-            False, 
-            [
-            _MetaInfoClassMember('unicast-mac-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                MAC addresses in the unicast ingress destination
-                MAC filter
-                ''',
-                'unicast_mac_address',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            ],
-            'Cisco-IOS-XR-drivers-media-eth-oper',
-            'unicast-mac-filters',
-            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
-        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
-        ),
-    },
     'EthernetInterface.Interfaces.Interface.MacInfo' : {
         'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.MacInfo',
             False, 
             [
-            _MetaInfoClassMember('burned-in-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                Port Burned-In MAC address
+            _MetaInfoClassMember('unicast-mac-filters', REFERENCE_CLASS, 'UnicastMacFilters' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters', 
+                [], [], 
+                '''                Port unicast MAC filter information
                 ''',
-                'burned_in_mac_address',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('mru', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Port operational MRU
-                ''',
-                'mru',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Port operational MTU
-                ''',
-                'mtu',
+                'unicast_mac_filters',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
             _MetaInfoClassMember('multicast-mac-filters', REFERENCE_CLASS, 'MulticastMacFilters' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters', 
                 [], [], 
@@ -1071,17 +1781,29 @@ _meta_table = {
                 ''',
                 'multicast_mac_filters',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Port operational MTU
+                ''',
+                'mtu',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('mru', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Port operational MRU
+                ''',
+                'mru',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('burned-in-mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                Port Burned-In MAC address
+                ''',
+                'burned_in_mac_address',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
             _MetaInfoClassMember('operational-mac-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                Port operational MAC address
                 ''',
                 'operational_mac_address',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('unicast-mac-filters', REFERENCE_CLASS, 'UnicastMacFilters' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters', 
-                [], [], 
-                '''                Port unicast MAC filter information
-                ''',
-                'unicast_mac_filters',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
             ],
             'Cisco-IOS-XR-drivers-media-eth-oper',
@@ -1090,507 +1812,33 @@ _meta_table = {
         'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
         ),
     },
-    'EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails' : {
-        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails',
-            False, 
-            [
-            _MetaInfoClassMember('corrected-codeword-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Corrected codeword error count
-                ''',
-                'corrected_codeword_count',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('fec', REFERENCE_ENUM_CLASS, 'EthernetFecEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetFecEnum', 
-                [], [], 
-                '''                Port operational FEC type
-                ''',
-                'fec',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('uncorrected-codeword-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Uncorrected codeword error count
-                ''',
-                'uncorrected_codeword_count',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            ],
-            'Cisco-IOS-XR-drivers-media-eth-oper',
-            'fec-details',
-            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
-        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
-        ),
-    },
-    'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity' : {
-        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity',
-            False, 
-            [
-            _MetaInfoClassMember('laser-bias-valid', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                The laser bias fields are valid
-                ''',
-                'laser_bias_valid',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('receive-power-valid', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                The receive power fields are valid
-                ''',
-                'receive_power_valid',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('temperature-valid', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                The temperature fields are valid
-                ''',
-                'temperature_valid',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transmit-power-valid', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                The transmit power fields are valid
-                ''',
-                'transmit_power_valid',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('voltage-valid', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                The voltage fields are valid
-                ''',
-                'voltage_valid',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            ],
-            'Cisco-IOS-XR-drivers-media-eth-oper',
-            'field-validity',
-            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
-        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
-        ),
-    },
-    'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds' : {
-        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds',
-            False, 
-            [
-            _MetaInfoClassMember('field-validity', REFERENCE_CLASS, 'FieldValidity' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity', 
-                [], [], 
-                '''                Field validity
-                ''',
-                'field_validity',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('laser-bias-alarm-high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Laser bias high alarm threshold (mA)
-                ''',
-                'laser_bias_alarm_high',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('laser-bias-alarm-low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Laser bias low alarm threshold (mA)
-                ''',
-                'laser_bias_alarm_low',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('laser-bias-warning-high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Laser bias high warning threshold (mA)
-                ''',
-                'laser_bias_warning_high',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('laser-bias-warning-low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Laser bias low warning threshold (mA)
-                ''',
-                'laser_bias_warning_low',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('optical-receive-power-alarm-high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                High optical receive power alarm threshold (mW)
-                ''',
-                'optical_receive_power_alarm_high',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('optical-receive-power-alarm-low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Low optical receive power alarm threshold (mW)
-                ''',
-                'optical_receive_power_alarm_low',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('optical-receive-power-warning-high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                High optical receive power warning threshold
-                (mW)
-                ''',
-                'optical_receive_power_warning_high',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('optical-receive-power-warning-low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Low optical receive power warning threshold (mW)
-                ''',
-                'optical_receive_power_warning_low',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('optical-transmit-power-alarm-high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                High optical transmit power alarm threshold (mW)
-                ''',
-                'optical_transmit_power_alarm_high',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('optical-transmit-power-alarm-low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Low optical transmit power alarm threshold (mW)
-                ''',
-                'optical_transmit_power_alarm_low',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('optical-transmit-power-warning-high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                High optical transmit power warning threshold
-                (mW)
-                ''',
-                'optical_transmit_power_warning_high',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('optical-transmit-power-warning-low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Low optical transmit power warning threshold
-                (mW)
-                ''',
-                'optical_transmit_power_warning_low',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transceiver-temperature-alarm-high', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Transceiver high temperature alarm threshold
-                (mDegrees C)
-                ''',
-                'transceiver_temperature_alarm_high',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transceiver-temperature-alarm-low', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Transceiver low temperature alarm threshold
-                (mDegrees C)
-                ''',
-                'transceiver_temperature_alarm_low',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transceiver-temperature-warning-high', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Transceiver high temperature warning threshold
-                (mDegrees C)
-                ''',
-                'transceiver_temperature_warning_high',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transceiver-temperature-warning-low', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Transceiver low temperature warning threshold
-                (mDegrees C)
-                ''',
-                'transceiver_temperature_warning_low',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transceiver-voltage-alarm-high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Transceiver high voltage alarm threshold (mV)
-                ''',
-                'transceiver_voltage_alarm_high',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transceiver-voltage-alarm-low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Transceiver low voltage alarm threshold (mV)
-                ''',
-                'transceiver_voltage_alarm_low',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transceiver-voltage-warning-high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Transceiver high voltage warning threshold (mV)
-                ''',
-                'transceiver_voltage_warning_high',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transceiver-voltage-warning-low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Transceiver low voltage warning threshold (mV)
-                ''',
-                'transceiver_voltage_warning_low',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            ],
-            'Cisco-IOS-XR-drivers-media-eth-oper',
-            'dig-opt-mon-alarm-thresholds',
-            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
-        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
-        ),
-    },
-    'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms' : {
-        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms',
-            False, 
-            [
-            _MetaInfoClassMember('laser-bias-current', REFERENCE_ENUM_CLASS, 'EtherDomAlarmEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarmEnum', 
-                [], [], 
-                '''                Laser Bias Current Alarm
-                ''',
-                'laser_bias_current',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('received-laser-power', REFERENCE_ENUM_CLASS, 'EtherDomAlarmEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarmEnum', 
-                [], [], 
-                '''                Received Optical Power Alarm
-                ''',
-                'received_laser_power',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transceiver-temperature', REFERENCE_ENUM_CLASS, 'EtherDomAlarmEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarmEnum', 
-                [], [], 
-                '''                Transceiver Temperature Alarm
-                ''',
-                'transceiver_temperature',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transceiver-voltage', REFERENCE_ENUM_CLASS, 'EtherDomAlarmEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarmEnum', 
-                [], [], 
-                '''                Transceiver Voltage Alarm
-                ''',
-                'transceiver_voltage',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transmit-laser-power', REFERENCE_ENUM_CLASS, 'EtherDomAlarmEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarmEnum', 
-                [], [], 
-                '''                Transmit Laser Power Alarm
-                ''',
-                'transmit_laser_power',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            ],
-            'Cisco-IOS-XR-drivers-media-eth-oper',
-            'dig-opt-mon-alarms',
-            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
-        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
-        ),
-    },
-    'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm' : {
-        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm',
-            False, 
-            [
-            _MetaInfoClassMember('laser-bias-current', REFERENCE_ENUM_CLASS, 'EtherDomAlarmEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarmEnum', 
-                [], [], 
-                '''                Laser Bias Current Alarm
-                ''',
-                'laser_bias_current',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('received-laser-power', REFERENCE_ENUM_CLASS, 'EtherDomAlarmEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarmEnum', 
-                [], [], 
-                '''                Received Optical Power Alarm
-                ''',
-                'received_laser_power',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transmit-laser-power', REFERENCE_ENUM_CLASS, 'EtherDomAlarmEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarmEnum', 
-                [], [], 
-                '''                Transmit Laser Power Alarm
-                ''',
-                'transmit_laser_power',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            ],
-            'Cisco-IOS-XR-drivers-media-eth-oper',
-            'dig-opt-mon-alarm',
-            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
-        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
-        ),
-    },
-    'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane' : {
-        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane',
-            False, 
-            [
-            _MetaInfoClassMember('center-wavelength', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Center Wavelength (nm*1000)
-                ''',
-                'center_wavelength',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('dig-opt-mon-alarm', REFERENCE_CLASS, 'DigOptMonAlarm' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm', 
-                [], [], 
-                '''                Digital Optical Monitoring alarms
-                ''',
-                'dig_opt_mon_alarm',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('laser-bias-current', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Laser Bias Current (uAmps)
-                ''',
-                'laser_bias_current',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('received-laser-power', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Received Optical Power (dBm*1000)
-                ''',
-                'received_laser_power',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transmit-laser-power', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Transmit Laser Power (dBm*1000)
-                ''',
-                'transmit_laser_power',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            ],
-            'Cisco-IOS-XR-drivers-media-eth-oper',
-            'lane',
-            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
-        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
-        ),
-    },
-    'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity' : {
-        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity',
-            False, 
-            [
-            _MetaInfoClassMember('laser-bias-valid', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                The laser bias 'per lane' field is valid
-                ''',
-                'laser_bias_valid',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('receive-power-valid', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                The receive power 'per lane' field is valid
-                ''',
-                'receive_power_valid',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transmit-power-valid', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                The transmit power 'per lane' field is valid
-                ''',
-                'transmit_power_valid',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('wavelength-valid', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                The wavelength 'per lane' field is valid
-                ''',
-                'wavelength_valid',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            ],
-            'Cisco-IOS-XR-drivers-media-eth-oper',
-            'lane-field-validity',
-            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
-        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
-        ),
-    },
-    'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails' : {
-        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails',
-            False, 
-            [
-            _MetaInfoClassMember('dig-opt-mon-alarm-thresholds', REFERENCE_CLASS, 'DigOptMonAlarmThresholds' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds', 
-                [], [], 
-                '''                Digital Optical Monitoring alarm thresholds
-                ''',
-                'dig_opt_mon_alarm_thresholds',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('dig-opt-mon-alarms', REFERENCE_CLASS, 'DigOptMonAlarms' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms', 
-                [], [], 
-                '''                Digital Optical Monitoring alarms
-                ''',
-                'dig_opt_mon_alarms',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('lane', REFERENCE_LIST, 'Lane' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane', 
-                [], [], 
-                '''                Digital Optical Monitoring (per lane
-                information)
-                ''',
-                'lane',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('lane-field-validity', REFERENCE_CLASS, 'LaneFieldValidity' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity', 
-                [], [], 
-                '''                Digital Optical Monitoring (per lane
-                information) validity
-                ''',
-                'lane_field_validity',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('optics-wavelength', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Wavelength of the optics being used in nm * 1000
-                ''',
-                'optics_wavelength',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transceiver-temperature', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                The temperature of the transceiver (mDegrees C)
-                ''',
-                'transceiver_temperature',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transceiver-voltage', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                The input voltage to the transceiver (mV)
-                ''',
-                'transceiver_voltage',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('vendor', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Name of the port optics manufacturer
-                ''',
-                'vendor',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('vendor-part-number', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Part number for the port optics
-                ''',
-                'vendor_part_number',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('vendor-serial-number', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Serial number for the port optics
-                ''',
-                'vendor_serial_number',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            ],
-            'Cisco-IOS-XR-drivers-media-eth-oper',
-            'phy-details',
-            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
-        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
-        ),
-    },
-    'EthernetInterface.Interfaces.Interface.PhyInfo' : {
-        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.PhyInfo',
-            False, 
-            [
-            _MetaInfoClassMember('fec-details', REFERENCE_CLASS, 'FecDetails' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails', 
-                [], [], 
-                '''                Forward Error Correction information
-                ''',
-                'fec_details',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('loopback', REFERENCE_ENUM_CLASS, 'EthernetLoopbackEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetLoopbackEnum', 
-                [], [], 
-                '''                Port operational loopback
-                ''',
-                'loopback',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('media-type', REFERENCE_ENUM_CLASS, 'EthernetMediaEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetMediaEnum', 
-                [], [], 
-                '''                Port media type
-                ''',
-                'media_type',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('phy-details', REFERENCE_CLASS, 'PhyDetails' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails', 
-                [], [], 
-                '''                Details about the PHY
-                ''',
-                'phy_details',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('phy-present', REFERENCE_ENUM_CLASS, 'EtherPhyPresentEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherPhyPresentEnum', 
-                [], [], 
-                '''                Presence of PHY
-                ''',
-                'phy_present',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            ],
-            'Cisco-IOS-XR-drivers-media-eth-oper',
-            'phy-info',
-            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
-        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
-        ),
-    },
     'EthernetInterface.Interfaces.Interface.TransportInfo' : {
         'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.TransportInfo',
             False, 
             [
-            _MetaInfoClassMember('ains-status', REFERENCE_ENUM_CLASS, 'EtherAinsStatusEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherAinsStatusEnum', 
-                [], [], 
-                '''                AINS Soak status
-                ''',
-                'ains_status',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
             _MetaInfoClassMember('maintenance-mode-enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Maintenance Mode - TRUE if enabled
                 ''',
                 'maintenance_mode_enabled',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('remaining-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Remaining duration (seconds) of AINS soak timer
+            _MetaInfoClassMember('ains-status', REFERENCE_ENUM_CLASS, 'EtherAinsStatusEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherAinsStatusEnum', 
+                [], [], 
+                '''                AINS Soak status
                 ''',
-                'remaining_duration',
+                'ains_status',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
             _MetaInfoClassMember('total-duration', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Total duration (seconds) of AINS soak timer
                 ''',
                 'total_duration',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('remaining-duration', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Remaining duration (seconds) of AINS soak timer
+                ''',
+                'remaining_duration',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
             ],
             'Cisco-IOS-XR-drivers-media-eth-oper',
@@ -1609,11 +1857,11 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-drivers-media-eth-oper', True),
-            _MetaInfoClassMember('admin-state', REFERENCE_ENUM_CLASS, 'EthernetPortEnableEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetPortEnableEnum', 
+            _MetaInfoClassMember('phy-info', REFERENCE_CLASS, 'PhyInfo' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.PhyInfo', 
                 [], [], 
-                '''                Port Administrative State
+                '''                PHY information
                 ''',
-                'admin_state',
+                'phy_info',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
             _MetaInfoClassMember('layer1-info', REFERENCE_CLASS, 'Layer1Info' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.Layer1Info', 
                 [], [], 
@@ -1627,23 +1875,23 @@ _meta_table = {
                 ''',
                 'mac_info',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('oper-state-up', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Port Operational state - TRUE if up
-                ''',
-                'oper_state_up',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('phy-info', REFERENCE_CLASS, 'PhyInfo' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.PhyInfo', 
-                [], [], 
-                '''                PHY information
-                ''',
-                'phy_info',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
             _MetaInfoClassMember('transport-info', REFERENCE_CLASS, 'TransportInfo' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.TransportInfo', 
                 [], [], 
                 '''                Transport state information
                 ''',
                 'transport_info',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('admin-state', REFERENCE_ENUM_CLASS, 'EthernetPortEnableEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetPortEnableEnum', 
+                [], [], 
+                '''                Port Administrative State
+                ''',
+                'admin_state',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('oper-state-up', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Port Operational state - TRUE if up
+                ''',
+                'oper_state_up',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
             ],
             'Cisco-IOS-XR-drivers-media-eth-oper',
@@ -1669,8 +1917,73 @@ _meta_table = {
         'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
         ),
     },
-    'EthernetInterface.Statistics.Statistic' : {
-        'meta_info' : _MetaInfoClass('EthernetInterface.Statistics.Statistic',
+    'EthernetInterface.Berts.Bert.BertStatus' : {
+        'meta_info' : _MetaInfoClass('EthernetInterface.Berts.Bert.BertStatus',
+            False, 
+            [
+            _MetaInfoClassMember('bert-state-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                State
+                ''',
+                'bert_state_enabled',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('data-availability', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Flag indicating available data
+                ''',
+                'data_availability',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('receive-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Receive count (if 0x1 set in flag)
+                ''',
+                'receive_count',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('transmit-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmit count (if 0x2 set in flag)
+                ''',
+                'transmit_count',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('receive-errors', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received errors (if 0x4 set in flag)
+                ''',
+                'receive_errors',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('error-type', REFERENCE_ENUM_CLASS, 'EthernetBertErrCntEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetBertErrCntEnum', 
+                [], [], 
+                '''                Bit, block or frame error
+                ''',
+                'error_type',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('test-pattern', REFERENCE_ENUM_CLASS, 'EthernetBertPatternEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetBertPatternEnum', 
+                [], [], 
+                '''                Test pattern
+                ''',
+                'test_pattern',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('device-under-test', REFERENCE_ENUM_CLASS, 'EthernetDevEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetDevEnum', 
+                [], [], 
+                '''                Device being tested
+                ''',
+                'device_under_test',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('interface-device', REFERENCE_ENUM_CLASS, 'EthernetDevIfEnum' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetDevIfEnum', 
+                [], [], 
+                '''                Interface being tested
+                ''',
+                'interface_device',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            ],
+            'Cisco-IOS-XR-drivers-media-eth-oper',
+            'bert-status',
+            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
+        'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
+        ),
+    },
+    'EthernetInterface.Berts.Bert' : {
+        'meta_info' : _MetaInfoClass('EthernetInterface.Berts.Bert',
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
@@ -1679,357 +1992,44 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-drivers-media-eth-oper', True),
-            _MetaInfoClassMember('aborted-packet-drops', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Drops due to packet abort
+            _MetaInfoClassMember('bert-status', REFERENCE_CLASS, 'BertStatus' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Berts.Bert.BertStatus', 
+                [], [], 
+                '''                Current test status
                 ''',
-                'aborted_packet_drops',
+                'bert_status',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('buffer-underrun-packet-drops', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Drops due to buffer underrun
+            _MetaInfoClassMember('time-left', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Remaining time for this test in seconds
                 ''',
-                'buffer_underrun_packet_drops',
+                'time_left',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('dropped-ether-stats-fragments', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Bad Frames < 64 Octet, dropped
+            _MetaInfoClassMember('port-bert-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Port BERT interval
                 ''',
-                'dropped_ether_stats_fragments',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('dropped-ether-stats-undersize-pkts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Good frames < 64 Octet, dropped
-                ''',
-                'dropped_ether_stats_undersize_pkts',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('dropped-giant-packets-greaterthan-mru', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Good frames > MRU, dropped
-                ''',
-                'dropped_giant_packets_greaterthan_mru',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('dropped-jabbers-packets-greaterthan-mru', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Bad Frames > MRU, dropped
-                ''',
-                'dropped_jabbers_packets_greaterthan_mru',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('dropped-miscellaneous-error-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Any other errors not counted
-                ''',
-                'dropped_miscellaneous_error_packets',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('dropped-packets-with-crc-align-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Frames 64 - MRU with CRC error
-                ''',
-                'dropped_packets_with_crc_align_errors',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('ether-stats-collisions', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                All collision events
-                ''',
-                'ether_stats_collisions',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('invalid-dest-mac-drop-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Drops due to the destination MAC not matching
-                ''',
-                'invalid_dest_mac_drop_packets',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('invalid-encap-drop-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Drops due to the encapsulation or ether type not
-                matching
-                ''',
-                'invalid_encap_drop_packets',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('miscellaneous-output-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Any other errors not counted
-                ''',
-                'miscellaneous_output_errors',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('number-of-aborted-packets-dropped', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Drops due to packet abort
-                ''',
-                'number_of_aborted_packets_dropped',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('number-of-buffer-overrun-packets-dropped', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Drops due to buffer overrun
-                ''',
-                'number_of_buffer_overrun_packets_dropped',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('number-of-miscellaneous-packets-dropped', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Any other drops not counted
-                ''',
-                'number_of_miscellaneous_packets_dropped',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('numberof-invalid-vlan-id-packets-dropped', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Drops due to invalid VLAN id
-                ''',
-                'numberof_invalid_vlan_id_packets_dropped',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('received8021q-frames', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                All 802.1Q frames
-                ''',
-                'received8021q_frames',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('received-broadcast-frames', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received broadcast Frames
-                ''',
-                'received_broadcast_frames',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('received-good-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Total octets of all good frames
-                ''',
-                'received_good_bytes',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('received-good-frames', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received Good Frames
-                ''',
-                'received_good_frames',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('received-multicast-frames', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received multicast Frames
-                ''',
-                'received_multicast_frames',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('received-pause-frames', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                All pause frames
-                ''',
-                'received_pause_frames',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('received-total64-octet-frames', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                All 64 Octet Frame Count
-                ''',
-                'received_total64_octet_frames',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('received-total-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Total octets of all frames
-                ''',
-                'received_total_bytes',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('received-total-frames', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                All frames, good or bad
-                ''',
-                'received_total_frames',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('received-total-octet-frames-from1024-to1518', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                All 1024-1518 Octet Frame Count
-                ''',
-                'received_total_octet_frames_from1024_to1518',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('received-total-octet-frames-from128-to255', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                All 128-255 Octet Frame Count
-                ''',
-                'received_total_octet_frames_from128_to255',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('received-total-octet-frames-from1519-to-max', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                All > 1518 Octet Frame Count
-                ''',
-                'received_total_octet_frames_from1519_to_max',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('received-total-octet-frames-from256-to511', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                All 256-511 Octet Frame Count
-                ''',
-                'received_total_octet_frames_from256_to511',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('received-total-octet-frames-from512-to1023', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                All 512-1023 Octet Frame Count
-                ''',
-                'received_total_octet_frames_from512_to1023',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('received-total-octet-frames-from65-to127', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                All 65-127 Octet Frame Count
-                ''',
-                'received_total_octet_frames_from65_to127',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('received-unicast-frames', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received unicast Frames
-                ''',
-                'received_unicast_frames',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('received-unknown-opcodes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Unsupported MAC Control frames
-                ''',
-                'received_unknown_opcodes',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('rfc2819-ether-stats-crc-align-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                RFC2819 etherStatsCRCAlignErrors
-                ''',
-                'rfc2819_ether_stats_crc_align_errors',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('rfc2819-ether-stats-jabbers', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                RFC2819 etherStatsJabbers
-                ''',
-                'rfc2819_ether_stats_jabbers',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('rfc2819-ether-stats-oversized-pkts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                RFC2819 etherStatsOversizedPkts
-                ''',
-                'rfc2819_ether_stats_oversized_pkts',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('rfc3635dot3-stats-alignment-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                RFC3635 dot3StatsAlignmentErrors
-                ''',
-                'rfc3635dot3_stats_alignment_errors',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('symbol-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Symbol errors
-                ''',
-                'symbol_errors',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('total-bytes-transmitted', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Total octets of all frames
-                ''',
-                'total_bytes_transmitted',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('total-frames-transmitted', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                All frames, good or bad
-                ''',
-                'total_frames_transmitted',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('total-good-bytes-transmitted', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Total octets of all good frames
-                ''',
-                'total_good_bytes_transmitted',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transmitted8021q-frames', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                All 802.1Q frames
-                ''',
-                'transmitted8021q_frames',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transmitted-broadcast-frames', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted broadcast Frames
-                ''',
-                'transmitted_broadcast_frames',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transmitted-good-frames', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted Good Frames
-                ''',
-                'transmitted_good_frames',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transmitted-multicast-frames', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted multicast Frames
-                ''',
-                'transmitted_multicast_frames',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transmitted-total64-octet-frames', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                All 64 Octet Frame Count
-                ''',
-                'transmitted_total64_octet_frames',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transmitted-total-octet-frames-from1024-to1518', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                All 1024-1518 Octet Frame Count
-                ''',
-                'transmitted_total_octet_frames_from1024_to1518',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transmitted-total-octet-frames-from128-to255', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                All 128-255 Octet Frame Count
-                ''',
-                'transmitted_total_octet_frames_from128_to255',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transmitted-total-octet-frames-from1518-to-max', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                All > 1518 Octet Frame Count
-                ''',
-                'transmitted_total_octet_frames_from1518_to_max',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transmitted-total-octet-frames-from256-to511', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                All 256-511 Octet Frame Count
-                ''',
-                'transmitted_total_octet_frames_from256_to511',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transmitted-total-octet-frames-from512-to1023', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                All 512-1023 Octet Frame Count
-                ''',
-                'transmitted_total_octet_frames_from512_to1023',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transmitted-total-octet-frames-from65-to127', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                All 65-127 Octet Frame Count
-                ''',
-                'transmitted_total_octet_frames_from65_to127',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transmitted-total-pause-frames', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                All pause frames
-                ''',
-                'transmitted_total_pause_frames',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('transmitted-unicast-frames', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted unicast Frames
-                ''',
-                'transmitted_unicast_frames',
-                'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('uncounted-dropped-frames', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Any other drops not counted
-                ''',
-                'uncounted_dropped_frames',
+                'port_bert_interval',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
             ],
             'Cisco-IOS-XR-drivers-media-eth-oper',
-            'statistic',
+            'bert',
             _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
         'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
         ),
     },
-    'EthernetInterface.Statistics' : {
-        'meta_info' : _MetaInfoClass('EthernetInterface.Statistics',
+    'EthernetInterface.Berts' : {
+        'meta_info' : _MetaInfoClass('EthernetInterface.Berts',
             False, 
             [
-            _MetaInfoClassMember('statistic', REFERENCE_LIST, 'Statistic' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Statistics.Statistic', 
+            _MetaInfoClassMember('bert', REFERENCE_LIST, 'Bert' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Berts.Bert', 
                 [], [], 
-                '''                Ethernet statistics information
+                '''                Ethernet BERT information
                 ''',
-                'statistic',
+                'bert',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
             ],
             'Cisco-IOS-XR-drivers-media-eth-oper',
-            'statistics',
+            'berts',
             _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
         'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper'
         ),
@@ -2038,11 +2038,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('EthernetInterface',
             False, 
             [
-            _MetaInfoClassMember('berts', REFERENCE_CLASS, 'Berts' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Berts', 
+            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Statistics', 
                 [], [], 
-                '''                Ethernet controller BERT table
+                '''                Ethernet controller statistics table
                 ''',
-                'berts',
+                'statistics',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
             _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces', 
                 [], [], 
@@ -2050,11 +2050,11 @@ _meta_table = {
                 ''',
                 'interfaces',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
-            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Statistics', 
+            _MetaInfoClassMember('berts', REFERENCE_CLASS, 'Berts' , 'ydk.models.drivers.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Berts', 
                 [], [], 
-                '''                Ethernet controller statistics table
+                '''                Ethernet controller BERT table
                 ''',
-                'statistics',
+                'berts',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
             ],
             'Cisco-IOS-XR-drivers-media-eth-oper',
@@ -2064,31 +2064,31 @@ _meta_table = {
         ),
     },
 }
-_meta_table['EthernetInterface.Berts.Bert.BertStatus']['meta_info'].parent =_meta_table['EthernetInterface.Berts.Bert']['meta_info']
-_meta_table['EthernetInterface.Berts.Bert']['meta_info'].parent =_meta_table['EthernetInterface.Berts']['meta_info']
-_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring']['meta_info']
-_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info']['meta_info']
-_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info']['meta_info']
-_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info']['meta_info']
-_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info']['meta_info']
-_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info']['meta_info']
-_meta_table['EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters']['meta_info']
-_meta_table['EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.MacInfo']['meta_info']
-_meta_table['EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.MacInfo']['meta_info']
+_meta_table['EthernetInterface.Statistics.Statistic']['meta_info'].parent =_meta_table['EthernetInterface.Statistics']['meta_info']
 _meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds']['meta_info']
 _meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane']['meta_info']
+_meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails']['meta_info']
 _meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails']['meta_info']
 _meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails']['meta_info']
 _meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails']['meta_info']
-_meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails']['meta_info']
-_meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.PhyInfo']['meta_info']
 _meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.PhyInfo']['meta_info']
+_meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.PhyInfo']['meta_info']
+_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring']['meta_info']
+_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info']['meta_info']
+_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info']['meta_info']
+_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info']['meta_info']
+_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info']['meta_info']
+_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info']['meta_info']
+_meta_table['EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters']['meta_info']
+_meta_table['EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.MacInfo']['meta_info']
+_meta_table['EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.MacInfo']['meta_info']
+_meta_table['EthernetInterface.Interfaces.Interface.PhyInfo']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface']['meta_info']
 _meta_table['EthernetInterface.Interfaces.Interface.Layer1Info']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface']['meta_info']
 _meta_table['EthernetInterface.Interfaces.Interface.MacInfo']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface']['meta_info']
-_meta_table['EthernetInterface.Interfaces.Interface.PhyInfo']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface']['meta_info']
 _meta_table['EthernetInterface.Interfaces.Interface.TransportInfo']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface']['meta_info']
 _meta_table['EthernetInterface.Interfaces.Interface']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces']['meta_info']
-_meta_table['EthernetInterface.Statistics.Statistic']['meta_info'].parent =_meta_table['EthernetInterface.Statistics']['meta_info']
-_meta_table['EthernetInterface.Berts']['meta_info'].parent =_meta_table['EthernetInterface']['meta_info']
-_meta_table['EthernetInterface.Interfaces']['meta_info'].parent =_meta_table['EthernetInterface']['meta_info']
+_meta_table['EthernetInterface.Berts.Bert.BertStatus']['meta_info'].parent =_meta_table['EthernetInterface.Berts.Bert']['meta_info']
+_meta_table['EthernetInterface.Berts.Bert']['meta_info'].parent =_meta_table['EthernetInterface.Berts']['meta_info']
 _meta_table['EthernetInterface.Statistics']['meta_info'].parent =_meta_table['EthernetInterface']['meta_info']
+_meta_table['EthernetInterface.Interfaces']['meta_info'].parent =_meta_table['EthernetInterface']['meta_info']
+_meta_table['EthernetInterface.Berts']['meta_info'].parent =_meta_table['EthernetInterface']['meta_info']

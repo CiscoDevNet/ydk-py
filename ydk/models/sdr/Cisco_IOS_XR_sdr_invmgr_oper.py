@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -73,7 +73,7 @@ class SdrInventory(object):
             """
             Rack name
             
-            .. attribute:: name
+            .. attribute:: name  <key>
             
             	Rack name
             	**type**\: str
@@ -104,7 +104,7 @@ class SdrInventory(object):
                 """
                 Slot name
                 
-                .. attribute:: name
+                .. attribute:: name  <key>
                 
                 	Slot name
                 	**type**\: str
@@ -135,7 +135,7 @@ class SdrInventory(object):
                     """
                     Card
                     
-                    .. attribute:: name
+                    .. attribute:: name  <key>
                     
                     	Card
                     	**type**\: str
@@ -165,9 +165,16 @@ class SdrInventory(object):
                         """
                         Attributes
                         
-                        .. attribute:: card_admin_state
+                        .. attribute:: power
                         
-                        	Card Admin State
+                        	Power
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: config_state
+                        
+                        	ConfigState
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
@@ -179,6 +186,20 @@ class SdrInventory(object):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        .. attribute:: vm_state
+                        
+                        	VM State information
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: card_admin_state
+                        
+                        	Card Admin State
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
                         .. attribute:: card_type
                         
                         	CardType
@@ -186,9 +207,16 @@ class SdrInventory(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: config_state
+                        .. attribute:: pi_slot_number
                         
-                        	ConfigState
+                        	Pi Slot Number
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: shutdown
+                        
+                        	Shutdown
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
@@ -207,34 +235,6 @@ class SdrInventory(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: pi_slot_number
-                        
-                        	Pi Slot Number
-                        	**type**\: int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: power
-                        
-                        	Power
-                        	**type**\: int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: shutdown
-                        
-                        	Shutdown
-                        	**type**\: int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: vm_state
-                        
-                        	VM State information
-                        	**type**\: int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
                         
 
                         """
@@ -244,16 +244,16 @@ class SdrInventory(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.card_admin_state = None
-                            self.card_state = None
-                            self.card_type = None
+                            self.power = None
                             self.config_state = None
+                            self.card_state = None
+                            self.vm_state = None
+                            self.card_admin_state = None
+                            self.card_type = None
+                            self.pi_slot_number = None
+                            self.shutdown = None
                             self.ctype = None
                             self.monitor = None
-                            self.pi_slot_number = None
-                            self.power = None
-                            self.shutdown = None
-                            self.vm_state = None
 
                         @property
                         def _common_path(self):
@@ -269,34 +269,34 @@ class SdrInventory(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.card_admin_state is not None:
+                            if self.power is not None:
+                                return True
+
+                            if self.config_state is not None:
                                 return True
 
                             if self.card_state is not None:
                                 return True
 
+                            if self.vm_state is not None:
+                                return True
+
+                            if self.card_admin_state is not None:
+                                return True
+
                             if self.card_type is not None:
                                 return True
 
-                            if self.config_state is not None:
+                            if self.pi_slot_number is not None:
+                                return True
+
+                            if self.shutdown is not None:
                                 return True
 
                             if self.ctype is not None:
                                 return True
 
                             if self.monitor is not None:
-                                return True
-
-                            if self.pi_slot_number is not None:
-                                return True
-
-                            if self.power is not None:
-                                return True
-
-                            if self.shutdown is not None:
-                                return True
-
-                            if self.vm_state is not None:
                                 return True
 
                             return False

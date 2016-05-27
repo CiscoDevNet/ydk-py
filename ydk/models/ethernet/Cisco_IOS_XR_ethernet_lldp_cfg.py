@@ -22,7 +22,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -33,15 +33,10 @@ class Lldp(object):
     """
     Enable LLDP, or configure global LLDP subcommands
     
-    .. attribute:: enable
+    .. attribute:: tlv_select
     
-    	Enable or disable LLDP globally
-    	**type**\: bool
-    
-    .. attribute:: enable_subintf
-    
-    	Enable or disable LLDP on Sub\-interfaces as well globally
-    	**type**\: bool
+    	Selection of LLDP TLVs to disable
+    	**type**\: :py:class:`TlvSelect <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect>`
     
     .. attribute:: holdtime
     
@@ -50,12 +45,10 @@ class Lldp(object):
     
     	**range:** 0..65535
     
-    .. attribute:: reinit
+    .. attribute:: enable_subintf
     
-    	Delay (in sec) for LLDP initialization on any interface
-    	**type**\: int
-    
-    	**range:** 2..5
+    	Enable or disable LLDP on Sub\-interfaces as well globally
+    	**type**\: bool
     
     .. attribute:: timer
     
@@ -64,10 +57,17 @@ class Lldp(object):
     
     	**range:** 5..65534
     
-    .. attribute:: tlv_select
+    .. attribute:: reinit
     
-    	Selection of LLDP TLVs to disable
-    	**type**\: :py:class:`TlvSelect <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect>`
+    	Delay (in sec) for LLDP initialization on any interface
+    	**type**\: int
+    
+    	**range:** 2..5
+    
+    .. attribute:: enable
+    
+    	Enable or disable LLDP globally
+    	**type**\: bool
     
     
 
@@ -77,22 +77,22 @@ class Lldp(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.enable = None
-        self.enable_subintf = None
-        self.holdtime = None
-        self.reinit = None
-        self.timer = None
         self.tlv_select = None
+        self.holdtime = None
+        self.enable_subintf = None
+        self.timer = None
+        self.reinit = None
+        self.enable = None
 
 
     class TlvSelect(object):
         """
         Selection of LLDP TLVs to disable
         
-        .. attribute:: management_address
+        .. attribute:: system_name
         
-        	Management Address TLV
-        	**type**\: :py:class:`ManagementAddress <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect.ManagementAddress>`
+        	System Name TLV
+        	**type**\: :py:class:`SystemName <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect.SystemName>`
         
         .. attribute:: _is_presence
         
@@ -109,16 +109,6 @@ class Lldp(object):
         	Is present if this instance represents presence container else not
         	**type**\: bool
         
-        .. attribute:: system_capabilities
-        
-        	System Capabilities TLV
-        	**type**\: :py:class:`SystemCapabilities <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect.SystemCapabilities>`
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
         .. attribute:: system_description
         
         	System Description TLV
@@ -129,10 +119,20 @@ class Lldp(object):
         	Is present if this instance represents presence container else not
         	**type**\: bool
         
-        .. attribute:: system_name
+        .. attribute:: system_capabilities
         
-        	System Name TLV
-        	**type**\: :py:class:`SystemName <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect.SystemName>`
+        	System Capabilities TLV
+        	**type**\: :py:class:`SystemCapabilities <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect.SystemCapabilities>`
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        .. attribute:: management_address
+        
+        	Management Address TLV
+        	**type**\: :py:class:`ManagementAddress <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_cfg.Lldp.TlvSelect.ManagementAddress>`
         
         .. attribute:: _is_presence
         
@@ -160,26 +160,26 @@ class Lldp(object):
 
         def __init__(self):
             self.parent = None
-            self.management_address = Lldp.TlvSelect.ManagementAddress()
-            self.management_address.parent = self
-            self.port_description = Lldp.TlvSelect.PortDescription()
-            self.port_description.parent = self
-            self.system_capabilities = Lldp.TlvSelect.SystemCapabilities()
-            self.system_capabilities.parent = self
-            self.system_description = Lldp.TlvSelect.SystemDescription()
-            self.system_description.parent = self
             self.system_name = Lldp.TlvSelect.SystemName()
             self.system_name.parent = self
+            self.port_description = Lldp.TlvSelect.PortDescription()
+            self.port_description.parent = self
+            self.system_description = Lldp.TlvSelect.SystemDescription()
+            self.system_description.parent = self
+            self.system_capabilities = Lldp.TlvSelect.SystemCapabilities()
+            self.system_capabilities.parent = self
+            self.management_address = Lldp.TlvSelect.ManagementAddress()
+            self.management_address.parent = self
             self.tlv_select_enter = None
 
 
-        class ManagementAddress(object):
+        class SystemName(object):
             """
-            Management Address TLV
+            System Name TLV
             
             .. attribute:: disable
             
-            	disable Management Address TLV
+            	disable System Name TLV
             	**type**\: bool
             
             
@@ -196,7 +196,7 @@ class Lldp(object):
             @property
             def _common_path(self):
 
-                return '/Cisco-IOS-XR-ethernet-lldp-cfg:lldp/Cisco-IOS-XR-ethernet-lldp-cfg:tlv-select/Cisco-IOS-XR-ethernet-lldp-cfg:management-address'
+                return '/Cisco-IOS-XR-ethernet-lldp-cfg:lldp/Cisco-IOS-XR-ethernet-lldp-cfg:tlv-select/Cisco-IOS-XR-ethernet-lldp-cfg:system-name'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
@@ -213,7 +213,7 @@ class Lldp(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_cfg as meta
-                return meta._meta_table['Lldp.TlvSelect.ManagementAddress']['meta_info']
+                return meta._meta_table['Lldp.TlvSelect.SystemName']['meta_info']
 
 
         class PortDescription(object):
@@ -259,49 +259,6 @@ class Lldp(object):
                 return meta._meta_table['Lldp.TlvSelect.PortDescription']['meta_info']
 
 
-        class SystemCapabilities(object):
-            """
-            System Capabilities TLV
-            
-            .. attribute:: disable
-            
-            	disable System Capabilities TLV
-            	**type**\: bool
-            
-            
-
-            """
-
-            _prefix = 'ethernet-lldp-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.disable = None
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-ethernet-lldp-cfg:lldp/Cisco-IOS-XR-ethernet-lldp-cfg:tlv-select/Cisco-IOS-XR-ethernet-lldp-cfg:system-capabilities'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.disable is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_cfg as meta
-                return meta._meta_table['Lldp.TlvSelect.SystemCapabilities']['meta_info']
-
-
         class SystemDescription(object):
             """
             System Description TLV
@@ -345,13 +302,13 @@ class Lldp(object):
                 return meta._meta_table['Lldp.TlvSelect.SystemDescription']['meta_info']
 
 
-        class SystemName(object):
+        class SystemCapabilities(object):
             """
-            System Name TLV
+            System Capabilities TLV
             
             .. attribute:: disable
             
-            	disable System Name TLV
+            	disable System Capabilities TLV
             	**type**\: bool
             
             
@@ -368,7 +325,7 @@ class Lldp(object):
             @property
             def _common_path(self):
 
-                return '/Cisco-IOS-XR-ethernet-lldp-cfg:lldp/Cisco-IOS-XR-ethernet-lldp-cfg:tlv-select/Cisco-IOS-XR-ethernet-lldp-cfg:system-name'
+                return '/Cisco-IOS-XR-ethernet-lldp-cfg:lldp/Cisco-IOS-XR-ethernet-lldp-cfg:tlv-select/Cisco-IOS-XR-ethernet-lldp-cfg:system-capabilities'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
@@ -385,7 +342,50 @@ class Lldp(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_cfg as meta
-                return meta._meta_table['Lldp.TlvSelect.SystemName']['meta_info']
+                return meta._meta_table['Lldp.TlvSelect.SystemCapabilities']['meta_info']
+
+
+        class ManagementAddress(object):
+            """
+            Management Address TLV
+            
+            .. attribute:: disable
+            
+            	disable Management Address TLV
+            	**type**\: bool
+            
+            
+
+            """
+
+            _prefix = 'ethernet-lldp-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.disable = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-ethernet-lldp-cfg:lldp/Cisco-IOS-XR-ethernet-lldp-cfg:tlv-select/Cisco-IOS-XR-ethernet-lldp-cfg:management-address'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.disable is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_cfg as meta
+                return meta._meta_table['Lldp.TlvSelect.ManagementAddress']['meta_info']
 
         @property
         def _common_path(self):
@@ -399,19 +399,19 @@ class Lldp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.management_address is not None and self.management_address._has_data():
+            if self.system_name is not None and self.system_name._has_data():
                 return True
 
             if self.port_description is not None and self.port_description._has_data():
                 return True
 
-            if self.system_capabilities is not None and self.system_capabilities._has_data():
-                return True
-
             if self.system_description is not None and self.system_description._has_data():
                 return True
 
-            if self.system_name is not None and self.system_name._has_data():
+            if self.system_capabilities is not None and self.system_capabilities._has_data():
+                return True
+
+            if self.management_address is not None and self.management_address._has_data():
                 return True
 
             if self.tlv_select_enter is not None:
@@ -436,22 +436,22 @@ class Lldp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.enable is not None:
-            return True
-
-        if self.enable_subintf is not None:
+        if self.tlv_select is not None and self.tlv_select._has_data():
             return True
 
         if self.holdtime is not None:
             return True
 
-        if self.reinit is not None:
+        if self.enable_subintf is not None:
             return True
 
         if self.timer is not None:
             return True
 
-        if self.tlv_select is not None and self.tlv_select._has_data():
+        if self.reinit is not None:
+            return True
+
+        if self.enable is not None:
             return True
 
         return False

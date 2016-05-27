@@ -23,7 +23,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -233,24 +233,24 @@ class Ipv6Neighbor(object):
             """
             IPv6 neighbor configuration
             
-            .. attribute:: interface_name
-            
-            	Interface name
-            	**type**\: str
-            
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-            
-            .. attribute:: neighbor_address
+            .. attribute:: neighbor_address  <key>
             
             	IPv6 address
             	**type**\: str
             
             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: encapsulation
+            .. attribute:: interface_name  <key>
             
-            	Encapsulation type only if interface type is SRP
-            	**type**\: :py:class:`Ipv6SrpEncapsulationEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6SrpEncapsulationEnum>`
+            	Interface name
+            	**type**\: str
+            
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            
+            .. attribute:: zone
+            
+            	IPv6 address zone
+            	**type**\: str
             
             .. attribute:: mac_address
             
@@ -259,10 +259,10 @@ class Ipv6Neighbor(object):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
-            .. attribute:: zone
+            .. attribute:: encapsulation
             
-            	IPv6 address zone
-            	**type**\: str
+            	Encapsulation type only if interface type is SRP
+            	**type**\: :py:class:`Ipv6SrpEncapsulationEnum <ydk.models.ipv6.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6SrpEncapsulationEnum>`
             
             
 
@@ -273,20 +273,20 @@ class Ipv6Neighbor(object):
 
             def __init__(self):
                 self.parent = None
-                self.interface_name = None
                 self.neighbor_address = None
-                self.encapsulation = None
-                self.mac_address = None
+                self.interface_name = None
                 self.zone = None
+                self.mac_address = None
+                self.encapsulation = None
 
             @property
             def _common_path(self):
-                if self.interface_name is None:
-                    raise YPYDataValidationError('Key property interface_name is None')
                 if self.neighbor_address is None:
                     raise YPYDataValidationError('Key property neighbor_address is None')
+                if self.interface_name is None:
+                    raise YPYDataValidationError('Key property interface_name is None')
 
-                return '/Cisco-IOS-XR-ipv6-nd-cfg:ipv6-neighbor/Cisco-IOS-XR-ipv6-nd-cfg:neighbors/Cisco-IOS-XR-ipv6-nd-cfg:neighbor[Cisco-IOS-XR-ipv6-nd-cfg:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-ipv6-nd-cfg:neighbor-address = ' + str(self.neighbor_address) + ']'
+                return '/Cisco-IOS-XR-ipv6-nd-cfg:ipv6-neighbor/Cisco-IOS-XR-ipv6-nd-cfg:neighbors/Cisco-IOS-XR-ipv6-nd-cfg:neighbor[Cisco-IOS-XR-ipv6-nd-cfg:neighbor-address = ' + str(self.neighbor_address) + '][Cisco-IOS-XR-ipv6-nd-cfg:interface-name = ' + str(self.interface_name) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
@@ -295,19 +295,19 @@ class Ipv6Neighbor(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.interface_name is not None:
-                    return True
-
                 if self.neighbor_address is not None:
                     return True
 
-                if self.encapsulation is not None:
+                if self.interface_name is not None:
+                    return True
+
+                if self.zone is not None:
                     return True
 
                 if self.mac_address is not None:
                     return True
 
-                if self.zone is not None:
+                if self.encapsulation is not None:
                     return True
 
                 return False

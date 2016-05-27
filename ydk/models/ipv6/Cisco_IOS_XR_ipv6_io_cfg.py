@@ -24,7 +24,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -35,19 +35,19 @@ class Ipv6Assembler(object):
     """
     ipv6 assembler
     
-    .. attribute:: max_packets
-    
-    	Maxinum packets allowed in assembly queues (in percent)
-    	**type**\: int
-    
-    	**range:** 1..50
-    
     .. attribute:: timeout
     
     	Number of seconds an assembly queue will hold before timeout
     	**type**\: int
     
     	**range:** 1..120
+    
+    .. attribute:: max_packets
+    
+    	Maxinum packets allowed in assembly queues (in percent)
+    	**type**\: int
+    
+    	**range:** 1..50
     
     
 
@@ -57,8 +57,8 @@ class Ipv6Assembler(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.max_packets = None
         self.timeout = None
+        self.max_packets = None
 
     @property
     def _common_path(self):
@@ -72,10 +72,10 @@ class Ipv6Assembler(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.max_packets is not None:
+        if self.timeout is not None:
             return True
 
-        if self.timeout is not None:
+        if self.max_packets is not None:
             return True
 
         return False
@@ -90,24 +90,24 @@ class Ipv6Icmp(object):
     """
     ipv6icmp
     
-    .. attribute:: bucket_size
-    
-    	Bucket size
-    	**type**\: int
-    
-    	**range:** 1..200
-    
-    .. attribute:: _is_presence
-    
-    	Is present if this instance represents presence container else not
-    	**type**\: bool
-    
     .. attribute:: error_interval
     
     	Interval between tokens in milliseconds
     	**type**\: int
     
     	**range:** 0..2147483647
+    
+    .. attribute:: _is_presence
+    
+    	Is present if this instance represents presence container else not
+    	**type**\: bool
+    
+    .. attribute:: bucket_size
+    
+    	Bucket size
+    	**type**\: int
+    
+    	**range:** 1..200
     
     .. attribute:: _is_presence
     
@@ -124,8 +124,8 @@ class Ipv6Icmp(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.bucket_size = None
         self.error_interval = None
+        self.bucket_size = None
 
     @property
     def _common_path(self):
@@ -139,10 +139,10 @@ class Ipv6Icmp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.bucket_size is not None:
+        if self.error_interval is not None:
             return True
 
-        if self.error_interval is not None:
+        if self.bucket_size is not None:
             return True
 
         return False

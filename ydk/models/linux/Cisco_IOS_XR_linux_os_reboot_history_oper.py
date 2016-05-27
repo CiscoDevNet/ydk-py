@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -51,7 +51,7 @@ class RebootHistory(object):
         """
         Node ID
         
-        .. attribute:: node_name
+        .. attribute:: node_name  <key>
         
         	Node name
         	**type**\: str
@@ -82,13 +82,6 @@ class RebootHistory(object):
             """
             Last Reboots
             
-            .. attribute:: cause_code
-            
-            	Cause code for reboot
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
             .. attribute:: no
             
             	Number count
@@ -96,14 +89,21 @@ class RebootHistory(object):
             
             	**range:** 0..4294967295
             
-            .. attribute:: reason
-            
-            	Reason for reboot
-            	**type**\: str
-            
             .. attribute:: time
             
             	Time of reboot
+            	**type**\: str
+            
+            .. attribute:: cause_code
+            
+            	Cause code for reboot
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: reason
+            
+            	Reason for reboot
             	**type**\: str
             
             
@@ -115,10 +115,10 @@ class RebootHistory(object):
 
             def __init__(self):
                 self.parent = None
-                self.cause_code = None
                 self.no = None
-                self.reason = None
                 self.time = None
+                self.cause_code = None
+                self.reason = None
 
             @property
             def _common_path(self):
@@ -134,16 +134,16 @@ class RebootHistory(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.cause_code is not None:
-                    return True
-
                 if self.no is not None:
                     return True
 
-                if self.reason is not None:
+                if self.time is not None:
                     return True
 
-                if self.time is not None:
+                if self.cause_code is not None:
+                    return True
+
+                if self.reason is not None:
                     return True
 
                 return False

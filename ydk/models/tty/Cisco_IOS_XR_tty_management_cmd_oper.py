@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -73,12 +73,27 @@ class ShowUsers(object):
             """
             Show users statistics
             
-            .. attribute:: session_id
+            .. attribute:: session_id  <key>
             
             	Session Id
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            .. attribute:: line
+            
+            	Line Number
+            	**type**\: str
+            
+            .. attribute:: user
+            
+            	User Name
+            	**type**\: str
+            
+            .. attribute:: service
+            
+            	Service Name
+            	**type**\: str
             
             .. attribute:: conns
             
@@ -90,24 +105,9 @@ class ShowUsers(object):
             	Idle Time
             	**type**\: str
             
-            .. attribute:: line
-            
-            	Line Number
-            	**type**\: str
-            
             .. attribute:: location
             
             	location
-            	**type**\: str
-            
-            .. attribute:: service
-            
-            	Service Name
-            	**type**\: str
-            
-            .. attribute:: user
-            
-            	User Name
             	**type**\: str
             
             
@@ -120,12 +120,12 @@ class ShowUsers(object):
             def __init__(self):
                 self.parent = None
                 self.session_id = None
+                self.line = None
+                self.user = None
+                self.service = None
                 self.conns = None
                 self.idle_string = None
-                self.line = None
                 self.location = None
-                self.service = None
-                self.user = None
 
             @property
             def _common_path(self):
@@ -144,22 +144,22 @@ class ShowUsers(object):
                 if self.session_id is not None:
                     return True
 
+                if self.line is not None:
+                    return True
+
+                if self.user is not None:
+                    return True
+
+                if self.service is not None:
+                    return True
+
                 if self.conns is not None:
                     return True
 
                 if self.idle_string is not None:
                     return True
 
-                if self.line is not None:
-                    return True
-
                 if self.location is not None:
-                    return True
-
-                if self.service is not None:
-                    return True
-
-                if self.user is not None:
                     return True
 
                 return False

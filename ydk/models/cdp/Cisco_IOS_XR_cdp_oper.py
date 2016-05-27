@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -133,17 +133,12 @@ class Cdp(object):
             """
             The CDP operational data for a particular node
             
-            .. attribute:: node_name
+            .. attribute:: node_name  <key>
             
             	The identifier for the node
             	**type**\: str
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
-            .. attribute:: interfaces
-            
-            	The table of interfaces on which CDP is running on this node
-            	**type**\: :py:class:`Interfaces <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Interfaces>`
             
             .. attribute:: neighbors
             
@@ -155,6 +150,11 @@ class Cdp(object):
             	The CDP traffic statistics for this node
             	**type**\: :py:class:`Statistics <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Statistics>`
             
+            .. attribute:: interfaces
+            
+            	The table of interfaces on which CDP is running on this node
+            	**type**\: :py:class:`Interfaces <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Interfaces>`
+            
             
 
             """
@@ -165,154 +165,12 @@ class Cdp(object):
             def __init__(self):
                 self.parent = None
                 self.node_name = None
-                self.interfaces = Cdp.Nodes.Node.Interfaces()
-                self.interfaces.parent = self
                 self.neighbors = Cdp.Nodes.Node.Neighbors()
                 self.neighbors.parent = self
                 self.statistics = Cdp.Nodes.Node.Statistics()
                 self.statistics.parent = self
-
-
-            class Interfaces(object):
-                """
-                The table of interfaces on which CDP is
-                running on this node
-                
-                .. attribute:: interface
-                
-                	Operational data for an interface on which CDP is running
-                	**type**\: list of :py:class:`Interface <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Interfaces.Interface>`
-                
-                
-
-                """
-
-                _prefix = 'cdp-oper'
-                _revision = '2015-01-07'
-
-                def __init__(self):
-                    self.parent = None
-                    self.interface = YList()
-                    self.interface.parent = self
-                    self.interface.name = 'interface'
-
-
-                class Interface(object):
-                    """
-                    Operational data for an interface on which
-                    CDP is running
-                    
-                    .. attribute:: interface_name
-                    
-                    	The interface name
-                    	**type**\: str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    .. attribute:: basecaps_state
-                    
-                    	Interface basecaps state
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: cdp_protocol_state
-                    
-                    	CDP protocol state
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: interface_encaps
-                    
-                    	Interface encapsulation
-                    	**type**\: str
-                    
-                    .. attribute:: interface_name_xr
-                    
-                    	Interface
-                    	**type**\: str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    
-
-                    """
-
-                    _prefix = 'cdp-oper'
-                    _revision = '2015-01-07'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.interface_name = None
-                        self.basecaps_state = None
-                        self.cdp_protocol_state = None
-                        self.interface_encaps = None
-                        self.interface_name_xr = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                        if self.interface_name is None:
-                            raise YPYDataValidationError('Key property interface_name is None')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-cdp-oper:interface[Cisco-IOS-XR-cdp-oper:interface-name = ' + str(self.interface_name) + ']'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.interface_name is not None:
-                            return True
-
-                        if self.basecaps_state is not None:
-                            return True
-
-                        if self.cdp_protocol_state is not None:
-                            return True
-
-                        if self.interface_encaps is not None:
-                            return True
-
-                        if self.interface_name_xr is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cdp._meta import _Cisco_IOS_XR_cdp_oper as meta
-                        return meta._meta_table['Cdp.Nodes.Node.Interfaces.Interface']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-cdp-oper:interfaces'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.interface is not None:
-                        for child_ref in self.interface:
-                            if child_ref._has_data():
-                                return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cdp._meta import _Cisco_IOS_XR_cdp_oper as meta
-                    return meta._meta_table['Cdp.Nodes.Node.Interfaces']['meta_info']
+                self.interfaces = Cdp.Nodes.Node.Interfaces()
+                self.interfaces.parent = self
 
 
             class Neighbors(object):
@@ -379,22 +237,22 @@ class Cdp(object):
                         Detailed information about a CDP neighbor
                         entry
                         
-                        .. attribute:: cdp_neighbor
-                        
-                        	cdp neighbor
-                        	**type**\: list of :py:class:`CdpNeighbor <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor>`
-                        
-                        .. attribute:: device_id
-                        
-                        	The neighboring device identifier
-                        	**type**\: str
-                        
                         .. attribute:: interface_name
                         
                         	The interface name
                         	**type**\: str
                         
                         	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        
+                        .. attribute:: device_id
+                        
+                        	The neighboring device identifier
+                        	**type**\: str
+                        
+                        .. attribute:: cdp_neighbor
+                        
+                        	cdp neighbor
+                        	**type**\: list of :py:class:`CdpNeighbor <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor>`
                         
                         
 
@@ -405,30 +263,37 @@ class Cdp(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.interface_name = None
+                            self.device_id = None
                             self.cdp_neighbor = YList()
                             self.cdp_neighbor.parent = self
                             self.cdp_neighbor.name = 'cdp_neighbor'
-                            self.device_id = None
-                            self.interface_name = None
 
 
                         class CdpNeighbor(object):
                             """
                             cdp neighbor
                             
-                            .. attribute:: capabilities
-                            
-                            	Capabilities
-                            	**type**\: str
-                            
                             .. attribute:: detail
                             
                             	Detailed neighbor info
                             	**type**\: :py:class:`Detail <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail>`
                             
+                            .. attribute:: receiving_interface_name
+                            
+                            	Interface the neighbor entry was received on 
+                            	**type**\: str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
                             .. attribute:: device_id
                             
                             	Device identifier
+                            	**type**\: str
+                            
+                            .. attribute:: port_id
+                            
+                            	Outgoing port identifier
                             	**type**\: str
                             
                             .. attribute:: header_version
@@ -445,22 +310,15 @@ class Cdp(object):
                             
                             	**range:** 0..65535
                             
+                            .. attribute:: capabilities
+                            
+                            	Capabilities
+                            	**type**\: str
+                            
                             .. attribute:: platform
                             
                             	Platform type
                             	**type**\: str
-                            
-                            .. attribute:: port_id
-                            
-                            	Outgoing port identifier
-                            	**type**\: str
-                            
-                            .. attribute:: receiving_interface_name
-                            
-                            	Interface the neighbor entry was received on 
-                            	**type**\: str
-                            
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             
 
@@ -471,32 +329,20 @@ class Cdp(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.capabilities = None
                                 self.detail = Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail()
                                 self.detail.parent = self
+                                self.receiving_interface_name = None
                                 self.device_id = None
+                                self.port_id = None
                                 self.header_version = None
                                 self.hold_time = None
+                                self.capabilities = None
                                 self.platform = None
-                                self.port_id = None
-                                self.receiving_interface_name = None
 
 
                             class Detail(object):
                                 """
                                 Detailed neighbor info
-                                
-                                .. attribute:: duplex
-                                
-                                	Duplex setting
-                                	**type**\: :py:class:`CdpDuplexEnum <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.CdpDuplexEnum>`
-                                
-                                .. attribute:: native_vlan
-                                
-                                	Native VLAN
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
                                 
                                 .. attribute:: network_addresses
                                 
@@ -508,11 +354,6 @@ class Cdp(object):
                                 	List of protocol hello entries
                                 	**type**\: :py:class:`ProtocolHelloList <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.ProtocolHelloList>`
                                 
-                                .. attribute:: system_name
-                                
-                                	SysName
-                                	**type**\: str
-                                
                                 .. attribute:: version
                                 
                                 	Version TLV
@@ -521,6 +362,23 @@ class Cdp(object):
                                 .. attribute:: vtp_domain
                                 
                                 	VTP domain
+                                	**type**\: str
+                                
+                                .. attribute:: native_vlan
+                                
+                                	Native VLAN
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: duplex
+                                
+                                	Duplex setting
+                                	**type**\: :py:class:`CdpDuplexEnum <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.CdpDuplexEnum>`
+                                
+                                .. attribute:: system_name
+                                
+                                	SysName
                                 	**type**\: str
                                 
                                 
@@ -532,15 +390,15 @@ class Cdp(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.duplex = None
-                                    self.native_vlan = None
                                     self.network_addresses = Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses()
                                     self.network_addresses.parent = self
                                     self.protocol_hello_list = Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.ProtocolHelloList()
                                     self.protocol_hello_list.parent = self
-                                    self.system_name = None
                                     self.version = None
                                     self.vtp_domain = None
+                                    self.native_vlan = None
+                                    self.duplex = None
+                                    self.system_name = None
 
 
                                 class NetworkAddresses(object):
@@ -814,25 +672,25 @@ class Cdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.duplex is not None:
-                                        return True
-
-                                    if self.native_vlan is not None:
-                                        return True
-
                                     if self.network_addresses is not None and self.network_addresses._has_data():
                                         return True
 
                                     if self.protocol_hello_list is not None and self.protocol_hello_list._has_data():
                                         return True
 
-                                    if self.system_name is not None:
-                                        return True
-
                                     if self.version is not None:
                                         return True
 
                                     if self.vtp_domain is not None:
+                                        return True
+
+                                    if self.native_vlan is not None:
+                                        return True
+
+                                    if self.duplex is not None:
+                                        return True
+
+                                    if self.system_name is not None:
                                         return True
 
                                     return False
@@ -856,13 +714,16 @@ class Cdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.capabilities is not None:
-                                    return True
-
                                 if self.detail is not None and self.detail._has_data():
                                     return True
 
+                                if self.receiving_interface_name is not None:
+                                    return True
+
                                 if self.device_id is not None:
+                                    return True
+
+                                if self.port_id is not None:
                                     return True
 
                                 if self.header_version is not None:
@@ -871,13 +732,10 @@ class Cdp(object):
                                 if self.hold_time is not None:
                                     return True
 
+                                if self.capabilities is not None:
+                                    return True
+
                                 if self.platform is not None:
-                                    return True
-
-                                if self.port_id is not None:
-                                    return True
-
-                                if self.receiving_interface_name is not None:
                                     return True
 
                                 return False
@@ -901,16 +759,16 @@ class Cdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.cdp_neighbor is not None:
-                                for child_ref in self.cdp_neighbor:
-                                    if child_ref._has_data():
-                                        return True
+                            if self.interface_name is not None:
+                                return True
 
                             if self.device_id is not None:
                                 return True
 
-                            if self.interface_name is not None:
-                                return True
+                            if self.cdp_neighbor is not None:
+                                for child_ref in self.cdp_neighbor:
+                                    if child_ref._has_data():
+                                        return True
 
                             return False
 
@@ -974,7 +832,7 @@ class Cdp(object):
                         Detailed information about a CDP neighbor
                         entry
                         
-                        .. attribute:: device_id
+                        .. attribute:: device_id  <key>
                         
                         	The neighboring device identifier
                         	**type**\: str
@@ -1003,19 +861,26 @@ class Cdp(object):
                             """
                             cdp neighbor
                             
-                            .. attribute:: capabilities
-                            
-                            	Capabilities
-                            	**type**\: str
-                            
                             .. attribute:: detail
                             
                             	Detailed neighbor info
                             	**type**\: :py:class:`Detail <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail>`
                             
+                            .. attribute:: receiving_interface_name
+                            
+                            	Interface the neighbor entry was received on 
+                            	**type**\: str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
                             .. attribute:: device_id
                             
                             	Device identifier
+                            	**type**\: str
+                            
+                            .. attribute:: port_id
+                            
+                            	Outgoing port identifier
                             	**type**\: str
                             
                             .. attribute:: header_version
@@ -1032,22 +897,15 @@ class Cdp(object):
                             
                             	**range:** 0..65535
                             
+                            .. attribute:: capabilities
+                            
+                            	Capabilities
+                            	**type**\: str
+                            
                             .. attribute:: platform
                             
                             	Platform type
                             	**type**\: str
-                            
-                            .. attribute:: port_id
-                            
-                            	Outgoing port identifier
-                            	**type**\: str
-                            
-                            .. attribute:: receiving_interface_name
-                            
-                            	Interface the neighbor entry was received on 
-                            	**type**\: str
-                            
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             
 
@@ -1058,32 +916,20 @@ class Cdp(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.capabilities = None
                                 self.detail = Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail()
                                 self.detail.parent = self
+                                self.receiving_interface_name = None
                                 self.device_id = None
+                                self.port_id = None
                                 self.header_version = None
                                 self.hold_time = None
+                                self.capabilities = None
                                 self.platform = None
-                                self.port_id = None
-                                self.receiving_interface_name = None
 
 
                             class Detail(object):
                                 """
                                 Detailed neighbor info
-                                
-                                .. attribute:: duplex
-                                
-                                	Duplex setting
-                                	**type**\: :py:class:`CdpDuplexEnum <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.CdpDuplexEnum>`
-                                
-                                .. attribute:: native_vlan
-                                
-                                	Native VLAN
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
                                 
                                 .. attribute:: network_addresses
                                 
@@ -1095,11 +941,6 @@ class Cdp(object):
                                 	List of protocol hello entries
                                 	**type**\: :py:class:`ProtocolHelloList <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList>`
                                 
-                                .. attribute:: system_name
-                                
-                                	SysName
-                                	**type**\: str
-                                
                                 .. attribute:: version
                                 
                                 	Version TLV
@@ -1108,6 +949,23 @@ class Cdp(object):
                                 .. attribute:: vtp_domain
                                 
                                 	VTP domain
+                                	**type**\: str
+                                
+                                .. attribute:: native_vlan
+                                
+                                	Native VLAN
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: duplex
+                                
+                                	Duplex setting
+                                	**type**\: :py:class:`CdpDuplexEnum <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.CdpDuplexEnum>`
+                                
+                                .. attribute:: system_name
+                                
+                                	SysName
                                 	**type**\: str
                                 
                                 
@@ -1119,15 +977,15 @@ class Cdp(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.duplex = None
-                                    self.native_vlan = None
                                     self.network_addresses = Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses()
                                     self.network_addresses.parent = self
                                     self.protocol_hello_list = Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList()
                                     self.protocol_hello_list.parent = self
-                                    self.system_name = None
                                     self.version = None
                                     self.vtp_domain = None
+                                    self.native_vlan = None
+                                    self.duplex = None
+                                    self.system_name = None
 
 
                                 class NetworkAddresses(object):
@@ -1401,25 +1259,25 @@ class Cdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.duplex is not None:
-                                        return True
-
-                                    if self.native_vlan is not None:
-                                        return True
-
                                     if self.network_addresses is not None and self.network_addresses._has_data():
                                         return True
 
                                     if self.protocol_hello_list is not None and self.protocol_hello_list._has_data():
                                         return True
 
-                                    if self.system_name is not None:
-                                        return True
-
                                     if self.version is not None:
                                         return True
 
                                     if self.vtp_domain is not None:
+                                        return True
+
+                                    if self.native_vlan is not None:
+                                        return True
+
+                                    if self.duplex is not None:
+                                        return True
+
+                                    if self.system_name is not None:
                                         return True
 
                                     return False
@@ -1443,13 +1301,16 @@ class Cdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.capabilities is not None:
-                                    return True
-
                                 if self.detail is not None and self.detail._has_data():
                                     return True
 
+                                if self.receiving_interface_name is not None:
+                                    return True
+
                                 if self.device_id is not None:
+                                    return True
+
+                                if self.port_id is not None:
                                     return True
 
                                 if self.header_version is not None:
@@ -1458,13 +1319,10 @@ class Cdp(object):
                                 if self.hold_time is not None:
                                     return True
 
+                                if self.capabilities is not None:
+                                    return True
+
                                 if self.platform is not None:
-                                    return True
-
-                                if self.port_id is not None:
-                                    return True
-
-                                if self.receiving_interface_name is not None:
                                     return True
 
                                 return False
@@ -1559,22 +1417,22 @@ class Cdp(object):
                         """
                         Brief information about a CDP neighbor entry
                         
-                        .. attribute:: cdp_neighbor
-                        
-                        	cdp neighbor
-                        	**type**\: list of :py:class:`CdpNeighbor <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor>`
-                        
-                        .. attribute:: device_id
-                        
-                        	The neighboring device identifier
-                        	**type**\: str
-                        
                         .. attribute:: interface_name
                         
                         	The interface name
                         	**type**\: str
                         
                         	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        
+                        .. attribute:: device_id
+                        
+                        	The neighboring device identifier
+                        	**type**\: str
+                        
+                        .. attribute:: cdp_neighbor
+                        
+                        	cdp neighbor
+                        	**type**\: list of :py:class:`CdpNeighbor <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor>`
                         
                         
 
@@ -1585,30 +1443,37 @@ class Cdp(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.interface_name = None
+                            self.device_id = None
                             self.cdp_neighbor = YList()
                             self.cdp_neighbor.parent = self
                             self.cdp_neighbor.name = 'cdp_neighbor'
-                            self.device_id = None
-                            self.interface_name = None
 
 
                         class CdpNeighbor(object):
                             """
                             cdp neighbor
                             
-                            .. attribute:: capabilities
-                            
-                            	Capabilities
-                            	**type**\: str
-                            
                             .. attribute:: detail
                             
                             	Detailed neighbor info
                             	**type**\: :py:class:`Detail <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail>`
                             
+                            .. attribute:: receiving_interface_name
+                            
+                            	Interface the neighbor entry was received on 
+                            	**type**\: str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
                             .. attribute:: device_id
                             
                             	Device identifier
+                            	**type**\: str
+                            
+                            .. attribute:: port_id
+                            
+                            	Outgoing port identifier
                             	**type**\: str
                             
                             .. attribute:: header_version
@@ -1625,22 +1490,15 @@ class Cdp(object):
                             
                             	**range:** 0..65535
                             
+                            .. attribute:: capabilities
+                            
+                            	Capabilities
+                            	**type**\: str
+                            
                             .. attribute:: platform
                             
                             	Platform type
                             	**type**\: str
-                            
-                            .. attribute:: port_id
-                            
-                            	Outgoing port identifier
-                            	**type**\: str
-                            
-                            .. attribute:: receiving_interface_name
-                            
-                            	Interface the neighbor entry was received on 
-                            	**type**\: str
-                            
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             
 
@@ -1651,32 +1509,20 @@ class Cdp(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.capabilities = None
                                 self.detail = Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail()
                                 self.detail.parent = self
+                                self.receiving_interface_name = None
                                 self.device_id = None
+                                self.port_id = None
                                 self.header_version = None
                                 self.hold_time = None
+                                self.capabilities = None
                                 self.platform = None
-                                self.port_id = None
-                                self.receiving_interface_name = None
 
 
                             class Detail(object):
                                 """
                                 Detailed neighbor info
-                                
-                                .. attribute:: duplex
-                                
-                                	Duplex setting
-                                	**type**\: :py:class:`CdpDuplexEnum <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.CdpDuplexEnum>`
-                                
-                                .. attribute:: native_vlan
-                                
-                                	Native VLAN
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
                                 
                                 .. attribute:: network_addresses
                                 
@@ -1688,11 +1534,6 @@ class Cdp(object):
                                 	List of protocol hello entries
                                 	**type**\: :py:class:`ProtocolHelloList <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList>`
                                 
-                                .. attribute:: system_name
-                                
-                                	SysName
-                                	**type**\: str
-                                
                                 .. attribute:: version
                                 
                                 	Version TLV
@@ -1701,6 +1542,23 @@ class Cdp(object):
                                 .. attribute:: vtp_domain
                                 
                                 	VTP domain
+                                	**type**\: str
+                                
+                                .. attribute:: native_vlan
+                                
+                                	Native VLAN
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: duplex
+                                
+                                	Duplex setting
+                                	**type**\: :py:class:`CdpDuplexEnum <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.CdpDuplexEnum>`
+                                
+                                .. attribute:: system_name
+                                
+                                	SysName
                                 	**type**\: str
                                 
                                 
@@ -1712,15 +1570,15 @@ class Cdp(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.duplex = None
-                                    self.native_vlan = None
                                     self.network_addresses = Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses()
                                     self.network_addresses.parent = self
                                     self.protocol_hello_list = Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList()
                                     self.protocol_hello_list.parent = self
-                                    self.system_name = None
                                     self.version = None
                                     self.vtp_domain = None
+                                    self.native_vlan = None
+                                    self.duplex = None
+                                    self.system_name = None
 
 
                                 class NetworkAddresses(object):
@@ -1994,25 +1852,25 @@ class Cdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.duplex is not None:
-                                        return True
-
-                                    if self.native_vlan is not None:
-                                        return True
-
                                     if self.network_addresses is not None and self.network_addresses._has_data():
                                         return True
 
                                     if self.protocol_hello_list is not None and self.protocol_hello_list._has_data():
                                         return True
 
-                                    if self.system_name is not None:
-                                        return True
-
                                     if self.version is not None:
                                         return True
 
                                     if self.vtp_domain is not None:
+                                        return True
+
+                                    if self.native_vlan is not None:
+                                        return True
+
+                                    if self.duplex is not None:
+                                        return True
+
+                                    if self.system_name is not None:
                                         return True
 
                                     return False
@@ -2036,13 +1894,16 @@ class Cdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.capabilities is not None:
-                                    return True
-
                                 if self.detail is not None and self.detail._has_data():
                                     return True
 
+                                if self.receiving_interface_name is not None:
+                                    return True
+
                                 if self.device_id is not None:
+                                    return True
+
+                                if self.port_id is not None:
                                     return True
 
                                 if self.header_version is not None:
@@ -2051,13 +1912,10 @@ class Cdp(object):
                                 if self.hold_time is not None:
                                     return True
 
+                                if self.capabilities is not None:
+                                    return True
+
                                 if self.platform is not None:
-                                    return True
-
-                                if self.port_id is not None:
-                                    return True
-
-                                if self.receiving_interface_name is not None:
                                     return True
 
                                 return False
@@ -2081,16 +1939,16 @@ class Cdp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.cdp_neighbor is not None:
-                                for child_ref in self.cdp_neighbor:
-                                    if child_ref._has_data():
-                                        return True
+                            if self.interface_name is not None:
+                                return True
 
                             if self.device_id is not None:
                                 return True
 
-                            if self.interface_name is not None:
-                                return True
+                            if self.cdp_neighbor is not None:
+                                for child_ref in self.cdp_neighbor:
+                                    if child_ref._has_data():
+                                        return True
 
                             return False
 
@@ -2160,55 +2018,6 @@ class Cdp(object):
                 """
                 The CDP traffic statistics for this node
                 
-                .. attribute:: bad_packet_errors
-                
-                	Bad packet received and dropped
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: checksum_errors
-                
-                	Checksum errors
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: encapsulation_errors
-                
-                	Transmission errors
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: header_errors
-                
-                	Header syntax errors
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: header_version_errors
-                
-                	Can't handle receive version
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: open_file_errors
-                
-                	Cannot open file
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: out_of_memory_errors
-                
-                	Out\-of\-memory conditions
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
                 .. attribute:: received_packets
                 
                 	Received packets
@@ -2251,9 +2060,58 @@ class Cdp(object):
                 
                 	**range:** 0..4294967295
                 
+                .. attribute:: header_errors
+                
+                	Header syntax errors
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: checksum_errors
+                
+                	Checksum errors
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: encapsulation_errors
+                
+                	Transmission errors
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: bad_packet_errors
+                
+                	Bad packet received and dropped
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: out_of_memory_errors
+                
+                	Out\-of\-memory conditions
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
                 .. attribute:: truncated_packet_errors
                 
                 	Truncated messages
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: header_version_errors
+                
+                	Can't handle receive version
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: open_file_errors
+                
+                	Cannot open file
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -2267,20 +2125,20 @@ class Cdp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.bad_packet_errors = None
-                    self.checksum_errors = None
-                    self.encapsulation_errors = None
-                    self.header_errors = None
-                    self.header_version_errors = None
-                    self.open_file_errors = None
-                    self.out_of_memory_errors = None
                     self.received_packets = None
                     self.received_packets_v1 = None
                     self.received_packets_v2 = None
                     self.transmitted_packets = None
                     self.transmitted_packets_v1 = None
                     self.transmitted_packets_v2 = None
+                    self.header_errors = None
+                    self.checksum_errors = None
+                    self.encapsulation_errors = None
+                    self.bad_packet_errors = None
+                    self.out_of_memory_errors = None
                     self.truncated_packet_errors = None
+                    self.header_version_errors = None
+                    self.open_file_errors = None
 
                 @property
                 def _common_path(self):
@@ -2296,27 +2154,6 @@ class Cdp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.bad_packet_errors is not None:
-                        return True
-
-                    if self.checksum_errors is not None:
-                        return True
-
-                    if self.encapsulation_errors is not None:
-                        return True
-
-                    if self.header_errors is not None:
-                        return True
-
-                    if self.header_version_errors is not None:
-                        return True
-
-                    if self.open_file_errors is not None:
-                        return True
-
-                    if self.out_of_memory_errors is not None:
-                        return True
-
                     if self.received_packets is not None:
                         return True
 
@@ -2335,7 +2172,28 @@ class Cdp(object):
                     if self.transmitted_packets_v2 is not None:
                         return True
 
+                    if self.header_errors is not None:
+                        return True
+
+                    if self.checksum_errors is not None:
+                        return True
+
+                    if self.encapsulation_errors is not None:
+                        return True
+
+                    if self.bad_packet_errors is not None:
+                        return True
+
+                    if self.out_of_memory_errors is not None:
+                        return True
+
                     if self.truncated_packet_errors is not None:
+                        return True
+
+                    if self.header_version_errors is not None:
+                        return True
+
+                    if self.open_file_errors is not None:
                         return True
 
                     return False
@@ -2344,6 +2202,148 @@ class Cdp(object):
                 def _meta_info():
                     from ydk.models.cdp._meta import _Cisco_IOS_XR_cdp_oper as meta
                     return meta._meta_table['Cdp.Nodes.Node.Statistics']['meta_info']
+
+
+            class Interfaces(object):
+                """
+                The table of interfaces on which CDP is
+                running on this node
+                
+                .. attribute:: interface
+                
+                	Operational data for an interface on which CDP is running
+                	**type**\: list of :py:class:`Interface <ydk.models.cdp.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Interfaces.Interface>`
+                
+                
+
+                """
+
+                _prefix = 'cdp-oper'
+                _revision = '2015-01-07'
+
+                def __init__(self):
+                    self.parent = None
+                    self.interface = YList()
+                    self.interface.parent = self
+                    self.interface.name = 'interface'
+
+
+                class Interface(object):
+                    """
+                    Operational data for an interface on which
+                    CDP is running
+                    
+                    .. attribute:: interface_name  <key>
+                    
+                    	The interface name
+                    	**type**\: str
+                    
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: interface_name_xr
+                    
+                    	Interface
+                    	**type**\: str
+                    
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: basecaps_state
+                    
+                    	Interface basecaps state
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: cdp_protocol_state
+                    
+                    	CDP protocol state
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: interface_encaps
+                    
+                    	Interface encapsulation
+                    	**type**\: str
+                    
+                    
+
+                    """
+
+                    _prefix = 'cdp-oper'
+                    _revision = '2015-01-07'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.interface_name = None
+                        self.interface_name_xr = None
+                        self.basecaps_state = None
+                        self.cdp_protocol_state = None
+                        self.interface_encaps = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        if self.interface_name is None:
+                            raise YPYDataValidationError('Key property interface_name is None')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-cdp-oper:interface[Cisco-IOS-XR-cdp-oper:interface-name = ' + str(self.interface_name) + ']'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.interface_name is not None:
+                            return True
+
+                        if self.interface_name_xr is not None:
+                            return True
+
+                        if self.basecaps_state is not None:
+                            return True
+
+                        if self.cdp_protocol_state is not None:
+                            return True
+
+                        if self.interface_encaps is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cdp._meta import _Cisco_IOS_XR_cdp_oper as meta
+                        return meta._meta_table['Cdp.Nodes.Node.Interfaces.Interface']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-cdp-oper:interfaces'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.interface is not None:
+                        for child_ref in self.interface:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cdp._meta import _Cisco_IOS_XR_cdp_oper as meta
+                    return meta._meta_table['Cdp.Nodes.Node.Interfaces']['meta_info']
 
             @property
             def _common_path(self):
@@ -2362,13 +2362,13 @@ class Cdp(object):
                 if self.node_name is not None:
                     return True
 
-                if self.interfaces is not None and self.interfaces._has_data():
-                    return True
-
                 if self.neighbors is not None and self.neighbors._has_data():
                     return True
 
                 if self.statistics is not None and self.statistics._has_data():
+                    return True
+
+                if self.interfaces is not None and self.interfaces._has_data():
                     return True
 
                 return False

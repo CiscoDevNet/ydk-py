@@ -7,7 +7,7 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
@@ -47,17 +47,17 @@ _meta_table = {
                 ''',
                 'client_rate',
                 'Cisco-IOS-XR-ncs1k-mxp-cfg', False),
-            _MetaInfoClassMember('fec', REFERENCE_ENUM_CLASS, 'FecEnum' , 'ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg', 'FecEnum', 
-                [], [], 
-                '''                FEC
-                ''',
-                'fec',
-                'Cisco-IOS-XR-ncs1k-mxp-cfg', False),
             _MetaInfoClassMember('trunk-rate', REFERENCE_ENUM_CLASS, 'TrunkDataRateEnum' , 'ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg', 'TrunkDataRateEnum', 
                 [], [], 
                 '''                TrunkRate
                 ''',
                 'trunk_rate',
+                'Cisco-IOS-XR-ncs1k-mxp-cfg', False),
+            _MetaInfoClassMember('fec', REFERENCE_ENUM_CLASS, 'FecEnum' , 'ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg', 'FecEnum', 
+                [], [], 
+                '''                FEC
+                ''',
+                'fec',
                 'Cisco-IOS-XR-ncs1k-mxp-cfg', False),
             ],
             'Cisco-IOS-XR-ncs1k-mxp-cfg',

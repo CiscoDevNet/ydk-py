@@ -45,7 +45,7 @@ class ExecutorService(Service):
                   - if there isn't enough information in the entity to prepare the message (missing keys for example)
         """
         try:
-            rpc = MetaService.normalize_meta(provider.get_capabilities(), rpc)
+            rpc = MetaService.normalize_meta(provider._get_capabilities(), rpc)
             return self.execute_payload(
                                         provider,
                                         '',

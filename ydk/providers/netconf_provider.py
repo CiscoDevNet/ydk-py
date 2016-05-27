@@ -21,10 +21,10 @@
    
 """
 import logging
-from ._network_element import _NetworkElement
 from .provider import ServiceProvider
+from ._provider_plugin import _NCClientSPPlugin
 from ._session_config import _SessionConfig
-from ._ydk_types import _SessionTransportMode, _ServiceProtocolName
+from ._ydk_types import _SessionTransportMode
 
 
 class NetconfServiceProvider(ServiceProvider):
@@ -38,6 +38,7 @@ class NetconfServiceProvider(ServiceProvider):
             - username - The name of the user
             - password - The password to use
             - protocol - one of either ssh or tcp    
+            - timeout  - Default to 60
     """
 
     def __init__(self, **kwargs):
@@ -46,6 +47,7 @@ class NetconfServiceProvider(ServiceProvider):
         self.username = kwargs.get('username', 'admin')
         self.password = kwargs.get('password', 'admin')
         self.protocol = kwargs.get('protocol', 'ssh')
+        self.timeout = kwargs.get('timeout', 60)
 
         if self.protocol == 'tcp':
             self.session_config = _SessionConfig(
@@ -55,30 +57,32 @@ class NetconfServiceProvider(ServiceProvider):
                                                  self.username,
                                                  self.password)
         else:
-            self._session_config = _SessionConfig(
+            self.session_config = _SessionConfig(
                                            _SessionTransportMode.SSH,
                                            self.address,
                                            self.port,
                                            self.username,
                                            self.password)
 
-        self.ne = _NetworkElement(
-                                  self._session_config,
-                                  _ServiceProtocolName.NETCONF)
-
         self.netconf_sp_logger = logging.getLogger('ydk.providers.NetconfServiceProvider')
-        self.ne.connect()
+        self._connect()
         self.netconf_sp_logger.info('NetconfServiceProvider connected to %s:%s using %s'
                                % (self.address, self.port, self.protocol))
 
-        self.sp_instance = self.ne.sp_instance
-        self.encode_format = self.ne.encode_format
+    def _connect(self):
+        self.sp_instance = _NCClientSPPlugin(self.timeout)
+        self.sp_instance._connect(self.session_config)
+        return True
+
+    def _disconnect(self):
+        self.sp_instance._nc_manager.close_session()
+        return True
 
     def close(self):
         """ Closes the netconf session """
-        self.ne.disconnect()
+        self._disconnect()
         self.netconf_sp_logger.info('\nNetconfServiceProvider disconnected from %s:%s using %s'
                                % (self.address, self.port, self.protocol))
 
-    def get_capabilities(self):
+    def _get_capabilities(self):
         return self.sp_instance._nc_manager.server_capabilities

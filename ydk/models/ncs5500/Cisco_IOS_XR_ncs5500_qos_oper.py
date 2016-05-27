@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -620,7 +620,7 @@ class PlatformQos(object):
             """
             Node with platform specific QoS configuration
             
-            .. attribute:: node_name
+            .. attribute:: node_name  <key>
             
             	Node name
             	**type**\: str
@@ -687,17 +687,12 @@ class PlatformQos(object):
                     """
                     QoS interface names
                     
-                    .. attribute:: interface_name
+                    .. attribute:: interface_name  <key>
                     
                     	Bundle interface name
                     	**type**\: str
                     
                     	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    .. attribute:: classes
-                    
-                    	QoS list of class names
-                    	**type**\: :py:class:`Classes <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes>`
                     
                     .. attribute:: member_interfaces
                     
@@ -711,15 +706,20 @@ class PlatformQos(object):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    .. attribute:: qos_direction
+                    
+                    	The interface direction on which QoS is applied to
+                    	**type**\: str
+                    
                     .. attribute:: policy_details
                     
                     	Policy Details
                     	**type**\: :py:class:`PolicyDetails <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.PolicyDetails>`
                     
-                    .. attribute:: qos_direction
+                    .. attribute:: classes
                     
-                    	The interface direction on which QoS is applied to
-                    	**type**\: str
+                    	QoS list of class names
+                    	**type**\: :py:class:`Classes <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes>`
                     
                     
 
@@ -731,1703 +731,14 @@ class PlatformQos(object):
                     def __init__(self):
                         self.parent = None
                         self.interface_name = None
-                        self.classes = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes()
-                        self.classes.parent = self
                         self.member_interfaces = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces()
                         self.member_interfaces.parent = self
                         self.npu_id = None
+                        self.qos_direction = None
                         self.policy_details = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.PolicyDetails()
                         self.policy_details.parent = self
-                        self.qos_direction = None
-
-
-                    class Classes(object):
-                        """
-                        QoS list of class names
-                        
-                        .. attribute:: class_
-                        
-                        	QoS policy class
-                        	**type**\: list of :py:class:`Class <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ncs5500-qos-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.class_ = YList()
-                            self.class_.parent = self
-                            self.class_.name = 'class_'
-
-
-                        class Class(object):
-                            """
-                            QoS policy class
-                            
-                            .. attribute:: level_one_class_name
-                            
-                            	QoS policy class name at level 1
-                            	**type**\: str
-                            
-                            .. attribute:: class_level
-                            
-                            	Class level
-                            	**type**\: :py:class:`DnxQoseaShowLevelEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowLevelEnum>`
-                            
-                            .. attribute:: common_mark
-                            
-                            	Common mark
-                            	**type**\: list of :py:class:`CommonMark <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.CommonMark>`
-                            
-                            .. attribute:: config_excess_bandwidth_percent
-                            
-                            	Configured excess bandwidth percentage
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: config_excess_bandwidth_unit
-                            
-                            	Configured excess bandwidth unit
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: config_max_rate
-                            
-                            	Configured maximum rate
-                            	**type**\: :py:class:`ConfigMaxRate <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMaxRate>`
-                            
-                            .. attribute:: config_min_rate
-                            
-                            	Configured minimum rate
-                            	**type**\: :py:class:`ConfigMinRate <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMinRate>`
-                            
-                            .. attribute:: config_policer_average_rate
-                            
-                            	Configured policer average rate
-                            	**type**\: :py:class:`ConfigPolicerAverageRate <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerAverageRate>`
-                            
-                            .. attribute:: config_policer_conform_burst
-                            
-                            	Configured policer conform burst
-                            	**type**\: :py:class:`ConfigPolicerConformBurst <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerConformBurst>`
-                            
-                            .. attribute:: config_policer_excess_burst
-                            
-                            	Configured policer excess burst
-                            	**type**\: :py:class:`ConfigPolicerExcessBurst <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerExcessBurst>`
-                            
-                            .. attribute:: config_policer_peak_rate
-                            
-                            	Config policer peak rate
-                            	**type**\: :py:class:`ConfigPolicerPeakRate <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerPeakRate>`
-                            
-                            .. attribute:: config_queue_limit
-                            
-                            	Configured queue limit
-                            	**type**\: :py:class:`ConfigQueueLimit <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigQueueLimit>`
-                            
-                            .. attribute:: conform_action
-                            
-                            	Conform action
-                            	**type**\: :py:class:`ConformAction <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction>`
-                            
-                            .. attribute:: egress_queue_id
-                            
-                            	Egress Queue ID
-                            	**type**\: int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: exceed_action
-                            
-                            	Exceed action
-                            	**type**\: :py:class:`ExceedAction <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction>`
-                            
-                            .. attribute:: hardware_excess_bandwidth_weight
-                            
-                            	Hardware excess bandwidth weight
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: hardware_max_rate_kbps
-                            
-                            	Hardware maximum rate in kbps
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: hardware_min_rate_kbps
-                            
-                            	Hardware minimum rate in kbps
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: hardware_policer_average_rate_kbps
-                            
-                            	Hardware policer average in kbps
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: hardware_policer_conform_burst_bytes
-                            
-                            	Hardware policer conform burst
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: hardware_policer_excess_burst_bytes
-                            
-                            	Hardware policer excess burst
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: hardware_policer_peak_rate_kbps
-                            
-                            	Hardware policer peak rate
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: hardware_queue_limit_bytes
-                            
-                            	Hardware queue limit in bytes
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: hardware_queue_limit_microseconds
-                            
-                            	Hardware queue limit in microseconds
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: ip_mark
-                            
-                            	IP mark
-                            	**type**\: list of :py:class:`IpMark <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.IpMark>`
-                            
-                            .. attribute:: level_two_class_name
-                            
-                            	QoS policy child class name at level 2
-                            	**type**\: str
-                            
-                            .. attribute:: mpls_mark
-                            
-                            	MPLS mark
-                            	**type**\: list of :py:class:`MplsMark <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.MplsMark>`
-                            
-                            .. attribute:: network_min_bandwidth_kbps
-                            
-                            	Network minimum Bandwith
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: policer_bucket_id
-                            
-                            	PolicerBucketID
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: policer_stats_handle
-                            
-                            	PolicerStatsHandle
-                            	**type**\: int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: priority_level
-                            
-                            	Priority level
-                            	**type**\: :py:class:`DnxQoseaShowHpLevelEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowHpLevelEnum>`
-                            
-                            .. attribute:: queue_type
-                            
-                            	Queue type
-                            	**type**\: :py:class:`DnxQoseaShowQueueEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowQueueEnum>`
-                            
-                            .. attribute:: violate_action
-                            
-                            	Violate action
-                            	**type**\: :py:class:`ViolateAction <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction>`
-                            
-                            .. attribute:: wred
-                            
-                            	WRED parameters
-                            	**type**\: list of :py:class:`Wred <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ncs5500-qos-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.level_one_class_name = None
-                                self.class_level = None
-                                self.common_mark = YList()
-                                self.common_mark.parent = self
-                                self.common_mark.name = 'common_mark'
-                                self.config_excess_bandwidth_percent = None
-                                self.config_excess_bandwidth_unit = None
-                                self.config_max_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMaxRate()
-                                self.config_max_rate.parent = self
-                                self.config_min_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMinRate()
-                                self.config_min_rate.parent = self
-                                self.config_policer_average_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerAverageRate()
-                                self.config_policer_average_rate.parent = self
-                                self.config_policer_conform_burst = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerConformBurst()
-                                self.config_policer_conform_burst.parent = self
-                                self.config_policer_excess_burst = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerExcessBurst()
-                                self.config_policer_excess_burst.parent = self
-                                self.config_policer_peak_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerPeakRate()
-                                self.config_policer_peak_rate.parent = self
-                                self.config_queue_limit = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigQueueLimit()
-                                self.config_queue_limit.parent = self
-                                self.conform_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction()
-                                self.conform_action.parent = self
-                                self.egress_queue_id = None
-                                self.exceed_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction()
-                                self.exceed_action.parent = self
-                                self.hardware_excess_bandwidth_weight = None
-                                self.hardware_max_rate_kbps = None
-                                self.hardware_min_rate_kbps = None
-                                self.hardware_policer_average_rate_kbps = None
-                                self.hardware_policer_conform_burst_bytes = None
-                                self.hardware_policer_excess_burst_bytes = None
-                                self.hardware_policer_peak_rate_kbps = None
-                                self.hardware_queue_limit_bytes = None
-                                self.hardware_queue_limit_microseconds = None
-                                self.ip_mark = YList()
-                                self.ip_mark.parent = self
-                                self.ip_mark.name = 'ip_mark'
-                                self.level_two_class_name = None
-                                self.mpls_mark = YList()
-                                self.mpls_mark.parent = self
-                                self.mpls_mark.name = 'mpls_mark'
-                                self.network_min_bandwidth_kbps = None
-                                self.policer_bucket_id = None
-                                self.policer_stats_handle = None
-                                self.priority_level = None
-                                self.queue_type = None
-                                self.violate_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction()
-                                self.violate_action.parent = self
-                                self.wred = YList()
-                                self.wred.parent = self
-                                self.wred.name = 'wred'
-
-
-                            class CommonMark(object):
-                                """
-                                Common mark
-                                
-                                .. attribute:: mark_type
-                                
-                                	Mark type
-                                	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
-                                
-                                .. attribute:: mark_value
-                                
-                                	Mark value
-                                	**type**\: int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'ncs5500-qos-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.mark_type = None
-                                    self.mark_value = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:common-mark'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.mark_type is not None:
-                                        return True
-
-                                    if self.mark_value is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.CommonMark']['meta_info']
-
-
-                            class ConfigMaxRate(object):
-                                """
-                                Configured maximum rate
-                                
-                                .. attribute:: policy_unit
-                                
-                                	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
-                                
-                                .. attribute:: policy_value
-                                
-                                	Policy value
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'ncs5500-qos-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.policy_unit = None
-                                    self.policy_value = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-max-rate'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.policy_unit is not None:
-                                        return True
-
-                                    if self.policy_value is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMaxRate']['meta_info']
-
-
-                            class ConfigMinRate(object):
-                                """
-                                Configured minimum rate
-                                
-                                .. attribute:: policy_unit
-                                
-                                	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
-                                
-                                .. attribute:: policy_value
-                                
-                                	Policy value
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'ncs5500-qos-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.policy_unit = None
-                                    self.policy_value = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-min-rate'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.policy_unit is not None:
-                                        return True
-
-                                    if self.policy_value is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMinRate']['meta_info']
-
-
-                            class ConfigPolicerAverageRate(object):
-                                """
-                                Configured policer average rate
-                                
-                                .. attribute:: policy_unit
-                                
-                                	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
-                                
-                                .. attribute:: policy_value
-                                
-                                	Policy value
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'ncs5500-qos-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.policy_unit = None
-                                    self.policy_value = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-policer-average-rate'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.policy_unit is not None:
-                                        return True
-
-                                    if self.policy_value is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerAverageRate']['meta_info']
-
-
-                            class ConfigPolicerConformBurst(object):
-                                """
-                                Configured policer conform burst
-                                
-                                .. attribute:: policy_unit
-                                
-                                	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
-                                
-                                .. attribute:: policy_value
-                                
-                                	Policy value
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'ncs5500-qos-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.policy_unit = None
-                                    self.policy_value = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-policer-conform-burst'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.policy_unit is not None:
-                                        return True
-
-                                    if self.policy_value is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerConformBurst']['meta_info']
-
-
-                            class ConfigPolicerExcessBurst(object):
-                                """
-                                Configured policer excess burst
-                                
-                                .. attribute:: policy_unit
-                                
-                                	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
-                                
-                                .. attribute:: policy_value
-                                
-                                	Policy value
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'ncs5500-qos-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.policy_unit = None
-                                    self.policy_value = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-policer-excess-burst'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.policy_unit is not None:
-                                        return True
-
-                                    if self.policy_value is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerExcessBurst']['meta_info']
-
-
-                            class ConfigPolicerPeakRate(object):
-                                """
-                                Config policer peak rate
-                                
-                                .. attribute:: policy_unit
-                                
-                                	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
-                                
-                                .. attribute:: policy_value
-                                
-                                	Policy value
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'ncs5500-qos-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.policy_unit = None
-                                    self.policy_value = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-policer-peak-rate'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.policy_unit is not None:
-                                        return True
-
-                                    if self.policy_value is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerPeakRate']['meta_info']
-
-
-                            class ConfigQueueLimit(object):
-                                """
-                                Configured queue limit
-                                
-                                .. attribute:: policy_unit
-                                
-                                	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
-                                
-                                .. attribute:: policy_value
-                                
-                                	Policy value
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'ncs5500-qos-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.policy_unit = None
-                                    self.policy_value = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-queue-limit'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.policy_unit is not None:
-                                        return True
-
-                                    if self.policy_value is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigQueueLimit']['meta_info']
-
-
-                            class ConformAction(object):
-                                """
-                                Conform action
-                                
-                                .. attribute:: action_type
-                                
-                                	Policer action type
-                                	**type**\: :py:class:`DnxQoseaShowActionEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
-                                
-                                .. attribute:: mark
-                                
-                                	Action mark
-                                	**type**\: list of :py:class:`Mark <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction.Mark>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ncs5500-qos-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.action_type = None
-                                    self.mark = YList()
-                                    self.mark.parent = self
-                                    self.mark.name = 'mark'
-
-
-                                class Mark(object):
-                                    """
-                                    Action mark
-                                    
-                                    .. attribute:: mark_type
-                                    
-                                    	Mark type
-                                    	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
-                                    
-                                    .. attribute:: mark_value
-                                    
-                                    	Mark value
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..65535
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ncs5500-qos-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.mark_type = None
-                                        self.mark_value = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:mark'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.mark_type is not None:
-                                            return True
-
-                                        if self.mark_value is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction.Mark']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:conform-action'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.action_type is not None:
-                                        return True
-
-                                    if self.mark is not None:
-                                        for child_ref in self.mark:
-                                            if child_ref._has_data():
-                                                return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction']['meta_info']
-
-
-                            class ExceedAction(object):
-                                """
-                                Exceed action
-                                
-                                .. attribute:: action_type
-                                
-                                	Policer action type
-                                	**type**\: :py:class:`DnxQoseaShowActionEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
-                                
-                                .. attribute:: mark
-                                
-                                	Action mark
-                                	**type**\: list of :py:class:`Mark <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction.Mark>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ncs5500-qos-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.action_type = None
-                                    self.mark = YList()
-                                    self.mark.parent = self
-                                    self.mark.name = 'mark'
-
-
-                                class Mark(object):
-                                    """
-                                    Action mark
-                                    
-                                    .. attribute:: mark_type
-                                    
-                                    	Mark type
-                                    	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
-                                    
-                                    .. attribute:: mark_value
-                                    
-                                    	Mark value
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..65535
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ncs5500-qos-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.mark_type = None
-                                        self.mark_value = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:mark'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.mark_type is not None:
-                                            return True
-
-                                        if self.mark_value is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction.Mark']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:exceed-action'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.action_type is not None:
-                                        return True
-
-                                    if self.mark is not None:
-                                        for child_ref in self.mark:
-                                            if child_ref._has_data():
-                                                return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction']['meta_info']
-
-
-                            class IpMark(object):
-                                """
-                                IP mark
-                                
-                                .. attribute:: mark_type
-                                
-                                	Mark type
-                                	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
-                                
-                                .. attribute:: mark_value
-                                
-                                	Mark value
-                                	**type**\: int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'ncs5500-qos-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.mark_type = None
-                                    self.mark_value = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:ip-mark'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.mark_type is not None:
-                                        return True
-
-                                    if self.mark_value is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.IpMark']['meta_info']
-
-
-                            class MplsMark(object):
-                                """
-                                MPLS mark
-                                
-                                .. attribute:: mark_type
-                                
-                                	Mark type
-                                	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
-                                
-                                .. attribute:: mark_value
-                                
-                                	Mark value
-                                	**type**\: int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'ncs5500-qos-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.mark_type = None
-                                    self.mark_value = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:mpls-mark'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.mark_type is not None:
-                                        return True
-
-                                    if self.mark_value is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.MplsMark']['meta_info']
-
-
-                            class ViolateAction(object):
-                                """
-                                Violate action
-                                
-                                .. attribute:: action_type
-                                
-                                	Policer action type
-                                	**type**\: :py:class:`DnxQoseaShowActionEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
-                                
-                                .. attribute:: mark
-                                
-                                	Action mark
-                                	**type**\: list of :py:class:`Mark <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction.Mark>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ncs5500-qos-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.action_type = None
-                                    self.mark = YList()
-                                    self.mark.parent = self
-                                    self.mark.name = 'mark'
-
-
-                                class Mark(object):
-                                    """
-                                    Action mark
-                                    
-                                    .. attribute:: mark_type
-                                    
-                                    	Mark type
-                                    	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
-                                    
-                                    .. attribute:: mark_value
-                                    
-                                    	Mark value
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..65535
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ncs5500-qos-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.mark_type = None
-                                        self.mark_value = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:mark'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.mark_type is not None:
-                                            return True
-
-                                        if self.mark_value is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction.Mark']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:violate-action'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.action_type is not None:
-                                        return True
-
-                                    if self.mark is not None:
-                                        for child_ref in self.mark:
-                                            if child_ref._has_data():
-                                                return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction']['meta_info']
-
-
-                            class Wred(object):
-                                """
-                                WRED parameters
-                                
-                                .. attribute:: config_max_threshold
-                                
-                                	Configured maximum threshold
-                                	**type**\: :py:class:`ConfigMaxThreshold <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMaxThreshold>`
-                                
-                                .. attribute:: config_min_threshold
-                                
-                                	Configured minimum threshold
-                                	**type**\: :py:class:`ConfigMinThreshold <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMinThreshold>`
-                                
-                                .. attribute:: first_segment
-                                
-                                	First segment
-                                	**type**\: int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: hardware_max_threshold_bytes
-                                
-                                	Hardware maximum threshold
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: hardware_min_threshold_bytes
-                                
-                                	Hardware minimum threshold
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: segment_size
-                                
-                                	Segment size
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: wred_match_type
-                                
-                                	WREDMatchType
-                                	**type**\: :py:class:`DnxQoseaShowWredEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowWredEnum>`
-                                
-                                .. attribute:: wred_match_value
-                                
-                                	WRED match values
-                                	**type**\: :py:class:`WredMatchValue <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ncs5500-qos-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.config_max_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMaxThreshold()
-                                    self.config_max_threshold.parent = self
-                                    self.config_min_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMinThreshold()
-                                    self.config_min_threshold.parent = self
-                                    self.first_segment = None
-                                    self.hardware_max_threshold_bytes = None
-                                    self.hardware_min_threshold_bytes = None
-                                    self.segment_size = None
-                                    self.wred_match_type = None
-                                    self.wred_match_value = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue()
-                                    self.wred_match_value.parent = self
-
-
-                                class ConfigMaxThreshold(object):
-                                    """
-                                    Configured maximum threshold
-                                    
-                                    .. attribute:: policy_unit
-                                    
-                                    	Policy unit
-                                    	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
-                                    
-                                    .. attribute:: policy_value
-                                    
-                                    	Policy value
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ncs5500-qos-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.policy_unit = None
-                                        self.policy_value = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-max-threshold'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.policy_unit is not None:
-                                            return True
-
-                                        if self.policy_value is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMaxThreshold']['meta_info']
-
-
-                                class ConfigMinThreshold(object):
-                                    """
-                                    Configured minimum threshold
-                                    
-                                    .. attribute:: policy_unit
-                                    
-                                    	Policy unit
-                                    	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
-                                    
-                                    .. attribute:: policy_value
-                                    
-                                    	Policy value
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ncs5500-qos-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.policy_unit = None
-                                        self.policy_value = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-min-threshold'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.policy_unit is not None:
-                                            return True
-
-                                        if self.policy_value is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMinThreshold']['meta_info']
-
-
-                                class WredMatchValue(object):
-                                    """
-                                    WRED match values
-                                    
-                                    .. attribute:: dnx_qosea_show_red_match_value
-                                    
-                                    	dnx qosea show red match value
-                                    	**type**\: list of :py:class:`DnxQoseaShowRedMatchValue <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ncs5500-qos-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.dnx_qosea_show_red_match_value = YList()
-                                        self.dnx_qosea_show_red_match_value.parent = self
-                                        self.dnx_qosea_show_red_match_value.name = 'dnx_qosea_show_red_match_value'
-
-
-                                    class DnxQoseaShowRedMatchValue(object):
-                                        """
-                                        dnx qosea show red match value
-                                        
-                                        .. attribute:: range_end
-                                        
-                                        	End value of a range
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..255
-                                        
-                                        .. attribute:: range_start
-                                        
-                                        	Start value of a range
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..255
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ncs5500-qos-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.range_end = None
-                                            self.range_start = None
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:dnx-qosea-show-red-match-value'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return False
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.range_end is not None:
-                                                return True
-
-                                            if self.range_start is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue']['meta_info']
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:wred-match-value'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.dnx_qosea_show_red_match_value is not None:
-                                            for child_ref in self.dnx_qosea_show_red_match_value:
-                                                if child_ref._has_data():
-                                                    return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:wred'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.config_max_threshold is not None and self.config_max_threshold._has_data():
-                                        return True
-
-                                    if self.config_min_threshold is not None and self.config_min_threshold._has_data():
-                                        return True
-
-                                    if self.first_segment is not None:
-                                        return True
-
-                                    if self.hardware_max_threshold_bytes is not None:
-                                        return True
-
-                                    if self.hardware_min_threshold_bytes is not None:
-                                        return True
-
-                                    if self.segment_size is not None:
-                                        return True
-
-                                    if self.wred_match_type is not None:
-                                        return True
-
-                                    if self.wred_match_value is not None and self.wred_match_value._has_data():
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred']['meta_info']
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                if self.level_one_class_name is None:
-                                    raise YPYDataValidationError('Key property level_one_class_name is None')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:class[Cisco-IOS-XR-ncs5500-qos-oper:level-one-class-name = ' + str(self.level_one_class_name) + ']'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.level_one_class_name is not None:
-                                    return True
-
-                                if self.class_level is not None:
-                                    return True
-
-                                if self.common_mark is not None:
-                                    for child_ref in self.common_mark:
-                                        if child_ref._has_data():
-                                            return True
-
-                                if self.config_excess_bandwidth_percent is not None:
-                                    return True
-
-                                if self.config_excess_bandwidth_unit is not None:
-                                    return True
-
-                                if self.config_max_rate is not None and self.config_max_rate._has_data():
-                                    return True
-
-                                if self.config_min_rate is not None and self.config_min_rate._has_data():
-                                    return True
-
-                                if self.config_policer_average_rate is not None and self.config_policer_average_rate._has_data():
-                                    return True
-
-                                if self.config_policer_conform_burst is not None and self.config_policer_conform_burst._has_data():
-                                    return True
-
-                                if self.config_policer_excess_burst is not None and self.config_policer_excess_burst._has_data():
-                                    return True
-
-                                if self.config_policer_peak_rate is not None and self.config_policer_peak_rate._has_data():
-                                    return True
-
-                                if self.config_queue_limit is not None and self.config_queue_limit._has_data():
-                                    return True
-
-                                if self.conform_action is not None and self.conform_action._has_data():
-                                    return True
-
-                                if self.egress_queue_id is not None:
-                                    return True
-
-                                if self.exceed_action is not None and self.exceed_action._has_data():
-                                    return True
-
-                                if self.hardware_excess_bandwidth_weight is not None:
-                                    return True
-
-                                if self.hardware_max_rate_kbps is not None:
-                                    return True
-
-                                if self.hardware_min_rate_kbps is not None:
-                                    return True
-
-                                if self.hardware_policer_average_rate_kbps is not None:
-                                    return True
-
-                                if self.hardware_policer_conform_burst_bytes is not None:
-                                    return True
-
-                                if self.hardware_policer_excess_burst_bytes is not None:
-                                    return True
-
-                                if self.hardware_policer_peak_rate_kbps is not None:
-                                    return True
-
-                                if self.hardware_queue_limit_bytes is not None:
-                                    return True
-
-                                if self.hardware_queue_limit_microseconds is not None:
-                                    return True
-
-                                if self.ip_mark is not None:
-                                    for child_ref in self.ip_mark:
-                                        if child_ref._has_data():
-                                            return True
-
-                                if self.level_two_class_name is not None:
-                                    return True
-
-                                if self.mpls_mark is not None:
-                                    for child_ref in self.mpls_mark:
-                                        if child_ref._has_data():
-                                            return True
-
-                                if self.network_min_bandwidth_kbps is not None:
-                                    return True
-
-                                if self.policer_bucket_id is not None:
-                                    return True
-
-                                if self.policer_stats_handle is not None:
-                                    return True
-
-                                if self.priority_level is not None:
-                                    return True
-
-                                if self.queue_type is not None:
-                                    return True
-
-                                if self.violate_action is not None and self.violate_action._has_data():
-                                    return True
-
-                                if self.wred is not None:
-                                    for child_ref in self.wred:
-                                        if child_ref._has_data():
-                                            return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:classes'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.class_ is not None:
-                                for child_ref in self.class_:
-                                    if child_ref._has_data():
-                                        return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes']['meta_info']
+                        self.classes = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes()
+                        self.classes.parent = self
 
 
                     class MemberInterfaces(object):
@@ -2457,22 +768,22 @@ class PlatformQos(object):
                             """
                             QoS interface names
                             
-                            .. attribute:: interface_name
+                            .. attribute:: interface_name  <key>
                             
                             	Member interface
                             	**type**\: str
                             
                             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
-                            .. attribute:: classes
-                            
-                            	QoS list of class names
-                            	**type**\: :py:class:`Classes <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes>`
-                            
                             .. attribute:: policy_details
                             
                             	Policy Details
                             	**type**\: :py:class:`PolicyDetails <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.PolicyDetails>`
+                            
+                            .. attribute:: classes
+                            
+                            	QoS list of class names
+                            	**type**\: :py:class:`Classes <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes>`
                             
                             
 
@@ -2484,10 +795,150 @@ class PlatformQos(object):
                             def __init__(self):
                                 self.parent = None
                                 self.interface_name = None
-                                self.classes = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes()
-                                self.classes.parent = self
                                 self.policy_details = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.PolicyDetails()
                                 self.policy_details.parent = self
+                                self.classes = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes()
+                                self.classes.parent = self
+
+
+                            class PolicyDetails(object):
+                                """
+                                Policy Details
+                                
+                                .. attribute:: npu_id
+                                
+                                	NPU ID
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: interface_handle
+                                
+                                	InterfaceHandle
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: interface_bandwidth_kbps
+                                
+                                	Interface Bandwidth (in kbps)
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: policy_name
+                                
+                                	Policy name
+                                	**type**\: str
+                                
+                                	**range:** 0..64
+                                
+                                .. attribute:: total_number_of_classes
+                                
+                                	Number of Classes
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: voq_base_address
+                                
+                                	VOQ base address
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: voq_stats_handle
+                                
+                                	VOQ stats handle
+                                	**type**\: int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: stats_accounting_type
+                                
+                                	QoS Statistics Accounting Type
+                                	**type**\: :py:class:`QosPolicyAccountEnumEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnumEnum>`
+                                
+                                .. attribute:: policy_status
+                                
+                                	Policy Status
+                                	**type**\: :py:class:`DnxQoseaShowPolicyStatusEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatusEnum>`
+                                
+                                .. attribute:: interface_status
+                                
+                                	Interface Status
+                                	**type**\: :py:class:`DnxQoseaShowIntfStatusEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatusEnum>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.npu_id = None
+                                    self.interface_handle = None
+                                    self.interface_bandwidth_kbps = None
+                                    self.policy_name = None
+                                    self.total_number_of_classes = None
+                                    self.voq_base_address = None
+                                    self.voq_stats_handle = None
+                                    self.stats_accounting_type = None
+                                    self.policy_status = None
+                                    self.interface_status = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:policy-details'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.npu_id is not None:
+                                        return True
+
+                                    if self.interface_handle is not None:
+                                        return True
+
+                                    if self.interface_bandwidth_kbps is not None:
+                                        return True
+
+                                    if self.policy_name is not None:
+                                        return True
+
+                                    if self.total_number_of_classes is not None:
+                                        return True
+
+                                    if self.voq_base_address is not None:
+                                        return True
+
+                                    if self.voq_stats_handle is not None:
+                                        return True
+
+                                    if self.stats_accounting_type is not None:
+                                        return True
+
+                                    if self.policy_status is not None:
+                                        return True
+
+                                    if self.interface_status is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.PolicyDetails']['meta_info']
 
 
                             class Classes(object):
@@ -2517,34 +968,15 @@ class PlatformQos(object):
                                     """
                                     QoS policy class
                                     
-                                    .. attribute:: level_one_class_name
+                                    .. attribute:: level_one_class_name  <key>
                                     
                                     	QoS policy class name at level 1
                                     	**type**\: str
                                     
-                                    .. attribute:: class_level
+                                    .. attribute:: level_two_class_name
                                     
-                                    	Class level
-                                    	**type**\: :py:class:`DnxQoseaShowLevelEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowLevelEnum>`
-                                    
-                                    .. attribute:: common_mark
-                                    
-                                    	Common mark
-                                    	**type**\: list of :py:class:`CommonMark <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.CommonMark>`
-                                    
-                                    .. attribute:: config_excess_bandwidth_percent
-                                    
-                                    	Configured excess bandwidth percentage
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: config_excess_bandwidth_unit
-                                    
-                                    	Configured excess bandwidth unit
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
+                                    	QoS policy child class name at level 2
+                                    	**type**\: str
                                     
                                     .. attribute:: config_max_rate
                                     
@@ -2556,10 +988,20 @@ class PlatformQos(object):
                                     	Configured minimum rate
                                     	**type**\: :py:class:`ConfigMinRate <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMinRate>`
                                     
+                                    .. attribute:: config_queue_limit
+                                    
+                                    	Configured queue limit
+                                    	**type**\: :py:class:`ConfigQueueLimit <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigQueueLimit>`
+                                    
                                     .. attribute:: config_policer_average_rate
                                     
                                     	Configured policer average rate
                                     	**type**\: :py:class:`ConfigPolicerAverageRate <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerAverageRate>`
+                                    
+                                    .. attribute:: config_policer_peak_rate
+                                    
+                                    	Config policer peak rate
+                                    	**type**\: :py:class:`ConfigPolicerPeakRate <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerPeakRate>`
                                     
                                     .. attribute:: config_policer_conform_burst
                                     
@@ -2571,20 +1013,25 @@ class PlatformQos(object):
                                     	Configured policer excess burst
                                     	**type**\: :py:class:`ConfigPolicerExcessBurst <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerExcessBurst>`
                                     
-                                    .. attribute:: config_policer_peak_rate
-                                    
-                                    	Config policer peak rate
-                                    	**type**\: :py:class:`ConfigPolicerPeakRate <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerPeakRate>`
-                                    
-                                    .. attribute:: config_queue_limit
-                                    
-                                    	Configured queue limit
-                                    	**type**\: :py:class:`ConfigQueueLimit <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigQueueLimit>`
-                                    
                                     .. attribute:: conform_action
                                     
                                     	Conform action
                                     	**type**\: :py:class:`ConformAction <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConformAction>`
+                                    
+                                    .. attribute:: exceed_action
+                                    
+                                    	Exceed action
+                                    	**type**\: :py:class:`ExceedAction <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction>`
+                                    
+                                    .. attribute:: violate_action
+                                    
+                                    	Violate action
+                                    	**type**\: :py:class:`ViolateAction <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction>`
+                                    
+                                    .. attribute:: class_level
+                                    
+                                    	Class level
+                                    	**type**\: :py:class:`DnxQoseaShowLevelEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowLevelEnum>`
                                     
                                     .. attribute:: egress_queue_id
                                     
@@ -2593,17 +1040,15 @@ class PlatformQos(object):
                                     
                                     	**range:** \-2147483648..2147483647
                                     
-                                    .. attribute:: exceed_action
+                                    .. attribute:: queue_type
                                     
-                                    	Exceed action
-                                    	**type**\: :py:class:`ExceedAction <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction>`
+                                    	Queue type
+                                    	**type**\: :py:class:`DnxQoseaShowQueueEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowQueueEnum>`
                                     
-                                    .. attribute:: hardware_excess_bandwidth_weight
+                                    .. attribute:: priority_level
                                     
-                                    	Hardware excess bandwidth weight
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
+                                    	Priority level
+                                    	**type**\: :py:class:`DnxQoseaShowHpLevelEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowHpLevelEnum>`
                                     
                                     .. attribute:: hardware_max_rate_kbps
                                     
@@ -2619,30 +1064,30 @@ class PlatformQos(object):
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: hardware_policer_average_rate_kbps
+                                    .. attribute:: config_excess_bandwidth_percent
                                     
-                                    	Hardware policer average in kbps
+                                    	Configured excess bandwidth percentage
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: hardware_policer_conform_burst_bytes
+                                    .. attribute:: config_excess_bandwidth_unit
                                     
-                                    	Hardware policer conform burst
+                                    	Configured excess bandwidth unit
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: hardware_policer_excess_burst_bytes
+                                    .. attribute:: hardware_excess_bandwidth_weight
                                     
-                                    	Hardware policer excess burst
+                                    	Hardware excess bandwidth weight
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: hardware_policer_peak_rate_kbps
+                                    .. attribute:: network_min_bandwidth_kbps
                                     
-                                    	Hardware policer peak rate
+                                    	Network minimum Bandwith
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
@@ -2661,28 +1106,6 @@ class PlatformQos(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
-                                    .. attribute:: ip_mark
-                                    
-                                    	IP mark
-                                    	**type**\: list of :py:class:`IpMark <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.IpMark>`
-                                    
-                                    .. attribute:: level_two_class_name
-                                    
-                                    	QoS policy child class name at level 2
-                                    	**type**\: str
-                                    
-                                    .. attribute:: mpls_mark
-                                    
-                                    	MPLS mark
-                                    	**type**\: list of :py:class:`MplsMark <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.MplsMark>`
-                                    
-                                    .. attribute:: network_min_bandwidth_kbps
-                                    
-                                    	Network minimum Bandwith
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
-                                    
                                     .. attribute:: policer_bucket_id
                                     
                                     	PolicerBucketID
@@ -2697,20 +1120,48 @@ class PlatformQos(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
-                                    .. attribute:: priority_level
+                                    .. attribute:: hardware_policer_average_rate_kbps
                                     
-                                    	Priority level
-                                    	**type**\: :py:class:`DnxQoseaShowHpLevelEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowHpLevelEnum>`
+                                    	Hardware policer average in kbps
+                                    	**type**\: int
                                     
-                                    .. attribute:: queue_type
+                                    	**range:** 0..4294967295
                                     
-                                    	Queue type
-                                    	**type**\: :py:class:`DnxQoseaShowQueueEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowQueueEnum>`
+                                    .. attribute:: hardware_policer_peak_rate_kbps
                                     
-                                    .. attribute:: violate_action
+                                    	Hardware policer peak rate
+                                    	**type**\: int
                                     
-                                    	Violate action
-                                    	**type**\: :py:class:`ViolateAction <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction>`
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: hardware_policer_conform_burst_bytes
+                                    
+                                    	Hardware policer conform burst
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: hardware_policer_excess_burst_bytes
+                                    
+                                    	Hardware policer excess burst
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: ip_mark
+                                    
+                                    	IP mark
+                                    	**type**\: list of :py:class:`IpMark <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.IpMark>`
+                                    
+                                    .. attribute:: common_mark
+                                    
+                                    	Common mark
+                                    	**type**\: list of :py:class:`CommonMark <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.CommonMark>`
+                                    
+                                    .. attribute:: mpls_mark
+                                    
+                                    	MPLS mark
+                                    	**type**\: list of :py:class:`MplsMark <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.MplsMark>`
                                     
                                     .. attribute:: wred
                                     
@@ -2727,123 +1178,62 @@ class PlatformQos(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.level_one_class_name = None
-                                        self.class_level = None
-                                        self.common_mark = YList()
-                                        self.common_mark.parent = self
-                                        self.common_mark.name = 'common_mark'
-                                        self.config_excess_bandwidth_percent = None
-                                        self.config_excess_bandwidth_unit = None
+                                        self.level_two_class_name = None
                                         self.config_max_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMaxRate()
                                         self.config_max_rate.parent = self
                                         self.config_min_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMinRate()
                                         self.config_min_rate.parent = self
+                                        self.config_queue_limit = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigQueueLimit()
+                                        self.config_queue_limit.parent = self
                                         self.config_policer_average_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerAverageRate()
                                         self.config_policer_average_rate.parent = self
+                                        self.config_policer_peak_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerPeakRate()
+                                        self.config_policer_peak_rate.parent = self
                                         self.config_policer_conform_burst = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerConformBurst()
                                         self.config_policer_conform_burst.parent = self
                                         self.config_policer_excess_burst = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerExcessBurst()
                                         self.config_policer_excess_burst.parent = self
-                                        self.config_policer_peak_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerPeakRate()
-                                        self.config_policer_peak_rate.parent = self
-                                        self.config_queue_limit = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigQueueLimit()
-                                        self.config_queue_limit.parent = self
                                         self.conform_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConformAction()
                                         self.conform_action.parent = self
-                                        self.egress_queue_id = None
                                         self.exceed_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction()
                                         self.exceed_action.parent = self
-                                        self.hardware_excess_bandwidth_weight = None
+                                        self.violate_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction()
+                                        self.violate_action.parent = self
+                                        self.class_level = None
+                                        self.egress_queue_id = None
+                                        self.queue_type = None
+                                        self.priority_level = None
                                         self.hardware_max_rate_kbps = None
                                         self.hardware_min_rate_kbps = None
-                                        self.hardware_policer_average_rate_kbps = None
-                                        self.hardware_policer_conform_burst_bytes = None
-                                        self.hardware_policer_excess_burst_bytes = None
-                                        self.hardware_policer_peak_rate_kbps = None
+                                        self.config_excess_bandwidth_percent = None
+                                        self.config_excess_bandwidth_unit = None
+                                        self.hardware_excess_bandwidth_weight = None
+                                        self.network_min_bandwidth_kbps = None
                                         self.hardware_queue_limit_bytes = None
                                         self.hardware_queue_limit_microseconds = None
+                                        self.policer_bucket_id = None
+                                        self.policer_stats_handle = None
+                                        self.hardware_policer_average_rate_kbps = None
+                                        self.hardware_policer_peak_rate_kbps = None
+                                        self.hardware_policer_conform_burst_bytes = None
+                                        self.hardware_policer_excess_burst_bytes = None
                                         self.ip_mark = YList()
                                         self.ip_mark.parent = self
                                         self.ip_mark.name = 'ip_mark'
-                                        self.level_two_class_name = None
+                                        self.common_mark = YList()
+                                        self.common_mark.parent = self
+                                        self.common_mark.name = 'common_mark'
                                         self.mpls_mark = YList()
                                         self.mpls_mark.parent = self
                                         self.mpls_mark.name = 'mpls_mark'
-                                        self.network_min_bandwidth_kbps = None
-                                        self.policer_bucket_id = None
-                                        self.policer_stats_handle = None
-                                        self.priority_level = None
-                                        self.queue_type = None
-                                        self.violate_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction()
-                                        self.violate_action.parent = self
                                         self.wred = YList()
                                         self.wred.parent = self
                                         self.wred.name = 'wred'
 
 
-                                    class CommonMark(object):
-                                        """
-                                        Common mark
-                                        
-                                        .. attribute:: mark_type
-                                        
-                                        	Mark type
-                                        	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
-                                        
-                                        .. attribute:: mark_value
-                                        
-                                        	Mark value
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..65535
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ncs5500-qos-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.mark_type = None
-                                            self.mark_value = None
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:common-mark'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return False
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.mark_type is not None:
-                                                return True
-
-                                            if self.mark_value is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.CommonMark']['meta_info']
-
-
                                     class ConfigMaxRate(object):
                                         """
                                         Configured maximum rate
-                                        
-                                        .. attribute:: policy_unit
-                                        
-                                        	Policy unit
-                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                         
                                         .. attribute:: policy_value
                                         
@@ -2852,6 +1242,11 @@ class PlatformQos(object):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        .. attribute:: policy_unit
+                                        
+                                        	Policy unit
+                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                        
                                         
 
                                         """
@@ -2861,8 +1256,8 @@ class PlatformQos(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.policy_unit = None
                                             self.policy_value = None
+                                            self.policy_unit = None
 
                                         @property
                                         def _common_path(self):
@@ -2878,10 +1273,10 @@ class PlatformQos(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.policy_unit is not None:
+                                            if self.policy_value is not None:
                                                 return True
 
-                                            if self.policy_value is not None:
+                                            if self.policy_unit is not None:
                                                 return True
 
                                             return False
@@ -2896,17 +1291,17 @@ class PlatformQos(object):
                                         """
                                         Configured minimum rate
                                         
-                                        .. attribute:: policy_unit
-                                        
-                                        	Policy unit
-                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
-                                        
                                         .. attribute:: policy_value
                                         
                                         	Policy value
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        .. attribute:: policy_unit
+                                        
+                                        	Policy unit
+                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                         
                                         
 
@@ -2917,8 +1312,8 @@ class PlatformQos(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.policy_unit = None
                                             self.policy_value = None
+                                            self.policy_unit = None
 
                                         @property
                                         def _common_path(self):
@@ -2934,10 +1329,10 @@ class PlatformQos(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.policy_unit is not None:
+                                            if self.policy_value is not None:
                                                 return True
 
-                                            if self.policy_value is not None:
+                                            if self.policy_unit is not None:
                                                 return True
 
                                             return False
@@ -2948,245 +1343,21 @@ class PlatformQos(object):
                                             return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMinRate']['meta_info']
 
 
-                                    class ConfigPolicerAverageRate(object):
-                                        """
-                                        Configured policer average rate
-                                        
-                                        .. attribute:: policy_unit
-                                        
-                                        	Policy unit
-                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
-                                        
-                                        .. attribute:: policy_value
-                                        
-                                        	Policy value
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ncs5500-qos-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.policy_unit = None
-                                            self.policy_value = None
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-policer-average-rate'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return False
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.policy_unit is not None:
-                                                return True
-
-                                            if self.policy_value is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerAverageRate']['meta_info']
-
-
-                                    class ConfigPolicerConformBurst(object):
-                                        """
-                                        Configured policer conform burst
-                                        
-                                        .. attribute:: policy_unit
-                                        
-                                        	Policy unit
-                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
-                                        
-                                        .. attribute:: policy_value
-                                        
-                                        	Policy value
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ncs5500-qos-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.policy_unit = None
-                                            self.policy_value = None
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-policer-conform-burst'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return False
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.policy_unit is not None:
-                                                return True
-
-                                            if self.policy_value is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerConformBurst']['meta_info']
-
-
-                                    class ConfigPolicerExcessBurst(object):
-                                        """
-                                        Configured policer excess burst
-                                        
-                                        .. attribute:: policy_unit
-                                        
-                                        	Policy unit
-                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
-                                        
-                                        .. attribute:: policy_value
-                                        
-                                        	Policy value
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ncs5500-qos-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.policy_unit = None
-                                            self.policy_value = None
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-policer-excess-burst'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return False
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.policy_unit is not None:
-                                                return True
-
-                                            if self.policy_value is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerExcessBurst']['meta_info']
-
-
-                                    class ConfigPolicerPeakRate(object):
-                                        """
-                                        Config policer peak rate
-                                        
-                                        .. attribute:: policy_unit
-                                        
-                                        	Policy unit
-                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
-                                        
-                                        .. attribute:: policy_value
-                                        
-                                        	Policy value
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ncs5500-qos-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.policy_unit = None
-                                            self.policy_value = None
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-policer-peak-rate'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return False
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.policy_unit is not None:
-                                                return True
-
-                                            if self.policy_value is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerPeakRate']['meta_info']
-
-
                                     class ConfigQueueLimit(object):
                                         """
                                         Configured queue limit
                                         
-                                        .. attribute:: policy_unit
-                                        
-                                        	Policy unit
-                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
-                                        
                                         .. attribute:: policy_value
                                         
                                         	Policy value
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        .. attribute:: policy_unit
+                                        
+                                        	Policy unit
+                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                         
                                         
 
@@ -3197,8 +1368,8 @@ class PlatformQos(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.policy_unit = None
                                             self.policy_value = None
+                                            self.policy_unit = None
 
                                         @property
                                         def _common_path(self):
@@ -3214,10 +1385,10 @@ class PlatformQos(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.policy_unit is not None:
+                                            if self.policy_value is not None:
                                                 return True
 
-                                            if self.policy_value is not None:
+                                            if self.policy_unit is not None:
                                                 return True
 
                                             return False
@@ -3226,6 +1397,230 @@ class PlatformQos(object):
                                         def _meta_info():
                                             from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
                                             return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigQueueLimit']['meta_info']
+
+
+                                    class ConfigPolicerAverageRate(object):
+                                        """
+                                        Configured policer average rate
+                                        
+                                        .. attribute:: policy_value
+                                        
+                                        	Policy value
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: policy_unit
+                                        
+                                        	Policy unit
+                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ncs5500-qos-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.policy_value = None
+                                            self.policy_unit = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-policer-average-rate'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.policy_value is not None:
+                                                return True
+
+                                            if self.policy_unit is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerAverageRate']['meta_info']
+
+
+                                    class ConfigPolicerPeakRate(object):
+                                        """
+                                        Config policer peak rate
+                                        
+                                        .. attribute:: policy_value
+                                        
+                                        	Policy value
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: policy_unit
+                                        
+                                        	Policy unit
+                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ncs5500-qos-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.policy_value = None
+                                            self.policy_unit = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-policer-peak-rate'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.policy_value is not None:
+                                                return True
+
+                                            if self.policy_unit is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerPeakRate']['meta_info']
+
+
+                                    class ConfigPolicerConformBurst(object):
+                                        """
+                                        Configured policer conform burst
+                                        
+                                        .. attribute:: policy_value
+                                        
+                                        	Policy value
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: policy_unit
+                                        
+                                        	Policy unit
+                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ncs5500-qos-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.policy_value = None
+                                            self.policy_unit = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-policer-conform-burst'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.policy_value is not None:
+                                                return True
+
+                                            if self.policy_unit is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerConformBurst']['meta_info']
+
+
+                                    class ConfigPolicerExcessBurst(object):
+                                        """
+                                        Configured policer excess burst
+                                        
+                                        .. attribute:: policy_value
+                                        
+                                        	Policy value
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: policy_unit
+                                        
+                                        	Policy unit
+                                        	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ncs5500-qos-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.policy_value = None
+                                            self.policy_unit = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-policer-excess-burst'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.policy_value is not None:
+                                                return True
+
+                                            if self.policy_unit is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerExcessBurst']['meta_info']
 
 
                                     class ConformAction(object):
@@ -3456,118 +1851,6 @@ class PlatformQos(object):
                                             return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction']['meta_info']
 
 
-                                    class IpMark(object):
-                                        """
-                                        IP mark
-                                        
-                                        .. attribute:: mark_type
-                                        
-                                        	Mark type
-                                        	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
-                                        
-                                        .. attribute:: mark_value
-                                        
-                                        	Mark value
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..65535
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ncs5500-qos-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.mark_type = None
-                                            self.mark_value = None
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:ip-mark'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return False
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.mark_type is not None:
-                                                return True
-
-                                            if self.mark_value is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.IpMark']['meta_info']
-
-
-                                    class MplsMark(object):
-                                        """
-                                        MPLS mark
-                                        
-                                        .. attribute:: mark_type
-                                        
-                                        	Mark type
-                                        	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
-                                        
-                                        .. attribute:: mark_value
-                                        
-                                        	Mark value
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..65535
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ncs5500-qos-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.mark_type = None
-                                            self.mark_value = None
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:mpls-mark'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return False
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.mark_type is not None:
-                                                return True
-
-                                            if self.mark_value is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.MplsMark']['meta_info']
-
-
                                     class ViolateAction(object):
                                         """
                                         Violate action
@@ -3682,57 +1965,21 @@ class PlatformQos(object):
                                             return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction']['meta_info']
 
 
-                                    class Wred(object):
+                                    class IpMark(object):
                                         """
-                                        WRED parameters
+                                        IP mark
                                         
-                                        .. attribute:: config_max_threshold
+                                        .. attribute:: mark_type
                                         
-                                        	Configured maximum threshold
-                                        	**type**\: :py:class:`ConfigMaxThreshold <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMaxThreshold>`
+                                        	Mark type
+                                        	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                         
-                                        .. attribute:: config_min_threshold
+                                        .. attribute:: mark_value
                                         
-                                        	Configured minimum threshold
-                                        	**type**\: :py:class:`ConfigMinThreshold <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMinThreshold>`
-                                        
-                                        .. attribute:: first_segment
-                                        
-                                        	First segment
+                                        	Mark value
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
-                                        
-                                        .. attribute:: hardware_max_threshold_bytes
-                                        
-                                        	Hardware maximum threshold
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: hardware_min_threshold_bytes
-                                        
-                                        	Hardware minimum threshold
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: segment_size
-                                        
-                                        	Segment size
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: wred_match_type
-                                        
-                                        	WREDMatchType
-                                        	**type**\: :py:class:`DnxQoseaShowWredEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowWredEnum>`
-                                        
-                                        .. attribute:: wred_match_value
-                                        
-                                        	WRED match values
-                                        	**type**\: :py:class:`WredMatchValue <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue>`
                                         
                                         
 
@@ -3743,129 +1990,221 @@ class PlatformQos(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.config_max_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMaxThreshold()
-                                            self.config_max_threshold.parent = self
-                                            self.config_min_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMinThreshold()
-                                            self.config_min_threshold.parent = self
-                                            self.first_segment = None
-                                            self.hardware_max_threshold_bytes = None
-                                            self.hardware_min_threshold_bytes = None
-                                            self.segment_size = None
-                                            self.wred_match_type = None
+                                            self.mark_type = None
+                                            self.mark_value = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:ip-mark'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.mark_type is not None:
+                                                return True
+
+                                            if self.mark_value is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.IpMark']['meta_info']
+
+
+                                    class CommonMark(object):
+                                        """
+                                        Common mark
+                                        
+                                        .. attribute:: mark_type
+                                        
+                                        	Mark type
+                                        	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                        
+                                        .. attribute:: mark_value
+                                        
+                                        	Mark value
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..65535
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ncs5500-qos-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.mark_type = None
+                                            self.mark_value = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:common-mark'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.mark_type is not None:
+                                                return True
+
+                                            if self.mark_value is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.CommonMark']['meta_info']
+
+
+                                    class MplsMark(object):
+                                        """
+                                        MPLS mark
+                                        
+                                        .. attribute:: mark_type
+                                        
+                                        	Mark type
+                                        	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                        
+                                        .. attribute:: mark_value
+                                        
+                                        	Mark value
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..65535
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ncs5500-qos-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.mark_type = None
+                                            self.mark_value = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:mpls-mark'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.mark_type is not None:
+                                                return True
+
+                                            if self.mark_value is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.MplsMark']['meta_info']
+
+
+                                    class Wred(object):
+                                        """
+                                        WRED parameters
+                                        
+                                        .. attribute:: wred_match_value
+                                        
+                                        	WRED match values
+                                        	**type**\: :py:class:`WredMatchValue <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue>`
+                                        
+                                        .. attribute:: config_min_threshold
+                                        
+                                        	Configured minimum threshold
+                                        	**type**\: :py:class:`ConfigMinThreshold <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMinThreshold>`
+                                        
+                                        .. attribute:: config_max_threshold
+                                        
+                                        	Configured maximum threshold
+                                        	**type**\: :py:class:`ConfigMaxThreshold <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMaxThreshold>`
+                                        
+                                        .. attribute:: wred_match_type
+                                        
+                                        	WREDMatchType
+                                        	**type**\: :py:class:`DnxQoseaShowWredEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowWredEnum>`
+                                        
+                                        .. attribute:: hardware_min_threshold_bytes
+                                        
+                                        	Hardware minimum threshold
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: hardware_max_threshold_bytes
+                                        
+                                        	Hardware maximum threshold
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: first_segment
+                                        
+                                        	First segment
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..65535
+                                        
+                                        .. attribute:: segment_size
+                                        
+                                        	Segment size
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ncs5500-qos-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
                                             self.wred_match_value = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue()
                                             self.wred_match_value.parent = self
-
-
-                                        class ConfigMaxThreshold(object):
-                                            """
-                                            Configured maximum threshold
-                                            
-                                            .. attribute:: policy_unit
-                                            
-                                            	Policy unit
-                                            	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
-                                            
-                                            .. attribute:: policy_value
-                                            
-                                            	Policy value
-                                            	**type**\: int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ncs5500-qos-oper'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.policy_unit = None
-                                                self.policy_value = None
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-max-threshold'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return False
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.policy_unit is not None:
-                                                    return True
-
-                                                if self.policy_value is not None:
-                                                    return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMaxThreshold']['meta_info']
-
-
-                                        class ConfigMinThreshold(object):
-                                            """
-                                            Configured minimum threshold
-                                            
-                                            .. attribute:: policy_unit
-                                            
-                                            	Policy unit
-                                            	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
-                                            
-                                            .. attribute:: policy_value
-                                            
-                                            	Policy value
-                                            	**type**\: int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ncs5500-qos-oper'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.policy_unit = None
-                                                self.policy_value = None
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-min-threshold'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return False
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.policy_unit is not None:
-                                                    return True
-
-                                                if self.policy_value is not None:
-                                                    return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMinThreshold']['meta_info']
+                                            self.config_min_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMinThreshold()
+                                            self.config_min_threshold.parent = self
+                                            self.config_max_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMaxThreshold()
+                                            self.config_max_threshold.parent = self
+                                            self.wred_match_type = None
+                                            self.hardware_min_threshold_bytes = None
+                                            self.hardware_max_threshold_bytes = None
+                                            self.first_segment = None
+                                            self.segment_size = None
 
 
                                         class WredMatchValue(object):
@@ -3895,16 +2234,16 @@ class PlatformQos(object):
                                                 """
                                                 dnx qosea show red match value
                                                 
-                                                .. attribute:: range_end
+                                                .. attribute:: range_start
                                                 
-                                                	End value of a range
+                                                	Start value of a range
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..255
                                                 
-                                                .. attribute:: range_start
+                                                .. attribute:: range_end
                                                 
-                                                	Start value of a range
+                                                	End value of a range
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..255
@@ -3918,8 +2257,8 @@ class PlatformQos(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.range_end = None
                                                     self.range_start = None
+                                                    self.range_end = None
 
                                                 @property
                                                 def _common_path(self):
@@ -3935,10 +2274,10 @@ class PlatformQos(object):
                                                 def _has_data(self):
                                                     if not self.is_config():
                                                         return False
-                                                    if self.range_end is not None:
+                                                    if self.range_start is not None:
                                                         return True
 
-                                                    if self.range_start is not None:
+                                                    if self.range_end is not None:
                                                         return True
 
                                                     return False
@@ -3974,6 +2313,118 @@ class PlatformQos(object):
                                                 from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
                                                 return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue']['meta_info']
 
+
+                                        class ConfigMinThreshold(object):
+                                            """
+                                            Configured minimum threshold
+                                            
+                                            .. attribute:: policy_value
+                                            
+                                            	Policy value
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: policy_unit
+                                            
+                                            	Policy unit
+                                            	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ncs5500-qos-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.policy_value = None
+                                                self.policy_unit = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-min-threshold'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.policy_value is not None:
+                                                    return True
+
+                                                if self.policy_unit is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMinThreshold']['meta_info']
+
+
+                                        class ConfigMaxThreshold(object):
+                                            """
+                                            Configured maximum threshold
+                                            
+                                            .. attribute:: policy_value
+                                            
+                                            	Policy value
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: policy_unit
+                                            
+                                            	Policy unit
+                                            	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ncs5500-qos-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.policy_value = None
+                                                self.policy_unit = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-max-threshold'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.policy_value is not None:
+                                                    return True
+
+                                                if self.policy_unit is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMaxThreshold']['meta_info']
+
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
@@ -3988,28 +2439,28 @@ class PlatformQos(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.config_max_threshold is not None and self.config_max_threshold._has_data():
+                                            if self.wred_match_value is not None and self.wred_match_value._has_data():
                                                 return True
 
                                             if self.config_min_threshold is not None and self.config_min_threshold._has_data():
                                                 return True
 
-                                            if self.first_segment is not None:
-                                                return True
-
-                                            if self.hardware_max_threshold_bytes is not None:
-                                                return True
-
-                                            if self.hardware_min_threshold_bytes is not None:
-                                                return True
-
-                                            if self.segment_size is not None:
+                                            if self.config_max_threshold is not None and self.config_max_threshold._has_data():
                                                 return True
 
                                             if self.wred_match_type is not None:
                                                 return True
 
-                                            if self.wred_match_value is not None and self.wred_match_value._has_data():
+                                            if self.hardware_min_threshold_bytes is not None:
+                                                return True
+
+                                            if self.hardware_max_threshold_bytes is not None:
+                                                return True
+
+                                            if self.first_segment is not None:
+                                                return True
+
+                                            if self.segment_size is not None:
                                                 return True
 
                                             return False
@@ -4038,18 +2489,7 @@ class PlatformQos(object):
                                         if self.level_one_class_name is not None:
                                             return True
 
-                                        if self.class_level is not None:
-                                            return True
-
-                                        if self.common_mark is not None:
-                                            for child_ref in self.common_mark:
-                                                if child_ref._has_data():
-                                                    return True
-
-                                        if self.config_excess_bandwidth_percent is not None:
-                                            return True
-
-                                        if self.config_excess_bandwidth_unit is not None:
+                                        if self.level_two_class_name is not None:
                                             return True
 
                                         if self.config_max_rate is not None and self.config_max_rate._has_data():
@@ -4058,7 +2498,13 @@ class PlatformQos(object):
                                         if self.config_min_rate is not None and self.config_min_rate._has_data():
                                             return True
 
+                                        if self.config_queue_limit is not None and self.config_queue_limit._has_data():
+                                            return True
+
                                         if self.config_policer_average_rate is not None and self.config_policer_average_rate._has_data():
+                                            return True
+
+                                        if self.config_policer_peak_rate is not None and self.config_policer_peak_rate._has_data():
                                             return True
 
                                         if self.config_policer_conform_burst is not None and self.config_policer_conform_burst._has_data():
@@ -4067,22 +2513,25 @@ class PlatformQos(object):
                                         if self.config_policer_excess_burst is not None and self.config_policer_excess_burst._has_data():
                                             return True
 
-                                        if self.config_policer_peak_rate is not None and self.config_policer_peak_rate._has_data():
-                                            return True
-
-                                        if self.config_queue_limit is not None and self.config_queue_limit._has_data():
-                                            return True
-
                                         if self.conform_action is not None and self.conform_action._has_data():
-                                            return True
-
-                                        if self.egress_queue_id is not None:
                                             return True
 
                                         if self.exceed_action is not None and self.exceed_action._has_data():
                                             return True
 
-                                        if self.hardware_excess_bandwidth_weight is not None:
+                                        if self.violate_action is not None and self.violate_action._has_data():
+                                            return True
+
+                                        if self.class_level is not None:
+                                            return True
+
+                                        if self.egress_queue_id is not None:
+                                            return True
+
+                                        if self.queue_type is not None:
+                                            return True
+
+                                        if self.priority_level is not None:
                                             return True
 
                                         if self.hardware_max_rate_kbps is not None:
@@ -4091,16 +2540,16 @@ class PlatformQos(object):
                                         if self.hardware_min_rate_kbps is not None:
                                             return True
 
-                                        if self.hardware_policer_average_rate_kbps is not None:
+                                        if self.config_excess_bandwidth_percent is not None:
                                             return True
 
-                                        if self.hardware_policer_conform_burst_bytes is not None:
+                                        if self.config_excess_bandwidth_unit is not None:
                                             return True
 
-                                        if self.hardware_policer_excess_burst_bytes is not None:
+                                        if self.hardware_excess_bandwidth_weight is not None:
                                             return True
 
-                                        if self.hardware_policer_peak_rate_kbps is not None:
+                                        if self.network_min_bandwidth_kbps is not None:
                                             return True
 
                                         if self.hardware_queue_limit_bytes is not None:
@@ -4109,36 +2558,38 @@ class PlatformQos(object):
                                         if self.hardware_queue_limit_microseconds is not None:
                                             return True
 
-                                        if self.ip_mark is not None:
-                                            for child_ref in self.ip_mark:
-                                                if child_ref._has_data():
-                                                    return True
-
-                                        if self.level_two_class_name is not None:
-                                            return True
-
-                                        if self.mpls_mark is not None:
-                                            for child_ref in self.mpls_mark:
-                                                if child_ref._has_data():
-                                                    return True
-
-                                        if self.network_min_bandwidth_kbps is not None:
-                                            return True
-
                                         if self.policer_bucket_id is not None:
                                             return True
 
                                         if self.policer_stats_handle is not None:
                                             return True
 
-                                        if self.priority_level is not None:
+                                        if self.hardware_policer_average_rate_kbps is not None:
                                             return True
 
-                                        if self.queue_type is not None:
+                                        if self.hardware_policer_peak_rate_kbps is not None:
                                             return True
 
-                                        if self.violate_action is not None and self.violate_action._has_data():
+                                        if self.hardware_policer_conform_burst_bytes is not None:
                                             return True
+
+                                        if self.hardware_policer_excess_burst_bytes is not None:
+                                            return True
+
+                                        if self.ip_mark is not None:
+                                            for child_ref in self.ip_mark:
+                                                if child_ref._has_data():
+                                                    return True
+
+                                        if self.common_mark is not None:
+                                            for child_ref in self.common_mark:
+                                                if child_ref._has_data():
+                                                    return True
+
+                                        if self.mpls_mark is not None:
+                                            for child_ref in self.mpls_mark:
+                                                if child_ref._has_data():
+                                                    return True
 
                                         if self.wred is not None:
                                             for child_ref in self.wred:
@@ -4178,146 +2629,6 @@ class PlatformQos(object):
                                     from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
                                     return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes']['meta_info']
 
-
-                            class PolicyDetails(object):
-                                """
-                                Policy Details
-                                
-                                .. attribute:: interface_bandwidth_kbps
-                                
-                                	Interface Bandwidth (in kbps)
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: interface_handle
-                                
-                                	InterfaceHandle
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: interface_status
-                                
-                                	Interface Status
-                                	**type**\: :py:class:`DnxQoseaShowIntfStatusEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatusEnum>`
-                                
-                                .. attribute:: npu_id
-                                
-                                	NPU ID
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: policy_name
-                                
-                                	Policy name
-                                	**type**\: str
-                                
-                                	**range:** 0..64
-                                
-                                .. attribute:: policy_status
-                                
-                                	Policy Status
-                                	**type**\: :py:class:`DnxQoseaShowPolicyStatusEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatusEnum>`
-                                
-                                .. attribute:: stats_accounting_type
-                                
-                                	QoS Statistics Accounting Type
-                                	**type**\: :py:class:`QosPolicyAccountEnumEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnumEnum>`
-                                
-                                .. attribute:: total_number_of_classes
-                                
-                                	Number of Classes
-                                	**type**\: int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: voq_base_address
-                                
-                                	VOQ base address
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: voq_stats_handle
-                                
-                                	VOQ stats handle
-                                	**type**\: int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ncs5500-qos-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.interface_bandwidth_kbps = None
-                                    self.interface_handle = None
-                                    self.interface_status = None
-                                    self.npu_id = None
-                                    self.policy_name = None
-                                    self.policy_status = None
-                                    self.stats_accounting_type = None
-                                    self.total_number_of_classes = None
-                                    self.voq_base_address = None
-                                    self.voq_stats_handle = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:policy-details'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.interface_bandwidth_kbps is not None:
-                                        return True
-
-                                    if self.interface_handle is not None:
-                                        return True
-
-                                    if self.interface_status is not None:
-                                        return True
-
-                                    if self.npu_id is not None:
-                                        return True
-
-                                    if self.policy_name is not None:
-                                        return True
-
-                                    if self.policy_status is not None:
-                                        return True
-
-                                    if self.stats_accounting_type is not None:
-                                        return True
-
-                                    if self.total_number_of_classes is not None:
-                                        return True
-
-                                    if self.voq_base_address is not None:
-                                        return True
-
-                                    if self.voq_stats_handle is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.PolicyDetails']['meta_info']
-
                             @property
                             def _common_path(self):
                                 if self.parent is None:
@@ -4337,10 +2648,10 @@ class PlatformQos(object):
                                 if self.interface_name is not None:
                                     return True
 
-                                if self.classes is not None and self.classes._has_data():
+                                if self.policy_details is not None and self.policy_details._has_data():
                                     return True
 
-                                if self.policy_details is not None and self.policy_details._has_data():
+                                if self.classes is not None and self.classes._has_data():
                                     return True
 
                                 return False
@@ -4381,9 +2692,9 @@ class PlatformQos(object):
                         """
                         Policy Details
                         
-                        .. attribute:: interface_bandwidth_kbps
+                        .. attribute:: npu_id
                         
-                        	Interface Bandwidth (in kbps)
+                        	NPU ID
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -4395,14 +2706,9 @@ class PlatformQos(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: interface_status
+                        .. attribute:: interface_bandwidth_kbps
                         
-                        	Interface Status
-                        	**type**\: :py:class:`DnxQoseaShowIntfStatusEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatusEnum>`
-                        
-                        .. attribute:: npu_id
-                        
-                        	NPU ID
+                        	Interface Bandwidth (in kbps)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -4413,16 +2719,6 @@ class PlatformQos(object):
                         	**type**\: str
                         
                         	**range:** 0..64
-                        
-                        .. attribute:: policy_status
-                        
-                        	Policy Status
-                        	**type**\: :py:class:`DnxQoseaShowPolicyStatusEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatusEnum>`
-                        
-                        .. attribute:: stats_accounting_type
-                        
-                        	QoS Statistics Accounting Type
-                        	**type**\: :py:class:`QosPolicyAccountEnumEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnumEnum>`
                         
                         .. attribute:: total_number_of_classes
                         
@@ -4445,6 +2741,21 @@ class PlatformQos(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        .. attribute:: stats_accounting_type
+                        
+                        	QoS Statistics Accounting Type
+                        	**type**\: :py:class:`QosPolicyAccountEnumEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnumEnum>`
+                        
+                        .. attribute:: policy_status
+                        
+                        	Policy Status
+                        	**type**\: :py:class:`DnxQoseaShowPolicyStatusEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatusEnum>`
+                        
+                        .. attribute:: interface_status
+                        
+                        	Interface Status
+                        	**type**\: :py:class:`DnxQoseaShowIntfStatusEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatusEnum>`
+                        
                         
 
                         """
@@ -4454,16 +2765,16 @@ class PlatformQos(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.interface_bandwidth_kbps = None
-                            self.interface_handle = None
-                            self.interface_status = None
                             self.npu_id = None
+                            self.interface_handle = None
+                            self.interface_bandwidth_kbps = None
                             self.policy_name = None
-                            self.policy_status = None
-                            self.stats_accounting_type = None
                             self.total_number_of_classes = None
                             self.voq_base_address = None
                             self.voq_stats_handle = None
+                            self.stats_accounting_type = None
+                            self.policy_status = None
+                            self.interface_status = None
 
                         @property
                         def _common_path(self):
@@ -4479,25 +2790,16 @@ class PlatformQos(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.interface_bandwidth_kbps is not None:
+                            if self.npu_id is not None:
                                 return True
 
                             if self.interface_handle is not None:
                                 return True
 
-                            if self.interface_status is not None:
-                                return True
-
-                            if self.npu_id is not None:
+                            if self.interface_bandwidth_kbps is not None:
                                 return True
 
                             if self.policy_name is not None:
-                                return True
-
-                            if self.policy_status is not None:
-                                return True
-
-                            if self.stats_accounting_type is not None:
                                 return True
 
                             if self.total_number_of_classes is not None:
@@ -4509,12 +2811,1710 @@ class PlatformQos(object):
                             if self.voq_stats_handle is not None:
                                 return True
 
+                            if self.stats_accounting_type is not None:
+                                return True
+
+                            if self.policy_status is not None:
+                                return True
+
+                            if self.interface_status is not None:
+                                return True
+
                             return False
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
                             return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.PolicyDetails']['meta_info']
+
+
+                    class Classes(object):
+                        """
+                        QoS list of class names
+                        
+                        .. attribute:: class_
+                        
+                        	QoS policy class
+                        	**type**\: list of :py:class:`Class <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ncs5500-qos-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.class_ = YList()
+                            self.class_.parent = self
+                            self.class_.name = 'class_'
+
+
+                        class Class(object):
+                            """
+                            QoS policy class
+                            
+                            .. attribute:: level_one_class_name  <key>
+                            
+                            	QoS policy class name at level 1
+                            	**type**\: str
+                            
+                            .. attribute:: level_two_class_name
+                            
+                            	QoS policy child class name at level 2
+                            	**type**\: str
+                            
+                            .. attribute:: config_max_rate
+                            
+                            	Configured maximum rate
+                            	**type**\: :py:class:`ConfigMaxRate <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMaxRate>`
+                            
+                            .. attribute:: config_min_rate
+                            
+                            	Configured minimum rate
+                            	**type**\: :py:class:`ConfigMinRate <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMinRate>`
+                            
+                            .. attribute:: config_queue_limit
+                            
+                            	Configured queue limit
+                            	**type**\: :py:class:`ConfigQueueLimit <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigQueueLimit>`
+                            
+                            .. attribute:: config_policer_average_rate
+                            
+                            	Configured policer average rate
+                            	**type**\: :py:class:`ConfigPolicerAverageRate <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerAverageRate>`
+                            
+                            .. attribute:: config_policer_peak_rate
+                            
+                            	Config policer peak rate
+                            	**type**\: :py:class:`ConfigPolicerPeakRate <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerPeakRate>`
+                            
+                            .. attribute:: config_policer_conform_burst
+                            
+                            	Configured policer conform burst
+                            	**type**\: :py:class:`ConfigPolicerConformBurst <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerConformBurst>`
+                            
+                            .. attribute:: config_policer_excess_burst
+                            
+                            	Configured policer excess burst
+                            	**type**\: :py:class:`ConfigPolicerExcessBurst <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerExcessBurst>`
+                            
+                            .. attribute:: conform_action
+                            
+                            	Conform action
+                            	**type**\: :py:class:`ConformAction <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction>`
+                            
+                            .. attribute:: exceed_action
+                            
+                            	Exceed action
+                            	**type**\: :py:class:`ExceedAction <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction>`
+                            
+                            .. attribute:: violate_action
+                            
+                            	Violate action
+                            	**type**\: :py:class:`ViolateAction <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction>`
+                            
+                            .. attribute:: class_level
+                            
+                            	Class level
+                            	**type**\: :py:class:`DnxQoseaShowLevelEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowLevelEnum>`
+                            
+                            .. attribute:: egress_queue_id
+                            
+                            	Egress Queue ID
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: queue_type
+                            
+                            	Queue type
+                            	**type**\: :py:class:`DnxQoseaShowQueueEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowQueueEnum>`
+                            
+                            .. attribute:: priority_level
+                            
+                            	Priority level
+                            	**type**\: :py:class:`DnxQoseaShowHpLevelEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowHpLevelEnum>`
+                            
+                            .. attribute:: hardware_max_rate_kbps
+                            
+                            	Hardware maximum rate in kbps
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: hardware_min_rate_kbps
+                            
+                            	Hardware minimum rate in kbps
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: config_excess_bandwidth_percent
+                            
+                            	Configured excess bandwidth percentage
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: config_excess_bandwidth_unit
+                            
+                            	Configured excess bandwidth unit
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: hardware_excess_bandwidth_weight
+                            
+                            	Hardware excess bandwidth weight
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: network_min_bandwidth_kbps
+                            
+                            	Network minimum Bandwith
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: hardware_queue_limit_bytes
+                            
+                            	Hardware queue limit in bytes
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: hardware_queue_limit_microseconds
+                            
+                            	Hardware queue limit in microseconds
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: policer_bucket_id
+                            
+                            	PolicerBucketID
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: policer_stats_handle
+                            
+                            	PolicerStatsHandle
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: hardware_policer_average_rate_kbps
+                            
+                            	Hardware policer average in kbps
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: hardware_policer_peak_rate_kbps
+                            
+                            	Hardware policer peak rate
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: hardware_policer_conform_burst_bytes
+                            
+                            	Hardware policer conform burst
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: hardware_policer_excess_burst_bytes
+                            
+                            	Hardware policer excess burst
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: ip_mark
+                            
+                            	IP mark
+                            	**type**\: list of :py:class:`IpMark <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.IpMark>`
+                            
+                            .. attribute:: common_mark
+                            
+                            	Common mark
+                            	**type**\: list of :py:class:`CommonMark <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.CommonMark>`
+                            
+                            .. attribute:: mpls_mark
+                            
+                            	MPLS mark
+                            	**type**\: list of :py:class:`MplsMark <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.MplsMark>`
+                            
+                            .. attribute:: wred
+                            
+                            	WRED parameters
+                            	**type**\: list of :py:class:`Wred <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'ncs5500-qos-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.level_one_class_name = None
+                                self.level_two_class_name = None
+                                self.config_max_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMaxRate()
+                                self.config_max_rate.parent = self
+                                self.config_min_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMinRate()
+                                self.config_min_rate.parent = self
+                                self.config_queue_limit = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigQueueLimit()
+                                self.config_queue_limit.parent = self
+                                self.config_policer_average_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerAverageRate()
+                                self.config_policer_average_rate.parent = self
+                                self.config_policer_peak_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerPeakRate()
+                                self.config_policer_peak_rate.parent = self
+                                self.config_policer_conform_burst = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerConformBurst()
+                                self.config_policer_conform_burst.parent = self
+                                self.config_policer_excess_burst = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerExcessBurst()
+                                self.config_policer_excess_burst.parent = self
+                                self.conform_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction()
+                                self.conform_action.parent = self
+                                self.exceed_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction()
+                                self.exceed_action.parent = self
+                                self.violate_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction()
+                                self.violate_action.parent = self
+                                self.class_level = None
+                                self.egress_queue_id = None
+                                self.queue_type = None
+                                self.priority_level = None
+                                self.hardware_max_rate_kbps = None
+                                self.hardware_min_rate_kbps = None
+                                self.config_excess_bandwidth_percent = None
+                                self.config_excess_bandwidth_unit = None
+                                self.hardware_excess_bandwidth_weight = None
+                                self.network_min_bandwidth_kbps = None
+                                self.hardware_queue_limit_bytes = None
+                                self.hardware_queue_limit_microseconds = None
+                                self.policer_bucket_id = None
+                                self.policer_stats_handle = None
+                                self.hardware_policer_average_rate_kbps = None
+                                self.hardware_policer_peak_rate_kbps = None
+                                self.hardware_policer_conform_burst_bytes = None
+                                self.hardware_policer_excess_burst_bytes = None
+                                self.ip_mark = YList()
+                                self.ip_mark.parent = self
+                                self.ip_mark.name = 'ip_mark'
+                                self.common_mark = YList()
+                                self.common_mark.parent = self
+                                self.common_mark.name = 'common_mark'
+                                self.mpls_mark = YList()
+                                self.mpls_mark.parent = self
+                                self.mpls_mark.name = 'mpls_mark'
+                                self.wred = YList()
+                                self.wred.parent = self
+                                self.wred.name = 'wred'
+
+
+                            class ConfigMaxRate(object):
+                                """
+                                Configured maximum rate
+                                
+                                .. attribute:: policy_value
+                                
+                                	Policy value
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: policy_unit
+                                
+                                	Policy unit
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.policy_value = None
+                                    self.policy_unit = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-max-rate'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.policy_value is not None:
+                                        return True
+
+                                    if self.policy_unit is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMaxRate']['meta_info']
+
+
+                            class ConfigMinRate(object):
+                                """
+                                Configured minimum rate
+                                
+                                .. attribute:: policy_value
+                                
+                                	Policy value
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: policy_unit
+                                
+                                	Policy unit
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.policy_value = None
+                                    self.policy_unit = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-min-rate'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.policy_value is not None:
+                                        return True
+
+                                    if self.policy_unit is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMinRate']['meta_info']
+
+
+                            class ConfigQueueLimit(object):
+                                """
+                                Configured queue limit
+                                
+                                .. attribute:: policy_value
+                                
+                                	Policy value
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: policy_unit
+                                
+                                	Policy unit
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.policy_value = None
+                                    self.policy_unit = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-queue-limit'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.policy_value is not None:
+                                        return True
+
+                                    if self.policy_unit is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigQueueLimit']['meta_info']
+
+
+                            class ConfigPolicerAverageRate(object):
+                                """
+                                Configured policer average rate
+                                
+                                .. attribute:: policy_value
+                                
+                                	Policy value
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: policy_unit
+                                
+                                	Policy unit
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.policy_value = None
+                                    self.policy_unit = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-policer-average-rate'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.policy_value is not None:
+                                        return True
+
+                                    if self.policy_unit is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerAverageRate']['meta_info']
+
+
+                            class ConfigPolicerPeakRate(object):
+                                """
+                                Config policer peak rate
+                                
+                                .. attribute:: policy_value
+                                
+                                	Policy value
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: policy_unit
+                                
+                                	Policy unit
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.policy_value = None
+                                    self.policy_unit = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-policer-peak-rate'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.policy_value is not None:
+                                        return True
+
+                                    if self.policy_unit is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerPeakRate']['meta_info']
+
+
+                            class ConfigPolicerConformBurst(object):
+                                """
+                                Configured policer conform burst
+                                
+                                .. attribute:: policy_value
+                                
+                                	Policy value
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: policy_unit
+                                
+                                	Policy unit
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.policy_value = None
+                                    self.policy_unit = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-policer-conform-burst'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.policy_value is not None:
+                                        return True
+
+                                    if self.policy_unit is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerConformBurst']['meta_info']
+
+
+                            class ConfigPolicerExcessBurst(object):
+                                """
+                                Configured policer excess burst
+                                
+                                .. attribute:: policy_value
+                                
+                                	Policy value
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: policy_unit
+                                
+                                	Policy unit
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.policy_value = None
+                                    self.policy_unit = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-policer-excess-burst'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.policy_value is not None:
+                                        return True
+
+                                    if self.policy_unit is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerExcessBurst']['meta_info']
+
+
+                            class ConformAction(object):
+                                """
+                                Conform action
+                                
+                                .. attribute:: action_type
+                                
+                                	Policer action type
+                                	**type**\: :py:class:`DnxQoseaShowActionEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
+                                
+                                .. attribute:: mark
+                                
+                                	Action mark
+                                	**type**\: list of :py:class:`Mark <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction.Mark>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.action_type = None
+                                    self.mark = YList()
+                                    self.mark.parent = self
+                                    self.mark.name = 'mark'
+
+
+                                class Mark(object):
+                                    """
+                                    Action mark
+                                    
+                                    .. attribute:: mark_type
+                                    
+                                    	Mark type
+                                    	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                    
+                                    .. attribute:: mark_value
+                                    
+                                    	Mark value
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ncs5500-qos-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.mark_type = None
+                                        self.mark_value = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:mark'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.mark_type is not None:
+                                            return True
+
+                                        if self.mark_value is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction.Mark']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:conform-action'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.action_type is not None:
+                                        return True
+
+                                    if self.mark is not None:
+                                        for child_ref in self.mark:
+                                            if child_ref._has_data():
+                                                return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction']['meta_info']
+
+
+                            class ExceedAction(object):
+                                """
+                                Exceed action
+                                
+                                .. attribute:: action_type
+                                
+                                	Policer action type
+                                	**type**\: :py:class:`DnxQoseaShowActionEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
+                                
+                                .. attribute:: mark
+                                
+                                	Action mark
+                                	**type**\: list of :py:class:`Mark <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction.Mark>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.action_type = None
+                                    self.mark = YList()
+                                    self.mark.parent = self
+                                    self.mark.name = 'mark'
+
+
+                                class Mark(object):
+                                    """
+                                    Action mark
+                                    
+                                    .. attribute:: mark_type
+                                    
+                                    	Mark type
+                                    	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                    
+                                    .. attribute:: mark_value
+                                    
+                                    	Mark value
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ncs5500-qos-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.mark_type = None
+                                        self.mark_value = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:mark'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.mark_type is not None:
+                                            return True
+
+                                        if self.mark_value is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction.Mark']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:exceed-action'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.action_type is not None:
+                                        return True
+
+                                    if self.mark is not None:
+                                        for child_ref in self.mark:
+                                            if child_ref._has_data():
+                                                return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction']['meta_info']
+
+
+                            class ViolateAction(object):
+                                """
+                                Violate action
+                                
+                                .. attribute:: action_type
+                                
+                                	Policer action type
+                                	**type**\: :py:class:`DnxQoseaShowActionEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
+                                
+                                .. attribute:: mark
+                                
+                                	Action mark
+                                	**type**\: list of :py:class:`Mark <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction.Mark>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.action_type = None
+                                    self.mark = YList()
+                                    self.mark.parent = self
+                                    self.mark.name = 'mark'
+
+
+                                class Mark(object):
+                                    """
+                                    Action mark
+                                    
+                                    .. attribute:: mark_type
+                                    
+                                    	Mark type
+                                    	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                    
+                                    .. attribute:: mark_value
+                                    
+                                    	Mark value
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ncs5500-qos-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.mark_type = None
+                                        self.mark_value = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:mark'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.mark_type is not None:
+                                            return True
+
+                                        if self.mark_value is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction.Mark']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:violate-action'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.action_type is not None:
+                                        return True
+
+                                    if self.mark is not None:
+                                        for child_ref in self.mark:
+                                            if child_ref._has_data():
+                                                return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction']['meta_info']
+
+
+                            class IpMark(object):
+                                """
+                                IP mark
+                                
+                                .. attribute:: mark_type
+                                
+                                	Mark type
+                                	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                
+                                .. attribute:: mark_value
+                                
+                                	Mark value
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.mark_type = None
+                                    self.mark_value = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:ip-mark'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.mark_type is not None:
+                                        return True
+
+                                    if self.mark_value is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.IpMark']['meta_info']
+
+
+                            class CommonMark(object):
+                                """
+                                Common mark
+                                
+                                .. attribute:: mark_type
+                                
+                                	Mark type
+                                	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                
+                                .. attribute:: mark_value
+                                
+                                	Mark value
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.mark_type = None
+                                    self.mark_value = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:common-mark'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.mark_type is not None:
+                                        return True
+
+                                    if self.mark_value is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.CommonMark']['meta_info']
+
+
+                            class MplsMark(object):
+                                """
+                                MPLS mark
+                                
+                                .. attribute:: mark_type
+                                
+                                	Mark type
+                                	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                
+                                .. attribute:: mark_value
+                                
+                                	Mark value
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.mark_type = None
+                                    self.mark_value = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:mpls-mark'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.mark_type is not None:
+                                        return True
+
+                                    if self.mark_value is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.MplsMark']['meta_info']
+
+
+                            class Wred(object):
+                                """
+                                WRED parameters
+                                
+                                .. attribute:: wred_match_value
+                                
+                                	WRED match values
+                                	**type**\: :py:class:`WredMatchValue <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue>`
+                                
+                                .. attribute:: config_min_threshold
+                                
+                                	Configured minimum threshold
+                                	**type**\: :py:class:`ConfigMinThreshold <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMinThreshold>`
+                                
+                                .. attribute:: config_max_threshold
+                                
+                                	Configured maximum threshold
+                                	**type**\: :py:class:`ConfigMaxThreshold <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMaxThreshold>`
+                                
+                                .. attribute:: wred_match_type
+                                
+                                	WREDMatchType
+                                	**type**\: :py:class:`DnxQoseaShowWredEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowWredEnum>`
+                                
+                                .. attribute:: hardware_min_threshold_bytes
+                                
+                                	Hardware minimum threshold
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: hardware_max_threshold_bytes
+                                
+                                	Hardware maximum threshold
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: first_segment
+                                
+                                	First segment
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: segment_size
+                                
+                                	Segment size
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.wred_match_value = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue()
+                                    self.wred_match_value.parent = self
+                                    self.config_min_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMinThreshold()
+                                    self.config_min_threshold.parent = self
+                                    self.config_max_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMaxThreshold()
+                                    self.config_max_threshold.parent = self
+                                    self.wred_match_type = None
+                                    self.hardware_min_threshold_bytes = None
+                                    self.hardware_max_threshold_bytes = None
+                                    self.first_segment = None
+                                    self.segment_size = None
+
+
+                                class WredMatchValue(object):
+                                    """
+                                    WRED match values
+                                    
+                                    .. attribute:: dnx_qosea_show_red_match_value
+                                    
+                                    	dnx qosea show red match value
+                                    	**type**\: list of :py:class:`DnxQoseaShowRedMatchValue <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ncs5500-qos-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.dnx_qosea_show_red_match_value = YList()
+                                        self.dnx_qosea_show_red_match_value.parent = self
+                                        self.dnx_qosea_show_red_match_value.name = 'dnx_qosea_show_red_match_value'
+
+
+                                    class DnxQoseaShowRedMatchValue(object):
+                                        """
+                                        dnx qosea show red match value
+                                        
+                                        .. attribute:: range_start
+                                        
+                                        	Start value of a range
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..255
+                                        
+                                        .. attribute:: range_end
+                                        
+                                        	End value of a range
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..255
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ncs5500-qos-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.range_start = None
+                                            self.range_end = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:dnx-qosea-show-red-match-value'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.range_start is not None:
+                                                return True
+
+                                            if self.range_end is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:wred-match-value'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.dnx_qosea_show_red_match_value is not None:
+                                            for child_ref in self.dnx_qosea_show_red_match_value:
+                                                if child_ref._has_data():
+                                                    return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue']['meta_info']
+
+
+                                class ConfigMinThreshold(object):
+                                    """
+                                    Configured minimum threshold
+                                    
+                                    .. attribute:: policy_value
+                                    
+                                    	Policy value
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: policy_unit
+                                    
+                                    	Policy unit
+                                    	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ncs5500-qos-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.policy_value = None
+                                        self.policy_unit = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-min-threshold'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.policy_value is not None:
+                                            return True
+
+                                        if self.policy_unit is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMinThreshold']['meta_info']
+
+
+                                class ConfigMaxThreshold(object):
+                                    """
+                                    Configured maximum threshold
+                                    
+                                    .. attribute:: policy_value
+                                    
+                                    	Policy value
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: policy_unit
+                                    
+                                    	Policy unit
+                                    	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ncs5500-qos-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.policy_value = None
+                                        self.policy_unit = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-max-threshold'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.policy_value is not None:
+                                            return True
+
+                                        if self.policy_unit is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMaxThreshold']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:wred'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.wred_match_value is not None and self.wred_match_value._has_data():
+                                        return True
+
+                                    if self.config_min_threshold is not None and self.config_min_threshold._has_data():
+                                        return True
+
+                                    if self.config_max_threshold is not None and self.config_max_threshold._has_data():
+                                        return True
+
+                                    if self.wred_match_type is not None:
+                                        return True
+
+                                    if self.hardware_min_threshold_bytes is not None:
+                                        return True
+
+                                    if self.hardware_max_threshold_bytes is not None:
+                                        return True
+
+                                    if self.first_segment is not None:
+                                        return True
+
+                                    if self.segment_size is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                if self.level_one_class_name is None:
+                                    raise YPYDataValidationError('Key property level_one_class_name is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:class[Cisco-IOS-XR-ncs5500-qos-oper:level-one-class-name = ' + str(self.level_one_class_name) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.level_one_class_name is not None:
+                                    return True
+
+                                if self.level_two_class_name is not None:
+                                    return True
+
+                                if self.config_max_rate is not None and self.config_max_rate._has_data():
+                                    return True
+
+                                if self.config_min_rate is not None and self.config_min_rate._has_data():
+                                    return True
+
+                                if self.config_queue_limit is not None and self.config_queue_limit._has_data():
+                                    return True
+
+                                if self.config_policer_average_rate is not None and self.config_policer_average_rate._has_data():
+                                    return True
+
+                                if self.config_policer_peak_rate is not None and self.config_policer_peak_rate._has_data():
+                                    return True
+
+                                if self.config_policer_conform_burst is not None and self.config_policer_conform_burst._has_data():
+                                    return True
+
+                                if self.config_policer_excess_burst is not None and self.config_policer_excess_burst._has_data():
+                                    return True
+
+                                if self.conform_action is not None and self.conform_action._has_data():
+                                    return True
+
+                                if self.exceed_action is not None and self.exceed_action._has_data():
+                                    return True
+
+                                if self.violate_action is not None and self.violate_action._has_data():
+                                    return True
+
+                                if self.class_level is not None:
+                                    return True
+
+                                if self.egress_queue_id is not None:
+                                    return True
+
+                                if self.queue_type is not None:
+                                    return True
+
+                                if self.priority_level is not None:
+                                    return True
+
+                                if self.hardware_max_rate_kbps is not None:
+                                    return True
+
+                                if self.hardware_min_rate_kbps is not None:
+                                    return True
+
+                                if self.config_excess_bandwidth_percent is not None:
+                                    return True
+
+                                if self.config_excess_bandwidth_unit is not None:
+                                    return True
+
+                                if self.hardware_excess_bandwidth_weight is not None:
+                                    return True
+
+                                if self.network_min_bandwidth_kbps is not None:
+                                    return True
+
+                                if self.hardware_queue_limit_bytes is not None:
+                                    return True
+
+                                if self.hardware_queue_limit_microseconds is not None:
+                                    return True
+
+                                if self.policer_bucket_id is not None:
+                                    return True
+
+                                if self.policer_stats_handle is not None:
+                                    return True
+
+                                if self.hardware_policer_average_rate_kbps is not None:
+                                    return True
+
+                                if self.hardware_policer_peak_rate_kbps is not None:
+                                    return True
+
+                                if self.hardware_policer_conform_burst_bytes is not None:
+                                    return True
+
+                                if self.hardware_policer_excess_burst_bytes is not None:
+                                    return True
+
+                                if self.ip_mark is not None:
+                                    for child_ref in self.ip_mark:
+                                        if child_ref._has_data():
+                                            return True
+
+                                if self.common_mark is not None:
+                                    for child_ref in self.common_mark:
+                                        if child_ref._has_data():
+                                            return True
+
+                                if self.mpls_mark is not None:
+                                    for child_ref in self.mpls_mark:
+                                        if child_ref._has_data():
+                                            return True
+
+                                if self.wred is not None:
+                                    for child_ref in self.wred:
+                                        if child_ref._has_data():
+                                            return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:classes'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.class_ is not None:
+                                for child_ref in self.class_:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -4535,19 +4535,19 @@ class PlatformQos(object):
                         if self.interface_name is not None:
                             return True
 
-                        if self.classes is not None and self.classes._has_data():
-                            return True
-
                         if self.member_interfaces is not None and self.member_interfaces._has_data():
                             return True
 
                         if self.npu_id is not None:
                             return True
 
+                        if self.qos_direction is not None:
+                            return True
+
                         if self.policy_details is not None and self.policy_details._has_data():
                             return True
 
-                        if self.qos_direction is not None:
+                        if self.classes is not None and self.classes._has_data():
                             return True
 
                         return False
@@ -4611,27 +4611,27 @@ class PlatformQos(object):
                     """
                     QoS interface names
                     
-                    .. attribute:: interface_name
+                    .. attribute:: interface_name  <key>
                     
                     	The name of the interface
                     	**type**\: str
                     
                     	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
-                    .. attribute:: classes
+                    .. attribute:: qos_direction
                     
-                    	QoS list of class names
-                    	**type**\: :py:class:`Classes <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes>`
+                    	The interface direction on which QoS is applied to
+                    	**type**\: str
                     
                     .. attribute:: policy_details
                     
                     	Policy Details
                     	**type**\: :py:class:`PolicyDetails <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.PolicyDetails>`
                     
-                    .. attribute:: qos_direction
+                    .. attribute:: classes
                     
-                    	The interface direction on which QoS is applied to
-                    	**type**\: str
+                    	QoS list of class names
+                    	**type**\: :py:class:`Classes <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes>`
                     
                     
 
@@ -4643,11 +4643,151 @@ class PlatformQos(object):
                     def __init__(self):
                         self.parent = None
                         self.interface_name = None
-                        self.classes = PlatformQos.Nodes.Node.Interfaces.Interface.Classes()
-                        self.classes.parent = self
+                        self.qos_direction = None
                         self.policy_details = PlatformQos.Nodes.Node.Interfaces.Interface.PolicyDetails()
                         self.policy_details.parent = self
-                        self.qos_direction = None
+                        self.classes = PlatformQos.Nodes.Node.Interfaces.Interface.Classes()
+                        self.classes.parent = self
+
+
+                    class PolicyDetails(object):
+                        """
+                        Policy Details
+                        
+                        .. attribute:: npu_id
+                        
+                        	NPU ID
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: interface_handle
+                        
+                        	InterfaceHandle
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: interface_bandwidth_kbps
+                        
+                        	Interface Bandwidth (in kbps)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: policy_name
+                        
+                        	Policy name
+                        	**type**\: str
+                        
+                        	**range:** 0..64
+                        
+                        .. attribute:: total_number_of_classes
+                        
+                        	Number of Classes
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: voq_base_address
+                        
+                        	VOQ base address
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: voq_stats_handle
+                        
+                        	VOQ stats handle
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: stats_accounting_type
+                        
+                        	QoS Statistics Accounting Type
+                        	**type**\: :py:class:`QosPolicyAccountEnumEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnumEnum>`
+                        
+                        .. attribute:: policy_status
+                        
+                        	Policy Status
+                        	**type**\: :py:class:`DnxQoseaShowPolicyStatusEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatusEnum>`
+                        
+                        .. attribute:: interface_status
+                        
+                        	Interface Status
+                        	**type**\: :py:class:`DnxQoseaShowIntfStatusEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatusEnum>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ncs5500-qos-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.npu_id = None
+                            self.interface_handle = None
+                            self.interface_bandwidth_kbps = None
+                            self.policy_name = None
+                            self.total_number_of_classes = None
+                            self.voq_base_address = None
+                            self.voq_stats_handle = None
+                            self.stats_accounting_type = None
+                            self.policy_status = None
+                            self.interface_status = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:policy-details'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.npu_id is not None:
+                                return True
+
+                            if self.interface_handle is not None:
+                                return True
+
+                            if self.interface_bandwidth_kbps is not None:
+                                return True
+
+                            if self.policy_name is not None:
+                                return True
+
+                            if self.total_number_of_classes is not None:
+                                return True
+
+                            if self.voq_base_address is not None:
+                                return True
+
+                            if self.voq_stats_handle is not None:
+                                return True
+
+                            if self.stats_accounting_type is not None:
+                                return True
+
+                            if self.policy_status is not None:
+                                return True
+
+                            if self.interface_status is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                            return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.PolicyDetails']['meta_info']
 
 
                     class Classes(object):
@@ -4677,34 +4817,15 @@ class PlatformQos(object):
                             """
                             QoS policy class
                             
-                            .. attribute:: level_one_class_name
+                            .. attribute:: level_one_class_name  <key>
                             
                             	QoS policy class name at level 1
                             	**type**\: str
                             
-                            .. attribute:: class_level
+                            .. attribute:: level_two_class_name
                             
-                            	Class level
-                            	**type**\: :py:class:`DnxQoseaShowLevelEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowLevelEnum>`
-                            
-                            .. attribute:: common_mark
-                            
-                            	Common mark
-                            	**type**\: list of :py:class:`CommonMark <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.CommonMark>`
-                            
-                            .. attribute:: config_excess_bandwidth_percent
-                            
-                            	Configured excess bandwidth percentage
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: config_excess_bandwidth_unit
-                            
-                            	Configured excess bandwidth unit
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
+                            	QoS policy child class name at level 2
+                            	**type**\: str
                             
                             .. attribute:: config_max_rate
                             
@@ -4716,10 +4837,20 @@ class PlatformQos(object):
                             	Configured minimum rate
                             	**type**\: :py:class:`ConfigMinRate <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMinRate>`
                             
+                            .. attribute:: config_queue_limit
+                            
+                            	Configured queue limit
+                            	**type**\: :py:class:`ConfigQueueLimit <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigQueueLimit>`
+                            
                             .. attribute:: config_policer_average_rate
                             
                             	Configured policer average rate
                             	**type**\: :py:class:`ConfigPolicerAverageRate <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerAverageRate>`
+                            
+                            .. attribute:: config_policer_peak_rate
+                            
+                            	Config policer peak rate
+                            	**type**\: :py:class:`ConfigPolicerPeakRate <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerPeakRate>`
                             
                             .. attribute:: config_policer_conform_burst
                             
@@ -4731,20 +4862,25 @@ class PlatformQos(object):
                             	Configured policer excess burst
                             	**type**\: :py:class:`ConfigPolicerExcessBurst <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerExcessBurst>`
                             
-                            .. attribute:: config_policer_peak_rate
-                            
-                            	Config policer peak rate
-                            	**type**\: :py:class:`ConfigPolicerPeakRate <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerPeakRate>`
-                            
-                            .. attribute:: config_queue_limit
-                            
-                            	Configured queue limit
-                            	**type**\: :py:class:`ConfigQueueLimit <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigQueueLimit>`
-                            
                             .. attribute:: conform_action
                             
                             	Conform action
                             	**type**\: :py:class:`ConformAction <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConformAction>`
+                            
+                            .. attribute:: exceed_action
+                            
+                            	Exceed action
+                            	**type**\: :py:class:`ExceedAction <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction>`
+                            
+                            .. attribute:: violate_action
+                            
+                            	Violate action
+                            	**type**\: :py:class:`ViolateAction <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction>`
+                            
+                            .. attribute:: class_level
+                            
+                            	Class level
+                            	**type**\: :py:class:`DnxQoseaShowLevelEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowLevelEnum>`
                             
                             .. attribute:: egress_queue_id
                             
@@ -4753,17 +4889,15 @@ class PlatformQos(object):
                             
                             	**range:** \-2147483648..2147483647
                             
-                            .. attribute:: exceed_action
+                            .. attribute:: queue_type
                             
-                            	Exceed action
-                            	**type**\: :py:class:`ExceedAction <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction>`
+                            	Queue type
+                            	**type**\: :py:class:`DnxQoseaShowQueueEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowQueueEnum>`
                             
-                            .. attribute:: hardware_excess_bandwidth_weight
+                            .. attribute:: priority_level
                             
-                            	Hardware excess bandwidth weight
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
+                            	Priority level
+                            	**type**\: :py:class:`DnxQoseaShowHpLevelEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowHpLevelEnum>`
                             
                             .. attribute:: hardware_max_rate_kbps
                             
@@ -4779,30 +4913,30 @@ class PlatformQos(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: hardware_policer_average_rate_kbps
+                            .. attribute:: config_excess_bandwidth_percent
                             
-                            	Hardware policer average in kbps
+                            	Configured excess bandwidth percentage
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: hardware_policer_conform_burst_bytes
+                            .. attribute:: config_excess_bandwidth_unit
                             
-                            	Hardware policer conform burst
+                            	Configured excess bandwidth unit
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: hardware_policer_excess_burst_bytes
+                            .. attribute:: hardware_excess_bandwidth_weight
                             
-                            	Hardware policer excess burst
+                            	Hardware excess bandwidth weight
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: hardware_policer_peak_rate_kbps
+                            .. attribute:: network_min_bandwidth_kbps
                             
-                            	Hardware policer peak rate
+                            	Network minimum Bandwith
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -4821,28 +4955,6 @@ class PlatformQos(object):
                             
                             	**range:** 0..18446744073709551615
                             
-                            .. attribute:: ip_mark
-                            
-                            	IP mark
-                            	**type**\: list of :py:class:`IpMark <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.IpMark>`
-                            
-                            .. attribute:: level_two_class_name
-                            
-                            	QoS policy child class name at level 2
-                            	**type**\: str
-                            
-                            .. attribute:: mpls_mark
-                            
-                            	MPLS mark
-                            	**type**\: list of :py:class:`MplsMark <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.MplsMark>`
-                            
-                            .. attribute:: network_min_bandwidth_kbps
-                            
-                            	Network minimum Bandwith
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
                             .. attribute:: policer_bucket_id
                             
                             	PolicerBucketID
@@ -4857,20 +4969,48 @@ class PlatformQos(object):
                             
                             	**range:** 0..18446744073709551615
                             
-                            .. attribute:: priority_level
+                            .. attribute:: hardware_policer_average_rate_kbps
                             
-                            	Priority level
-                            	**type**\: :py:class:`DnxQoseaShowHpLevelEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowHpLevelEnum>`
+                            	Hardware policer average in kbps
+                            	**type**\: int
                             
-                            .. attribute:: queue_type
+                            	**range:** 0..4294967295
                             
-                            	Queue type
-                            	**type**\: :py:class:`DnxQoseaShowQueueEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowQueueEnum>`
+                            .. attribute:: hardware_policer_peak_rate_kbps
                             
-                            .. attribute:: violate_action
+                            	Hardware policer peak rate
+                            	**type**\: int
                             
-                            	Violate action
-                            	**type**\: :py:class:`ViolateAction <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction>`
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: hardware_policer_conform_burst_bytes
+                            
+                            	Hardware policer conform burst
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: hardware_policer_excess_burst_bytes
+                            
+                            	Hardware policer excess burst
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: ip_mark
+                            
+                            	IP mark
+                            	**type**\: list of :py:class:`IpMark <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.IpMark>`
+                            
+                            .. attribute:: common_mark
+                            
+                            	Common mark
+                            	**type**\: list of :py:class:`CommonMark <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.CommonMark>`
+                            
+                            .. attribute:: mpls_mark
+                            
+                            	MPLS mark
+                            	**type**\: list of :py:class:`MplsMark <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.MplsMark>`
                             
                             .. attribute:: wred
                             
@@ -4887,123 +5027,62 @@ class PlatformQos(object):
                             def __init__(self):
                                 self.parent = None
                                 self.level_one_class_name = None
-                                self.class_level = None
-                                self.common_mark = YList()
-                                self.common_mark.parent = self
-                                self.common_mark.name = 'common_mark'
-                                self.config_excess_bandwidth_percent = None
-                                self.config_excess_bandwidth_unit = None
+                                self.level_two_class_name = None
                                 self.config_max_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMaxRate()
                                 self.config_max_rate.parent = self
                                 self.config_min_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMinRate()
                                 self.config_min_rate.parent = self
+                                self.config_queue_limit = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigQueueLimit()
+                                self.config_queue_limit.parent = self
                                 self.config_policer_average_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerAverageRate()
                                 self.config_policer_average_rate.parent = self
+                                self.config_policer_peak_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerPeakRate()
+                                self.config_policer_peak_rate.parent = self
                                 self.config_policer_conform_burst = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerConformBurst()
                                 self.config_policer_conform_burst.parent = self
                                 self.config_policer_excess_burst = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerExcessBurst()
                                 self.config_policer_excess_burst.parent = self
-                                self.config_policer_peak_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerPeakRate()
-                                self.config_policer_peak_rate.parent = self
-                                self.config_queue_limit = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigQueueLimit()
-                                self.config_queue_limit.parent = self
                                 self.conform_action = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConformAction()
                                 self.conform_action.parent = self
-                                self.egress_queue_id = None
                                 self.exceed_action = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction()
                                 self.exceed_action.parent = self
-                                self.hardware_excess_bandwidth_weight = None
+                                self.violate_action = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction()
+                                self.violate_action.parent = self
+                                self.class_level = None
+                                self.egress_queue_id = None
+                                self.queue_type = None
+                                self.priority_level = None
                                 self.hardware_max_rate_kbps = None
                                 self.hardware_min_rate_kbps = None
-                                self.hardware_policer_average_rate_kbps = None
-                                self.hardware_policer_conform_burst_bytes = None
-                                self.hardware_policer_excess_burst_bytes = None
-                                self.hardware_policer_peak_rate_kbps = None
+                                self.config_excess_bandwidth_percent = None
+                                self.config_excess_bandwidth_unit = None
+                                self.hardware_excess_bandwidth_weight = None
+                                self.network_min_bandwidth_kbps = None
                                 self.hardware_queue_limit_bytes = None
                                 self.hardware_queue_limit_microseconds = None
+                                self.policer_bucket_id = None
+                                self.policer_stats_handle = None
+                                self.hardware_policer_average_rate_kbps = None
+                                self.hardware_policer_peak_rate_kbps = None
+                                self.hardware_policer_conform_burst_bytes = None
+                                self.hardware_policer_excess_burst_bytes = None
                                 self.ip_mark = YList()
                                 self.ip_mark.parent = self
                                 self.ip_mark.name = 'ip_mark'
-                                self.level_two_class_name = None
+                                self.common_mark = YList()
+                                self.common_mark.parent = self
+                                self.common_mark.name = 'common_mark'
                                 self.mpls_mark = YList()
                                 self.mpls_mark.parent = self
                                 self.mpls_mark.name = 'mpls_mark'
-                                self.network_min_bandwidth_kbps = None
-                                self.policer_bucket_id = None
-                                self.policer_stats_handle = None
-                                self.priority_level = None
-                                self.queue_type = None
-                                self.violate_action = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction()
-                                self.violate_action.parent = self
                                 self.wred = YList()
                                 self.wred.parent = self
                                 self.wred.name = 'wred'
 
 
-                            class CommonMark(object):
-                                """
-                                Common mark
-                                
-                                .. attribute:: mark_type
-                                
-                                	Mark type
-                                	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
-                                
-                                .. attribute:: mark_value
-                                
-                                	Mark value
-                                	**type**\: int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'ncs5500-qos-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.mark_type = None
-                                    self.mark_value = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:common-mark'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.mark_type is not None:
-                                        return True
-
-                                    if self.mark_value is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.CommonMark']['meta_info']
-
-
                             class ConfigMaxRate(object):
                                 """
                                 Configured maximum rate
-                                
-                                .. attribute:: policy_unit
-                                
-                                	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -5012,6 +5091,11 @@ class PlatformQos(object):
                                 
                                 	**range:** 0..4294967295
                                 
+                                .. attribute:: policy_unit
+                                
+                                	Policy unit
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                
                                 
 
                                 """
@@ -5021,8 +5105,8 @@ class PlatformQos(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.policy_unit = None
                                     self.policy_value = None
+                                    self.policy_unit = None
 
                                 @property
                                 def _common_path(self):
@@ -5038,10 +5122,10 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.policy_unit is not None:
+                                    if self.policy_value is not None:
                                         return True
 
-                                    if self.policy_value is not None:
+                                    if self.policy_unit is not None:
                                         return True
 
                                     return False
@@ -5056,17 +5140,17 @@ class PlatformQos(object):
                                 """
                                 Configured minimum rate
                                 
-                                .. attribute:: policy_unit
-                                
-                                	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
-                                
                                 .. attribute:: policy_value
                                 
                                 	Policy value
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                .. attribute:: policy_unit
+                                
+                                	Policy unit
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                 
                                 
 
@@ -5077,8 +5161,8 @@ class PlatformQos(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.policy_unit = None
                                     self.policy_value = None
+                                    self.policy_unit = None
 
                                 @property
                                 def _common_path(self):
@@ -5094,10 +5178,10 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.policy_unit is not None:
+                                    if self.policy_value is not None:
                                         return True
 
-                                    if self.policy_value is not None:
+                                    if self.policy_unit is not None:
                                         return True
 
                                     return False
@@ -5108,245 +5192,21 @@ class PlatformQos(object):
                                     return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMinRate']['meta_info']
 
 
-                            class ConfigPolicerAverageRate(object):
-                                """
-                                Configured policer average rate
-                                
-                                .. attribute:: policy_unit
-                                
-                                	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
-                                
-                                .. attribute:: policy_value
-                                
-                                	Policy value
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'ncs5500-qos-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.policy_unit = None
-                                    self.policy_value = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-policer-average-rate'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.policy_unit is not None:
-                                        return True
-
-                                    if self.policy_value is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerAverageRate']['meta_info']
-
-
-                            class ConfigPolicerConformBurst(object):
-                                """
-                                Configured policer conform burst
-                                
-                                .. attribute:: policy_unit
-                                
-                                	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
-                                
-                                .. attribute:: policy_value
-                                
-                                	Policy value
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'ncs5500-qos-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.policy_unit = None
-                                    self.policy_value = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-policer-conform-burst'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.policy_unit is not None:
-                                        return True
-
-                                    if self.policy_value is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerConformBurst']['meta_info']
-
-
-                            class ConfigPolicerExcessBurst(object):
-                                """
-                                Configured policer excess burst
-                                
-                                .. attribute:: policy_unit
-                                
-                                	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
-                                
-                                .. attribute:: policy_value
-                                
-                                	Policy value
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'ncs5500-qos-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.policy_unit = None
-                                    self.policy_value = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-policer-excess-burst'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.policy_unit is not None:
-                                        return True
-
-                                    if self.policy_value is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerExcessBurst']['meta_info']
-
-
-                            class ConfigPolicerPeakRate(object):
-                                """
-                                Config policer peak rate
-                                
-                                .. attribute:: policy_unit
-                                
-                                	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
-                                
-                                .. attribute:: policy_value
-                                
-                                	Policy value
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'ncs5500-qos-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.policy_unit = None
-                                    self.policy_value = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-policer-peak-rate'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.policy_unit is not None:
-                                        return True
-
-                                    if self.policy_value is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerPeakRate']['meta_info']
-
-
                             class ConfigQueueLimit(object):
                                 """
                                 Configured queue limit
                                 
-                                .. attribute:: policy_unit
-                                
-                                	Policy unit
-                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
-                                
                                 .. attribute:: policy_value
                                 
                                 	Policy value
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                .. attribute:: policy_unit
+                                
+                                	Policy unit
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
                                 
                                 
 
@@ -5357,8 +5217,8 @@ class PlatformQos(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.policy_unit = None
                                     self.policy_value = None
+                                    self.policy_unit = None
 
                                 @property
                                 def _common_path(self):
@@ -5374,10 +5234,10 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.policy_unit is not None:
+                                    if self.policy_value is not None:
                                         return True
 
-                                    if self.policy_value is not None:
+                                    if self.policy_unit is not None:
                                         return True
 
                                     return False
@@ -5386,6 +5246,230 @@ class PlatformQos(object):
                                 def _meta_info():
                                     from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
                                     return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigQueueLimit']['meta_info']
+
+
+                            class ConfigPolicerAverageRate(object):
+                                """
+                                Configured policer average rate
+                                
+                                .. attribute:: policy_value
+                                
+                                	Policy value
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: policy_unit
+                                
+                                	Policy unit
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.policy_value = None
+                                    self.policy_unit = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-policer-average-rate'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.policy_value is not None:
+                                        return True
+
+                                    if self.policy_unit is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerAverageRate']['meta_info']
+
+
+                            class ConfigPolicerPeakRate(object):
+                                """
+                                Config policer peak rate
+                                
+                                .. attribute:: policy_value
+                                
+                                	Policy value
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: policy_unit
+                                
+                                	Policy unit
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.policy_value = None
+                                    self.policy_unit = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-policer-peak-rate'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.policy_value is not None:
+                                        return True
+
+                                    if self.policy_unit is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerPeakRate']['meta_info']
+
+
+                            class ConfigPolicerConformBurst(object):
+                                """
+                                Configured policer conform burst
+                                
+                                .. attribute:: policy_value
+                                
+                                	Policy value
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: policy_unit
+                                
+                                	Policy unit
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.policy_value = None
+                                    self.policy_unit = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-policer-conform-burst'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.policy_value is not None:
+                                        return True
+
+                                    if self.policy_unit is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerConformBurst']['meta_info']
+
+
+                            class ConfigPolicerExcessBurst(object):
+                                """
+                                Configured policer excess burst
+                                
+                                .. attribute:: policy_value
+                                
+                                	Policy value
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: policy_unit
+                                
+                                	Policy unit
+                                	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.policy_value = None
+                                    self.policy_unit = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-policer-excess-burst'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.policy_value is not None:
+                                        return True
+
+                                    if self.policy_unit is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerExcessBurst']['meta_info']
 
 
                             class ConformAction(object):
@@ -5616,118 +5700,6 @@ class PlatformQos(object):
                                     return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction']['meta_info']
 
 
-                            class IpMark(object):
-                                """
-                                IP mark
-                                
-                                .. attribute:: mark_type
-                                
-                                	Mark type
-                                	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
-                                
-                                .. attribute:: mark_value
-                                
-                                	Mark value
-                                	**type**\: int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'ncs5500-qos-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.mark_type = None
-                                    self.mark_value = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:ip-mark'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.mark_type is not None:
-                                        return True
-
-                                    if self.mark_value is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.IpMark']['meta_info']
-
-
-                            class MplsMark(object):
-                                """
-                                MPLS mark
-                                
-                                .. attribute:: mark_type
-                                
-                                	Mark type
-                                	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
-                                
-                                .. attribute:: mark_value
-                                
-                                	Mark value
-                                	**type**\: int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'ncs5500-qos-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.mark_type = None
-                                    self.mark_value = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:mpls-mark'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.mark_type is not None:
-                                        return True
-
-                                    if self.mark_value is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.MplsMark']['meta_info']
-
-
                             class ViolateAction(object):
                                 """
                                 Violate action
@@ -5842,57 +5814,21 @@ class PlatformQos(object):
                                     return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction']['meta_info']
 
 
-                            class Wred(object):
+                            class IpMark(object):
                                 """
-                                WRED parameters
+                                IP mark
                                 
-                                .. attribute:: config_max_threshold
+                                .. attribute:: mark_type
                                 
-                                	Configured maximum threshold
-                                	**type**\: :py:class:`ConfigMaxThreshold <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMaxThreshold>`
+                                	Mark type
+                                	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                 
-                                .. attribute:: config_min_threshold
+                                .. attribute:: mark_value
                                 
-                                	Configured minimum threshold
-                                	**type**\: :py:class:`ConfigMinThreshold <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMinThreshold>`
-                                
-                                .. attribute:: first_segment
-                                
-                                	First segment
+                                	Mark value
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
-                                
-                                .. attribute:: hardware_max_threshold_bytes
-                                
-                                	Hardware maximum threshold
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: hardware_min_threshold_bytes
-                                
-                                	Hardware minimum threshold
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: segment_size
-                                
-                                	Segment size
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: wred_match_type
-                                
-                                	WREDMatchType
-                                	**type**\: :py:class:`DnxQoseaShowWredEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowWredEnum>`
-                                
-                                .. attribute:: wred_match_value
-                                
-                                	WRED match values
-                                	**type**\: :py:class:`WredMatchValue <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.WredMatchValue>`
                                 
                                 
 
@@ -5903,129 +5839,221 @@ class PlatformQos(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.config_max_threshold = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMaxThreshold()
-                                    self.config_max_threshold.parent = self
-                                    self.config_min_threshold = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMinThreshold()
-                                    self.config_min_threshold.parent = self
-                                    self.first_segment = None
-                                    self.hardware_max_threshold_bytes = None
-                                    self.hardware_min_threshold_bytes = None
-                                    self.segment_size = None
-                                    self.wred_match_type = None
+                                    self.mark_type = None
+                                    self.mark_value = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:ip-mark'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.mark_type is not None:
+                                        return True
+
+                                    if self.mark_value is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.IpMark']['meta_info']
+
+
+                            class CommonMark(object):
+                                """
+                                Common mark
+                                
+                                .. attribute:: mark_type
+                                
+                                	Mark type
+                                	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                
+                                .. attribute:: mark_value
+                                
+                                	Mark value
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.mark_type = None
+                                    self.mark_value = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:common-mark'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.mark_type is not None:
+                                        return True
+
+                                    if self.mark_value is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.CommonMark']['meta_info']
+
+
+                            class MplsMark(object):
+                                """
+                                MPLS mark
+                                
+                                .. attribute:: mark_type
+                                
+                                	Mark type
+                                	**type**\: :py:class:`DnxQoseaShowMarkEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                
+                                .. attribute:: mark_value
+                                
+                                	Mark value
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.mark_type = None
+                                    self.mark_value = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:mpls-mark'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.mark_type is not None:
+                                        return True
+
+                                    if self.mark_value is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.MplsMark']['meta_info']
+
+
+                            class Wred(object):
+                                """
+                                WRED parameters
+                                
+                                .. attribute:: wred_match_value
+                                
+                                	WRED match values
+                                	**type**\: :py:class:`WredMatchValue <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.WredMatchValue>`
+                                
+                                .. attribute:: config_min_threshold
+                                
+                                	Configured minimum threshold
+                                	**type**\: :py:class:`ConfigMinThreshold <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMinThreshold>`
+                                
+                                .. attribute:: config_max_threshold
+                                
+                                	Configured maximum threshold
+                                	**type**\: :py:class:`ConfigMaxThreshold <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMaxThreshold>`
+                                
+                                .. attribute:: wred_match_type
+                                
+                                	WREDMatchType
+                                	**type**\: :py:class:`DnxQoseaShowWredEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowWredEnum>`
+                                
+                                .. attribute:: hardware_min_threshold_bytes
+                                
+                                	Hardware minimum threshold
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: hardware_max_threshold_bytes
+                                
+                                	Hardware maximum threshold
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: first_segment
+                                
+                                	First segment
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: segment_size
+                                
+                                	Segment size
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs5500-qos-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
                                     self.wred_match_value = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.WredMatchValue()
                                     self.wred_match_value.parent = self
-
-
-                                class ConfigMaxThreshold(object):
-                                    """
-                                    Configured maximum threshold
-                                    
-                                    .. attribute:: policy_unit
-                                    
-                                    	Policy unit
-                                    	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
-                                    
-                                    .. attribute:: policy_value
-                                    
-                                    	Policy value
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ncs5500-qos-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.policy_unit = None
-                                        self.policy_value = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-max-threshold'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.policy_unit is not None:
-                                            return True
-
-                                        if self.policy_value is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                        return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMaxThreshold']['meta_info']
-
-
-                                class ConfigMinThreshold(object):
-                                    """
-                                    Configured minimum threshold
-                                    
-                                    .. attribute:: policy_unit
-                                    
-                                    	Policy unit
-                                    	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
-                                    
-                                    .. attribute:: policy_value
-                                    
-                                    	Policy value
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ncs5500-qos-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.policy_unit = None
-                                        self.policy_value = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-min-threshold'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.policy_unit is not None:
-                                            return True
-
-                                        if self.policy_value is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                        return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMinThreshold']['meta_info']
+                                    self.config_min_threshold = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMinThreshold()
+                                    self.config_min_threshold.parent = self
+                                    self.config_max_threshold = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMaxThreshold()
+                                    self.config_max_threshold.parent = self
+                                    self.wred_match_type = None
+                                    self.hardware_min_threshold_bytes = None
+                                    self.hardware_max_threshold_bytes = None
+                                    self.first_segment = None
+                                    self.segment_size = None
 
 
                                 class WredMatchValue(object):
@@ -6055,16 +6083,16 @@ class PlatformQos(object):
                                         """
                                         dnx qosea show red match value
                                         
-                                        .. attribute:: range_end
+                                        .. attribute:: range_start
                                         
-                                        	End value of a range
+                                        	Start value of a range
                                         	**type**\: int
                                         
                                         	**range:** 0..255
                                         
-                                        .. attribute:: range_start
+                                        .. attribute:: range_end
                                         
-                                        	Start value of a range
+                                        	End value of a range
                                         	**type**\: int
                                         
                                         	**range:** 0..255
@@ -6078,8 +6106,8 @@ class PlatformQos(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.range_end = None
                                             self.range_start = None
+                                            self.range_end = None
 
                                         @property
                                         def _common_path(self):
@@ -6095,10 +6123,10 @@ class PlatformQos(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.range_end is not None:
+                                            if self.range_start is not None:
                                                 return True
 
-                                            if self.range_start is not None:
+                                            if self.range_end is not None:
                                                 return True
 
                                             return False
@@ -6134,6 +6162,118 @@ class PlatformQos(object):
                                         from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
                                         return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.WredMatchValue']['meta_info']
 
+
+                                class ConfigMinThreshold(object):
+                                    """
+                                    Configured minimum threshold
+                                    
+                                    .. attribute:: policy_value
+                                    
+                                    	Policy value
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: policy_unit
+                                    
+                                    	Policy unit
+                                    	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ncs5500-qos-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.policy_value = None
+                                        self.policy_unit = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-min-threshold'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.policy_value is not None:
+                                            return True
+
+                                        if self.policy_unit is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                        return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMinThreshold']['meta_info']
+
+
+                                class ConfigMaxThreshold(object):
+                                    """
+                                    Configured maximum threshold
+                                    
+                                    .. attribute:: policy_value
+                                    
+                                    	Policy value
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: policy_unit
+                                    
+                                    	Policy unit
+                                    	**type**\: :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ncs5500-qos-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.policy_value = None
+                                        self.policy_unit = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:config-max-threshold'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.policy_value is not None:
+                                            return True
+
+                                        if self.policy_unit is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                        return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMaxThreshold']['meta_info']
+
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
@@ -6148,28 +6288,28 @@ class PlatformQos(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.config_max_threshold is not None and self.config_max_threshold._has_data():
+                                    if self.wred_match_value is not None and self.wred_match_value._has_data():
                                         return True
 
                                     if self.config_min_threshold is not None and self.config_min_threshold._has_data():
                                         return True
 
-                                    if self.first_segment is not None:
-                                        return True
-
-                                    if self.hardware_max_threshold_bytes is not None:
-                                        return True
-
-                                    if self.hardware_min_threshold_bytes is not None:
-                                        return True
-
-                                    if self.segment_size is not None:
+                                    if self.config_max_threshold is not None and self.config_max_threshold._has_data():
                                         return True
 
                                     if self.wred_match_type is not None:
                                         return True
 
-                                    if self.wred_match_value is not None and self.wred_match_value._has_data():
+                                    if self.hardware_min_threshold_bytes is not None:
+                                        return True
+
+                                    if self.hardware_max_threshold_bytes is not None:
+                                        return True
+
+                                    if self.first_segment is not None:
+                                        return True
+
+                                    if self.segment_size is not None:
                                         return True
 
                                     return False
@@ -6198,18 +6338,7 @@ class PlatformQos(object):
                                 if self.level_one_class_name is not None:
                                     return True
 
-                                if self.class_level is not None:
-                                    return True
-
-                                if self.common_mark is not None:
-                                    for child_ref in self.common_mark:
-                                        if child_ref._has_data():
-                                            return True
-
-                                if self.config_excess_bandwidth_percent is not None:
-                                    return True
-
-                                if self.config_excess_bandwidth_unit is not None:
+                                if self.level_two_class_name is not None:
                                     return True
 
                                 if self.config_max_rate is not None and self.config_max_rate._has_data():
@@ -6218,7 +6347,13 @@ class PlatformQos(object):
                                 if self.config_min_rate is not None and self.config_min_rate._has_data():
                                     return True
 
+                                if self.config_queue_limit is not None and self.config_queue_limit._has_data():
+                                    return True
+
                                 if self.config_policer_average_rate is not None and self.config_policer_average_rate._has_data():
+                                    return True
+
+                                if self.config_policer_peak_rate is not None and self.config_policer_peak_rate._has_data():
                                     return True
 
                                 if self.config_policer_conform_burst is not None and self.config_policer_conform_burst._has_data():
@@ -6227,22 +6362,25 @@ class PlatformQos(object):
                                 if self.config_policer_excess_burst is not None and self.config_policer_excess_burst._has_data():
                                     return True
 
-                                if self.config_policer_peak_rate is not None and self.config_policer_peak_rate._has_data():
-                                    return True
-
-                                if self.config_queue_limit is not None and self.config_queue_limit._has_data():
-                                    return True
-
                                 if self.conform_action is not None and self.conform_action._has_data():
-                                    return True
-
-                                if self.egress_queue_id is not None:
                                     return True
 
                                 if self.exceed_action is not None and self.exceed_action._has_data():
                                     return True
 
-                                if self.hardware_excess_bandwidth_weight is not None:
+                                if self.violate_action is not None and self.violate_action._has_data():
+                                    return True
+
+                                if self.class_level is not None:
+                                    return True
+
+                                if self.egress_queue_id is not None:
+                                    return True
+
+                                if self.queue_type is not None:
+                                    return True
+
+                                if self.priority_level is not None:
                                     return True
 
                                 if self.hardware_max_rate_kbps is not None:
@@ -6251,16 +6389,16 @@ class PlatformQos(object):
                                 if self.hardware_min_rate_kbps is not None:
                                     return True
 
-                                if self.hardware_policer_average_rate_kbps is not None:
+                                if self.config_excess_bandwidth_percent is not None:
                                     return True
 
-                                if self.hardware_policer_conform_burst_bytes is not None:
+                                if self.config_excess_bandwidth_unit is not None:
                                     return True
 
-                                if self.hardware_policer_excess_burst_bytes is not None:
+                                if self.hardware_excess_bandwidth_weight is not None:
                                     return True
 
-                                if self.hardware_policer_peak_rate_kbps is not None:
+                                if self.network_min_bandwidth_kbps is not None:
                                     return True
 
                                 if self.hardware_queue_limit_bytes is not None:
@@ -6269,36 +6407,38 @@ class PlatformQos(object):
                                 if self.hardware_queue_limit_microseconds is not None:
                                     return True
 
-                                if self.ip_mark is not None:
-                                    for child_ref in self.ip_mark:
-                                        if child_ref._has_data():
-                                            return True
-
-                                if self.level_two_class_name is not None:
-                                    return True
-
-                                if self.mpls_mark is not None:
-                                    for child_ref in self.mpls_mark:
-                                        if child_ref._has_data():
-                                            return True
-
-                                if self.network_min_bandwidth_kbps is not None:
-                                    return True
-
                                 if self.policer_bucket_id is not None:
                                     return True
 
                                 if self.policer_stats_handle is not None:
                                     return True
 
-                                if self.priority_level is not None:
+                                if self.hardware_policer_average_rate_kbps is not None:
                                     return True
 
-                                if self.queue_type is not None:
+                                if self.hardware_policer_peak_rate_kbps is not None:
                                     return True
 
-                                if self.violate_action is not None and self.violate_action._has_data():
+                                if self.hardware_policer_conform_burst_bytes is not None:
                                     return True
+
+                                if self.hardware_policer_excess_burst_bytes is not None:
+                                    return True
+
+                                if self.ip_mark is not None:
+                                    for child_ref in self.ip_mark:
+                                        if child_ref._has_data():
+                                            return True
+
+                                if self.common_mark is not None:
+                                    for child_ref in self.common_mark:
+                                        if child_ref._has_data():
+                                            return True
+
+                                if self.mpls_mark is not None:
+                                    for child_ref in self.mpls_mark:
+                                        if child_ref._has_data():
+                                            return True
 
                                 if self.wred is not None:
                                     for child_ref in self.wred:
@@ -6338,146 +6478,6 @@ class PlatformQos(object):
                             from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
                             return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes']['meta_info']
 
-
-                    class PolicyDetails(object):
-                        """
-                        Policy Details
-                        
-                        .. attribute:: interface_bandwidth_kbps
-                        
-                        	Interface Bandwidth (in kbps)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: interface_handle
-                        
-                        	InterfaceHandle
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: interface_status
-                        
-                        	Interface Status
-                        	**type**\: :py:class:`DnxQoseaShowIntfStatusEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatusEnum>`
-                        
-                        .. attribute:: npu_id
-                        
-                        	NPU ID
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: policy_name
-                        
-                        	Policy name
-                        	**type**\: str
-                        
-                        	**range:** 0..64
-                        
-                        .. attribute:: policy_status
-                        
-                        	Policy Status
-                        	**type**\: :py:class:`DnxQoseaShowPolicyStatusEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatusEnum>`
-                        
-                        .. attribute:: stats_accounting_type
-                        
-                        	QoS Statistics Accounting Type
-                        	**type**\: :py:class:`QosPolicyAccountEnumEnum <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnumEnum>`
-                        
-                        .. attribute:: total_number_of_classes
-                        
-                        	Number of Classes
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: voq_base_address
-                        
-                        	VOQ base address
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: voq_stats_handle
-                        
-                        	VOQ stats handle
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        
-
-                        """
-
-                        _prefix = 'ncs5500-qos-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.interface_bandwidth_kbps = None
-                            self.interface_handle = None
-                            self.interface_status = None
-                            self.npu_id = None
-                            self.policy_name = None
-                            self.policy_status = None
-                            self.stats_accounting_type = None
-                            self.total_number_of_classes = None
-                            self.voq_base_address = None
-                            self.voq_stats_handle = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:policy-details'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.interface_bandwidth_kbps is not None:
-                                return True
-
-                            if self.interface_handle is not None:
-                                return True
-
-                            if self.interface_status is not None:
-                                return True
-
-                            if self.npu_id is not None:
-                                return True
-
-                            if self.policy_name is not None:
-                                return True
-
-                            if self.policy_status is not None:
-                                return True
-
-                            if self.stats_accounting_type is not None:
-                                return True
-
-                            if self.total_number_of_classes is not None:
-                                return True
-
-                            if self.voq_base_address is not None:
-                                return True
-
-                            if self.voq_stats_handle is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                            return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.PolicyDetails']['meta_info']
-
                     @property
                     def _common_path(self):
                         if self.parent is None:
@@ -6497,13 +6497,13 @@ class PlatformQos(object):
                         if self.interface_name is not None:
                             return True
 
-                        if self.classes is not None and self.classes._has_data():
+                        if self.qos_direction is not None:
                             return True
 
                         if self.policy_details is not None and self.policy_details._has_data():
                             return True
 
-                        if self.qos_direction is not None:
+                        if self.classes is not None and self.classes._has_data():
                             return True
 
                         return False
@@ -6567,23 +6567,30 @@ class PlatformQos(object):
                     """
                     QoS remote interface names
                     
-                    .. attribute:: interface_name
+                    .. attribute:: interface_name  <key>
                     
                     	The name of the remote interface
                     	**type**\: str
                     
                     	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
+                    .. attribute:: policy_name
+                    
+                    	Policy Name
+                    	**type**\: str
+                    
+                    	**range:** 0..64
+                    
+                    .. attribute:: virtual_output_queue_statistics_handle
+                    
+                    	Virtual output queue statistics handle
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
                     .. attribute:: interface_handle
                     
                     	Interface Handle
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: number_of_classes
-                    
-                    	Number of Classes
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -6595,24 +6602,17 @@ class PlatformQos(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: policy_name
+                    .. attribute:: number_of_classes
                     
-                    	Policy Name
-                    	**type**\: str
+                    	Number of Classes
+                    	**type**\: int
                     
-                    	**range:** 0..64
+                    	**range:** 0..4294967295
                     
                     .. attribute:: remote_class
                     
                     	Remote Class array
                     	**type**\: list of :py:class:`RemoteClass <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass>`
-                    
-                    .. attribute:: virtual_output_queue_statistics_handle
-                    
-                    	Virtual output queue statistics handle
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -6624,14 +6624,14 @@ class PlatformQos(object):
                     def __init__(self):
                         self.parent = None
                         self.interface_name = None
-                        self.interface_handle = None
-                        self.number_of_classes = None
-                        self.number_of_virtual_output_queues = None
                         self.policy_name = None
+                        self.virtual_output_queue_statistics_handle = None
+                        self.interface_handle = None
+                        self.number_of_virtual_output_queues = None
+                        self.number_of_classes = None
                         self.remote_class = YList()
                         self.remote_class.parent = self
                         self.remote_class.name = 'remote_class'
-                        self.virtual_output_queue_statistics_handle = None
 
 
                     class RemoteClass(object):
@@ -6652,21 +6652,16 @@ class PlatformQos(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: hardware_queue_limit
+                        .. attribute:: queue_limit
                         
-                        	Hardware queue limit in bytes
+                        	Default/Configured queue limit in bytes
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: hw_wred
+                        .. attribute:: hardware_queue_limit
                         
-                        	Hardware WRED profiles
-                        	**type**\: list of :py:class:`HwWred <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass.HwWred>`
-                        
-                        .. attribute:: queue_limit
-                        
-                        	Default/Configured queue limit in bytes
+                        	Hardware queue limit in bytes
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -6675,6 +6670,11 @@ class PlatformQos(object):
                         
                         	Default/Configured WRED profiles
                         	**type**\: list of :py:class:`Wred <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass.Wred>`
+                        
+                        .. attribute:: hw_wred
+                        
+                        	Hardware WRED profiles
+                        	**type**\: list of :py:class:`HwWred <ydk.models.ncs5500.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass.HwWred>`
                         
                         
 
@@ -6687,92 +6687,23 @@ class PlatformQos(object):
                             self.parent = None
                             self.class_id = None
                             self.cos_q = None
-                            self.hardware_queue_limit = None
-                            self.hw_wred = YList()
-                            self.hw_wred.parent = self
-                            self.hw_wred.name = 'hw_wred'
                             self.queue_limit = None
+                            self.hardware_queue_limit = None
                             self.wred = YList()
                             self.wred.parent = self
                             self.wred.name = 'wred'
-
-
-                        class HwWred(object):
-                            """
-                            Hardware WRED profiles
-                            
-                            .. attribute:: drop_probability
-                            
-                            	Drop Probability
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: max_threshold
-                            
-                            	Maximum Threshold
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: min_threshold
-                            
-                            	Minimum Threshold
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
-
-                            """
-
-                            _prefix = 'ncs5500-qos-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.drop_probability = None
-                                self.max_threshold = None
-                                self.min_threshold = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:hw-wred'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.drop_probability is not None:
-                                    return True
-
-                                if self.max_threshold is not None:
-                                    return True
-
-                                if self.min_threshold is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                return meta._meta_table['PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass.HwWred']['meta_info']
+                            self.hw_wred = YList()
+                            self.hw_wred.parent = self
+                            self.hw_wred.name = 'hw_wred'
 
 
                         class Wred(object):
                             """
                             Default/Configured WRED profiles
                             
-                            .. attribute:: drop_probability
+                            .. attribute:: min_threshold
                             
-                            	Drop Probability
+                            	Minimum Threshold
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -6784,9 +6715,9 @@ class PlatformQos(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: min_threshold
+                            .. attribute:: drop_probability
                             
-                            	Minimum Threshold
+                            	Drop Probability
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -6800,9 +6731,9 @@ class PlatformQos(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.drop_probability = None
-                                self.max_threshold = None
                                 self.min_threshold = None
+                                self.max_threshold = None
+                                self.drop_probability = None
 
                             @property
                             def _common_path(self):
@@ -6818,13 +6749,13 @@ class PlatformQos(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.drop_probability is not None:
+                                if self.min_threshold is not None:
                                     return True
 
                                 if self.max_threshold is not None:
                                     return True
 
-                                if self.min_threshold is not None:
+                                if self.drop_probability is not None:
                                     return True
 
                                 return False
@@ -6833,6 +6764,75 @@ class PlatformQos(object):
                             def _meta_info():
                                 from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
                                 return meta._meta_table['PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass.Wred']['meta_info']
+
+
+                        class HwWred(object):
+                            """
+                            Hardware WRED profiles
+                            
+                            .. attribute:: min_threshold
+                            
+                            	Minimum Threshold
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: max_threshold
+                            
+                            	Maximum Threshold
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: drop_probability
+                            
+                            	Drop Probability
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'ncs5500-qos-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.min_threshold = None
+                                self.max_threshold = None
+                                self.drop_probability = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ncs5500-qos-oper:hw-wred'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.min_threshold is not None:
+                                    return True
+
+                                if self.max_threshold is not None:
+                                    return True
+
+                                if self.drop_probability is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.ncs5500._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+                                return meta._meta_table['PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass.HwWred']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -6854,19 +6854,19 @@ class PlatformQos(object):
                             if self.cos_q is not None:
                                 return True
 
-                            if self.hardware_queue_limit is not None:
+                            if self.queue_limit is not None:
                                 return True
 
-                            if self.hw_wred is not None:
-                                for child_ref in self.hw_wred:
-                                    if child_ref._has_data():
-                                        return True
-
-                            if self.queue_limit is not None:
+                            if self.hardware_queue_limit is not None:
                                 return True
 
                             if self.wred is not None:
                                 for child_ref in self.wred:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.hw_wred is not None:
+                                for child_ref in self.hw_wred:
                                     if child_ref._has_data():
                                         return True
 
@@ -6896,25 +6896,25 @@ class PlatformQos(object):
                         if self.interface_name is not None:
                             return True
 
-                        if self.interface_handle is not None:
+                        if self.policy_name is not None:
                             return True
 
-                        if self.number_of_classes is not None:
+                        if self.virtual_output_queue_statistics_handle is not None:
+                            return True
+
+                        if self.interface_handle is not None:
                             return True
 
                         if self.number_of_virtual_output_queues is not None:
                             return True
 
-                        if self.policy_name is not None:
+                        if self.number_of_classes is not None:
                             return True
 
                         if self.remote_class is not None:
                             for child_ref in self.remote_class:
                                 if child_ref._has_data():
                                     return True
-
-                        if self.virtual_output_queue_statistics_handle is not None:
-                            return True
 
                         return False
 

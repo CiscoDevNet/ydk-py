@@ -7,7 +7,7 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
@@ -23,47 +23,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats',
             False, 
             [
-            _MetaInfoClassMember('match-data-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Incoming matched data rate in kbps
-                ''',
-                'match_data_rate',
-                'Cisco-IOS-XR-pbr-oper', False),
-            _MetaInfoClassMember('pre-policy-matched-bytes', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('transmit-packets', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Matched bytes before applying policy
+                '''                Transmitted packets (packets/bytes)
                 ''',
-                'pre_policy_matched_bytes',
-                'Cisco-IOS-XR-pbr-oper', False),
-            _MetaInfoClassMember('pre-policy-matched-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Matched pkts before applying policy
-                ''',
-                'pre_policy_matched_packets',
-                'Cisco-IOS-XR-pbr-oper', False),
-            _MetaInfoClassMember('total-drop-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped bytes (packets/bytes)
-                ''',
-                'total_drop_bytes',
-                'Cisco-IOS-XR-pbr-oper', False),
-            _MetaInfoClassMember('total-drop-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets (packets/bytes)
-                ''',
-                'total_drop_packets',
-                'Cisco-IOS-XR-pbr-oper', False),
-            _MetaInfoClassMember('total-drop-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total drop rate (packets/bytes)
-                ''',
-                'total_drop_rate',
-                'Cisco-IOS-XR-pbr-oper', False),
-            _MetaInfoClassMember('total-transmit-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total transmit rate in kbps
-                ''',
-                'total_transmit_rate',
+                'transmit_packets',
                 'Cisco-IOS-XR-pbr-oper', False),
             _MetaInfoClassMember('transmit-bytes', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
@@ -71,11 +35,47 @@ _meta_table = {
                 ''',
                 'transmit_bytes',
                 'Cisco-IOS-XR-pbr-oper', False),
-            _MetaInfoClassMember('transmit-packets', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('total-drop-packets', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets (packets/bytes)
+                '''                Dropped packets (packets/bytes)
                 ''',
-                'transmit_packets',
+                'total_drop_packets',
+                'Cisco-IOS-XR-pbr-oper', False),
+            _MetaInfoClassMember('total-drop-bytes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped bytes (packets/bytes)
+                ''',
+                'total_drop_bytes',
+                'Cisco-IOS-XR-pbr-oper', False),
+            _MetaInfoClassMember('total-drop-rate', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total drop rate (packets/bytes)
+                ''',
+                'total_drop_rate',
+                'Cisco-IOS-XR-pbr-oper', False),
+            _MetaInfoClassMember('match-data-rate', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Incoming matched data rate in kbps
+                ''',
+                'match_data_rate',
+                'Cisco-IOS-XR-pbr-oper', False),
+            _MetaInfoClassMember('total-transmit-rate', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total transmit rate in kbps
+                ''',
+                'total_transmit_rate',
+                'Cisco-IOS-XR-pbr-oper', False),
+            _MetaInfoClassMember('pre-policy-matched-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Matched pkts before applying policy
+                ''',
+                'pre_policy_matched_packets',
+                'Cisco-IOS-XR-pbr-oper', False),
+            _MetaInfoClassMember('pre-policy-matched-bytes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Matched bytes before applying policy
+                ''',
+                'pre_policy_matched_bytes',
                 'Cisco-IOS-XR-pbr-oper', False),
             ],
             'Cisco-IOS-XR-pbr-oper',
@@ -88,29 +88,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats',
             False, 
             [
-            _MetaInfoClassMember('drop-bytes', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('rqst-rcvd-packets', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Dropped bytes
+                '''                TotalNum of pkts HTTP request received
                 ''',
-                'drop_bytes',
-                'Cisco-IOS-XR-pbr-oper', False),
-            _MetaInfoClassMember('drop-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped  packets
-                ''',
-                'drop_packets',
-                'Cisco-IOS-XR-pbr-oper', False),
-            _MetaInfoClassMember('resp-sent-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                TotalNum of Bytes HTTPR response sent
-                ''',
-                'resp_sent_bytes',
-                'Cisco-IOS-XR-pbr-oper', False),
-            _MetaInfoClassMember('resp-sent-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                TotalNum of pkts HTTPR response sent
-                ''',
-                'resp_sent_packets',
+                'rqst_rcvd_packets',
                 'Cisco-IOS-XR-pbr-oper', False),
             _MetaInfoClassMember('rqst-rcvd-bytes', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
@@ -118,11 +100,29 @@ _meta_table = {
                 ''',
                 'rqst_rcvd_bytes',
                 'Cisco-IOS-XR-pbr-oper', False),
-            _MetaInfoClassMember('rqst-rcvd-packets', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('drop-packets', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                TotalNum of pkts HTTP request received
+                '''                Dropped  packets
                 ''',
-                'rqst_rcvd_packets',
+                'drop_packets',
+                'Cisco-IOS-XR-pbr-oper', False),
+            _MetaInfoClassMember('drop-bytes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped bytes
+                ''',
+                'drop_bytes',
+                'Cisco-IOS-XR-pbr-oper', False),
+            _MetaInfoClassMember('resp-sent-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                TotalNum of pkts HTTPR response sent
+                ''',
+                'resp_sent_packets',
+                'Cisco-IOS-XR-pbr-oper', False),
+            _MetaInfoClassMember('resp-sent-bytes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                TotalNum of Bytes HTTPR response sent
+                ''',
+                'resp_sent_bytes',
                 'Cisco-IOS-XR-pbr-oper', False),
             ],
             'Cisco-IOS-XR-pbr-oper',
@@ -135,17 +135,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat',
             False, 
             [
-            _MetaInfoClassMember('class-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                ClassId
+            _MetaInfoClassMember('general-stats', REFERENCE_CLASS, 'GeneralStats' , 'ydk.models.pbr.Cisco_IOS_XR_pbr_oper', 'Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats', 
+                [], [], 
+                '''                general stats
                 ''',
-                'class_id',
+                'general_stats',
                 'Cisco-IOS-XR-pbr-oper', False),
-            _MetaInfoClassMember('class-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 65)], [], 
-                '''                ClassName
+            _MetaInfoClassMember('httpr-stats', REFERENCE_CLASS, 'HttprStats' , 'ydk.models.pbr.Cisco_IOS_XR_pbr_oper', 'Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats', 
+                [], [], 
+                '''                HTTPR stats
                 ''',
-                'class_name',
+                'httpr_stats',
                 'Cisco-IOS-XR-pbr-oper', False),
             _MetaInfoClassMember('counter-validity-bitmask', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
@@ -169,17 +169,17 @@ _meta_table = {
                 ''',
                 'counter_validity_bitmask',
                 'Cisco-IOS-XR-pbr-oper', False),
-            _MetaInfoClassMember('general-stats', REFERENCE_CLASS, 'GeneralStats' , 'ydk.models.pbr.Cisco_IOS_XR_pbr_oper', 'Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats', 
-                [], [], 
-                '''                general stats
+            _MetaInfoClassMember('class-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 65)], [], 
+                '''                ClassName
                 ''',
-                'general_stats',
+                'class_name',
                 'Cisco-IOS-XR-pbr-oper', False),
-            _MetaInfoClassMember('httpr-stats', REFERENCE_CLASS, 'HttprStats' , 'ydk.models.pbr.Cisco_IOS_XR_pbr_oper', 'Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats', 
-                [], [], 
-                '''                HTTPR stats
+            _MetaInfoClassMember('class-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ClassId
                 ''',
-                'httpr_stats',
+                'class_id',
                 'Cisco-IOS-XR-pbr-oper', False),
             ],
             'Cisco-IOS-XR-pbr-oper',
@@ -192,12 +192,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input',
             False, 
             [
-            _MetaInfoClassMember('class-stat', REFERENCE_LIST, 'ClassStat' , 'ydk.models.pbr.Cisco_IOS_XR_pbr_oper', 'Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat', 
-                [], [], 
-                '''                Array of classes contained in policy
-                ''',
-                'class_stat',
-                'Cisco-IOS-XR-pbr-oper', False),
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 42)], [], 
                 '''                NodeName
@@ -221,6 +215,12 @@ _meta_table = {
                 '''                StateDescription
                 ''',
                 'state_description',
+                'Cisco-IOS-XR-pbr-oper', False),
+            _MetaInfoClassMember('class-stat', REFERENCE_LIST, 'ClassStat' , 'ydk.models.pbr.Cisco_IOS_XR_pbr_oper', 'Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat', 
+                [], [], 
+                '''                Array of classes contained in policy
+                ''',
+                'class_stat',
                 'Cisco-IOS-XR-pbr-oper', False),
             ],
             'Cisco-IOS-XR-pbr-oper',

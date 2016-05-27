@@ -25,7 +25,9 @@ from errors import YPYDataValidationError
 
 
 class DELETE(object):
-    '''Marker class used to mark nodes that are to be deleted '''
+    '''Marker class used to mark nodes that are to be deleted 
+    Assign DELETE object to a mark a leaf for deletion.
+    A CRUD update operation will delete the leaf from the device it is on.'''
     pass
 
 class READ(object):
@@ -185,8 +187,8 @@ class FixedBitsDict(object):
 class YList(list):
     """ Represents a list with support for hanging a parent 
     
-        All YANG based entity classes that have lists or leaf-lists 
-        in them use YList to represent the list.
+        All YANG based entity classes that have lists in them use YList
+        to represent the list.
 
         The "list" statement is used to define an interior data node in the
         schema tree.  A list node may exist in multiple instances in the data
@@ -197,15 +199,110 @@ class YList(list):
         A list entry is uniquely identified by the values of the list's keys,
         if defined.
 
-        The "leaf-list" statement is used to define an
-        array of a particular type.  The "leaf-list" statement takes one
-        argument, which is an identifier, followed by a block of
-        substatements that holds detailed leaf-list information.
-        
     """
     def __init__(self):
         super(YList, self).__init__()
         self.parent = None
-        self.property_name = None
+        self.name = None
+
+    def __getslice__(self, i, j):
+        ret = YList()
+        ret.parent = self.parent
+        ret.name = self.name
+        for item in super(YList, self).__getslice__(i, j):
+            ret.append(item)
+        return ret
+
+class YListItem(object):
+    def __init__(self, item, parent, name):
+        self.item = item
+        self.parent = parent
+        self.name = name
+
+    def __eq__(self, other):
+        return ( isinstance(other ,self.__class__) and self.item == other.item)
+
+    def __repr__(self):
+        return str(self.item)
+
+class YLeafList(YList):
+    """ Represents an associate list with support for hanging a parent
+
+        Leaf-list in YANG use YLeafList to represetn the list.
+
+        The "leaf-list" statement is used to define an
+        array of a particular type.  The "leaf-list" statement takes one
+        argument, which is an identifier, followed by a block of
+        substatements that holds detailed leaf-list information. Values in
+        leaf-list should be unique.
+
+    """
+    def __init__(self):
+        super(YLeafList, self).__init__()
+
+    def __contains__(self, item):
+        for i in super(YLeafList, self).__iter__():
+            if i.item == item:
+                return True
+        return False
+
+    def __setitem__(self, key, item):
+        lst_item = YListItem(item, self.parent, self.name)
+        super(YLeafList, self).__setitem__(key, lst_item)
+
+    def __getitem__(self, key):
+        return super(YLeafList, self).__getitem__(key)
+
+    def __getslice__(self, i, j):
+        # override __getslice__ implemented by CPython
+        ret = YLeafList()
+        ret.parent = self.parent
+        ret.name = self.name
+        for item in super(YLeafList, self).__getslice__(i, j):
+            ret.append(item)
+        return ret
+
+    def append(self, item):
+        if item in self:
+            raise YPYDataValidationError("{} already in list".format(item))
+        lst_item = YListItem(item, self.parent, self.name)
+        super(YLeafList, self).append(lst_item)
+
+    def extend(self, items):
+        for item in items:
+            self.append(item)
 
 
+    def pop(self, i=-1):
+        lst_item = super(YLeafList, self).pop(i)
+        return lst_item.item
+
+    def remove(self, item):
+        removed = False
+        for i in super(YLeafList, self).__iter__():
+            if i.item == item:
+                super(YLeafList, self).remove(i)
+                removed = True
+        if not removed:
+            raise ValueError("list.remove(x): {} not in list".format(item))
+
+    def insert(self, key, item):
+        if item in self:
+            raise YPYDataValidationError("{} already in list".format(item))
+        lst_item = YListItem(item, self.parent, self.name)
+        super(YLeafList, self).insert(key, lst_item)
+
+    def index(self, item):
+        idx = 0
+        for i in super(YLeafList, self).__iter__():
+            if i.item == item:
+                return idx
+            idx += 1
+        raise ValueError("{} is not in list".format(item))
+
+    def count(self, item):
+        cnt = 0
+        for i in super(YLeafList, self).__iter__():
+            if i.item == item:
+                cnt += 1
+        return cnt

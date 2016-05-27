@@ -23,7 +23,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -196,22 +196,22 @@ class SpanMonitorSession(object):
             """
             Configuration for a particular Monitor Session
             
-            .. attribute:: session
+            .. attribute:: session  <key>
             
             	Session Name
             	**type**\: str
             
             	**range:** 0..79
             
-            .. attribute:: class_
-            
-            	Enable a Monitor Session.  Setting this item causes the Monitor Session to be created
-            	**type**\: :py:class:`SpanSessionClassEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
-            
             .. attribute:: destination
             
             	Specify a destination
             	**type**\: :py:class:`Destination <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanMonitorSession.Sessions.Session.Destination>`
+            
+            .. attribute:: class_
+            
+            	Enable a Monitor Session.  Setting this item causes the Monitor Session to be created
+            	**type**\: :py:class:`SpanSessionClassEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
             
             
 
@@ -223,14 +223,19 @@ class SpanMonitorSession(object):
             def __init__(self):
                 self.parent = None
                 self.session = None
-                self.class_ = None
                 self.destination = SpanMonitorSession.Sessions.Session.Destination()
                 self.destination.parent = self
+                self.class_ = None
 
 
             class Destination(object):
                 """
                 Specify a destination
+                
+                .. attribute:: destination_type
+                
+                	Specify the type of destination
+                	**type**\: :py:class:`SpanDestinationEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanDestinationEnum>`
                 
                 .. attribute:: destination_interface_name
                 
@@ -253,11 +258,6 @@ class SpanMonitorSession(object):
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                .. attribute:: destination_type
-                
-                	Specify the type of destination
-                	**type**\: :py:class:`SpanDestinationEnum <ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanDestinationEnum>`
-                
                 
 
                 """
@@ -267,10 +267,10 @@ class SpanMonitorSession(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.destination_type = None
                     self.destination_interface_name = None
                     self.destination_ipv4_address = None
                     self.destination_ipv6_address = None
-                    self.destination_type = None
 
                 @property
                 def _common_path(self):
@@ -286,6 +286,9 @@ class SpanMonitorSession(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.destination_type is not None:
+                        return True
+
                     if self.destination_interface_name is not None:
                         return True
 
@@ -293,9 +296,6 @@ class SpanMonitorSession(object):
                         return True
 
                     if self.destination_ipv6_address is not None:
-                        return True
-
-                    if self.destination_type is not None:
                         return True
 
                     return False
@@ -322,10 +322,10 @@ class SpanMonitorSession(object):
                 if self.session is not None:
                     return True
 
-                if self.class_ is not None:
+                if self.destination is not None and self.destination._has_data():
                     return True
 
-                if self.destination is not None and self.destination._has_data():
+                if self.class_ is not None:
                     return True
 
                 return False

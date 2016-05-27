@@ -11,11 +11,32 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
 
+
+
+class OpenconfigSoftwareComponent_Identity(object):
+    """
+    Base identity for software\-related components in a managed
+    device
+    
+    
+
+    """
+
+    _prefix = 'oc-inv-types'
+    _revision = '2015-12-18'
+
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_inventory_types as meta
+        return meta._meta_table['OpenconfigSoftwareComponent_Identity']['meta_info']
 
 
 class OpenconfigHardwareComponent_Identity(object):
@@ -40,10 +61,9 @@ class OpenconfigHardwareComponent_Identity(object):
         return meta._meta_table['OpenconfigHardwareComponent_Identity']['meta_info']
 
 
-class OpenconfigSoftwareComponent_Identity(object):
+class Cpu_Identity(OpenconfigHardwareComponent_Identity):
     """
-    Base identity for software\-related components in a managed
-    device
+    Processing unit, e.g., a management processor
     
     
 
@@ -53,12 +73,73 @@ class OpenconfigSoftwareComponent_Identity(object):
     _revision = '2015-12-18'
 
     def __init__(self):
-        pass
+        OpenconfigHardwareComponent_Identity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_inventory_types as meta
-        return meta._meta_table['OpenconfigSoftwareComponent_Identity']['meta_info']
+        return meta._meta_table['Cpu_Identity']['meta_info']
+
+
+class Module_Identity(OpenconfigHardwareComponent_Identity):
+    """
+    Replaceable hardware module, e.g., a daughtercard
+    
+    
+
+    """
+
+    _prefix = 'oc-inv-types'
+    _revision = '2015-12-18'
+
+    def __init__(self):
+        OpenconfigHardwareComponent_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_inventory_types as meta
+        return meta._meta_table['Module_Identity']['meta_info']
+
+
+class Port_Identity(OpenconfigHardwareComponent_Identity):
+    """
+    Physical port, e.g., for attaching pluggables and networking
+    cables
+    
+    
+
+    """
+
+    _prefix = 'oc-inv-types'
+    _revision = '2015-12-18'
+
+    def __init__(self):
+        OpenconfigHardwareComponent_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_inventory_types as meta
+        return meta._meta_table['Port_Identity']['meta_info']
+
+
+class Linecard_Identity(OpenconfigHardwareComponent_Identity):
+    """
+    Linecard component, typically inserted into a chassis slot
+    
+    
+
+    """
+
+    _prefix = 'oc-inv-types'
+    _revision = '2015-12-18'
+
+    def __init__(self):
+        OpenconfigHardwareComponent_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_inventory_types as meta
+        return meta._meta_table['Linecard_Identity']['meta_info']
 
 
 class Backplane_Identity(OpenconfigHardwareComponent_Identity):
@@ -102,26 +183,6 @@ class Chassis_Identity(OpenconfigHardwareComponent_Identity):
         return meta._meta_table['Chassis_Identity']['meta_info']
 
 
-class Cpu_Identity(OpenconfigHardwareComponent_Identity):
-    """
-    Processing unit, e.g., a management processor
-    
-    
-
-    """
-
-    _prefix = 'oc-inv-types'
-    _revision = '2015-12-18'
-
-    def __init__(self):
-        OpenconfigHardwareComponent_Identity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_inventory_types as meta
-        return meta._meta_table['Cpu_Identity']['meta_info']
-
-
 class Fan_Identity(OpenconfigHardwareComponent_Identity):
     """
     Cooling fan, or could be some other heat\-reduction component
@@ -140,46 +201,6 @@ class Fan_Identity(OpenconfigHardwareComponent_Identity):
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_inventory_types as meta
         return meta._meta_table['Fan_Identity']['meta_info']
-
-
-class Linecard_Identity(OpenconfigHardwareComponent_Identity):
-    """
-    Linecard component, typically inserted into a chassis slot
-    
-    
-
-    """
-
-    _prefix = 'oc-inv-types'
-    _revision = '2015-12-18'
-
-    def __init__(self):
-        OpenconfigHardwareComponent_Identity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_inventory_types as meta
-        return meta._meta_table['Linecard_Identity']['meta_info']
-
-
-class Module_Identity(OpenconfigHardwareComponent_Identity):
-    """
-    Replaceable hardware module, e.g., a daughtercard
-    
-    
-
-    """
-
-    _prefix = 'oc-inv-types'
-    _revision = '2015-12-18'
-
-    def __init__(self):
-        OpenconfigHardwareComponent_Identity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_inventory_types as meta
-        return meta._meta_table['Module_Identity']['meta_info']
 
 
 class OperatingSystem_Identity(OpenconfigSoftwareComponent_Identity):
@@ -202,10 +223,9 @@ class OperatingSystem_Identity(OpenconfigSoftwareComponent_Identity):
         return meta._meta_table['OperatingSystem_Identity']['meta_info']
 
 
-class Port_Identity(OpenconfigHardwareComponent_Identity):
+class Transceiver_Identity(OpenconfigHardwareComponent_Identity):
     """
-    Physical port, e.g., for attaching pluggables and networking
-    cables
+    Pluggable module present in a port
     
     
 
@@ -220,7 +240,7 @@ class Port_Identity(OpenconfigHardwareComponent_Identity):
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_inventory_types as meta
-        return meta._meta_table['Port_Identity']['meta_info']
+        return meta._meta_table['Transceiver_Identity']['meta_info']
 
 
 class PowerSupply_Identity(OpenconfigHardwareComponent_Identity):
@@ -261,25 +281,5 @@ class Sensor_Identity(OpenconfigHardwareComponent_Identity):
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_inventory_types as meta
         return meta._meta_table['Sensor_Identity']['meta_info']
-
-
-class Transceiver_Identity(OpenconfigHardwareComponent_Identity):
-    """
-    Pluggable module present in a port
-    
-    
-
-    """
-
-    _prefix = 'oc-inv-types'
-    _revision = '2015-12-18'
-
-    def __init__(self):
-        OpenconfigHardwareComponent_Identity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_inventory_types as meta
-        return meta._meta_table['Transceiver_Identity']['meta_info']
 
 

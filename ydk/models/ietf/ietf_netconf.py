@@ -23,7 +23,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -342,17 +342,19 @@ class ErrorTagTypeEnum(Enum):
 
 
 
-class CancelCommitRpc(object):
+class GetConfigRpc(object):
     """
-    This operation is used to cancel an ongoing confirmed commit.
-    If the confirmed commit is persistent, the parameter
-    'persist\-id' must be given, and it must match the value of the
-    'persist' parameter.
+    Retrieve all or part of a specified configuration.
     
     .. attribute:: input
     
     	
-    	**type**\: :py:class:`Input <ydk.models.ietf.ietf_netconf.CancelCommitRpc.Input>`
+    	**type**\: :py:class:`Input <ydk.models.ietf.ietf_netconf.GetConfigRpc.Input>`
+    
+    .. attribute:: output
+    
+    	
+    	**type**\: :py:class:`Output <ydk.models.ietf.ietf_netconf.GetConfigRpc.Output>`
     
     
 
@@ -362,7 +364,230 @@ class CancelCommitRpc(object):
     _revision = '2011-06-01'
 
     def __init__(self):
-        self.input = CancelCommitRpc.Input()
+        self.input = GetConfigRpc.Input()
+        self.input.parent = self
+        self.output = GetConfigRpc.Output()
+        self.output.parent = self
+
+        self.is_rpc = True
+
+
+    class Input(object):
+        """
+        
+        
+        .. attribute:: source
+        
+        	Particular configuration to retrieve
+        	**type**\: :py:class:`Source <ydk.models.ietf.ietf_netconf.GetConfigRpc.Input.Source>`
+        
+        .. attribute:: filter
+        
+        	Subtree or XPath filter to use
+        	**type**\: anyxml
+        
+        .. attribute:: with_defaults
+        
+        	The explicit defaults processing mode requested
+        	**type**\: :py:class:`WithDefaultsModeEnum <ydk.models.ietf.ietf_netconf_with_defaults.WithDefaultsModeEnum>`
+        
+        
+
+        """
+
+        _prefix = 'nc'
+        _revision = '2011-06-01'
+
+        def __init__(self):
+            self.parent = None
+            self.source = GetConfigRpc.Input.Source()
+            self.source.parent = self
+            self.filter = None
+            self.with_defaults = None
+
+
+        class Source(object):
+            """
+            Particular configuration to retrieve.
+            
+            .. attribute:: candidate
+            
+            	The candidate configuration is the config source
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: running
+            
+            	The running configuration is the config source
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: startup
+            
+            	The startup configuration is the config source. This is optional\-to\-implement on the server because not all servers will support filtering for this datastore
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'nc'
+            _revision = '2011-06-01'
+
+            def __init__(self):
+                self.parent = None
+                self.candidate = None
+                self.running = None
+                self.startup = None
+
+            @property
+            def _common_path(self):
+
+                return '/ietf-netconf:get-config/ietf-netconf:input/ietf-netconf:source'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                if self.parent is None:
+                    raise YPYError('Parent reference is needed to determine if entity has configuration data')
+                return self.parent.is_config()
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.candidate is not None:
+                    return True
+
+                if self.running is not None:
+                    return True
+
+                if self.startup is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.ietf._meta import _ietf_netconf as meta
+                return meta._meta_table['GetConfigRpc.Input.Source']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/ietf-netconf:get-config/ietf-netconf:input'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            if self.parent is None:
+                raise YPYError('Parent reference is needed to determine if entity has configuration data')
+            return self.parent.is_config()
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.source is not None and self.source._has_data():
+                return True
+
+            if self.filter is not None:
+                return True
+
+            if self.with_defaults is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.ietf._meta import _ietf_netconf as meta
+            return meta._meta_table['GetConfigRpc.Input']['meta_info']
+
+
+    class Output(object):
+        """
+        
+        
+        .. attribute:: data
+        
+        	Copy of the source datastore subset that matched the filter criteria (if any).  An empty data container indicates that the request did not produce any results
+        	**type**\: anyxml
+        
+        
+
+        """
+
+        _prefix = 'nc'
+        _revision = '2011-06-01'
+
+        def __init__(self):
+            self.parent = None
+            self.data = None
+
+        @property
+        def _common_path(self):
+
+            return '/ietf-netconf:get-config/ietf-netconf:output'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            if self.parent is None:
+                raise YPYError('Parent reference is needed to determine if entity has configuration data')
+            return self.parent.is_config()
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.data is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.ietf._meta import _ietf_netconf as meta
+            return meta._meta_table['GetConfigRpc.Output']['meta_info']
+
+    @property
+    def _common_path(self):
+
+        return '/ietf-netconf:get-config'
+
+    def is_config(self):
+        ''' Returns True if this instance represents config data else returns False '''
+        return True
+
+    def _has_data(self):
+        if not self.is_config():
+            return False
+        if self.input is not None and self.input._has_data():
+            return True
+
+        if self.output is not None and self.output._has_data():
+            return True
+
+        return False
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ietf._meta import _ietf_netconf as meta
+        return meta._meta_table['GetConfigRpc']['meta_info']
+
+
+class EditConfigRpc(object):
+    """
+    The <edit\-config> operation loads all or part of a specified
+    configuration to the specified target configuration.
+    
+    .. attribute:: input
+    
+    	
+    	**type**\: :py:class:`Input <ydk.models.ietf.ietf_netconf.EditConfigRpc.Input>`
+    
+    
+
+    """
+
+    _prefix = 'nc'
+    _revision = '2011-06-01'
+
+    def __init__(self):
+        self.input = EditConfigRpc.Input()
         self.input.parent = self
 
         self.is_rpc = True
@@ -372,9 +597,34 @@ class CancelCommitRpc(object):
         """
         
         
-        .. attribute:: persist_id
+        .. attribute:: target
         
-        	This parameter is given in order to cancel a persistent confirmed commit.  The value must be equal to the value given in the 'persist' parameter to the <commit> operation. If it does not match, the operation fails with an 'invalid\-value' error
+        	Particular configuration to edit
+        	**type**\: :py:class:`Target <ydk.models.ietf.ietf_netconf.EditConfigRpc.Input.Target>`
+        
+        .. attribute:: default_operation
+        
+        	The default operation to use
+        	**type**\: :py:class:`DefaultOperationEnum <ydk.models.ietf.ietf_netconf.EditConfigRpc.Input.DefaultOperationEnum>`
+        
+        .. attribute:: test_option
+        
+        	The test option to use
+        	**type**\: :py:class:`TestOptionEnum <ydk.models.ietf.ietf_netconf.EditConfigRpc.Input.TestOptionEnum>`
+        
+        .. attribute:: error_option
+        
+        	The error option to use
+        	**type**\: :py:class:`ErrorOptionEnum <ydk.models.ietf.ietf_netconf.EditConfigRpc.Input.ErrorOptionEnum>`
+        
+        .. attribute:: config
+        
+        	Inline Config content
+        	**type**\: anyxml
+        
+        .. attribute:: url
+        
+        	URL\-based config content
         	**type**\: str
         
         
@@ -386,12 +636,177 @@ class CancelCommitRpc(object):
 
         def __init__(self):
             self.parent = None
-            self.persist_id = None
+            self.target = EditConfigRpc.Input.Target()
+            self.target.parent = self
+            self.default_operation = None
+            self.test_option = None
+            self.error_option = None
+            self.config = None
+            self.url = None
+
+        class DefaultOperationEnum(Enum):
+            """
+            DefaultOperationEnum
+
+            The default operation to use.
+
+            .. data:: MERGE = 0
+
+            	The default operation is merge.
+
+            .. data:: REPLACE = 1
+
+            	The default operation is replace.
+
+            .. data:: NONE = 2
+
+            	There is no default operation.
+
+            """
+
+            MERGE = 0
+
+            REPLACE = 1
+
+            NONE = 2
+
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.ietf._meta import _ietf_netconf as meta
+                return meta._meta_table['EditConfigRpc.Input.DefaultOperationEnum']
+
+
+        class ErrorOptionEnum(Enum):
+            """
+            ErrorOptionEnum
+
+            The error option to use.
+
+            .. data:: STOP_ON_ERROR = 0
+
+            	The server will stop on errors.
+
+            .. data:: CONTINUE_ON_ERROR = 1
+
+            	The server may continue on errors.
+
+            .. data:: ROLLBACK_ON_ERROR = 2
+
+            	The server will roll back on errors.
+
+            	This value can only be used if the 'rollback-on-error'
+
+            	feature is supported.
+
+            """
+
+            STOP_ON_ERROR = 0
+
+            CONTINUE_ON_ERROR = 1
+
+            ROLLBACK_ON_ERROR = 2
+
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.ietf._meta import _ietf_netconf as meta
+                return meta._meta_table['EditConfigRpc.Input.ErrorOptionEnum']
+
+
+        class TestOptionEnum(Enum):
+            """
+            TestOptionEnum
+
+            The test option to use.
+
+            .. data:: TEST_THEN_SET = 0
+
+            	The server will test and then set if no errors.
+
+            .. data:: SET = 1
+
+            	The server will set without a test first.
+
+            .. data:: TEST_ONLY = 2
+
+            	The server will only test and not set, even
+
+            	if there are no errors.
+
+            """
+
+            TEST_THEN_SET = 0
+
+            SET = 1
+
+            TEST_ONLY = 2
+
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.ietf._meta import _ietf_netconf as meta
+                return meta._meta_table['EditConfigRpc.Input.TestOptionEnum']
+
+
+
+        class Target(object):
+            """
+            Particular configuration to edit.
+            
+            .. attribute:: candidate
+            
+            	The candidate configuration is the config target
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: running
+            
+            	The running configuration is the config source
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'nc'
+            _revision = '2011-06-01'
+
+            def __init__(self):
+                self.parent = None
+                self.candidate = None
+                self.running = None
+
+            @property
+            def _common_path(self):
+
+                return '/ietf-netconf:edit-config/ietf-netconf:input/ietf-netconf:target'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                if self.parent is None:
+                    raise YPYError('Parent reference is needed to determine if entity has configuration data')
+                return self.parent.is_config()
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.candidate is not None:
+                    return True
+
+                if self.running is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.ietf._meta import _ietf_netconf as meta
+                return meta._meta_table['EditConfigRpc.Input.Target']['meta_info']
 
         @property
         def _common_path(self):
 
-            return '/ietf-netconf:cancel-commit/ietf-netconf:input'
+            return '/ietf-netconf:edit-config/ietf-netconf:input'
 
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
@@ -402,7 +817,22 @@ class CancelCommitRpc(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.persist_id is not None:
+            if self.target is not None and self.target._has_data():
+                return True
+
+            if self.default_operation is not None:
+                return True
+
+            if self.test_option is not None:
+                return True
+
+            if self.error_option is not None:
+                return True
+
+            if self.config is not None:
+                return True
+
+            if self.url is not None:
                 return True
 
             return False
@@ -410,12 +840,12 @@ class CancelCommitRpc(object):
         @staticmethod
         def _meta_info():
             from ydk.models.ietf._meta import _ietf_netconf as meta
-            return meta._meta_table['CancelCommitRpc.Input']['meta_info']
+            return meta._meta_table['EditConfigRpc.Input']['meta_info']
 
     @property
     def _common_path(self):
 
-        return '/ietf-netconf:cancel-commit'
+        return '/ietf-netconf:edit-config'
 
     def is_config(self):
         ''' Returns True if this instance represents config data else returns False '''
@@ -432,162 +862,7 @@ class CancelCommitRpc(object):
     @staticmethod
     def _meta_info():
         from ydk.models.ietf._meta import _ietf_netconf as meta
-        return meta._meta_table['CancelCommitRpc']['meta_info']
-
-
-class CloseSessionRpc(object):
-    """
-    Request graceful termination of a NETCONF session.
-    
-    
-
-    """
-
-    _prefix = 'nc'
-    _revision = '2011-06-01'
-
-    def __init__(self):
-
-        self.is_rpc = True
-
-    @property
-    def _common_path(self):
-
-        return '/ietf-netconf:close-session'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
-        if not self.is_config():
-            return False
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_netconf as meta
-        return meta._meta_table['CloseSessionRpc']['meta_info']
-
-
-class CommitRpc(object):
-    """
-    Commit the candidate configuration as the device's new
-    current configuration.
-    
-    .. attribute:: input
-    
-    	
-    	**type**\: :py:class:`Input <ydk.models.ietf.ietf_netconf.CommitRpc.Input>`
-    
-    
-
-    """
-
-    _prefix = 'nc'
-    _revision = '2011-06-01'
-
-    def __init__(self):
-        self.input = CommitRpc.Input()
-        self.input.parent = self
-
-        self.is_rpc = True
-
-
-    class Input(object):
-        """
-        
-        
-        .. attribute:: confirm_timeout
-        
-        	The timeout interval for a confirmed commit
-        	**type**\: int
-        
-        	**range:** 1..4294967295
-        
-        .. attribute:: confirmed
-        
-        	Requests a confirmed commit
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-        
-        .. attribute:: persist
-        
-        	This parameter is used to make a confirmed commit persistent.  A persistent confirmed commit is not aborted if the NETCONF session terminates.  The only way to abort a persistent confirmed commit is to let the timer expire, or to use the <cancel\-commit> operation.  The value of this parameter is a token that must be given in the 'persist\-id' parameter of <commit> or <cancel\-commit> operations in order to confirm or cancel the persistent confirmed commit.  The token should be a random string
-        	**type**\: str
-        
-        .. attribute:: persist_id
-        
-        	This parameter is given in order to commit a persistent confirmed commit.  The value must be equal to the value given in the 'persist' parameter to the <commit> operation. If it does not match, the operation fails with an 'invalid\-value' error
-        	**type**\: str
-        
-        
-
-        """
-
-        _prefix = 'nc'
-        _revision = '2011-06-01'
-
-        def __init__(self):
-            self.parent = None
-            self.confirm_timeout = None
-            self.confirmed = None
-            self.persist = None
-            self.persist_id = None
-
-        @property
-        def _common_path(self):
-
-            return '/ietf-netconf:commit/ietf-netconf:input'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.confirm_timeout is not None:
-                return True
-
-            if self.confirmed is not None:
-                return True
-
-            if self.persist is not None:
-                return True
-
-            if self.persist_id is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.ietf._meta import _ietf_netconf as meta
-            return meta._meta_table['CommitRpc.Input']['meta_info']
-
-    @property
-    def _common_path(self):
-
-        return '/ietf-netconf:commit'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
-        if not self.is_config():
-            return False
-        if self.input is not None and self.input._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_netconf as meta
-        return meta._meta_table['CommitRpc']['meta_info']
+        return meta._meta_table['EditConfigRpc']['meta_info']
 
 
 class CopyConfigRpc(object):
@@ -618,15 +893,15 @@ class CopyConfigRpc(object):
         """
         
         
-        .. attribute:: source
-        
-        	Particular configuration to copy from
-        	**type**\: :py:class:`Source <ydk.models.ietf.ietf_netconf.CopyConfigRpc.Input.Source>`
-        
         .. attribute:: target
         
         	Particular configuration to copy to
         	**type**\: :py:class:`Target <ydk.models.ietf.ietf_netconf.CopyConfigRpc.Input.Target>`
+        
+        .. attribute:: source
+        
+        	Particular configuration to copy from
+        	**type**\: :py:class:`Source <ydk.models.ietf.ietf_netconf.CopyConfigRpc.Input.Source>`
         
         .. attribute:: with_defaults
         
@@ -642,92 +917,11 @@ class CopyConfigRpc(object):
 
         def __init__(self):
             self.parent = None
-            self.source = CopyConfigRpc.Input.Source()
-            self.source.parent = self
             self.target = CopyConfigRpc.Input.Target()
             self.target.parent = self
+            self.source = CopyConfigRpc.Input.Source()
+            self.source.parent = self
             self.with_defaults = None
-
-
-        class Source(object):
-            """
-            Particular configuration to copy from.
-            
-            .. attribute:: candidate
-            
-            	The candidate configuration is the config source
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: config
-            
-            	Inline Config content\: <config> element.  Represents an entire configuration datastore, not a subset of the running datastore
-            	**type**\: anyxml
-            
-            .. attribute:: running
-            
-            	The running configuration is the config source
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: startup
-            
-            	The startup configuration is the config source
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: url
-            
-            	The URL\-based configuration is the config source
-            	**type**\: str
-            
-            
-
-            """
-
-            _prefix = 'nc'
-            _revision = '2011-06-01'
-
-            def __init__(self):
-                self.parent = None
-                self.candidate = None
-                self.config = None
-                self.running = None
-                self.startup = None
-                self.url = None
-
-            @property
-            def _common_path(self):
-
-                return '/ietf-netconf:copy-config/ietf-netconf:input/ietf-netconf:source'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                if self.parent is None:
-                    raise YPYError('Parent reference is needed to determine if entity has configuration data')
-                return self.parent.is_config()
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.candidate is not None:
-                    return True
-
-                if self.config is not None:
-                    return True
-
-                if self.running is not None:
-                    return True
-
-                if self.startup is not None:
-                    return True
-
-                if self.url is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.ietf._meta import _ietf_netconf as meta
-                return meta._meta_table['CopyConfigRpc.Input.Source']['meta_info']
 
 
         class Target(object):
@@ -801,6 +995,87 @@ class CopyConfigRpc(object):
                 from ydk.models.ietf._meta import _ietf_netconf as meta
                 return meta._meta_table['CopyConfigRpc.Input.Target']['meta_info']
 
+
+        class Source(object):
+            """
+            Particular configuration to copy from.
+            
+            .. attribute:: candidate
+            
+            	The candidate configuration is the config source
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: running
+            
+            	The running configuration is the config source
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: startup
+            
+            	The startup configuration is the config source
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: url
+            
+            	The URL\-based configuration is the config source
+            	**type**\: str
+            
+            .. attribute:: config
+            
+            	Inline Config content\: <config> element.  Represents an entire configuration datastore, not a subset of the running datastore
+            	**type**\: anyxml
+            
+            
+
+            """
+
+            _prefix = 'nc'
+            _revision = '2011-06-01'
+
+            def __init__(self):
+                self.parent = None
+                self.candidate = None
+                self.running = None
+                self.startup = None
+                self.url = None
+                self.config = None
+
+            @property
+            def _common_path(self):
+
+                return '/ietf-netconf:copy-config/ietf-netconf:input/ietf-netconf:source'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                if self.parent is None:
+                    raise YPYError('Parent reference is needed to determine if entity has configuration data')
+                return self.parent.is_config()
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.candidate is not None:
+                    return True
+
+                if self.running is not None:
+                    return True
+
+                if self.startup is not None:
+                    return True
+
+                if self.url is not None:
+                    return True
+
+                if self.config is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.ietf._meta import _ietf_netconf as meta
+                return meta._meta_table['CopyConfigRpc.Input.Source']['meta_info']
+
         @property
         def _common_path(self):
 
@@ -815,10 +1090,10 @@ class CopyConfigRpc(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.source is not None and self.source._has_data():
+            if self.target is not None and self.target._has_data():
                 return True
 
-            if self.target is not None and self.target._has_data():
+            if self.source is not None and self.source._has_data():
                 return True
 
             if self.with_defaults is not None:
@@ -997,811 +1272,6 @@ class DeleteConfigRpc(object):
     def _meta_info():
         from ydk.models.ietf._meta import _ietf_netconf as meta
         return meta._meta_table['DeleteConfigRpc']['meta_info']
-
-
-class DiscardChangesRpc(object):
-    """
-    Revert the candidate configuration to the current
-    running configuration.
-    
-    
-
-    """
-
-    _prefix = 'nc'
-    _revision = '2011-06-01'
-
-    def __init__(self):
-
-        self.is_rpc = True
-
-    @property
-    def _common_path(self):
-
-        return '/ietf-netconf:discard-changes'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
-        if not self.is_config():
-            return False
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_netconf as meta
-        return meta._meta_table['DiscardChangesRpc']['meta_info']
-
-
-class EditConfigRpc(object):
-    """
-    The <edit\-config> operation loads all or part of a specified
-    configuration to the specified target configuration.
-    
-    .. attribute:: input
-    
-    	
-    	**type**\: :py:class:`Input <ydk.models.ietf.ietf_netconf.EditConfigRpc.Input>`
-    
-    
-
-    """
-
-    _prefix = 'nc'
-    _revision = '2011-06-01'
-
-    def __init__(self):
-        self.input = EditConfigRpc.Input()
-        self.input.parent = self
-
-        self.is_rpc = True
-
-
-    class Input(object):
-        """
-        
-        
-        .. attribute:: config
-        
-        	Inline Config content
-        	**type**\: anyxml
-        
-        .. attribute:: default_operation
-        
-        	The default operation to use
-        	**type**\: :py:class:`DefaultOperationEnum <ydk.models.ietf.ietf_netconf.EditConfigRpc.Input.DefaultOperationEnum>`
-        
-        .. attribute:: error_option
-        
-        	The error option to use
-        	**type**\: :py:class:`ErrorOptionEnum <ydk.models.ietf.ietf_netconf.EditConfigRpc.Input.ErrorOptionEnum>`
-        
-        .. attribute:: target
-        
-        	Particular configuration to edit
-        	**type**\: :py:class:`Target <ydk.models.ietf.ietf_netconf.EditConfigRpc.Input.Target>`
-        
-        .. attribute:: test_option
-        
-        	The test option to use
-        	**type**\: :py:class:`TestOptionEnum <ydk.models.ietf.ietf_netconf.EditConfigRpc.Input.TestOptionEnum>`
-        
-        .. attribute:: url
-        
-        	URL\-based config content
-        	**type**\: str
-        
-        
-
-        """
-
-        _prefix = 'nc'
-        _revision = '2011-06-01'
-
-        def __init__(self):
-            self.parent = None
-            self.config = None
-            self.default_operation = None
-            self.error_option = None
-            self.target = EditConfigRpc.Input.Target()
-            self.target.parent = self
-            self.test_option = None
-            self.url = None
-
-        class DefaultOperationEnum(Enum):
-            """
-            DefaultOperationEnum
-
-            The default operation to use.
-
-            .. data:: MERGE = 0
-
-            	The default operation is merge.
-
-            .. data:: REPLACE = 1
-
-            	The default operation is replace.
-
-            .. data:: NONE = 2
-
-            	There is no default operation.
-
-            """
-
-            MERGE = 0
-
-            REPLACE = 1
-
-            NONE = 2
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.ietf._meta import _ietf_netconf as meta
-                return meta._meta_table['EditConfigRpc.Input.DefaultOperationEnum']
-
-
-        class ErrorOptionEnum(Enum):
-            """
-            ErrorOptionEnum
-
-            The error option to use.
-
-            .. data:: STOP_ON_ERROR = 0
-
-            	The server will stop on errors.
-
-            .. data:: CONTINUE_ON_ERROR = 1
-
-            	The server may continue on errors.
-
-            .. data:: ROLLBACK_ON_ERROR = 2
-
-            	The server will roll back on errors.
-
-            	This value can only be used if the 'rollback-on-error'
-
-            	feature is supported.
-
-            """
-
-            STOP_ON_ERROR = 0
-
-            CONTINUE_ON_ERROR = 1
-
-            ROLLBACK_ON_ERROR = 2
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.ietf._meta import _ietf_netconf as meta
-                return meta._meta_table['EditConfigRpc.Input.ErrorOptionEnum']
-
-
-        class TestOptionEnum(Enum):
-            """
-            TestOptionEnum
-
-            The test option to use.
-
-            .. data:: TEST_THEN_SET = 0
-
-            	The server will test and then set if no errors.
-
-            .. data:: SET = 1
-
-            	The server will set without a test first.
-
-            .. data:: TEST_ONLY = 2
-
-            	The server will only test and not set, even
-
-            	if there are no errors.
-
-            """
-
-            TEST_THEN_SET = 0
-
-            SET = 1
-
-            TEST_ONLY = 2
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.ietf._meta import _ietf_netconf as meta
-                return meta._meta_table['EditConfigRpc.Input.TestOptionEnum']
-
-
-
-        class Target(object):
-            """
-            Particular configuration to edit.
-            
-            .. attribute:: candidate
-            
-            	The candidate configuration is the config target
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: running
-            
-            	The running configuration is the config source
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'nc'
-            _revision = '2011-06-01'
-
-            def __init__(self):
-                self.parent = None
-                self.candidate = None
-                self.running = None
-
-            @property
-            def _common_path(self):
-
-                return '/ietf-netconf:edit-config/ietf-netconf:input/ietf-netconf:target'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                if self.parent is None:
-                    raise YPYError('Parent reference is needed to determine if entity has configuration data')
-                return self.parent.is_config()
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.candidate is not None:
-                    return True
-
-                if self.running is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.ietf._meta import _ietf_netconf as meta
-                return meta._meta_table['EditConfigRpc.Input.Target']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/ietf-netconf:edit-config/ietf-netconf:input'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.config is not None:
-                return True
-
-            if self.default_operation is not None:
-                return True
-
-            if self.error_option is not None:
-                return True
-
-            if self.target is not None and self.target._has_data():
-                return True
-
-            if self.test_option is not None:
-                return True
-
-            if self.url is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.ietf._meta import _ietf_netconf as meta
-            return meta._meta_table['EditConfigRpc.Input']['meta_info']
-
-    @property
-    def _common_path(self):
-
-        return '/ietf-netconf:edit-config'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
-        if not self.is_config():
-            return False
-        if self.input is not None and self.input._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_netconf as meta
-        return meta._meta_table['EditConfigRpc']['meta_info']
-
-
-class GetConfigRpc(object):
-    """
-    Retrieve all or part of a specified configuration.
-    
-    .. attribute:: input
-    
-    	
-    	**type**\: :py:class:`Input <ydk.models.ietf.ietf_netconf.GetConfigRpc.Input>`
-    
-    .. attribute:: output
-    
-    	
-    	**type**\: :py:class:`Output <ydk.models.ietf.ietf_netconf.GetConfigRpc.Output>`
-    
-    
-
-    """
-
-    _prefix = 'nc'
-    _revision = '2011-06-01'
-
-    def __init__(self):
-        self.input = GetConfigRpc.Input()
-        self.input.parent = self
-        self.output = GetConfigRpc.Output()
-        self.output.parent = self
-
-        self.is_rpc = True
-
-
-    class Input(object):
-        """
-        
-        
-        .. attribute:: filter
-        
-        	Subtree or XPath filter to use
-        	**type**\: anyxml
-        
-        .. attribute:: source
-        
-        	Particular configuration to retrieve
-        	**type**\: :py:class:`Source <ydk.models.ietf.ietf_netconf.GetConfigRpc.Input.Source>`
-        
-        .. attribute:: with_defaults
-        
-        	The explicit defaults processing mode requested
-        	**type**\: :py:class:`WithDefaultsModeEnum <ydk.models.ietf.ietf_netconf_with_defaults.WithDefaultsModeEnum>`
-        
-        
-
-        """
-
-        _prefix = 'nc'
-        _revision = '2011-06-01'
-
-        def __init__(self):
-            self.parent = None
-            self.filter = None
-            self.source = GetConfigRpc.Input.Source()
-            self.source.parent = self
-            self.with_defaults = None
-
-
-        class Source(object):
-            """
-            Particular configuration to retrieve.
-            
-            .. attribute:: candidate
-            
-            	The candidate configuration is the config source
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: running
-            
-            	The running configuration is the config source
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: startup
-            
-            	The startup configuration is the config source. This is optional\-to\-implement on the server because not all servers will support filtering for this datastore
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'nc'
-            _revision = '2011-06-01'
-
-            def __init__(self):
-                self.parent = None
-                self.candidate = None
-                self.running = None
-                self.startup = None
-
-            @property
-            def _common_path(self):
-
-                return '/ietf-netconf:get-config/ietf-netconf:input/ietf-netconf:source'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                if self.parent is None:
-                    raise YPYError('Parent reference is needed to determine if entity has configuration data')
-                return self.parent.is_config()
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.candidate is not None:
-                    return True
-
-                if self.running is not None:
-                    return True
-
-                if self.startup is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.ietf._meta import _ietf_netconf as meta
-                return meta._meta_table['GetConfigRpc.Input.Source']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/ietf-netconf:get-config/ietf-netconf:input'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.filter is not None:
-                return True
-
-            if self.source is not None and self.source._has_data():
-                return True
-
-            if self.with_defaults is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.ietf._meta import _ietf_netconf as meta
-            return meta._meta_table['GetConfigRpc.Input']['meta_info']
-
-
-    class Output(object):
-        """
-        
-        
-        .. attribute:: data
-        
-        	Copy of the source datastore subset that matched the filter criteria (if any).  An empty data container indicates that the request did not produce any results
-        	**type**\: anyxml
-        
-        
-
-        """
-
-        _prefix = 'nc'
-        _revision = '2011-06-01'
-
-        def __init__(self):
-            self.parent = None
-            self.data = None
-
-        @property
-        def _common_path(self):
-
-            return '/ietf-netconf:get-config/ietf-netconf:output'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.data is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.ietf._meta import _ietf_netconf as meta
-            return meta._meta_table['GetConfigRpc.Output']['meta_info']
-
-    @property
-    def _common_path(self):
-
-        return '/ietf-netconf:get-config'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
-        if not self.is_config():
-            return False
-        if self.input is not None and self.input._has_data():
-            return True
-
-        if self.output is not None and self.output._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_netconf as meta
-        return meta._meta_table['GetConfigRpc']['meta_info']
-
-
-class GetRpc(object):
-    """
-    Retrieve running configuration and device state information.
-    
-    .. attribute:: input
-    
-    	
-    	**type**\: :py:class:`Input <ydk.models.ietf.ietf_netconf.GetRpc.Input>`
-    
-    .. attribute:: output
-    
-    	
-    	**type**\: :py:class:`Output <ydk.models.ietf.ietf_netconf.GetRpc.Output>`
-    
-    
-
-    """
-
-    _prefix = 'nc'
-    _revision = '2011-06-01'
-
-    def __init__(self):
-        self.input = GetRpc.Input()
-        self.input.parent = self
-        self.output = GetRpc.Output()
-        self.output.parent = self
-
-        self.is_rpc = True
-
-
-    class Input(object):
-        """
-        
-        
-        .. attribute:: filter
-        
-        	This parameter specifies the portion of the system configuration and state data to retrieve
-        	**type**\: anyxml
-        
-        .. attribute:: with_defaults
-        
-        	The explicit defaults processing mode requested
-        	**type**\: :py:class:`WithDefaultsModeEnum <ydk.models.ietf.ietf_netconf_with_defaults.WithDefaultsModeEnum>`
-        
-        
-
-        """
-
-        _prefix = 'nc'
-        _revision = '2011-06-01'
-
-        def __init__(self):
-            self.parent = None
-            self.filter = None
-            self.with_defaults = None
-
-        @property
-        def _common_path(self):
-
-            return '/ietf-netconf:get/ietf-netconf:input'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.filter is not None:
-                return True
-
-            if self.with_defaults is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.ietf._meta import _ietf_netconf as meta
-            return meta._meta_table['GetRpc.Input']['meta_info']
-
-
-    class Output(object):
-        """
-        
-        
-        .. attribute:: data
-        
-        	Copy of the running datastore subset and/or state data that matched the filter criteria (if any). An empty data container indicates that the request did not produce any results
-        	**type**\: anyxml
-        
-        
-
-        """
-
-        _prefix = 'nc'
-        _revision = '2011-06-01'
-
-        def __init__(self):
-            self.parent = None
-            self.data = None
-
-        @property
-        def _common_path(self):
-
-            return '/ietf-netconf:get/ietf-netconf:output'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.data is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.ietf._meta import _ietf_netconf as meta
-            return meta._meta_table['GetRpc.Output']['meta_info']
-
-    @property
-    def _common_path(self):
-
-        return '/ietf-netconf:get'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
-        if not self.is_config():
-            return False
-        if self.input is not None and self.input._has_data():
-            return True
-
-        if self.output is not None and self.output._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_netconf as meta
-        return meta._meta_table['GetRpc']['meta_info']
-
-
-class KillSessionRpc(object):
-    """
-    Force the termination of a NETCONF session.
-    
-    .. attribute:: input
-    
-    	
-    	**type**\: :py:class:`Input <ydk.models.ietf.ietf_netconf.KillSessionRpc.Input>`
-    
-    
-
-    """
-
-    _prefix = 'nc'
-    _revision = '2011-06-01'
-
-    def __init__(self):
-        self.input = KillSessionRpc.Input()
-        self.input.parent = self
-
-        self.is_rpc = True
-
-
-    class Input(object):
-        """
-        
-        
-        .. attribute:: session_id
-        
-        	Particular session to kill
-        	**type**\: int
-        
-        	**range:** 1..4294967295
-        
-        
-
-        """
-
-        _prefix = 'nc'
-        _revision = '2011-06-01'
-
-        def __init__(self):
-            self.parent = None
-            self.session_id = None
-
-        @property
-        def _common_path(self):
-
-            return '/ietf-netconf:kill-session/ietf-netconf:input'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.session_id is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.ietf._meta import _ietf_netconf as meta
-            return meta._meta_table['KillSessionRpc.Input']['meta_info']
-
-    @property
-    def _common_path(self):
-
-        return '/ietf-netconf:kill-session'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
-        if not self.is_config():
-            return False
-        if self.input is not None and self.input._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_netconf as meta
-        return meta._meta_table['KillSessionRpc']['meta_info']
 
 
 class LockRpc(object):
@@ -2114,6 +1584,536 @@ class UnlockRpc(object):
         return meta._meta_table['UnlockRpc']['meta_info']
 
 
+class GetRpc(object):
+    """
+    Retrieve running configuration and device state information.
+    
+    .. attribute:: input
+    
+    	
+    	**type**\: :py:class:`Input <ydk.models.ietf.ietf_netconf.GetRpc.Input>`
+    
+    .. attribute:: output
+    
+    	
+    	**type**\: :py:class:`Output <ydk.models.ietf.ietf_netconf.GetRpc.Output>`
+    
+    
+
+    """
+
+    _prefix = 'nc'
+    _revision = '2011-06-01'
+
+    def __init__(self):
+        self.input = GetRpc.Input()
+        self.input.parent = self
+        self.output = GetRpc.Output()
+        self.output.parent = self
+
+        self.is_rpc = True
+
+
+    class Input(object):
+        """
+        
+        
+        .. attribute:: filter
+        
+        	This parameter specifies the portion of the system configuration and state data to retrieve
+        	**type**\: anyxml
+        
+        .. attribute:: with_defaults
+        
+        	The explicit defaults processing mode requested
+        	**type**\: :py:class:`WithDefaultsModeEnum <ydk.models.ietf.ietf_netconf_with_defaults.WithDefaultsModeEnum>`
+        
+        
+
+        """
+
+        _prefix = 'nc'
+        _revision = '2011-06-01'
+
+        def __init__(self):
+            self.parent = None
+            self.filter = None
+            self.with_defaults = None
+
+        @property
+        def _common_path(self):
+
+            return '/ietf-netconf:get/ietf-netconf:input'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            if self.parent is None:
+                raise YPYError('Parent reference is needed to determine if entity has configuration data')
+            return self.parent.is_config()
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.filter is not None:
+                return True
+
+            if self.with_defaults is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.ietf._meta import _ietf_netconf as meta
+            return meta._meta_table['GetRpc.Input']['meta_info']
+
+
+    class Output(object):
+        """
+        
+        
+        .. attribute:: data
+        
+        	Copy of the running datastore subset and/or state data that matched the filter criteria (if any). An empty data container indicates that the request did not produce any results
+        	**type**\: anyxml
+        
+        
+
+        """
+
+        _prefix = 'nc'
+        _revision = '2011-06-01'
+
+        def __init__(self):
+            self.parent = None
+            self.data = None
+
+        @property
+        def _common_path(self):
+
+            return '/ietf-netconf:get/ietf-netconf:output'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            if self.parent is None:
+                raise YPYError('Parent reference is needed to determine if entity has configuration data')
+            return self.parent.is_config()
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.data is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.ietf._meta import _ietf_netconf as meta
+            return meta._meta_table['GetRpc.Output']['meta_info']
+
+    @property
+    def _common_path(self):
+
+        return '/ietf-netconf:get'
+
+    def is_config(self):
+        ''' Returns True if this instance represents config data else returns False '''
+        return True
+
+    def _has_data(self):
+        if not self.is_config():
+            return False
+        if self.input is not None and self.input._has_data():
+            return True
+
+        if self.output is not None and self.output._has_data():
+            return True
+
+        return False
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ietf._meta import _ietf_netconf as meta
+        return meta._meta_table['GetRpc']['meta_info']
+
+
+class CloseSessionRpc(object):
+    """
+    Request graceful termination of a NETCONF session.
+    
+    
+
+    """
+
+    _prefix = 'nc'
+    _revision = '2011-06-01'
+
+    def __init__(self):
+
+        self.is_rpc = True
+
+    @property
+    def _common_path(self):
+
+        return '/ietf-netconf:close-session'
+
+    def is_config(self):
+        ''' Returns True if this instance represents config data else returns False '''
+        return True
+
+    def _has_data(self):
+        if not self.is_config():
+            return False
+        return False
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ietf._meta import _ietf_netconf as meta
+        return meta._meta_table['CloseSessionRpc']['meta_info']
+
+
+class KillSessionRpc(object):
+    """
+    Force the termination of a NETCONF session.
+    
+    .. attribute:: input
+    
+    	
+    	**type**\: :py:class:`Input <ydk.models.ietf.ietf_netconf.KillSessionRpc.Input>`
+    
+    
+
+    """
+
+    _prefix = 'nc'
+    _revision = '2011-06-01'
+
+    def __init__(self):
+        self.input = KillSessionRpc.Input()
+        self.input.parent = self
+
+        self.is_rpc = True
+
+
+    class Input(object):
+        """
+        
+        
+        .. attribute:: session_id
+        
+        	Particular session to kill
+        	**type**\: int
+        
+        	**range:** 1..4294967295
+        
+        
+
+        """
+
+        _prefix = 'nc'
+        _revision = '2011-06-01'
+
+        def __init__(self):
+            self.parent = None
+            self.session_id = None
+
+        @property
+        def _common_path(self):
+
+            return '/ietf-netconf:kill-session/ietf-netconf:input'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            if self.parent is None:
+                raise YPYError('Parent reference is needed to determine if entity has configuration data')
+            return self.parent.is_config()
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.session_id is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.ietf._meta import _ietf_netconf as meta
+            return meta._meta_table['KillSessionRpc.Input']['meta_info']
+
+    @property
+    def _common_path(self):
+
+        return '/ietf-netconf:kill-session'
+
+    def is_config(self):
+        ''' Returns True if this instance represents config data else returns False '''
+        return True
+
+    def _has_data(self):
+        if not self.is_config():
+            return False
+        if self.input is not None and self.input._has_data():
+            return True
+
+        return False
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ietf._meta import _ietf_netconf as meta
+        return meta._meta_table['KillSessionRpc']['meta_info']
+
+
+class CommitRpc(object):
+    """
+    Commit the candidate configuration as the device's new
+    current configuration.
+    
+    .. attribute:: input
+    
+    	
+    	**type**\: :py:class:`Input <ydk.models.ietf.ietf_netconf.CommitRpc.Input>`
+    
+    
+
+    """
+
+    _prefix = 'nc'
+    _revision = '2011-06-01'
+
+    def __init__(self):
+        self.input = CommitRpc.Input()
+        self.input.parent = self
+
+        self.is_rpc = True
+
+
+    class Input(object):
+        """
+        
+        
+        .. attribute:: confirmed
+        
+        	Requests a confirmed commit
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
+        .. attribute:: confirm_timeout
+        
+        	The timeout interval for a confirmed commit
+        	**type**\: int
+        
+        	**range:** 1..4294967295
+        
+        .. attribute:: persist
+        
+        	This parameter is used to make a confirmed commit persistent.  A persistent confirmed commit is not aborted if the NETCONF session terminates.  The only way to abort a persistent confirmed commit is to let the timer expire, or to use the <cancel\-commit> operation.  The value of this parameter is a token that must be given in the 'persist\-id' parameter of <commit> or <cancel\-commit> operations in order to confirm or cancel the persistent confirmed commit.  The token should be a random string
+        	**type**\: str
+        
+        .. attribute:: persist_id
+        
+        	This parameter is given in order to commit a persistent confirmed commit.  The value must be equal to the value given in the 'persist' parameter to the <commit> operation. If it does not match, the operation fails with an 'invalid\-value' error
+        	**type**\: str
+        
+        
+
+        """
+
+        _prefix = 'nc'
+        _revision = '2011-06-01'
+
+        def __init__(self):
+            self.parent = None
+            self.confirmed = None
+            self.confirm_timeout = None
+            self.persist = None
+            self.persist_id = None
+
+        @property
+        def _common_path(self):
+
+            return '/ietf-netconf:commit/ietf-netconf:input'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            if self.parent is None:
+                raise YPYError('Parent reference is needed to determine if entity has configuration data')
+            return self.parent.is_config()
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.confirmed is not None:
+                return True
+
+            if self.confirm_timeout is not None:
+                return True
+
+            if self.persist is not None:
+                return True
+
+            if self.persist_id is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.ietf._meta import _ietf_netconf as meta
+            return meta._meta_table['CommitRpc.Input']['meta_info']
+
+    @property
+    def _common_path(self):
+
+        return '/ietf-netconf:commit'
+
+    def is_config(self):
+        ''' Returns True if this instance represents config data else returns False '''
+        return True
+
+    def _has_data(self):
+        if not self.is_config():
+            return False
+        if self.input is not None and self.input._has_data():
+            return True
+
+        return False
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ietf._meta import _ietf_netconf as meta
+        return meta._meta_table['CommitRpc']['meta_info']
+
+
+class DiscardChangesRpc(object):
+    """
+    Revert the candidate configuration to the current
+    running configuration.
+    
+    
+
+    """
+
+    _prefix = 'nc'
+    _revision = '2011-06-01'
+
+    def __init__(self):
+
+        self.is_rpc = True
+
+    @property
+    def _common_path(self):
+
+        return '/ietf-netconf:discard-changes'
+
+    def is_config(self):
+        ''' Returns True if this instance represents config data else returns False '''
+        return True
+
+    def _has_data(self):
+        if not self.is_config():
+            return False
+        return False
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ietf._meta import _ietf_netconf as meta
+        return meta._meta_table['DiscardChangesRpc']['meta_info']
+
+
+class CancelCommitRpc(object):
+    """
+    This operation is used to cancel an ongoing confirmed commit.
+    If the confirmed commit is persistent, the parameter
+    'persist\-id' must be given, and it must match the value of the
+    'persist' parameter.
+    
+    .. attribute:: input
+    
+    	
+    	**type**\: :py:class:`Input <ydk.models.ietf.ietf_netconf.CancelCommitRpc.Input>`
+    
+    
+
+    """
+
+    _prefix = 'nc'
+    _revision = '2011-06-01'
+
+    def __init__(self):
+        self.input = CancelCommitRpc.Input()
+        self.input.parent = self
+
+        self.is_rpc = True
+
+
+    class Input(object):
+        """
+        
+        
+        .. attribute:: persist_id
+        
+        	This parameter is given in order to cancel a persistent confirmed commit.  The value must be equal to the value given in the 'persist' parameter to the <commit> operation. If it does not match, the operation fails with an 'invalid\-value' error
+        	**type**\: str
+        
+        
+
+        """
+
+        _prefix = 'nc'
+        _revision = '2011-06-01'
+
+        def __init__(self):
+            self.parent = None
+            self.persist_id = None
+
+        @property
+        def _common_path(self):
+
+            return '/ietf-netconf:cancel-commit/ietf-netconf:input'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            if self.parent is None:
+                raise YPYError('Parent reference is needed to determine if entity has configuration data')
+            return self.parent.is_config()
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.persist_id is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.ietf._meta import _ietf_netconf as meta
+            return meta._meta_table['CancelCommitRpc.Input']['meta_info']
+
+    @property
+    def _common_path(self):
+
+        return '/ietf-netconf:cancel-commit'
+
+    def is_config(self):
+        ''' Returns True if this instance represents config data else returns False '''
+        return True
+
+    def _has_data(self):
+        if not self.is_config():
+            return False
+        if self.input is not None and self.input._has_data():
+            return True
+
+        return False
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ietf._meta import _ietf_netconf as meta
+        return meta._meta_table['CancelCommitRpc']['meta_info']
+
+
 class ValidateRpc(object):
     """
     Validates the contents of the specified configuration.
@@ -2168,11 +2168,6 @@ class ValidateRpc(object):
             	The candidate configuration is the config source
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
-            .. attribute:: config
-            
-            	Inline Config content\: <config> element.  Represents an entire configuration datastore, not a subset of the running datastore
-            	**type**\: anyxml
-            
             .. attribute:: running
             
             	The running configuration is the config source
@@ -2188,6 +2183,11 @@ class ValidateRpc(object):
             	The URL\-based configuration is the config source
             	**type**\: str
             
+            .. attribute:: config
+            
+            	Inline Config content\: <config> element.  Represents an entire configuration datastore, not a subset of the running datastore
+            	**type**\: anyxml
+            
             
 
             """
@@ -2198,10 +2198,10 @@ class ValidateRpc(object):
             def __init__(self):
                 self.parent = None
                 self.candidate = None
-                self.config = None
                 self.running = None
                 self.startup = None
                 self.url = None
+                self.config = None
 
             @property
             def _common_path(self):
@@ -2220,9 +2220,6 @@ class ValidateRpc(object):
                 if self.candidate is not None:
                     return True
 
-                if self.config is not None:
-                    return True
-
                 if self.running is not None:
                     return True
 
@@ -2230,6 +2227,9 @@ class ValidateRpc(object):
                     return True
 
                 if self.url is not None:
+                    return True
+
+                if self.config is not None:
                     return True
 
                 return False

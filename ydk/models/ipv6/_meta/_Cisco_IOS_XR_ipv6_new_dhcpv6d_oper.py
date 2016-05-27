@@ -7,7 +7,7 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
@@ -47,59 +47,17 @@ _meta_table = {
                 ''',
                 'configured',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('failed-full-file-write-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Failed full file write count
+                '''                Current file version
                 ''',
-                'failed_full_file_write_count',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('failed-incremental-file-write-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Failed incremental file write count
-                ''',
-                'failed_incremental_file_write_count',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('full-file-record-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Full file record count
-                ''',
-                'full_file_record_count',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('full-file-write-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Full file write count
-                ''',
-                'full_file_write_count',
+                'version',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             _MetaInfoClassMember('full-file-write-interval', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Full file write interval in minutes
                 ''',
                 'full_file_write_interval',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('incremental-file-record-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Incremental file record count
-                ''',
-                'incremental_file_record_count',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('incremental-file-write-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Incremental file write count
-                ''',
-                'incremental_file_write_count',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('incremental-file-write-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Incremental file write interval in minutes
-                ''',
-                'incremental_file_write_interval',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('last-full-file-write-error-timestamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Last full file write error timestamp since epoch
-                ''',
-                'last_full_file_write_error_timestamp',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             _MetaInfoClassMember('last-full-write-file-name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 64)], [], 
@@ -113,12 +71,35 @@ _meta_table = {
                 ''',
                 'last_full_write_time',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('last-incremental-file-write-error-timestamp', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('full-file-write-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Last incremental file write error timestamp
-                since epoch
+                '''                Full file write count
                 ''',
-                'last_incremental_file_write_error_timestamp',
+                'full_file_write_count',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('failed-full-file-write-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Failed full file write count
+                ''',
+                'failed_full_file_write_count',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('full-file-record-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Full file record count
+                ''',
+                'full_file_record_count',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('last-full-file-write-error-timestamp', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Last full file write error timestamp since epoch
+                ''',
+                'last_full_file_write_error_timestamp',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('incremental-file-write-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Incremental file write interval in minutes
+                ''',
+                'incremental_file_write_interval',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             _MetaInfoClassMember('last-incremental-write-file-name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 64)], [], 
@@ -132,11 +113,30 @@ _meta_table = {
                 ''',
                 'last_incremental_write_time',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('incremental-file-write-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Current file version
+                '''                Incremental file write count
                 ''',
-                'version',
+                'incremental_file_write_count',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('failed-incremental-file-write-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Failed incremental file write count
+                ''',
+                'failed_incremental_file_write_count',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('incremental-file-record-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Incremental file record count
+                ''',
+                'incremental_file_record_count',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('last-incremental-file-write-error-timestamp', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Last incremental file write error timestamp
+                since epoch
+                ''',
+                'last_incremental_file_write_error_timestamp',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
@@ -145,642 +145,648 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses.BagDhcpv6DAddrAttrb' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses.BagDhcpv6DAddrAttrb',
+    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Solicit' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Solicit',
             False, 
             [
-            _MetaInfoClassMember('lease-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Lease time in seconds
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
                 ''',
-                'lease_time',
+                'received_packets',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                IPv6 prefix
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
                 ''',
-                'prefix',
+                'transmitted_packets',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Prefix length
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
                 ''',
-                'prefix_length',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('remaining-lease-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Remaining lease time in seconds
-                ''',
-                'remaining_lease_time',
+                'dropped_packets',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'bag-dhcpv6d-addr-attrb',
+            'solicit',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses',
+    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Advertise' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Advertise',
             False, 
             [
-            _MetaInfoClassMember('bag-dhcpv6d-addr-attrb', REFERENCE_LIST, 'BagDhcpv6DAddrAttrb' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses.BagDhcpv6DAddrAttrb', 
-                [], [], 
-                '''                bag dhcpv6d addr attrb
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
                 ''',
-                'bag_dhcpv6d_addr_attrb',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'addresses',
+            'advertise',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo',
+    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request',
             False, 
             [
-            _MetaInfoClassMember('addresses', REFERENCE_CLASS, 'Addresses' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses', 
-                [], [], 
-                '''                List of addresses in this IA
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
                 ''',
-                'addresses',
+                'received_packets',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                FSM Flag for this IA
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
                 ''',
-                'flags',
+                'transmitted_packets',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('ia-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                IA_ID of this IA
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
                 ''',
-                'ia_id',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('ia-type', REFERENCE_ENUM_CLASS, 'BagDhcpv6DIaIdEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6DIaIdEnum', 
-                [], [], 
-                '''                IA type
-                ''',
-                'ia_type',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'BagDhcpv6DFsmStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6DFsmStateEnum', 
-                [], [], 
-                '''                State
-                ''',
-                'state',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('total-address', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Total address in this IA
-                ''',
-                'total_address',
+                'dropped_packets',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'bag-dhcpv6d-ia-id-pd-info',
+            'request',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd',
+    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reply' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reply',
             False, 
             [
-            _MetaInfoClassMember('bag-dhcpv6d-ia-id-pd-info', REFERENCE_LIST, 'BagDhcpv6DIaIdPdInfo' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo', 
-                [], [], 
-                '''                bag dhcpv6d ia id pd info
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
                 ''',
-                'bag_dhcpv6d_ia_id_pd_info',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'ia-id-pd',
+            'reply',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client',
+    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Confirm' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Confirm',
             False, 
             [
-            _MetaInfoClassMember('client-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                Client ID
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
                 ''',
-                'client_id',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', True),
-            _MetaInfoClassMember('access-vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 33)], [], 
-                '''                DHCPV6 access VRF name to client
-                ''',
-                'access_vrf_name',
+                'received_packets',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('class-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
-                '''                DHCPV6 class name
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
                 ''',
-                'class_name',
+                'transmitted_packets',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('client-flag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                DHCPV6 client flag
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
                 ''',
-                'client_flag',
+                'dropped_packets',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('duid', ATTRIBUTE, 'str' , None, None, 
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'confirm',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'decline',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Renew' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Renew',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'renew',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Rebind' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Rebind',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'rebind',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'release',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reconfig' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reconfig',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'reconfig',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'inform',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayForward' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayForward',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'relay-forward',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayReply' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayReply',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'relay-reply',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'lease-query',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryReply' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryReply',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'lease-query-reply',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryDone' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryDone',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'lease-query-done',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryData' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryData',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'lease-query-data',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics',
+            False, 
+            [
+            _MetaInfoClassMember('solicit', REFERENCE_CLASS, 'Solicit' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Solicit', 
                 [], [], 
-                '''                Client DUID
+                '''                DHCPV6 solicit packets
                 ''',
-                'duid',
+                'solicit',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('framed-ipv6-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                DHCPV6 framed ipv6 addess used by ND
-                ''',
-                'framed_ipv6_prefix',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('framed-prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                DHCPV6 framed ipv6 prefix length used by ND
-                ''',
-                'framed_prefix_length',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('ia-id-p-ds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of ia_id/pd
-                ''',
-                'ia_id_p_ds',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('ia-id-pd', REFERENCE_CLASS, 'IaIdPd' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd', 
+            _MetaInfoClassMember('advertise', REFERENCE_CLASS, 'Advertise' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Advertise', 
                 [], [], 
-                '''                List of DHCPv6 IA_ID/PDs
+                '''                DHCPV6 advertise packets
                 ''',
-                'ia_id_pd',
+                'advertise',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                DHCPV6 access interface to client
-                ''',
-                'interface_name',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('is-nak-next-renew', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('request', REFERENCE_CLASS, 'Request' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request', 
                 [], [], 
-                '''                Is true if DHCP next renew from client will be
-                NAK'd
+                '''                DHCPV6 request packets
                 ''',
-                'is_nak_next_renew',
+                'request',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('reply', REFERENCE_CLASS, 'Reply' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reply', 
                 [], [], 
-                '''                Client MAC address
+                '''                DHCPV6 reply packets
                 ''',
-                'mac_address',
+                'reply',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('pool-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
-                '''                DHCPV6 pool name
+            _MetaInfoClassMember('confirm', REFERENCE_CLASS, 'Confirm' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Confirm', 
+                [], [], 
+                '''                DHCPV6 confirm packets
                 ''',
-                'pool_name',
+                'confirm',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('profile-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 65)], [], 
-                '''                DHCPV6 profile name
+            _MetaInfoClassMember('decline', REFERENCE_CLASS, 'Decline' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline', 
+                [], [], 
+                '''                DHCPV6 decline packets
                 ''',
-                'profile_name',
+                'decline',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('proxy-binding-inner-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                DHCPV6 VLAN Inner VLAN
+            _MetaInfoClassMember('renew', REFERENCE_CLASS, 'Renew' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Renew', 
+                [], [], 
+                '''                DHCPV6 renew packets
                 ''',
-                'proxy_binding_inner_tag',
+                'renew',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('proxy-binding-outer-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                DHCPV6 VLAN Outer VLAN
+            _MetaInfoClassMember('rebind', REFERENCE_CLASS, 'Rebind' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Rebind', 
+                [], [], 
+                '''                DHCPV6 rebind packets
                 ''',
-                'proxy_binding_outer_tag',
+                'rebind',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('proxy-binding-tags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                DHCPV6 VLAN tag count
+            _MetaInfoClassMember('release', REFERENCE_CLASS, 'Release' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release', 
+                [], [], 
+                '''                DHCPV6 release packets
                 ''',
-                'proxy_binding_tags',
+                'release',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('rx-interface-id', ATTRIBUTE, 'str' , None, None, 
-                [(0, 771)], [], 
-                '''                DHCPV6 received Interface ID
+            _MetaInfoClassMember('reconfig', REFERENCE_CLASS, 'Reconfig' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reconfig', 
+                [], [], 
+                '''                DHCPV6 reconfig packets
                 ''',
-                'rx_interface_id',
+                'reconfig',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('rx-remote-id', ATTRIBUTE, 'str' , None, None, 
-                [(0, 771)], [], 
-                '''                DHCPV6 received Remote ID
+            _MetaInfoClassMember('inform', REFERENCE_CLASS, 'Inform' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform', 
+                [], [], 
+                '''                DHCPV6 inform packets
                 ''',
-                'rx_remote_id',
+                'inform',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('server-ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                DHCPV6 server IPv6 address
+            _MetaInfoClassMember('relay-forward', REFERENCE_CLASS, 'RelayForward' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayForward', 
+                [], [], 
+                '''                DHCPV6 relay forward packets
                 ''',
-                'server_ipv6_address',
+                'relay_forward',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('srg-intf-role', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                DHCPV6 SRG Intf Role
+            _MetaInfoClassMember('relay-reply', REFERENCE_CLASS, 'RelayReply' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayReply', 
+                [], [], 
+                '''                DHCPV6 relay reply packets
                 ''',
-                'srg_intf_role',
+                'relay_reply',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('srg-state', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                DHCPV6 SRG state
+            _MetaInfoClassMember('lease-query', REFERENCE_CLASS, 'LeaseQuery' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery', 
+                [], [], 
+                '''                DHCPV6 lease query packets
                 ''',
-                'srg_state',
+                'lease_query',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('subscriber-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                DHCPV6 subscriber label
+            _MetaInfoClassMember('lease-query-reply', REFERENCE_CLASS, 'LeaseQueryReply' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryReply', 
+                [], [], 
+                '''                DHCPV6 lease query reply packets
                 ''',
-                'subscriber_label',
+                'lease_query_reply',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('tx-interface-id', ATTRIBUTE, 'str' , None, None, 
-                [(0, 771)], [], 
-                '''                DHCPV6 transmitted Interface ID
+            _MetaInfoClassMember('lease-query-done', REFERENCE_CLASS, 'LeaseQueryDone' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryDone', 
+                [], [], 
+                '''                DHCPV6 lease query done packets
                 ''',
-                'tx_interface_id',
+                'lease_query_done',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('tx-remote-id', ATTRIBUTE, 'str' , None, None, 
-                [(0, 771)], [], 
-                '''                DHCPV6 transmitted Remote ID
+            _MetaInfoClassMember('lease-query-data', REFERENCE_CLASS, 'LeaseQueryData' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryData', 
+                [], [], 
+                '''                DHCPV6 lease query data packets
                 ''',
-                'tx_remote_id',
+                'lease_query_data',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'statistics',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf',
+            False, 
+            [
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 33)], [], 
-                '''                DHCPVV6 client/subscriber VRF name
-                ''',
-                'vrf_name',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'client',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy.Binding.Clients' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Binding.Clients',
-            False, 
-            [
-            _MetaInfoClassMember('client', REFERENCE_LIST, 'Client' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client', 
-                [], [], 
-                '''                Single DHCPV6 proxy binding
-                ''',
-                'client',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'clients',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iana' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iana',
-            False, 
-            [
-            _MetaInfoClassMember('bound-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients in bound state
-                ''',
-                'bound_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('daps-waiting-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients waiting on DAPS to assign/free
-                prefix(ND)
-                ''',
-                'daps_waiting_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('dpm-waiting-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients waiting on DPM to validate
-                subscriber
-                ''',
-                'dpm_waiting_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('iedge-waiting-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients waiting on iedge to subscriber
-                session
-                ''',
-                'iedge_waiting_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('initializing-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients in init state
-                ''',
-                'initializing_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('msg-waiting-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients waiting for a message from the
-                client/server
-                ''',
-                'msg_waiting_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('rib-waiting-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients in waiting on RIB response
-                ''',
-                'rib_waiting_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'iana',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iapd' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iapd',
-            False, 
-            [
-            _MetaInfoClassMember('bound-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients in bound state
-                ''',
-                'bound_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('daps-waiting-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients waiting on DAPS to assign/free
-                prefix(ND)
-                ''',
-                'daps_waiting_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('dpm-waiting-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients waiting on DPM to validate
-                subscriber
-                ''',
-                'dpm_waiting_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('iedge-waiting-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients waiting on iedge to subscriber
-                session
-                ''',
-                'iedge_waiting_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('initializing-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients in init state
-                ''',
-                'initializing_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('msg-waiting-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients waiting for a message from the
-                client/server
-                ''',
-                'msg_waiting_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('rib-waiting-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients in waiting on RIB response
-                ''',
-                'rib_waiting_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'iapd',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy.Binding.Summary' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Binding.Summary',
-            False, 
-            [
-            _MetaInfoClassMember('clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total number of clients
-                ''',
-                'clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('iana', REFERENCE_CLASS, 'Iana' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iana', 
-                [], [], 
-                '''                IANA proxy binding summary
-                ''',
-                'iana',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('iapd', REFERENCE_CLASS, 'Iapd' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iapd', 
-                [], [], 
-                '''                IAPD proxy binding summary
-                ''',
-                'iapd',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'summary',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy.Binding' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Binding',
-            False, 
-            [
-            _MetaInfoClassMember('clients', REFERENCE_CLASS, 'Clients' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Binding.Clients', 
-                [], [], 
-                '''                DHCPV6 proxy client bindings
-                ''',
-                'clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('summary', REFERENCE_CLASS, 'Summary' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Binding.Summary', 
-                [], [], 
-                '''                DHCPV6 proxy binding summary
-                ''',
-                'summary',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'binding',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6DProxyIidReference' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6DProxyIidReference',
-            False, 
-            [
-            _MetaInfoClassMember('proxy-iid-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 65)], [], 
-                '''                Interface name for interface id
-                ''',
-                'proxy_iid_interface_name',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('proxy-interface-id', ATTRIBUTE, 'str' , None, None, 
-                [(0, 257)], [], 
-                '''                Interface id
-                ''',
-                'proxy_interface_id',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'ipv6-dhcpv6d-proxy-iid-reference',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences',
-            False, 
-            [
-            _MetaInfoClassMember('ipv6-dhcpv6d-proxy-iid-reference', REFERENCE_LIST, 'Ipv6Dhcpv6DProxyIidReference' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6DProxyIidReference', 
-                [], [], 
-                '''                ipv6 dhcpv6d proxy iid reference
-                ''',
-                'ipv6_dhcpv6d_proxy_iid_reference',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'interface-id-references',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6DProxyInterfaceReference' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6DProxyInterfaceReference',
-            False, 
-            [
-            _MetaInfoClassMember('proxy-reference-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 65)], [], 
-                '''                Interface name
-                ''',
-                'proxy_reference_interface_name',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'ipv6-dhcpv6d-proxy-interface-reference',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences',
-            False, 
-            [
-            _MetaInfoClassMember('ipv6-dhcpv6d-proxy-interface-reference', REFERENCE_LIST, 'Ipv6Dhcpv6DProxyInterfaceReference' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6DProxyInterfaceReference', 
-                [], [], 
-                '''                ipv6 dhcpv6d proxy interface reference
-                ''',
-                'ipv6_dhcpv6d_proxy_interface_reference',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'interface-references',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6DProxyVrfReference' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6DProxyVrfReference',
-            False, 
-            [
-            _MetaInfoClassMember('proxy-reference-vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 33)], [], 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                VRF name
                 ''',
-                'proxy_reference_vrf_name',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'ipv6-dhcpv6d-proxy-vrf-reference',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences',
-            False, 
-            [
-            _MetaInfoClassMember('ipv6-dhcpv6d-proxy-vrf-reference', REFERENCE_LIST, 'Ipv6Dhcpv6DProxyVrfReference' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6DProxyVrfReference', 
-                [], [], 
-                '''                ipv6 dhcpv6d proxy vrf reference
-                ''',
-                'ipv6_dhcpv6d_proxy_vrf_reference',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'vrf-references',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info',
-            False, 
-            [
-            _MetaInfoClassMember('interface-id-references', REFERENCE_CLASS, 'InterfaceIdReferences' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences', 
-                [], [], 
-                '''                Interface id references
-                ''',
-                'interface_id_references',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('interface-name', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [(0, 65)], [], 
-                '''                Interface names
-                ''',
-                'interface_name',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False, max_elements=8),
-            _MetaInfoClassMember('interface-references', REFERENCE_CLASS, 'InterfaceReferences' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences', 
-                [], [], 
-                '''                Interface references
-                ''',
-                'interface_references',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('profile-helper-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                Helper addresses
-                ''',
-                'profile_helper_address',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False, max_elements=8),
-            _MetaInfoClassMember('profile-link-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                Link address
-                ''',
-                'profile_link_address',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('profile-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 65)], [], 
-                '''                Proxy profile name
-                ''',
-                'profile_name',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('remote-id', ATTRIBUTE, 'str' , None, None, 
-                [(0, 257)], [], 
-                '''                Remote id
-                ''',
-                'remote_id',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('vrf-name', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [(0, 33)], [], 
-                '''                VRF names
-                ''',
                 'vrf_name',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False, max_elements=8),
-            _MetaInfoClassMember('vrf-references', REFERENCE_CLASS, 'VrfReferences' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences', 
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', True),
+            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics', 
                 [], [], 
-                '''                VRF references
+                '''                IPv6 DHCP proxy statistics
                 ''',
-                'vrf_references',
+                'statistics',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'info',
+            'vrf',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Proxy.Vrfs' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs',
+            False, 
+            [
+            _MetaInfoClassMember('vrf', REFERENCE_LIST, 'Vrf' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf', 
+                [], [], 
+                '''                IPv6 DHCP proxy VRF name
+                ''',
+                'vrf',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'vrfs',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
@@ -843,6 +849,179 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
+    'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6DProxyIidReference' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6DProxyIidReference',
+            False, 
+            [
+            _MetaInfoClassMember('proxy-iid-interface-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 65)], [], 
+                '''                Interface name for interface id
+                ''',
+                'proxy_iid_interface_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('proxy-interface-id', ATTRIBUTE, 'str' , None, None, 
+                [(0, 257)], [], 
+                '''                Interface id
+                ''',
+                'proxy_interface_id',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'ipv6-dhcpv6d-proxy-iid-reference',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences',
+            False, 
+            [
+            _MetaInfoClassMember('ipv6-dhcpv6d-proxy-iid-reference', REFERENCE_LIST, 'Ipv6Dhcpv6DProxyIidReference' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6DProxyIidReference', 
+                [], [], 
+                '''                ipv6 dhcpv6d proxy iid reference
+                ''',
+                'ipv6_dhcpv6d_proxy_iid_reference',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'interface-id-references',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6DProxyVrfReference' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6DProxyVrfReference',
+            False, 
+            [
+            _MetaInfoClassMember('proxy-reference-vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 33)], [], 
+                '''                VRF name
+                ''',
+                'proxy_reference_vrf_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'ipv6-dhcpv6d-proxy-vrf-reference',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences',
+            False, 
+            [
+            _MetaInfoClassMember('ipv6-dhcpv6d-proxy-vrf-reference', REFERENCE_LIST, 'Ipv6Dhcpv6DProxyVrfReference' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6DProxyVrfReference', 
+                [], [], 
+                '''                ipv6 dhcpv6d proxy vrf reference
+                ''',
+                'ipv6_dhcpv6d_proxy_vrf_reference',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'vrf-references',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6DProxyInterfaceReference' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6DProxyInterfaceReference',
+            False, 
+            [
+            _MetaInfoClassMember('proxy-reference-interface-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 65)], [], 
+                '''                Interface name
+                ''',
+                'proxy_reference_interface_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'ipv6-dhcpv6d-proxy-interface-reference',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences',
+            False, 
+            [
+            _MetaInfoClassMember('ipv6-dhcpv6d-proxy-interface-reference', REFERENCE_LIST, 'Ipv6Dhcpv6DProxyInterfaceReference' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6DProxyInterfaceReference', 
+                [], [], 
+                '''                ipv6 dhcpv6d proxy interface reference
+                ''',
+                'ipv6_dhcpv6d_proxy_interface_reference',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'interface-references',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info',
+            False, 
+            [
+            _MetaInfoClassMember('interface-id-references', REFERENCE_CLASS, 'InterfaceIdReferences' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences', 
+                [], [], 
+                '''                Interface id references
+                ''',
+                'interface_id_references',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('vrf-references', REFERENCE_CLASS, 'VrfReferences' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences', 
+                [], [], 
+                '''                VRF references
+                ''',
+                'vrf_references',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('interface-references', REFERENCE_CLASS, 'InterfaceReferences' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences', 
+                [], [], 
+                '''                Interface references
+                ''',
+                'interface_references',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('profile-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 65)], [], 
+                '''                Proxy profile name
+                ''',
+                'profile_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('remote-id', ATTRIBUTE, 'str' , None, None, 
+                [(0, 257)], [], 
+                '''                Remote id
+                ''',
+                'remote_id',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('profile-link-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                Link address
+                ''',
+                'profile_link_address',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('profile-helper-address', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                Helper addresses
+                ''',
+                'profile_helper_address',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False, max_elements=8),
+            _MetaInfoClassMember('vrf-name', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [(0, 33)], [], 
+                '''                VRF names
+                ''',
+                'vrf_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False, max_elements=8),
+            _MetaInfoClassMember('interface-name', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [(0, 65)], [], 
+                '''                Interface names
+                ''',
+                'interface_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False, max_elements=8),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'info',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
     'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile' : {
         'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Profiles.Profile',
             False, 
@@ -853,17 +1032,17 @@ _meta_table = {
                 ''',
                 'profile_name',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', True),
-            _MetaInfoClassMember('info', REFERENCE_CLASS, 'Info' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info', 
-                [], [], 
-                '''                IPv6 DHCP proxy profile Info
-                ''',
-                'info',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             _MetaInfoClassMember('throttle-infos', REFERENCE_CLASS, 'ThrottleInfos' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos', 
                 [], [], 
                 '''                DHCPV6 throttle table
                 ''',
                 'throttle_infos',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('info', REFERENCE_CLASS, 'Info' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info', 
+                [], [], 
+                '''                IPv6 DHCP proxy profile Info
+                ''',
+                'info',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
@@ -893,12 +1072,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics',
             False, 
             [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Received packets
@@ -910,6 +1083,12 @@ _meta_table = {
                 '''                Transmitted packets
                 ''',
                 'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
@@ -958,689 +1137,124 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Advertise' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Advertise',
+    'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses.BagDhcpv6DAddrAttrb' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses.BagDhcpv6DAddrAttrb',
             False, 
             [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
+            _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv6 prefix
                 ''',
-                'dropped_packets',
+                'prefix',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
+            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Prefix length
                 ''',
-                'received_packets',
+                'prefix_length',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
+            _MetaInfoClassMember('lease-time', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Lease time in seconds
                 ''',
-                'transmitted_packets',
+                'lease_time',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('remaining-lease-time', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Remaining lease time in seconds
+                ''',
+                'remaining_lease_time',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'advertise',
+            'bag-dhcpv6d-addr-attrb',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Confirm' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Confirm',
+    'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses',
             False, 
             [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
+            _MetaInfoClassMember('bag-dhcpv6d-addr-attrb', REFERENCE_LIST, 'BagDhcpv6DAddrAttrb' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses.BagDhcpv6DAddrAttrb', 
+                [], [], 
+                '''                bag dhcpv6d addr attrb
                 ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
+                'bag_dhcpv6d_addr_attrb',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'confirm',
+            'addresses',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline',
+    'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo',
             False, 
             [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
+            _MetaInfoClassMember('addresses', REFERENCE_CLASS, 'Addresses' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses', 
+                [], [], 
+                '''                List of addresses in this IA
                 ''',
-                'dropped_packets',
+                'addresses',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
+            _MetaInfoClassMember('ia-type', REFERENCE_ENUM_CLASS, 'BagDhcpv6DIaIdEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6DIaIdEnum', 
+                [], [], 
+                '''                IA type
                 ''',
-                'received_packets',
+                'ia_type',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
+            _MetaInfoClassMember('ia-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                IA_ID of this IA
                 ''',
-                'transmitted_packets',
+                'ia_id',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('flags', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                FSM Flag for this IA
+                ''',
+                'flags',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('total-address', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Total address in this IA
+                ''',
+                'total_address',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'BagDhcpv6DFsmStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6DFsmStateEnum', 
+                [], [], 
+                '''                State
+                ''',
+                'state',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'decline',
+            'bag-dhcpv6d-ia-id-pd-info',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform',
+    'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd',
             False, 
             [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
+            _MetaInfoClassMember('bag-dhcpv6d-ia-id-pd-info', REFERENCE_LIST, 'BagDhcpv6DIaIdPdInfo' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo', 
+                [], [], 
+                '''                bag dhcpv6d ia id pd info
                 ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
+                'bag_dhcpv6d_ia_id_pd_info',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'inform',
+            'ia-id-pd',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'lease-query',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryData' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryData',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'lease-query-data',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryDone' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryDone',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'lease-query-done',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryReply' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryReply',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'lease-query-reply',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Rebind' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Rebind',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'rebind',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reconfig' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reconfig',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'reconfig',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayForward' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayForward',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'relay-forward',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayReply' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayReply',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'relay-reply',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'release',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Renew' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Renew',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'renew',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reply' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reply',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'reply',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'request',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Solicit' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Solicit',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'solicit',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics',
-            False, 
-            [
-            _MetaInfoClassMember('advertise', REFERENCE_CLASS, 'Advertise' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Advertise', 
-                [], [], 
-                '''                DHCPV6 advertise packets
-                ''',
-                'advertise',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('confirm', REFERENCE_CLASS, 'Confirm' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Confirm', 
-                [], [], 
-                '''                DHCPV6 confirm packets
-                ''',
-                'confirm',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('decline', REFERENCE_CLASS, 'Decline' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline', 
-                [], [], 
-                '''                DHCPV6 decline packets
-                ''',
-                'decline',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('inform', REFERENCE_CLASS, 'Inform' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform', 
-                [], [], 
-                '''                DHCPV6 inform packets
-                ''',
-                'inform',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('lease-query', REFERENCE_CLASS, 'LeaseQuery' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery', 
-                [], [], 
-                '''                DHCPV6 lease query packets
-                ''',
-                'lease_query',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('lease-query-data', REFERENCE_CLASS, 'LeaseQueryData' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryData', 
-                [], [], 
-                '''                DHCPV6 lease query data packets
-                ''',
-                'lease_query_data',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('lease-query-done', REFERENCE_CLASS, 'LeaseQueryDone' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryDone', 
-                [], [], 
-                '''                DHCPV6 lease query done packets
-                ''',
-                'lease_query_done',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('lease-query-reply', REFERENCE_CLASS, 'LeaseQueryReply' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryReply', 
-                [], [], 
-                '''                DHCPV6 lease query reply packets
-                ''',
-                'lease_query_reply',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('rebind', REFERENCE_CLASS, 'Rebind' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Rebind', 
-                [], [], 
-                '''                DHCPV6 rebind packets
-                ''',
-                'rebind',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('reconfig', REFERENCE_CLASS, 'Reconfig' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reconfig', 
-                [], [], 
-                '''                DHCPV6 reconfig packets
-                ''',
-                'reconfig',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('relay-forward', REFERENCE_CLASS, 'RelayForward' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayForward', 
-                [], [], 
-                '''                DHCPV6 relay forward packets
-                ''',
-                'relay_forward',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('relay-reply', REFERENCE_CLASS, 'RelayReply' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayReply', 
-                [], [], 
-                '''                DHCPV6 relay reply packets
-                ''',
-                'relay_reply',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('release', REFERENCE_CLASS, 'Release' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release', 
-                [], [], 
-                '''                DHCPV6 release packets
-                ''',
-                'release',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('renew', REFERENCE_CLASS, 'Renew' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Renew', 
-                [], [], 
-                '''                DHCPV6 renew packets
-                ''',
-                'renew',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('reply', REFERENCE_CLASS, 'Reply' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reply', 
-                [], [], 
-                '''                DHCPV6 reply packets
-                ''',
-                'reply',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('request', REFERENCE_CLASS, 'Request' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request', 
-                [], [], 
-                '''                DHCPV6 request packets
-                ''',
-                'request',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('solicit', REFERENCE_CLASS, 'Solicit' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Solicit', 
-                [], [], 
-                '''                DHCPV6 solicit packets
-                ''',
-                'solicit',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'statistics',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf',
-            False, 
-            [
-            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                VRF name
-                ''',
-                'vrf_name',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', True),
-            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics', 
-                [], [], 
-                '''                IPv6 DHCP proxy statistics
-                ''',
-                'statistics',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'vrf',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy.Vrfs' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Vrfs',
-            False, 
-            [
-            _MetaInfoClassMember('vrf', REFERENCE_LIST, 'Vrf' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf', 
-                [], [], 
-                '''                IPv6 DHCP proxy VRF name
-                ''',
-                'vrf',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'vrfs',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Proxy' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy',
-            False, 
-            [
-            _MetaInfoClassMember('binding', REFERENCE_CLASS, 'Binding' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Binding', 
-                [], [], 
-                '''                DHCPV6 proxy bindings
-                ''',
-                'binding',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('profiles', REFERENCE_CLASS, 'Profiles' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Profiles', 
-                [], [], 
-                '''                IPv6 DHCP proxy profile
-                ''',
-                'profiles',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Statistics', 
-                [], [], 
-                '''                DHCPv6 proxy statistics
-                ''',
-                'statistics',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs', 
-                [], [], 
-                '''                DHCPV6 proxy list of VRF names
-                ''',
-                'vrfs',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'proxy',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Relay.Binding.Clients.Client' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Binding.Clients.Client',
+    'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client',
             False, 
             [
             _MetaInfoClassMember('client-id', ATTRIBUTE, 'str' , None, None, 
@@ -1649,11 +1263,11 @@ _meta_table = {
                 ''',
                 'client_id',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', True),
-            _MetaInfoClassMember('client-id-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Client unique identifier
+            _MetaInfoClassMember('ia-id-pd', REFERENCE_CLASS, 'IaIdPd' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd', 
+                [], [], 
+                '''                List of DHCPv6 IA_ID/PDs
                 ''',
-                'client_id_xr',
+                'ia_id_pd',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             _MetaInfoClassMember('duid', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1661,59 +1275,144 @@ _meta_table = {
                 ''',
                 'duid',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('ia-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('client-flag', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                IA_ID of this IA
+                '''                DHCPV6 client flag
                 ''',
-                'ia_id',
+                'client_flag',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 65)], [], 
-                '''                Interface name
-                ''',
-                'interface_name',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('lifetime', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('subscriber-label', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Client route lifetime
+                '''                DHCPV6 subscriber label
                 ''',
-                'lifetime',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('next-hop-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                Next hop is our address
-                ''',
-                'next_hop_addr',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                DHCPV6 IPv6 Prefix allotted to client
-                ''',
-                'prefix',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                length of prefix
-                ''',
-                'prefix_length',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('relay-profile-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 65)], [], 
-                '''                Relay Profile name
-                ''',
-                'relay_profile_name',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('rem-life-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Client route remaining lifetime
-                ''',
-                'rem_life_time',
+                'subscriber_label',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 33)], [], 
-                '''                DHCPv6 client/subscriber Vrf name
+                '''                DHCPVV6 client/subscriber VRF name
                 ''',
                 'vrf_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Client MAC address
+                ''',
+                'mac_address',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('ia-id-p-ds', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of ia_id/pd
+                ''',
+                'ia_id_p_ds',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                DHCPV6 access interface to client
+                ''',
+                'interface_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('access-vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 33)], [], 
+                '''                DHCPV6 access VRF name to client
+                ''',
+                'access_vrf_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('proxy-binding-tags', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                DHCPV6 VLAN tag count
+                ''',
+                'proxy_binding_tags',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('proxy-binding-outer-tag', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                DHCPV6 VLAN Outer VLAN
+                ''',
+                'proxy_binding_outer_tag',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('proxy-binding-inner-tag', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                DHCPV6 VLAN Inner VLAN
+                ''',
+                'proxy_binding_inner_tag',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('class-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 64)], [], 
+                '''                DHCPV6 class name
+                ''',
+                'class_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('pool-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 64)], [], 
+                '''                DHCPV6 pool name
+                ''',
+                'pool_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('rx-remote-id', ATTRIBUTE, 'str' , None, None, 
+                [(0, 771)], [], 
+                '''                DHCPV6 received Remote ID
+                ''',
+                'rx_remote_id',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('tx-remote-id', ATTRIBUTE, 'str' , None, None, 
+                [(0, 771)], [], 
+                '''                DHCPV6 transmitted Remote ID
+                ''',
+                'tx_remote_id',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('rx-interface-id', ATTRIBUTE, 'str' , None, None, 
+                [(0, 771)], [], 
+                '''                DHCPV6 received Interface ID
+                ''',
+                'rx_interface_id',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('tx-interface-id', ATTRIBUTE, 'str' , None, None, 
+                [(0, 771)], [], 
+                '''                DHCPV6 transmitted Interface ID
+                ''',
+                'tx_interface_id',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('server-ipv6-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                DHCPV6 server IPv6 address
+                ''',
+                'server_ipv6_address',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('profile-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 65)], [], 
+                '''                DHCPV6 profile name
+                ''',
+                'profile_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('framed-ipv6-prefix', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                DHCPV6 framed ipv6 addess used by ND
+                ''',
+                'framed_ipv6_prefix',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('framed-prefix-length', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                DHCPV6 framed ipv6 prefix length used by ND
+                ''',
+                'framed_prefix_length',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('is-nak-next-renew', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is true if DHCP next renew from client will be
+                NAK'd
+                ''',
+                'is_nak_next_renew',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('srg-state', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                DHCPV6 SRG state
+                ''',
+                'srg_state',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('srg-intf-role', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                DHCPV6 SRG Intf Role
+                ''',
+                'srg_intf_role',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
@@ -1722,13 +1421,13 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Relay.Binding.Clients' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Binding.Clients',
+    'Dhcpv6.Nodes.Node.Proxy.Binding.Clients' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Binding.Clients',
             False, 
             [
-            _MetaInfoClassMember('client', REFERENCE_LIST, 'Client' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Binding.Clients.Client', 
+            _MetaInfoClassMember('client', REFERENCE_LIST, 'Client' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client', 
                 [], [], 
-                '''                Single DHCPV6 relay binding
+                '''                Single DHCPV6 proxy binding
                 ''',
                 'client',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
@@ -1739,10 +1438,136 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Relay.Binding.Summary' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Binding.Summary',
+    'Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iana' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iana',
             False, 
             [
+            _MetaInfoClassMember('initializing-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients in init state
+                ''',
+                'initializing_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dpm-waiting-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients waiting on DPM to validate
+                subscriber
+                ''',
+                'dpm_waiting_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('daps-waiting-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients waiting on DAPS to assign/free
+                prefix(ND)
+                ''',
+                'daps_waiting_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('msg-waiting-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients waiting for a message from the
+                client/server
+                ''',
+                'msg_waiting_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('iedge-waiting-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients waiting on iedge to subscriber
+                session
+                ''',
+                'iedge_waiting_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('rib-waiting-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients in waiting on RIB response
+                ''',
+                'rib_waiting_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('bound-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients in bound state
+                ''',
+                'bound_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'iana',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iapd' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iapd',
+            False, 
+            [
+            _MetaInfoClassMember('initializing-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients in init state
+                ''',
+                'initializing_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dpm-waiting-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients waiting on DPM to validate
+                subscriber
+                ''',
+                'dpm_waiting_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('daps-waiting-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients waiting on DAPS to assign/free
+                prefix(ND)
+                ''',
+                'daps_waiting_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('msg-waiting-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients waiting for a message from the
+                client/server
+                ''',
+                'msg_waiting_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('iedge-waiting-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients waiting on iedge to subscriber
+                session
+                ''',
+                'iedge_waiting_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('rib-waiting-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients in waiting on RIB response
+                ''',
+                'rib_waiting_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('bound-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients in bound state
+                ''',
+                'bound_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'iapd',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Proxy.Binding.Summary' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Binding.Summary',
+            False, 
+            [
+            _MetaInfoClassMember('iana', REFERENCE_CLASS, 'Iana' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iana', 
+                [], [], 
+                '''                IANA proxy binding summary
+                ''',
+                'iana',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('iapd', REFERENCE_CLASS, 'Iapd' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iapd', 
+                [], [], 
+                '''                IAPD proxy binding summary
+                ''',
+                'iapd',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             _MetaInfoClassMember('clients', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Total number of clients
@@ -1756,19 +1581,19 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Relay.Binding' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Binding',
+    'Dhcpv6.Nodes.Node.Proxy.Binding' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Binding',
             False, 
             [
-            _MetaInfoClassMember('clients', REFERENCE_CLASS, 'Clients' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Binding.Clients', 
+            _MetaInfoClassMember('clients', REFERENCE_CLASS, 'Clients' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Binding.Clients', 
                 [], [], 
-                '''                DHCPV6 relay client bindings
+                '''                DHCPV6 proxy client bindings
                 ''',
                 'clients',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('summary', REFERENCE_CLASS, 'Summary' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Binding.Summary', 
+            _MetaInfoClassMember('summary', REFERENCE_CLASS, 'Summary' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Binding.Summary', 
                 [], [], 
-                '''                DHCPV6 relay binding summary
+                '''                DHCPV6 proxy binding summary
                 ''',
                 'summary',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
@@ -1779,746 +1604,180 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics',
+    'Dhcpv6.Nodes.Node.Proxy' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy',
             False, 
             [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'statistics',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat',
-            False, 
-            [
-            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics', 
+            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Vrfs', 
                 [], [], 
-                '''                Relay statistics
-                ''',
-                'statistics',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 33)], [], 
-                '''                DHCPv6 L3 VRF name
-                ''',
-                'vrf_name',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'ipv6-dhcpv6d-relay-stat',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Relay.Statistics' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Statistics',
-            False, 
-            [
-            _MetaInfoClassMember('ipv6-dhcpv6d-relay-stat', REFERENCE_LIST, 'Ipv6Dhcpv6DRelayStat' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat', 
-                [], [], 
-                '''                ipv6 dhcpv6d relay stat
-                ''',
-                'ipv6_dhcpv6d_relay_stat',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'statistics',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Advertise' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Advertise',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'advertise',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Confirm' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Confirm',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'confirm',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Decline' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Decline',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'decline',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Inform' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Inform',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'inform',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQuery' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQuery',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'lease-query',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryData' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryData',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'lease-query-data',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryDone' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryDone',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'lease-query-done',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryReply' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryReply',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'lease-query-reply',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Rebind' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Rebind',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'rebind',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reconfig' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reconfig',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'reconfig',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayForward' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayForward',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'relay-forward',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayReply' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayReply',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'relay-reply',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Release' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Release',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'release',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Renew' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Renew',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'renew',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reply' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reply',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'reply',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Request' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Request',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'request',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Solicit' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Solicit',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'solicit',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics',
-            False, 
-            [
-            _MetaInfoClassMember('advertise', REFERENCE_CLASS, 'Advertise' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Advertise', 
-                [], [], 
-                '''                DHCPV6 advertise packets
-                ''',
-                'advertise',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('confirm', REFERENCE_CLASS, 'Confirm' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Confirm', 
-                [], [], 
-                '''                DHCPV6 confirm packets
-                ''',
-                'confirm',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('decline', REFERENCE_CLASS, 'Decline' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Decline', 
-                [], [], 
-                '''                DHCPV6 decline packets
-                ''',
-                'decline',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('inform', REFERENCE_CLASS, 'Inform' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Inform', 
-                [], [], 
-                '''                DHCPV6 inform packets
-                ''',
-                'inform',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('lease-query', REFERENCE_CLASS, 'LeaseQuery' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQuery', 
-                [], [], 
-                '''                DHCPV6 lease query packets
-                ''',
-                'lease_query',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('lease-query-data', REFERENCE_CLASS, 'LeaseQueryData' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryData', 
-                [], [], 
-                '''                DHCPV6 lease query data packets
-                ''',
-                'lease_query_data',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('lease-query-done', REFERENCE_CLASS, 'LeaseQueryDone' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryDone', 
-                [], [], 
-                '''                DHCPV6 lease query done packets
-                ''',
-                'lease_query_done',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('lease-query-reply', REFERENCE_CLASS, 'LeaseQueryReply' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryReply', 
-                [], [], 
-                '''                DHCPV6 lease query reply packets
-                ''',
-                'lease_query_reply',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('rebind', REFERENCE_CLASS, 'Rebind' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Rebind', 
-                [], [], 
-                '''                DHCPV6 rebind packets
-                ''',
-                'rebind',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('reconfig', REFERENCE_CLASS, 'Reconfig' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reconfig', 
-                [], [], 
-                '''                DHCPV6 reconfig packets
-                ''',
-                'reconfig',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('relay-forward', REFERENCE_CLASS, 'RelayForward' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayForward', 
-                [], [], 
-                '''                DHCPV6 relay forward packets
-                ''',
-                'relay_forward',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('relay-reply', REFERENCE_CLASS, 'RelayReply' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayReply', 
-                [], [], 
-                '''                DHCPV6 relay reply packets
-                ''',
-                'relay_reply',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('release', REFERENCE_CLASS, 'Release' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Release', 
-                [], [], 
-                '''                DHCPV6 release packets
-                ''',
-                'release',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('renew', REFERENCE_CLASS, 'Renew' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Renew', 
-                [], [], 
-                '''                DHCPV6 renew packets
-                ''',
-                'renew',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('reply', REFERENCE_CLASS, 'Reply' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reply', 
-                [], [], 
-                '''                DHCPV6 reply packets
-                ''',
-                'reply',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('request', REFERENCE_CLASS, 'Request' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Request', 
-                [], [], 
-                '''                DHCPV6 request packets
-                ''',
-                'request',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('solicit', REFERENCE_CLASS, 'Solicit' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Solicit', 
-                [], [], 
-                '''                DHCPV6 solicit packets
-                ''',
-                'solicit',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'statistics',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf',
-            False, 
-            [
-            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                VRF name
-                ''',
-                'vrf_name',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', True),
-            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics', 
-                [], [], 
-                '''                IPv6 DHCP relay statistics
-                ''',
-                'statistics',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'vrf',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Relay.Vrfs' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs',
-            False, 
-            [
-            _MetaInfoClassMember('vrf', REFERENCE_LIST, 'Vrf' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf', 
-                [], [], 
-                '''                IPv6 DHCP relay VRF name
-                ''',
-                'vrf',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'vrfs',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Relay' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay',
-            False, 
-            [
-            _MetaInfoClassMember('binding', REFERENCE_CLASS, 'Binding' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Binding', 
-                [], [], 
-                '''                DHCPV6 relay bindings
-                ''',
-                'binding',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Statistics', 
-                [], [], 
-                '''                DHCPv6 relay statistics
-                ''',
-                'statistics',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs', 
-                [], [], 
-                '''                DHCPV6 relay list of VRF names
+                '''                DHCPV6 proxy list of VRF names
                 ''',
                 'vrfs',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('profiles', REFERENCE_CLASS, 'Profiles' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Profiles', 
+                [], [], 
+                '''                IPv6 DHCP proxy profile
+                ''',
+                'profiles',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Statistics', 
+                [], [], 
+                '''                DHCPv6 proxy statistics
+                ''',
+                'statistics',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('binding', REFERENCE_CLASS, 'Binding' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Binding', 
+                [], [], 
+                '''                DHCPV6 proxy bindings
+                ''',
+                'binding',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'relay',
+            'proxy',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Server.Binding.Summary.Iana' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Binding.Summary.Iana',
+            False, 
+            [
+            _MetaInfoClassMember('initializing-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients in init state
+                ''',
+                'initializing_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dpm-waiting-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients waiting on DPM to validate
+                subscriber
+                ''',
+                'dpm_waiting_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('daps-waiting-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients waiting on DAPS to assign/free
+                addr/prefix
+                ''',
+                'daps_waiting_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('request-waiting-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients waiting for a request from the
+                client
+                ''',
+                'request_waiting_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('iedge-waiting-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients waiting for iedge for the
+                session
+                ''',
+                'iedge_waiting_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('rib-waiting-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients in waiting for RIB response
+                ''',
+                'rib_waiting_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('bound-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients in bound state
+                ''',
+                'bound_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'iana',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Server.Binding.Summary.Iapd' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Binding.Summary.Iapd',
+            False, 
+            [
+            _MetaInfoClassMember('initializing-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients in init state
+                ''',
+                'initializing_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dpm-waiting-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients waiting on DPM to validate
+                subscriber
+                ''',
+                'dpm_waiting_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('daps-waiting-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients waiting on DAPS to assign/free
+                addr/prefix
+                ''',
+                'daps_waiting_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('request-waiting-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients waiting for a request from the
+                client
+                ''',
+                'request_waiting_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('iedge-waiting-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients waiting for iedge for the
+                session
+                ''',
+                'iedge_waiting_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('rib-waiting-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients in waiting for RIB response
+                ''',
+                'rib_waiting_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('bound-clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of clients in bound state
+                ''',
+                'bound_clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'iapd',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Server.Binding.Summary' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Binding.Summary',
+            False, 
+            [
+            _MetaInfoClassMember('iana', REFERENCE_CLASS, 'Iana' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Binding.Summary.Iana', 
+                [], [], 
+                '''                IANA server binding summary
+                ''',
+                'iana',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('iapd', REFERENCE_CLASS, 'Iapd' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Binding.Summary.Iapd', 
+                [], [], 
+                '''                IAPD server binding summary
+                ''',
+                'iapd',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total number of clients
+                ''',
+                'clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'summary',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
@@ -2527,12 +1786,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses.BagDhcpv6DAddrAttrb',
             False, 
             [
-            _MetaInfoClassMember('lease-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Lease time in seconds
-                ''',
-                'lease_time',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 prefix
@@ -2544,6 +1797,12 @@ _meta_table = {
                 '''                Prefix length
                 ''',
                 'prefix_length',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('lease-time', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Lease time in seconds
+                ''',
+                'lease_time',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             _MetaInfoClassMember('remaining-lease-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -2585,11 +1844,11 @@ _meta_table = {
                 ''',
                 'addresses',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                FSM Flag for this IA
+            _MetaInfoClassMember('ia-type', REFERENCE_ENUM_CLASS, 'BagDhcpv6DIaIdEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6DIaIdEnum', 
+                [], [], 
+                '''                IA type
                 ''',
-                'flags',
+                'ia_type',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             _MetaInfoClassMember('ia-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -2597,23 +1856,23 @@ _meta_table = {
                 ''',
                 'ia_id',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('ia-type', REFERENCE_ENUM_CLASS, 'BagDhcpv6DIaIdEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6DIaIdEnum', 
-                [], [], 
-                '''                IA type
+            _MetaInfoClassMember('flags', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                FSM Flag for this IA
                 ''',
-                'ia_type',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'BagDhcpv6DFsmStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6DFsmStateEnum', 
-                [], [], 
-                '''                State
-                ''',
-                'state',
+                'flags',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             _MetaInfoClassMember('total-address', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Total address in this IA
                 ''',
                 'total_address',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'BagDhcpv6DFsmStateEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6DFsmStateEnum', 
+                [], [], 
+                '''                State
+                ''',
+                'state',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
@@ -2649,29 +1908,17 @@ _meta_table = {
                 ''',
                 'client_id',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', True),
-            _MetaInfoClassMember('access-vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 33)], [], 
-                '''                DHCPV6 access VRF name to client
+            _MetaInfoClassMember('ia-id-pd', REFERENCE_CLASS, 'IaIdPd' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd', 
+                [], [], 
+                '''                List of DHCPv6 IA_ID/PDs
                 ''',
-                'access_vrf_name',
+                'ia_id_pd',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('address-pool-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
-                '''                DHCPV6 server address pool name
+            _MetaInfoClassMember('duid', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Client DUID
                 ''',
-                'address_pool_name',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('class-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
-                '''                DHCPV6 class name
-                ''',
-                'class_name',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('client-flag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                DHCPV6 client flag
-                ''',
-                'client_flag',
+                'duid',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             _MetaInfoClassMember('client-id-xr', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -2679,17 +1926,83 @@ _meta_table = {
                 ''',
                 'client_id_xr',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('dns-server-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('client-flag', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                DNS server count
+                '''                DHCPV6 client flag
                 ''',
-                'dns_server_count',
+                'client_flag',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('duid', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Client DUID
+            _MetaInfoClassMember('subscriber-label', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                DHCPV6 subscriber label
                 ''',
-                'duid',
+                'subscriber_label',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 33)], [], 
+                '''                DHCPVV6 client/subscriber VRF name
+                ''',
+                'vrf_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Client MAC address
+                ''',
+                'mac_address',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('ia-id-p-ds', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of ia_id/pd
+                ''',
+                'ia_id_p_ds',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('link-local-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                DHCPV6 IPv6 client link local address
+                ''',
+                'link_local_address',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                DHCPV6 access interface to client
+                ''',
+                'interface_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('access-vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 33)], [], 
+                '''                DHCPV6 access VRF name to client
+                ''',
+                'access_vrf_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('server-binding-tags', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                DHCPV6 VLAN tag count
+                ''',
+                'server_binding_tags',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('server-binding-outer-tag', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                DHCPV6 VLAN Outer VLAN
+                ''',
+                'server_binding_outer_tag',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('server-binding-inner-tag', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                DHCPV6 VLAN Inner VLAN
+                ''',
+                'server_binding_inner_tag',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('pool-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 64)], [], 
+                '''                DHCPV6 pool name
+                ''',
+                'pool_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('profile-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 64)], [], 
+                '''                DHCPV6 profile name
+                ''',
+                'profile_name',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             _MetaInfoClassMember('framed-ipv6-prefix', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
@@ -2703,23 +2016,41 @@ _meta_table = {
                 ''',
                 'framed_prefix_length',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('ia-id-p-ds', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('class-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 64)], [], 
+                '''                DHCPV6 class name
+                ''',
+                'class_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('rx-remote-id', ATTRIBUTE, 'str' , None, None, 
+                [(0, 771)], [], 
+                '''                DHCPV6 received Remote ID
+                ''',
+                'rx_remote_id',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('rx-interface-id', ATTRIBUTE, 'str' , None, None, 
+                [(0, 771)], [], 
+                '''                DHCPV6 received Interface ID
+                ''',
+                'rx_interface_id',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('prefix-pool-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 64)], [], 
+                '''                DHCPV6 server prefix pool name
+                ''',
+                'prefix_pool_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('address-pool-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 64)], [], 
+                '''                DHCPV6 server address pool name
+                ''',
+                'address_pool_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dns-server-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of ia_id/pd
+                '''                DNS server count
                 ''',
-                'ia_id_p_ds',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('ia-id-pd', REFERENCE_CLASS, 'IaIdPd' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd', 
-                [], [], 
-                '''                List of DHCPv6 IA_ID/PDs
-                ''',
-                'ia_id_pd',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                DHCPV6 access interface to client
-                ''',
-                'interface_name',
+                'dns_server_count',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             _MetaInfoClassMember('is-nak-next-renew', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2728,89 +2059,17 @@ _meta_table = {
                 ''',
                 'is_nak_next_renew',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('link-local-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                DHCPV6 IPv6 client link local address
-                ''',
-                'link_local_address',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Client MAC address
-                ''',
-                'mac_address',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('pool-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
-                '''                DHCPV6 pool name
-                ''',
-                'pool_name',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('prefix-pool-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
-                '''                DHCPV6 server prefix pool name
-                ''',
-                'prefix_pool_name',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('profile-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
-                '''                DHCPV6 profile name
-                ''',
-                'profile_name',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('rx-interface-id', ATTRIBUTE, 'str' , None, None, 
-                [(0, 771)], [], 
-                '''                DHCPV6 received Interface ID
-                ''',
-                'rx_interface_id',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('rx-remote-id', ATTRIBUTE, 'str' , None, None, 
-                [(0, 771)], [], 
-                '''                DHCPV6 received Remote ID
-                ''',
-                'rx_remote_id',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('server-binding-inner-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                DHCPV6 VLAN Inner VLAN
-                ''',
-                'server_binding_inner_tag',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('server-binding-outer-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                DHCPV6 VLAN Outer VLAN
-                ''',
-                'server_binding_outer_tag',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('server-binding-tags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                DHCPV6 VLAN tag count
-                ''',
-                'server_binding_tags',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('srg-intf-role', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                DHCPV6 SRG Intf Role
-                ''',
-                'srg_intf_role',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             _MetaInfoClassMember('srg-state', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                DHCPV6 SRG state
                 ''',
                 'srg_state',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('subscriber-label', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('srg-intf-role', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                DHCPV6 subscriber label
+                '''                DHCPV6 SRG Intf Role
                 ''',
-                'subscriber_label',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 33)], [], 
-                '''                DHCPVV6 client/subscriber VRF name
-                ''',
-                'vrf_name',
+                'srg_intf_role',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
@@ -2836,168 +2095,694 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Server.Binding.Summary.Iana' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Binding.Summary.Iana',
-            False, 
-            [
-            _MetaInfoClassMember('bound-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients in bound state
-                ''',
-                'bound_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('daps-waiting-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients waiting on DAPS to assign/free
-                addr/prefix
-                ''',
-                'daps_waiting_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('dpm-waiting-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients waiting on DPM to validate
-                subscriber
-                ''',
-                'dpm_waiting_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('iedge-waiting-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients waiting for iedge for the
-                session
-                ''',
-                'iedge_waiting_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('initializing-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients in init state
-                ''',
-                'initializing_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('request-waiting-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients waiting for a request from the
-                client
-                ''',
-                'request_waiting_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('rib-waiting-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients in waiting for RIB response
-                ''',
-                'rib_waiting_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'iana',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Server.Binding.Summary.Iapd' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Binding.Summary.Iapd',
-            False, 
-            [
-            _MetaInfoClassMember('bound-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients in bound state
-                ''',
-                'bound_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('daps-waiting-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients waiting on DAPS to assign/free
-                addr/prefix
-                ''',
-                'daps_waiting_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('dpm-waiting-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients waiting on DPM to validate
-                subscriber
-                ''',
-                'dpm_waiting_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('iedge-waiting-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients waiting for iedge for the
-                session
-                ''',
-                'iedge_waiting_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('initializing-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients in init state
-                ''',
-                'initializing_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('request-waiting-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients waiting for a request from the
-                client
-                ''',
-                'request_waiting_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('rib-waiting-clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of clients in waiting for RIB response
-                ''',
-                'rib_waiting_clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'iapd',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Server.Binding.Summary' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Binding.Summary',
-            False, 
-            [
-            _MetaInfoClassMember('clients', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total number of clients
-                ''',
-                'clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('iana', REFERENCE_CLASS, 'Iana' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Binding.Summary.Iana', 
-                [], [], 
-                '''                IANA server binding summary
-                ''',
-                'iana',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('iapd', REFERENCE_CLASS, 'Iapd' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Binding.Summary.Iapd', 
-                [], [], 
-                '''                IAPD server binding summary
-                ''',
-                'iapd',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'summary',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
     'Dhcpv6.Nodes.Node.Server.Binding' : {
         'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Binding',
             False, 
             [
-            _MetaInfoClassMember('clients', REFERENCE_CLASS, 'Clients' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Binding.Clients', 
-                [], [], 
-                '''                DHCPV6 server client bindings
-                ''',
-                'clients',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             _MetaInfoClassMember('summary', REFERENCE_CLASS, 'Summary' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Binding.Summary', 
                 [], [], 
                 '''                DHCPV6 server binding summary
                 ''',
                 'summary',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('clients', REFERENCE_CLASS, 'Clients' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Binding.Clients', 
+                [], [], 
+                '''                DHCPV6 server client bindings
+                ''',
+                'clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
             'binding',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Solicit' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Solicit',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'solicit',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Advertise' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Advertise',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'advertise',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'request',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reply' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reply',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'reply',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Confirm' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Confirm',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'confirm',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'decline',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Renew' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Renew',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'renew',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Rebind' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Rebind',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'rebind',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'release',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reconfig' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reconfig',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'reconfig',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'inform',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayForward' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayForward',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'relay-forward',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayReply' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayReply',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'relay-reply',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'lease-query',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryReply' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryReply',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'lease-query-reply',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryDone' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryDone',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'lease-query-done',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryData' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryData',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'lease-query-data',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics',
+            False, 
+            [
+            _MetaInfoClassMember('solicit', REFERENCE_CLASS, 'Solicit' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Solicit', 
+                [], [], 
+                '''                DHCPV6 solicit packets
+                ''',
+                'solicit',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('advertise', REFERENCE_CLASS, 'Advertise' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Advertise', 
+                [], [], 
+                '''                DHCPV6 advertise packets
+                ''',
+                'advertise',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('request', REFERENCE_CLASS, 'Request' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request', 
+                [], [], 
+                '''                DHCPV6 request packets
+                ''',
+                'request',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('reply', REFERENCE_CLASS, 'Reply' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reply', 
+                [], [], 
+                '''                DHCPV6 reply packets
+                ''',
+                'reply',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('confirm', REFERENCE_CLASS, 'Confirm' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Confirm', 
+                [], [], 
+                '''                DHCPV6 confirm packets
+                ''',
+                'confirm',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('decline', REFERENCE_CLASS, 'Decline' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline', 
+                [], [], 
+                '''                DHCPV6 decline packets
+                ''',
+                'decline',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('renew', REFERENCE_CLASS, 'Renew' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Renew', 
+                [], [], 
+                '''                DHCPV6 renew packets
+                ''',
+                'renew',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('rebind', REFERENCE_CLASS, 'Rebind' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Rebind', 
+                [], [], 
+                '''                DHCPV6 rebind packets
+                ''',
+                'rebind',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('release', REFERENCE_CLASS, 'Release' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release', 
+                [], [], 
+                '''                DHCPV6 release packets
+                ''',
+                'release',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('reconfig', REFERENCE_CLASS, 'Reconfig' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reconfig', 
+                [], [], 
+                '''                DHCPV6 reconfig packets
+                ''',
+                'reconfig',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('inform', REFERENCE_CLASS, 'Inform' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform', 
+                [], [], 
+                '''                DHCPV6 inform packets
+                ''',
+                'inform',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('relay-forward', REFERENCE_CLASS, 'RelayForward' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayForward', 
+                [], [], 
+                '''                DHCPV6 relay forward packets
+                ''',
+                'relay_forward',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('relay-reply', REFERENCE_CLASS, 'RelayReply' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayReply', 
+                [], [], 
+                '''                DHCPV6 relay reply packets
+                ''',
+                'relay_reply',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('lease-query', REFERENCE_CLASS, 'LeaseQuery' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery', 
+                [], [], 
+                '''                DHCPV6 lease query packets
+                ''',
+                'lease_query',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('lease-query-reply', REFERENCE_CLASS, 'LeaseQueryReply' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryReply', 
+                [], [], 
+                '''                DHCPV6 lease query reply packets
+                ''',
+                'lease_query_reply',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('lease-query-done', REFERENCE_CLASS, 'LeaseQueryDone' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryDone', 
+                [], [], 
+                '''                DHCPV6 lease query done packets
+                ''',
+                'lease_query_done',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('lease-query-data', REFERENCE_CLASS, 'LeaseQueryData' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryData', 
+                [], [], 
+                '''                DHCPV6 lease query data packets
+                ''',
+                'lease_query_data',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'statistics',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf',
+            False, 
+            [
+            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                VRF name
+                ''',
+                'vrf_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', True),
+            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics', 
+                [], [], 
+                '''                IPv6 DHCP server statistics
+                ''',
+                'statistics',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'vrf',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Server.Vrfs' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs',
+            False, 
+            [
+            _MetaInfoClassMember('vrf', REFERENCE_LIST, 'Vrf' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf', 
+                [], [], 
+                '''                IPv6 DHCP server VRF name
+                ''',
+                'vrf',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'vrfs',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.Lease' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.Lease',
+            False, 
+            [
+            _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                DHCPV6 client lease in seconds
+                ''',
+                'seconds',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('time', ATTRIBUTE, 'str' , None, None, 
+                [(0, 10)], [], 
+                '''                Time in format HH:MM:SS
+                ''',
+                'time',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'lease',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
@@ -3036,56 +2821,15 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.Lease' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.Lease',
-            False, 
-            [
-            _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                DHCPV6 client lease in seconds
-                ''',
-                'seconds',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('time', ATTRIBUTE, 'str' , None, None, 
-                [(0, 10)], [], 
-                '''                Time in format HH:MM:SS
-                ''',
-                'time',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'lease',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
     'Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info' : {
         'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info',
             False, 
             [
-            _MetaInfoClassMember('aftr-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 65)], [], 
-                '''                Server aftr name
+            _MetaInfoClassMember('lease', REFERENCE_CLASS, 'Lease' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.Lease', 
+                [], [], 
+                '''                Server lease time
                 ''',
-                'aftr_name',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('delegated-prefix-pool-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 65)], [], 
-                '''                Server delegated prefix pool name
-                ''',
-                'delegated_prefix_pool_name',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('domain-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 65)], [], 
-                '''                Server domain name
-                ''',
-                'domain_name',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('framed-addr-pool-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 65)], [], 
-                '''                Server framed address pool name
-                ''',
-                'framed_addr_pool_name',
+                'lease',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             _MetaInfoClassMember('interface-references', REFERENCE_CLASS, 'InterfaceReferences' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences', 
                 [], [], 
@@ -3093,11 +2837,17 @@ _meta_table = {
                 ''',
                 'interface_references',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('lease', REFERENCE_CLASS, 'Lease' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.Lease', 
-                [], [], 
-                '''                Server lease time
+            _MetaInfoClassMember('profile-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 65)], [], 
+                '''                Server profile name
                 ''',
-                'lease',
+                'profile_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('domain-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 65)], [], 
+                '''                Server domain name
+                ''',
+                'domain_name',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             _MetaInfoClassMember('profile-dns', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
@@ -3105,17 +2855,23 @@ _meta_table = {
                 ''',
                 'profile_dns',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('profile-dns-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                DNS addresses
-                ''',
-                'profile_dns_address',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False, max_elements=8),
-            _MetaInfoClassMember('profile-name', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('aftr-name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 65)], [], 
-                '''                Server profile name
+                '''                Server aftr name
                 ''',
-                'profile_name',
+                'aftr_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('framed-addr-pool-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 65)], [], 
+                '''                Server framed address pool name
+                ''',
+                'framed_addr_pool_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('delegated-prefix-pool-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 65)], [], 
+                '''                Server delegated prefix pool name
+                ''',
+                'delegated_prefix_pool_name',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             _MetaInfoClassMember('rapid-commit', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3123,6 +2879,12 @@ _meta_table = {
                 ''',
                 'rapid_commit',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('profile-dns-address', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                DNS addresses
+                ''',
+                'profile_dns_address',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
             'info',
@@ -3238,12 +3000,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat.Statistics',
             False, 
             [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Received packets
@@ -3255,6 +3011,12 @@ _meta_table = {
                 '''                Transmitted packets
                 ''',
                 'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
@@ -3303,652 +3065,6 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Advertise' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Advertise',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'advertise',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Confirm' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Confirm',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'confirm',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'decline',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'inform',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'lease-query',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryData' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryData',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'lease-query-data',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryDone' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryDone',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'lease-query-done',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryReply' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryReply',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'lease-query-reply',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Rebind' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Rebind',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'rebind',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reconfig' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reconfig',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'reconfig',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayForward' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayForward',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'relay-forward',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayReply' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayReply',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'relay-reply',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'release',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Renew' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Renew',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'renew',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reply' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reply',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'reply',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'request',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Solicit' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Solicit',
-            False, 
-            [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Dropped packets
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Received packets
-                ''',
-                'received_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Transmitted packets
-                ''',
-                'transmitted_packets',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'solicit',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics',
-            False, 
-            [
-            _MetaInfoClassMember('advertise', REFERENCE_CLASS, 'Advertise' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Advertise', 
-                [], [], 
-                '''                DHCPV6 advertise packets
-                ''',
-                'advertise',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('confirm', REFERENCE_CLASS, 'Confirm' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Confirm', 
-                [], [], 
-                '''                DHCPV6 confirm packets
-                ''',
-                'confirm',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('decline', REFERENCE_CLASS, 'Decline' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline', 
-                [], [], 
-                '''                DHCPV6 decline packets
-                ''',
-                'decline',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('inform', REFERENCE_CLASS, 'Inform' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform', 
-                [], [], 
-                '''                DHCPV6 inform packets
-                ''',
-                'inform',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('lease-query', REFERENCE_CLASS, 'LeaseQuery' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery', 
-                [], [], 
-                '''                DHCPV6 lease query packets
-                ''',
-                'lease_query',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('lease-query-data', REFERENCE_CLASS, 'LeaseQueryData' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryData', 
-                [], [], 
-                '''                DHCPV6 lease query data packets
-                ''',
-                'lease_query_data',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('lease-query-done', REFERENCE_CLASS, 'LeaseQueryDone' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryDone', 
-                [], [], 
-                '''                DHCPV6 lease query done packets
-                ''',
-                'lease_query_done',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('lease-query-reply', REFERENCE_CLASS, 'LeaseQueryReply' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryReply', 
-                [], [], 
-                '''                DHCPV6 lease query reply packets
-                ''',
-                'lease_query_reply',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('rebind', REFERENCE_CLASS, 'Rebind' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Rebind', 
-                [], [], 
-                '''                DHCPV6 rebind packets
-                ''',
-                'rebind',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('reconfig', REFERENCE_CLASS, 'Reconfig' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reconfig', 
-                [], [], 
-                '''                DHCPV6 reconfig packets
-                ''',
-                'reconfig',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('relay-forward', REFERENCE_CLASS, 'RelayForward' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayForward', 
-                [], [], 
-                '''                DHCPV6 relay forward packets
-                ''',
-                'relay_forward',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('relay-reply', REFERENCE_CLASS, 'RelayReply' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayReply', 
-                [], [], 
-                '''                DHCPV6 relay reply packets
-                ''',
-                'relay_reply',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('release', REFERENCE_CLASS, 'Release' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release', 
-                [], [], 
-                '''                DHCPV6 release packets
-                ''',
-                'release',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('renew', REFERENCE_CLASS, 'Renew' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Renew', 
-                [], [], 
-                '''                DHCPV6 renew packets
-                ''',
-                'renew',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('reply', REFERENCE_CLASS, 'Reply' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reply', 
-                [], [], 
-                '''                DHCPV6 reply packets
-                ''',
-                'reply',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('request', REFERENCE_CLASS, 'Request' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request', 
-                [], [], 
-                '''                DHCPV6 request packets
-                ''',
-                'request',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('solicit', REFERENCE_CLASS, 'Solicit' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Solicit', 
-                [], [], 
-                '''                DHCPV6 solicit packets
-                ''',
-                'solicit',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'statistics',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs.Vrf',
-            False, 
-            [
-            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                VRF name
-                ''',
-                'vrf_name',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', True),
-            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics', 
-                [], [], 
-                '''                IPv6 DHCP server statistics
-                ''',
-                'statistics',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'vrf',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
-    'Dhcpv6.Nodes.Node.Server.Vrfs' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Vrfs',
-            False, 
-            [
-            _MetaInfoClassMember('vrf', REFERENCE_LIST, 'Vrf' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs.Vrf', 
-                [], [], 
-                '''                IPv6 DHCP server VRF name
-                ''',
-                'vrf',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'vrfs',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
-        ),
-    },
     'Dhcpv6.Nodes.Node.Server' : {
         'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server',
             False, 
@@ -3958,6 +3074,12 @@ _meta_table = {
                 '''                DHCPV6 server bindings
                 ''',
                 'binding',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs', 
+                [], [], 
+                '''                DHCPV6 server list of VRF names
+                ''',
+                'vrfs',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             _MetaInfoClassMember('profiles', REFERENCE_CLASS, 'Profiles' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Profiles', 
                 [], [], 
@@ -3971,15 +3093,893 @@ _meta_table = {
                 ''',
                 'statistics',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Vrfs', 
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'server',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'statistics',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat',
+            False, 
+            [
+            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics', 
                 [], [], 
-                '''                DHCPV6 server list of VRF names
+                '''                Relay statistics
+                ''',
+                'statistics',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 33)], [], 
+                '''                DHCPv6 L3 VRF name
+                ''',
+                'vrf_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'ipv6-dhcpv6d-relay-stat',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay.Statistics' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Statistics',
+            False, 
+            [
+            _MetaInfoClassMember('ipv6-dhcpv6d-relay-stat', REFERENCE_LIST, 'Ipv6Dhcpv6DRelayStat' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat', 
+                [], [], 
+                '''                ipv6 dhcpv6d relay stat
+                ''',
+                'ipv6_dhcpv6d_relay_stat',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'statistics',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay.Binding.Summary' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Binding.Summary',
+            False, 
+            [
+            _MetaInfoClassMember('clients', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total number of clients
+                ''',
+                'clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'summary',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay.Binding.Clients.Client' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Binding.Clients.Client',
+            False, 
+            [
+            _MetaInfoClassMember('client-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Client ID
+                ''',
+                'client_id',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', True),
+            _MetaInfoClassMember('duid', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Client DUID
+                ''',
+                'duid',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('client-id-xr', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Client unique identifier
+                ''',
+                'client_id_xr',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                length of prefix
+                ''',
+                'prefix_length',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                DHCPV6 IPv6 Prefix allotted to client
+                ''',
+                'prefix',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 33)], [], 
+                '''                DHCPv6 client/subscriber Vrf name
+                ''',
+                'vrf_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('lifetime', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Client route lifetime
+                ''',
+                'lifetime',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('rem-life-time', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Client route remaining lifetime
+                ''',
+                'rem_life_time',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 65)], [], 
+                '''                Interface name
+                ''',
+                'interface_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('next-hop-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                Next hop is our address
+                ''',
+                'next_hop_addr',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('ia-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                IA_ID of this IA
+                ''',
+                'ia_id',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('relay-profile-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 65)], [], 
+                '''                Relay Profile name
+                ''',
+                'relay_profile_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'client',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay.Binding.Clients' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Binding.Clients',
+            False, 
+            [
+            _MetaInfoClassMember('client', REFERENCE_LIST, 'Client' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Binding.Clients.Client', 
+                [], [], 
+                '''                Single DHCPV6 relay binding
+                ''',
+                'client',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'clients',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay.Binding' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Binding',
+            False, 
+            [
+            _MetaInfoClassMember('summary', REFERENCE_CLASS, 'Summary' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Binding.Summary', 
+                [], [], 
+                '''                DHCPV6 relay binding summary
+                ''',
+                'summary',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('clients', REFERENCE_CLASS, 'Clients' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Binding.Clients', 
+                [], [], 
+                '''                DHCPV6 relay client bindings
+                ''',
+                'clients',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'binding',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Solicit' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Solicit',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'solicit',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Advertise' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Advertise',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'advertise',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Request' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Request',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'request',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reply' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reply',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'reply',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Confirm' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Confirm',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'confirm',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Decline' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Decline',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'decline',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Renew' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Renew',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'renew',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Rebind' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Rebind',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'rebind',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Release' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Release',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'release',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reconfig' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reconfig',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'reconfig',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Inform' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Inform',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'inform',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayForward' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayForward',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'relay-forward',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayReply' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayReply',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'relay-reply',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQuery' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQuery',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'lease-query',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryReply' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryReply',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'lease-query-reply',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryDone' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryDone',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'lease-query-done',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryData' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryData',
+            False, 
+            [
+            _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Received packets
+                ''',
+                'received_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Transmitted packets
+                ''',
+                'transmitted_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Dropped packets
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'lease-query-data',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics',
+            False, 
+            [
+            _MetaInfoClassMember('solicit', REFERENCE_CLASS, 'Solicit' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Solicit', 
+                [], [], 
+                '''                DHCPV6 solicit packets
+                ''',
+                'solicit',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('advertise', REFERENCE_CLASS, 'Advertise' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Advertise', 
+                [], [], 
+                '''                DHCPV6 advertise packets
+                ''',
+                'advertise',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('request', REFERENCE_CLASS, 'Request' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Request', 
+                [], [], 
+                '''                DHCPV6 request packets
+                ''',
+                'request',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('reply', REFERENCE_CLASS, 'Reply' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reply', 
+                [], [], 
+                '''                DHCPV6 reply packets
+                ''',
+                'reply',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('confirm', REFERENCE_CLASS, 'Confirm' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Confirm', 
+                [], [], 
+                '''                DHCPV6 confirm packets
+                ''',
+                'confirm',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('decline', REFERENCE_CLASS, 'Decline' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Decline', 
+                [], [], 
+                '''                DHCPV6 decline packets
+                ''',
+                'decline',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('renew', REFERENCE_CLASS, 'Renew' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Renew', 
+                [], [], 
+                '''                DHCPV6 renew packets
+                ''',
+                'renew',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('rebind', REFERENCE_CLASS, 'Rebind' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Rebind', 
+                [], [], 
+                '''                DHCPV6 rebind packets
+                ''',
+                'rebind',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('release', REFERENCE_CLASS, 'Release' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Release', 
+                [], [], 
+                '''                DHCPV6 release packets
+                ''',
+                'release',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('reconfig', REFERENCE_CLASS, 'Reconfig' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reconfig', 
+                [], [], 
+                '''                DHCPV6 reconfig packets
+                ''',
+                'reconfig',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('inform', REFERENCE_CLASS, 'Inform' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Inform', 
+                [], [], 
+                '''                DHCPV6 inform packets
+                ''',
+                'inform',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('relay-forward', REFERENCE_CLASS, 'RelayForward' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayForward', 
+                [], [], 
+                '''                DHCPV6 relay forward packets
+                ''',
+                'relay_forward',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('relay-reply', REFERENCE_CLASS, 'RelayReply' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayReply', 
+                [], [], 
+                '''                DHCPV6 relay reply packets
+                ''',
+                'relay_reply',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('lease-query', REFERENCE_CLASS, 'LeaseQuery' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQuery', 
+                [], [], 
+                '''                DHCPV6 lease query packets
+                ''',
+                'lease_query',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('lease-query-reply', REFERENCE_CLASS, 'LeaseQueryReply' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryReply', 
+                [], [], 
+                '''                DHCPV6 lease query reply packets
+                ''',
+                'lease_query_reply',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('lease-query-done', REFERENCE_CLASS, 'LeaseQueryDone' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryDone', 
+                [], [], 
+                '''                DHCPV6 lease query done packets
+                ''',
+                'lease_query_done',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('lease-query-data', REFERENCE_CLASS, 'LeaseQueryData' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryData', 
+                [], [], 
+                '''                DHCPV6 lease query data packets
+                ''',
+                'lease_query_data',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'statistics',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf',
+            False, 
+            [
+            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                VRF name
+                ''',
+                'vrf_name',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', True),
+            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics', 
+                [], [], 
+                '''                IPv6 DHCP relay statistics
+                ''',
+                'statistics',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'vrf',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay.Vrfs' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Vrfs',
+            False, 
+            [
+            _MetaInfoClassMember('vrf', REFERENCE_LIST, 'Vrf' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf', 
+                [], [], 
+                '''                IPv6 DHCP relay VRF name
+                ''',
+                'vrf',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
+            'vrfs',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
+        ),
+    },
+    'Dhcpv6.Nodes.Node.Relay' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay',
+            False, 
+            [
+            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Statistics', 
+                [], [], 
+                '''                DHCPv6 relay statistics
+                ''',
+                'statistics',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('binding', REFERENCE_CLASS, 'Binding' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Binding', 
+                [], [], 
+                '''                DHCPV6 relay bindings
+                ''',
+                'binding',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Vrfs', 
+                [], [], 
+                '''                DHCPV6 relay list of VRF names
                 ''',
                 'vrfs',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
-            'server',
+            'relay',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'],
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
@@ -4000,17 +4000,17 @@ _meta_table = {
                 ''',
                 'proxy',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
-            _MetaInfoClassMember('relay', REFERENCE_CLASS, 'Relay' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay', 
-                [], [], 
-                '''                IPv6 DHCP relay operational data
-                ''',
-                'relay',
-                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             _MetaInfoClassMember('server', REFERENCE_CLASS, 'Server' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server', 
                 [], [], 
                 '''                IPv6 DHCP server operational data
                 ''',
                 'server',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
+            _MetaInfoClassMember('relay', REFERENCE_CLASS, 'Relay' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay', 
+                [], [], 
+                '''                IPv6 DHCP relay operational data
+                ''',
+                'relay',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper',
@@ -4060,6 +4060,37 @@ _meta_table = {
         ),
     },
 }
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Solicit']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Advertise']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reply']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Confirm']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Renew']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Rebind']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reconfig']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayForward']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayReply']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryReply']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryDone']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryData']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos.ThrottleInfo']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6DProxyIidReference']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6DProxyVrfReference']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6DProxyInterfaceReference']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses.BagDhcpv6DAddrAttrb']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd']['meta_info']
@@ -4069,112 +4100,81 @@ _meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iana']['meta_info'].parent 
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iapd']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Summary']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Summary']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6DProxyIidReference']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6DProxyInterfaceReference']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6DProxyVrfReference']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos.ThrottleInfo']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Advertise']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Confirm']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryData']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryDone']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryReply']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Rebind']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reconfig']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayForward']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayReply']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Renew']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reply']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Solicit']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Vrfs']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Binding.Clients.Client']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Binding.Clients']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Binding.Clients']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Binding']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Binding.Summary']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Binding']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Advertise']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Confirm']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Decline']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Inform']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQuery']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryData']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryDone']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryReply']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Rebind']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reconfig']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayForward']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayReply']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Release']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Renew']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reply']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Request']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Solicit']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Binding']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Statistics']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Summary.Iana']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Summary']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Summary.Iapd']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Summary']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses.BagDhcpv6DAddrAttrb']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients.Client']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Summary.Iana']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Summary']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Summary.Iapd']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Summary']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Binding']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Binding.Summary']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Binding']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Binding.Clients']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Binding']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Solicit']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Advertise']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reply']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Confirm']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Renew']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Rebind']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reconfig']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayForward']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayReply']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryReply']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryDone']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryData']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6DServerInterfaceReference']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.Lease']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos.ThrottleInfo']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Profiles']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat.Statistics']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Advertise']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Confirm']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryData']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryDone']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryReply']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Rebind']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reconfig']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayForward']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayReply']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Renew']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reply']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Solicit']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs.Vrf']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Binding']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Profiles']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Statistics']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Vrfs']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Binding.Clients.Client']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Binding.Clients']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Binding.Summary']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Binding']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Binding.Clients']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Binding']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Solicit']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Advertise']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Request']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reply']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Confirm']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Decline']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Renew']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Rebind']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Release']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reconfig']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Inform']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayForward']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayReply']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQuery']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryReply']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryDone']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryData']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Statistics']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Binding']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Vrfs']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Proxy']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node']['meta_info'].parent =_meta_table['Dhcpv6.Nodes']['meta_info']
 _meta_table['Dhcpv6.Database']['meta_info'].parent =_meta_table['Dhcpv6']['meta_info']
 _meta_table['Dhcpv6.Nodes']['meta_info'].parent =_meta_table['Dhcpv6']['meta_info']

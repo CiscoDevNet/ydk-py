@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -73,7 +73,7 @@ class Telnet(object):
             """
             VRF name for telnet service
             
-            .. attribute:: vrf_name
+            .. attribute:: vrf_name  <key>
             
             	VRF name
             	**type**\: str

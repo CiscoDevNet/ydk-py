@@ -23,7 +23,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -196,15 +196,15 @@ class EthernetFeatures(object):
     """
     Ethernet Features Configuration
     
-    .. attribute:: cfm
-    
-    	CFM global configuration
-    	**type**\: :py:class:`Cfm <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm>`
-    
     .. attribute:: egress_filtering
     
     	Egress Filtering Configuration
     	**type**\: :py:class:`EgressFiltering <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EgressFiltering>`
+    
+    .. attribute:: cfm
+    
+    	CFM global configuration
+    	**type**\: :py:class:`Cfm <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm>`
     
     .. attribute:: ether_link_oam
     
@@ -219,17 +219,65 @@ class EthernetFeatures(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.cfm = EthernetFeatures.Cfm()
-        self.cfm.parent = self
         self.egress_filtering = EthernetFeatures.EgressFiltering()
         self.egress_filtering.parent = self
+        self.cfm = EthernetFeatures.Cfm()
+        self.cfm.parent = self
         self.ether_link_oam = EthernetFeatures.EtherLinkOam()
         self.ether_link_oam.parent = self
+
+
+    class EgressFiltering(object):
+        """
+        Egress Filtering Configuration
+        
+        .. attribute:: egress_filtering_default_on
+        
+        	Whether Egress Filtering is on by default
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
+        
+
+        """
+
+        _prefix = 'l2-eth-infra-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.egress_filtering_default_on = None
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-l2-eth-infra-cfg:egress-filtering'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.egress_filtering_default_on is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+            return meta._meta_table['EthernetFeatures.EgressFiltering']['meta_info']
 
 
     class Cfm(object):
         """
         CFM global configuration
+        
+        .. attribute:: traceroute_cache
+        
+        	Traceroute Cache Configuration
+        	**type**\: :py:class:`TracerouteCache <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.TracerouteCache>`
         
         .. attribute:: domains
         
@@ -241,11 +289,6 @@ class EthernetFeatures(object):
         	Disable processing of Ethernet SLA packets on nV Satellite devices
         	**type**\: :py:class:`Empty <ydk.types.Empty>`
         
-        .. attribute:: traceroute_cache
-        
-        	Traceroute Cache Configuration
-        	**type**\: :py:class:`TracerouteCache <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.TracerouteCache>`
-        
         
 
         """
@@ -255,11 +298,67 @@ class EthernetFeatures(object):
 
         def __init__(self):
             self.parent = None
+            self.traceroute_cache = EthernetFeatures.Cfm.TracerouteCache()
+            self.traceroute_cache.parent = self
             self.domains = EthernetFeatures.Cfm.Domains()
             self.domains.parent = self
             self.nv_satellite_sla_processing_disable = None
-            self.traceroute_cache = EthernetFeatures.Cfm.TracerouteCache()
-            self.traceroute_cache.parent = self
+
+
+        class TracerouteCache(object):
+            """
+            Traceroute Cache Configuration
+            
+            .. attribute:: hold_time
+            
+            	Hold Time in minutes
+            	**type**\: int
+            
+            	**range:** 1..525600
+            
+            .. attribute:: cache_size
+            
+            	Cache Size limit (number of replies)
+            	**type**\: int
+            
+            	**range:** 1..4294967295
+            
+            
+
+            """
+
+            _prefix = 'ethernet-cfm-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.hold_time = None
+                self.cache_size = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm/Cisco-IOS-XR-ethernet-cfm-cfg:traceroute-cache'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.hold_time is not None:
+                    return True
+
+                if self.cache_size is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                return meta._meta_table['EthernetFeatures.Cfm.TracerouteCache']['meta_info']
 
 
         class Domains(object):
@@ -290,20 +389,20 @@ class EthernetFeatures(object):
                 Configuration for a particular Maintenance
                 Domain
                 
-                .. attribute:: domain
+                .. attribute:: domain  <key>
                 
                 	Maintenance Domain
                 	**type**\: str
-                
-                .. attribute:: domain_properties
-                
-                	Fundamental properties of the domain
-                	**type**\: :py:class:`DomainProperties <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.DomainProperties>`
                 
                 .. attribute:: services
                 
                 	Service\-specific global configuration
                 	**type**\: :py:class:`Services <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services>`
+                
+                .. attribute:: domain_properties
+                
+                	Fundamental properties of the domain
+                	**type**\: :py:class:`DomainProperties <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.DomainProperties>`
                 
                 
 
@@ -315,99 +414,10 @@ class EthernetFeatures(object):
                 def __init__(self):
                     self.parent = None
                     self.domain = None
-                    self.domain_properties = EthernetFeatures.Cfm.Domains.Domain.DomainProperties()
-                    self.domain_properties.parent = self
                     self.services = EthernetFeatures.Cfm.Domains.Domain.Services()
                     self.services.parent = self
-
-
-                class DomainProperties(object):
-                    """
-                    Fundamental properties of the domain
-                    
-                    .. attribute:: level
-                    
-                    	Maintenance Domain Level
-                    	**type**\: int
-                    
-                    	**range:** 0..7
-                    
-                    .. attribute:: mdid_format
-                    
-                    	Maintenance Domain ID Format
-                    	**type**\: :py:class:`CfmMdidFormatEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg.CfmMdidFormatEnum>`
-                    
-                    .. attribute:: mdid_mac_address
-                    
-                    	MAC Address, if MDID Format is MACAddress
-                    	**type**\: str
-                    
-                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                    
-                    .. attribute:: mdid_number
-                    
-                    	Unsigned 16\-bit Interger, if MDID Format is MACAddress
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: mdid_string
-                    
-                    	String MDID, if MDID format is String or DNSLike
-                    	**type**\: str
-                    
-                    	**range:** 0..44
-                    
-                    
-
-                    """
-
-                    _prefix = 'ethernet-cfm-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.level = None
-                        self.mdid_format = None
-                        self.mdid_mac_address = None
-                        self.mdid_number = None
-                        self.mdid_string = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:domain-properties'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.level is not None:
-                            return True
-
-                        if self.mdid_format is not None:
-                            return True
-
-                        if self.mdid_mac_address is not None:
-                            return True
-
-                        if self.mdid_number is not None:
-                            return True
-
-                        if self.mdid_string is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                        return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.DomainProperties']['meta_info']
+                    self.domain_properties = EthernetFeatures.Cfm.Domains.Domain.DomainProperties()
+                    self.domain_properties.parent = self
 
 
                 class Services(object):
@@ -438,67 +448,40 @@ class EthernetFeatures(object):
                         Configuration for a particular Service
                         (Maintenance Association)
                         
-                        .. attribute:: service
+                        .. attribute:: service  <key>
                         
                         	Service (Maintenance Association)
                         	**type**\: str
-                        
-                        .. attribute:: ais
-                        
-                        	Service specific AIS configuration
-                        	**type**\: :py:class:`Ais <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais>`
-                        
-                        .. attribute:: continuity_check_archive_hold_time
-                        
-                        	How long to store information for peer MEPs that have timed out
-                        	**type**\: int
-                        
-                        	**range:** 1..65535
-                        
-                        .. attribute:: continuity_check_auto_traceroute
-                        
-                        	Automatically trigger a traceroute when a peer MEP times out
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                        
-                        .. attribute:: continuity_check_interval
-                        
-                        	Continuity Check Interval and Loss Threshold.  Configuring the interval enables Continuity Check
-                        	**type**\: :py:class:`ContinuityCheckInterval <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.ContinuityCheckInterval>`
-                        
-                        .. attribute:: cross_check
-                        
-                        	Cross\-check configuration
-                        	**type**\: :py:class:`CrossCheck <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck>`
                         
                         .. attribute:: efd2
                         
                         	Enable EFD to bring down ports when MEPs detect errors
                         	**type**\: :py:class:`Efd2 <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.Efd2>`
                         
-                        .. attribute:: log_ais
+                        .. attribute:: continuity_check_interval
                         
-                        	Log receipt of AIS and LCK messages
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        	Continuity Check Interval and Loss Threshold.  Configuring the interval enables Continuity Check
+                        	**type**\: :py:class:`ContinuityCheckInterval <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.ContinuityCheckInterval>`
                         
-                        .. attribute:: log_continuity_check_errors
+                        .. attribute:: mip_auto_creation
                         
-                        	Log CCM Errors detected for peer MEPs
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        	MIP Auto\-creation Policy
+                        	**type**\: :py:class:`MipAutoCreation <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.MipAutoCreation>`
                         
-                        .. attribute:: log_continuity_check_state_changes
+                        .. attribute:: ais
                         
-                        	Log peer MEPs state changes
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        	Service specific AIS configuration
+                        	**type**\: :py:class:`Ais <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais>`
                         
-                        .. attribute:: log_cross_check_errors
+                        .. attribute:: cross_check
                         
-                        	Log Cross\-check Errors detected for peer MEPs
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        	Cross\-check configuration
+                        	**type**\: :py:class:`CrossCheck <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck>`
                         
-                        .. attribute:: log_efd
+                        .. attribute:: service_properties
                         
-                        	Enable logging
-                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        	Fundamental properties of the service (maintenance association)
+                        	**type**\: :py:class:`ServiceProperties <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.ServiceProperties>`
                         
                         .. attribute:: maximum_meps
                         
@@ -507,15 +490,17 @@ class EthernetFeatures(object):
                         
                         	**range:** 2..8190
                         
-                        .. attribute:: mip_auto_creation
+                        .. attribute:: log_cross_check_errors
                         
-                        	MIP Auto\-creation Policy
-                        	**type**\: :py:class:`MipAutoCreation <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.MipAutoCreation>`
+                        	Log Cross\-check Errors detected for peer MEPs
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
-                        .. attribute:: service_properties
+                        .. attribute:: continuity_check_archive_hold_time
                         
-                        	Fundamental properties of the service (maintenance association)
-                        	**type**\: :py:class:`ServiceProperties <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.ServiceProperties>`
+                        	How long to store information for peer MEPs that have timed out
+                        	**type**\: int
+                        
+                        	**range:** 1..65535
                         
                         .. attribute:: tags
                         
@@ -523,6 +508,31 @@ class EthernetFeatures(object):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        .. attribute:: log_continuity_check_state_changes
+                        
+                        	Log peer MEPs state changes
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: log_efd
+                        
+                        	Enable logging
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: continuity_check_auto_traceroute
+                        
+                        	Automatically trigger a traceroute when a peer MEP times out
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: log_continuity_check_errors
+                        
+                        	Log CCM Errors detected for peer MEPs
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: log_ais
+                        
+                        	Log receipt of AIS and LCK messages
+                        	**type**\: :py:class:`Empty <ydk.types.Empty>`
                         
                         
 
@@ -534,23 +544,226 @@ class EthernetFeatures(object):
                         def __init__(self):
                             self.parent = None
                             self.service = None
+                            self.efd2 = None
+                            self.continuity_check_interval = None
+                            self.mip_auto_creation = None
                             self.ais = EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais()
                             self.ais.parent = self
-                            self.continuity_check_archive_hold_time = None
-                            self.continuity_check_auto_traceroute = None
-                            self.continuity_check_interval = None
                             self.cross_check = EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck()
                             self.cross_check.parent = self
-                            self.efd2 = None
-                            self.log_ais = None
-                            self.log_continuity_check_errors = None
-                            self.log_continuity_check_state_changes = None
-                            self.log_cross_check_errors = None
-                            self.log_efd = None
-                            self.maximum_meps = None
-                            self.mip_auto_creation = None
                             self.service_properties = None
+                            self.maximum_meps = None
+                            self.log_cross_check_errors = None
+                            self.continuity_check_archive_hold_time = None
                             self.tags = None
+                            self.log_continuity_check_state_changes = None
+                            self.log_efd = None
+                            self.continuity_check_auto_traceroute = None
+                            self.log_continuity_check_errors = None
+                            self.log_ais = None
+
+
+                        class Efd2(object):
+                            """
+                            Enable EFD to bring down ports when MEPs
+                            detect errors
+                            
+                            .. attribute:: enable
+                            
+                            	Enable EFD
+                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            .. attribute:: protection_switching_enable
+                            
+                            	Enable protection switching notifications
+                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            
+
+                            This class is a :ref:`presence class<presence-class>`
+
+                            """
+
+                            _prefix = 'ethernet-cfm-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.enable = None
+                                self.protection_switching_enable = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:efd2'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.enable is not None:
+                                    return True
+
+                                if self.protection_switching_enable is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                                return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service.Efd2']['meta_info']
+
+
+                        class ContinuityCheckInterval(object):
+                            """
+                            Continuity Check Interval and Loss
+                            Threshold.  Configuring the interval
+                            enables Continuity Check.
+                            
+                            .. attribute:: ccm_interval
+                            
+                            	CCM Interval
+                            	**type**\: :py:class:`CfmCcmIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes.CfmCcmIntervalEnum>`
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            .. attribute:: loss_threshold
+                            
+                            	Loss Threshold (default 3)
+                            	**type**\: int
+                            
+                            	**range:** 2..255
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            
+
+                            This class is a :ref:`presence class<presence-class>`
+
+                            """
+
+                            _prefix = 'ethernet-cfm-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.ccm_interval = None
+                                self.loss_threshold = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:continuity-check-interval'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.ccm_interval is not None:
+                                    return True
+
+                                if self.loss_threshold is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                                return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service.ContinuityCheckInterval']['meta_info']
+
+
+                        class MipAutoCreation(object):
+                            """
+                            MIP Auto\-creation Policy
+                            
+                            .. attribute:: mip_policy
+                            
+                            	MIP Auto\-creation Policy
+                            	**type**\: :py:class:`CfmMipPolicyEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg.CfmMipPolicyEnum>`
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            .. attribute:: ccm_learning_enable
+                            
+                            	Enable CCM Learning at MIPs in this service
+                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            
+
+                            This class is a :ref:`presence class<presence-class>`
+
+                            """
+
+                            _prefix = 'ethernet-cfm-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.mip_policy = None
+                                self.ccm_learning_enable = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:mip-auto-creation'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.mip_policy is not None:
+                                    return True
+
+                                if self.ccm_learning_enable is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                                return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service.MipAutoCreation']['meta_info']
 
 
                         class Ais(object):
@@ -666,90 +879,20 @@ class EthernetFeatures(object):
                                 return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais']['meta_info']
 
 
-                        class ContinuityCheckInterval(object):
-                            """
-                            Continuity Check Interval and Loss
-                            Threshold.  Configuring the interval
-                            enables Continuity Check.
-                            
-                            .. attribute:: ccm_interval
-                            
-                            	CCM Interval
-                            	**type**\: :py:class:`CfmCcmIntervalEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_datatypes.CfmCcmIntervalEnum>`
-                            
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
-                            .. attribute:: loss_threshold
-                            
-                            	Loss Threshold (default 3)
-                            	**type**\: int
-                            
-                            	**range:** 2..255
-                            
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
-                            
-
-                            This class is a :ref:`presence class<presence-class>`
-
-                            """
-
-                            _prefix = 'ethernet-cfm-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.ccm_interval = None
-                                self.loss_threshold = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:continuity-check-interval'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.ccm_interval is not None:
-                                    return True
-
-                                if self.loss_threshold is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                                return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service.ContinuityCheckInterval']['meta_info']
-
-
                         class CrossCheck(object):
                             """
                             Cross\-check configuration
-                            
-                            .. attribute:: auto
-                            
-                            	Enable automatic MEP cross\-check
-                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
                             
                             .. attribute:: cross_check_meps
                             
                             	Cross\-check MEPs
                             	**type**\: :py:class:`CrossCheckMeps <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps>`
                             
+                            .. attribute:: auto
+                            
+                            	Enable automatic MEP cross\-check
+                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                            
                             
 
                             """
@@ -759,9 +902,9 @@ class EthernetFeatures(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.auto = None
                                 self.cross_check_meps = EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps()
                                 self.cross_check_meps.parent = self
+                                self.auto = None
 
 
                             class CrossCheckMeps(object):
@@ -792,7 +935,7 @@ class EthernetFeatures(object):
                                     MEP ID and optional MAC Address for
                                     Cross\-check
                                     
-                                    .. attribute:: mep_id
+                                    .. attribute:: mep_id  <key>
                                     
                                     	MEP ID
                                     	**type**\: int
@@ -896,10 +1039,10 @@ class EthernetFeatures(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.auto is not None:
+                                if self.cross_check_meps is not None and self.cross_check_meps._has_data():
                                     return True
 
-                                if self.cross_check_meps is not None and self.cross_check_meps._has_data():
+                                if self.auto is not None:
                                     return True
 
                                 return False
@@ -910,150 +1053,15 @@ class EthernetFeatures(object):
                                 return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck']['meta_info']
 
 
-                        class Efd2(object):
-                            """
-                            Enable EFD to bring down ports when MEPs
-                            detect errors
-                            
-                            .. attribute:: enable
-                            
-                            	Enable EFD
-                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                            
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
-                            .. attribute:: protection_switching_enable
-                            
-                            	Enable protection switching notifications
-                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                            
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
-                            
-
-                            This class is a :ref:`presence class<presence-class>`
-
-                            """
-
-                            _prefix = 'ethernet-cfm-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.enable = None
-                                self.protection_switching_enable = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:efd2'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.enable is not None:
-                                    return True
-
-                                if self.protection_switching_enable is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                                return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service.Efd2']['meta_info']
-
-
-                        class MipAutoCreation(object):
-                            """
-                            MIP Auto\-creation Policy
-                            
-                            .. attribute:: ccm_learning_enable
-                            
-                            	Enable CCM Learning at MIPs in this service
-                            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                            
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
-                            .. attribute:: mip_policy
-                            
-                            	MIP Auto\-creation Policy
-                            	**type**\: :py:class:`CfmMipPolicyEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg.CfmMipPolicyEnum>`
-                            
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
-                            
-
-                            This class is a :ref:`presence class<presence-class>`
-
-                            """
-
-                            _prefix = 'ethernet-cfm-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.ccm_learning_enable = None
-                                self.mip_policy = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:mip-auto-creation'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.ccm_learning_enable is not None:
-                                    return True
-
-                                if self.mip_policy is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                                return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service.MipAutoCreation']['meta_info']
-
-
                         class ServiceProperties(object):
                             """
                             Fundamental properties of the service
                             (maintenance association)
                             
-                            .. attribute:: ce_id
+                            .. attribute:: service_type
                             
-                            	Local Customer Edge Identifier
-                            	**type**\: int
-                            
-                            	**range:** 1..16384
+                            	Type of Service
+                            	**type**\: :py:class:`CfmServiceEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg.CfmServiceEnum>`
                             
                             .. attribute:: _is_presence
                             
@@ -1064,6 +1072,28 @@ class EthernetFeatures(object):
                             
                             	Bridge Group or Cross\-connect Group, if Service Type is BridgeDomain or CrossConnect
                             	**type**\: str
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            .. attribute:: switching_name
+                            
+                            	Bridge Domain or Cross\-connect name, if Service Type is BridgeDomain or CrossConnect
+                            	**type**\: str
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            .. attribute:: ce_id
+                            
+                            	Local Customer Edge Identifier
+                            	**type**\: int
+                            
+                            	**range:** 1..16384
                             
                             .. attribute:: _is_presence
                             
@@ -1082,16 +1112,6 @@ class EthernetFeatures(object):
                             	Is present if this instance represents presence container else not
                             	**type**\: bool
                             
-                            .. attribute:: service_type
-                            
-                            	Type of Service
-                            	**type**\: :py:class:`CfmServiceEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg.CfmServiceEnum>`
-                            
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
                             .. attribute:: short_ma_name_format
                             
                             	Short MA Name Format
@@ -1102,12 +1122,12 @@ class EthernetFeatures(object):
                             	Is present if this instance represents presence container else not
                             	**type**\: bool
                             
-                            .. attribute:: short_ma_name_icc
+                            .. attribute:: short_ma_name_string
                             
-                            	ITU Carrier Code (ICC), if format is ICCBased
+                            	String Short MA Name, if format is String
                             	**type**\: str
                             
-                            	**range:** 0..7
+                            	**range:** 0..46
                             
                             .. attribute:: _is_presence
                             
@@ -1138,12 +1158,24 @@ class EthernetFeatures(object):
                             	Is present if this instance represents presence container else not
                             	**type**\: bool
                             
-                            .. attribute:: short_ma_name_string
+                            .. attribute:: short_ma_name_vpn_index
                             
-                            	String Short MA Name, if format is String
+                            	VPN Index, if Short MA Name format is VPN\_ID
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            .. attribute:: short_ma_name_icc
+                            
+                            	ITU Carrier Code (ICC), if format is ICCBased
                             	**type**\: str
                             
-                            	**range:** 0..46
+                            	**range:** 0..7
                             
                             .. attribute:: _is_presence
                             
@@ -1162,28 +1194,6 @@ class EthernetFeatures(object):
                             	Is present if this instance represents presence container else not
                             	**type**\: bool
                             
-                            .. attribute:: short_ma_name_vpn_index
-                            
-                            	VPN Index, if Short MA Name format is VPN\_ID
-                            	**type**\: int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
-                            .. attribute:: switching_name
-                            
-                            	Bridge Domain or Cross\-connect name, if Service Type is BridgeDomain or CrossConnect
-                            	**type**\: str
-                            
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
                             
 
                             This class is a :ref:`presence class<presence-class>`
@@ -1195,18 +1205,18 @@ class EthernetFeatures(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.ce_id = None
-                                self.group_name = None
-                                self.remote_ce_id = None
                                 self.service_type = None
+                                self.group_name = None
+                                self.switching_name = None
+                                self.ce_id = None
+                                self.remote_ce_id = None
                                 self.short_ma_name_format = None
-                                self.short_ma_name_icc = None
+                                self.short_ma_name_string = None
                                 self.short_ma_name_number = None
                                 self.short_ma_name_oui = None
-                                self.short_ma_name_string = None
-                                self.short_ma_name_umc = None
                                 self.short_ma_name_vpn_index = None
-                                self.switching_name = None
+                                self.short_ma_name_icc = None
+                                self.short_ma_name_umc = None
 
                             @property
                             def _common_path(self):
@@ -1222,22 +1232,25 @@ class EthernetFeatures(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.ce_id is not None:
+                                if self.service_type is not None:
                                     return True
 
                                 if self.group_name is not None:
                                     return True
 
-                                if self.remote_ce_id is not None:
+                                if self.switching_name is not None:
                                     return True
 
-                                if self.service_type is not None:
+                                if self.ce_id is not None:
+                                    return True
+
+                                if self.remote_ce_id is not None:
                                     return True
 
                                 if self.short_ma_name_format is not None:
                                     return True
 
-                                if self.short_ma_name_icc is not None:
+                                if self.short_ma_name_string is not None:
                                     return True
 
                                 if self.short_ma_name_number is not None:
@@ -1246,16 +1259,13 @@ class EthernetFeatures(object):
                                 if self.short_ma_name_oui is not None:
                                     return True
 
-                                if self.short_ma_name_string is not None:
-                                    return True
-
-                                if self.short_ma_name_umc is not None:
-                                    return True
-
                                 if self.short_ma_name_vpn_index is not None:
                                     return True
 
-                                if self.switching_name is not None:
+                                if self.short_ma_name_icc is not None:
+                                    return True
+
+                                if self.short_ma_name_umc is not None:
                                     return True
 
                                 return False
@@ -1284,49 +1294,49 @@ class EthernetFeatures(object):
                             if self.service is not None:
                                 return True
 
-                            if self.ais is not None and self.ais._has_data():
-                                return True
-
-                            if self.continuity_check_archive_hold_time is not None:
-                                return True
-
-                            if self.continuity_check_auto_traceroute is not None:
+                            if self.efd2 is not None and self.efd2._has_data():
                                 return True
 
                             if self.continuity_check_interval is not None and self.continuity_check_interval._has_data():
                                 return True
 
-                            if self.cross_check is not None and self.cross_check._has_data():
-                                return True
-
-                            if self.efd2 is not None and self.efd2._has_data():
-                                return True
-
-                            if self.log_ais is not None:
-                                return True
-
-                            if self.log_continuity_check_errors is not None:
-                                return True
-
-                            if self.log_continuity_check_state_changes is not None:
-                                return True
-
-                            if self.log_cross_check_errors is not None:
-                                return True
-
-                            if self.log_efd is not None:
-                                return True
-
-                            if self.maximum_meps is not None:
-                                return True
-
                             if self.mip_auto_creation is not None and self.mip_auto_creation._has_data():
+                                return True
+
+                            if self.ais is not None and self.ais._has_data():
+                                return True
+
+                            if self.cross_check is not None and self.cross_check._has_data():
                                 return True
 
                             if self.service_properties is not None and self.service_properties._has_data():
                                 return True
 
+                            if self.maximum_meps is not None:
+                                return True
+
+                            if self.log_cross_check_errors is not None:
+                                return True
+
+                            if self.continuity_check_archive_hold_time is not None:
+                                return True
+
                             if self.tags is not None:
+                                return True
+
+                            if self.log_continuity_check_state_changes is not None:
+                                return True
+
+                            if self.log_efd is not None:
+                                return True
+
+                            if self.continuity_check_auto_traceroute is not None:
+                                return True
+
+                            if self.log_continuity_check_errors is not None:
+                                return True
+
+                            if self.log_ais is not None:
                                 return True
 
                             return False
@@ -1362,6 +1372,95 @@ class EthernetFeatures(object):
                         from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
                         return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services']['meta_info']
 
+
+                class DomainProperties(object):
+                    """
+                    Fundamental properties of the domain
+                    
+                    .. attribute:: level
+                    
+                    	Maintenance Domain Level
+                    	**type**\: int
+                    
+                    	**range:** 0..7
+                    
+                    .. attribute:: mdid_format
+                    
+                    	Maintenance Domain ID Format
+                    	**type**\: :py:class:`CfmMdidFormatEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_cfg.CfmMdidFormatEnum>`
+                    
+                    .. attribute:: mdid_mac_address
+                    
+                    	MAC Address, if MDID Format is MACAddress
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                    
+                    .. attribute:: mdid_number
+                    
+                    	Unsigned 16\-bit Interger, if MDID Format is MACAddress
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: mdid_string
+                    
+                    	String MDID, if MDID format is String or DNSLike
+                    	**type**\: str
+                    
+                    	**range:** 0..44
+                    
+                    
+
+                    """
+
+                    _prefix = 'ethernet-cfm-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.level = None
+                        self.mdid_format = None
+                        self.mdid_mac_address = None
+                        self.mdid_number = None
+                        self.mdid_string = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:domain-properties'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.level is not None:
+                            return True
+
+                        if self.mdid_format is not None:
+                            return True
+
+                        if self.mdid_mac_address is not None:
+                            return True
+
+                        if self.mdid_number is not None:
+                            return True
+
+                        if self.mdid_string is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                        return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.DomainProperties']['meta_info']
+
                 @property
                 def _common_path(self):
                     if self.domain is None:
@@ -1379,10 +1478,10 @@ class EthernetFeatures(object):
                     if self.domain is not None:
                         return True
 
-                    if self.domain_properties is not None and self.domain_properties._has_data():
+                    if self.services is not None and self.services._has_data():
                         return True
 
-                    if self.services is not None and self.services._has_data():
+                    if self.domain_properties is not None and self.domain_properties._has_data():
                         return True
 
                     return False
@@ -1416,62 +1515,6 @@ class EthernetFeatures(object):
                 from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
                 return meta._meta_table['EthernetFeatures.Cfm.Domains']['meta_info']
 
-
-        class TracerouteCache(object):
-            """
-            Traceroute Cache Configuration
-            
-            .. attribute:: cache_size
-            
-            	Cache Size limit (number of replies)
-            	**type**\: int
-            
-            	**range:** 1..4294967295
-            
-            .. attribute:: hold_time
-            
-            	Hold Time in minutes
-            	**type**\: int
-            
-            	**range:** 1..525600
-            
-            
-
-            """
-
-            _prefix = 'ethernet-cfm-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.cache_size = None
-                self.hold_time = None
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm/Cisco-IOS-XR-ethernet-cfm-cfg:traceroute-cache'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.cache_size is not None:
-                    return True
-
-                if self.hold_time is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                return meta._meta_table['EthernetFeatures.Cfm.TracerouteCache']['meta_info']
-
         @property
         def _common_path(self):
 
@@ -1484,13 +1527,13 @@ class EthernetFeatures(object):
         def _has_data(self):
             if not self.is_config():
                 return False
+            if self.traceroute_cache is not None and self.traceroute_cache._has_data():
+                return True
+
             if self.domains is not None and self.domains._has_data():
                 return True
 
             if self.nv_satellite_sla_processing_disable is not None:
-                return True
-
-            if self.traceroute_cache is not None and self.traceroute_cache._has_data():
                 return True
 
             return False
@@ -1499,49 +1542,6 @@ class EthernetFeatures(object):
         def _meta_info():
             from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
             return meta._meta_table['EthernetFeatures.Cfm']['meta_info']
-
-
-    class EgressFiltering(object):
-        """
-        Egress Filtering Configuration
-        
-        .. attribute:: egress_filtering_default_on
-        
-        	Whether Egress Filtering is on by default
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-        
-        
-
-        """
-
-        _prefix = 'l2-eth-infra-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.egress_filtering_default_on = None
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-l2-eth-infra-cfg:egress-filtering'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.egress_filtering_default_on is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-            return meta._meta_table['EthernetFeatures.EgressFiltering']['meta_info']
 
 
     class EtherLinkOam(object):
@@ -1593,32 +1593,42 @@ class EthernetFeatures(object):
                 """
                 Name of the profile
                 
-                .. attribute:: profile
+                .. attribute:: profile  <key>
                 
                 	none
                 	**type**\: str
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
-                .. attribute:: action
-                
-                	Configure action parameters
-                	**type**\: :py:class:`Action <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.Action>`
-                
-                .. attribute:: hello_interval
-                
-                	Possible Ethernet Link OAM hello intervals
-                	**type**\: :py:class:`EtherLinkOamProfileHelloIntervalEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamProfileHelloIntervalEnumEnum>`
-                
                 .. attribute:: link_monitor
                 
                 	Configure link monitor parameters
                 	**type**\: :py:class:`LinkMonitor <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor>`
                 
+                .. attribute:: action
+                
+                	Configure action parameters
+                	**type**\: :py:class:`Action <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.Action>`
+                
+                .. attribute:: require_remote
+                
+                	Configure remote requirement parameters
+                	**type**\: :py:class:`RequireRemote <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.RequireRemote>`
+                
                 .. attribute:: mib_retrieval
                 
                 	Enable MIB retrieval support
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: udlf
+                
+                	Enable uni\-directional link\-fault detection support
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: hello_interval
+                
+                	Possible Ethernet Link OAM hello intervals
+                	**type**\: :py:class:`EtherLinkOamProfileHelloIntervalEnumEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamProfileHelloIntervalEnumEnum>`
                 
                 .. attribute:: mode
                 
@@ -1630,22 +1640,12 @@ class EthernetFeatures(object):
                 	Enable remote loopback support
                 	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
-                .. attribute:: require_remote
-                
-                	Configure remote requirement parameters
-                	**type**\: :py:class:`RequireRemote <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.RequireRemote>`
-                
                 .. attribute:: timeout
                 
                 	Connection timeout period in number of lost heartbeats
                 	**type**\: int
                 
                 	**range:** 2..30
-                
-                .. attribute:: udlf
-                
-                	Enable uni\-directional link\-fault detection support
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 
 
@@ -1657,154 +1657,23 @@ class EthernetFeatures(object):
                 def __init__(self):
                     self.parent = None
                     self.profile = None
-                    self.action = EthernetFeatures.EtherLinkOam.Profiles.Profile.Action()
-                    self.action.parent = self
-                    self.hello_interval = None
                     self.link_monitor = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor()
                     self.link_monitor.parent = self
-                    self.mib_retrieval = None
-                    self.mode = None
-                    self.remote_loopback = None
+                    self.action = EthernetFeatures.EtherLinkOam.Profiles.Profile.Action()
+                    self.action.parent = self
                     self.require_remote = EthernetFeatures.EtherLinkOam.Profiles.Profile.RequireRemote()
                     self.require_remote.parent = self
-                    self.timeout = None
+                    self.mib_retrieval = None
                     self.udlf = None
-
-
-                class Action(object):
-                    """
-                    Configure action parameters
-                    
-                    .. attribute:: capabilities_conflict
-                    
-                    	Action to perform when a capabilities conflict occurs
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnum5Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum5Enum>`
-                    
-                    .. attribute:: critical_event
-                    
-                    	Action to perform when a critical event occurs
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnum2Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum2Enum>`
-                    
-                    .. attribute:: discovery_timeout
-                    
-                    	Action to perform when discovery timeout occurs
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnum5Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum5Enum>`
-                    
-                    .. attribute:: dying_gasp
-                    
-                    	Action to perform when a dying gasp occurs
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnum2Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum2Enum>`
-                    
-                    .. attribute:: high_threshold
-                    
-                    	Action to perform when a high\-threshold event occurs
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnum1Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum1Enum>`
-                    
-                    .. attribute:: link_fault
-                    
-                    	Action to perform when a link fault message is received
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnum5Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum5Enum>`
-                    
-                    .. attribute:: remote_loopback
-                    
-                    	Action to perform when remote loopback is entered or exited
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnum4Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum4Enum>`
-                    
-                    .. attribute:: session_down
-                    
-                    	Action to perform when a session goes down
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnum5Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum5Enum>`
-                    
-                    .. attribute:: session_up
-                    
-                    	Action to perform when a session comes up
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnum4Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum4Enum>`
-                    
-                    .. attribute:: wiring_conflict
-                    
-                    	Action to perform when a wiring conflict occurs
-                    	**type**\: :py:class:`EtherLinkOamEventActionEnum6Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum6Enum>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ethernet-link-oam-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.capabilities_conflict = None
-                        self.critical_event = None
-                        self.discovery_timeout = None
-                        self.dying_gasp = None
-                        self.high_threshold = None
-                        self.link_fault = None
-                        self.remote_loopback = None
-                        self.session_down = None
-                        self.session_up = None
-                        self.wiring_conflict = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:action'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.capabilities_conflict is not None:
-                            return True
-
-                        if self.critical_event is not None:
-                            return True
-
-                        if self.discovery_timeout is not None:
-                            return True
-
-                        if self.dying_gasp is not None:
-                            return True
-
-                        if self.high_threshold is not None:
-                            return True
-
-                        if self.link_fault is not None:
-                            return True
-
-                        if self.remote_loopback is not None:
-                            return True
-
-                        if self.session_down is not None:
-                            return True
-
-                        if self.session_up is not None:
-                            return True
-
-                        if self.wiring_conflict is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                        return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.Action']['meta_info']
+                    self.hello_interval = None
+                    self.mode = None
+                    self.remote_loopback = None
+                    self.timeout = None
 
 
                 class LinkMonitor(object):
                     """
                     Configure link monitor parameters
-                    
-                    .. attribute:: frame
-                    
-                    	Frame event configuration
-                    	**type**\: :py:class:`Frame <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.Frame>`
                     
                     .. attribute:: frame_period
                     
@@ -1816,15 +1685,20 @@ class EthernetFeatures(object):
                     	Frame\-seconds event configuration
                     	**type**\: :py:class:`FrameSeconds <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FrameSeconds>`
                     
-                    .. attribute:: monitoring
+                    .. attribute:: frame
                     
-                    	Disable monitoring
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    	Frame event configuration
+                    	**type**\: :py:class:`Frame <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.Frame>`
                     
                     .. attribute:: symbol_period
                     
                     	Symbol\-period event configuration
                     	**type**\: :py:class:`SymbolPeriod <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.SymbolPeriod>`
+                    
+                    .. attribute:: monitoring
+                    
+                    	Disable monitoring
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     
 
@@ -1835,141 +1709,15 @@ class EthernetFeatures(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.frame = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.Frame()
-                        self.frame.parent = self
                         self.frame_period = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FramePeriod()
                         self.frame_period.parent = self
                         self.frame_seconds = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FrameSeconds()
                         self.frame_seconds.parent = self
-                        self.monitoring = None
+                        self.frame = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.Frame()
+                        self.frame.parent = self
                         self.symbol_period = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.SymbolPeriod()
                         self.symbol_period.parent = self
-
-
-                    class Frame(object):
-                        """
-                        Frame event configuration
-                        
-                        .. attribute:: threshold
-                        
-                        	Threshold configuration for frame events
-                        	**type**\: :py:class:`Threshold <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.Frame.Threshold>`
-                        
-                        .. attribute:: window
-                        
-                        	Window size configuration for frame events
-                        	**type**\: int
-                        
-                        	**range:** 1000..60000
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-link-oam-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.threshold = None
-                            self.window = None
-
-
-                        class Threshold(object):
-                            """
-                            Threshold configuration for frame events
-                            
-                            .. attribute:: threshold_high
-                            
-                            	The high threshold for frame events
-                            	**type**\: int
-                            
-                            	**range:** 1..12000000
-                            
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
-                            .. attribute:: threshold_low
-                            
-                            	The low threshold for frame events
-                            	**type**\: int
-                            
-                            	**range:** 1..12000000
-                            
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
-                            
-
-                            This class is a :ref:`presence class<presence-class>`
-
-                            """
-
-                            _prefix = 'ethernet-link-oam-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.threshold_high = None
-                                self.threshold_low = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:threshold'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.threshold_high is not None:
-                                    return True
-
-                                if self.threshold_low is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                                return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.Frame.Threshold']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:frame'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.threshold is not None and self.threshold._has_data():
-                                return True
-
-                            if self.window is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                            return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.Frame']['meta_info']
+                        self.monitoring = None
 
 
                     class FramePeriod(object):
@@ -2006,9 +1754,9 @@ class EthernetFeatures(object):
                             Threshold configuration for frame\-period
                             events
                             
-                            .. attribute:: threshold_high
+                            .. attribute:: threshold_low
                             
-                            	The high threshold for frame\-period events
+                            	The low threshold for frame\-period events
                             	**type**\: int
                             
                             	**range:** 1..1000000
@@ -2018,9 +1766,9 @@ class EthernetFeatures(object):
                             	Is present if this instance represents presence container else not
                             	**type**\: bool
                             
-                            .. attribute:: threshold_low
+                            .. attribute:: threshold_high
                             
-                            	The low threshold for frame\-period events
+                            	The high threshold for frame\-period events
                             	**type**\: int
                             
                             	**range:** 1..1000000
@@ -2041,8 +1789,8 @@ class EthernetFeatures(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.threshold_high = None
                                 self.threshold_low = None
+                                self.threshold_high = None
 
                             @property
                             def _common_path(self):
@@ -2058,10 +1806,10 @@ class EthernetFeatures(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.threshold_high is not None:
+                                if self.threshold_low is not None:
                                     return True
 
-                                if self.threshold_low is not None:
+                                if self.threshold_high is not None:
                                     return True
 
                                 return False
@@ -2133,9 +1881,9 @@ class EthernetFeatures(object):
                             Threshold configuration for frame\-seconds
                             events
                             
-                            .. attribute:: threshold_high
+                            .. attribute:: threshold_low
                             
-                            	The high threshold for frame\-seconds events
+                            	The low threshold for frame\-seconds events
                             	**type**\: int
                             
                             	**range:** 1..900
@@ -2145,9 +1893,9 @@ class EthernetFeatures(object):
                             	Is present if this instance represents presence container else not
                             	**type**\: bool
                             
-                            .. attribute:: threshold_low
+                            .. attribute:: threshold_high
                             
-                            	The low threshold for frame\-seconds events
+                            	The high threshold for frame\-seconds events
                             	**type**\: int
                             
                             	**range:** 1..900
@@ -2168,8 +1916,8 @@ class EthernetFeatures(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.threshold_high = None
                                 self.threshold_low = None
+                                self.threshold_high = None
 
                             @property
                             def _common_path(self):
@@ -2185,10 +1933,10 @@ class EthernetFeatures(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.threshold_high is not None:
+                                if self.threshold_low is not None:
                                     return True
 
-                                if self.threshold_low is not None:
+                                if self.threshold_high is not None:
                                     return True
 
                                 return False
@@ -2226,6 +1974,132 @@ class EthernetFeatures(object):
                             return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FrameSeconds']['meta_info']
 
 
+                    class Frame(object):
+                        """
+                        Frame event configuration
+                        
+                        .. attribute:: threshold
+                        
+                        	Threshold configuration for frame events
+                        	**type**\: :py:class:`Threshold <ydk.models.l2.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.Frame.Threshold>`
+                        
+                        .. attribute:: window
+                        
+                        	Window size configuration for frame events
+                        	**type**\: int
+                        
+                        	**range:** 1000..60000
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-link-oam-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.threshold = None
+                            self.window = None
+
+
+                        class Threshold(object):
+                            """
+                            Threshold configuration for frame events
+                            
+                            .. attribute:: threshold_low
+                            
+                            	The low threshold for frame events
+                            	**type**\: int
+                            
+                            	**range:** 1..12000000
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            .. attribute:: threshold_high
+                            
+                            	The high threshold for frame events
+                            	**type**\: int
+                            
+                            	**range:** 1..12000000
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            
+
+                            This class is a :ref:`presence class<presence-class>`
+
+                            """
+
+                            _prefix = 'ethernet-link-oam-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.threshold_low = None
+                                self.threshold_high = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:threshold'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.threshold_low is not None:
+                                    return True
+
+                                if self.threshold_high is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                                return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.Frame.Threshold']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:frame'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.threshold is not None and self.threshold._has_data():
+                                return True
+
+                            if self.window is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                            return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.Frame']['meta_info']
+
+
                     class SymbolPeriod(object):
                         """
                         Symbol\-period event configuration
@@ -2260,9 +2134,9 @@ class EthernetFeatures(object):
                             Threshold configuration for symbol\-period
                             events
                             
-                            .. attribute:: threshold_high
+                            .. attribute:: threshold_low
                             
-                            	The high threshold for symbol\-period
+                            	The low threshold for symbol\-period
                             	**type**\: int
                             
                             	**range:** 1..60000000
@@ -2272,9 +2146,9 @@ class EthernetFeatures(object):
                             	Is present if this instance represents presence container else not
                             	**type**\: bool
                             
-                            .. attribute:: threshold_low
+                            .. attribute:: threshold_high
                             
-                            	The low threshold for symbol\-period
+                            	The high threshold for symbol\-period
                             	**type**\: int
                             
                             	**range:** 1..60000000
@@ -2295,8 +2169,8 @@ class EthernetFeatures(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.threshold_high = None
                                 self.threshold_low = None
+                                self.threshold_high = None
 
                             @property
                             def _common_path(self):
@@ -2312,10 +2186,10 @@ class EthernetFeatures(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.threshold_high is not None:
+                                if self.threshold_low is not None:
                                     return True
 
-                                if self.threshold_low is not None:
+                                if self.threshold_high is not None:
                                     return True
 
                                 return False
@@ -2366,19 +2240,19 @@ class EthernetFeatures(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.frame is not None and self.frame._has_data():
-                            return True
-
                         if self.frame_period is not None and self.frame_period._has_data():
                             return True
 
                         if self.frame_seconds is not None and self.frame_seconds._has_data():
                             return True
 
-                        if self.monitoring is not None:
+                        if self.frame is not None and self.frame._has_data():
                             return True
 
                         if self.symbol_period is not None and self.symbol_period._has_data():
+                            return True
+
+                        if self.monitoring is not None:
                             return True
 
                         return False
@@ -2389,14 +2263,135 @@ class EthernetFeatures(object):
                         return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor']['meta_info']
 
 
+                class Action(object):
+                    """
+                    Configure action parameters
+                    
+                    .. attribute:: dying_gasp
+                    
+                    	Action to perform when a dying gasp occurs
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnum2Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum2Enum>`
+                    
+                    .. attribute:: session_up
+                    
+                    	Action to perform when a session comes up
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnum4Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum4Enum>`
+                    
+                    .. attribute:: critical_event
+                    
+                    	Action to perform when a critical event occurs
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnum2Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum2Enum>`
+                    
+                    .. attribute:: session_down
+                    
+                    	Action to perform when a session goes down
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnum5Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum5Enum>`
+                    
+                    .. attribute:: discovery_timeout
+                    
+                    	Action to perform when discovery timeout occurs
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnum5Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum5Enum>`
+                    
+                    .. attribute:: high_threshold
+                    
+                    	Action to perform when a high\-threshold event occurs
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnum1Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum1Enum>`
+                    
+                    .. attribute:: capabilities_conflict
+                    
+                    	Action to perform when a capabilities conflict occurs
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnum5Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum5Enum>`
+                    
+                    .. attribute:: remote_loopback
+                    
+                    	Action to perform when remote loopback is entered or exited
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnum4Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum4Enum>`
+                    
+                    .. attribute:: link_fault
+                    
+                    	Action to perform when a link fault message is received
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnum5Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum5Enum>`
+                    
+                    .. attribute:: wiring_conflict
+                    
+                    	Action to perform when a wiring conflict occurs
+                    	**type**\: :py:class:`EtherLinkOamEventActionEnum6Enum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum6Enum>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ethernet-link-oam-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.dying_gasp = None
+                        self.session_up = None
+                        self.critical_event = None
+                        self.session_down = None
+                        self.discovery_timeout = None
+                        self.high_threshold = None
+                        self.capabilities_conflict = None
+                        self.remote_loopback = None
+                        self.link_fault = None
+                        self.wiring_conflict = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:action'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.dying_gasp is not None:
+                            return True
+
+                        if self.session_up is not None:
+                            return True
+
+                        if self.critical_event is not None:
+                            return True
+
+                        if self.session_down is not None:
+                            return True
+
+                        if self.discovery_timeout is not None:
+                            return True
+
+                        if self.high_threshold is not None:
+                            return True
+
+                        if self.capabilities_conflict is not None:
+                            return True
+
+                        if self.remote_loopback is not None:
+                            return True
+
+                        if self.link_fault is not None:
+                            return True
+
+                        if self.wiring_conflict is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.l2._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                        return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.Action']['meta_info']
+
+
                 class RequireRemote(object):
                     """
                     Configure remote requirement parameters
-                    
-                    .. attribute:: link_monitoring
-                    
-                    	Enable link monitoring requirement
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     .. attribute:: mib_retrieval
                     
@@ -2413,6 +2408,11 @@ class EthernetFeatures(object):
                     	Enable remote loopback requirement
                     	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
+                    .. attribute:: link_monitoring
+                    
+                    	Enable link monitoring requirement
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
                     
 
                     """
@@ -2422,10 +2422,10 @@ class EthernetFeatures(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.link_monitoring = None
                         self.mib_retrieval = None
                         self.mode = None
                         self.remote_loopback = None
+                        self.link_monitoring = None
 
                     @property
                     def _common_path(self):
@@ -2441,9 +2441,6 @@ class EthernetFeatures(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.link_monitoring is not None:
-                            return True
-
                         if self.mib_retrieval is not None:
                             return True
 
@@ -2451,6 +2448,9 @@ class EthernetFeatures(object):
                             return True
 
                         if self.remote_loopback is not None:
+                            return True
+
+                        if self.link_monitoring is not None:
                             return True
 
                         return False
@@ -2477,16 +2477,22 @@ class EthernetFeatures(object):
                     if self.profile is not None:
                         return True
 
-                    if self.action is not None and self.action._has_data():
-                        return True
-
-                    if self.hello_interval is not None:
-                        return True
-
                     if self.link_monitor is not None and self.link_monitor._has_data():
                         return True
 
+                    if self.action is not None and self.action._has_data():
+                        return True
+
+                    if self.require_remote is not None and self.require_remote._has_data():
+                        return True
+
                     if self.mib_retrieval is not None:
+                        return True
+
+                    if self.udlf is not None:
+                        return True
+
+                    if self.hello_interval is not None:
                         return True
 
                     if self.mode is not None:
@@ -2495,13 +2501,7 @@ class EthernetFeatures(object):
                     if self.remote_loopback is not None:
                         return True
 
-                    if self.require_remote is not None and self.require_remote._has_data():
-                        return True
-
                     if self.timeout is not None:
-                        return True
-
-                    if self.udlf is not None:
                         return True
 
                     return False
@@ -2569,10 +2569,10 @@ class EthernetFeatures(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.cfm is not None and self.cfm._has_data():
+        if self.egress_filtering is not None and self.egress_filtering._has_data():
             return True
 
-        if self.egress_filtering is not None and self.egress_filtering._has_data():
+        if self.cfm is not None and self.cfm._has_data():
             return True
 
         if self.ether_link_oam is not None and self.ether_link_oam._has_data():

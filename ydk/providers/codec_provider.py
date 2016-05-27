@@ -50,11 +50,11 @@ class CodecServiceProvider(ServiceProvider):
         else:
             raise YPYError('Codec type "{0}" not yet supported'.format(codec_type))
 
-    def encode(self, payload):
+    def _encode(self, payload):
         """ Encodes the payload into the desired encoding format """
         return self.encoder.encode(payload)
 
-    def decode(self, entity):
+    def _decode(self, entity):
         """ Decodes the payload from the desired decoding format """
         return self.decoder.decode(entity)
 

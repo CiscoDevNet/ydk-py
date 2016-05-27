@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -73,7 +73,7 @@ class InfraStatistics(object):
             """
             Statistics of an interface
             
-            .. attribute:: interface_name
+            .. attribute:: interface_name  <key>
             
             	Name of the interface
             	**type**\: str
@@ -85,6 +85,26 @@ class InfraStatistics(object):
             	Cached stats data of interfaces
             	**type**\: :py:class:`Cache <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache>`
             
+            .. attribute:: latest
+            
+            	Latest stats data of interfaces
+            	**type**\: :py:class:`Latest <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest>`
+            
+            .. attribute:: total
+            
+            	Total stats data of interfaces
+            	**type**\: :py:class:`Total <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total>`
+            
+            .. attribute:: protocols
+            
+            	List of protocols
+            	**type**\: :py:class:`Protocols <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Protocols>`
+            
+            .. attribute:: interfaces_mib_counters
+            
+            	Set of interface counters as displayed by the InterfacesMIB
+            	**type**\: :py:class:`InterfacesMibCounters <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.InterfacesMibCounters>`
+            
             .. attribute:: data_rate
             
             	Datarate information
@@ -94,26 +114,6 @@ class InfraStatistics(object):
             
             	Generic set of interface counters
             	**type**\: :py:class:`GenericCounters <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.GenericCounters>`
-            
-            .. attribute:: interfaces_mib_counters
-            
-            	Set of interface counters as displayed by the InterfacesMIB
-            	**type**\: :py:class:`InterfacesMibCounters <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.InterfacesMibCounters>`
-            
-            .. attribute:: latest
-            
-            	Latest stats data of interfaces
-            	**type**\: :py:class:`Latest <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest>`
-            
-            .. attribute:: protocols
-            
-            	List of protocols
-            	**type**\: :py:class:`Protocols <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Protocols>`
-            
-            .. attribute:: total
-            
-            	Total stats data of interfaces
-            	**type**\: :py:class:`Total <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total>`
             
             
 
@@ -127,23 +127,33 @@ class InfraStatistics(object):
                 self.interface_name = None
                 self.cache = InfraStatistics.Interfaces.Interface.Cache()
                 self.cache.parent = self
+                self.latest = InfraStatistics.Interfaces.Interface.Latest()
+                self.latest.parent = self
+                self.total = InfraStatistics.Interfaces.Interface.Total()
+                self.total.parent = self
+                self.protocols = InfraStatistics.Interfaces.Interface.Protocols()
+                self.protocols.parent = self
+                self.interfaces_mib_counters = InfraStatistics.Interfaces.Interface.InterfacesMibCounters()
+                self.interfaces_mib_counters.parent = self
                 self.data_rate = InfraStatistics.Interfaces.Interface.DataRate()
                 self.data_rate.parent = self
                 self.generic_counters = InfraStatistics.Interfaces.Interface.GenericCounters()
                 self.generic_counters.parent = self
-                self.interfaces_mib_counters = InfraStatistics.Interfaces.Interface.InterfacesMibCounters()
-                self.interfaces_mib_counters.parent = self
-                self.latest = InfraStatistics.Interfaces.Interface.Latest()
-                self.latest.parent = self
-                self.protocols = InfraStatistics.Interfaces.Interface.Protocols()
-                self.protocols.parent = self
-                self.total = InfraStatistics.Interfaces.Interface.Total()
-                self.total.parent = self
 
 
             class Cache(object):
                 """
                 Cached stats data of interfaces
+                
+                .. attribute:: protocols
+                
+                	List of protocols
+                	**type**\: :py:class:`Protocols <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.Protocols>`
+                
+                .. attribute:: interfaces_mib_counters
+                
+                	Set of interface counters as displayed by the InterfacesMIB
+                	**type**\: :py:class:`InterfacesMibCounters <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters>`
                 
                 .. attribute:: data_rate
                 
@@ -155,16 +165,6 @@ class InfraStatistics(object):
                 	Generic set of interface counters
                 	**type**\: :py:class:`GenericCounters <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.GenericCounters>`
                 
-                .. attribute:: interfaces_mib_counters
-                
-                	Set of interface counters as displayed by the InterfacesMIB
-                	**type**\: :py:class:`InterfacesMibCounters <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters>`
-                
-                .. attribute:: protocols
-                
-                	List of protocols
-                	**type**\: :py:class:`Protocols <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.Protocols>`
-                
                 
 
                 """
@@ -174,1058 +174,14 @@ class InfraStatistics(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.protocols = InfraStatistics.Interfaces.Interface.Cache.Protocols()
+                    self.protocols.parent = self
+                    self.interfaces_mib_counters = InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters()
+                    self.interfaces_mib_counters.parent = self
                     self.data_rate = InfraStatistics.Interfaces.Interface.Cache.DataRate()
                     self.data_rate.parent = self
                     self.generic_counters = InfraStatistics.Interfaces.Interface.Cache.GenericCounters()
                     self.generic_counters.parent = self
-                    self.interfaces_mib_counters = InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters()
-                    self.interfaces_mib_counters.parent = self
-                    self.protocols = InfraStatistics.Interfaces.Interface.Cache.Protocols()
-                    self.protocols.parent = self
-
-
-                class DataRate(object):
-                    """
-                    Datarate information
-                    
-                    .. attribute:: bandwidth
-                    
-                    	Bandwidth (in kbps)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_data_rate
-                    
-                    	Input data rate in 1000's of bps
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: input_load
-                    
-                    	Input load as fraction of 255
-                    	**type**\: int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: input_packet_rate
-                    
-                    	Input packets per second
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: load_interval
-                    
-                    	Number of 30\-sec intervals less one
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_data_rate
-                    
-                    	Output data rate in 1000's of bps
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: output_load
-                    
-                    	Output load as fraction of 255
-                    	**type**\: int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: output_packet_rate
-                    
-                    	Output packets per second
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: peak_input_data_rate
-                    
-                    	Peak input data rate
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: peak_input_packet_rate
-                    
-                    	Peak input packet rate
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: peak_output_data_rate
-                    
-                    	Peak output data rate
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: peak_output_packet_rate
-                    
-                    	Peak output packet rate
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: reliability
-                    
-                    	Reliability coefficient
-                    	**type**\: int
-                    
-                    	**range:** 0..255
-                    
-                    
-
-                    """
-
-                    _prefix = 'infra-statsd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.bandwidth = None
-                        self.input_data_rate = None
-                        self.input_load = None
-                        self.input_packet_rate = None
-                        self.load_interval = None
-                        self.output_data_rate = None
-                        self.output_load = None
-                        self.output_packet_rate = None
-                        self.peak_input_data_rate = None
-                        self.peak_input_packet_rate = None
-                        self.peak_output_data_rate = None
-                        self.peak_output_packet_rate = None
-                        self.reliability = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:data-rate'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.bandwidth is not None:
-                            return True
-
-                        if self.input_data_rate is not None:
-                            return True
-
-                        if self.input_load is not None:
-                            return True
-
-                        if self.input_packet_rate is not None:
-                            return True
-
-                        if self.load_interval is not None:
-                            return True
-
-                        if self.output_data_rate is not None:
-                            return True
-
-                        if self.output_load is not None:
-                            return True
-
-                        if self.output_packet_rate is not None:
-                            return True
-
-                        if self.peak_input_data_rate is not None:
-                            return True
-
-                        if self.peak_input_packet_rate is not None:
-                            return True
-
-                        if self.peak_output_data_rate is not None:
-                            return True
-
-                        if self.peak_output_packet_rate is not None:
-                            return True
-
-                        if self.reliability is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Cache.DataRate']['meta_info']
-
-
-                class GenericCounters(object):
-                    """
-                    Generic set of interface counters
-                    
-                    .. attribute:: applique
-                    
-                    	Applique
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: availability_flag
-                    
-                    	Availability bit mask
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: broadcast_packets_received
-                    
-                    	Broadcast packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: broadcast_packets_sent
-                    
-                    	Broadcast packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: bytes_received
-                    
-                    	Bytes received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: bytes_sent
-                    
-                    	Bytes sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: carrier_transitions
-                    
-                    	Carrier transitions
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: crc_errors
-                    
-                    	Input CRC errors
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: framing_errors_received
-                    
-                    	Framing\-errors received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: giant_packets_received
-                    
-                    	Received giant packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_aborts
-                    
-                    	Input aborts
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_drops
-                    
-                    	Total input drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_errors
-                    
-                    	Total input errors
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_ignored_packets
-                    
-                    	Input ignored packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_overruns
-                    
-                    	Input overruns
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_queue_drops
-                    
-                    	Input queue drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: last_data_time
-                    
-                    	Time when counters were last written (in seconds)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: last_discontinuity_time
-                    
-                    	SysUpTime when counters were last reset (in seconds)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: multicast_packets_received
-                    
-                    	Multicast packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: multicast_packets_sent
-                    
-                    	Multicast packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: output_buffer_failures
-                    
-                    	Output buffer failures
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_buffers_swapped_out
-                    
-                    	Output buffers swapped out
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_drops
-                    
-                    	Total output drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_errors
-                    
-                    	Total output errors
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_queue_drops
-                    
-                    	Output queue drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_underruns
-                    
-                    	Output underruns
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: packets_received
-                    
-                    	Packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: packets_sent
-                    
-                    	Packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: parity_packets_received
-                    
-                    	Received parity packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: resets
-                    
-                    	Number of board resets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: runt_packets_received
-                    
-                    	Received runt packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: seconds_since_last_clear_counters
-                    
-                    	Number of seconds since last clear counters
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: seconds_since_packet_received
-                    
-                    	Seconds since packet received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: seconds_since_packet_sent
-                    
-                    	Seconds since packet sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: throttled_packets_received
-                    
-                    	Received throttled packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: unknown_protocol_packets_received
-                    
-                    	Unknown protocol packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'infra-statsd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.applique = None
-                        self.availability_flag = None
-                        self.broadcast_packets_received = None
-                        self.broadcast_packets_sent = None
-                        self.bytes_received = None
-                        self.bytes_sent = None
-                        self.carrier_transitions = None
-                        self.crc_errors = None
-                        self.framing_errors_received = None
-                        self.giant_packets_received = None
-                        self.input_aborts = None
-                        self.input_drops = None
-                        self.input_errors = None
-                        self.input_ignored_packets = None
-                        self.input_overruns = None
-                        self.input_queue_drops = None
-                        self.last_data_time = None
-                        self.last_discontinuity_time = None
-                        self.multicast_packets_received = None
-                        self.multicast_packets_sent = None
-                        self.output_buffer_failures = None
-                        self.output_buffers_swapped_out = None
-                        self.output_drops = None
-                        self.output_errors = None
-                        self.output_queue_drops = None
-                        self.output_underruns = None
-                        self.packets_received = None
-                        self.packets_sent = None
-                        self.parity_packets_received = None
-                        self.resets = None
-                        self.runt_packets_received = None
-                        self.seconds_since_last_clear_counters = None
-                        self.seconds_since_packet_received = None
-                        self.seconds_since_packet_sent = None
-                        self.throttled_packets_received = None
-                        self.unknown_protocol_packets_received = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:generic-counters'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.applique is not None:
-                            return True
-
-                        if self.availability_flag is not None:
-                            return True
-
-                        if self.broadcast_packets_received is not None:
-                            return True
-
-                        if self.broadcast_packets_sent is not None:
-                            return True
-
-                        if self.bytes_received is not None:
-                            return True
-
-                        if self.bytes_sent is not None:
-                            return True
-
-                        if self.carrier_transitions is not None:
-                            return True
-
-                        if self.crc_errors is not None:
-                            return True
-
-                        if self.framing_errors_received is not None:
-                            return True
-
-                        if self.giant_packets_received is not None:
-                            return True
-
-                        if self.input_aborts is not None:
-                            return True
-
-                        if self.input_drops is not None:
-                            return True
-
-                        if self.input_errors is not None:
-                            return True
-
-                        if self.input_ignored_packets is not None:
-                            return True
-
-                        if self.input_overruns is not None:
-                            return True
-
-                        if self.input_queue_drops is not None:
-                            return True
-
-                        if self.last_data_time is not None:
-                            return True
-
-                        if self.last_discontinuity_time is not None:
-                            return True
-
-                        if self.multicast_packets_received is not None:
-                            return True
-
-                        if self.multicast_packets_sent is not None:
-                            return True
-
-                        if self.output_buffer_failures is not None:
-                            return True
-
-                        if self.output_buffers_swapped_out is not None:
-                            return True
-
-                        if self.output_drops is not None:
-                            return True
-
-                        if self.output_errors is not None:
-                            return True
-
-                        if self.output_queue_drops is not None:
-                            return True
-
-                        if self.output_underruns is not None:
-                            return True
-
-                        if self.packets_received is not None:
-                            return True
-
-                        if self.packets_sent is not None:
-                            return True
-
-                        if self.parity_packets_received is not None:
-                            return True
-
-                        if self.resets is not None:
-                            return True
-
-                        if self.runt_packets_received is not None:
-                            return True
-
-                        if self.seconds_since_last_clear_counters is not None:
-                            return True
-
-                        if self.seconds_since_packet_received is not None:
-                            return True
-
-                        if self.seconds_since_packet_sent is not None:
-                            return True
-
-                        if self.throttled_packets_received is not None:
-                            return True
-
-                        if self.unknown_protocol_packets_received is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Cache.GenericCounters']['meta_info']
-
-
-                class InterfacesMibCounters(object):
-                    """
-                    Set of interface counters as displayed by the
-                    InterfacesMIB
-                    
-                    .. attribute:: applique
-                    
-                    	Applique
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: availability_flag
-                    
-                    	Availability bit mask
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: broadcast_packets_received
-                    
-                    	Broadcast packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: broadcast_packets_sent
-                    
-                    	Broadcast packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: bytes_received
-                    
-                    	Bytes received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: bytes_sent
-                    
-                    	Bytes sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: carrier_transitions
-                    
-                    	Carrier transitions
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: crc_errors
-                    
-                    	Input CRC errors
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: framing_errors_received
-                    
-                    	Framing\-errors received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: giant_packets_received
-                    
-                    	Received giant packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_aborts
-                    
-                    	Input aborts
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_drops
-                    
-                    	Total input drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_errors
-                    
-                    	Total input errors
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_ignored_packets
-                    
-                    	Input ignored packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_overruns
-                    
-                    	Input overruns
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_queue_drops
-                    
-                    	Input queue drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: last_data_time
-                    
-                    	Time when counters were last written (in seconds)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: last_discontinuity_time
-                    
-                    	SysUpTime when counters were last reset (in seconds)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: multicast_packets_received
-                    
-                    	Multicast packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: multicast_packets_sent
-                    
-                    	Multicast packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: output_buffer_failures
-                    
-                    	Output buffer failures
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_buffers_swapped_out
-                    
-                    	Output buffers swapped out
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_drops
-                    
-                    	Total output drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_errors
-                    
-                    	Total output errors
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_queue_drops
-                    
-                    	Output queue drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_underruns
-                    
-                    	Output underruns
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: packets_received
-                    
-                    	Packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: packets_sent
-                    
-                    	Packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: parity_packets_received
-                    
-                    	Received parity packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: resets
-                    
-                    	Number of board resets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: runt_packets_received
-                    
-                    	Received runt packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: seconds_since_last_clear_counters
-                    
-                    	Number of seconds since last clear counters
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: seconds_since_packet_received
-                    
-                    	Seconds since packet received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: seconds_since_packet_sent
-                    
-                    	Seconds since packet sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: throttled_packets_received
-                    
-                    	Received throttled packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: unknown_protocol_packets_received
-                    
-                    	Unknown protocol packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'infra-statsd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.applique = None
-                        self.availability_flag = None
-                        self.broadcast_packets_received = None
-                        self.broadcast_packets_sent = None
-                        self.bytes_received = None
-                        self.bytes_sent = None
-                        self.carrier_transitions = None
-                        self.crc_errors = None
-                        self.framing_errors_received = None
-                        self.giant_packets_received = None
-                        self.input_aborts = None
-                        self.input_drops = None
-                        self.input_errors = None
-                        self.input_ignored_packets = None
-                        self.input_overruns = None
-                        self.input_queue_drops = None
-                        self.last_data_time = None
-                        self.last_discontinuity_time = None
-                        self.multicast_packets_received = None
-                        self.multicast_packets_sent = None
-                        self.output_buffer_failures = None
-                        self.output_buffers_swapped_out = None
-                        self.output_drops = None
-                        self.output_errors = None
-                        self.output_queue_drops = None
-                        self.output_underruns = None
-                        self.packets_received = None
-                        self.packets_sent = None
-                        self.parity_packets_received = None
-                        self.resets = None
-                        self.runt_packets_received = None
-                        self.seconds_since_last_clear_counters = None
-                        self.seconds_since_packet_received = None
-                        self.seconds_since_packet_sent = None
-                        self.throttled_packets_received = None
-                        self.unknown_protocol_packets_received = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:interfaces-mib-counters'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.applique is not None:
-                            return True
-
-                        if self.availability_flag is not None:
-                            return True
-
-                        if self.broadcast_packets_received is not None:
-                            return True
-
-                        if self.broadcast_packets_sent is not None:
-                            return True
-
-                        if self.bytes_received is not None:
-                            return True
-
-                        if self.bytes_sent is not None:
-                            return True
-
-                        if self.carrier_transitions is not None:
-                            return True
-
-                        if self.crc_errors is not None:
-                            return True
-
-                        if self.framing_errors_received is not None:
-                            return True
-
-                        if self.giant_packets_received is not None:
-                            return True
-
-                        if self.input_aborts is not None:
-                            return True
-
-                        if self.input_drops is not None:
-                            return True
-
-                        if self.input_errors is not None:
-                            return True
-
-                        if self.input_ignored_packets is not None:
-                            return True
-
-                        if self.input_overruns is not None:
-                            return True
-
-                        if self.input_queue_drops is not None:
-                            return True
-
-                        if self.last_data_time is not None:
-                            return True
-
-                        if self.last_discontinuity_time is not None:
-                            return True
-
-                        if self.multicast_packets_received is not None:
-                            return True
-
-                        if self.multicast_packets_sent is not None:
-                            return True
-
-                        if self.output_buffer_failures is not None:
-                            return True
-
-                        if self.output_buffers_swapped_out is not None:
-                            return True
-
-                        if self.output_drops is not None:
-                            return True
-
-                        if self.output_errors is not None:
-                            return True
-
-                        if self.output_queue_drops is not None:
-                            return True
-
-                        if self.output_underruns is not None:
-                            return True
-
-                        if self.packets_received is not None:
-                            return True
-
-                        if self.packets_sent is not None:
-                            return True
-
-                        if self.parity_packets_received is not None:
-                            return True
-
-                        if self.resets is not None:
-                            return True
-
-                        if self.runt_packets_received is not None:
-                            return True
-
-                        if self.seconds_since_last_clear_counters is not None:
-                            return True
-
-                        if self.seconds_since_packet_received is not None:
-                            return True
-
-                        if self.seconds_since_packet_sent is not None:
-                            return True
-
-                        if self.throttled_packets_received is not None:
-                            return True
-
-                        if self.unknown_protocol_packets_received is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters']['meta_info']
 
 
                 class Protocols(object):
@@ -1255,7 +211,7 @@ class InfraStatistics(object):
                         """
                         Interface counters per protocol
                         
-                        .. attribute:: protocol_name
+                        .. attribute:: protocol_name  <key>
                         
                         	Name of the protocol
                         	**type**\: str
@@ -1269,51 +225,16 @@ class InfraStatistics(object):
                         
                         	**range:** 0..18446744073709551615
                         
-                        .. attribute:: bytes_sent
-                        
-                        	Bytes sent
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: input_data_rate
-                        
-                        	Input data rate in 1000's of bps
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: input_packet_rate
-                        
-                        	Input packets per second
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: last_data_time
-                        
-                        	Time when counters were last written (in seconds)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: output_data_rate
-                        
-                        	Output data rate in 1000's of bps
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: output_packet_rate
-                        
-                        	Output packets per second
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
                         .. attribute:: packets_received
                         
                         	Packets received
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: bytes_sent
+                        
+                        	Bytes sent
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
@@ -1332,6 +253,41 @@ class InfraStatistics(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: last_data_time
+                        
+                        	Time when counters were last written (in seconds)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: input_data_rate
+                        
+                        	Input data rate in 1000's of bps
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: input_packet_rate
+                        
+                        	Input packets per second
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: output_data_rate
+                        
+                        	Output data rate in 1000's of bps
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: output_packet_rate
+                        
+                        	Output packets per second
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
                         
 
                         """
@@ -1343,15 +299,15 @@ class InfraStatistics(object):
                             self.parent = None
                             self.protocol_name = None
                             self.bytes_received = None
-                            self.bytes_sent = None
-                            self.input_data_rate = None
-                            self.input_packet_rate = None
-                            self.last_data_time = None
-                            self.output_data_rate = None
-                            self.output_packet_rate = None
                             self.packets_received = None
+                            self.bytes_sent = None
                             self.packets_sent = None
                             self.protocol = None
+                            self.last_data_time = None
+                            self.input_data_rate = None
+                            self.input_packet_rate = None
+                            self.output_data_rate = None
+                            self.output_packet_rate = None
 
                         @property
                         def _common_path(self):
@@ -1375,7 +331,19 @@ class InfraStatistics(object):
                             if self.bytes_received is not None:
                                 return True
 
+                            if self.packets_received is not None:
+                                return True
+
                             if self.bytes_sent is not None:
+                                return True
+
+                            if self.packets_sent is not None:
+                                return True
+
+                            if self.protocol is not None:
+                                return True
+
+                            if self.last_data_time is not None:
                                 return True
 
                             if self.input_data_rate is not None:
@@ -1384,22 +352,10 @@ class InfraStatistics(object):
                             if self.input_packet_rate is not None:
                                 return True
 
-                            if self.last_data_time is not None:
-                                return True
-
                             if self.output_data_rate is not None:
                                 return True
 
                             if self.output_packet_rate is not None:
-                                return True
-
-                            if self.packets_received is not None:
-                                return True
-
-                            if self.packets_sent is not None:
-                                return True
-
-                            if self.protocol is not None:
                                 return True
 
                             return False
@@ -1435,1137 +391,443 @@ class InfraStatistics(object):
                         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
                         return meta._meta_table['InfraStatistics.Interfaces.Interface.Cache.Protocols']['meta_info']
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:cache'
+                class InterfacesMibCounters(object):
+                    """
+                    Set of interface counters as displayed by the
+                    InterfacesMIB
+                    
+                    .. attribute:: packets_received
+                    
+                    	Packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: bytes_received
+                    
+                    	Bytes received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: packets_sent
+                    
+                    	Packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: bytes_sent
+                    
+                    	Bytes sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: multicast_packets_received
+                    
+                    	Multicast packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: broadcast_packets_received
+                    
+                    	Broadcast packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: multicast_packets_sent
+                    
+                    	Multicast packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: broadcast_packets_sent
+                    
+                    	Broadcast packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: output_drops
+                    
+                    	Total output drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_queue_drops
+                    
+                    	Output queue drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_drops
+                    
+                    	Total input drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_queue_drops
+                    
+                    	Input queue drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: runt_packets_received
+                    
+                    	Received runt packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: giant_packets_received
+                    
+                    	Received giant packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: throttled_packets_received
+                    
+                    	Received throttled packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: parity_packets_received
+                    
+                    	Received parity packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: unknown_protocol_packets_received
+                    
+                    	Unknown protocol packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_errors
+                    
+                    	Total input errors
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: crc_errors
+                    
+                    	Input CRC errors
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_overruns
+                    
+                    	Input overruns
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: framing_errors_received
+                    
+                    	Framing\-errors received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_ignored_packets
+                    
+                    	Input ignored packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_aborts
+                    
+                    	Input aborts
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_errors
+                    
+                    	Total output errors
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_underruns
+                    
+                    	Output underruns
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_buffer_failures
+                    
+                    	Output buffer failures
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_buffers_swapped_out
+                    
+                    	Output buffers swapped out
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: applique
+                    
+                    	Applique
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: resets
+                    
+                    	Number of board resets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: carrier_transitions
+                    
+                    	Carrier transitions
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: availability_flag
+                    
+                    	Availability bit mask
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: last_data_time
+                    
+                    	Time when counters were last written (in seconds)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: seconds_since_last_clear_counters
+                    
+                    	Number of seconds since last clear counters
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: last_discontinuity_time
+                    
+                    	SysUpTime when counters were last reset (in seconds)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: seconds_since_packet_received
+                    
+                    	Seconds since packet received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: seconds_since_packet_sent
+                    
+                    	Seconds since packet sent
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
+                    """
 
-                def _has_data(self):
-                    if not self.is_config():
+                    _prefix = 'infra-statsd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.packets_received = None
+                        self.bytes_received = None
+                        self.packets_sent = None
+                        self.bytes_sent = None
+                        self.multicast_packets_received = None
+                        self.broadcast_packets_received = None
+                        self.multicast_packets_sent = None
+                        self.broadcast_packets_sent = None
+                        self.output_drops = None
+                        self.output_queue_drops = None
+                        self.input_drops = None
+                        self.input_queue_drops = None
+                        self.runt_packets_received = None
+                        self.giant_packets_received = None
+                        self.throttled_packets_received = None
+                        self.parity_packets_received = None
+                        self.unknown_protocol_packets_received = None
+                        self.input_errors = None
+                        self.crc_errors = None
+                        self.input_overruns = None
+                        self.framing_errors_received = None
+                        self.input_ignored_packets = None
+                        self.input_aborts = None
+                        self.output_errors = None
+                        self.output_underruns = None
+                        self.output_buffer_failures = None
+                        self.output_buffers_swapped_out = None
+                        self.applique = None
+                        self.resets = None
+                        self.carrier_transitions = None
+                        self.availability_flag = None
+                        self.last_data_time = None
+                        self.seconds_since_last_clear_counters = None
+                        self.last_discontinuity_time = None
+                        self.seconds_since_packet_received = None
+                        self.seconds_since_packet_sent = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:interfaces-mib-counters'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
                         return False
-                    if self.data_rate is not None and self.data_rate._has_data():
-                        return True
 
-                    if self.generic_counters is not None and self.generic_counters._has_data():
-                        return True
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.packets_received is not None:
+                            return True
 
-                    if self.interfaces_mib_counters is not None and self.interfaces_mib_counters._has_data():
-                        return True
+                        if self.bytes_received is not None:
+                            return True
 
-                    if self.protocols is not None and self.protocols._has_data():
-                        return True
+                        if self.packets_sent is not None:
+                            return True
 
-                    return False
+                        if self.bytes_sent is not None:
+                            return True
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                    return meta._meta_table['InfraStatistics.Interfaces.Interface.Cache']['meta_info']
+                        if self.multicast_packets_received is not None:
+                            return True
 
+                        if self.broadcast_packets_received is not None:
+                            return True
 
-            class DataRate(object):
-                """
-                Datarate information
-                
-                .. attribute:: bandwidth
-                
-                	Bandwidth (in kbps)
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: input_data_rate
-                
-                	Input data rate in 1000's of bps
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: input_load
-                
-                	Input load as fraction of 255
-                	**type**\: int
-                
-                	**range:** 0..255
-                
-                .. attribute:: input_packet_rate
-                
-                	Input packets per second
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: load_interval
-                
-                	Number of 30\-sec intervals less one
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: output_data_rate
-                
-                	Output data rate in 1000's of bps
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: output_load
-                
-                	Output load as fraction of 255
-                	**type**\: int
-                
-                	**range:** 0..255
-                
-                .. attribute:: output_packet_rate
-                
-                	Output packets per second
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: peak_input_data_rate
-                
-                	Peak input data rate
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: peak_input_packet_rate
-                
-                	Peak input packet rate
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: peak_output_data_rate
-                
-                	Peak output data rate
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: peak_output_packet_rate
-                
-                	Peak output packet rate
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: reliability
-                
-                	Reliability coefficient
-                	**type**\: int
-                
-                	**range:** 0..255
-                
-                
+                        if self.multicast_packets_sent is not None:
+                            return True
 
-                """
+                        if self.broadcast_packets_sent is not None:
+                            return True
 
-                _prefix = 'infra-statsd-oper'
-                _revision = '2015-11-09'
+                        if self.output_drops is not None:
+                            return True
 
-                def __init__(self):
-                    self.parent = None
-                    self.bandwidth = None
-                    self.input_data_rate = None
-                    self.input_load = None
-                    self.input_packet_rate = None
-                    self.load_interval = None
-                    self.output_data_rate = None
-                    self.output_load = None
-                    self.output_packet_rate = None
-                    self.peak_input_data_rate = None
-                    self.peak_input_packet_rate = None
-                    self.peak_output_data_rate = None
-                    self.peak_output_packet_rate = None
-                    self.reliability = None
+                        if self.output_queue_drops is not None:
+                            return True
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        if self.input_drops is not None:
+                            return True
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:data-rate'
+                        if self.input_queue_drops is not None:
+                            return True
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
+                        if self.runt_packets_received is not None:
+                            return True
 
-                def _has_data(self):
-                    if not self.is_config():
+                        if self.giant_packets_received is not None:
+                            return True
+
+                        if self.throttled_packets_received is not None:
+                            return True
+
+                        if self.parity_packets_received is not None:
+                            return True
+
+                        if self.unknown_protocol_packets_received is not None:
+                            return True
+
+                        if self.input_errors is not None:
+                            return True
+
+                        if self.crc_errors is not None:
+                            return True
+
+                        if self.input_overruns is not None:
+                            return True
+
+                        if self.framing_errors_received is not None:
+                            return True
+
+                        if self.input_ignored_packets is not None:
+                            return True
+
+                        if self.input_aborts is not None:
+                            return True
+
+                        if self.output_errors is not None:
+                            return True
+
+                        if self.output_underruns is not None:
+                            return True
+
+                        if self.output_buffer_failures is not None:
+                            return True
+
+                        if self.output_buffers_swapped_out is not None:
+                            return True
+
+                        if self.applique is not None:
+                            return True
+
+                        if self.resets is not None:
+                            return True
+
+                        if self.carrier_transitions is not None:
+                            return True
+
+                        if self.availability_flag is not None:
+                            return True
+
+                        if self.last_data_time is not None:
+                            return True
+
+                        if self.seconds_since_last_clear_counters is not None:
+                            return True
+
+                        if self.last_discontinuity_time is not None:
+                            return True
+
+                        if self.seconds_since_packet_received is not None:
+                            return True
+
+                        if self.seconds_since_packet_sent is not None:
+                            return True
+
                         return False
-                    if self.bandwidth is not None:
-                        return True
 
-                    if self.input_data_rate is not None:
-                        return True
-
-                    if self.input_load is not None:
-                        return True
-
-                    if self.input_packet_rate is not None:
-                        return True
-
-                    if self.load_interval is not None:
-                        return True
-
-                    if self.output_data_rate is not None:
-                        return True
-
-                    if self.output_load is not None:
-                        return True
-
-                    if self.output_packet_rate is not None:
-                        return True
-
-                    if self.peak_input_data_rate is not None:
-                        return True
-
-                    if self.peak_input_packet_rate is not None:
-                        return True
-
-                    if self.peak_output_data_rate is not None:
-                        return True
-
-                    if self.peak_output_packet_rate is not None:
-                        return True
-
-                    if self.reliability is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                    return meta._meta_table['InfraStatistics.Interfaces.Interface.DataRate']['meta_info']
-
-
-            class GenericCounters(object):
-                """
-                Generic set of interface counters
-                
-                .. attribute:: applique
-                
-                	Applique
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: availability_flag
-                
-                	Availability bit mask
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: broadcast_packets_received
-                
-                	Broadcast packets received
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: broadcast_packets_sent
-                
-                	Broadcast packets sent
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: bytes_received
-                
-                	Bytes received
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: bytes_sent
-                
-                	Bytes sent
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: carrier_transitions
-                
-                	Carrier transitions
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: crc_errors
-                
-                	Input CRC errors
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: framing_errors_received
-                
-                	Framing\-errors received
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: giant_packets_received
-                
-                	Received giant packets
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: input_aborts
-                
-                	Input aborts
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: input_drops
-                
-                	Total input drops
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: input_errors
-                
-                	Total input errors
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: input_ignored_packets
-                
-                	Input ignored packets
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: input_overruns
-                
-                	Input overruns
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: input_queue_drops
-                
-                	Input queue drops
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: last_data_time
-                
-                	Time when counters were last written (in seconds)
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: last_discontinuity_time
-                
-                	SysUpTime when counters were last reset (in seconds)
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: multicast_packets_received
-                
-                	Multicast packets received
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: multicast_packets_sent
-                
-                	Multicast packets sent
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: output_buffer_failures
-                
-                	Output buffer failures
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: output_buffers_swapped_out
-                
-                	Output buffers swapped out
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: output_drops
-                
-                	Total output drops
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: output_errors
-                
-                	Total output errors
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: output_queue_drops
-                
-                	Output queue drops
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: output_underruns
-                
-                	Output underruns
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: packets_received
-                
-                	Packets received
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: packets_sent
-                
-                	Packets sent
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: parity_packets_received
-                
-                	Received parity packets
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: resets
-                
-                	Number of board resets
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: runt_packets_received
-                
-                	Received runt packets
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: seconds_since_last_clear_counters
-                
-                	Number of seconds since last clear counters
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: seconds_since_packet_received
-                
-                	Seconds since packet received
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: seconds_since_packet_sent
-                
-                	Seconds since packet sent
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: throttled_packets_received
-                
-                	Received throttled packets
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: unknown_protocol_packets_received
-                
-                	Unknown protocol packets received
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'infra-statsd-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.applique = None
-                    self.availability_flag = None
-                    self.broadcast_packets_received = None
-                    self.broadcast_packets_sent = None
-                    self.bytes_received = None
-                    self.bytes_sent = None
-                    self.carrier_transitions = None
-                    self.crc_errors = None
-                    self.framing_errors_received = None
-                    self.giant_packets_received = None
-                    self.input_aborts = None
-                    self.input_drops = None
-                    self.input_errors = None
-                    self.input_ignored_packets = None
-                    self.input_overruns = None
-                    self.input_queue_drops = None
-                    self.last_data_time = None
-                    self.last_discontinuity_time = None
-                    self.multicast_packets_received = None
-                    self.multicast_packets_sent = None
-                    self.output_buffer_failures = None
-                    self.output_buffers_swapped_out = None
-                    self.output_drops = None
-                    self.output_errors = None
-                    self.output_queue_drops = None
-                    self.output_underruns = None
-                    self.packets_received = None
-                    self.packets_sent = None
-                    self.parity_packets_received = None
-                    self.resets = None
-                    self.runt_packets_received = None
-                    self.seconds_since_last_clear_counters = None
-                    self.seconds_since_packet_received = None
-                    self.seconds_since_packet_sent = None
-                    self.throttled_packets_received = None
-                    self.unknown_protocol_packets_received = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:generic-counters'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.applique is not None:
-                        return True
-
-                    if self.availability_flag is not None:
-                        return True
-
-                    if self.broadcast_packets_received is not None:
-                        return True
-
-                    if self.broadcast_packets_sent is not None:
-                        return True
-
-                    if self.bytes_received is not None:
-                        return True
-
-                    if self.bytes_sent is not None:
-                        return True
-
-                    if self.carrier_transitions is not None:
-                        return True
-
-                    if self.crc_errors is not None:
-                        return True
-
-                    if self.framing_errors_received is not None:
-                        return True
-
-                    if self.giant_packets_received is not None:
-                        return True
-
-                    if self.input_aborts is not None:
-                        return True
-
-                    if self.input_drops is not None:
-                        return True
-
-                    if self.input_errors is not None:
-                        return True
-
-                    if self.input_ignored_packets is not None:
-                        return True
-
-                    if self.input_overruns is not None:
-                        return True
-
-                    if self.input_queue_drops is not None:
-                        return True
-
-                    if self.last_data_time is not None:
-                        return True
-
-                    if self.last_discontinuity_time is not None:
-                        return True
-
-                    if self.multicast_packets_received is not None:
-                        return True
-
-                    if self.multicast_packets_sent is not None:
-                        return True
-
-                    if self.output_buffer_failures is not None:
-                        return True
-
-                    if self.output_buffers_swapped_out is not None:
-                        return True
-
-                    if self.output_drops is not None:
-                        return True
-
-                    if self.output_errors is not None:
-                        return True
-
-                    if self.output_queue_drops is not None:
-                        return True
-
-                    if self.output_underruns is not None:
-                        return True
-
-                    if self.packets_received is not None:
-                        return True
-
-                    if self.packets_sent is not None:
-                        return True
-
-                    if self.parity_packets_received is not None:
-                        return True
-
-                    if self.resets is not None:
-                        return True
-
-                    if self.runt_packets_received is not None:
-                        return True
-
-                    if self.seconds_since_last_clear_counters is not None:
-                        return True
-
-                    if self.seconds_since_packet_received is not None:
-                        return True
-
-                    if self.seconds_since_packet_sent is not None:
-                        return True
-
-                    if self.throttled_packets_received is not None:
-                        return True
-
-                    if self.unknown_protocol_packets_received is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                    return meta._meta_table['InfraStatistics.Interfaces.Interface.GenericCounters']['meta_info']
-
-
-            class InterfacesMibCounters(object):
-                """
-                Set of interface counters as displayed by the
-                InterfacesMIB
-                
-                .. attribute:: applique
-                
-                	Applique
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: availability_flag
-                
-                	Availability bit mask
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: broadcast_packets_received
-                
-                	Broadcast packets received
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: broadcast_packets_sent
-                
-                	Broadcast packets sent
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: bytes_received
-                
-                	Bytes received
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: bytes_sent
-                
-                	Bytes sent
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: carrier_transitions
-                
-                	Carrier transitions
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: crc_errors
-                
-                	Input CRC errors
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: framing_errors_received
-                
-                	Framing\-errors received
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: giant_packets_received
-                
-                	Received giant packets
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: input_aborts
-                
-                	Input aborts
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: input_drops
-                
-                	Total input drops
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: input_errors
-                
-                	Total input errors
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: input_ignored_packets
-                
-                	Input ignored packets
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: input_overruns
-                
-                	Input overruns
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: input_queue_drops
-                
-                	Input queue drops
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: last_data_time
-                
-                	Time when counters were last written (in seconds)
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: last_discontinuity_time
-                
-                	SysUpTime when counters were last reset (in seconds)
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: multicast_packets_received
-                
-                	Multicast packets received
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: multicast_packets_sent
-                
-                	Multicast packets sent
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: output_buffer_failures
-                
-                	Output buffer failures
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: output_buffers_swapped_out
-                
-                	Output buffers swapped out
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: output_drops
-                
-                	Total output drops
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: output_errors
-                
-                	Total output errors
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: output_queue_drops
-                
-                	Output queue drops
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: output_underruns
-                
-                	Output underruns
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: packets_received
-                
-                	Packets received
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: packets_sent
-                
-                	Packets sent
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: parity_packets_received
-                
-                	Received parity packets
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: resets
-                
-                	Number of board resets
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: runt_packets_received
-                
-                	Received runt packets
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: seconds_since_last_clear_counters
-                
-                	Number of seconds since last clear counters
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: seconds_since_packet_received
-                
-                	Seconds since packet received
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: seconds_since_packet_sent
-                
-                	Seconds since packet sent
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: throttled_packets_received
-                
-                	Received throttled packets
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: unknown_protocol_packets_received
-                
-                	Unknown protocol packets received
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'infra-statsd-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.applique = None
-                    self.availability_flag = None
-                    self.broadcast_packets_received = None
-                    self.broadcast_packets_sent = None
-                    self.bytes_received = None
-                    self.bytes_sent = None
-                    self.carrier_transitions = None
-                    self.crc_errors = None
-                    self.framing_errors_received = None
-                    self.giant_packets_received = None
-                    self.input_aborts = None
-                    self.input_drops = None
-                    self.input_errors = None
-                    self.input_ignored_packets = None
-                    self.input_overruns = None
-                    self.input_queue_drops = None
-                    self.last_data_time = None
-                    self.last_discontinuity_time = None
-                    self.multicast_packets_received = None
-                    self.multicast_packets_sent = None
-                    self.output_buffer_failures = None
-                    self.output_buffers_swapped_out = None
-                    self.output_drops = None
-                    self.output_errors = None
-                    self.output_queue_drops = None
-                    self.output_underruns = None
-                    self.packets_received = None
-                    self.packets_sent = None
-                    self.parity_packets_received = None
-                    self.resets = None
-                    self.runt_packets_received = None
-                    self.seconds_since_last_clear_counters = None
-                    self.seconds_since_packet_received = None
-                    self.seconds_since_packet_sent = None
-                    self.throttled_packets_received = None
-                    self.unknown_protocol_packets_received = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:interfaces-mib-counters'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.applique is not None:
-                        return True
-
-                    if self.availability_flag is not None:
-                        return True
-
-                    if self.broadcast_packets_received is not None:
-                        return True
-
-                    if self.broadcast_packets_sent is not None:
-                        return True
-
-                    if self.bytes_received is not None:
-                        return True
-
-                    if self.bytes_sent is not None:
-                        return True
-
-                    if self.carrier_transitions is not None:
-                        return True
-
-                    if self.crc_errors is not None:
-                        return True
-
-                    if self.framing_errors_received is not None:
-                        return True
-
-                    if self.giant_packets_received is not None:
-                        return True
-
-                    if self.input_aborts is not None:
-                        return True
-
-                    if self.input_drops is not None:
-                        return True
-
-                    if self.input_errors is not None:
-                        return True
-
-                    if self.input_ignored_packets is not None:
-                        return True
-
-                    if self.input_overruns is not None:
-                        return True
-
-                    if self.input_queue_drops is not None:
-                        return True
-
-                    if self.last_data_time is not None:
-                        return True
-
-                    if self.last_discontinuity_time is not None:
-                        return True
-
-                    if self.multicast_packets_received is not None:
-                        return True
-
-                    if self.multicast_packets_sent is not None:
-                        return True
-
-                    if self.output_buffer_failures is not None:
-                        return True
-
-                    if self.output_buffers_swapped_out is not None:
-                        return True
-
-                    if self.output_drops is not None:
-                        return True
-
-                    if self.output_errors is not None:
-                        return True
-
-                    if self.output_queue_drops is not None:
-                        return True
-
-                    if self.output_underruns is not None:
-                        return True
-
-                    if self.packets_received is not None:
-                        return True
-
-                    if self.packets_sent is not None:
-                        return True
-
-                    if self.parity_packets_received is not None:
-                        return True
-
-                    if self.resets is not None:
-                        return True
-
-                    if self.runt_packets_received is not None:
-                        return True
-
-                    if self.seconds_since_last_clear_counters is not None:
-                        return True
-
-                    if self.seconds_since_packet_received is not None:
-                        return True
-
-                    if self.seconds_since_packet_sent is not None:
-                        return True
-
-                    if self.throttled_packets_received is not None:
-                        return True
-
-                    if self.unknown_protocol_packets_received is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                    return meta._meta_table['InfraStatistics.Interfaces.Interface.InterfacesMibCounters']['meta_info']
-
-
-            class Latest(object):
-                """
-                Latest stats data of interfaces
-                
-                .. attribute:: data_rate
-                
-                	Datarate information
-                	**type**\: :py:class:`DataRate <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.DataRate>`
-                
-                .. attribute:: generic_counters
-                
-                	Generic set of interface counters
-                	**type**\: :py:class:`GenericCounters <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.GenericCounters>`
-                
-                .. attribute:: interfaces_mib_counters
-                
-                	Set of interface counters as displayed by the InterfacesMIB
-                	**type**\: :py:class:`InterfacesMibCounters <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters>`
-                
-                .. attribute:: protocols
-                
-                	List of protocols
-                	**type**\: :py:class:`Protocols <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.Protocols>`
-                
-                
-
-                """
-
-                _prefix = 'infra-statsd-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.data_rate = InfraStatistics.Interfaces.Interface.Latest.DataRate()
-                    self.data_rate.parent = self
-                    self.generic_counters = InfraStatistics.Interfaces.Interface.Latest.GenericCounters()
-                    self.generic_counters.parent = self
-                    self.interfaces_mib_counters = InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters()
-                    self.interfaces_mib_counters.parent = self
-                    self.protocols = InfraStatistics.Interfaces.Interface.Latest.Protocols()
-                    self.protocols.parent = self
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters']['meta_info']
 
 
                 class DataRate(object):
                     """
                     Datarate information
-                    
-                    .. attribute:: bandwidth
-                    
-                    	Bandwidth (in kbps)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
                     
                     .. attribute:: input_data_rate
                     
@@ -2574,13 +836,6 @@ class InfraStatistics(object):
                     
                     	**range:** 0..18446744073709551615
                     
-                    .. attribute:: input_load
-                    
-                    	Input load as fraction of 255
-                    	**type**\: int
-                    
-                    	**range:** 0..255
-                    
                     .. attribute:: input_packet_rate
                     
                     	Input packets per second
@@ -2588,26 +843,12 @@ class InfraStatistics(object):
                     
                     	**range:** 0..18446744073709551615
                     
-                    .. attribute:: load_interval
-                    
-                    	Number of 30\-sec intervals less one
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: output_data_rate
                     
                     	Output data rate in 1000's of bps
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: output_load
-                    
-                    	Output load as fraction of 255
-                    	**type**\: int
-                    
-                    	**range:** 0..255
                     
                     .. attribute:: output_packet_rate
                     
@@ -2644,6 +885,34 @@ class InfraStatistics(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    .. attribute:: bandwidth
+                    
+                    	Bandwidth (in kbps)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: load_interval
+                    
+                    	Number of 30\-sec intervals less one
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_load
+                    
+                    	Output load as fraction of 255
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: input_load
+                    
+                    	Input load as fraction of 255
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
                     .. attribute:: reliability
                     
                     	Reliability coefficient
@@ -2660,18 +929,18 @@ class InfraStatistics(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.bandwidth = None
                         self.input_data_rate = None
-                        self.input_load = None
                         self.input_packet_rate = None
-                        self.load_interval = None
                         self.output_data_rate = None
-                        self.output_load = None
                         self.output_packet_rate = None
                         self.peak_input_data_rate = None
                         self.peak_input_packet_rate = None
                         self.peak_output_data_rate = None
                         self.peak_output_packet_rate = None
+                        self.bandwidth = None
+                        self.load_interval = None
+                        self.output_load = None
+                        self.input_load = None
                         self.reliability = None
 
                     @property
@@ -2688,25 +957,13 @@ class InfraStatistics(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.bandwidth is not None:
-                            return True
-
                         if self.input_data_rate is not None:
-                            return True
-
-                        if self.input_load is not None:
                             return True
 
                         if self.input_packet_rate is not None:
                             return True
 
-                        if self.load_interval is not None:
-                            return True
-
                         if self.output_data_rate is not None:
-                            return True
-
-                        if self.output_load is not None:
                             return True
 
                         if self.output_packet_rate is not None:
@@ -2724,6 +981,18 @@ class InfraStatistics(object):
                         if self.peak_output_packet_rate is not None:
                             return True
 
+                        if self.bandwidth is not None:
+                            return True
+
+                        if self.load_interval is not None:
+                            return True
+
+                        if self.output_load is not None:
+                            return True
+
+                        if self.input_load is not None:
+                            return True
+
                         if self.reliability is not None:
                             return True
 
@@ -2732,37 +1001,16 @@ class InfraStatistics(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Latest.DataRate']['meta_info']
+                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Cache.DataRate']['meta_info']
 
 
                 class GenericCounters(object):
                     """
                     Generic set of interface counters
                     
-                    .. attribute:: applique
+                    .. attribute:: packets_received
                     
-                    	Applique
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: availability_flag
-                    
-                    	Availability bit mask
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: broadcast_packets_received
-                    
-                    	Broadcast packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: broadcast_packets_sent
-                    
-                    	Broadcast packets sent
+                    	Packets received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
@@ -2774,6 +1022,13 @@ class InfraStatistics(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    .. attribute:: packets_sent
+                    
+                    	Packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
@@ -2781,37 +1036,44 @@ class InfraStatistics(object):
                     
                     	**range:** 0..18446744073709551615
                     
-                    .. attribute:: carrier_transitions
+                    .. attribute:: multicast_packets_received
                     
-                    	Carrier transitions
+                    	Multicast packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: broadcast_packets_received
+                    
+                    	Broadcast packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: multicast_packets_sent
+                    
+                    	Multicast packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: broadcast_packets_sent
+                    
+                    	Broadcast packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: output_drops
+                    
+                    	Total output drops
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: crc_errors
+                    .. attribute:: output_queue_drops
                     
-                    	Input CRC errors
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: framing_errors_received
-                    
-                    	Framing\-errors received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: giant_packets_received
-                    
-                    	Received giant packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_aborts
-                    
-                    	Input aborts
+                    	Output queue drops
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -2823,6 +1085,48 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: input_queue_drops
+                    
+                    	Input queue drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: runt_packets_received
+                    
+                    	Received runt packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: giant_packets_received
+                    
+                    	Received giant packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: throttled_packets_received
+                    
+                    	Received throttled packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: parity_packets_received
+                    
+                    	Received parity packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: unknown_protocol_packets_received
+                    
+                    	Unknown protocol packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: input_errors
                     
                     	Total input errors
@@ -2830,9 +1134,9 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: input_ignored_packets
+                    .. attribute:: crc_errors
                     
-                    	Input ignored packets
+                    	Input CRC errors
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -2844,40 +1148,40 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: input_queue_drops
+                    .. attribute:: framing_errors_received
                     
-                    	Input queue drops
+                    	Framing\-errors received
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: last_data_time
+                    .. attribute:: input_ignored_packets
                     
-                    	Time when counters were last written (in seconds)
+                    	Input ignored packets
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: last_discontinuity_time
+                    .. attribute:: input_aborts
                     
-                    	SysUpTime when counters were last reset (in seconds)
+                    	Input aborts
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: multicast_packets_received
+                    .. attribute:: output_errors
                     
-                    	Multicast packets received
+                    	Total output errors
                     	**type**\: int
                     
-                    	**range:** 0..18446744073709551615
+                    	**range:** 0..4294967295
                     
-                    .. attribute:: multicast_packets_sent
+                    .. attribute:: output_underruns
                     
-                    	Multicast packets sent
+                    	Output underruns
                     	**type**\: int
                     
-                    	**range:** 0..18446744073709551615
+                    	**range:** 0..4294967295
                     
                     .. attribute:: output_buffer_failures
                     
@@ -2893,51 +1197,9 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: output_drops
+                    .. attribute:: applique
                     
-                    	Total output drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_errors
-                    
-                    	Total output errors
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_queue_drops
-                    
-                    	Output queue drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_underruns
-                    
-                    	Output underruns
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: packets_received
-                    
-                    	Packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: packets_sent
-                    
-                    	Packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: parity_packets_received
-                    
-                    	Received parity packets
+                    	Applique
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -2949,9 +1211,23 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: runt_packets_received
+                    .. attribute:: carrier_transitions
                     
-                    	Received runt packets
+                    	Carrier transitions
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: availability_flag
+                    
+                    	Availability bit mask
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: last_data_time
+                    
+                    	Time when counters were last written (in seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -2959,6 +1235,13 @@ class InfraStatistics(object):
                     .. attribute:: seconds_since_last_clear_counters
                     
                     	Number of seconds since last clear counters
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: last_discontinuity_time
+                    
+                    	SysUpTime when counters were last reset (in seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -2977,20 +1260,6 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: throttled_packets_received
-                    
-                    	Received throttled packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: unknown_protocol_packets_received
-                    
-                    	Unknown protocol packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
                     
 
                     """
@@ -3000,42 +1269,42 @@ class InfraStatistics(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.applique = None
-                        self.availability_flag = None
-                        self.broadcast_packets_received = None
-                        self.broadcast_packets_sent = None
+                        self.packets_received = None
                         self.bytes_received = None
+                        self.packets_sent = None
                         self.bytes_sent = None
-                        self.carrier_transitions = None
-                        self.crc_errors = None
-                        self.framing_errors_received = None
-                        self.giant_packets_received = None
-                        self.input_aborts = None
-                        self.input_drops = None
-                        self.input_errors = None
-                        self.input_ignored_packets = None
-                        self.input_overruns = None
-                        self.input_queue_drops = None
-                        self.last_data_time = None
-                        self.last_discontinuity_time = None
                         self.multicast_packets_received = None
+                        self.broadcast_packets_received = None
                         self.multicast_packets_sent = None
+                        self.broadcast_packets_sent = None
+                        self.output_drops = None
+                        self.output_queue_drops = None
+                        self.input_drops = None
+                        self.input_queue_drops = None
+                        self.runt_packets_received = None
+                        self.giant_packets_received = None
+                        self.throttled_packets_received = None
+                        self.parity_packets_received = None
+                        self.unknown_protocol_packets_received = None
+                        self.input_errors = None
+                        self.crc_errors = None
+                        self.input_overruns = None
+                        self.framing_errors_received = None
+                        self.input_ignored_packets = None
+                        self.input_aborts = None
+                        self.output_errors = None
+                        self.output_underruns = None
                         self.output_buffer_failures = None
                         self.output_buffers_swapped_out = None
-                        self.output_drops = None
-                        self.output_errors = None
-                        self.output_queue_drops = None
-                        self.output_underruns = None
-                        self.packets_received = None
-                        self.packets_sent = None
-                        self.parity_packets_received = None
+                        self.applique = None
                         self.resets = None
-                        self.runt_packets_received = None
+                        self.carrier_transitions = None
+                        self.availability_flag = None
+                        self.last_data_time = None
                         self.seconds_since_last_clear_counters = None
+                        self.last_discontinuity_time = None
                         self.seconds_since_packet_received = None
                         self.seconds_since_packet_sent = None
-                        self.throttled_packets_received = None
-                        self.unknown_protocol_packets_received = None
 
                     @property
                     def _common_path(self):
@@ -3051,64 +1320,79 @@ class InfraStatistics(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.applique is not None:
-                            return True
-
-                        if self.availability_flag is not None:
-                            return True
-
-                        if self.broadcast_packets_received is not None:
-                            return True
-
-                        if self.broadcast_packets_sent is not None:
+                        if self.packets_received is not None:
                             return True
 
                         if self.bytes_received is not None:
                             return True
 
+                        if self.packets_sent is not None:
+                            return True
+
                         if self.bytes_sent is not None:
-                            return True
-
-                        if self.carrier_transitions is not None:
-                            return True
-
-                        if self.crc_errors is not None:
-                            return True
-
-                        if self.framing_errors_received is not None:
-                            return True
-
-                        if self.giant_packets_received is not None:
-                            return True
-
-                        if self.input_aborts is not None:
-                            return True
-
-                        if self.input_drops is not None:
-                            return True
-
-                        if self.input_errors is not None:
-                            return True
-
-                        if self.input_ignored_packets is not None:
-                            return True
-
-                        if self.input_overruns is not None:
-                            return True
-
-                        if self.input_queue_drops is not None:
-                            return True
-
-                        if self.last_data_time is not None:
-                            return True
-
-                        if self.last_discontinuity_time is not None:
                             return True
 
                         if self.multicast_packets_received is not None:
                             return True
 
+                        if self.broadcast_packets_received is not None:
+                            return True
+
                         if self.multicast_packets_sent is not None:
+                            return True
+
+                        if self.broadcast_packets_sent is not None:
+                            return True
+
+                        if self.output_drops is not None:
+                            return True
+
+                        if self.output_queue_drops is not None:
+                            return True
+
+                        if self.input_drops is not None:
+                            return True
+
+                        if self.input_queue_drops is not None:
+                            return True
+
+                        if self.runt_packets_received is not None:
+                            return True
+
+                        if self.giant_packets_received is not None:
+                            return True
+
+                        if self.throttled_packets_received is not None:
+                            return True
+
+                        if self.parity_packets_received is not None:
+                            return True
+
+                        if self.unknown_protocol_packets_received is not None:
+                            return True
+
+                        if self.input_errors is not None:
+                            return True
+
+                        if self.crc_errors is not None:
+                            return True
+
+                        if self.input_overruns is not None:
+                            return True
+
+                        if self.framing_errors_received is not None:
+                            return True
+
+                        if self.input_ignored_packets is not None:
+                            return True
+
+                        if self.input_aborts is not None:
+                            return True
+
+                        if self.output_errors is not None:
+                            return True
+
+                        if self.output_underruns is not None:
                             return True
 
                         if self.output_buffer_failures is not None:
@@ -3117,467 +1401,25 @@ class InfraStatistics(object):
                         if self.output_buffers_swapped_out is not None:
                             return True
 
-                        if self.output_drops is not None:
-                            return True
-
-                        if self.output_errors is not None:
-                            return True
-
-                        if self.output_queue_drops is not None:
-                            return True
-
-                        if self.output_underruns is not None:
-                            return True
-
-                        if self.packets_received is not None:
-                            return True
-
-                        if self.packets_sent is not None:
-                            return True
-
-                        if self.parity_packets_received is not None:
-                            return True
-
-                        if self.resets is not None:
-                            return True
-
-                        if self.runt_packets_received is not None:
-                            return True
-
-                        if self.seconds_since_last_clear_counters is not None:
-                            return True
-
-                        if self.seconds_since_packet_received is not None:
-                            return True
-
-                        if self.seconds_since_packet_sent is not None:
-                            return True
-
-                        if self.throttled_packets_received is not None:
-                            return True
-
-                        if self.unknown_protocol_packets_received is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Latest.GenericCounters']['meta_info']
-
-
-                class InterfacesMibCounters(object):
-                    """
-                    Set of interface counters as displayed by the
-                    InterfacesMIB
-                    
-                    .. attribute:: applique
-                    
-                    	Applique
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: availability_flag
-                    
-                    	Availability bit mask
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: broadcast_packets_received
-                    
-                    	Broadcast packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: broadcast_packets_sent
-                    
-                    	Broadcast packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: bytes_received
-                    
-                    	Bytes received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: bytes_sent
-                    
-                    	Bytes sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: carrier_transitions
-                    
-                    	Carrier transitions
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: crc_errors
-                    
-                    	Input CRC errors
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: framing_errors_received
-                    
-                    	Framing\-errors received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: giant_packets_received
-                    
-                    	Received giant packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_aborts
-                    
-                    	Input aborts
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_drops
-                    
-                    	Total input drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_errors
-                    
-                    	Total input errors
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_ignored_packets
-                    
-                    	Input ignored packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_overruns
-                    
-                    	Input overruns
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_queue_drops
-                    
-                    	Input queue drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: last_data_time
-                    
-                    	Time when counters were last written (in seconds)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: last_discontinuity_time
-                    
-                    	SysUpTime when counters were last reset (in seconds)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: multicast_packets_received
-                    
-                    	Multicast packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: multicast_packets_sent
-                    
-                    	Multicast packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: output_buffer_failures
-                    
-                    	Output buffer failures
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_buffers_swapped_out
-                    
-                    	Output buffers swapped out
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_drops
-                    
-                    	Total output drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_errors
-                    
-                    	Total output errors
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_queue_drops
-                    
-                    	Output queue drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_underruns
-                    
-                    	Output underruns
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: packets_received
-                    
-                    	Packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: packets_sent
-                    
-                    	Packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: parity_packets_received
-                    
-                    	Received parity packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: resets
-                    
-                    	Number of board resets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: runt_packets_received
-                    
-                    	Received runt packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: seconds_since_last_clear_counters
-                    
-                    	Number of seconds since last clear counters
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: seconds_since_packet_received
-                    
-                    	Seconds since packet received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: seconds_since_packet_sent
-                    
-                    	Seconds since packet sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: throttled_packets_received
-                    
-                    	Received throttled packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: unknown_protocol_packets_received
-                    
-                    	Unknown protocol packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'infra-statsd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.applique = None
-                        self.availability_flag = None
-                        self.broadcast_packets_received = None
-                        self.broadcast_packets_sent = None
-                        self.bytes_received = None
-                        self.bytes_sent = None
-                        self.carrier_transitions = None
-                        self.crc_errors = None
-                        self.framing_errors_received = None
-                        self.giant_packets_received = None
-                        self.input_aborts = None
-                        self.input_drops = None
-                        self.input_errors = None
-                        self.input_ignored_packets = None
-                        self.input_overruns = None
-                        self.input_queue_drops = None
-                        self.last_data_time = None
-                        self.last_discontinuity_time = None
-                        self.multicast_packets_received = None
-                        self.multicast_packets_sent = None
-                        self.output_buffer_failures = None
-                        self.output_buffers_swapped_out = None
-                        self.output_drops = None
-                        self.output_errors = None
-                        self.output_queue_drops = None
-                        self.output_underruns = None
-                        self.packets_received = None
-                        self.packets_sent = None
-                        self.parity_packets_received = None
-                        self.resets = None
-                        self.runt_packets_received = None
-                        self.seconds_since_last_clear_counters = None
-                        self.seconds_since_packet_received = None
-                        self.seconds_since_packet_sent = None
-                        self.throttled_packets_received = None
-                        self.unknown_protocol_packets_received = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:interfaces-mib-counters'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.applique is not None:
                             return True
 
-                        if self.availability_flag is not None:
-                            return True
-
-                        if self.broadcast_packets_received is not None:
-                            return True
-
-                        if self.broadcast_packets_sent is not None:
-                            return True
-
-                        if self.bytes_received is not None:
-                            return True
-
-                        if self.bytes_sent is not None:
+                        if self.resets is not None:
                             return True
 
                         if self.carrier_transitions is not None:
                             return True
 
-                        if self.crc_errors is not None:
-                            return True
-
-                        if self.framing_errors_received is not None:
-                            return True
-
-                        if self.giant_packets_received is not None:
-                            return True
-
-                        if self.input_aborts is not None:
-                            return True
-
-                        if self.input_drops is not None:
-                            return True
-
-                        if self.input_errors is not None:
-                            return True
-
-                        if self.input_ignored_packets is not None:
-                            return True
-
-                        if self.input_overruns is not None:
-                            return True
-
-                        if self.input_queue_drops is not None:
+                        if self.availability_flag is not None:
                             return True
 
                         if self.last_data_time is not None:
                             return True
 
-                        if self.last_discontinuity_time is not None:
-                            return True
-
-                        if self.multicast_packets_received is not None:
-                            return True
-
-                        if self.multicast_packets_sent is not None:
-                            return True
-
-                        if self.output_buffer_failures is not None:
-                            return True
-
-                        if self.output_buffers_swapped_out is not None:
-                            return True
-
-                        if self.output_drops is not None:
-                            return True
-
-                        if self.output_errors is not None:
-                            return True
-
-                        if self.output_queue_drops is not None:
-                            return True
-
-                        if self.output_underruns is not None:
-                            return True
-
-                        if self.packets_received is not None:
-                            return True
-
-                        if self.packets_sent is not None:
-                            return True
-
-                        if self.parity_packets_received is not None:
-                            return True
-
-                        if self.resets is not None:
-                            return True
-
-                        if self.runt_packets_received is not None:
-                            return True
-
                         if self.seconds_since_last_clear_counters is not None:
+                            return True
+
+                        if self.last_discontinuity_time is not None:
                             return True
 
                         if self.seconds_since_packet_received is not None:
@@ -3586,18 +1428,88 @@ class InfraStatistics(object):
                         if self.seconds_since_packet_sent is not None:
                             return True
 
-                        if self.throttled_packets_received is not None:
-                            return True
-
-                        if self.unknown_protocol_packets_received is not None:
-                            return True
-
                         return False
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters']['meta_info']
+                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Cache.GenericCounters']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:cache'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.protocols is not None and self.protocols._has_data():
+                        return True
+
+                    if self.interfaces_mib_counters is not None and self.interfaces_mib_counters._has_data():
+                        return True
+
+                    if self.data_rate is not None and self.data_rate._has_data():
+                        return True
+
+                    if self.generic_counters is not None and self.generic_counters._has_data():
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                    return meta._meta_table['InfraStatistics.Interfaces.Interface.Cache']['meta_info']
+
+
+            class Latest(object):
+                """
+                Latest stats data of interfaces
+                
+                .. attribute:: protocols
+                
+                	List of protocols
+                	**type**\: :py:class:`Protocols <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.Protocols>`
+                
+                .. attribute:: interfaces_mib_counters
+                
+                	Set of interface counters as displayed by the InterfacesMIB
+                	**type**\: :py:class:`InterfacesMibCounters <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters>`
+                
+                .. attribute:: data_rate
+                
+                	Datarate information
+                	**type**\: :py:class:`DataRate <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.DataRate>`
+                
+                .. attribute:: generic_counters
+                
+                	Generic set of interface counters
+                	**type**\: :py:class:`GenericCounters <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.GenericCounters>`
+                
+                
+
+                """
+
+                _prefix = 'infra-statsd-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.protocols = InfraStatistics.Interfaces.Interface.Latest.Protocols()
+                    self.protocols.parent = self
+                    self.interfaces_mib_counters = InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters()
+                    self.interfaces_mib_counters.parent = self
+                    self.data_rate = InfraStatistics.Interfaces.Interface.Latest.DataRate()
+                    self.data_rate.parent = self
+                    self.generic_counters = InfraStatistics.Interfaces.Interface.Latest.GenericCounters()
+                    self.generic_counters.parent = self
 
 
                 class Protocols(object):
@@ -3627,7 +1539,7 @@ class InfraStatistics(object):
                         """
                         Interface counters per protocol
                         
-                        .. attribute:: protocol_name
+                        .. attribute:: protocol_name  <key>
                         
                         	Name of the protocol
                         	**type**\: str
@@ -3641,51 +1553,16 @@ class InfraStatistics(object):
                         
                         	**range:** 0..18446744073709551615
                         
-                        .. attribute:: bytes_sent
-                        
-                        	Bytes sent
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: input_data_rate
-                        
-                        	Input data rate in 1000's of bps
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: input_packet_rate
-                        
-                        	Input packets per second
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: last_data_time
-                        
-                        	Time when counters were last written (in seconds)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: output_data_rate
-                        
-                        	Output data rate in 1000's of bps
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: output_packet_rate
-                        
-                        	Output packets per second
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
                         .. attribute:: packets_received
                         
                         	Packets received
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: bytes_sent
+                        
+                        	Bytes sent
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
@@ -3704,6 +1581,41 @@ class InfraStatistics(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: last_data_time
+                        
+                        	Time when counters were last written (in seconds)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: input_data_rate
+                        
+                        	Input data rate in 1000's of bps
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: input_packet_rate
+                        
+                        	Input packets per second
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: output_data_rate
+                        
+                        	Output data rate in 1000's of bps
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: output_packet_rate
+                        
+                        	Output packets per second
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
                         
 
                         """
@@ -3715,15 +1627,15 @@ class InfraStatistics(object):
                             self.parent = None
                             self.protocol_name = None
                             self.bytes_received = None
-                            self.bytes_sent = None
-                            self.input_data_rate = None
-                            self.input_packet_rate = None
-                            self.last_data_time = None
-                            self.output_data_rate = None
-                            self.output_packet_rate = None
                             self.packets_received = None
+                            self.bytes_sent = None
                             self.packets_sent = None
                             self.protocol = None
+                            self.last_data_time = None
+                            self.input_data_rate = None
+                            self.input_packet_rate = None
+                            self.output_data_rate = None
+                            self.output_packet_rate = None
 
                         @property
                         def _common_path(self):
@@ -3747,7 +1659,19 @@ class InfraStatistics(object):
                             if self.bytes_received is not None:
                                 return True
 
+                            if self.packets_received is not None:
+                                return True
+
                             if self.bytes_sent is not None:
+                                return True
+
+                            if self.packets_sent is not None:
+                                return True
+
+                            if self.protocol is not None:
+                                return True
+
+                            if self.last_data_time is not None:
                                 return True
 
                             if self.input_data_rate is not None:
@@ -3756,22 +1680,10 @@ class InfraStatistics(object):
                             if self.input_packet_rate is not None:
                                 return True
 
-                            if self.last_data_time is not None:
-                                return True
-
                             if self.output_data_rate is not None:
                                 return True
 
                             if self.output_packet_rate is not None:
-                                return True
-
-                            if self.packets_received is not None:
-                                return True
-
-                            if self.packets_sent is not None:
-                                return True
-
-                            if self.protocol is not None:
                                 return True
 
                             return False
@@ -3807,6 +1719,1050 @@ class InfraStatistics(object):
                         from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
                         return meta._meta_table['InfraStatistics.Interfaces.Interface.Latest.Protocols']['meta_info']
 
+
+                class InterfacesMibCounters(object):
+                    """
+                    Set of interface counters as displayed by the
+                    InterfacesMIB
+                    
+                    .. attribute:: packets_received
+                    
+                    	Packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: bytes_received
+                    
+                    	Bytes received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: packets_sent
+                    
+                    	Packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: bytes_sent
+                    
+                    	Bytes sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: multicast_packets_received
+                    
+                    	Multicast packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: broadcast_packets_received
+                    
+                    	Broadcast packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: multicast_packets_sent
+                    
+                    	Multicast packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: broadcast_packets_sent
+                    
+                    	Broadcast packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: output_drops
+                    
+                    	Total output drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_queue_drops
+                    
+                    	Output queue drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_drops
+                    
+                    	Total input drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_queue_drops
+                    
+                    	Input queue drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: runt_packets_received
+                    
+                    	Received runt packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: giant_packets_received
+                    
+                    	Received giant packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: throttled_packets_received
+                    
+                    	Received throttled packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: parity_packets_received
+                    
+                    	Received parity packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: unknown_protocol_packets_received
+                    
+                    	Unknown protocol packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_errors
+                    
+                    	Total input errors
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: crc_errors
+                    
+                    	Input CRC errors
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_overruns
+                    
+                    	Input overruns
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: framing_errors_received
+                    
+                    	Framing\-errors received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_ignored_packets
+                    
+                    	Input ignored packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_aborts
+                    
+                    	Input aborts
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_errors
+                    
+                    	Total output errors
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_underruns
+                    
+                    	Output underruns
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_buffer_failures
+                    
+                    	Output buffer failures
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_buffers_swapped_out
+                    
+                    	Output buffers swapped out
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: applique
+                    
+                    	Applique
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: resets
+                    
+                    	Number of board resets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: carrier_transitions
+                    
+                    	Carrier transitions
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: availability_flag
+                    
+                    	Availability bit mask
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: last_data_time
+                    
+                    	Time when counters were last written (in seconds)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: seconds_since_last_clear_counters
+                    
+                    	Number of seconds since last clear counters
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: last_discontinuity_time
+                    
+                    	SysUpTime when counters were last reset (in seconds)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: seconds_since_packet_received
+                    
+                    	Seconds since packet received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: seconds_since_packet_sent
+                    
+                    	Seconds since packet sent
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-statsd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.packets_received = None
+                        self.bytes_received = None
+                        self.packets_sent = None
+                        self.bytes_sent = None
+                        self.multicast_packets_received = None
+                        self.broadcast_packets_received = None
+                        self.multicast_packets_sent = None
+                        self.broadcast_packets_sent = None
+                        self.output_drops = None
+                        self.output_queue_drops = None
+                        self.input_drops = None
+                        self.input_queue_drops = None
+                        self.runt_packets_received = None
+                        self.giant_packets_received = None
+                        self.throttled_packets_received = None
+                        self.parity_packets_received = None
+                        self.unknown_protocol_packets_received = None
+                        self.input_errors = None
+                        self.crc_errors = None
+                        self.input_overruns = None
+                        self.framing_errors_received = None
+                        self.input_ignored_packets = None
+                        self.input_aborts = None
+                        self.output_errors = None
+                        self.output_underruns = None
+                        self.output_buffer_failures = None
+                        self.output_buffers_swapped_out = None
+                        self.applique = None
+                        self.resets = None
+                        self.carrier_transitions = None
+                        self.availability_flag = None
+                        self.last_data_time = None
+                        self.seconds_since_last_clear_counters = None
+                        self.last_discontinuity_time = None
+                        self.seconds_since_packet_received = None
+                        self.seconds_since_packet_sent = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:interfaces-mib-counters'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.packets_received is not None:
+                            return True
+
+                        if self.bytes_received is not None:
+                            return True
+
+                        if self.packets_sent is not None:
+                            return True
+
+                        if self.bytes_sent is not None:
+                            return True
+
+                        if self.multicast_packets_received is not None:
+                            return True
+
+                        if self.broadcast_packets_received is not None:
+                            return True
+
+                        if self.multicast_packets_sent is not None:
+                            return True
+
+                        if self.broadcast_packets_sent is not None:
+                            return True
+
+                        if self.output_drops is not None:
+                            return True
+
+                        if self.output_queue_drops is not None:
+                            return True
+
+                        if self.input_drops is not None:
+                            return True
+
+                        if self.input_queue_drops is not None:
+                            return True
+
+                        if self.runt_packets_received is not None:
+                            return True
+
+                        if self.giant_packets_received is not None:
+                            return True
+
+                        if self.throttled_packets_received is not None:
+                            return True
+
+                        if self.parity_packets_received is not None:
+                            return True
+
+                        if self.unknown_protocol_packets_received is not None:
+                            return True
+
+                        if self.input_errors is not None:
+                            return True
+
+                        if self.crc_errors is not None:
+                            return True
+
+                        if self.input_overruns is not None:
+                            return True
+
+                        if self.framing_errors_received is not None:
+                            return True
+
+                        if self.input_ignored_packets is not None:
+                            return True
+
+                        if self.input_aborts is not None:
+                            return True
+
+                        if self.output_errors is not None:
+                            return True
+
+                        if self.output_underruns is not None:
+                            return True
+
+                        if self.output_buffer_failures is not None:
+                            return True
+
+                        if self.output_buffers_swapped_out is not None:
+                            return True
+
+                        if self.applique is not None:
+                            return True
+
+                        if self.resets is not None:
+                            return True
+
+                        if self.carrier_transitions is not None:
+                            return True
+
+                        if self.availability_flag is not None:
+                            return True
+
+                        if self.last_data_time is not None:
+                            return True
+
+                        if self.seconds_since_last_clear_counters is not None:
+                            return True
+
+                        if self.last_discontinuity_time is not None:
+                            return True
+
+                        if self.seconds_since_packet_received is not None:
+                            return True
+
+                        if self.seconds_since_packet_sent is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters']['meta_info']
+
+
+                class DataRate(object):
+                    """
+                    Datarate information
+                    
+                    .. attribute:: input_data_rate
+                    
+                    	Input data rate in 1000's of bps
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: input_packet_rate
+                    
+                    	Input packets per second
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: output_data_rate
+                    
+                    	Output data rate in 1000's of bps
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: output_packet_rate
+                    
+                    	Output packets per second
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: peak_input_data_rate
+                    
+                    	Peak input data rate
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: peak_input_packet_rate
+                    
+                    	Peak input packet rate
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: peak_output_data_rate
+                    
+                    	Peak output data rate
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: peak_output_packet_rate
+                    
+                    	Peak output packet rate
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: bandwidth
+                    
+                    	Bandwidth (in kbps)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: load_interval
+                    
+                    	Number of 30\-sec intervals less one
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_load
+                    
+                    	Output load as fraction of 255
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: input_load
+                    
+                    	Input load as fraction of 255
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: reliability
+                    
+                    	Reliability coefficient
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-statsd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.input_data_rate = None
+                        self.input_packet_rate = None
+                        self.output_data_rate = None
+                        self.output_packet_rate = None
+                        self.peak_input_data_rate = None
+                        self.peak_input_packet_rate = None
+                        self.peak_output_data_rate = None
+                        self.peak_output_packet_rate = None
+                        self.bandwidth = None
+                        self.load_interval = None
+                        self.output_load = None
+                        self.input_load = None
+                        self.reliability = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:data-rate'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.input_data_rate is not None:
+                            return True
+
+                        if self.input_packet_rate is not None:
+                            return True
+
+                        if self.output_data_rate is not None:
+                            return True
+
+                        if self.output_packet_rate is not None:
+                            return True
+
+                        if self.peak_input_data_rate is not None:
+                            return True
+
+                        if self.peak_input_packet_rate is not None:
+                            return True
+
+                        if self.peak_output_data_rate is not None:
+                            return True
+
+                        if self.peak_output_packet_rate is not None:
+                            return True
+
+                        if self.bandwidth is not None:
+                            return True
+
+                        if self.load_interval is not None:
+                            return True
+
+                        if self.output_load is not None:
+                            return True
+
+                        if self.input_load is not None:
+                            return True
+
+                        if self.reliability is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Latest.DataRate']['meta_info']
+
+
+                class GenericCounters(object):
+                    """
+                    Generic set of interface counters
+                    
+                    .. attribute:: packets_received
+                    
+                    	Packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: bytes_received
+                    
+                    	Bytes received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: packets_sent
+                    
+                    	Packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: bytes_sent
+                    
+                    	Bytes sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: multicast_packets_received
+                    
+                    	Multicast packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: broadcast_packets_received
+                    
+                    	Broadcast packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: multicast_packets_sent
+                    
+                    	Multicast packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: broadcast_packets_sent
+                    
+                    	Broadcast packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: output_drops
+                    
+                    	Total output drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_queue_drops
+                    
+                    	Output queue drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_drops
+                    
+                    	Total input drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_queue_drops
+                    
+                    	Input queue drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: runt_packets_received
+                    
+                    	Received runt packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: giant_packets_received
+                    
+                    	Received giant packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: throttled_packets_received
+                    
+                    	Received throttled packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: parity_packets_received
+                    
+                    	Received parity packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: unknown_protocol_packets_received
+                    
+                    	Unknown protocol packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_errors
+                    
+                    	Total input errors
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: crc_errors
+                    
+                    	Input CRC errors
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_overruns
+                    
+                    	Input overruns
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: framing_errors_received
+                    
+                    	Framing\-errors received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_ignored_packets
+                    
+                    	Input ignored packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_aborts
+                    
+                    	Input aborts
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_errors
+                    
+                    	Total output errors
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_underruns
+                    
+                    	Output underruns
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_buffer_failures
+                    
+                    	Output buffer failures
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_buffers_swapped_out
+                    
+                    	Output buffers swapped out
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: applique
+                    
+                    	Applique
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: resets
+                    
+                    	Number of board resets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: carrier_transitions
+                    
+                    	Carrier transitions
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: availability_flag
+                    
+                    	Availability bit mask
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: last_data_time
+                    
+                    	Time when counters were last written (in seconds)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: seconds_since_last_clear_counters
+                    
+                    	Number of seconds since last clear counters
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: last_discontinuity_time
+                    
+                    	SysUpTime when counters were last reset (in seconds)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: seconds_since_packet_received
+                    
+                    	Seconds since packet received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: seconds_since_packet_sent
+                    
+                    	Seconds since packet sent
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-statsd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.packets_received = None
+                        self.bytes_received = None
+                        self.packets_sent = None
+                        self.bytes_sent = None
+                        self.multicast_packets_received = None
+                        self.broadcast_packets_received = None
+                        self.multicast_packets_sent = None
+                        self.broadcast_packets_sent = None
+                        self.output_drops = None
+                        self.output_queue_drops = None
+                        self.input_drops = None
+                        self.input_queue_drops = None
+                        self.runt_packets_received = None
+                        self.giant_packets_received = None
+                        self.throttled_packets_received = None
+                        self.parity_packets_received = None
+                        self.unknown_protocol_packets_received = None
+                        self.input_errors = None
+                        self.crc_errors = None
+                        self.input_overruns = None
+                        self.framing_errors_received = None
+                        self.input_ignored_packets = None
+                        self.input_aborts = None
+                        self.output_errors = None
+                        self.output_underruns = None
+                        self.output_buffer_failures = None
+                        self.output_buffers_swapped_out = None
+                        self.applique = None
+                        self.resets = None
+                        self.carrier_transitions = None
+                        self.availability_flag = None
+                        self.last_data_time = None
+                        self.seconds_since_last_clear_counters = None
+                        self.last_discontinuity_time = None
+                        self.seconds_since_packet_received = None
+                        self.seconds_since_packet_sent = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:generic-counters'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.packets_received is not None:
+                            return True
+
+                        if self.bytes_received is not None:
+                            return True
+
+                        if self.packets_sent is not None:
+                            return True
+
+                        if self.bytes_sent is not None:
+                            return True
+
+                        if self.multicast_packets_received is not None:
+                            return True
+
+                        if self.broadcast_packets_received is not None:
+                            return True
+
+                        if self.multicast_packets_sent is not None:
+                            return True
+
+                        if self.broadcast_packets_sent is not None:
+                            return True
+
+                        if self.output_drops is not None:
+                            return True
+
+                        if self.output_queue_drops is not None:
+                            return True
+
+                        if self.input_drops is not None:
+                            return True
+
+                        if self.input_queue_drops is not None:
+                            return True
+
+                        if self.runt_packets_received is not None:
+                            return True
+
+                        if self.giant_packets_received is not None:
+                            return True
+
+                        if self.throttled_packets_received is not None:
+                            return True
+
+                        if self.parity_packets_received is not None:
+                            return True
+
+                        if self.unknown_protocol_packets_received is not None:
+                            return True
+
+                        if self.input_errors is not None:
+                            return True
+
+                        if self.crc_errors is not None:
+                            return True
+
+                        if self.input_overruns is not None:
+                            return True
+
+                        if self.framing_errors_received is not None:
+                            return True
+
+                        if self.input_ignored_packets is not None:
+                            return True
+
+                        if self.input_aborts is not None:
+                            return True
+
+                        if self.output_errors is not None:
+                            return True
+
+                        if self.output_underruns is not None:
+                            return True
+
+                        if self.output_buffer_failures is not None:
+                            return True
+
+                        if self.output_buffers_swapped_out is not None:
+                            return True
+
+                        if self.applique is not None:
+                            return True
+
+                        if self.resets is not None:
+                            return True
+
+                        if self.carrier_transitions is not None:
+                            return True
+
+                        if self.availability_flag is not None:
+                            return True
+
+                        if self.last_data_time is not None:
+                            return True
+
+                        if self.seconds_since_last_clear_counters is not None:
+                            return True
+
+                        if self.last_discontinuity_time is not None:
+                            return True
+
+                        if self.seconds_since_packet_received is not None:
+                            return True
+
+                        if self.seconds_since_packet_sent is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Latest.GenericCounters']['meta_info']
+
                 @property
                 def _common_path(self):
                     if self.parent is None:
@@ -3821,16 +2777,16 @@ class InfraStatistics(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.data_rate is not None and self.data_rate._has_data():
-                        return True
-
-                    if self.generic_counters is not None and self.generic_counters._has_data():
+                    if self.protocols is not None and self.protocols._has_data():
                         return True
 
                     if self.interfaces_mib_counters is not None and self.interfaces_mib_counters._has_data():
                         return True
 
-                    if self.protocols is not None and self.protocols._has_data():
+                    if self.data_rate is not None and self.data_rate._has_data():
+                        return True
+
+                    if self.generic_counters is not None and self.generic_counters._has_data():
                         return True
 
                     return False
@@ -3839,6 +2795,1334 @@ class InfraStatistics(object):
                 def _meta_info():
                     from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
                     return meta._meta_table['InfraStatistics.Interfaces.Interface.Latest']['meta_info']
+
+
+            class Total(object):
+                """
+                Total stats data of interfaces
+                
+                .. attribute:: protocols
+                
+                	List of protocols
+                	**type**\: :py:class:`Protocols <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.Protocols>`
+                
+                .. attribute:: interfaces_mib_counters
+                
+                	Set of interface counters as displayed by the InterfacesMIB
+                	**type**\: :py:class:`InterfacesMibCounters <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters>`
+                
+                .. attribute:: data_rate
+                
+                	Datarate information
+                	**type**\: :py:class:`DataRate <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.DataRate>`
+                
+                .. attribute:: generic_counters
+                
+                	Generic set of interface counters
+                	**type**\: :py:class:`GenericCounters <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.GenericCounters>`
+                
+                
+
+                """
+
+                _prefix = 'infra-statsd-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.protocols = InfraStatistics.Interfaces.Interface.Total.Protocols()
+                    self.protocols.parent = self
+                    self.interfaces_mib_counters = InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters()
+                    self.interfaces_mib_counters.parent = self
+                    self.data_rate = InfraStatistics.Interfaces.Interface.Total.DataRate()
+                    self.data_rate.parent = self
+                    self.generic_counters = InfraStatistics.Interfaces.Interface.Total.GenericCounters()
+                    self.generic_counters.parent = self
+
+
+                class Protocols(object):
+                    """
+                    List of protocols
+                    
+                    .. attribute:: protocol
+                    
+                    	Interface counters per protocol
+                    	**type**\: list of :py:class:`Protocol <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.Protocols.Protocol>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-statsd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.protocol = YList()
+                        self.protocol.parent = self
+                        self.protocol.name = 'protocol'
+
+
+                    class Protocol(object):
+                        """
+                        Interface counters per protocol
+                        
+                        .. attribute:: protocol_name  <key>
+                        
+                        	Name of the protocol
+                        	**type**\: str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                        
+                        .. attribute:: bytes_received
+                        
+                        	Bytes received
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: packets_received
+                        
+                        	Packets received
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: bytes_sent
+                        
+                        	Bytes sent
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: packets_sent
+                        
+                        	Packets sent
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: protocol
+                        
+                        	Protocol number
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: last_data_time
+                        
+                        	Time when counters were last written (in seconds)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: input_data_rate
+                        
+                        	Input data rate in 1000's of bps
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: input_packet_rate
+                        
+                        	Input packets per second
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: output_data_rate
+                        
+                        	Output data rate in 1000's of bps
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: output_packet_rate
+                        
+                        	Output packets per second
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-statsd-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.protocol_name = None
+                            self.bytes_received = None
+                            self.packets_received = None
+                            self.bytes_sent = None
+                            self.packets_sent = None
+                            self.protocol = None
+                            self.last_data_time = None
+                            self.input_data_rate = None
+                            self.input_packet_rate = None
+                            self.output_data_rate = None
+                            self.output_packet_rate = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            if self.protocol_name is None:
+                                raise YPYDataValidationError('Key property protocol_name is None')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:protocol[Cisco-IOS-XR-infra-statsd-oper:protocol-name = ' + str(self.protocol_name) + ']'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.protocol_name is not None:
+                                return True
+
+                            if self.bytes_received is not None:
+                                return True
+
+                            if self.packets_received is not None:
+                                return True
+
+                            if self.bytes_sent is not None:
+                                return True
+
+                            if self.packets_sent is not None:
+                                return True
+
+                            if self.protocol is not None:
+                                return True
+
+                            if self.last_data_time is not None:
+                                return True
+
+                            if self.input_data_rate is not None:
+                                return True
+
+                            if self.input_packet_rate is not None:
+                                return True
+
+                            if self.output_data_rate is not None:
+                                return True
+
+                            if self.output_packet_rate is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                            return meta._meta_table['InfraStatistics.Interfaces.Interface.Total.Protocols.Protocol']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:protocols'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.protocol is not None:
+                            for child_ref in self.protocol:
+                                if child_ref._has_data():
+                                    return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Total.Protocols']['meta_info']
+
+
+                class InterfacesMibCounters(object):
+                    """
+                    Set of interface counters as displayed by the
+                    InterfacesMIB
+                    
+                    .. attribute:: packets_received
+                    
+                    	Packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: bytes_received
+                    
+                    	Bytes received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: packets_sent
+                    
+                    	Packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: bytes_sent
+                    
+                    	Bytes sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: multicast_packets_received
+                    
+                    	Multicast packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: broadcast_packets_received
+                    
+                    	Broadcast packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: multicast_packets_sent
+                    
+                    	Multicast packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: broadcast_packets_sent
+                    
+                    	Broadcast packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: output_drops
+                    
+                    	Total output drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_queue_drops
+                    
+                    	Output queue drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_drops
+                    
+                    	Total input drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_queue_drops
+                    
+                    	Input queue drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: runt_packets_received
+                    
+                    	Received runt packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: giant_packets_received
+                    
+                    	Received giant packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: throttled_packets_received
+                    
+                    	Received throttled packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: parity_packets_received
+                    
+                    	Received parity packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: unknown_protocol_packets_received
+                    
+                    	Unknown protocol packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_errors
+                    
+                    	Total input errors
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: crc_errors
+                    
+                    	Input CRC errors
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_overruns
+                    
+                    	Input overruns
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: framing_errors_received
+                    
+                    	Framing\-errors received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_ignored_packets
+                    
+                    	Input ignored packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_aborts
+                    
+                    	Input aborts
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_errors
+                    
+                    	Total output errors
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_underruns
+                    
+                    	Output underruns
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_buffer_failures
+                    
+                    	Output buffer failures
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_buffers_swapped_out
+                    
+                    	Output buffers swapped out
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: applique
+                    
+                    	Applique
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: resets
+                    
+                    	Number of board resets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: carrier_transitions
+                    
+                    	Carrier transitions
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: availability_flag
+                    
+                    	Availability bit mask
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: last_data_time
+                    
+                    	Time when counters were last written (in seconds)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: seconds_since_last_clear_counters
+                    
+                    	Number of seconds since last clear counters
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: last_discontinuity_time
+                    
+                    	SysUpTime when counters were last reset (in seconds)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: seconds_since_packet_received
+                    
+                    	Seconds since packet received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: seconds_since_packet_sent
+                    
+                    	Seconds since packet sent
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-statsd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.packets_received = None
+                        self.bytes_received = None
+                        self.packets_sent = None
+                        self.bytes_sent = None
+                        self.multicast_packets_received = None
+                        self.broadcast_packets_received = None
+                        self.multicast_packets_sent = None
+                        self.broadcast_packets_sent = None
+                        self.output_drops = None
+                        self.output_queue_drops = None
+                        self.input_drops = None
+                        self.input_queue_drops = None
+                        self.runt_packets_received = None
+                        self.giant_packets_received = None
+                        self.throttled_packets_received = None
+                        self.parity_packets_received = None
+                        self.unknown_protocol_packets_received = None
+                        self.input_errors = None
+                        self.crc_errors = None
+                        self.input_overruns = None
+                        self.framing_errors_received = None
+                        self.input_ignored_packets = None
+                        self.input_aborts = None
+                        self.output_errors = None
+                        self.output_underruns = None
+                        self.output_buffer_failures = None
+                        self.output_buffers_swapped_out = None
+                        self.applique = None
+                        self.resets = None
+                        self.carrier_transitions = None
+                        self.availability_flag = None
+                        self.last_data_time = None
+                        self.seconds_since_last_clear_counters = None
+                        self.last_discontinuity_time = None
+                        self.seconds_since_packet_received = None
+                        self.seconds_since_packet_sent = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:interfaces-mib-counters'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.packets_received is not None:
+                            return True
+
+                        if self.bytes_received is not None:
+                            return True
+
+                        if self.packets_sent is not None:
+                            return True
+
+                        if self.bytes_sent is not None:
+                            return True
+
+                        if self.multicast_packets_received is not None:
+                            return True
+
+                        if self.broadcast_packets_received is not None:
+                            return True
+
+                        if self.multicast_packets_sent is not None:
+                            return True
+
+                        if self.broadcast_packets_sent is not None:
+                            return True
+
+                        if self.output_drops is not None:
+                            return True
+
+                        if self.output_queue_drops is not None:
+                            return True
+
+                        if self.input_drops is not None:
+                            return True
+
+                        if self.input_queue_drops is not None:
+                            return True
+
+                        if self.runt_packets_received is not None:
+                            return True
+
+                        if self.giant_packets_received is not None:
+                            return True
+
+                        if self.throttled_packets_received is not None:
+                            return True
+
+                        if self.parity_packets_received is not None:
+                            return True
+
+                        if self.unknown_protocol_packets_received is not None:
+                            return True
+
+                        if self.input_errors is not None:
+                            return True
+
+                        if self.crc_errors is not None:
+                            return True
+
+                        if self.input_overruns is not None:
+                            return True
+
+                        if self.framing_errors_received is not None:
+                            return True
+
+                        if self.input_ignored_packets is not None:
+                            return True
+
+                        if self.input_aborts is not None:
+                            return True
+
+                        if self.output_errors is not None:
+                            return True
+
+                        if self.output_underruns is not None:
+                            return True
+
+                        if self.output_buffer_failures is not None:
+                            return True
+
+                        if self.output_buffers_swapped_out is not None:
+                            return True
+
+                        if self.applique is not None:
+                            return True
+
+                        if self.resets is not None:
+                            return True
+
+                        if self.carrier_transitions is not None:
+                            return True
+
+                        if self.availability_flag is not None:
+                            return True
+
+                        if self.last_data_time is not None:
+                            return True
+
+                        if self.seconds_since_last_clear_counters is not None:
+                            return True
+
+                        if self.last_discontinuity_time is not None:
+                            return True
+
+                        if self.seconds_since_packet_received is not None:
+                            return True
+
+                        if self.seconds_since_packet_sent is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters']['meta_info']
+
+
+                class DataRate(object):
+                    """
+                    Datarate information
+                    
+                    .. attribute:: input_data_rate
+                    
+                    	Input data rate in 1000's of bps
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: input_packet_rate
+                    
+                    	Input packets per second
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: output_data_rate
+                    
+                    	Output data rate in 1000's of bps
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: output_packet_rate
+                    
+                    	Output packets per second
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: peak_input_data_rate
+                    
+                    	Peak input data rate
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: peak_input_packet_rate
+                    
+                    	Peak input packet rate
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: peak_output_data_rate
+                    
+                    	Peak output data rate
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: peak_output_packet_rate
+                    
+                    	Peak output packet rate
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: bandwidth
+                    
+                    	Bandwidth (in kbps)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: load_interval
+                    
+                    	Number of 30\-sec intervals less one
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_load
+                    
+                    	Output load as fraction of 255
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: input_load
+                    
+                    	Input load as fraction of 255
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: reliability
+                    
+                    	Reliability coefficient
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-statsd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.input_data_rate = None
+                        self.input_packet_rate = None
+                        self.output_data_rate = None
+                        self.output_packet_rate = None
+                        self.peak_input_data_rate = None
+                        self.peak_input_packet_rate = None
+                        self.peak_output_data_rate = None
+                        self.peak_output_packet_rate = None
+                        self.bandwidth = None
+                        self.load_interval = None
+                        self.output_load = None
+                        self.input_load = None
+                        self.reliability = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:data-rate'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.input_data_rate is not None:
+                            return True
+
+                        if self.input_packet_rate is not None:
+                            return True
+
+                        if self.output_data_rate is not None:
+                            return True
+
+                        if self.output_packet_rate is not None:
+                            return True
+
+                        if self.peak_input_data_rate is not None:
+                            return True
+
+                        if self.peak_input_packet_rate is not None:
+                            return True
+
+                        if self.peak_output_data_rate is not None:
+                            return True
+
+                        if self.peak_output_packet_rate is not None:
+                            return True
+
+                        if self.bandwidth is not None:
+                            return True
+
+                        if self.load_interval is not None:
+                            return True
+
+                        if self.output_load is not None:
+                            return True
+
+                        if self.input_load is not None:
+                            return True
+
+                        if self.reliability is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Total.DataRate']['meta_info']
+
+
+                class GenericCounters(object):
+                    """
+                    Generic set of interface counters
+                    
+                    .. attribute:: packets_received
+                    
+                    	Packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: bytes_received
+                    
+                    	Bytes received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: packets_sent
+                    
+                    	Packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: bytes_sent
+                    
+                    	Bytes sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: multicast_packets_received
+                    
+                    	Multicast packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: broadcast_packets_received
+                    
+                    	Broadcast packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: multicast_packets_sent
+                    
+                    	Multicast packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: broadcast_packets_sent
+                    
+                    	Broadcast packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: output_drops
+                    
+                    	Total output drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_queue_drops
+                    
+                    	Output queue drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_drops
+                    
+                    	Total input drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_queue_drops
+                    
+                    	Input queue drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: runt_packets_received
+                    
+                    	Received runt packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: giant_packets_received
+                    
+                    	Received giant packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: throttled_packets_received
+                    
+                    	Received throttled packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: parity_packets_received
+                    
+                    	Received parity packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: unknown_protocol_packets_received
+                    
+                    	Unknown protocol packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_errors
+                    
+                    	Total input errors
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: crc_errors
+                    
+                    	Input CRC errors
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_overruns
+                    
+                    	Input overruns
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: framing_errors_received
+                    
+                    	Framing\-errors received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_ignored_packets
+                    
+                    	Input ignored packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_aborts
+                    
+                    	Input aborts
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_errors
+                    
+                    	Total output errors
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_underruns
+                    
+                    	Output underruns
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_buffer_failures
+                    
+                    	Output buffer failures
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_buffers_swapped_out
+                    
+                    	Output buffers swapped out
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: applique
+                    
+                    	Applique
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: resets
+                    
+                    	Number of board resets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: carrier_transitions
+                    
+                    	Carrier transitions
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: availability_flag
+                    
+                    	Availability bit mask
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: last_data_time
+                    
+                    	Time when counters were last written (in seconds)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: seconds_since_last_clear_counters
+                    
+                    	Number of seconds since last clear counters
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: last_discontinuity_time
+                    
+                    	SysUpTime when counters were last reset (in seconds)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: seconds_since_packet_received
+                    
+                    	Seconds since packet received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: seconds_since_packet_sent
+                    
+                    	Seconds since packet sent
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-statsd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.packets_received = None
+                        self.bytes_received = None
+                        self.packets_sent = None
+                        self.bytes_sent = None
+                        self.multicast_packets_received = None
+                        self.broadcast_packets_received = None
+                        self.multicast_packets_sent = None
+                        self.broadcast_packets_sent = None
+                        self.output_drops = None
+                        self.output_queue_drops = None
+                        self.input_drops = None
+                        self.input_queue_drops = None
+                        self.runt_packets_received = None
+                        self.giant_packets_received = None
+                        self.throttled_packets_received = None
+                        self.parity_packets_received = None
+                        self.unknown_protocol_packets_received = None
+                        self.input_errors = None
+                        self.crc_errors = None
+                        self.input_overruns = None
+                        self.framing_errors_received = None
+                        self.input_ignored_packets = None
+                        self.input_aborts = None
+                        self.output_errors = None
+                        self.output_underruns = None
+                        self.output_buffer_failures = None
+                        self.output_buffers_swapped_out = None
+                        self.applique = None
+                        self.resets = None
+                        self.carrier_transitions = None
+                        self.availability_flag = None
+                        self.last_data_time = None
+                        self.seconds_since_last_clear_counters = None
+                        self.last_discontinuity_time = None
+                        self.seconds_since_packet_received = None
+                        self.seconds_since_packet_sent = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:generic-counters'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.packets_received is not None:
+                            return True
+
+                        if self.bytes_received is not None:
+                            return True
+
+                        if self.packets_sent is not None:
+                            return True
+
+                        if self.bytes_sent is not None:
+                            return True
+
+                        if self.multicast_packets_received is not None:
+                            return True
+
+                        if self.broadcast_packets_received is not None:
+                            return True
+
+                        if self.multicast_packets_sent is not None:
+                            return True
+
+                        if self.broadcast_packets_sent is not None:
+                            return True
+
+                        if self.output_drops is not None:
+                            return True
+
+                        if self.output_queue_drops is not None:
+                            return True
+
+                        if self.input_drops is not None:
+                            return True
+
+                        if self.input_queue_drops is not None:
+                            return True
+
+                        if self.runt_packets_received is not None:
+                            return True
+
+                        if self.giant_packets_received is not None:
+                            return True
+
+                        if self.throttled_packets_received is not None:
+                            return True
+
+                        if self.parity_packets_received is not None:
+                            return True
+
+                        if self.unknown_protocol_packets_received is not None:
+                            return True
+
+                        if self.input_errors is not None:
+                            return True
+
+                        if self.crc_errors is not None:
+                            return True
+
+                        if self.input_overruns is not None:
+                            return True
+
+                        if self.framing_errors_received is not None:
+                            return True
+
+                        if self.input_ignored_packets is not None:
+                            return True
+
+                        if self.input_aborts is not None:
+                            return True
+
+                        if self.output_errors is not None:
+                            return True
+
+                        if self.output_underruns is not None:
+                            return True
+
+                        if self.output_buffer_failures is not None:
+                            return True
+
+                        if self.output_buffers_swapped_out is not None:
+                            return True
+
+                        if self.applique is not None:
+                            return True
+
+                        if self.resets is not None:
+                            return True
+
+                        if self.carrier_transitions is not None:
+                            return True
+
+                        if self.availability_flag is not None:
+                            return True
+
+                        if self.last_data_time is not None:
+                            return True
+
+                        if self.seconds_since_last_clear_counters is not None:
+                            return True
+
+                        if self.last_discontinuity_time is not None:
+                            return True
+
+                        if self.seconds_since_packet_received is not None:
+                            return True
+
+                        if self.seconds_since_packet_sent is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Total.GenericCounters']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:total'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.protocols is not None and self.protocols._has_data():
+                        return True
+
+                    if self.interfaces_mib_counters is not None and self.interfaces_mib_counters._has_data():
+                        return True
+
+                    if self.data_rate is not None and self.data_rate._has_data():
+                        return True
+
+                    if self.generic_counters is not None and self.generic_counters._has_data():
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                    return meta._meta_table['InfraStatistics.Interfaces.Interface.Total']['meta_info']
 
 
             class Protocols(object):
@@ -3868,7 +4152,7 @@ class InfraStatistics(object):
                     """
                     Interface counters per protocol
                     
-                    .. attribute:: protocol_name
+                    .. attribute:: protocol_name  <key>
                     
                     	Name of the protocol
                     	**type**\: str
@@ -3882,51 +4166,16 @@ class InfraStatistics(object):
                     
                     	**range:** 0..18446744073709551615
                     
-                    .. attribute:: bytes_sent
-                    
-                    	Bytes sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: input_data_rate
-                    
-                    	Input data rate in 1000's of bps
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: input_packet_rate
-                    
-                    	Input packets per second
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: last_data_time
-                    
-                    	Time when counters were last written (in seconds)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_data_rate
-                    
-                    	Output data rate in 1000's of bps
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: output_packet_rate
-                    
-                    	Output packets per second
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
                     .. attribute:: packets_received
                     
                     	Packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: bytes_sent
+                    
+                    	Bytes sent
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
@@ -3945,6 +4194,41 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: last_data_time
+                    
+                    	Time when counters were last written (in seconds)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_data_rate
+                    
+                    	Input data rate in 1000's of bps
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: input_packet_rate
+                    
+                    	Input packets per second
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: output_data_rate
+                    
+                    	Output data rate in 1000's of bps
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: output_packet_rate
+                    
+                    	Output packets per second
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
                     
 
                     """
@@ -3956,15 +4240,15 @@ class InfraStatistics(object):
                         self.parent = None
                         self.protocol_name = None
                         self.bytes_received = None
-                        self.bytes_sent = None
-                        self.input_data_rate = None
-                        self.input_packet_rate = None
-                        self.last_data_time = None
-                        self.output_data_rate = None
-                        self.output_packet_rate = None
                         self.packets_received = None
+                        self.bytes_sent = None
                         self.packets_sent = None
                         self.protocol = None
+                        self.last_data_time = None
+                        self.input_data_rate = None
+                        self.input_packet_rate = None
+                        self.output_data_rate = None
+                        self.output_packet_rate = None
 
                     @property
                     def _common_path(self):
@@ -3988,7 +4272,19 @@ class InfraStatistics(object):
                         if self.bytes_received is not None:
                             return True
 
+                        if self.packets_received is not None:
+                            return True
+
                         if self.bytes_sent is not None:
+                            return True
+
+                        if self.packets_sent is not None:
+                            return True
+
+                        if self.protocol is not None:
+                            return True
+
+                        if self.last_data_time is not None:
                             return True
 
                         if self.input_data_rate is not None:
@@ -3997,22 +4293,10 @@ class InfraStatistics(object):
                         if self.input_packet_rate is not None:
                             return True
 
-                        if self.last_data_time is not None:
-                            return True
-
                         if self.output_data_rate is not None:
                             return True
 
                         if self.output_packet_rate is not None:
-                            return True
-
-                        if self.packets_received is not None:
-                            return True
-
-                        if self.packets_sent is not None:
-                            return True
-
-                        if self.protocol is not None:
                             return True
 
                         return False
@@ -4049,29 +4333,262 @@ class InfraStatistics(object):
                     return meta._meta_table['InfraStatistics.Interfaces.Interface.Protocols']['meta_info']
 
 
-            class Total(object):
+            class InterfacesMibCounters(object):
                 """
-                Total stats data of interfaces
+                Set of interface counters as displayed by the
+                InterfacesMIB
                 
-                .. attribute:: data_rate
+                .. attribute:: packets_received
                 
-                	Datarate information
-                	**type**\: :py:class:`DataRate <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.DataRate>`
+                	Packets received
+                	**type**\: int
                 
-                .. attribute:: generic_counters
+                	**range:** 0..18446744073709551615
                 
-                	Generic set of interface counters
-                	**type**\: :py:class:`GenericCounters <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.GenericCounters>`
+                .. attribute:: bytes_received
                 
-                .. attribute:: interfaces_mib_counters
+                	Bytes received
+                	**type**\: int
                 
-                	Set of interface counters as displayed by the InterfacesMIB
-                	**type**\: :py:class:`InterfacesMibCounters <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters>`
+                	**range:** 0..18446744073709551615
                 
-                .. attribute:: protocols
+                .. attribute:: packets_sent
                 
-                	List of protocols
-                	**type**\: :py:class:`Protocols <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.Protocols>`
+                	Packets sent
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: bytes_sent
+                
+                	Bytes sent
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: multicast_packets_received
+                
+                	Multicast packets received
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: broadcast_packets_received
+                
+                	Broadcast packets received
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: multicast_packets_sent
+                
+                	Multicast packets sent
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: broadcast_packets_sent
+                
+                	Broadcast packets sent
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: output_drops
+                
+                	Total output drops
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: output_queue_drops
+                
+                	Output queue drops
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: input_drops
+                
+                	Total input drops
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: input_queue_drops
+                
+                	Input queue drops
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: runt_packets_received
+                
+                	Received runt packets
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: giant_packets_received
+                
+                	Received giant packets
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: throttled_packets_received
+                
+                	Received throttled packets
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: parity_packets_received
+                
+                	Received parity packets
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: unknown_protocol_packets_received
+                
+                	Unknown protocol packets received
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: input_errors
+                
+                	Total input errors
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: crc_errors
+                
+                	Input CRC errors
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: input_overruns
+                
+                	Input overruns
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: framing_errors_received
+                
+                	Framing\-errors received
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: input_ignored_packets
+                
+                	Input ignored packets
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: input_aborts
+                
+                	Input aborts
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: output_errors
+                
+                	Total output errors
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: output_underruns
+                
+                	Output underruns
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: output_buffer_failures
+                
+                	Output buffer failures
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: output_buffers_swapped_out
+                
+                	Output buffers swapped out
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: applique
+                
+                	Applique
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: resets
+                
+                	Number of board resets
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: carrier_transitions
+                
+                	Carrier transitions
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: availability_flag
+                
+                	Availability bit mask
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: last_data_time
+                
+                	Time when counters were last written (in seconds)
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: seconds_since_last_clear_counters
+                
+                	Number of seconds since last clear counters
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: last_discontinuity_time
+                
+                	SysUpTime when counters were last reset (in seconds)
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: seconds_since_packet_received
+                
+                	Seconds since packet received
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: seconds_since_packet_sent
+                
+                	Seconds since packet sent
+                	**type**\: int
+                
+                	**range:** 0..4294967295
                 
                 
 
@@ -4082,1273 +4599,49 @@ class InfraStatistics(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.data_rate = InfraStatistics.Interfaces.Interface.Total.DataRate()
-                    self.data_rate.parent = self
-                    self.generic_counters = InfraStatistics.Interfaces.Interface.Total.GenericCounters()
-                    self.generic_counters.parent = self
-                    self.interfaces_mib_counters = InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters()
-                    self.interfaces_mib_counters.parent = self
-                    self.protocols = InfraStatistics.Interfaces.Interface.Total.Protocols()
-                    self.protocols.parent = self
-
-
-                class DataRate(object):
-                    """
-                    Datarate information
-                    
-                    .. attribute:: bandwidth
-                    
-                    	Bandwidth (in kbps)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_data_rate
-                    
-                    	Input data rate in 1000's of bps
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: input_load
-                    
-                    	Input load as fraction of 255
-                    	**type**\: int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: input_packet_rate
-                    
-                    	Input packets per second
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: load_interval
-                    
-                    	Number of 30\-sec intervals less one
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_data_rate
-                    
-                    	Output data rate in 1000's of bps
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: output_load
-                    
-                    	Output load as fraction of 255
-                    	**type**\: int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: output_packet_rate
-                    
-                    	Output packets per second
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: peak_input_data_rate
-                    
-                    	Peak input data rate
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: peak_input_packet_rate
-                    
-                    	Peak input packet rate
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: peak_output_data_rate
-                    
-                    	Peak output data rate
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: peak_output_packet_rate
-                    
-                    	Peak output packet rate
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: reliability
-                    
-                    	Reliability coefficient
-                    	**type**\: int
-                    
-                    	**range:** 0..255
-                    
-                    
-
-                    """
-
-                    _prefix = 'infra-statsd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.bandwidth = None
-                        self.input_data_rate = None
-                        self.input_load = None
-                        self.input_packet_rate = None
-                        self.load_interval = None
-                        self.output_data_rate = None
-                        self.output_load = None
-                        self.output_packet_rate = None
-                        self.peak_input_data_rate = None
-                        self.peak_input_packet_rate = None
-                        self.peak_output_data_rate = None
-                        self.peak_output_packet_rate = None
-                        self.reliability = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:data-rate'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.bandwidth is not None:
-                            return True
-
-                        if self.input_data_rate is not None:
-                            return True
-
-                        if self.input_load is not None:
-                            return True
-
-                        if self.input_packet_rate is not None:
-                            return True
-
-                        if self.load_interval is not None:
-                            return True
-
-                        if self.output_data_rate is not None:
-                            return True
-
-                        if self.output_load is not None:
-                            return True
-
-                        if self.output_packet_rate is not None:
-                            return True
-
-                        if self.peak_input_data_rate is not None:
-                            return True
-
-                        if self.peak_input_packet_rate is not None:
-                            return True
-
-                        if self.peak_output_data_rate is not None:
-                            return True
-
-                        if self.peak_output_packet_rate is not None:
-                            return True
-
-                        if self.reliability is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Total.DataRate']['meta_info']
-
-
-                class GenericCounters(object):
-                    """
-                    Generic set of interface counters
-                    
-                    .. attribute:: applique
-                    
-                    	Applique
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: availability_flag
-                    
-                    	Availability bit mask
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: broadcast_packets_received
-                    
-                    	Broadcast packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: broadcast_packets_sent
-                    
-                    	Broadcast packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: bytes_received
-                    
-                    	Bytes received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: bytes_sent
-                    
-                    	Bytes sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: carrier_transitions
-                    
-                    	Carrier transitions
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: crc_errors
-                    
-                    	Input CRC errors
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: framing_errors_received
-                    
-                    	Framing\-errors received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: giant_packets_received
-                    
-                    	Received giant packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_aborts
-                    
-                    	Input aborts
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_drops
-                    
-                    	Total input drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_errors
-                    
-                    	Total input errors
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_ignored_packets
-                    
-                    	Input ignored packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_overruns
-                    
-                    	Input overruns
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_queue_drops
-                    
-                    	Input queue drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: last_data_time
-                    
-                    	Time when counters were last written (in seconds)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: last_discontinuity_time
-                    
-                    	SysUpTime when counters were last reset (in seconds)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: multicast_packets_received
-                    
-                    	Multicast packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: multicast_packets_sent
-                    
-                    	Multicast packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: output_buffer_failures
-                    
-                    	Output buffer failures
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_buffers_swapped_out
-                    
-                    	Output buffers swapped out
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_drops
-                    
-                    	Total output drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_errors
-                    
-                    	Total output errors
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_queue_drops
-                    
-                    	Output queue drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_underruns
-                    
-                    	Output underruns
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: packets_received
-                    
-                    	Packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: packets_sent
-                    
-                    	Packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: parity_packets_received
-                    
-                    	Received parity packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: resets
-                    
-                    	Number of board resets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: runt_packets_received
-                    
-                    	Received runt packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: seconds_since_last_clear_counters
-                    
-                    	Number of seconds since last clear counters
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: seconds_since_packet_received
-                    
-                    	Seconds since packet received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: seconds_since_packet_sent
-                    
-                    	Seconds since packet sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: throttled_packets_received
-                    
-                    	Received throttled packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: unknown_protocol_packets_received
-                    
-                    	Unknown protocol packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'infra-statsd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.applique = None
-                        self.availability_flag = None
-                        self.broadcast_packets_received = None
-                        self.broadcast_packets_sent = None
-                        self.bytes_received = None
-                        self.bytes_sent = None
-                        self.carrier_transitions = None
-                        self.crc_errors = None
-                        self.framing_errors_received = None
-                        self.giant_packets_received = None
-                        self.input_aborts = None
-                        self.input_drops = None
-                        self.input_errors = None
-                        self.input_ignored_packets = None
-                        self.input_overruns = None
-                        self.input_queue_drops = None
-                        self.last_data_time = None
-                        self.last_discontinuity_time = None
-                        self.multicast_packets_received = None
-                        self.multicast_packets_sent = None
-                        self.output_buffer_failures = None
-                        self.output_buffers_swapped_out = None
-                        self.output_drops = None
-                        self.output_errors = None
-                        self.output_queue_drops = None
-                        self.output_underruns = None
-                        self.packets_received = None
-                        self.packets_sent = None
-                        self.parity_packets_received = None
-                        self.resets = None
-                        self.runt_packets_received = None
-                        self.seconds_since_last_clear_counters = None
-                        self.seconds_since_packet_received = None
-                        self.seconds_since_packet_sent = None
-                        self.throttled_packets_received = None
-                        self.unknown_protocol_packets_received = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:generic-counters'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.applique is not None:
-                            return True
-
-                        if self.availability_flag is not None:
-                            return True
-
-                        if self.broadcast_packets_received is not None:
-                            return True
-
-                        if self.broadcast_packets_sent is not None:
-                            return True
-
-                        if self.bytes_received is not None:
-                            return True
-
-                        if self.bytes_sent is not None:
-                            return True
-
-                        if self.carrier_transitions is not None:
-                            return True
-
-                        if self.crc_errors is not None:
-                            return True
-
-                        if self.framing_errors_received is not None:
-                            return True
-
-                        if self.giant_packets_received is not None:
-                            return True
-
-                        if self.input_aborts is not None:
-                            return True
-
-                        if self.input_drops is not None:
-                            return True
-
-                        if self.input_errors is not None:
-                            return True
-
-                        if self.input_ignored_packets is not None:
-                            return True
-
-                        if self.input_overruns is not None:
-                            return True
-
-                        if self.input_queue_drops is not None:
-                            return True
-
-                        if self.last_data_time is not None:
-                            return True
-
-                        if self.last_discontinuity_time is not None:
-                            return True
-
-                        if self.multicast_packets_received is not None:
-                            return True
-
-                        if self.multicast_packets_sent is not None:
-                            return True
-
-                        if self.output_buffer_failures is not None:
-                            return True
-
-                        if self.output_buffers_swapped_out is not None:
-                            return True
-
-                        if self.output_drops is not None:
-                            return True
-
-                        if self.output_errors is not None:
-                            return True
-
-                        if self.output_queue_drops is not None:
-                            return True
-
-                        if self.output_underruns is not None:
-                            return True
-
-                        if self.packets_received is not None:
-                            return True
-
-                        if self.packets_sent is not None:
-                            return True
-
-                        if self.parity_packets_received is not None:
-                            return True
-
-                        if self.resets is not None:
-                            return True
-
-                        if self.runt_packets_received is not None:
-                            return True
-
-                        if self.seconds_since_last_clear_counters is not None:
-                            return True
-
-                        if self.seconds_since_packet_received is not None:
-                            return True
-
-                        if self.seconds_since_packet_sent is not None:
-                            return True
-
-                        if self.throttled_packets_received is not None:
-                            return True
-
-                        if self.unknown_protocol_packets_received is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Total.GenericCounters']['meta_info']
-
-
-                class InterfacesMibCounters(object):
-                    """
-                    Set of interface counters as displayed by the
-                    InterfacesMIB
-                    
-                    .. attribute:: applique
-                    
-                    	Applique
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: availability_flag
-                    
-                    	Availability bit mask
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: broadcast_packets_received
-                    
-                    	Broadcast packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: broadcast_packets_sent
-                    
-                    	Broadcast packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: bytes_received
-                    
-                    	Bytes received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: bytes_sent
-                    
-                    	Bytes sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: carrier_transitions
-                    
-                    	Carrier transitions
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: crc_errors
-                    
-                    	Input CRC errors
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: framing_errors_received
-                    
-                    	Framing\-errors received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: giant_packets_received
-                    
-                    	Received giant packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_aborts
-                    
-                    	Input aborts
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_drops
-                    
-                    	Total input drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_errors
-                    
-                    	Total input errors
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_ignored_packets
-                    
-                    	Input ignored packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_overruns
-                    
-                    	Input overruns
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_queue_drops
-                    
-                    	Input queue drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: last_data_time
-                    
-                    	Time when counters were last written (in seconds)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: last_discontinuity_time
-                    
-                    	SysUpTime when counters were last reset (in seconds)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: multicast_packets_received
-                    
-                    	Multicast packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: multicast_packets_sent
-                    
-                    	Multicast packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: output_buffer_failures
-                    
-                    	Output buffer failures
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_buffers_swapped_out
-                    
-                    	Output buffers swapped out
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_drops
-                    
-                    	Total output drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_errors
-                    
-                    	Total output errors
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_queue_drops
-                    
-                    	Output queue drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_underruns
-                    
-                    	Output underruns
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: packets_received
-                    
-                    	Packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: packets_sent
-                    
-                    	Packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: parity_packets_received
-                    
-                    	Received parity packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: resets
-                    
-                    	Number of board resets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: runt_packets_received
-                    
-                    	Received runt packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: seconds_since_last_clear_counters
-                    
-                    	Number of seconds since last clear counters
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: seconds_since_packet_received
-                    
-                    	Seconds since packet received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: seconds_since_packet_sent
-                    
-                    	Seconds since packet sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: throttled_packets_received
-                    
-                    	Received throttled packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: unknown_protocol_packets_received
-                    
-                    	Unknown protocol packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'infra-statsd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.applique = None
-                        self.availability_flag = None
-                        self.broadcast_packets_received = None
-                        self.broadcast_packets_sent = None
-                        self.bytes_received = None
-                        self.bytes_sent = None
-                        self.carrier_transitions = None
-                        self.crc_errors = None
-                        self.framing_errors_received = None
-                        self.giant_packets_received = None
-                        self.input_aborts = None
-                        self.input_drops = None
-                        self.input_errors = None
-                        self.input_ignored_packets = None
-                        self.input_overruns = None
-                        self.input_queue_drops = None
-                        self.last_data_time = None
-                        self.last_discontinuity_time = None
-                        self.multicast_packets_received = None
-                        self.multicast_packets_sent = None
-                        self.output_buffer_failures = None
-                        self.output_buffers_swapped_out = None
-                        self.output_drops = None
-                        self.output_errors = None
-                        self.output_queue_drops = None
-                        self.output_underruns = None
-                        self.packets_received = None
-                        self.packets_sent = None
-                        self.parity_packets_received = None
-                        self.resets = None
-                        self.runt_packets_received = None
-                        self.seconds_since_last_clear_counters = None
-                        self.seconds_since_packet_received = None
-                        self.seconds_since_packet_sent = None
-                        self.throttled_packets_received = None
-                        self.unknown_protocol_packets_received = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:interfaces-mib-counters'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.applique is not None:
-                            return True
-
-                        if self.availability_flag is not None:
-                            return True
-
-                        if self.broadcast_packets_received is not None:
-                            return True
-
-                        if self.broadcast_packets_sent is not None:
-                            return True
-
-                        if self.bytes_received is not None:
-                            return True
-
-                        if self.bytes_sent is not None:
-                            return True
-
-                        if self.carrier_transitions is not None:
-                            return True
-
-                        if self.crc_errors is not None:
-                            return True
-
-                        if self.framing_errors_received is not None:
-                            return True
-
-                        if self.giant_packets_received is not None:
-                            return True
-
-                        if self.input_aborts is not None:
-                            return True
-
-                        if self.input_drops is not None:
-                            return True
-
-                        if self.input_errors is not None:
-                            return True
-
-                        if self.input_ignored_packets is not None:
-                            return True
-
-                        if self.input_overruns is not None:
-                            return True
-
-                        if self.input_queue_drops is not None:
-                            return True
-
-                        if self.last_data_time is not None:
-                            return True
-
-                        if self.last_discontinuity_time is not None:
-                            return True
-
-                        if self.multicast_packets_received is not None:
-                            return True
-
-                        if self.multicast_packets_sent is not None:
-                            return True
-
-                        if self.output_buffer_failures is not None:
-                            return True
-
-                        if self.output_buffers_swapped_out is not None:
-                            return True
-
-                        if self.output_drops is not None:
-                            return True
-
-                        if self.output_errors is not None:
-                            return True
-
-                        if self.output_queue_drops is not None:
-                            return True
-
-                        if self.output_underruns is not None:
-                            return True
-
-                        if self.packets_received is not None:
-                            return True
-
-                        if self.packets_sent is not None:
-                            return True
-
-                        if self.parity_packets_received is not None:
-                            return True
-
-                        if self.resets is not None:
-                            return True
-
-                        if self.runt_packets_received is not None:
-                            return True
-
-                        if self.seconds_since_last_clear_counters is not None:
-                            return True
-
-                        if self.seconds_since_packet_received is not None:
-                            return True
-
-                        if self.seconds_since_packet_sent is not None:
-                            return True
-
-                        if self.throttled_packets_received is not None:
-                            return True
-
-                        if self.unknown_protocol_packets_received is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters']['meta_info']
-
-
-                class Protocols(object):
-                    """
-                    List of protocols
-                    
-                    .. attribute:: protocol
-                    
-                    	Interface counters per protocol
-                    	**type**\: list of :py:class:`Protocol <ydk.models.infra.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.Protocols.Protocol>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'infra-statsd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.protocol = YList()
-                        self.protocol.parent = self
-                        self.protocol.name = 'protocol'
-
-
-                    class Protocol(object):
-                        """
-                        Interface counters per protocol
-                        
-                        .. attribute:: protocol_name
-                        
-                        	Name of the protocol
-                        	**type**\: str
-                        
-                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                        
-                        .. attribute:: bytes_received
-                        
-                        	Bytes received
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: bytes_sent
-                        
-                        	Bytes sent
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: input_data_rate
-                        
-                        	Input data rate in 1000's of bps
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: input_packet_rate
-                        
-                        	Input packets per second
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: last_data_time
-                        
-                        	Time when counters were last written (in seconds)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: output_data_rate
-                        
-                        	Output data rate in 1000's of bps
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: output_packet_rate
-                        
-                        	Output packets per second
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: packets_received
-                        
-                        	Packets received
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: packets_sent
-                        
-                        	Packets sent
-                        	**type**\: int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: protocol
-                        
-                        	Protocol number
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'infra-statsd-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.protocol_name = None
-                            self.bytes_received = None
-                            self.bytes_sent = None
-                            self.input_data_rate = None
-                            self.input_packet_rate = None
-                            self.last_data_time = None
-                            self.output_data_rate = None
-                            self.output_packet_rate = None
-                            self.packets_received = None
-                            self.packets_sent = None
-                            self.protocol = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                            if self.protocol_name is None:
-                                raise YPYDataValidationError('Key property protocol_name is None')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:protocol[Cisco-IOS-XR-infra-statsd-oper:protocol-name = ' + str(self.protocol_name) + ']'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.protocol_name is not None:
-                                return True
-
-                            if self.bytes_received is not None:
-                                return True
-
-                            if self.bytes_sent is not None:
-                                return True
-
-                            if self.input_data_rate is not None:
-                                return True
-
-                            if self.input_packet_rate is not None:
-                                return True
-
-                            if self.last_data_time is not None:
-                                return True
-
-                            if self.output_data_rate is not None:
-                                return True
-
-                            if self.output_packet_rate is not None:
-                                return True
-
-                            if self.packets_received is not None:
-                                return True
-
-                            if self.packets_sent is not None:
-                                return True
-
-                            if self.protocol is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                            return meta._meta_table['InfraStatistics.Interfaces.Interface.Total.Protocols.Protocol']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:protocols'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.protocol is not None:
-                            for child_ref in self.protocol:
-                                if child_ref._has_data():
-                                    return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Total.Protocols']['meta_info']
+                    self.packets_received = None
+                    self.bytes_received = None
+                    self.packets_sent = None
+                    self.bytes_sent = None
+                    self.multicast_packets_received = None
+                    self.broadcast_packets_received = None
+                    self.multicast_packets_sent = None
+                    self.broadcast_packets_sent = None
+                    self.output_drops = None
+                    self.output_queue_drops = None
+                    self.input_drops = None
+                    self.input_queue_drops = None
+                    self.runt_packets_received = None
+                    self.giant_packets_received = None
+                    self.throttled_packets_received = None
+                    self.parity_packets_received = None
+                    self.unknown_protocol_packets_received = None
+                    self.input_errors = None
+                    self.crc_errors = None
+                    self.input_overruns = None
+                    self.framing_errors_received = None
+                    self.input_ignored_packets = None
+                    self.input_aborts = None
+                    self.output_errors = None
+                    self.output_underruns = None
+                    self.output_buffer_failures = None
+                    self.output_buffers_swapped_out = None
+                    self.applique = None
+                    self.resets = None
+                    self.carrier_transitions = None
+                    self.availability_flag = None
+                    self.last_data_time = None
+                    self.seconds_since_last_clear_counters = None
+                    self.last_discontinuity_time = None
+                    self.seconds_since_packet_received = None
+                    self.seconds_since_packet_sent = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
                         raise YPYDataValidationError('parent is not set . Cannot derive path.')
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:total'
+                    return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:interfaces-mib-counters'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -5357,16 +4650,112 @@ class InfraStatistics(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.data_rate is not None and self.data_rate._has_data():
+                    if self.packets_received is not None:
                         return True
 
-                    if self.generic_counters is not None and self.generic_counters._has_data():
+                    if self.bytes_received is not None:
                         return True
 
-                    if self.interfaces_mib_counters is not None and self.interfaces_mib_counters._has_data():
+                    if self.packets_sent is not None:
                         return True
 
-                    if self.protocols is not None and self.protocols._has_data():
+                    if self.bytes_sent is not None:
+                        return True
+
+                    if self.multicast_packets_received is not None:
+                        return True
+
+                    if self.broadcast_packets_received is not None:
+                        return True
+
+                    if self.multicast_packets_sent is not None:
+                        return True
+
+                    if self.broadcast_packets_sent is not None:
+                        return True
+
+                    if self.output_drops is not None:
+                        return True
+
+                    if self.output_queue_drops is not None:
+                        return True
+
+                    if self.input_drops is not None:
+                        return True
+
+                    if self.input_queue_drops is not None:
+                        return True
+
+                    if self.runt_packets_received is not None:
+                        return True
+
+                    if self.giant_packets_received is not None:
+                        return True
+
+                    if self.throttled_packets_received is not None:
+                        return True
+
+                    if self.parity_packets_received is not None:
+                        return True
+
+                    if self.unknown_protocol_packets_received is not None:
+                        return True
+
+                    if self.input_errors is not None:
+                        return True
+
+                    if self.crc_errors is not None:
+                        return True
+
+                    if self.input_overruns is not None:
+                        return True
+
+                    if self.framing_errors_received is not None:
+                        return True
+
+                    if self.input_ignored_packets is not None:
+                        return True
+
+                    if self.input_aborts is not None:
+                        return True
+
+                    if self.output_errors is not None:
+                        return True
+
+                    if self.output_underruns is not None:
+                        return True
+
+                    if self.output_buffer_failures is not None:
+                        return True
+
+                    if self.output_buffers_swapped_out is not None:
+                        return True
+
+                    if self.applique is not None:
+                        return True
+
+                    if self.resets is not None:
+                        return True
+
+                    if self.carrier_transitions is not None:
+                        return True
+
+                    if self.availability_flag is not None:
+                        return True
+
+                    if self.last_data_time is not None:
+                        return True
+
+                    if self.seconds_since_last_clear_counters is not None:
+                        return True
+
+                    if self.last_discontinuity_time is not None:
+                        return True
+
+                    if self.seconds_since_packet_received is not None:
+                        return True
+
+                    if self.seconds_since_packet_sent is not None:
                         return True
 
                     return False
@@ -5374,7 +4763,618 @@ class InfraStatistics(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                    return meta._meta_table['InfraStatistics.Interfaces.Interface.Total']['meta_info']
+                    return meta._meta_table['InfraStatistics.Interfaces.Interface.InterfacesMibCounters']['meta_info']
+
+
+            class DataRate(object):
+                """
+                Datarate information
+                
+                .. attribute:: input_data_rate
+                
+                	Input data rate in 1000's of bps
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: input_packet_rate
+                
+                	Input packets per second
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: output_data_rate
+                
+                	Output data rate in 1000's of bps
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: output_packet_rate
+                
+                	Output packets per second
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: peak_input_data_rate
+                
+                	Peak input data rate
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: peak_input_packet_rate
+                
+                	Peak input packet rate
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: peak_output_data_rate
+                
+                	Peak output data rate
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: peak_output_packet_rate
+                
+                	Peak output packet rate
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: bandwidth
+                
+                	Bandwidth (in kbps)
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: load_interval
+                
+                	Number of 30\-sec intervals less one
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: output_load
+                
+                	Output load as fraction of 255
+                	**type**\: int
+                
+                	**range:** 0..255
+                
+                .. attribute:: input_load
+                
+                	Input load as fraction of 255
+                	**type**\: int
+                
+                	**range:** 0..255
+                
+                .. attribute:: reliability
+                
+                	Reliability coefficient
+                	**type**\: int
+                
+                	**range:** 0..255
+                
+                
+
+                """
+
+                _prefix = 'infra-statsd-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.input_data_rate = None
+                    self.input_packet_rate = None
+                    self.output_data_rate = None
+                    self.output_packet_rate = None
+                    self.peak_input_data_rate = None
+                    self.peak_input_packet_rate = None
+                    self.peak_output_data_rate = None
+                    self.peak_output_packet_rate = None
+                    self.bandwidth = None
+                    self.load_interval = None
+                    self.output_load = None
+                    self.input_load = None
+                    self.reliability = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:data-rate'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.input_data_rate is not None:
+                        return True
+
+                    if self.input_packet_rate is not None:
+                        return True
+
+                    if self.output_data_rate is not None:
+                        return True
+
+                    if self.output_packet_rate is not None:
+                        return True
+
+                    if self.peak_input_data_rate is not None:
+                        return True
+
+                    if self.peak_input_packet_rate is not None:
+                        return True
+
+                    if self.peak_output_data_rate is not None:
+                        return True
+
+                    if self.peak_output_packet_rate is not None:
+                        return True
+
+                    if self.bandwidth is not None:
+                        return True
+
+                    if self.load_interval is not None:
+                        return True
+
+                    if self.output_load is not None:
+                        return True
+
+                    if self.input_load is not None:
+                        return True
+
+                    if self.reliability is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                    return meta._meta_table['InfraStatistics.Interfaces.Interface.DataRate']['meta_info']
+
+
+            class GenericCounters(object):
+                """
+                Generic set of interface counters
+                
+                .. attribute:: packets_received
+                
+                	Packets received
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: bytes_received
+                
+                	Bytes received
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: packets_sent
+                
+                	Packets sent
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: bytes_sent
+                
+                	Bytes sent
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: multicast_packets_received
+                
+                	Multicast packets received
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: broadcast_packets_received
+                
+                	Broadcast packets received
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: multicast_packets_sent
+                
+                	Multicast packets sent
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: broadcast_packets_sent
+                
+                	Broadcast packets sent
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: output_drops
+                
+                	Total output drops
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: output_queue_drops
+                
+                	Output queue drops
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: input_drops
+                
+                	Total input drops
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: input_queue_drops
+                
+                	Input queue drops
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: runt_packets_received
+                
+                	Received runt packets
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: giant_packets_received
+                
+                	Received giant packets
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: throttled_packets_received
+                
+                	Received throttled packets
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: parity_packets_received
+                
+                	Received parity packets
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: unknown_protocol_packets_received
+                
+                	Unknown protocol packets received
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: input_errors
+                
+                	Total input errors
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: crc_errors
+                
+                	Input CRC errors
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: input_overruns
+                
+                	Input overruns
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: framing_errors_received
+                
+                	Framing\-errors received
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: input_ignored_packets
+                
+                	Input ignored packets
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: input_aborts
+                
+                	Input aborts
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: output_errors
+                
+                	Total output errors
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: output_underruns
+                
+                	Output underruns
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: output_buffer_failures
+                
+                	Output buffer failures
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: output_buffers_swapped_out
+                
+                	Output buffers swapped out
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: applique
+                
+                	Applique
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: resets
+                
+                	Number of board resets
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: carrier_transitions
+                
+                	Carrier transitions
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: availability_flag
+                
+                	Availability bit mask
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: last_data_time
+                
+                	Time when counters were last written (in seconds)
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: seconds_since_last_clear_counters
+                
+                	Number of seconds since last clear counters
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: last_discontinuity_time
+                
+                	SysUpTime when counters were last reset (in seconds)
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: seconds_since_packet_received
+                
+                	Seconds since packet received
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: seconds_since_packet_sent
+                
+                	Seconds since packet sent
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                
+
+                """
+
+                _prefix = 'infra-statsd-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.packets_received = None
+                    self.bytes_received = None
+                    self.packets_sent = None
+                    self.bytes_sent = None
+                    self.multicast_packets_received = None
+                    self.broadcast_packets_received = None
+                    self.multicast_packets_sent = None
+                    self.broadcast_packets_sent = None
+                    self.output_drops = None
+                    self.output_queue_drops = None
+                    self.input_drops = None
+                    self.input_queue_drops = None
+                    self.runt_packets_received = None
+                    self.giant_packets_received = None
+                    self.throttled_packets_received = None
+                    self.parity_packets_received = None
+                    self.unknown_protocol_packets_received = None
+                    self.input_errors = None
+                    self.crc_errors = None
+                    self.input_overruns = None
+                    self.framing_errors_received = None
+                    self.input_ignored_packets = None
+                    self.input_aborts = None
+                    self.output_errors = None
+                    self.output_underruns = None
+                    self.output_buffer_failures = None
+                    self.output_buffers_swapped_out = None
+                    self.applique = None
+                    self.resets = None
+                    self.carrier_transitions = None
+                    self.availability_flag = None
+                    self.last_data_time = None
+                    self.seconds_since_last_clear_counters = None
+                    self.last_discontinuity_time = None
+                    self.seconds_since_packet_received = None
+                    self.seconds_since_packet_sent = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:generic-counters'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.packets_received is not None:
+                        return True
+
+                    if self.bytes_received is not None:
+                        return True
+
+                    if self.packets_sent is not None:
+                        return True
+
+                    if self.bytes_sent is not None:
+                        return True
+
+                    if self.multicast_packets_received is not None:
+                        return True
+
+                    if self.broadcast_packets_received is not None:
+                        return True
+
+                    if self.multicast_packets_sent is not None:
+                        return True
+
+                    if self.broadcast_packets_sent is not None:
+                        return True
+
+                    if self.output_drops is not None:
+                        return True
+
+                    if self.output_queue_drops is not None:
+                        return True
+
+                    if self.input_drops is not None:
+                        return True
+
+                    if self.input_queue_drops is not None:
+                        return True
+
+                    if self.runt_packets_received is not None:
+                        return True
+
+                    if self.giant_packets_received is not None:
+                        return True
+
+                    if self.throttled_packets_received is not None:
+                        return True
+
+                    if self.parity_packets_received is not None:
+                        return True
+
+                    if self.unknown_protocol_packets_received is not None:
+                        return True
+
+                    if self.input_errors is not None:
+                        return True
+
+                    if self.crc_errors is not None:
+                        return True
+
+                    if self.input_overruns is not None:
+                        return True
+
+                    if self.framing_errors_received is not None:
+                        return True
+
+                    if self.input_ignored_packets is not None:
+                        return True
+
+                    if self.input_aborts is not None:
+                        return True
+
+                    if self.output_errors is not None:
+                        return True
+
+                    if self.output_underruns is not None:
+                        return True
+
+                    if self.output_buffer_failures is not None:
+                        return True
+
+                    if self.output_buffers_swapped_out is not None:
+                        return True
+
+                    if self.applique is not None:
+                        return True
+
+                    if self.resets is not None:
+                        return True
+
+                    if self.carrier_transitions is not None:
+                        return True
+
+                    if self.availability_flag is not None:
+                        return True
+
+                    if self.last_data_time is not None:
+                        return True
+
+                    if self.seconds_since_last_clear_counters is not None:
+                        return True
+
+                    if self.last_discontinuity_time is not None:
+                        return True
+
+                    if self.seconds_since_packet_received is not None:
+                        return True
+
+                    if self.seconds_since_packet_sent is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.infra._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
+                    return meta._meta_table['InfraStatistics.Interfaces.Interface.GenericCounters']['meta_info']
 
             @property
             def _common_path(self):
@@ -5396,22 +5396,22 @@ class InfraStatistics(object):
                 if self.cache is not None and self.cache._has_data():
                     return True
 
-                if self.data_rate is not None and self.data_rate._has_data():
-                    return True
-
-                if self.generic_counters is not None and self.generic_counters._has_data():
-                    return True
-
-                if self.interfaces_mib_counters is not None and self.interfaces_mib_counters._has_data():
-                    return True
-
                 if self.latest is not None and self.latest._has_data():
+                    return True
+
+                if self.total is not None and self.total._has_data():
                     return True
 
                 if self.protocols is not None and self.protocols._has_data():
                     return True
 
-                if self.total is not None and self.total._has_data():
+                if self.interfaces_mib_counters is not None and self.interfaces_mib_counters._has_data():
+                    return True
+
+                if self.data_rate is not None and self.data_rate._has_data():
+                    return True
+
+                if self.generic_counters is not None and self.generic_counters._has_data():
                     return True
 
                 return False

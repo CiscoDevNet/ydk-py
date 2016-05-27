@@ -7,24 +7,13 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'AuthenticationMethod_Identity' : {
-        'meta_info' : _MetaInfoClass('AuthenticationMethod_Identity',
-            False, 
-            [
-            ],
-            'ietf-system',
-            'authentication-method',
-            _yang_ns._namespaces['ietf-system'],
-        'ydk.models.ietf.ietf_system'
-        ),
-    },
     'RadiusAuthenticationType_Identity' : {
         'meta_info' : _MetaInfoClass('RadiusAuthenticationType_Identity',
             False, 
@@ -36,143 +25,13 @@ _meta_table = {
         'ydk.models.ietf.ietf_system'
         ),
     },
-    'SetCurrentDatetimeRpc.Input' : {
-        'meta_info' : _MetaInfoClass('SetCurrentDatetimeRpc.Input',
+    'AuthenticationMethod_Identity' : {
+        'meta_info' : _MetaInfoClass('AuthenticationMethod_Identity',
             False, 
             [
-            _MetaInfoClassMember('current-datetime', ATTRIBUTE, 'str' , None, None, 
-                [], ['\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
-                '''                The current system date and time.
-                ''',
-                'current_datetime',
-                'ietf-system', False),
             ],
             'ietf-system',
-            'input',
-            _yang_ns._namespaces['ietf-system'],
-        'ydk.models.ietf.ietf_system'
-        ),
-    },
-    'SetCurrentDatetimeRpc' : {
-        'meta_info' : _MetaInfoClass('SetCurrentDatetimeRpc',
-            False, 
-            [
-            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.ietf.ietf_system', 'SetCurrentDatetimeRpc.Input', 
-                [], [], 
-                '''                ''',
-                'input',
-                'ietf-system', False),
-            ],
-            'ietf-system',
-            'set-current-datetime',
-            _yang_ns._namespaces['ietf-system'],
-        'ydk.models.ietf.ietf_system'
-        ),
-    },
-    'System.Authentication.User.AuthorizedKey' : {
-        'meta_info' : _MetaInfoClass('System.Authentication.User.AuthorizedKey',
-            False, 
-            [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                An arbitrary name for the SSH key.
-                ''',
-                'name',
-                'ietf-system', True),
-            _MetaInfoClassMember('algorithm', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                The public key algorithm name for this SSH key.
-                
-                Valid values are the values in the IANA 'Secure Shell
-                (SSH) Protocol Parameters' registry, Public Key
-                Algorithm Names.
-                ''',
-                'algorithm',
-                'ietf-system', False),
-            _MetaInfoClassMember('key-data', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                The binary public key data for this SSH key, as
-                specified by RFC 4253, Section 6.6, i.e.:
-                
-                  string    certificate or public key format
-                            identifier
-                  byte[n]   key/certificate data.
-                ''',
-                'key_data',
-                'ietf-system', False),
-            ],
-            'ietf-system',
-            'authorized-key',
-            _yang_ns._namespaces['ietf-system'],
-        'ydk.models.ietf.ietf_system'
-        ),
-    },
-    'System.Authentication.User' : {
-        'meta_info' : _MetaInfoClass('System.Authentication.User',
-            False, 
-            [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                The user name string identifying this entry.
-                ''',
-                'name',
-                'ietf-system', True),
-            _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['$0$.*|$1$[a-zA-Z0-9./]{1,8}$[a-zA-Z0-9./]{22}|$5$(rounds=\\d+$)?[a-zA-Z0-9./]{1,16}$[a-zA-Z0-9./]{43}|$6$(rounds=\\d+$)?[a-zA-Z0-9./]{1,16}$[a-zA-Z0-9./]{86}'], 
-                '''                The password for this entry.
-                ''',
-                'password',
-                'ietf-system', False),
-            _MetaInfoClassMember('authorized-key', REFERENCE_LIST, 'AuthorizedKey' , 'ydk.models.ietf.ietf_system', 'System.Authentication.User.AuthorizedKey', 
-                [], [], 
-                '''                A list of public SSH keys for this user.  These keys
-                are allowed for SSH authentication, as described in
-                RFC 4253.
-                ''',
-                'authorized_key',
-                'ietf-system', False),
-            ],
-            'ietf-system',
-            'user',
-            _yang_ns._namespaces['ietf-system'],
-        'ydk.models.ietf.ietf_system'
-        ),
-    },
-    'System.Authentication' : {
-        'meta_info' : _MetaInfoClass('System.Authentication',
-            False, 
-            [
-            _MetaInfoClassMember('user-authentication-order', REFERENCE_LIST, 'AuthenticationMethod_Identity' , 'ydk.models.ietf.ietf_system', 'AuthenticationMethod_Identity', 
-                [], [], 
-                '''                When the device authenticates a user with a password,
-                it tries the authentication methods in this leaf-list in
-                order.  If authentication with one method fails, the next
-                method is used.  If no method succeeds, the user is
-                denied access.
-                
-                An empty user-authentication-order leaf-list still allows
-                authentication of users using mechanisms that do not
-                involve a password.
-                
-                If the 'radius-authentication' feature is advertised by
-                the NETCONF server, the 'radius' identity can be added to
-                this list.
-                
-                If the 'local-users' feature is advertised by the
-                NETCONF server, the 'local-users' identity can be
-                added to this list.
-                ''',
-                'user_authentication_order',
-                'ietf-system', False),
-            _MetaInfoClassMember('user', REFERENCE_LIST, 'User' , 'ydk.models.ietf.ietf_system', 'System.Authentication.User', 
-                [], [], 
-                '''                The list of local users configured on this device.
-                ''',
-                'user',
-                'ietf-system', False),
-            ],
-            'ietf-system',
-            'authentication',
+            'authentication-method',
             _yang_ns._namespaces['ietf-system'],
         'ydk.models.ietf.ietf_system'
         ),
@@ -201,138 +60,6 @@ _meta_table = {
             ],
             'ietf-system',
             'clock',
-            _yang_ns._namespaces['ietf-system'],
-        'ydk.models.ietf.ietf_system'
-        ),
-    },
-    'System.DnsResolver.Options' : {
-        'meta_info' : _MetaInfoClass('System.DnsResolver.Options',
-            False, 
-            [
-            _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
-                '''                The amount of time the resolver will wait for a
-                response from each remote name server before
-                retrying the query via a different name server.
-                ''',
-                'timeout',
-                'ietf-system', False),
-            _MetaInfoClassMember('attempts', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
-                '''                The number of times the resolver will send a query to
-                all of its name servers before giving up and returning
-                an error to the calling application.
-                ''',
-                'attempts',
-                'ietf-system', False),
-            ],
-            'ietf-system',
-            'options',
-            _yang_ns._namespaces['ietf-system'],
-        'ydk.models.ietf.ietf_system'
-        ),
-    },
-    'System.DnsResolver.Server.UdpAndTcp' : {
-        'meta_info' : _MetaInfoClass('System.DnsResolver.Server.UdpAndTcp',
-            False, 
-            [
-            _MetaInfoClassMember('address', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                The address of the DNS server.
-                ''',
-                'address',
-                'ietf-system', False, [
-                    _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        The address of the DNS server.
-                        ''',
-                        'address',
-                        'ietf-system', False),
-                    _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        The address of the DNS server.
-                        ''',
-                        'address',
-                        'ietf-system', False),
-                ]),
-            _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                The UDP and TCP port number of the DNS server.
-                ''',
-                'port',
-                'ietf-system', False),
-            ],
-            'ietf-system',
-            'udp-and-tcp',
-            _yang_ns._namespaces['ietf-system'],
-        'ydk.models.ietf.ietf_system'
-        ),
-    },
-    'System.DnsResolver.Server' : {
-        'meta_info' : _MetaInfoClass('System.DnsResolver.Server',
-            False, 
-            [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                An arbitrary name for the DNS server.
-                ''',
-                'name',
-                'ietf-system', True),
-            _MetaInfoClassMember('udp-and-tcp', REFERENCE_CLASS, 'UdpAndTcp' , 'ydk.models.ietf.ietf_system', 'System.DnsResolver.Server.UdpAndTcp', 
-                [], [], 
-                '''                Contains UDP- and TCP-specific configuration
-                parameters for DNS.
-                ''',
-                'udp_and_tcp',
-                'ietf-system', False),
-            ],
-            'ietf-system',
-            'server',
-            _yang_ns._namespaces['ietf-system'],
-        'ydk.models.ietf.ietf_system'
-        ),
-    },
-    'System.DnsResolver' : {
-        'meta_info' : _MetaInfoClass('System.DnsResolver',
-            False, 
-            [
-            _MetaInfoClassMember('search', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.'], 
-                '''                An ordered list of domains to search when resolving
-                a host name.
-                ''',
-                'search',
-                'ietf-system', False),
-            _MetaInfoClassMember('server', REFERENCE_LIST, 'Server' , 'ydk.models.ietf.ietf_system', 'System.DnsResolver.Server', 
-                [], [], 
-                '''                List of the DNS servers that the resolver should query.
-                
-                When the resolver is invoked by a calling application, it
-                sends the query to the first name server in this list.  If
-                no response has been received within 'timeout' seconds,
-                the resolver continues with the next server in the list.
-                If no response is received from any server, the resolver
-                continues with the first server again.  When the resolver
-                has traversed the list 'attempts' times without receiving
-                any response, it gives up and returns an error to the
-                calling application.
-                
-                Implementations MAY limit the number of entries in this
-                list.
-                ''',
-                'server',
-                'ietf-system', False),
-            _MetaInfoClassMember('options', REFERENCE_CLASS, 'Options' , 'ydk.models.ietf.ietf_system', 'System.DnsResolver.Options', 
-                [], [], 
-                '''                Resolver options.  The set of available options has been
-                limited to those that are generally available across
-                different resolver implementations and generally useful.
-                ''',
-                'options',
-                'ietf-system', False),
-            ],
-            'ietf-system',
-            'dns-resolver',
             _yang_ns._namespaces['ietf-system'],
         'ydk.models.ietf.ietf_system'
         ),
@@ -464,28 +191,134 @@ _meta_table = {
         'ydk.models.ietf.ietf_system'
         ),
     },
-    'System.Radius.Options' : {
-        'meta_info' : _MetaInfoClass('System.Radius.Options',
+    'System.DnsResolver.Server.UdpAndTcp' : {
+        'meta_info' : _MetaInfoClass('System.DnsResolver.Server.UdpAndTcp',
+            False, 
+            [
+            _MetaInfoClassMember('address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                The address of the DNS server.
+                ''',
+                'address',
+                'ietf-system', False, [
+                    _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        The address of the DNS server.
+                        ''',
+                        'address',
+                        'ietf-system', False),
+                    _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        The address of the DNS server.
+                        ''',
+                        'address',
+                        'ietf-system', False),
+                ]),
+            _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                The UDP and TCP port number of the DNS server.
+                ''',
+                'port',
+                'ietf-system', False),
+            ],
+            'ietf-system',
+            'udp-and-tcp',
+            _yang_ns._namespaces['ietf-system'],
+        'ydk.models.ietf.ietf_system'
+        ),
+    },
+    'System.DnsResolver.Server' : {
+        'meta_info' : _MetaInfoClass('System.DnsResolver.Server',
+            False, 
+            [
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                An arbitrary name for the DNS server.
+                ''',
+                'name',
+                'ietf-system', True),
+            _MetaInfoClassMember('udp-and-tcp', REFERENCE_CLASS, 'UdpAndTcp' , 'ydk.models.ietf.ietf_system', 'System.DnsResolver.Server.UdpAndTcp', 
+                [], [], 
+                '''                Contains UDP- and TCP-specific configuration
+                parameters for DNS.
+                ''',
+                'udp_and_tcp',
+                'ietf-system', False),
+            ],
+            'ietf-system',
+            'server',
+            _yang_ns._namespaces['ietf-system'],
+        'ydk.models.ietf.ietf_system'
+        ),
+    },
+    'System.DnsResolver.Options' : {
+        'meta_info' : _MetaInfoClass('System.DnsResolver.Options',
             False, 
             [
             _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
                 [(1, 255)], [], 
-                '''                The number of seconds the device will wait for a
-                response from each RADIUS server before trying with a
-                different server.
+                '''                The amount of time the resolver will wait for a
+                response from each remote name server before
+                retrying the query via a different name server.
                 ''',
                 'timeout',
                 'ietf-system', False),
             _MetaInfoClassMember('attempts', ATTRIBUTE, 'int' , None, None, 
                 [(1, 255)], [], 
-                '''                The number of times the device will send a query to
-                all of its RADIUS servers before giving up.
+                '''                The number of times the resolver will send a query to
+                all of its name servers before giving up and returning
+                an error to the calling application.
                 ''',
                 'attempts',
                 'ietf-system', False),
             ],
             'ietf-system',
             'options',
+            _yang_ns._namespaces['ietf-system'],
+        'ydk.models.ietf.ietf_system'
+        ),
+    },
+    'System.DnsResolver' : {
+        'meta_info' : _MetaInfoClass('System.DnsResolver',
+            False, 
+            [
+            _MetaInfoClassMember('search', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.'], 
+                '''                An ordered list of domains to search when resolving
+                a host name.
+                ''',
+                'search',
+                'ietf-system', False),
+            _MetaInfoClassMember('server', REFERENCE_LIST, 'Server' , 'ydk.models.ietf.ietf_system', 'System.DnsResolver.Server', 
+                [], [], 
+                '''                List of the DNS servers that the resolver should query.
+                
+                When the resolver is invoked by a calling application, it
+                sends the query to the first name server in this list.  If
+                no response has been received within 'timeout' seconds,
+                the resolver continues with the next server in the list.
+                If no response is received from any server, the resolver
+                continues with the first server again.  When the resolver
+                has traversed the list 'attempts' times without receiving
+                any response, it gives up and returns an error to the
+                calling application.
+                
+                Implementations MAY limit the number of entries in this
+                list.
+                ''',
+                'server',
+                'ietf-system', False),
+            _MetaInfoClassMember('options', REFERENCE_CLASS, 'Options' , 'ydk.models.ietf.ietf_system', 'System.DnsResolver.Options', 
+                [], [], 
+                '''                Resolver options.  The set of available options has been
+                limited to those that are generally available across
+                different resolver implementations and generally useful.
+                ''',
+                'options',
+                'ietf-system', False),
+            ],
+            'ietf-system',
+            'dns-resolver',
             _yang_ns._namespaces['ietf-system'],
         'ydk.models.ietf.ietf_system'
         ),
@@ -577,6 +410,32 @@ _meta_table = {
         'ydk.models.ietf.ietf_system'
         ),
     },
+    'System.Radius.Options' : {
+        'meta_info' : _MetaInfoClass('System.Radius.Options',
+            False, 
+            [
+            _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
+                [(1, 255)], [], 
+                '''                The number of seconds the device will wait for a
+                response from each RADIUS server before trying with a
+                different server.
+                ''',
+                'timeout',
+                'ietf-system', False),
+            _MetaInfoClassMember('attempts', ATTRIBUTE, 'int' , None, None, 
+                [(1, 255)], [], 
+                '''                The number of times the device will send a query to
+                all of its RADIUS servers before giving up.
+                ''',
+                'attempts',
+                'ietf-system', False),
+            ],
+            'ietf-system',
+            'options',
+            _yang_ns._namespaces['ietf-system'],
+        'ydk.models.ietf.ietf_system'
+        ),
+    },
     'System.Radius' : {
         'meta_info' : _MetaInfoClass('System.Radius',
             False, 
@@ -606,6 +465,114 @@ _meta_table = {
             ],
             'ietf-system',
             'radius',
+            _yang_ns._namespaces['ietf-system'],
+        'ydk.models.ietf.ietf_system'
+        ),
+    },
+    'System.Authentication.User.AuthorizedKey' : {
+        'meta_info' : _MetaInfoClass('System.Authentication.User.AuthorizedKey',
+            False, 
+            [
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                An arbitrary name for the SSH key.
+                ''',
+                'name',
+                'ietf-system', True),
+            _MetaInfoClassMember('algorithm', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                The public key algorithm name for this SSH key.
+                
+                Valid values are the values in the IANA 'Secure Shell
+                (SSH) Protocol Parameters' registry, Public Key
+                Algorithm Names.
+                ''',
+                'algorithm',
+                'ietf-system', False),
+            _MetaInfoClassMember('key-data', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                The binary public key data for this SSH key, as
+                specified by RFC 4253, Section 6.6, i.e.:
+                
+                  string    certificate or public key format
+                            identifier
+                  byte[n]   key/certificate data.
+                ''',
+                'key_data',
+                'ietf-system', False),
+            ],
+            'ietf-system',
+            'authorized-key',
+            _yang_ns._namespaces['ietf-system'],
+        'ydk.models.ietf.ietf_system'
+        ),
+    },
+    'System.Authentication.User' : {
+        'meta_info' : _MetaInfoClass('System.Authentication.User',
+            False, 
+            [
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                The user name string identifying this entry.
+                ''',
+                'name',
+                'ietf-system', True),
+            _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
+                [], ['$0$.*|$1$[a-zA-Z0-9./]{1,8}$[a-zA-Z0-9./]{22}|$5$(rounds=\\d+$)?[a-zA-Z0-9./]{1,16}$[a-zA-Z0-9./]{43}|$6$(rounds=\\d+$)?[a-zA-Z0-9./]{1,16}$[a-zA-Z0-9./]{86}'], 
+                '''                The password for this entry.
+                ''',
+                'password',
+                'ietf-system', False),
+            _MetaInfoClassMember('authorized-key', REFERENCE_LIST, 'AuthorizedKey' , 'ydk.models.ietf.ietf_system', 'System.Authentication.User.AuthorizedKey', 
+                [], [], 
+                '''                A list of public SSH keys for this user.  These keys
+                are allowed for SSH authentication, as described in
+                RFC 4253.
+                ''',
+                'authorized_key',
+                'ietf-system', False),
+            ],
+            'ietf-system',
+            'user',
+            _yang_ns._namespaces['ietf-system'],
+        'ydk.models.ietf.ietf_system'
+        ),
+    },
+    'System.Authentication' : {
+        'meta_info' : _MetaInfoClass('System.Authentication',
+            False, 
+            [
+            _MetaInfoClassMember('user-authentication-order', REFERENCE_LIST, 'AuthenticationMethod_Identity' , 'ydk.models.ietf.ietf_system', 'AuthenticationMethod_Identity', 
+                [], [], 
+                '''                When the device authenticates a user with a password,
+                it tries the authentication methods in this leaf-list in
+                order.  If authentication with one method fails, the next
+                method is used.  If no method succeeds, the user is
+                denied access.
+                
+                An empty user-authentication-order leaf-list still allows
+                authentication of users using mechanisms that do not
+                involve a password.
+                
+                If the 'radius-authentication' feature is advertised by
+                the NETCONF server, the 'radius' identity can be added to
+                this list.
+                
+                If the 'local-users' feature is advertised by the
+                NETCONF server, the 'local-users' identity can be
+                added to this list.
+                ''',
+                'user_authentication_order',
+                'ietf-system', False),
+            _MetaInfoClassMember('user', REFERENCE_LIST, 'User' , 'ydk.models.ietf.ietf_system', 'System.Authentication.User', 
+                [], [], 
+                '''                The list of local users configured on this device.
+                ''',
+                'user',
+                'ietf-system', False),
+            ],
+            'ietf-system',
+            'authentication',
             _yang_ns._namespaces['ietf-system'],
         'ydk.models.ietf.ietf_system'
         ),
@@ -682,51 +649,6 @@ _meta_table = {
         'ydk.models.ietf.ietf_system'
         ),
     },
-    'SystemRestartRpc' : {
-        'meta_info' : _MetaInfoClass('SystemRestartRpc',
-            False, 
-            [
-            ],
-            'ietf-system',
-            'system-restart',
-            _yang_ns._namespaces['ietf-system'],
-        'ydk.models.ietf.ietf_system'
-        ),
-    },
-    'SystemShutdownRpc' : {
-        'meta_info' : _MetaInfoClass('SystemShutdownRpc',
-            False, 
-            [
-            ],
-            'ietf-system',
-            'system-shutdown',
-            _yang_ns._namespaces['ietf-system'],
-        'ydk.models.ietf.ietf_system'
-        ),
-    },
-    'SystemState.Clock' : {
-        'meta_info' : _MetaInfoClass('SystemState.Clock',
-            False, 
-            [
-            _MetaInfoClassMember('current-datetime', ATTRIBUTE, 'str' , None, None, 
-                [], ['\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
-                '''                The current system date and time.
-                ''',
-                'current_datetime',
-                'ietf-system', False),
-            _MetaInfoClassMember('boot-datetime', ATTRIBUTE, 'str' , None, None, 
-                [], ['\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
-                '''                The system date and time when the system last restarted.
-                ''',
-                'boot_datetime',
-                'ietf-system', False),
-            ],
-            'ietf-system',
-            'clock',
-            _yang_ns._namespaces['ietf-system'],
-        'ydk.models.ietf.ietf_system'
-        ),
-    },
     'SystemState.Platform' : {
         'meta_info' : _MetaInfoClass('SystemState.Platform',
             False, 
@@ -769,6 +691,29 @@ _meta_table = {
         'ydk.models.ietf.ietf_system'
         ),
     },
+    'SystemState.Clock' : {
+        'meta_info' : _MetaInfoClass('SystemState.Clock',
+            False, 
+            [
+            _MetaInfoClassMember('current-datetime', ATTRIBUTE, 'str' , None, None, 
+                [], ['\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
+                '''                The current system date and time.
+                ''',
+                'current_datetime',
+                'ietf-system', False),
+            _MetaInfoClassMember('boot-datetime', ATTRIBUTE, 'str' , None, None, 
+                [], ['\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
+                '''                The system date and time when the system last restarted.
+                ''',
+                'boot_datetime',
+                'ietf-system', False),
+            ],
+            'ietf-system',
+            'clock',
+            _yang_ns._namespaces['ietf-system'],
+        'ydk.models.ietf.ietf_system'
+        ),
+    },
     'SystemState' : {
         'meta_info' : _MetaInfoClass('SystemState',
             False, 
@@ -793,6 +738,61 @@ _meta_table = {
         'ydk.models.ietf.ietf_system'
         ),
     },
+    'SetCurrentDatetimeRpc.Input' : {
+        'meta_info' : _MetaInfoClass('SetCurrentDatetimeRpc.Input',
+            False, 
+            [
+            _MetaInfoClassMember('current-datetime', ATTRIBUTE, 'str' , None, None, 
+                [], ['\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
+                '''                The current system date and time.
+                ''',
+                'current_datetime',
+                'ietf-system', False),
+            ],
+            'ietf-system',
+            'input',
+            _yang_ns._namespaces['ietf-system'],
+        'ydk.models.ietf.ietf_system'
+        ),
+    },
+    'SetCurrentDatetimeRpc' : {
+        'meta_info' : _MetaInfoClass('SetCurrentDatetimeRpc',
+            False, 
+            [
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.ietf.ietf_system', 'SetCurrentDatetimeRpc.Input', 
+                [], [], 
+                '''                ''',
+                'input',
+                'ietf-system', False),
+            ],
+            'ietf-system',
+            'set-current-datetime',
+            _yang_ns._namespaces['ietf-system'],
+        'ydk.models.ietf.ietf_system'
+        ),
+    },
+    'SystemRestartRpc' : {
+        'meta_info' : _MetaInfoClass('SystemRestartRpc',
+            False, 
+            [
+            ],
+            'ietf-system',
+            'system-restart',
+            _yang_ns._namespaces['ietf-system'],
+        'ydk.models.ietf.ietf_system'
+        ),
+    },
+    'SystemShutdownRpc' : {
+        'meta_info' : _MetaInfoClass('SystemShutdownRpc',
+            False, 
+            [
+            ],
+            'ietf-system',
+            'system-shutdown',
+            _yang_ns._namespaces['ietf-system'],
+        'ydk.models.ietf.ietf_system'
+        ),
+    },
     'LocalUsers_Identity' : {
         'meta_info' : _MetaInfoClass('LocalUsers_Identity',
             False, 
@@ -804,17 +804,6 @@ _meta_table = {
         'ydk.models.ietf.ietf_system'
         ),
     },
-    'RadiusChap_Identity' : {
-        'meta_info' : _MetaInfoClass('RadiusChap_Identity',
-            False, 
-            [
-            ],
-            'ietf-system',
-            'radius-chap',
-            _yang_ns._namespaces['ietf-system'],
-        'ydk.models.ietf.ietf_system'
-        ),
-    },
     'RadiusPap_Identity' : {
         'meta_info' : _MetaInfoClass('RadiusPap_Identity',
             False, 
@@ -822,6 +811,17 @@ _meta_table = {
             ],
             'ietf-system',
             'radius-pap',
+            _yang_ns._namespaces['ietf-system'],
+        'ydk.models.ietf.ietf_system'
+        ),
+    },
+    'RadiusChap_Identity' : {
+        'meta_info' : _MetaInfoClass('RadiusChap_Identity',
+            False, 
+            [
+            ],
+            'ietf-system',
+            'radius-chap',
             _yang_ns._namespaces['ietf-system'],
         'ydk.models.ietf.ietf_system'
         ),
@@ -838,21 +838,21 @@ _meta_table = {
         ),
     },
 }
-_meta_table['SetCurrentDatetimeRpc.Input']['meta_info'].parent =_meta_table['SetCurrentDatetimeRpc']['meta_info']
-_meta_table['System.Authentication.User.AuthorizedKey']['meta_info'].parent =_meta_table['System.Authentication.User']['meta_info']
-_meta_table['System.Authentication.User']['meta_info'].parent =_meta_table['System.Authentication']['meta_info']
-_meta_table['System.DnsResolver.Server.UdpAndTcp']['meta_info'].parent =_meta_table['System.DnsResolver.Server']['meta_info']
-_meta_table['System.DnsResolver.Options']['meta_info'].parent =_meta_table['System.DnsResolver']['meta_info']
-_meta_table['System.DnsResolver.Server']['meta_info'].parent =_meta_table['System.DnsResolver']['meta_info']
 _meta_table['System.Ntp.Server.Udp']['meta_info'].parent =_meta_table['System.Ntp.Server']['meta_info']
 _meta_table['System.Ntp.Server']['meta_info'].parent =_meta_table['System.Ntp']['meta_info']
+_meta_table['System.DnsResolver.Server.UdpAndTcp']['meta_info'].parent =_meta_table['System.DnsResolver.Server']['meta_info']
+_meta_table['System.DnsResolver.Server']['meta_info'].parent =_meta_table['System.DnsResolver']['meta_info']
+_meta_table['System.DnsResolver.Options']['meta_info'].parent =_meta_table['System.DnsResolver']['meta_info']
 _meta_table['System.Radius.Server.Udp']['meta_info'].parent =_meta_table['System.Radius.Server']['meta_info']
-_meta_table['System.Radius.Options']['meta_info'].parent =_meta_table['System.Radius']['meta_info']
 _meta_table['System.Radius.Server']['meta_info'].parent =_meta_table['System.Radius']['meta_info']
-_meta_table['System.Authentication']['meta_info'].parent =_meta_table['System']['meta_info']
+_meta_table['System.Radius.Options']['meta_info'].parent =_meta_table['System.Radius']['meta_info']
+_meta_table['System.Authentication.User.AuthorizedKey']['meta_info'].parent =_meta_table['System.Authentication.User']['meta_info']
+_meta_table['System.Authentication.User']['meta_info'].parent =_meta_table['System.Authentication']['meta_info']
 _meta_table['System.Clock']['meta_info'].parent =_meta_table['System']['meta_info']
-_meta_table['System.DnsResolver']['meta_info'].parent =_meta_table['System']['meta_info']
 _meta_table['System.Ntp']['meta_info'].parent =_meta_table['System']['meta_info']
+_meta_table['System.DnsResolver']['meta_info'].parent =_meta_table['System']['meta_info']
 _meta_table['System.Radius']['meta_info'].parent =_meta_table['System']['meta_info']
-_meta_table['SystemState.Clock']['meta_info'].parent =_meta_table['SystemState']['meta_info']
+_meta_table['System.Authentication']['meta_info'].parent =_meta_table['System']['meta_info']
 _meta_table['SystemState.Platform']['meta_info'].parent =_meta_table['SystemState']['meta_info']
+_meta_table['SystemState.Clock']['meta_info'].parent =_meta_table['SystemState']['meta_info']
+_meta_table['SetCurrentDatetimeRpc.Input']['meta_info'].parent =_meta_table['SetCurrentDatetimeRpc']['meta_info']

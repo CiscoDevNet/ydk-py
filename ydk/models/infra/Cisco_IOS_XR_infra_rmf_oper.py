@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -80,36 +80,36 @@ class Redundancy(object):
             """
             Redundancy Node Information
             
-            .. attribute:: node_id
+            .. attribute:: node_id  <key>
             
             	Node Location
             	**type**\: str
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
-            .. attribute:: active_reboot_reason
+            .. attribute:: redundancy
             
-            	Active node reload
-            	**type**\: str
-            
-            .. attribute:: err_log
-            
-            	Error Log
-            	**type**\: str
+            	Row information
+            	**type**\: :py:class:`Redundancy <ydk.models.infra.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes.Node.Redundancy>`
             
             .. attribute:: log
             
             	Reload and boot logs
             	**type**\: str
             
-            .. attribute:: redundancy
+            .. attribute:: active_reboot_reason
             
-            	Row information
-            	**type**\: :py:class:`Redundancy <ydk.models.infra.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes.Node.Redundancy>`
+            	Active node reload
+            	**type**\: str
             
             .. attribute:: standby_reboot_reason
             
             	Standby node reload
+            	**type**\: str
+            
+            .. attribute:: err_log
+            
+            	Error Log
             	**type**\: str
             
             
@@ -122,12 +122,12 @@ class Redundancy(object):
             def __init__(self):
                 self.parent = None
                 self.node_id = None
-                self.active_reboot_reason = None
-                self.err_log = None
-                self.log = None
                 self.redundancy = Redundancy.Nodes.Node.Redundancy()
                 self.redundancy.parent = self
+                self.log = None
+                self.active_reboot_reason = None
                 self.standby_reboot_reason = None
+                self.err_log = None
 
 
             class Redundancy(object):
@@ -139,10 +139,10 @@ class Redundancy(object):
                 	Active node name R/S/I
                 	**type**\: str
                 
-                .. attribute:: groupinfo
+                .. attribute:: standby
                 
-                	groupinfo
-                	**type**\: list of :py:class:`Groupinfo <ydk.models.infra.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes.Node.Redundancy.Groupinfo>`
+                	Standby node name R/S/I
+                	**type**\: str
                 
                 .. attribute:: ha_state
                 
@@ -154,10 +154,10 @@ class Redundancy(object):
                 	NSR state Configured/Not Configured
                 	**type**\: str
                 
-                .. attribute:: standby
+                .. attribute:: groupinfo
                 
-                	Standby node name R/S/I
-                	**type**\: str
+                	groupinfo
+                	**type**\: list of :py:class:`Groupinfo <ydk.models.infra.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes.Node.Redundancy.Groupinfo>`
                 
                 
 
@@ -169,12 +169,12 @@ class Redundancy(object):
                 def __init__(self):
                     self.parent = None
                     self.active = None
+                    self.standby = None
+                    self.ha_state = None
+                    self.nsr_state = None
                     self.groupinfo = YList()
                     self.groupinfo.parent = self
                     self.groupinfo.name = 'groupinfo'
-                    self.ha_state = None
-                    self.nsr_state = None
-                    self.standby = None
 
 
                 class Groupinfo(object):
@@ -184,6 +184,11 @@ class Redundancy(object):
                     .. attribute:: active
                     
                     	Active
+                    	**type**\: str
+                    
+                    .. attribute:: standby
+                    
+                    	Standby
                     	**type**\: str
                     
                     .. attribute:: ha_state
@@ -196,11 +201,6 @@ class Redundancy(object):
                     	NSRState
                     	**type**\: str
                     
-                    .. attribute:: standby
-                    
-                    	Standby
-                    	**type**\: str
-                    
                     
 
                     """
@@ -211,9 +211,9 @@ class Redundancy(object):
                     def __init__(self):
                         self.parent = None
                         self.active = None
+                        self.standby = None
                         self.ha_state = None
                         self.nsr_state = None
-                        self.standby = None
 
                     @property
                     def _common_path(self):
@@ -232,13 +232,13 @@ class Redundancy(object):
                         if self.active is not None:
                             return True
 
+                        if self.standby is not None:
+                            return True
+
                         if self.ha_state is not None:
                             return True
 
                         if self.nsr_state is not None:
-                            return True
-
-                        if self.standby is not None:
                             return True
 
                         return False
@@ -265,10 +265,8 @@ class Redundancy(object):
                     if self.active is not None:
                         return True
 
-                    if self.groupinfo is not None:
-                        for child_ref in self.groupinfo:
-                            if child_ref._has_data():
-                                return True
+                    if self.standby is not None:
+                        return True
 
                     if self.ha_state is not None:
                         return True
@@ -276,8 +274,10 @@ class Redundancy(object):
                     if self.nsr_state is not None:
                         return True
 
-                    if self.standby is not None:
-                        return True
+                    if self.groupinfo is not None:
+                        for child_ref in self.groupinfo:
+                            if child_ref._has_data():
+                                return True
 
                     return False
 
@@ -303,19 +303,19 @@ class Redundancy(object):
                 if self.node_id is not None:
                     return True
 
-                if self.active_reboot_reason is not None:
-                    return True
-
-                if self.err_log is not None:
+                if self.redundancy is not None and self.redundancy._has_data():
                     return True
 
                 if self.log is not None:
                     return True
 
-                if self.redundancy is not None and self.redundancy._has_data():
+                if self.active_reboot_reason is not None:
                     return True
 
                 if self.standby_reboot_reason is not None:
+                    return True
+
+                if self.err_log is not None:
                     return True
 
                 return False
@@ -388,10 +388,10 @@ class Redundancy(object):
             	Active node name R/S/I
             	**type**\: str
             
-            .. attribute:: groupinfo
+            .. attribute:: standby
             
-            	groupinfo
-            	**type**\: list of :py:class:`Groupinfo <ydk.models.infra.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Summary.RedPair.Groupinfo>`
+            	Standby node name R/S/I
+            	**type**\: str
             
             .. attribute:: ha_state
             
@@ -403,10 +403,10 @@ class Redundancy(object):
             	NSR state Configured/Not Configured
             	**type**\: str
             
-            .. attribute:: standby
+            .. attribute:: groupinfo
             
-            	Standby node name R/S/I
-            	**type**\: str
+            	groupinfo
+            	**type**\: list of :py:class:`Groupinfo <ydk.models.infra.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Summary.RedPair.Groupinfo>`
             
             
 
@@ -418,12 +418,12 @@ class Redundancy(object):
             def __init__(self):
                 self.parent = None
                 self.active = None
+                self.standby = None
+                self.ha_state = None
+                self.nsr_state = None
                 self.groupinfo = YList()
                 self.groupinfo.parent = self
                 self.groupinfo.name = 'groupinfo'
-                self.ha_state = None
-                self.nsr_state = None
-                self.standby = None
 
 
             class Groupinfo(object):
@@ -433,6 +433,11 @@ class Redundancy(object):
                 .. attribute:: active
                 
                 	Active
+                	**type**\: str
+                
+                .. attribute:: standby
+                
+                	Standby
                 	**type**\: str
                 
                 .. attribute:: ha_state
@@ -445,11 +450,6 @@ class Redundancy(object):
                 	NSRState
                 	**type**\: str
                 
-                .. attribute:: standby
-                
-                	Standby
-                	**type**\: str
-                
                 
 
                 """
@@ -460,9 +460,9 @@ class Redundancy(object):
                 def __init__(self):
                     self.parent = None
                     self.active = None
+                    self.standby = None
                     self.ha_state = None
                     self.nsr_state = None
-                    self.standby = None
 
                 @property
                 def _common_path(self):
@@ -479,13 +479,13 @@ class Redundancy(object):
                     if self.active is not None:
                         return True
 
+                    if self.standby is not None:
+                        return True
+
                     if self.ha_state is not None:
                         return True
 
                     if self.nsr_state is not None:
-                        return True
-
-                    if self.standby is not None:
                         return True
 
                     return False
@@ -510,10 +510,8 @@ class Redundancy(object):
                 if self.active is not None:
                     return True
 
-                if self.groupinfo is not None:
-                    for child_ref in self.groupinfo:
-                        if child_ref._has_data():
-                            return True
+                if self.standby is not None:
+                    return True
 
                 if self.ha_state is not None:
                     return True
@@ -521,8 +519,10 @@ class Redundancy(object):
                 if self.nsr_state is not None:
                     return True
 
-                if self.standby is not None:
-                    return True
+                if self.groupinfo is not None:
+                    for child_ref in self.groupinfo:
+                        if child_ref._has_data():
+                            return True
 
                 return False
 

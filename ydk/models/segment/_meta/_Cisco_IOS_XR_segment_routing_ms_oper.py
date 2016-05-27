@@ -7,7 +7,7 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
@@ -64,30 +64,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Srms.Mapping.MappingIpv4.MappingMi',
             False, 
             [
-            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'SrmsMiActionEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiActionEBEnum', 
-                [], [], 
-                '''                action
-                ''',
-                'action',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('addr', REFERENCE_CLASS, 'Addr' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'Srms.Mapping.MappingIpv4.MappingMi.Addr', 
-                [], [], 
-                '''                addr
-                ''',
-                'addr',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('area', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                area
-                ''',
-                'area',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                flags
-                ''',
-                'flags',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
                 [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                IP
@@ -100,11 +76,23 @@ _meta_table = {
                 ''',
                 'prefix',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('prefix-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                prefix xr
+            _MetaInfoClassMember('addr', REFERENCE_CLASS, 'Addr' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'Srms.Mapping.MappingIpv4.MappingMi.Addr', 
+                [], [], 
+                '''                addr
                 ''',
-                'prefix_xr',
+                'addr',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEBEnum', 
+                [], [], 
+                '''                src
+                ''',
+                'src',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'SrmsMiActionEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiActionEBEnum', 
+                [], [], 
+                '''                action
+                ''',
+                'action',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
             _MetaInfoClassMember('router', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
@@ -112,11 +100,17 @@ _meta_table = {
                 ''',
                 'router',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('sid-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                sid count
+            _MetaInfoClassMember('area', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                area
                 ''',
-                'sid_count',
+                'area',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            _MetaInfoClassMember('prefix-xr', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                prefix xr
+                ''',
+                'prefix_xr',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
             _MetaInfoClassMember('sid-start', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -124,11 +118,17 @@ _meta_table = {
                 ''',
                 'sid_start',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEBEnum', 
-                [], [], 
-                '''                src
+            _MetaInfoClassMember('sid-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                sid count
                 ''',
-                'src',
+                'sid_count',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            _MetaInfoClassMember('flags', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                flags
+                ''',
+                'flags',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
             ],
             'Cisco-IOS-XR-segment-routing-ms-oper',
@@ -191,30 +191,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Srms.Mapping.MappingIpv6.MappingMi',
             False, 
             [
-            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'SrmsMiActionEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiActionEBEnum', 
-                [], [], 
-                '''                action
-                ''',
-                'action',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('addr', REFERENCE_CLASS, 'Addr' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'Srms.Mapping.MappingIpv6.MappingMi.Addr', 
-                [], [], 
-                '''                addr
-                ''',
-                'addr',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('area', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                area
-                ''',
-                'area',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                flags
-                ''',
-                'flags',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
                 [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                IP
@@ -227,11 +203,23 @@ _meta_table = {
                 ''',
                 'prefix',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('prefix-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                prefix xr
+            _MetaInfoClassMember('addr', REFERENCE_CLASS, 'Addr' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'Srms.Mapping.MappingIpv6.MappingMi.Addr', 
+                [], [], 
+                '''                addr
                 ''',
-                'prefix_xr',
+                'addr',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEBEnum', 
+                [], [], 
+                '''                src
+                ''',
+                'src',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'SrmsMiActionEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiActionEBEnum', 
+                [], [], 
+                '''                action
+                ''',
+                'action',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
             _MetaInfoClassMember('router', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
@@ -239,11 +227,17 @@ _meta_table = {
                 ''',
                 'router',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('sid-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                sid count
+            _MetaInfoClassMember('area', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                area
                 ''',
-                'sid_count',
+                'area',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            _MetaInfoClassMember('prefix-xr', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                prefix xr
+                ''',
+                'prefix_xr',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
             _MetaInfoClassMember('sid-start', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -251,11 +245,17 @@ _meta_table = {
                 ''',
                 'sid_start',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEBEnum', 
-                [], [], 
-                '''                src
+            _MetaInfoClassMember('sid-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                sid count
                 ''',
-                'src',
+                'sid_count',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            _MetaInfoClassMember('flags', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                flags
+                ''',
+                'flags',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
             ],
             'Cisco-IOS-XR-segment-routing-ms-oper',
@@ -308,123 +308,6 @@ _meta_table = {
         'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper'
         ),
     },
-    'Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr' : {
-        'meta_info' : _MetaInfoClass('Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr',
-            False, 
-            [
-            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'SrmsMiAfEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiAfEBEnum', 
-                [], [], 
-                '''                AF
-                ''',
-                'af',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('ipv4', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                IPv4
-                ''',
-                'ipv4',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('ipv6', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                IPv6
-                ''',
-                'ipv6',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            ],
-            'Cisco-IOS-XR-segment-routing-ms-oper',
-            'addr',
-            _yang_ns._namespaces['Cisco-IOS-XR-segment-routing-ms-oper'],
-        'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper'
-        ),
-    },
-    'Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi' : {
-        'meta_info' : _MetaInfoClass('Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi',
-            False, 
-            [
-            _MetaInfoClassMember('mi-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                Mapping Item ID (0, 1, 2, ...)
-                ''',
-                'mi_id',
-                'Cisco-IOS-XR-segment-routing-ms-oper', True),
-            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'SrmsMiActionEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiActionEBEnum', 
-                [], [], 
-                '''                action
-                ''',
-                'action',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('addr', REFERENCE_CLASS, 'Addr' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr', 
-                [], [], 
-                '''                addr
-                ''',
-                'addr',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('area', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                area
-                ''',
-                'area',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                flags
-                ''',
-                'flags',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('prefix-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                prefix xr
-                ''',
-                'prefix_xr',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('router', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                router
-                ''',
-                'router',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('sid-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                sid count
-                ''',
-                'sid_count',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('sid-start', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                sid start
-                ''',
-                'sid_start',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEBEnum', 
-                [], [], 
-                '''                src
-                ''',
-                'src',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            ],
-            'Cisco-IOS-XR-segment-routing-ms-oper',
-            'policy-mi',
-            _yang_ns._namespaces['Cisco-IOS-XR-segment-routing-ms-oper'],
-        'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper'
-        ),
-    },
-    'Srms.Policy.PolicyIpv4.PolicyIpv4Active' : {
-        'meta_info' : _MetaInfoClass('Srms.Policy.PolicyIpv4.PolicyIpv4Active',
-            False, 
-            [
-            _MetaInfoClassMember('policy-mi', REFERENCE_LIST, 'PolicyMi' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi', 
-                [], [], 
-                '''                Mapping Item
-                ''',
-                'policy_mi',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            ],
-            'Cisco-IOS-XR-segment-routing-ms-oper',
-            'policy-ipv4-active',
-            _yang_ns._namespaces['Cisco-IOS-XR-segment-routing-ms-oper'],
-        'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper'
-        ),
-    },
     'Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr' : {
         'meta_info' : _MetaInfoClass('Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr',
             False, 
@@ -464,35 +347,23 @@ _meta_table = {
                 ''',
                 'mi_id',
                 'Cisco-IOS-XR-segment-routing-ms-oper', True),
-            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'SrmsMiActionEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiActionEBEnum', 
-                [], [], 
-                '''                action
-                ''',
-                'action',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
             _MetaInfoClassMember('addr', REFERENCE_CLASS, 'Addr' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr', 
                 [], [], 
                 '''                addr
                 ''',
                 'addr',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('area', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                area
+            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEBEnum', 
+                [], [], 
+                '''                src
                 ''',
-                'area',
+                'src',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                flags
+            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'SrmsMiActionEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiActionEBEnum', 
+                [], [], 
+                '''                action
                 ''',
-                'flags',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('prefix-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                prefix xr
-                ''',
-                'prefix_xr',
+                'action',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
             _MetaInfoClassMember('router', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
@@ -500,11 +371,17 @@ _meta_table = {
                 ''',
                 'router',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('sid-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                sid count
+            _MetaInfoClassMember('area', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                area
                 ''',
-                'sid_count',
+                'area',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            _MetaInfoClassMember('prefix-xr', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                prefix xr
+                ''',
+                'prefix_xr',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
             _MetaInfoClassMember('sid-start', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -512,11 +389,17 @@ _meta_table = {
                 ''',
                 'sid_start',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEBEnum', 
-                [], [], 
-                '''                src
+            _MetaInfoClassMember('sid-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                sid count
                 ''',
-                'src',
+                'sid_count',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            _MetaInfoClassMember('flags', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                flags
+                ''',
+                'flags',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
             ],
             'Cisco-IOS-XR-segment-routing-ms-oper',
@@ -542,31 +425,8 @@ _meta_table = {
         'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper'
         ),
     },
-    'Srms.Policy.PolicyIpv4' : {
-        'meta_info' : _MetaInfoClass('Srms.Policy.PolicyIpv4',
-            False, 
-            [
-            _MetaInfoClassMember('policy-ipv4-active', REFERENCE_CLASS, 'PolicyIpv4Active' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'Srms.Policy.PolicyIpv4.PolicyIpv4Active', 
-                [], [], 
-                '''                IPv4 active policy operational data
-                ''',
-                'policy_ipv4_active',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('policy-ipv4-backup', REFERENCE_CLASS, 'PolicyIpv4Backup' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'Srms.Policy.PolicyIpv4.PolicyIpv4Backup', 
-                [], [], 
-                '''                IPv4 backup policy operational data
-                ''',
-                'policy_ipv4_backup',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            ],
-            'Cisco-IOS-XR-segment-routing-ms-oper',
-            'policy-ipv4',
-            _yang_ns._namespaces['Cisco-IOS-XR-segment-routing-ms-oper'],
-        'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper'
-        ),
-    },
-    'Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr' : {
-        'meta_info' : _MetaInfoClass('Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr',
+    'Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr' : {
+        'meta_info' : _MetaInfoClass('Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr',
             False, 
             [
             _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'SrmsMiAfEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiAfEBEnum', 
@@ -594,8 +454,8 @@ _meta_table = {
         'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper'
         ),
     },
-    'Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi' : {
-        'meta_info' : _MetaInfoClass('Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi',
+    'Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi' : {
+        'meta_info' : _MetaInfoClass('Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi',
             False, 
             [
             _MetaInfoClassMember('mi-id', ATTRIBUTE, 'str' , None, None, 
@@ -604,35 +464,23 @@ _meta_table = {
                 ''',
                 'mi_id',
                 'Cisco-IOS-XR-segment-routing-ms-oper', True),
-            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'SrmsMiActionEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiActionEBEnum', 
-                [], [], 
-                '''                action
-                ''',
-                'action',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('addr', REFERENCE_CLASS, 'Addr' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr', 
+            _MetaInfoClassMember('addr', REFERENCE_CLASS, 'Addr' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr', 
                 [], [], 
                 '''                addr
                 ''',
                 'addr',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('area', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                area
+            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEBEnum', 
+                [], [], 
+                '''                src
                 ''',
-                'area',
+                'src',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                flags
+            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'SrmsMiActionEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiActionEBEnum', 
+                [], [], 
+                '''                action
                 ''',
-                'flags',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('prefix-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                prefix xr
-                ''',
-                'prefix_xr',
+                'action',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
             _MetaInfoClassMember('router', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
@@ -640,11 +488,17 @@ _meta_table = {
                 ''',
                 'router',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('sid-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                sid count
+            _MetaInfoClassMember('area', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                area
                 ''',
-                'sid_count',
+                'area',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            _MetaInfoClassMember('prefix-xr', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                prefix xr
+                ''',
+                'prefix_xr',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
             _MetaInfoClassMember('sid-start', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -652,11 +506,17 @@ _meta_table = {
                 ''',
                 'sid_start',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEBEnum', 
-                [], [], 
-                '''                src
+            _MetaInfoClassMember('sid-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                sid count
                 ''',
-                'src',
+                'sid_count',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            _MetaInfoClassMember('flags', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                flags
+                ''',
+                'flags',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
             ],
             'Cisco-IOS-XR-segment-routing-ms-oper',
@@ -665,11 +525,11 @@ _meta_table = {
         'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper'
         ),
     },
-    'Srms.Policy.PolicyIpv6.PolicyIpv6Active' : {
-        'meta_info' : _MetaInfoClass('Srms.Policy.PolicyIpv6.PolicyIpv6Active',
+    'Srms.Policy.PolicyIpv4.PolicyIpv4Active' : {
+        'meta_info' : _MetaInfoClass('Srms.Policy.PolicyIpv4.PolicyIpv4Active',
             False, 
             [
-            _MetaInfoClassMember('policy-mi', REFERENCE_LIST, 'PolicyMi' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi', 
+            _MetaInfoClassMember('policy-mi', REFERENCE_LIST, 'PolicyMi' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi', 
                 [], [], 
                 '''                Mapping Item
                 ''',
@@ -677,7 +537,30 @@ _meta_table = {
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
             ],
             'Cisco-IOS-XR-segment-routing-ms-oper',
-            'policy-ipv6-active',
+            'policy-ipv4-active',
+            _yang_ns._namespaces['Cisco-IOS-XR-segment-routing-ms-oper'],
+        'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper'
+        ),
+    },
+    'Srms.Policy.PolicyIpv4' : {
+        'meta_info' : _MetaInfoClass('Srms.Policy.PolicyIpv4',
+            False, 
+            [
+            _MetaInfoClassMember('policy-ipv4-backup', REFERENCE_CLASS, 'PolicyIpv4Backup' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'Srms.Policy.PolicyIpv4.PolicyIpv4Backup', 
+                [], [], 
+                '''                IPv4 backup policy operational data
+                ''',
+                'policy_ipv4_backup',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            _MetaInfoClassMember('policy-ipv4-active', REFERENCE_CLASS, 'PolicyIpv4Active' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'Srms.Policy.PolicyIpv4.PolicyIpv4Active', 
+                [], [], 
+                '''                IPv4 active policy operational data
+                ''',
+                'policy_ipv4_active',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            ],
+            'Cisco-IOS-XR-segment-routing-ms-oper',
+            'policy-ipv4',
             _yang_ns._namespaces['Cisco-IOS-XR-segment-routing-ms-oper'],
         'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper'
         ),
@@ -721,35 +604,23 @@ _meta_table = {
                 ''',
                 'mi_id',
                 'Cisco-IOS-XR-segment-routing-ms-oper', True),
-            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'SrmsMiActionEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiActionEBEnum', 
-                [], [], 
-                '''                action
-                ''',
-                'action',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
             _MetaInfoClassMember('addr', REFERENCE_CLASS, 'Addr' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr', 
                 [], [], 
                 '''                addr
                 ''',
                 'addr',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('area', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                area
+            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEBEnum', 
+                [], [], 
+                '''                src
                 ''',
-                'area',
+                'src',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                flags
+            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'SrmsMiActionEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiActionEBEnum', 
+                [], [], 
+                '''                action
                 ''',
-                'flags',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('prefix-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                prefix xr
-                ''',
-                'prefix_xr',
+                'action',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
             _MetaInfoClassMember('router', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
@@ -757,11 +628,17 @@ _meta_table = {
                 ''',
                 'router',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('sid-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                sid count
+            _MetaInfoClassMember('area', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                area
                 ''',
-                'sid_count',
+                'area',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            _MetaInfoClassMember('prefix-xr', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                prefix xr
+                ''',
+                'prefix_xr',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
             _MetaInfoClassMember('sid-start', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -769,11 +646,17 @@ _meta_table = {
                 ''',
                 'sid_start',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
-            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEBEnum', 
-                [], [], 
-                '''                src
+            _MetaInfoClassMember('sid-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                sid count
                 ''',
-                'src',
+                'sid_count',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            _MetaInfoClassMember('flags', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                flags
+                ''',
+                'flags',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
             ],
             'Cisco-IOS-XR-segment-routing-ms-oper',
@@ -799,21 +682,138 @@ _meta_table = {
         'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper'
         ),
     },
+    'Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr' : {
+        'meta_info' : _MetaInfoClass('Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr',
+            False, 
+            [
+            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'SrmsMiAfEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiAfEBEnum', 
+                [], [], 
+                '''                AF
+                ''',
+                'af',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            _MetaInfoClassMember('ipv4', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv4
+                ''',
+                'ipv4',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            _MetaInfoClassMember('ipv6', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv6
+                ''',
+                'ipv6',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            ],
+            'Cisco-IOS-XR-segment-routing-ms-oper',
+            'addr',
+            _yang_ns._namespaces['Cisco-IOS-XR-segment-routing-ms-oper'],
+        'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper'
+        ),
+    },
+    'Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi' : {
+        'meta_info' : _MetaInfoClass('Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi',
+            False, 
+            [
+            _MetaInfoClassMember('mi-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Mapping Item ID (0, 1, 2, ...)
+                ''',
+                'mi_id',
+                'Cisco-IOS-XR-segment-routing-ms-oper', True),
+            _MetaInfoClassMember('addr', REFERENCE_CLASS, 'Addr' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr', 
+                [], [], 
+                '''                addr
+                ''',
+                'addr',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEBEnum', 
+                [], [], 
+                '''                src
+                ''',
+                'src',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'SrmsMiActionEBEnum' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiActionEBEnum', 
+                [], [], 
+                '''                action
+                ''',
+                'action',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            _MetaInfoClassMember('router', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                router
+                ''',
+                'router',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            _MetaInfoClassMember('area', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                area
+                ''',
+                'area',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            _MetaInfoClassMember('prefix-xr', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                prefix xr
+                ''',
+                'prefix_xr',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            _MetaInfoClassMember('sid-start', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                sid start
+                ''',
+                'sid_start',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            _MetaInfoClassMember('sid-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                sid count
+                ''',
+                'sid_count',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            _MetaInfoClassMember('flags', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                flags
+                ''',
+                'flags',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            ],
+            'Cisco-IOS-XR-segment-routing-ms-oper',
+            'policy-mi',
+            _yang_ns._namespaces['Cisco-IOS-XR-segment-routing-ms-oper'],
+        'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper'
+        ),
+    },
+    'Srms.Policy.PolicyIpv6.PolicyIpv6Active' : {
+        'meta_info' : _MetaInfoClass('Srms.Policy.PolicyIpv6.PolicyIpv6Active',
+            False, 
+            [
+            _MetaInfoClassMember('policy-mi', REFERENCE_LIST, 'PolicyMi' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi', 
+                [], [], 
+                '''                Mapping Item
+                ''',
+                'policy_mi',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            ],
+            'Cisco-IOS-XR-segment-routing-ms-oper',
+            'policy-ipv6-active',
+            _yang_ns._namespaces['Cisco-IOS-XR-segment-routing-ms-oper'],
+        'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper'
+        ),
+    },
     'Srms.Policy.PolicyIpv6' : {
         'meta_info' : _MetaInfoClass('Srms.Policy.PolicyIpv6',
             False, 
             [
-            _MetaInfoClassMember('policy-ipv6-active', REFERENCE_CLASS, 'PolicyIpv6Active' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'Srms.Policy.PolicyIpv6.PolicyIpv6Active', 
-                [], [], 
-                '''                IPv6 active policy operational data
-                ''',
-                'policy_ipv6_active',
-                'Cisco-IOS-XR-segment-routing-ms-oper', False),
             _MetaInfoClassMember('policy-ipv6-backup', REFERENCE_CLASS, 'PolicyIpv6Backup' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'Srms.Policy.PolicyIpv6.PolicyIpv6Backup', 
                 [], [], 
                 '''                IPv6 backup policy operational data
                 ''',
                 'policy_ipv6_backup',
+                'Cisco-IOS-XR-segment-routing-ms-oper', False),
+            _MetaInfoClassMember('policy-ipv6-active', REFERENCE_CLASS, 'PolicyIpv6Active' , 'ydk.models.segment.Cisco_IOS_XR_segment_routing_ms_oper', 'Srms.Policy.PolicyIpv6.PolicyIpv6Active', 
+                [], [], 
+                '''                IPv6 active policy operational data
+                ''',
+                'policy_ipv6_active',
                 'Cisco-IOS-XR-segment-routing-ms-oper', False),
             ],
             'Cisco-IOS-XR-segment-routing-ms-oper',
@@ -875,18 +875,18 @@ _meta_table['Srms.Mapping.MappingIpv6.MappingMi.Addr']['meta_info'].parent =_met
 _meta_table['Srms.Mapping.MappingIpv6.MappingMi']['meta_info'].parent =_meta_table['Srms.Mapping.MappingIpv6']['meta_info']
 _meta_table['Srms.Mapping.MappingIpv4']['meta_info'].parent =_meta_table['Srms.Mapping']['meta_info']
 _meta_table['Srms.Mapping.MappingIpv6']['meta_info'].parent =_meta_table['Srms.Mapping']['meta_info']
-_meta_table['Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr']['meta_info'].parent =_meta_table['Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi']['meta_info']
-_meta_table['Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi']['meta_info'].parent =_meta_table['Srms.Policy.PolicyIpv4.PolicyIpv4Active']['meta_info']
 _meta_table['Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr']['meta_info'].parent =_meta_table['Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi']['meta_info']
 _meta_table['Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi']['meta_info'].parent =_meta_table['Srms.Policy.PolicyIpv4.PolicyIpv4Backup']['meta_info']
-_meta_table['Srms.Policy.PolicyIpv4.PolicyIpv4Active']['meta_info'].parent =_meta_table['Srms.Policy.PolicyIpv4']['meta_info']
+_meta_table['Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr']['meta_info'].parent =_meta_table['Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi']['meta_info']
+_meta_table['Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi']['meta_info'].parent =_meta_table['Srms.Policy.PolicyIpv4.PolicyIpv4Active']['meta_info']
 _meta_table['Srms.Policy.PolicyIpv4.PolicyIpv4Backup']['meta_info'].parent =_meta_table['Srms.Policy.PolicyIpv4']['meta_info']
-_meta_table['Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr']['meta_info'].parent =_meta_table['Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi']['meta_info']
-_meta_table['Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi']['meta_info'].parent =_meta_table['Srms.Policy.PolicyIpv6.PolicyIpv6Active']['meta_info']
+_meta_table['Srms.Policy.PolicyIpv4.PolicyIpv4Active']['meta_info'].parent =_meta_table['Srms.Policy.PolicyIpv4']['meta_info']
 _meta_table['Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr']['meta_info'].parent =_meta_table['Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi']['meta_info']
 _meta_table['Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi']['meta_info'].parent =_meta_table['Srms.Policy.PolicyIpv6.PolicyIpv6Backup']['meta_info']
-_meta_table['Srms.Policy.PolicyIpv6.PolicyIpv6Active']['meta_info'].parent =_meta_table['Srms.Policy.PolicyIpv6']['meta_info']
+_meta_table['Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr']['meta_info'].parent =_meta_table['Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi']['meta_info']
+_meta_table['Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi']['meta_info'].parent =_meta_table['Srms.Policy.PolicyIpv6.PolicyIpv6Active']['meta_info']
 _meta_table['Srms.Policy.PolicyIpv6.PolicyIpv6Backup']['meta_info'].parent =_meta_table['Srms.Policy.PolicyIpv6']['meta_info']
+_meta_table['Srms.Policy.PolicyIpv6.PolicyIpv6Active']['meta_info'].parent =_meta_table['Srms.Policy.PolicyIpv6']['meta_info']
 _meta_table['Srms.Policy.PolicyIpv4']['meta_info'].parent =_meta_table['Srms.Policy']['meta_info']
 _meta_table['Srms.Policy.PolicyIpv6']['meta_info'].parent =_meta_table['Srms.Policy']['meta_info']
 _meta_table['Srms.Mapping']['meta_info'].parent =_meta_table['Srms']['meta_info']

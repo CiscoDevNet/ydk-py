@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -4530,35 +4530,35 @@ class Interfaces(object):
     """
     Interface operational data
     
-    .. attribute:: interface_briefs
-    
-    	Brief operational data for interfaces
-    	**type**\: :py:class:`InterfaceBriefs <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceBriefs>`
-    
-    .. attribute:: interface_summary
-    
-    	Interface summary information
-    	**type**\: :py:class:`InterfaceSummary <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceSummary>`
-    
     .. attribute:: interface_xr
     
     	Detailed operational data for interfaces and configured features
     	**type**\: :py:class:`InterfaceXr <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr>`
     
-    .. attribute:: interfaces
+    .. attribute:: node_type_sets
     
-    	Descriptions for interfaces
-    	**type**\: :py:class:`Interfaces <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.Interfaces>`
+    	Node and/or interface type specific view of interface summary data
+    	**type**\: :py:class:`NodeTypeSets <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.NodeTypeSets>`
+    
+    .. attribute:: interface_briefs
+    
+    	Brief operational data for interfaces
+    	**type**\: :py:class:`InterfaceBriefs <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceBriefs>`
     
     .. attribute:: inventory_summary
     
     	Inventory summary information
     	**type**\: :py:class:`InventorySummary <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InventorySummary>`
     
-    .. attribute:: node_type_sets
+    .. attribute:: interfaces
     
-    	Node and/or interface type specific view of interface summary data
-    	**type**\: :py:class:`NodeTypeSets <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.NodeTypeSets>`
+    	Descriptions for interfaces
+    	**type**\: :py:class:`Interfaces <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.Interfaces>`
+    
+    .. attribute:: interface_summary
+    
+    	Interface summary information
+    	**type**\: :py:class:`InterfaceSummary <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceSummary>`
     
     
 
@@ -4568,517 +4568,18 @@ class Interfaces(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.interface_briefs = Interfaces.InterfaceBriefs()
-        self.interface_briefs.parent = self
-        self.interface_summary = Interfaces.InterfaceSummary()
-        self.interface_summary.parent = self
         self.interface_xr = Interfaces.InterfaceXr()
         self.interface_xr.parent = self
-        self.interfaces = Interfaces.Interfaces()
-        self.interfaces.parent = self
-        self.inventory_summary = Interfaces.InventorySummary()
-        self.inventory_summary.parent = self
         self.node_type_sets = Interfaces.NodeTypeSets()
         self.node_type_sets.parent = self
-
-
-    class InterfaceBriefs(object):
-        """
-        Brief operational data for interfaces
-        
-        .. attribute:: interface_brief
-        
-        	Brief operational attributes for a particular interface
-        	**type**\: list of :py:class:`InterfaceBrief <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceBriefs.InterfaceBrief>`
-        
-        
-
-        """
-
-        _prefix = 'pfi-im-cmd-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.interface_brief = YList()
-            self.interface_brief.parent = self
-            self.interface_brief.name = 'interface_brief'
-
-
-        class InterfaceBrief(object):
-            """
-            Brief operational attributes for a particular
-            interface
-            
-            .. attribute:: interface_name
-            
-            	The name of the interface
-            	**type**\: str
-            
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-            
-            .. attribute:: actual_line_state
-            
-            	Line protocol state with no translation of error disable or shutdown
-            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnumEnum>`
-            
-            .. attribute:: actual_state
-            
-            	Operational state with no translation of error disable or shutdown
-            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnumEnum>`
-            
-            .. attribute:: bandwidth
-            
-            	Interface bandwidth (Kb/s)
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: encapsulation
-            
-            	Interface encapsulation
-            	**type**\: str
-            
-            .. attribute:: encapsulation_type_string
-            
-            	Interface encapsulation description string
-            	**type**\: str
-            
-            	**range:** 0..32
-            
-            .. attribute:: interface
-            
-            	Interface
-            	**type**\: str
-            
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-            
-            .. attribute:: l2_transport
-            
-            	L2 transport
-            	**type**\: bool
-            
-            .. attribute:: line_state
-            
-            	Line protocol state
-            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnumEnum>`
-            
-            .. attribute:: mtu
-            
-            	MTU in bytes
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: parent_interface
-            
-            	Parent Interface
-            	**type**\: str
-            
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-            
-            .. attribute:: state
-            
-            	Operational state
-            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnumEnum>`
-            
-            .. attribute:: sub_interface_mtu_overhead
-            
-            	Subif MTU overhead
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: type
-            
-            	Interface type
-            	**type**\: str
-            
-            
-
-            """
-
-            _prefix = 'pfi-im-cmd-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.interface_name = None
-                self.actual_line_state = None
-                self.actual_state = None
-                self.bandwidth = None
-                self.encapsulation = None
-                self.encapsulation_type_string = None
-                self.interface = None
-                self.l2_transport = None
-                self.line_state = None
-                self.mtu = None
-                self.parent_interface = None
-                self.state = None
-                self.sub_interface_mtu_overhead = None
-                self.type = None
-
-            @property
-            def _common_path(self):
-                if self.interface_name is None:
-                    raise YPYDataValidationError('Key property interface_name is None')
-
-                return '/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/Cisco-IOS-XR-pfi-im-cmd-oper:interface-briefs/Cisco-IOS-XR-pfi-im-cmd-oper:interface-brief[Cisco-IOS-XR-pfi-im-cmd-oper:interface-name = ' + str(self.interface_name) + ']'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.interface_name is not None:
-                    return True
-
-                if self.actual_line_state is not None:
-                    return True
-
-                if self.actual_state is not None:
-                    return True
-
-                if self.bandwidth is not None:
-                    return True
-
-                if self.encapsulation is not None:
-                    return True
-
-                if self.encapsulation_type_string is not None:
-                    return True
-
-                if self.interface is not None:
-                    return True
-
-                if self.l2_transport is not None:
-                    return True
-
-                if self.line_state is not None:
-                    return True
-
-                if self.mtu is not None:
-                    return True
-
-                if self.parent_interface is not None:
-                    return True
-
-                if self.state is not None:
-                    return True
-
-                if self.sub_interface_mtu_overhead is not None:
-                    return True
-
-                if self.type is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                return meta._meta_table['Interfaces.InterfaceBriefs.InterfaceBrief']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/Cisco-IOS-XR-pfi-im-cmd-oper:interface-briefs'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.interface_brief is not None:
-                for child_ref in self.interface_brief:
-                    if child_ref._has_data():
-                        return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-            return meta._meta_table['Interfaces.InterfaceBriefs']['meta_info']
-
-
-    class InterfaceSummary(object):
-        """
-        Interface summary information
-        
-        .. attribute:: interface_counts
-        
-        	Counts for all interfaces
-        	**type**\: :py:class:`InterfaceCounts <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceSummary.InterfaceCounts>`
-        
-        .. attribute:: interface_type
-        
-        	List of per interface type summary information
-        	**type**\: list of :py:class:`InterfaceType <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceSummary.InterfaceType>`
-        
-        
-
-        """
-
-        _prefix = 'pfi-im-cmd-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.interface_counts = Interfaces.InterfaceSummary.InterfaceCounts()
-            self.interface_counts.parent = self
-            self.interface_type = YList()
-            self.interface_type.parent = self
-            self.interface_type.name = 'interface_type'
-
-
-        class InterfaceCounts(object):
-            """
-            Counts for all interfaces
-            
-            .. attribute:: admin_down_interface_count
-            
-            	Number of interfaces in an ADMINDOWN state
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: down_interface_count
-            
-            	Number of interfaces in DOWN state
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: interface_count
-            
-            	Number of interfaces
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: up_interface_count
-            
-            	Number of interfaces in UP state
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            
-
-            """
-
-            _prefix = 'pfi-im-cmd-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.admin_down_interface_count = None
-                self.down_interface_count = None
-                self.interface_count = None
-                self.up_interface_count = None
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/Cisco-IOS-XR-pfi-im-cmd-oper:interface-summary/Cisco-IOS-XR-pfi-im-cmd-oper:interface-counts'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.admin_down_interface_count is not None:
-                    return True
-
-                if self.down_interface_count is not None:
-                    return True
-
-                if self.interface_count is not None:
-                    return True
-
-                if self.up_interface_count is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                return meta._meta_table['Interfaces.InterfaceSummary.InterfaceCounts']['meta_info']
-
-
-        class InterfaceType(object):
-            """
-            List of per interface type summary information
-            
-            .. attribute:: interface_counts
-            
-            	Counts for interfaces of this type
-            	**type**\: :py:class:`InterfaceCounts <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts>`
-            
-            .. attribute:: interface_type_description
-            
-            	Description of the interface type
-            	**type**\: str
-            
-            .. attribute:: interface_type_name
-            
-            	Name of the interface type
-            	**type**\: str
-            
-            
-
-            """
-
-            _prefix = 'pfi-im-cmd-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.interface_counts = Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts()
-                self.interface_counts.parent = self
-                self.interface_type_description = None
-                self.interface_type_name = None
-
-
-            class InterfaceCounts(object):
-                """
-                Counts for interfaces of this type
-                
-                .. attribute:: admin_down_interface_count
-                
-                	Number of interfaces in an ADMINDOWN state
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: down_interface_count
-                
-                	Number of interfaces in DOWN state
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: interface_count
-                
-                	Number of interfaces
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: up_interface_count
-                
-                	Number of interfaces in UP state
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'pfi-im-cmd-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.admin_down_interface_count = None
-                    self.down_interface_count = None
-                    self.interface_count = None
-                    self.up_interface_count = None
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/Cisco-IOS-XR-pfi-im-cmd-oper:interface-summary/Cisco-IOS-XR-pfi-im-cmd-oper:interface-type/Cisco-IOS-XR-pfi-im-cmd-oper:interface-counts'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.admin_down_interface_count is not None:
-                        return True
-
-                    if self.down_interface_count is not None:
-                        return True
-
-                    if self.interface_count is not None:
-                        return True
-
-                    if self.up_interface_count is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                    return meta._meta_table['Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/Cisco-IOS-XR-pfi-im-cmd-oper:interface-summary/Cisco-IOS-XR-pfi-im-cmd-oper:interface-type'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.interface_counts is not None and self.interface_counts._has_data():
-                    return True
-
-                if self.interface_type_description is not None:
-                    return True
-
-                if self.interface_type_name is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                return meta._meta_table['Interfaces.InterfaceSummary.InterfaceType']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/Cisco-IOS-XR-pfi-im-cmd-oper:interface-summary'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.interface_counts is not None and self.interface_counts._has_data():
-                return True
-
-            if self.interface_type is not None:
-                for child_ref in self.interface_type:
-                    if child_ref._has_data():
-                        return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-            return meta._meta_table['Interfaces.InterfaceSummary']['meta_info']
+        self.interface_briefs = Interfaces.InterfaceBriefs()
+        self.interface_briefs.parent = self
+        self.inventory_summary = Interfaces.InventorySummary()
+        self.inventory_summary.parent = self
+        self.interfaces = Interfaces.Interfaces()
+        self.interfaces.parent = self
+        self.interface_summary = Interfaces.InterfaceSummary()
+        self.interface_summary.parent = self
 
 
     class InterfaceXr(object):
@@ -5110,24 +4611,22 @@ class Interfaces(object):
             Detailed operational data for a particular
             interface
             
-            .. attribute:: interface_name
+            .. attribute:: interface_name  <key>
             
             	The name of the interface
             	**type**\: str
             
             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
-            .. attribute:: arp_information
+            .. attribute:: dampening_information
             
-            	Interface ARP type and timeout
-            	**type**\: :py:class:`ArpInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.ArpInformation>`
+            	State dampening information
+            	**type**\: :py:class:`DampeningInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.DampeningInformation>`
             
-            .. attribute:: bandwidth
+            .. attribute:: mac_address
             
-            	Interface bandwidth (Kb/s)
-            	**type**\: int
-            
-            	**range:** 0..4294967295
+            	Interface MAC address
+            	**type**\: :py:class:`MacAddress <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.MacAddress>`
             
             .. attribute:: burned_in_address
             
@@ -5139,61 +4638,45 @@ class Interfaces(object):
             	Carrier Delay
             	**type**\: :py:class:`CarrierDelay <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.CarrierDelay>`
             
-            .. attribute:: crc_length
+            .. attribute:: arp_information
             
-            	Cyclic Redundancy Check length
-            	**type**\: int
+            	Interface ARP type and timeout
+            	**type**\: :py:class:`ArpInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.ArpInformation>`
             
-            	**range:** 0..4294967295
+            .. attribute:: ip_information
             
-            .. attribute:: dampening_information
-            
-            	State dampening information
-            	**type**\: :py:class:`DampeningInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.DampeningInformation>`
-            
-            .. attribute:: data_rates
-            
-            	Packet and byte rates
-            	**type**\: :py:class:`DataRates <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.DataRates>`
-            
-            .. attribute:: description
-            
-            	Interface description string
-            	**type**\: str
-            
-            .. attribute:: duplexity
-            
-            	Interface duplexity
-            	**type**\: :py:class:`ImAttrDuplexEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrDuplexEnum>`
-            
-            .. attribute:: encapsulation
-            
-            	Interface encapsulation
-            	**type**\: str
+            	Interface IP address info
+            	**type**\: :py:class:`IpInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.IpInformation>`
             
             .. attribute:: encapsulation_information
             
             	Information specific to the encapsulation
             	**type**\: :py:class:`EncapsulationInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation>`
             
-            .. attribute:: encapsulation_type_string
+            .. attribute:: interface_type_information
             
-            	Interface encapsulation description string
-            	**type**\: str
+            	Information specific to the interface type
+            	**type**\: :py:class:`InterfaceTypeInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation>`
             
-            	**range:** 0..32
+            .. attribute:: data_rates
             
-            .. attribute:: hardware_type_string
+            	Packet and byte rates
+            	**type**\: :py:class:`DataRates <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.DataRates>`
             
-            	Hardware type description string
-            	**type**\: str
+            .. attribute:: interface_statistics
             
-            	**range:** 0..64
+            	Packet, byte and error counters
+            	**type**\: :py:class:`InterfaceStatistics <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceStatistics>`
             
-            .. attribute:: in_flow_control
+            .. attribute:: l2_interface_statistics
             
-            	Input flow control configuration
-            	**type**\: :py:class:`ImAttrFlowControlEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrFlowControlEnum>`
+            	L2 Protocol Statistics
+            	**type**\: :py:class:`L2InterfaceStatistics <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.L2InterfaceStatistics>`
+            
+            .. attribute:: nv_optical
+            
+            	nV Optical Controller Information
+            	**type**\: :py:class:`NvOptical <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.NvOptical>`
             
             .. attribute:: interface_handle
             
@@ -5202,106 +4685,39 @@ class Interfaces(object):
             
             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
-            .. attribute:: interface_statistics
-            
-            	Packet, byte and error counters
-            	**type**\: :py:class:`InterfaceStatistics <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceStatistics>`
-            
             .. attribute:: interface_type
             
             	Interface type
             	**type**\: str
             
-            .. attribute:: interface_type_information
+            .. attribute:: hardware_type_string
             
-            	Information specific to the interface type
-            	**type**\: :py:class:`InterfaceTypeInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation>`
+            	Hardware type description string
+            	**type**\: str
             
-            .. attribute:: ip_information
+            	**range:** 0..64
             
-            	Interface IP address info
-            	**type**\: :py:class:`IpInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.IpInformation>`
+            .. attribute:: state
             
-            .. attribute:: is_dampening_enabled
-            
-            	Dampening enabled flag
-            	**type**\: bool
-            
-            .. attribute:: is_data_inverted
-            
-            	Data invert flag
-            	**type**\: bool
-            
-            .. attribute:: is_l2_looped
-            
-            	Loopback detected by layer 2
-            	**type**\: bool
-            
-            .. attribute:: is_l2_transport_enabled
-            
-            	L2 transport flag
-            	**type**\: bool
-            
-            .. attribute:: is_maintenance_enabled
-            
-            	Maintenance embargo flag
-            	**type**\: bool
-            
-            .. attribute:: is_scramble_enabled
-            
-            	Interface scramble config
-            	**type**\: bool
-            
-            .. attribute:: keepalive
-            
-            	Interface keepalive time (s)
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: l2_interface_statistics
-            
-            	L2 Protocol Statistics
-            	**type**\: :py:class:`L2InterfaceStatistics <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.L2InterfaceStatistics>`
-            
-            .. attribute:: last_state_transition_time
-            
-            	The time elasped after the last state transition
-            	**type**\: int
-            
-            	**range:** 0..4294967295
+            	Interface state
+            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnumEnum>`
             
             .. attribute:: line_state
             
             	Line protocol state
             	**type**\: :py:class:`ImStateEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnumEnum>`
             
-            .. attribute:: link_type
+            .. attribute:: encapsulation
             
-            	Interface link type
-            	**type**\: :py:class:`ImAttrLinkEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrLinkEnum>`
+            	Interface encapsulation
+            	**type**\: str
             
-            .. attribute:: loopback_configuration
+            .. attribute:: encapsulation_type_string
             
-            	Interface loopback configuration
-            	**type**\: :py:class:`ImCmdLoopbackEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdLoopbackEnumEnum>`
+            	Interface encapsulation description string
+            	**type**\: str
             
-            .. attribute:: mac_address
-            
-            	Interface MAC address
-            	**type**\: :py:class:`MacAddress <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.MacAddress>`
-            
-            .. attribute:: max_bandwidth
-            
-            	Maximum Interface bandwidth (Kb/s)
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: media_type
-            
-            	Interface media type
-            	**type**\: :py:class:`ImAttrMediaEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrMediaEnum>`
+            	**range:** 0..32
             
             .. attribute:: mtu
             
@@ -5310,22 +4726,29 @@ class Interfaces(object):
             
             	**range:** 0..4294967295
             
-            .. attribute:: nv_optical
+            .. attribute:: is_l2_transport_enabled
             
-            	nV Optical Controller Information
-            	**type**\: :py:class:`NvOptical <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.NvOptical>`
+            	L2 transport flag
+            	**type**\: bool
             
-            .. attribute:: out_flow_control
+            .. attribute:: state_transition_count
             
-            	Output flow control configuration
-            	**type**\: :py:class:`ImAttrFlowControlEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrFlowControlEnum>`
+            	The number of times the state has changed
+            	**type**\: int
             
-            .. attribute:: parent_interface_name
+            	**range:** 0..4294967295
             
-            	Parent interface
-            	**type**\: str
+            .. attribute:: last_state_transition_time
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	The time elasped after the last state transition
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: is_dampening_enabled
+            
+            	Dampening enabled flag
+            	**type**\: bool
             
             .. attribute:: speed
             
@@ -5334,17 +4757,95 @@ class Interfaces(object):
             
             	**range:** 0..4294967295
             
-            .. attribute:: state
+            .. attribute:: crc_length
             
-            	Interface state
-            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnumEnum>`
-            
-            .. attribute:: state_transition_count
-            
-            	The number of times the state has changed
+            	Cyclic Redundancy Check length
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            .. attribute:: is_scramble_enabled
+            
+            	Interface scramble config
+            	**type**\: bool
+            
+            .. attribute:: duplexity
+            
+            	Interface duplexity
+            	**type**\: :py:class:`ImAttrDuplexEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrDuplexEnum>`
+            
+            .. attribute:: media_type
+            
+            	Interface media type
+            	**type**\: :py:class:`ImAttrMediaEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrMediaEnum>`
+            
+            .. attribute:: link_type
+            
+            	Interface link type
+            	**type**\: :py:class:`ImAttrLinkEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrLinkEnum>`
+            
+            .. attribute:: in_flow_control
+            
+            	Input flow control configuration
+            	**type**\: :py:class:`ImAttrFlowControlEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrFlowControlEnum>`
+            
+            .. attribute:: out_flow_control
+            
+            	Output flow control configuration
+            	**type**\: :py:class:`ImAttrFlowControlEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrFlowControlEnum>`
+            
+            .. attribute:: bandwidth
+            
+            	Interface bandwidth (Kb/s)
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: max_bandwidth
+            
+            	Maximum Interface bandwidth (Kb/s)
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: keepalive
+            
+            	Interface keepalive time (s)
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: is_l2_looped
+            
+            	Loopback detected by layer 2
+            	**type**\: bool
+            
+            .. attribute:: parent_interface_name
+            
+            	Parent interface
+            	**type**\: str
+            
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            
+            .. attribute:: loopback_configuration
+            
+            	Interface loopback configuration
+            	**type**\: :py:class:`ImCmdLoopbackEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdLoopbackEnumEnum>`
+            
+            .. attribute:: description
+            
+            	Interface description string
+            	**type**\: str
+            
+            .. attribute:: is_maintenance_enabled
+            
+            	Maintenance embargo flag
+            	**type**\: bool
+            
+            .. attribute:: is_data_inverted
+            
+            	Data invert flag
+            	**type**\: bool
             
             .. attribute:: transport_mode
             
@@ -5361,82 +4862,119 @@ class Interfaces(object):
             def __init__(self):
                 self.parent = None
                 self.interface_name = None
-                self.arp_information = Interfaces.InterfaceXr.Interface.ArpInformation()
-                self.arp_information.parent = self
-                self.bandwidth = None
+                self.dampening_information = Interfaces.InterfaceXr.Interface.DampeningInformation()
+                self.dampening_information.parent = self
+                self.mac_address = Interfaces.InterfaceXr.Interface.MacAddress()
+                self.mac_address.parent = self
                 self.burned_in_address = Interfaces.InterfaceXr.Interface.BurnedInAddress()
                 self.burned_in_address.parent = self
                 self.carrier_delay = Interfaces.InterfaceXr.Interface.CarrierDelay()
                 self.carrier_delay.parent = self
-                self.crc_length = None
-                self.dampening_information = Interfaces.InterfaceXr.Interface.DampeningInformation()
-                self.dampening_information.parent = self
-                self.data_rates = Interfaces.InterfaceXr.Interface.DataRates()
-                self.data_rates.parent = self
-                self.description = None
-                self.duplexity = None
-                self.encapsulation = None
-                self.encapsulation_information = Interfaces.InterfaceXr.Interface.EncapsulationInformation()
-                self.encapsulation_information.parent = self
-                self.encapsulation_type_string = None
-                self.hardware_type_string = None
-                self.in_flow_control = None
-                self.interface_handle = None
-                self.interface_statistics = Interfaces.InterfaceXr.Interface.InterfaceStatistics()
-                self.interface_statistics.parent = self
-                self.interface_type = None
-                self.interface_type_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation()
-                self.interface_type_information.parent = self
+                self.arp_information = Interfaces.InterfaceXr.Interface.ArpInformation()
+                self.arp_information.parent = self
                 self.ip_information = Interfaces.InterfaceXr.Interface.IpInformation()
                 self.ip_information.parent = self
-                self.is_dampening_enabled = None
-                self.is_data_inverted = None
-                self.is_l2_looped = None
-                self.is_l2_transport_enabled = None
-                self.is_maintenance_enabled = None
-                self.is_scramble_enabled = None
-                self.keepalive = None
+                self.encapsulation_information = Interfaces.InterfaceXr.Interface.EncapsulationInformation()
+                self.encapsulation_information.parent = self
+                self.interface_type_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation()
+                self.interface_type_information.parent = self
+                self.data_rates = Interfaces.InterfaceXr.Interface.DataRates()
+                self.data_rates.parent = self
+                self.interface_statistics = Interfaces.InterfaceXr.Interface.InterfaceStatistics()
+                self.interface_statistics.parent = self
                 self.l2_interface_statistics = Interfaces.InterfaceXr.Interface.L2InterfaceStatistics()
                 self.l2_interface_statistics.parent = self
-                self.last_state_transition_time = None
-                self.line_state = None
-                self.link_type = None
-                self.loopback_configuration = None
-                self.mac_address = Interfaces.InterfaceXr.Interface.MacAddress()
-                self.mac_address.parent = self
-                self.max_bandwidth = None
-                self.media_type = None
-                self.mtu = None
                 self.nv_optical = Interfaces.InterfaceXr.Interface.NvOptical()
                 self.nv_optical.parent = self
-                self.out_flow_control = None
-                self.parent_interface_name = None
-                self.speed = None
+                self.interface_handle = None
+                self.interface_type = None
+                self.hardware_type_string = None
                 self.state = None
+                self.line_state = None
+                self.encapsulation = None
+                self.encapsulation_type_string = None
+                self.mtu = None
+                self.is_l2_transport_enabled = None
                 self.state_transition_count = None
+                self.last_state_transition_time = None
+                self.is_dampening_enabled = None
+                self.speed = None
+                self.crc_length = None
+                self.is_scramble_enabled = None
+                self.duplexity = None
+                self.media_type = None
+                self.link_type = None
+                self.in_flow_control = None
+                self.out_flow_control = None
+                self.bandwidth = None
+                self.max_bandwidth = None
+                self.keepalive = None
+                self.is_l2_looped = None
+                self.parent_interface_name = None
+                self.loopback_configuration = None
+                self.description = None
+                self.is_maintenance_enabled = None
+                self.is_data_inverted = None
                 self.transport_mode = None
 
 
-            class ArpInformation(object):
+            class DampeningInformation(object):
                 """
-                Interface ARP type and timeout
+                State dampening information
                 
-                .. attribute:: arp_is_learning_disabled
+                .. attribute:: penalty
                 
-                	Whether the interface has dynamic learning disabled
-                	**type**\: bool
-                
-                .. attribute:: arp_timeout
-                
-                	ARP timeout in seconds. Only valid if 'ARPIsLearningDisabled' is 'false'
+                	Dampening penalty of the interface
                 	**type**\: int
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: arp_type_name
+                .. attribute:: is_suppressed_enabled
                 
-                	ARP type name
-                	**type**\: str
+                	Flag showing if state is suppressed
+                	**type**\: bool
+                
+                .. attribute:: seconds_remaining
+                
+                	Remaining period of suppression in secs
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: half_life
+                
+                	Configured decay half life in mins
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: reuse_threshold
+                
+                	Configured reuse threshold
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: suppress_threshold
+                
+                	Value of suppress threshold
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: maximum_suppress_time
+                
+                	Maximum suppress time in mins
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: restart_penalty
+                
+                	Configured restart penalty
+                	**type**\: int
+                
+                	**range:** 0..4294967295
                 
                 
 
@@ -5447,16 +4985,21 @@ class Interfaces(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.arp_is_learning_disabled = None
-                    self.arp_timeout = None
-                    self.arp_type_name = None
+                    self.penalty = None
+                    self.is_suppressed_enabled = None
+                    self.seconds_remaining = None
+                    self.half_life = None
+                    self.reuse_threshold = None
+                    self.suppress_threshold = None
+                    self.maximum_suppress_time = None
+                    self.restart_penalty = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
                         raise YPYDataValidationError('parent is not set . Cannot derive path.')
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:arp-information'
+                    return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:dampening-information'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -5465,13 +5008,28 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.arp_is_learning_disabled is not None:
+                    if self.penalty is not None:
                         return True
 
-                    if self.arp_timeout is not None:
+                    if self.is_suppressed_enabled is not None:
                         return True
 
-                    if self.arp_type_name is not None:
+                    if self.seconds_remaining is not None:
+                        return True
+
+                    if self.half_life is not None:
+                        return True
+
+                    if self.reuse_threshold is not None:
+                        return True
+
+                    if self.suppress_threshold is not None:
+                        return True
+
+                    if self.maximum_suppress_time is not None:
+                        return True
+
+                    if self.restart_penalty is not None:
                         return True
 
                     return False
@@ -5479,7 +5037,54 @@ class Interfaces(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                    return meta._meta_table['Interfaces.InterfaceXr.Interface.ArpInformation']['meta_info']
+                    return meta._meta_table['Interfaces.InterfaceXr.Interface.DampeningInformation']['meta_info']
+
+
+            class MacAddress(object):
+                """
+                Interface MAC address
+                
+                .. attribute:: address
+                
+                	MAC Address
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
+                
+
+                """
+
+                _prefix = 'pfi-im-cmd-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.address = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:mac-address'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.address is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                    return meta._meta_table['Interfaces.InterfaceXr.Interface.MacAddress']['meta_info']
 
 
             class BurnedInAddress(object):
@@ -5533,16 +5138,16 @@ class Interfaces(object):
                 """
                 Carrier Delay
                 
-                .. attribute:: carrier_delay_down
+                .. attribute:: carrier_delay_up
                 
-                	Carrier delay on state down (ms)
+                	Carrier delay on state up (ms)
                 	**type**\: int
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: carrier_delay_up
+                .. attribute:: carrier_delay_down
                 
-                	Carrier delay on state up (ms)
+                	Carrier delay on state down (ms)
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -5556,8 +5161,8 @@ class Interfaces(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.carrier_delay_down = None
                     self.carrier_delay_up = None
+                    self.carrier_delay_down = None
 
                 @property
                 def _common_path(self):
@@ -5573,10 +5178,10 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.carrier_delay_down is not None:
+                    if self.carrier_delay_up is not None:
                         return True
 
-                    if self.carrier_delay_up is not None:
+                    if self.carrier_delay_down is not None:
                         return True
 
                     return False
@@ -5587,60 +5192,85 @@ class Interfaces(object):
                     return meta._meta_table['Interfaces.InterfaceXr.Interface.CarrierDelay']['meta_info']
 
 
-            class DampeningInformation(object):
+            class ArpInformation(object):
                 """
-                State dampening information
+                Interface ARP type and timeout
                 
-                .. attribute:: half_life
+                .. attribute:: arp_timeout
                 
-                	Configured decay half life in mins
+                	ARP timeout in seconds. Only valid if 'ARPIsLearningDisabled' is 'false'
                 	**type**\: int
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: is_suppressed_enabled
+                .. attribute:: arp_type_name
                 
-                	Flag showing if state is suppressed
+                	ARP type name
+                	**type**\: str
+                
+                .. attribute:: arp_is_learning_disabled
+                
+                	Whether the interface has dynamic learning disabled
                 	**type**\: bool
                 
-                .. attribute:: maximum_suppress_time
                 
-                	Maximum suppress time in mins
-                	**type**\: int
+
+                """
+
+                _prefix = 'pfi-im-cmd-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.arp_timeout = None
+                    self.arp_type_name = None
+                    self.arp_is_learning_disabled = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:arp-information'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.arp_timeout is not None:
+                        return True
+
+                    if self.arp_type_name is not None:
+                        return True
+
+                    if self.arp_is_learning_disabled is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                    return meta._meta_table['Interfaces.InterfaceXr.Interface.ArpInformation']['meta_info']
+
+
+            class IpInformation(object):
+                """
+                Interface IP address info
                 
-                	**range:** 0..4294967295
+                .. attribute:: ip_address
                 
-                .. attribute:: penalty
+                	Interface IPv4 address
+                	**type**\: str
                 
-                	Dampening penalty of the interface
-                	**type**\: int
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                	**range:** 0..4294967295
+                .. attribute:: subnet_mask_length
                 
-                .. attribute:: restart_penalty
-                
-                	Configured restart penalty
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: reuse_threshold
-                
-                	Configured reuse threshold
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: seconds_remaining
-                
-                	Remaining period of suppression in secs
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: suppress_threshold
-                
-                	Value of suppress threshold
+                	Interface subnet mask length
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -5654,21 +5284,15 @@ class Interfaces(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.half_life = None
-                    self.is_suppressed_enabled = None
-                    self.maximum_suppress_time = None
-                    self.penalty = None
-                    self.restart_penalty = None
-                    self.reuse_threshold = None
-                    self.seconds_remaining = None
-                    self.suppress_threshold = None
+                    self.ip_address = None
+                    self.subnet_mask_length = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
                         raise YPYDataValidationError('parent is not set . Cannot derive path.')
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:dampening-information'
+                    return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:ip-information'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -5677,28 +5301,10 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.half_life is not None:
+                    if self.ip_address is not None:
                         return True
 
-                    if self.is_suppressed_enabled is not None:
-                        return True
-
-                    if self.maximum_suppress_time is not None:
-                        return True
-
-                    if self.penalty is not None:
-                        return True
-
-                    if self.restart_penalty is not None:
-                        return True
-
-                    if self.reuse_threshold is not None:
-                        return True
-
-                    if self.seconds_remaining is not None:
-                        return True
-
-                    if self.suppress_threshold is not None:
+                    if self.subnet_mask_length is not None:
                         return True
 
                     return False
@@ -5706,211 +5312,32 @@ class Interfaces(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                    return meta._meta_table['Interfaces.InterfaceXr.Interface.DampeningInformation']['meta_info']
-
-
-            class DataRates(object):
-                """
-                Packet and byte rates
-                
-                .. attribute:: bandwidth
-                
-                	Bandwidth (in kbps)
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: input_data_rate
-                
-                	Input data rate in 1000's of bps
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: input_load
-                
-                	Input load as fraction of 255
-                	**type**\: int
-                
-                	**range:** 0..255
-                
-                .. attribute:: input_packet_rate
-                
-                	Input packets per second
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: load_interval
-                
-                	Number of 30\-sec intervals less one
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: output_data_rate
-                
-                	Output data rate in 1000's of bps
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: output_load
-                
-                	Output load as fraction of 255
-                	**type**\: int
-                
-                	**range:** 0..255
-                
-                .. attribute:: output_packet_rate
-                
-                	Output packets per second
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: peak_input_data_rate
-                
-                	Peak input data rate
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: peak_input_packet_rate
-                
-                	Peak input packet rate
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: peak_output_data_rate
-                
-                	Peak output data rate
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: peak_output_packet_rate
-                
-                	Peak output packet rate
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: reliability
-                
-                	Reliability coefficient
-                	**type**\: int
-                
-                	**range:** 0..255
-                
-                
-
-                """
-
-                _prefix = 'pfi-im-cmd-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.bandwidth = None
-                    self.input_data_rate = None
-                    self.input_load = None
-                    self.input_packet_rate = None
-                    self.load_interval = None
-                    self.output_data_rate = None
-                    self.output_load = None
-                    self.output_packet_rate = None
-                    self.peak_input_data_rate = None
-                    self.peak_input_packet_rate = None
-                    self.peak_output_data_rate = None
-                    self.peak_output_packet_rate = None
-                    self.reliability = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:data-rates'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.bandwidth is not None:
-                        return True
-
-                    if self.input_data_rate is not None:
-                        return True
-
-                    if self.input_load is not None:
-                        return True
-
-                    if self.input_packet_rate is not None:
-                        return True
-
-                    if self.load_interval is not None:
-                        return True
-
-                    if self.output_data_rate is not None:
-                        return True
-
-                    if self.output_load is not None:
-                        return True
-
-                    if self.output_packet_rate is not None:
-                        return True
-
-                    if self.peak_input_data_rate is not None:
-                        return True
-
-                    if self.peak_input_packet_rate is not None:
-                        return True
-
-                    if self.peak_output_data_rate is not None:
-                        return True
-
-                    if self.peak_output_packet_rate is not None:
-                        return True
-
-                    if self.reliability is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                    return meta._meta_table['Interfaces.InterfaceXr.Interface.DataRates']['meta_info']
+                    return meta._meta_table['Interfaces.InterfaceXr.Interface.IpInformation']['meta_info']
 
 
             class EncapsulationInformation(object):
                 """
                 Information specific to the encapsulation
                 
-                .. attribute:: dot1q_information
-                
-                	VLAN 802.1q information
-                	**type**\: :py:class:`Dot1QInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation>`
-                
-                .. attribute:: encapsulation_type
-                
-                	EncapsulationType
-                	**type**\: :py:class:`ImCmdEncapsEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdEncapsEnumEnum>`
-                
                 .. attribute:: frame_relay_information
                 
                 	Frame Relay information
                 	**type**\: :py:class:`FrameRelayInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation>`
                 
+                .. attribute:: dot1q_information
+                
+                	VLAN 802.1q information
+                	**type**\: :py:class:`Dot1QInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation>`
+                
                 .. attribute:: ppp_information
                 
                 	PPP information
                 	**type**\: :py:class:`PppInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation>`
+                
+                .. attribute:: encapsulation_type
+                
+                	EncapsulationType
+                	**type**\: :py:class:`ImCmdEncapsEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdEncapsEnumEnum>`
                 
                 
 
@@ -5921,13 +5348,189 @@ class Interfaces(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.dot1q_information = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation()
-                    self.dot1q_information.parent = self
-                    self.encapsulation_type = None
                     self.frame_relay_information = Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation()
                     self.frame_relay_information.parent = self
+                    self.dot1q_information = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation()
+                    self.dot1q_information.parent = self
                     self.ppp_information = Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation()
                     self.ppp_information.parent = self
+                    self.encapsulation_type = None
+
+
+                class FrameRelayInformation(object):
+                    """
+                    Frame Relay information
+                    
+                    .. attribute:: fr_encapsulation_type
+                    
+                    	Frame Relay encapsulation type
+                    	**type**\: :py:class:`ImCmdFrTypeEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdFrTypeEnumEnum>`
+                    
+                    .. attribute:: lmi_type
+                    
+                    	The LMI type\: Autosense, ANSI, CCITT or CISCO
+                    	**type**\: :py:class:`ImCmdLmiTypeEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdLmiTypeEnumEnum>`
+                    
+                    .. attribute:: lmidlci
+                    
+                    	LMI DLCI
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: is_nni
+                    
+                    	The NNI LMI interface type
+                    	**type**\: bool
+                    
+                    .. attribute:: is_dte
+                    
+                    	The DTE/DCE LMI interface type
+                    	**type**\: bool
+                    
+                    .. attribute:: is_lmi_up
+                    
+                    	Flag indicating whether the LMI  DTE/DCE/NNI\-DTE state is UP
+                    	**type**\: bool
+                    
+                    .. attribute:: is_lmi_nni_dce_up
+                    
+                    	Flag indicating whether the LMI  NNI\-DCE state is UP
+                    	**type**\: bool
+                    
+                    .. attribute:: is_lmi_enabled
+                    
+                    	The status of FR LMI for an interface
+                    	**type**\: bool
+                    
+                    .. attribute:: enquiries_received
+                    
+                    	Number of enquiry messages received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: enquiries_sent
+                    
+                    	Number of enquiry messages sent
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: status_received
+                    
+                    	Number of status messages received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: status_sent
+                    
+                    	Number of status messages sent
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: update_status_received
+                    
+                    	Number of update status messages received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: update_status_sent
+                    
+                    	Number of update status messages sent
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'pfi-im-cmd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.fr_encapsulation_type = None
+                        self.lmi_type = None
+                        self.lmidlci = None
+                        self.is_nni = None
+                        self.is_dte = None
+                        self.is_lmi_up = None
+                        self.is_lmi_nni_dce_up = None
+                        self.is_lmi_enabled = None
+                        self.enquiries_received = None
+                        self.enquiries_sent = None
+                        self.status_received = None
+                        self.status_sent = None
+                        self.update_status_received = None
+                        self.update_status_sent = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:frame-relay-information'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.fr_encapsulation_type is not None:
+                            return True
+
+                        if self.lmi_type is not None:
+                            return True
+
+                        if self.lmidlci is not None:
+                            return True
+
+                        if self.is_nni is not None:
+                            return True
+
+                        if self.is_dte is not None:
+                            return True
+
+                        if self.is_lmi_up is not None:
+                            return True
+
+                        if self.is_lmi_nni_dce_up is not None:
+                            return True
+
+                        if self.is_lmi_enabled is not None:
+                            return True
+
+                        if self.enquiries_received is not None:
+                            return True
+
+                        if self.enquiries_sent is not None:
+                            return True
+
+                        if self.status_received is not None:
+                            return True
+
+                        if self.status_sent is not None:
+                            return True
+
+                        if self.update_status_received is not None:
+                            return True
+
+                        if self.update_status_sent is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation']['meta_info']
 
 
                 class Dot1QInformation(object):
@@ -5956,10 +5559,53 @@ class Interfaces(object):
                         """
                         Encapsulation type and tag stack
                         
+                        .. attribute:: stack
+                        
+                        	Stack value
+                        	**type**\: :py:class:`Stack <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Stack>`
+                        
+                        .. attribute:: service_instance_details
+                        
+                        	Service Instance encapsulation
+                        	**type**\: :py:class:`ServiceInstanceDetails <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails>`
+                        
                         .. attribute:: dot1ad_dot1q_stack
                         
                         	802.1ad 802.1Q stack value
                         	**type**\: :py:class:`Dot1AdDot1QStack <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Dot1AdDot1QStack>`
+                        
+                        .. attribute:: vlan_encapsulation
+                        
+                        	VLANEncapsulation
+                        	**type**\: :py:class:`VlanEncapsEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.VlanEncapsEnum>`
+                        
+                        .. attribute:: tag
+                        
+                        	Tag value
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: outer_tag
+                        
+                        	Outer tag value
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: native_tag
+                        
+                        	Native tag value
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: dot1ad_tag
+                        
+                        	802.1ad tag value
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
                         
                         .. attribute:: dot1ad_native_tag
                         
@@ -5975,49 +5621,6 @@ class Interfaces(object):
                         
                         	**range:** 0..65535
                         
-                        .. attribute:: dot1ad_tag
-                        
-                        	802.1ad tag value
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: native_tag
-                        
-                        	Native tag value
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: outer_tag
-                        
-                        	Outer tag value
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: service_instance_details
-                        
-                        	Service Instance encapsulation
-                        	**type**\: :py:class:`ServiceInstanceDetails <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails>`
-                        
-                        .. attribute:: stack
-                        
-                        	Stack value
-                        	**type**\: :py:class:`Stack <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Stack>`
-                        
-                        .. attribute:: tag
-                        
-                        	Tag value
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: vlan_encapsulation
-                        
-                        	VLANEncapsulation
-                        	**type**\: :py:class:`VlanEncapsEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.VlanEncapsEnum>`
-                        
                         
 
                         """
@@ -6027,24 +5630,24 @@ class Interfaces(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.dot1ad_dot1q_stack = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Dot1AdDot1QStack()
-                            self.dot1ad_dot1q_stack.parent = self
-                            self.dot1ad_native_tag = None
-                            self.dot1ad_outer_tag = None
-                            self.dot1ad_tag = None
-                            self.native_tag = None
-                            self.outer_tag = None
-                            self.service_instance_details = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails()
-                            self.service_instance_details.parent = self
                             self.stack = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Stack()
                             self.stack.parent = self
-                            self.tag = None
+                            self.service_instance_details = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails()
+                            self.service_instance_details.parent = self
+                            self.dot1ad_dot1q_stack = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Dot1AdDot1QStack()
+                            self.dot1ad_dot1q_stack.parent = self
                             self.vlan_encapsulation = None
+                            self.tag = None
+                            self.outer_tag = None
+                            self.native_tag = None
+                            self.dot1ad_tag = None
+                            self.dot1ad_native_tag = None
+                            self.dot1ad_outer_tag = None
 
 
-                        class Dot1AdDot1QStack(object):
+                        class Stack(object):
                             """
-                            802.1ad 802.1Q stack value
+                            Stack value
                             
                             .. attribute:: outer_tag
                             
@@ -6077,7 +5680,7 @@ class Interfaces(object):
                                 if self.parent is None:
                                     raise YPYDataValidationError('parent is not set . Cannot derive path.')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:dot1ad-dot1q-stack'
+                                return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:stack'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
@@ -6097,40 +5700,12 @@ class Interfaces(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                                return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Dot1AdDot1QStack']['meta_info']
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Stack']['meta_info']
 
 
                         class ServiceInstanceDetails(object):
                             """
                             Service Instance encapsulation
-                            
-                            .. attribute:: destination_mac_match
-                            
-                            	The destination MAC address to match on ingress
-                            	**type**\: str
-                            
-                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                            
-                            .. attribute:: is_exact_match
-                            
-                            	Whether the packet must match the encapsulation exactly, with no further inner tags
-                            	**type**\: int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: is_native_preserving
-                            
-                            	Whether the native VLAN is customer\-tag preserving
-                            	**type**\: int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: is_native_vlan
-                            
-                            	Whether this represents the native VLAN on the port
-                            	**type**\: int
-                            
-                            	**range:** \-2147483648..2147483647
                             
                             .. attribute:: local_traffic_stack
                             
@@ -6142,10 +5717,33 @@ class Interfaces(object):
                             	Payload Ethertype to match
                             	**type**\: :py:class:`EfpPayloadEtypeEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.EfpPayloadEtypeEnum>`
                             
-                            .. attribute:: pushe
+                            .. attribute:: tags_popped
                             
-                            	VLAN tags pushed on egress
-                            	**type**\: list of :py:class:`Pushe <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe>`
+                            	Number of tags popped on ingress
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: is_exact_match
+                            
+                            	Whether the packet must match the encapsulation exactly, with no further inner tags
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_native_vlan
+                            
+                            	Whether this represents the native VLAN on the port
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_native_preserving
+                            
+                            	Whether the native VLAN is customer\-tag preserving
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
                             
                             .. attribute:: source_mac_match
                             
@@ -6154,17 +5752,22 @@ class Interfaces(object):
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
-                            .. attribute:: tags_popped
+                            .. attribute:: destination_mac_match
                             
-                            	Number of tags popped on ingress
-                            	**type**\: int
+                            	The destination MAC address to match on ingress
+                            	**type**\: str
                             
-                            	**range:** 0..65535
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
                             .. attribute:: tags_to_match
                             
                             	Tags to match on ingress packets
                             	**type**\: list of :py:class:`TagsToMatch <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch>`
+                            
+                            .. attribute:: pushe
+                            
+                            	VLAN tags pushed on egress
+                            	**type**\: list of :py:class:`Pushe <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe>`
                             
                             
 
@@ -6175,21 +5778,21 @@ class Interfaces(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.destination_mac_match = None
-                                self.is_exact_match = None
-                                self.is_native_preserving = None
-                                self.is_native_vlan = None
                                 self.local_traffic_stack = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack()
                                 self.local_traffic_stack.parent = self
                                 self.payload_ethertype = None
-                                self.pushe = YList()
-                                self.pushe.parent = self
-                                self.pushe.name = 'pushe'
-                                self.source_mac_match = None
                                 self.tags_popped = None
+                                self.is_exact_match = None
+                                self.is_native_vlan = None
+                                self.is_native_preserving = None
+                                self.source_mac_match = None
+                                self.destination_mac_match = None
                                 self.tags_to_match = YList()
                                 self.tags_to_match.parent = self
                                 self.tags_to_match.name = 'tags_to_match'
+                                self.pushe = YList()
+                                self.pushe.parent = self
+                                self.pushe.name = 'pushe'
 
 
                             class LocalTrafficStack(object):
@@ -6297,6 +5900,131 @@ class Interfaces(object):
                                     return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack']['meta_info']
 
 
+                            class TagsToMatch(object):
+                                """
+                                Tags to match on ingress packets
+                                
+                                .. attribute:: ethertype
+                                
+                                	Ethertype of tag to match
+                                	**type**\: :py:class:`EfpTagEtypeEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.EfpTagEtypeEnum>`
+                                
+                                .. attribute:: priority
+                                
+                                	Priority to match
+                                	**type**\: :py:class:`EfpTagPriorityEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.EfpTagPriorityEnum>`
+                                
+                                .. attribute:: vlan_range
+                                
+                                	VLAN Ids to match
+                                	**type**\: list of :py:class:`VlanRange <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'pfi-im-cmd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.ethertype = None
+                                    self.priority = None
+                                    self.vlan_range = YList()
+                                    self.vlan_range.parent = self
+                                    self.vlan_range.name = 'vlan_range'
+
+
+                                class VlanRange(object):
+                                    """
+                                    VLAN Ids to match
+                                    
+                                    .. attribute:: vlan_id_low
+                                    
+                                    	VLAN ID Low
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    .. attribute:: vlan_id_high
+                                    
+                                    	VLAN ID High
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'pfi-im-cmd-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.vlan_id_low = None
+                                        self.vlan_id_high = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:vlan-range'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.vlan_id_low is not None:
+                                            return True
+
+                                        if self.vlan_id_high is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                        return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:tags-to-match'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.ethertype is not None:
+                                        return True
+
+                                    if self.priority is not None:
+                                        return True
+
+                                    if self.vlan_range is not None:
+                                        for child_ref in self.vlan_range:
+                                            if child_ref._has_data():
+                                                return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                    return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch']['meta_info']
+
+
                             class Pushe(object):
                                 """
                                 VLAN tags pushed on egress
@@ -6352,131 +6080,6 @@ class Interfaces(object):
                                     from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
                                     return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe']['meta_info']
 
-
-                            class TagsToMatch(object):
-                                """
-                                Tags to match on ingress packets
-                                
-                                .. attribute:: ethertype
-                                
-                                	Ethertype of tag to match
-                                	**type**\: :py:class:`EfpTagEtypeEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.EfpTagEtypeEnum>`
-                                
-                                .. attribute:: priority
-                                
-                                	Priority to match
-                                	**type**\: :py:class:`EfpTagPriorityEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.EfpTagPriorityEnum>`
-                                
-                                .. attribute:: vlan_range
-                                
-                                	VLAN Ids to match
-                                	**type**\: list of :py:class:`VlanRange <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'pfi-im-cmd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.ethertype = None
-                                    self.priority = None
-                                    self.vlan_range = YList()
-                                    self.vlan_range.parent = self
-                                    self.vlan_range.name = 'vlan_range'
-
-
-                                class VlanRange(object):
-                                    """
-                                    VLAN Ids to match
-                                    
-                                    .. attribute:: vlan_id_high
-                                    
-                                    	VLAN ID High
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..65535
-                                    
-                                    .. attribute:: vlan_id_low
-                                    
-                                    	VLAN ID Low
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..65535
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'pfi-im-cmd-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.vlan_id_high = None
-                                        self.vlan_id_low = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:vlan-range'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.vlan_id_high is not None:
-                                            return True
-
-                                        if self.vlan_id_low is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                                        return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:tags-to-match'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.ethertype is not None:
-                                        return True
-
-                                    if self.priority is not None:
-                                        return True
-
-                                    if self.vlan_range is not None:
-                                        for child_ref in self.vlan_range:
-                                            if child_ref._has_data():
-                                                return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                                    return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch']['meta_info']
-
                             @property
                             def _common_path(self):
                                 if self.parent is None:
@@ -6491,37 +6094,37 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.destination_mac_match is not None:
-                                    return True
-
-                                if self.is_exact_match is not None:
-                                    return True
-
-                                if self.is_native_preserving is not None:
-                                    return True
-
-                                if self.is_native_vlan is not None:
-                                    return True
-
                                 if self.local_traffic_stack is not None and self.local_traffic_stack._has_data():
                                     return True
 
                                 if self.payload_ethertype is not None:
                                     return True
 
-                                if self.pushe is not None:
-                                    for child_ref in self.pushe:
-                                        if child_ref._has_data():
-                                            return True
+                                if self.tags_popped is not None:
+                                    return True
+
+                                if self.is_exact_match is not None:
+                                    return True
+
+                                if self.is_native_vlan is not None:
+                                    return True
+
+                                if self.is_native_preserving is not None:
+                                    return True
 
                                 if self.source_mac_match is not None:
                                     return True
 
-                                if self.tags_popped is not None:
+                                if self.destination_mac_match is not None:
                                     return True
 
                                 if self.tags_to_match is not None:
                                     for child_ref in self.tags_to_match:
+                                        if child_ref._has_data():
+                                            return True
+
+                                if self.pushe is not None:
+                                    for child_ref in self.pushe:
                                         if child_ref._has_data():
                                             return True
 
@@ -6533,9 +6136,9 @@ class Interfaces(object):
                                 return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails']['meta_info']
 
 
-                        class Stack(object):
+                        class Dot1AdDot1QStack(object):
                             """
-                            Stack value
+                            802.1ad 802.1Q stack value
                             
                             .. attribute:: outer_tag
                             
@@ -6568,7 +6171,7 @@ class Interfaces(object):
                                 if self.parent is None:
                                     raise YPYDataValidationError('parent is not set . Cannot derive path.')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:stack'
+                                return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:dot1ad-dot1q-stack'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
@@ -6588,7 +6191,7 @@ class Interfaces(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                                return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Stack']['meta_info']
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Dot1AdDot1QStack']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -6604,34 +6207,34 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
+                            if self.stack is not None and self.stack._has_data():
+                                return True
+
+                            if self.service_instance_details is not None and self.service_instance_details._has_data():
+                                return True
+
                             if self.dot1ad_dot1q_stack is not None and self.dot1ad_dot1q_stack._has_data():
+                                return True
+
+                            if self.vlan_encapsulation is not None:
+                                return True
+
+                            if self.tag is not None:
+                                return True
+
+                            if self.outer_tag is not None:
+                                return True
+
+                            if self.native_tag is not None:
+                                return True
+
+                            if self.dot1ad_tag is not None:
                                 return True
 
                             if self.dot1ad_native_tag is not None:
                                 return True
 
                             if self.dot1ad_outer_tag is not None:
-                                return True
-
-                            if self.dot1ad_tag is not None:
-                                return True
-
-                            if self.native_tag is not None:
-                                return True
-
-                            if self.outer_tag is not None:
-                                return True
-
-                            if self.service_instance_details is not None and self.service_instance_details._has_data():
-                                return True
-
-                            if self.stack is not None and self.stack._has_data():
-                                return True
-
-                            if self.tag is not None:
-                                return True
-
-                            if self.vlan_encapsulation is not None:
                                 return True
 
                             return False
@@ -6666,185 +6269,14 @@ class Interfaces(object):
                         return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation']['meta_info']
 
 
-                class FrameRelayInformation(object):
-                    """
-                    Frame Relay information
-                    
-                    .. attribute:: enquiries_received
-                    
-                    	Number of enquiry messages received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: enquiries_sent
-                    
-                    	Number of enquiry messages sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: fr_encapsulation_type
-                    
-                    	Frame Relay encapsulation type
-                    	**type**\: :py:class:`ImCmdFrTypeEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdFrTypeEnumEnum>`
-                    
-                    .. attribute:: is_dte
-                    
-                    	The DTE/DCE LMI interface type
-                    	**type**\: bool
-                    
-                    .. attribute:: is_lmi_enabled
-                    
-                    	The status of FR LMI for an interface
-                    	**type**\: bool
-                    
-                    .. attribute:: is_lmi_nni_dce_up
-                    
-                    	Flag indicating whether the LMI  NNI\-DCE state is UP
-                    	**type**\: bool
-                    
-                    .. attribute:: is_lmi_up
-                    
-                    	Flag indicating whether the LMI  DTE/DCE/NNI\-DTE state is UP
-                    	**type**\: bool
-                    
-                    .. attribute:: is_nni
-                    
-                    	The NNI LMI interface type
-                    	**type**\: bool
-                    
-                    .. attribute:: lmi_type
-                    
-                    	The LMI type\: Autosense, ANSI, CCITT or CISCO
-                    	**type**\: :py:class:`ImCmdLmiTypeEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdLmiTypeEnumEnum>`
-                    
-                    .. attribute:: lmidlci
-                    
-                    	LMI DLCI
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: status_received
-                    
-                    	Number of status messages received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: status_sent
-                    
-                    	Number of status messages sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: update_status_received
-                    
-                    	Number of update status messages received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: update_status_sent
-                    
-                    	Number of update status messages sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.enquiries_received = None
-                        self.enquiries_sent = None
-                        self.fr_encapsulation_type = None
-                        self.is_dte = None
-                        self.is_lmi_enabled = None
-                        self.is_lmi_nni_dce_up = None
-                        self.is_lmi_up = None
-                        self.is_nni = None
-                        self.lmi_type = None
-                        self.lmidlci = None
-                        self.status_received = None
-                        self.status_sent = None
-                        self.update_status_received = None
-                        self.update_status_sent = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:frame-relay-information'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.enquiries_received is not None:
-                            return True
-
-                        if self.enquiries_sent is not None:
-                            return True
-
-                        if self.fr_encapsulation_type is not None:
-                            return True
-
-                        if self.is_dte is not None:
-                            return True
-
-                        if self.is_lmi_enabled is not None:
-                            return True
-
-                        if self.is_lmi_nni_dce_up is not None:
-                            return True
-
-                        if self.is_lmi_up is not None:
-                            return True
-
-                        if self.is_nni is not None:
-                            return True
-
-                        if self.lmi_type is not None:
-                            return True
-
-                        if self.lmidlci is not None:
-                            return True
-
-                        if self.status_received is not None:
-                            return True
-
-                        if self.status_sent is not None:
-                            return True
-
-                        if self.update_status_received is not None:
-                            return True
-
-                        if self.update_status_sent is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                        return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation']['meta_info']
-
-
                 class PppInformation(object):
                     """
                     PPP information
+                    
+                    .. attribute:: lcp_state
+                    
+                    	LCP State
+                    	**type**\: :py:class:`PppFsmStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.PppFsmStateEnum>`
                     
                     .. attribute:: is_loopback_detected
                     
@@ -6852,6 +6284,13 @@ class Interfaces(object):
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: keepalive_period
+                    
+                    	Keepalive value
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: is_mp_bundle_member
                     
@@ -6867,18 +6306,6 @@ class Interfaces(object):
                     
                     	**range:** \-2147483648..2147483647
                     
-                    .. attribute:: keepalive_period
-                    
-                    	Keepalive value
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: lcp_state
-                    
-                    	LCP State
-                    	**type**\: :py:class:`PppFsmStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.PppFsmStateEnum>`
-                    
                     .. attribute:: ncp_info_array
                     
                     	Array of per\-NCP data
@@ -6893,11 +6320,11 @@ class Interfaces(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.lcp_state = None
                         self.is_loopback_detected = None
+                        self.keepalive_period = None
                         self.is_mp_bundle_member = None
                         self.is_multilink_open = None
-                        self.keepalive_period = None
-                        self.lcp_state = None
                         self.ncp_info_array = YList()
                         self.ncp_info_array.parent = self
                         self.ncp_info_array.name = 'ncp_info_array'
@@ -6907,15 +6334,15 @@ class Interfaces(object):
                         """
                         Array of per\-NCP data
                         
-                        .. attribute:: ncp_identifier
-                        
-                        	NCP state identifier
-                        	**type**\: :py:class:`NcpIdentEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.NcpIdentEnum>`
-                        
                         .. attribute:: ncp_state
                         
                         	NCP state value
                         	**type**\: :py:class:`PppFsmStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.PppFsmStateEnum>`
+                        
+                        .. attribute:: ncp_identifier
+                        
+                        	NCP state identifier
+                        	**type**\: :py:class:`NcpIdentEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.NcpIdentEnum>`
                         
                         
 
@@ -6926,8 +6353,8 @@ class Interfaces(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.ncp_identifier = None
                             self.ncp_state = None
+                            self.ncp_identifier = None
 
                         @property
                         def _common_path(self):
@@ -6943,10 +6370,10 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.ncp_identifier is not None:
+                            if self.ncp_state is not None:
                                 return True
 
-                            if self.ncp_state is not None:
+                            if self.ncp_identifier is not None:
                                 return True
 
                             return False
@@ -6970,19 +6397,19 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self.lcp_state is not None:
+                            return True
+
                         if self.is_loopback_detected is not None:
+                            return True
+
+                        if self.keepalive_period is not None:
                             return True
 
                         if self.is_mp_bundle_member is not None:
                             return True
 
                         if self.is_multilink_open is not None:
-                            return True
-
-                        if self.keepalive_period is not None:
-                            return True
-
-                        if self.lcp_state is not None:
                             return True
 
                         if self.ncp_info_array is not None:
@@ -7011,16 +6438,16 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.dot1q_information is not None and self.dot1q_information._has_data():
-                        return True
-
-                    if self.encapsulation_type is not None:
-                        return True
-
                     if self.frame_relay_information is not None and self.frame_relay_information._has_data():
                         return True
 
+                    if self.dot1q_information is not None and self.dot1q_information._has_data():
+                        return True
+
                     if self.ppp_information is not None and self.ppp_information._has_data():
+                        return True
+
+                    if self.encapsulation_type is not None:
                         return True
 
                     return False
@@ -7031,723 +6458,44 @@ class Interfaces(object):
                     return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation']['meta_info']
 
 
-            class InterfaceStatistics(object):
-                """
-                Packet, byte and error counters
-                
-                .. attribute:: basic_interface_stats
-                
-                	Packet, byte and selected error counters
-                	**type**\: :py:class:`BasicInterfaceStats <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats>`
-                
-                .. attribute:: full_interface_stats
-                
-                	Packet, byte and all error counters
-                	**type**\: :py:class:`FullInterfaceStats <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats>`
-                
-                .. attribute:: stats_type
-                
-                	StatsType
-                	**type**\: :py:class:`ImCmdStatsEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdStatsEnumEnum>`
-                
-                
-
-                """
-
-                _prefix = 'pfi-im-cmd-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.basic_interface_stats = Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats()
-                    self.basic_interface_stats.parent = self
-                    self.full_interface_stats = Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats()
-                    self.full_interface_stats.parent = self
-                    self.stats_type = None
-
-
-                class BasicInterfaceStats(object):
-                    """
-                    Packet, byte and selected error counters
-                    
-                    .. attribute:: bytes_received
-                    
-                    	Bytes received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: bytes_sent
-                    
-                    	Bytes sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: input_drops
-                    
-                    	Total input drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_errors
-                    
-                    	Total input errors
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_queue_drops
-                    
-                    	Input queue drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: last_data_time
-                    
-                    	Time when counters were last written (in seconds)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: last_discontinuity_time
-                    
-                    	SysUpTime when counters were last reset (in seconds)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_drops
-                    
-                    	Total output drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_errors
-                    
-                    	Total output errors
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_queue_drops
-                    
-                    	Output queue drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: packets_received
-                    
-                    	Packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: packets_sent
-                    
-                    	Packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: seconds_since_last_clear_counters
-                    
-                    	Number of seconds since last clear counters
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: seconds_since_packet_received
-                    
-                    	Seconds since packet received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: seconds_since_packet_sent
-                    
-                    	Seconds since packet sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: unknown_protocol_packets_received
-                    
-                    	Unknown protocol packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.bytes_received = None
-                        self.bytes_sent = None
-                        self.input_drops = None
-                        self.input_errors = None
-                        self.input_queue_drops = None
-                        self.last_data_time = None
-                        self.last_discontinuity_time = None
-                        self.output_drops = None
-                        self.output_errors = None
-                        self.output_queue_drops = None
-                        self.packets_received = None
-                        self.packets_sent = None
-                        self.seconds_since_last_clear_counters = None
-                        self.seconds_since_packet_received = None
-                        self.seconds_since_packet_sent = None
-                        self.unknown_protocol_packets_received = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:basic-interface-stats'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.bytes_received is not None:
-                            return True
-
-                        if self.bytes_sent is not None:
-                            return True
-
-                        if self.input_drops is not None:
-                            return True
-
-                        if self.input_errors is not None:
-                            return True
-
-                        if self.input_queue_drops is not None:
-                            return True
-
-                        if self.last_data_time is not None:
-                            return True
-
-                        if self.last_discontinuity_time is not None:
-                            return True
-
-                        if self.output_drops is not None:
-                            return True
-
-                        if self.output_errors is not None:
-                            return True
-
-                        if self.output_queue_drops is not None:
-                            return True
-
-                        if self.packets_received is not None:
-                            return True
-
-                        if self.packets_sent is not None:
-                            return True
-
-                        if self.seconds_since_last_clear_counters is not None:
-                            return True
-
-                        if self.seconds_since_packet_received is not None:
-                            return True
-
-                        if self.seconds_since_packet_sent is not None:
-                            return True
-
-                        if self.unknown_protocol_packets_received is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats']['meta_info']
-
-
-                class FullInterfaceStats(object):
-                    """
-                    Packet, byte and all error counters
-                    
-                    .. attribute:: applique
-                    
-                    	Applique
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: availability_flag
-                    
-                    	Availability bit mask
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: broadcast_packets_received
-                    
-                    	Broadcast packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: broadcast_packets_sent
-                    
-                    	Broadcast packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: bytes_received
-                    
-                    	Bytes received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: bytes_sent
-                    
-                    	Bytes sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: carrier_transitions
-                    
-                    	Carrier transitions
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: crc_errors
-                    
-                    	Input CRC errors
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: framing_errors_received
-                    
-                    	Framing\-errors received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: giant_packets_received
-                    
-                    	Received giant packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_aborts
-                    
-                    	Input aborts
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_drops
-                    
-                    	Total input drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_errors
-                    
-                    	Total input errors
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_ignored_packets
-                    
-                    	Input ignored packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_overruns
-                    
-                    	Input overruns
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_queue_drops
-                    
-                    	Input queue drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: last_data_time
-                    
-                    	Time when counters were last written (in seconds)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: last_discontinuity_time
-                    
-                    	SysUpTime when counters were last reset (in seconds)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: multicast_packets_received
-                    
-                    	Multicast packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: multicast_packets_sent
-                    
-                    	Multicast packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: output_buffer_failures
-                    
-                    	Output buffer failures
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_buffers_swapped_out
-                    
-                    	Output buffers swapped out
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_drops
-                    
-                    	Total output drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_errors
-                    
-                    	Total output errors
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_queue_drops
-                    
-                    	Output queue drops
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_underruns
-                    
-                    	Output underruns
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: packets_received
-                    
-                    	Packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: packets_sent
-                    
-                    	Packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: parity_packets_received
-                    
-                    	Received parity packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: resets
-                    
-                    	Number of board resets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: runt_packets_received
-                    
-                    	Received runt packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: seconds_since_last_clear_counters
-                    
-                    	Number of seconds since last clear counters
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: seconds_since_packet_received
-                    
-                    	Seconds since packet received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: seconds_since_packet_sent
-                    
-                    	Seconds since packet sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: throttled_packets_received
-                    
-                    	Received throttled packets
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: unknown_protocol_packets_received
-                    
-                    	Unknown protocol packets received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.applique = None
-                        self.availability_flag = None
-                        self.broadcast_packets_received = None
-                        self.broadcast_packets_sent = None
-                        self.bytes_received = None
-                        self.bytes_sent = None
-                        self.carrier_transitions = None
-                        self.crc_errors = None
-                        self.framing_errors_received = None
-                        self.giant_packets_received = None
-                        self.input_aborts = None
-                        self.input_drops = None
-                        self.input_errors = None
-                        self.input_ignored_packets = None
-                        self.input_overruns = None
-                        self.input_queue_drops = None
-                        self.last_data_time = None
-                        self.last_discontinuity_time = None
-                        self.multicast_packets_received = None
-                        self.multicast_packets_sent = None
-                        self.output_buffer_failures = None
-                        self.output_buffers_swapped_out = None
-                        self.output_drops = None
-                        self.output_errors = None
-                        self.output_queue_drops = None
-                        self.output_underruns = None
-                        self.packets_received = None
-                        self.packets_sent = None
-                        self.parity_packets_received = None
-                        self.resets = None
-                        self.runt_packets_received = None
-                        self.seconds_since_last_clear_counters = None
-                        self.seconds_since_packet_received = None
-                        self.seconds_since_packet_sent = None
-                        self.throttled_packets_received = None
-                        self.unknown_protocol_packets_received = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:full-interface-stats'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.applique is not None:
-                            return True
-
-                        if self.availability_flag is not None:
-                            return True
-
-                        if self.broadcast_packets_received is not None:
-                            return True
-
-                        if self.broadcast_packets_sent is not None:
-                            return True
-
-                        if self.bytes_received is not None:
-                            return True
-
-                        if self.bytes_sent is not None:
-                            return True
-
-                        if self.carrier_transitions is not None:
-                            return True
-
-                        if self.crc_errors is not None:
-                            return True
-
-                        if self.framing_errors_received is not None:
-                            return True
-
-                        if self.giant_packets_received is not None:
-                            return True
-
-                        if self.input_aborts is not None:
-                            return True
-
-                        if self.input_drops is not None:
-                            return True
-
-                        if self.input_errors is not None:
-                            return True
-
-                        if self.input_ignored_packets is not None:
-                            return True
-
-                        if self.input_overruns is not None:
-                            return True
-
-                        if self.input_queue_drops is not None:
-                            return True
-
-                        if self.last_data_time is not None:
-                            return True
-
-                        if self.last_discontinuity_time is not None:
-                            return True
-
-                        if self.multicast_packets_received is not None:
-                            return True
-
-                        if self.multicast_packets_sent is not None:
-                            return True
-
-                        if self.output_buffer_failures is not None:
-                            return True
-
-                        if self.output_buffers_swapped_out is not None:
-                            return True
-
-                        if self.output_drops is not None:
-                            return True
-
-                        if self.output_errors is not None:
-                            return True
-
-                        if self.output_queue_drops is not None:
-                            return True
-
-                        if self.output_underruns is not None:
-                            return True
-
-                        if self.packets_received is not None:
-                            return True
-
-                        if self.packets_sent is not None:
-                            return True
-
-                        if self.parity_packets_received is not None:
-                            return True
-
-                        if self.resets is not None:
-                            return True
-
-                        if self.runt_packets_received is not None:
-                            return True
-
-                        if self.seconds_since_last_clear_counters is not None:
-                            return True
-
-                        if self.seconds_since_packet_received is not None:
-                            return True
-
-                        if self.seconds_since_packet_sent is not None:
-                            return True
-
-                        if self.throttled_packets_received is not None:
-                            return True
-
-                        if self.unknown_protocol_packets_received is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:interface-statistics'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.basic_interface_stats is not None and self.basic_interface_stats._has_data():
-                        return True
-
-                    if self.full_interface_stats is not None and self.full_interface_stats._has_data():
-                        return True
-
-                    if self.stats_type is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                    return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceStatistics']['meta_info']
-
-
             class InterfaceTypeInformation(object):
                 """
                 Information specific to the interface type
+                
+                .. attribute:: srp_information
+                
+                	SRP interface information
+                	**type**\: :py:class:`SrpInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation>`
+                
+                .. attribute:: tunnel_information
+                
+                	Tunnel interface information
+                	**type**\: :py:class:`TunnelInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation>`
                 
                 .. attribute:: bundle_information
                 
                 	Bundle interface information
                 	**type**\: :py:class:`BundleInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation>`
+                
+                .. attribute:: serial_information
+                
+                	Serial interface information
+                	**type**\: :py:class:`SerialInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation>`
+                
+                .. attribute:: sonet_pos_information
+                
+                	SONET POS interface information
+                	**type**\: :py:class:`SonetPosInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation>`
+                
+                .. attribute:: tunnel_gre_information
+                
+                	Tunnel GRE interface information
+                	**type**\: :py:class:`TunnelGreInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation>`
+                
+                .. attribute:: pseudowire_head_end_information
+                
+                	PseudowireHeadEnd interface information
+                	**type**\: :py:class:`PseudowireHeadEndInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation>`
                 
                 .. attribute:: cem_information
                 
@@ -7764,36 +6512,6 @@ class Interfaces(object):
                 	InterfaceTypeInfo
                 	**type**\: :py:class:`ImCmdIntfTypeEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdIntfTypeEnumEnum>`
                 
-                .. attribute:: pseudowire_head_end_information
-                
-                	PseudowireHeadEnd interface information
-                	**type**\: :py:class:`PseudowireHeadEndInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation>`
-                
-                .. attribute:: serial_information
-                
-                	Serial interface information
-                	**type**\: :py:class:`SerialInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation>`
-                
-                .. attribute:: sonet_pos_information
-                
-                	SONET POS interface information
-                	**type**\: :py:class:`SonetPosInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation>`
-                
-                .. attribute:: srp_information
-                
-                	SRP interface information
-                	**type**\: :py:class:`SrpInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation>`
-                
-                .. attribute:: tunnel_gre_information
-                
-                	Tunnel GRE interface information
-                	**type**\: :py:class:`TunnelGreInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation>`
-                
-                .. attribute:: tunnel_information
-                
-                	Tunnel interface information
-                	**type**\: :py:class:`TunnelInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation>`
-                
                 
 
                 """
@@ -7803,709 +6521,25 @@ class Interfaces(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.srp_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation()
+                    self.srp_information.parent = self
+                    self.tunnel_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation()
+                    self.tunnel_information.parent = self
                     self.bundle_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation()
                     self.bundle_information.parent = self
+                    self.serial_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation()
+                    self.serial_information.parent = self
+                    self.sonet_pos_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation()
+                    self.sonet_pos_information.parent = self
+                    self.tunnel_gre_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation()
+                    self.tunnel_gre_information.parent = self
+                    self.pseudowire_head_end_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation()
+                    self.pseudowire_head_end_information.parent = self
                     self.cem_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.CemInformation()
                     self.cem_information.parent = self
                     self.gcc_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.GccInformation()
                     self.gcc_information.parent = self
                     self.interface_type_info = None
-                    self.pseudowire_head_end_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation()
-                    self.pseudowire_head_end_information.parent = self
-                    self.serial_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation()
-                    self.serial_information.parent = self
-                    self.sonet_pos_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation()
-                    self.sonet_pos_information.parent = self
-                    self.srp_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation()
-                    self.srp_information.parent = self
-                    self.tunnel_gre_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation()
-                    self.tunnel_gre_information.parent = self
-                    self.tunnel_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation()
-                    self.tunnel_information.parent = self
-
-
-                class BundleInformation(object):
-                    """
-                    Bundle interface information
-                    
-                    .. attribute:: member
-                    
-                    	List of bundle members and their properties
-                    	**type**\: list of :py:class:`Member <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.member = YList()
-                        self.member.parent = self
-                        self.member.name = 'member'
-
-
-                    class Member(object):
-                        """
-                        List of bundle members and their properties
-                        
-                        .. attribute:: bandwidth
-                        
-                        	Bandwidth of this member (kbps)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: iccp_node
-                        
-                        	Location of member
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: interface_name
-                        
-                        	Member's interface name
-                        	**type**\: str
-                        
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                        
-                        .. attribute:: link_order_number
-                        
-                        	Member's link order number
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: mac_address
-                        
-                        	MAC address of this member (deprecated)
-                        	**type**\: :py:class:`MacAddress <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress>`
-                        
-                        .. attribute:: member_mux_data
-                        
-                        	Mux state machine data
-                        	**type**\: :py:class:`MemberMuxData <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData>`
-                        
-                        .. attribute:: member_name
-                        
-                        	Member's (short form) name
-                        	**type**\: str
-                        
-                        .. attribute:: member_type
-                        
-                        	Member's type (local/foreign)
-                        	**type**\: :py:class:`BmdMemberTypeEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmdMemberTypeEnumEnum>`
-                        
-                        .. attribute:: port_number
-                        
-                        	Member's link number
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: port_priority
-                        
-                        	The priority of this member
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: underlying_link_id
-                        
-                        	Member's underlying link ID
-                        	**type**\: int
-                        
-                        	**range:** 0..65535
-                        
-                        
-
-                        """
-
-                        _prefix = 'pfi-im-cmd-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.bandwidth = None
-                            self.iccp_node = None
-                            self.interface_name = None
-                            self.link_order_number = None
-                            self.mac_address = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress()
-                            self.mac_address.parent = self
-                            self.member_mux_data = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData()
-                            self.member_mux_data.parent = self
-                            self.member_name = None
-                            self.member_type = None
-                            self.port_number = None
-                            self.port_priority = None
-                            self.underlying_link_id = None
-
-
-                        class MacAddress(object):
-                            """
-                            MAC address of this member (deprecated)
-                            
-                            .. attribute:: address
-                            
-                            	MAC address
-                            	**type**\: str
-                            
-                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                            
-                            
-
-                            """
-
-                            _prefix = 'pfi-im-cmd-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.address = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:mac-address'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.address is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                                return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress']['meta_info']
-
-
-                        class MemberMuxData(object):
-                            """
-                            Mux state machine data
-                            
-                            .. attribute:: error
-                            
-                            	Internal value indicating if an error occurred trying to put a link into the desired state
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: member_mux_state_reason
-                            
-                            	Reason for last Mux state change
-                            	**type**\: :py:class:`BmMbrStateReasonEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmMbrStateReasonEnum>`
-                            
-                            .. attribute:: member_mux_state_reason_data
-                            
-                            	Data regarding the reason for last Mux state change
-                            	**type**\: :py:class:`MemberMuxStateReasonData <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData>`
-                            
-                            .. attribute:: member_state
-                            
-                            	Current internal state of this bundle member
-                            	**type**\: :py:class:`BmdMemberStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmdMemberStateEnum>`
-                            
-                            .. attribute:: mux_state
-                            
-                            	Current state of this bundle member
-                            	**type**\: :py:class:`BmMuxstateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmMuxstateEnum>`
-                            
-                            .. attribute:: mux_state_reason
-                            
-                            	Reason for last Mux state change (Deprecated)
-                            	**type**\: :py:class:`BmMuxreasonEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmMuxreasonEnum>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'pfi-im-cmd-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.error = None
-                                self.member_mux_state_reason = None
-                                self.member_mux_state_reason_data = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData()
-                                self.member_mux_state_reason_data.parent = self
-                                self.member_state = None
-                                self.mux_state = None
-                                self.mux_state_reason = None
-
-
-                            class MemberMuxStateReasonData(object):
-                                """
-                                Data regarding the reason for last Mux state
-                                change
-                                
-                                .. attribute:: reason_type
-                                
-                                	The item the reason applies to
-                                	**type**\: :py:class:`BmStateReasonTargetEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmStateReasonTargetEnum>`
-                                
-                                .. attribute:: severity
-                                
-                                	The severity of the reason
-                                	**type**\: :py:class:`BmSeverityEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmSeverityEnum>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'pfi-im-cmd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.reason_type = None
-                                    self.severity = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:member-mux-state-reason-data'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.reason_type is not None:
-                                        return True
-
-                                    if self.severity is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                                    return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData']['meta_info']
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:member-mux-data'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.error is not None:
-                                    return True
-
-                                if self.member_mux_state_reason is not None:
-                                    return True
-
-                                if self.member_mux_state_reason_data is not None and self.member_mux_state_reason_data._has_data():
-                                    return True
-
-                                if self.member_state is not None:
-                                    return True
-
-                                if self.mux_state is not None:
-                                    return True
-
-                                if self.mux_state_reason is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                                return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:member'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.bandwidth is not None:
-                                return True
-
-                            if self.iccp_node is not None:
-                                return True
-
-                            if self.interface_name is not None:
-                                return True
-
-                            if self.link_order_number is not None:
-                                return True
-
-                            if self.mac_address is not None and self.mac_address._has_data():
-                                return True
-
-                            if self.member_mux_data is not None and self.member_mux_data._has_data():
-                                return True
-
-                            if self.member_name is not None:
-                                return True
-
-                            if self.member_type is not None:
-                                return True
-
-                            if self.port_number is not None:
-                                return True
-
-                            if self.port_priority is not None:
-                                return True
-
-                            if self.underlying_link_id is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                            return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:bundle-information'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.member is not None:
-                            for child_ref in self.member:
-                                if child_ref._has_data():
-                                    return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation']['meta_info']
-
-
-                class CemInformation(object):
-                    """
-                    Cem interface information
-                    
-                    .. attribute:: dejitter_buffer
-                    
-                    	Dejitter buffer length configuredin milliseconds
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: framing
-                    
-                    	 If framing is TRUE then the CEM  interface is structure aware ; otherwise it is structure agnostic
-                    	**type**\: int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: payload
-                    
-                    	Payload size in bytes configured on CEM interface
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: timeslots
-                    
-                    	Timeslots separated by \: or \- from 1 to 32. \: indicates individual timeslot and \- represents a range. E.g. 1\-3\:5 represents timeslots 1, 2, 3, and 5
-                    	**type**\: str
-                    
-                    
-
-                    """
-
-                    _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.dejitter_buffer = None
-                        self.framing = None
-                        self.payload = None
-                        self.timeslots = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:cem-information'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.dejitter_buffer is not None:
-                            return True
-
-                        if self.framing is not None:
-                            return True
-
-                        if self.payload is not None:
-                            return True
-
-                        if self.timeslots is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.CemInformation']['meta_info']
-
-
-                class GccInformation(object):
-                    """
-                    GCC interface information
-                    
-                    .. attribute:: derived_mode
-                    
-                    	Derived State
-                    	**type**\: :py:class:`GccDerStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.GccDerStateEnum>`
-                    
-                    .. attribute:: sec_state
-                    
-                    	Sec State 
-                    	**type**\: :py:class:`GccSecStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.GccSecStateEnum>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.derived_mode = None
-                        self.sec_state = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:gcc-information'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.derived_mode is not None:
-                            return True
-
-                        if self.sec_state is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.GccInformation']['meta_info']
-
-
-                class PseudowireHeadEndInformation(object):
-                    """
-                    PseudowireHeadEnd interface information
-                    
-                    .. attribute:: interface_list_name
-                    
-                    	Interface list Name
-                    	**type**\: str
-                    
-                    .. attribute:: internal_label
-                    
-                    	Internal Label
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: l2_overhead
-                    
-                    	L2 Overhead
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.interface_list_name = None
-                        self.internal_label = None
-                        self.l2_overhead = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:pseudowire-head-end-information'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.interface_list_name is not None:
-                            return True
-
-                        if self.internal_label is not None:
-                            return True
-
-                        if self.l2_overhead is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation']['meta_info']
-
-
-                class SerialInformation(object):
-                    """
-                    Serial interface information
-                    
-                    .. attribute:: timeslots
-                    
-                    	Timeslots separated by \: or \- from 1 to 31. \: indicates individual timeslot and \- represents a range. E.g. 1\-3\:5 represents timeslots 1, 2, 3, and 5
-                    	**type**\: str
-                    
-                    
-
-                    """
-
-                    _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.timeslots = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:serial-information'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.timeslots is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation']['meta_info']
-
-
-                class SonetPosInformation(object):
-                    """
-                    SONET POS interface information
-                    
-                    .. attribute:: aps_state
-                    
-                    	APS state
-                    	**type**\: :py:class:`SonetApsEtEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SonetApsEtEnum>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.aps_state = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:sonet-pos-information'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.aps_state is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation']['meta_info']
 
 
                 class SrpInformation(object):
@@ -8546,20 +6580,20 @@ class Interfaces(object):
                         	SRP IPS information
                         	**type**\: :py:class:`IpsInfo <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo>`
                         
-                        .. attribute:: rate_limit_info
+                        .. attribute:: topology_info
                         
-                        	SRP rate limit information
-                        	**type**\: :py:class:`RateLimitInfo <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.RateLimitInfo>`
+                        	SRP topology information
+                        	**type**\: :py:class:`TopologyInfo <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo>`
                         
                         .. attribute:: srr_info
                         
                         	SRP SRR information
                         	**type**\: :py:class:`SrrInfo <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo>`
                         
-                        .. attribute:: topology_info
+                        .. attribute:: rate_limit_info
                         
-                        	SRP topology information
-                        	**type**\: :py:class:`TopologyInfo <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo>`
+                        	SRP rate limit information
+                        	**type**\: :py:class:`RateLimitInfo <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.RateLimitInfo>`
                         
                         
 
@@ -8572,12 +6606,12 @@ class Interfaces(object):
                             self.parent = None
                             self.ips_info = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo()
                             self.ips_info.parent = self
-                            self.rate_limit_info = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.RateLimitInfo()
-                            self.rate_limit_info.parent = self
-                            self.srr_info = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo()
-                            self.srr_info.parent = self
                             self.topology_info = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo()
                             self.topology_info.parent = self
+                            self.srr_info = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo()
+                            self.srr_info.parent = self
+                            self.rate_limit_info = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.RateLimitInfo()
+                            self.rate_limit_info.parent = self
 
 
                         class IpsInfo(object):
@@ -8615,18 +6649,6 @@ class Interfaces(object):
                                 """
                                 IPS information
                                 
-                                .. attribute:: is_inter_card_bus_enabled
-                                
-                                	Inter card bus enabled
-                                	**type**\: int
-                                
-                                	**range:** \-2147483648..2147483647
-                                
-                                .. attribute:: mac_address
-                                
-                                	MAC address for node
-                                	**type**\: str
-                                
                                 .. attribute:: side_a
                                 
                                 	Side A IPS details
@@ -8636,6 +6658,18 @@ class Interfaces(object):
                                 
                                 	Side B IPS details
                                 	**type**\: :py:class:`SideB <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideB>`
+                                
+                                .. attribute:: mac_address
+                                
+                                	MAC address for node
+                                	**type**\: str
+                                
+                                .. attribute:: is_inter_card_bus_enabled
+                                
+                                	Inter card bus enabled
+                                	**type**\: int
+                                
+                                	**range:** \-2147483648..2147483647
                                 
                                 .. attribute:: wtr_timer_period
                                 
@@ -8653,12 +6687,12 @@ class Interfaces(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.is_inter_card_bus_enabled = None
-                                    self.mac_address = None
                                     self.side_a = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideA()
                                     self.side_a.parent = self
                                     self.side_b = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideB()
                                     self.side_b.parent = self
+                                    self.mac_address = None
+                                    self.is_inter_card_bus_enabled = None
                                     self.wtr_timer_period = None
 
 
@@ -8666,22 +6700,15 @@ class Interfaces(object):
                                     """
                                     Side A IPS details
                                     
-                                    .. attribute:: asserted_failure
-                                    
-                                    	Failures presently asserted
-                                    	**type**\: list of :py:class:`AssertedFailure <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideA.AssertedFailure>`
-                                    
-                                    .. attribute:: delay_keep_alive_trigger
-                                    
-                                    	Number of milliseconds to wait after an L1 failure is detected before triggering an L2 wrap
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
-                                    
                                     .. attribute:: mac_address
                                     
                                     	MAC address
                                     	**type**\: str
+                                    
+                                    .. attribute:: wrap_state
+                                    
+                                    	Wrap state
+                                    	**type**\: :py:class:`SrpMgmtIpsWrapStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsWrapStateEnum>`
                                     
                                     .. attribute:: packet_sent_timer
                                     
@@ -8690,14 +6717,28 @@ class Interfaces(object):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    .. attribute:: send_timer_time_remaining
+                                    
+                                    	Time in seconds remaining until next send of an IPS request
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: wtr_timer_remaining
+                                    
+                                    	Time in seconds until wrap removal
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: self_detected_request
+                                    
+                                    	Self Detected Requests
+                                    	**type**\: :py:class:`SrpMgmtIpsReqEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReqEnum>`
+                                    
                                     .. attribute:: remote_request
                                     
                                     	Remote Requests
-                                    	**type**\: :py:class:`SrpMgmtIpsReqEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReqEnum>`
-                                    
-                                    .. attribute:: rx_message_type
-                                    
-                                    	Type of message received
                                     	**type**\: :py:class:`SrpMgmtIpsReqEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReqEnum>`
                                     
                                     .. attribute:: rx_neighbor_mac_address
@@ -8705,12 +6746,10 @@ class Interfaces(object):
                                     	Neighbour mac address for received message
                                     	**type**\: str
                                     
-                                    .. attribute:: rx_packet_test
+                                    .. attribute:: rx_message_type
                                     
-                                    	Test for existence of an RX packet
-                                    	**type**\: int
-                                    
-                                    	**range:** \-2147483648..2147483647
+                                    	Type of message received
+                                    	**type**\: :py:class:`SrpMgmtIpsReqEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReqEnum>`
                                     
                                     .. attribute:: rx_path_type
                                     
@@ -8724,34 +6763,22 @@ class Interfaces(object):
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: self_detected_request
+                                    .. attribute:: rx_packet_test
                                     
-                                    	Self Detected Requests
-                                    	**type**\: :py:class:`SrpMgmtIpsReqEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReqEnum>`
-                                    
-                                    .. attribute:: send_timer_time_remaining
-                                    
-                                    	Time in seconds remaining until next send of an IPS request
+                                    	Test for existence of an RX packet
                                     	**type**\: int
                                     
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: tx_message_type
-                                    
-                                    	Type of message transmitted
-                                    	**type**\: :py:class:`SrpMgmtIpsReqEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReqEnum>`
+                                    	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: tx_neighbor_mac_address
                                     
                                     	Mac address of node receiving TXed messages
                                     	**type**\: str
                                     
-                                    .. attribute:: tx_packet_test
+                                    .. attribute:: tx_message_type
                                     
-                                    	Test for existence of a TX packet
-                                    	**type**\: int
-                                    
-                                    	**range:** \-2147483648..2147483647
+                                    	Type of message transmitted
+                                    	**type**\: :py:class:`SrpMgmtIpsReqEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReqEnum>`
                                     
                                     .. attribute:: tx_path_type
                                     
@@ -8765,17 +6792,24 @@ class Interfaces(object):
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: wrap_state
+                                    .. attribute:: tx_packet_test
                                     
-                                    	Wrap state
-                                    	**type**\: :py:class:`SrpMgmtIpsWrapStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsWrapStateEnum>`
+                                    	Test for existence of a TX packet
+                                    	**type**\: int
                                     
-                                    .. attribute:: wtr_timer_remaining
+                                    	**range:** \-2147483648..2147483647
                                     
-                                    	Time in seconds until wrap removal
+                                    .. attribute:: delay_keep_alive_trigger
+                                    
+                                    	Number of milliseconds to wait after an L1 failure is detected before triggering an L2 wrap
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    .. attribute:: asserted_failure
+                                    
+                                    	Failures presently asserted
+                                    	**type**\: list of :py:class:`AssertedFailure <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideA.AssertedFailure>`
                                     
                                     
 
@@ -8786,53 +6820,51 @@ class Interfaces(object):
 
                                     def __init__(self):
                                         self.parent = None
+                                        self.mac_address = None
+                                        self.wrap_state = None
+                                        self.packet_sent_timer = None
+                                        self.send_timer_time_remaining = None
+                                        self.wtr_timer_remaining = None
+                                        self.self_detected_request = None
+                                        self.remote_request = None
+                                        self.rx_neighbor_mac_address = None
+                                        self.rx_message_type = None
+                                        self.rx_path_type = None
+                                        self.rx_ttl = None
+                                        self.rx_packet_test = None
+                                        self.tx_neighbor_mac_address = None
+                                        self.tx_message_type = None
+                                        self.tx_path_type = None
+                                        self.tx_ttl = None
+                                        self.tx_packet_test = None
+                                        self.delay_keep_alive_trigger = None
                                         self.asserted_failure = YList()
                                         self.asserted_failure.parent = self
                                         self.asserted_failure.name = 'asserted_failure'
-                                        self.delay_keep_alive_trigger = None
-                                        self.mac_address = None
-                                        self.packet_sent_timer = None
-                                        self.remote_request = None
-                                        self.rx_message_type = None
-                                        self.rx_neighbor_mac_address = None
-                                        self.rx_packet_test = None
-                                        self.rx_path_type = None
-                                        self.rx_ttl = None
-                                        self.self_detected_request = None
-                                        self.send_timer_time_remaining = None
-                                        self.tx_message_type = None
-                                        self.tx_neighbor_mac_address = None
-                                        self.tx_packet_test = None
-                                        self.tx_path_type = None
-                                        self.tx_ttl = None
-                                        self.wrap_state = None
-                                        self.wtr_timer_remaining = None
 
 
                                     class AssertedFailure(object):
                                         """
                                         Failures presently asserted
                                         
-                                        .. attribute:: current_state
+                                        .. attribute:: type
                                         
-                                        	Current state
+                                        	Failure type
+                                        	**type**\: :py:class:`SrpMgmtFailureEtEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureEtEnum>`
+                                        
+                                        .. attribute:: reported_state
+                                        
+                                        	Reported state
                                         	**type**\: :py:class:`SrpMgmtFailureStateEtEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEtEnum>`
-                                        
-                                        .. attribute:: debounced_delay
-                                        
-                                        	Debounce delay
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
                                         
                                         .. attribute:: debounced_state
                                         
                                         	Debounced state
                                         	**type**\: :py:class:`SrpMgmtFailureStateEtEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEtEnum>`
                                         
-                                        .. attribute:: reported_state
+                                        .. attribute:: current_state
                                         
-                                        	Reported state
+                                        	Current state
                                         	**type**\: :py:class:`SrpMgmtFailureStateEtEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEtEnum>`
                                         
                                         .. attribute:: stable_time
@@ -8842,10 +6874,12 @@ class Interfaces(object):
                                         
                                         	**range:** 0..18446744073709551615
                                         
-                                        .. attribute:: type
+                                        .. attribute:: debounced_delay
                                         
-                                        	Failure type
-                                        	**type**\: :py:class:`SrpMgmtFailureEtEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureEtEnum>`
+                                        	Debounce delay
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
                                         
                                         
 
@@ -8856,12 +6890,12 @@ class Interfaces(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.current_state = None
-                                            self.debounced_delay = None
-                                            self.debounced_state = None
-                                            self.reported_state = None
-                                            self.stable_time = None
                                             self.type = None
+                                            self.reported_state = None
+                                            self.debounced_state = None
+                                            self.current_state = None
+                                            self.stable_time = None
+                                            self.debounced_delay = None
 
                                         @property
                                         def _common_path(self):
@@ -8877,22 +6911,22 @@ class Interfaces(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.current_state is not None:
-                                                return True
-
-                                            if self.debounced_delay is not None:
-                                                return True
-
-                                            if self.debounced_state is not None:
+                                            if self.type is not None:
                                                 return True
 
                                             if self.reported_state is not None:
                                                 return True
 
+                                            if self.debounced_state is not None:
+                                                return True
+
+                                            if self.current_state is not None:
+                                                return True
+
                                             if self.stable_time is not None:
                                                 return True
 
-                                            if self.type is not None:
+                                            if self.debounced_delay is not None:
                                                 return True
 
                                             return False
@@ -8916,30 +6950,31 @@ class Interfaces(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.asserted_failure is not None:
-                                            for child_ref in self.asserted_failure:
-                                                if child_ref._has_data():
-                                                    return True
-
-                                        if self.delay_keep_alive_trigger is not None:
+                                        if self.mac_address is not None:
                                             return True
 
-                                        if self.mac_address is not None:
+                                        if self.wrap_state is not None:
                                             return True
 
                                         if self.packet_sent_timer is not None:
                                             return True
 
-                                        if self.remote_request is not None:
+                                        if self.send_timer_time_remaining is not None:
                                             return True
 
-                                        if self.rx_message_type is not None:
+                                        if self.wtr_timer_remaining is not None:
+                                            return True
+
+                                        if self.self_detected_request is not None:
+                                            return True
+
+                                        if self.remote_request is not None:
                                             return True
 
                                         if self.rx_neighbor_mac_address is not None:
                                             return True
 
-                                        if self.rx_packet_test is not None:
+                                        if self.rx_message_type is not None:
                                             return True
 
                                         if self.rx_path_type is not None:
@@ -8948,19 +6983,13 @@ class Interfaces(object):
                                         if self.rx_ttl is not None:
                                             return True
 
-                                        if self.self_detected_request is not None:
-                                            return True
-
-                                        if self.send_timer_time_remaining is not None:
-                                            return True
-
-                                        if self.tx_message_type is not None:
+                                        if self.rx_packet_test is not None:
                                             return True
 
                                         if self.tx_neighbor_mac_address is not None:
                                             return True
 
-                                        if self.tx_packet_test is not None:
+                                        if self.tx_message_type is not None:
                                             return True
 
                                         if self.tx_path_type is not None:
@@ -8969,11 +6998,16 @@ class Interfaces(object):
                                         if self.tx_ttl is not None:
                                             return True
 
-                                        if self.wrap_state is not None:
+                                        if self.tx_packet_test is not None:
                                             return True
 
-                                        if self.wtr_timer_remaining is not None:
+                                        if self.delay_keep_alive_trigger is not None:
                                             return True
+
+                                        if self.asserted_failure is not None:
+                                            for child_ref in self.asserted_failure:
+                                                if child_ref._has_data():
+                                                    return True
 
                                         return False
 
@@ -8987,22 +7021,15 @@ class Interfaces(object):
                                     """
                                     Side B IPS details
                                     
-                                    .. attribute:: asserted_failure
-                                    
-                                    	Failures presently asserted
-                                    	**type**\: list of :py:class:`AssertedFailure <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideB.AssertedFailure>`
-                                    
-                                    .. attribute:: delay_keep_alive_trigger
-                                    
-                                    	Number of milliseconds to wait after an L1 failure is detected before triggering an L2 wrap
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
-                                    
                                     .. attribute:: mac_address
                                     
                                     	MAC address
                                     	**type**\: str
+                                    
+                                    .. attribute:: wrap_state
+                                    
+                                    	Wrap state
+                                    	**type**\: :py:class:`SrpMgmtIpsWrapStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsWrapStateEnum>`
                                     
                                     .. attribute:: packet_sent_timer
                                     
@@ -9011,14 +7038,28 @@ class Interfaces(object):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    .. attribute:: send_timer_time_remaining
+                                    
+                                    	Time in seconds remaining until next send of an IPS request
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: wtr_timer_remaining
+                                    
+                                    	Time in seconds until wrap removal
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: self_detected_request
+                                    
+                                    	Self Detected Requests
+                                    	**type**\: :py:class:`SrpMgmtIpsReqEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReqEnum>`
+                                    
                                     .. attribute:: remote_request
                                     
                                     	Remote Requests
-                                    	**type**\: :py:class:`SrpMgmtIpsReqEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReqEnum>`
-                                    
-                                    .. attribute:: rx_message_type
-                                    
-                                    	Type of message received
                                     	**type**\: :py:class:`SrpMgmtIpsReqEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReqEnum>`
                                     
                                     .. attribute:: rx_neighbor_mac_address
@@ -9026,12 +7067,10 @@ class Interfaces(object):
                                     	Neighbour mac address for received message
                                     	**type**\: str
                                     
-                                    .. attribute:: rx_packet_test
+                                    .. attribute:: rx_message_type
                                     
-                                    	Test for existence of an RX packet
-                                    	**type**\: int
-                                    
-                                    	**range:** \-2147483648..2147483647
+                                    	Type of message received
+                                    	**type**\: :py:class:`SrpMgmtIpsReqEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReqEnum>`
                                     
                                     .. attribute:: rx_path_type
                                     
@@ -9045,34 +7084,22 @@ class Interfaces(object):
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: self_detected_request
+                                    .. attribute:: rx_packet_test
                                     
-                                    	Self Detected Requests
-                                    	**type**\: :py:class:`SrpMgmtIpsReqEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReqEnum>`
-                                    
-                                    .. attribute:: send_timer_time_remaining
-                                    
-                                    	Time in seconds remaining until next send of an IPS request
+                                    	Test for existence of an RX packet
                                     	**type**\: int
                                     
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: tx_message_type
-                                    
-                                    	Type of message transmitted
-                                    	**type**\: :py:class:`SrpMgmtIpsReqEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReqEnum>`
+                                    	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: tx_neighbor_mac_address
                                     
                                     	Mac address of node receiving TXed messages
                                     	**type**\: str
                                     
-                                    .. attribute:: tx_packet_test
+                                    .. attribute:: tx_message_type
                                     
-                                    	Test for existence of a TX packet
-                                    	**type**\: int
-                                    
-                                    	**range:** \-2147483648..2147483647
+                                    	Type of message transmitted
+                                    	**type**\: :py:class:`SrpMgmtIpsReqEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReqEnum>`
                                     
                                     .. attribute:: tx_path_type
                                     
@@ -9086,17 +7113,24 @@ class Interfaces(object):
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: wrap_state
+                                    .. attribute:: tx_packet_test
                                     
-                                    	Wrap state
-                                    	**type**\: :py:class:`SrpMgmtIpsWrapStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsWrapStateEnum>`
+                                    	Test for existence of a TX packet
+                                    	**type**\: int
                                     
-                                    .. attribute:: wtr_timer_remaining
+                                    	**range:** \-2147483648..2147483647
                                     
-                                    	Time in seconds until wrap removal
+                                    .. attribute:: delay_keep_alive_trigger
+                                    
+                                    	Number of milliseconds to wait after an L1 failure is detected before triggering an L2 wrap
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    .. attribute:: asserted_failure
+                                    
+                                    	Failures presently asserted
+                                    	**type**\: list of :py:class:`AssertedFailure <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideB.AssertedFailure>`
                                     
                                     
 
@@ -9107,53 +7141,51 @@ class Interfaces(object):
 
                                     def __init__(self):
                                         self.parent = None
+                                        self.mac_address = None
+                                        self.wrap_state = None
+                                        self.packet_sent_timer = None
+                                        self.send_timer_time_remaining = None
+                                        self.wtr_timer_remaining = None
+                                        self.self_detected_request = None
+                                        self.remote_request = None
+                                        self.rx_neighbor_mac_address = None
+                                        self.rx_message_type = None
+                                        self.rx_path_type = None
+                                        self.rx_ttl = None
+                                        self.rx_packet_test = None
+                                        self.tx_neighbor_mac_address = None
+                                        self.tx_message_type = None
+                                        self.tx_path_type = None
+                                        self.tx_ttl = None
+                                        self.tx_packet_test = None
+                                        self.delay_keep_alive_trigger = None
                                         self.asserted_failure = YList()
                                         self.asserted_failure.parent = self
                                         self.asserted_failure.name = 'asserted_failure'
-                                        self.delay_keep_alive_trigger = None
-                                        self.mac_address = None
-                                        self.packet_sent_timer = None
-                                        self.remote_request = None
-                                        self.rx_message_type = None
-                                        self.rx_neighbor_mac_address = None
-                                        self.rx_packet_test = None
-                                        self.rx_path_type = None
-                                        self.rx_ttl = None
-                                        self.self_detected_request = None
-                                        self.send_timer_time_remaining = None
-                                        self.tx_message_type = None
-                                        self.tx_neighbor_mac_address = None
-                                        self.tx_packet_test = None
-                                        self.tx_path_type = None
-                                        self.tx_ttl = None
-                                        self.wrap_state = None
-                                        self.wtr_timer_remaining = None
 
 
                                     class AssertedFailure(object):
                                         """
                                         Failures presently asserted
                                         
-                                        .. attribute:: current_state
+                                        .. attribute:: type
                                         
-                                        	Current state
+                                        	Failure type
+                                        	**type**\: :py:class:`SrpMgmtFailureEtEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureEtEnum>`
+                                        
+                                        .. attribute:: reported_state
+                                        
+                                        	Reported state
                                         	**type**\: :py:class:`SrpMgmtFailureStateEtEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEtEnum>`
-                                        
-                                        .. attribute:: debounced_delay
-                                        
-                                        	Debounce delay
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
                                         
                                         .. attribute:: debounced_state
                                         
                                         	Debounced state
                                         	**type**\: :py:class:`SrpMgmtFailureStateEtEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEtEnum>`
                                         
-                                        .. attribute:: reported_state
+                                        .. attribute:: current_state
                                         
-                                        	Reported state
+                                        	Current state
                                         	**type**\: :py:class:`SrpMgmtFailureStateEtEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEtEnum>`
                                         
                                         .. attribute:: stable_time
@@ -9163,10 +7195,12 @@ class Interfaces(object):
                                         
                                         	**range:** 0..18446744073709551615
                                         
-                                        .. attribute:: type
+                                        .. attribute:: debounced_delay
                                         
-                                        	Failure type
-                                        	**type**\: :py:class:`SrpMgmtFailureEtEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureEtEnum>`
+                                        	Debounce delay
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
                                         
                                         
 
@@ -9177,12 +7211,12 @@ class Interfaces(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.current_state = None
-                                            self.debounced_delay = None
-                                            self.debounced_state = None
-                                            self.reported_state = None
-                                            self.stable_time = None
                                             self.type = None
+                                            self.reported_state = None
+                                            self.debounced_state = None
+                                            self.current_state = None
+                                            self.stable_time = None
+                                            self.debounced_delay = None
 
                                         @property
                                         def _common_path(self):
@@ -9198,22 +7232,22 @@ class Interfaces(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.current_state is not None:
-                                                return True
-
-                                            if self.debounced_delay is not None:
-                                                return True
-
-                                            if self.debounced_state is not None:
+                                            if self.type is not None:
                                                 return True
 
                                             if self.reported_state is not None:
                                                 return True
 
+                                            if self.debounced_state is not None:
+                                                return True
+
+                                            if self.current_state is not None:
+                                                return True
+
                                             if self.stable_time is not None:
                                                 return True
 
-                                            if self.type is not None:
+                                            if self.debounced_delay is not None:
                                                 return True
 
                                             return False
@@ -9237,30 +7271,31 @@ class Interfaces(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.asserted_failure is not None:
-                                            for child_ref in self.asserted_failure:
-                                                if child_ref._has_data():
-                                                    return True
-
-                                        if self.delay_keep_alive_trigger is not None:
+                                        if self.mac_address is not None:
                                             return True
 
-                                        if self.mac_address is not None:
+                                        if self.wrap_state is not None:
                                             return True
 
                                         if self.packet_sent_timer is not None:
                                             return True
 
-                                        if self.remote_request is not None:
+                                        if self.send_timer_time_remaining is not None:
                                             return True
 
-                                        if self.rx_message_type is not None:
+                                        if self.wtr_timer_remaining is not None:
+                                            return True
+
+                                        if self.self_detected_request is not None:
+                                            return True
+
+                                        if self.remote_request is not None:
                                             return True
 
                                         if self.rx_neighbor_mac_address is not None:
                                             return True
 
-                                        if self.rx_packet_test is not None:
+                                        if self.rx_message_type is not None:
                                             return True
 
                                         if self.rx_path_type is not None:
@@ -9269,19 +7304,13 @@ class Interfaces(object):
                                         if self.rx_ttl is not None:
                                             return True
 
-                                        if self.self_detected_request is not None:
-                                            return True
-
-                                        if self.send_timer_time_remaining is not None:
-                                            return True
-
-                                        if self.tx_message_type is not None:
+                                        if self.rx_packet_test is not None:
                                             return True
 
                                         if self.tx_neighbor_mac_address is not None:
                                             return True
 
-                                        if self.tx_packet_test is not None:
+                                        if self.tx_message_type is not None:
                                             return True
 
                                         if self.tx_path_type is not None:
@@ -9290,11 +7319,16 @@ class Interfaces(object):
                                         if self.tx_ttl is not None:
                                             return True
 
-                                        if self.wrap_state is not None:
+                                        if self.tx_packet_test is not None:
                                             return True
 
-                                        if self.wtr_timer_remaining is not None:
+                                        if self.delay_keep_alive_trigger is not None:
                                             return True
+
+                                        if self.asserted_failure is not None:
+                                            for child_ref in self.asserted_failure:
+                                                if child_ref._has_data():
+                                                    return True
 
                                         return False
 
@@ -9317,16 +7351,16 @@ class Interfaces(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_inter_card_bus_enabled is not None:
+                                    if self.side_a is not None and self.side_a._has_data():
+                                        return True
+
+                                    if self.side_b is not None and self.side_b._has_data():
                                         return True
 
                                     if self.mac_address is not None:
                                         return True
 
-                                    if self.side_a is not None and self.side_a._has_data():
-                                        return True
-
-                                    if self.side_b is not None and self.side_b._has_data():
+                                    if self.is_inter_card_bus_enabled is not None:
                                         return True
 
                                     if self.wtr_timer_period is not None:
@@ -9367,6 +7401,779 @@ class Interfaces(object):
                             def _meta_info():
                                 from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
                                 return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo']['meta_info']
+
+
+                        class TopologyInfo(object):
+                            """
+                            SRP topology information
+                            
+                            .. attribute:: is_admin_down
+                            
+                            	Is the interfaceadministratively down
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: local_information
+                            
+                            	Detailed SRP topology information
+                            	**type**\: list of :py:class:`LocalInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'pfi-im-cmd-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.is_admin_down = None
+                                self.local_information = YList()
+                                self.local_information.parent = self
+                                self.local_information.name = 'local_information'
+
+
+                            class LocalInformation(object):
+                                """
+                                Detailed SRP topology information
+                                
+                                .. attribute:: topology_timer
+                                
+                                	How often a topology pkt is sent
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: next_topology_packet_delay
+                                
+                                	Time remaining until next topo pkt sent
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: time_since_last_topology_packet_received
+                                
+                                	Time since last topo pkt was received
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: time_since_last_topology_change
+                                
+                                	Time since last topology change
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: number_of_nodes_on_ring
+                                
+                                	Number of nodes on ring
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: ring_node
+                                
+                                	List of nodes on the ring info
+                                	**type**\: list of :py:class:`RingNode <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation.RingNode>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'pfi-im-cmd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.topology_timer = None
+                                    self.next_topology_packet_delay = None
+                                    self.time_since_last_topology_packet_received = None
+                                    self.time_since_last_topology_change = None
+                                    self.number_of_nodes_on_ring = None
+                                    self.ring_node = YList()
+                                    self.ring_node.parent = self
+                                    self.ring_node.name = 'ring_node'
+
+
+                                class RingNode(object):
+                                    """
+                                    List of nodes on the ring info
+                                    
+                                    .. attribute:: hop_count
+                                    
+                                    	Outer\-ring hops to reach this node
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    .. attribute:: mac_address
+                                    
+                                    	MAC address
+                                    	**type**\: str
+                                    
+                                    .. attribute:: ipv4_address
+                                    
+                                    	IPv4 address
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: is_wrapped
+                                    
+                                    	Wrap state
+                                    	**type**\: int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
+                                    .. attribute:: is_srr_supported
+                                    
+                                    	SRR protocol supported
+                                    	**type**\: int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
+                                    .. attribute:: node_name
+                                    
+                                    	Node name
+                                    	**type**\: str
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'pfi-im-cmd-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.hop_count = None
+                                        self.mac_address = None
+                                        self.ipv4_address = None
+                                        self.is_wrapped = None
+                                        self.is_srr_supported = None
+                                        self.node_name = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:ring-node'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.hop_count is not None:
+                                            return True
+
+                                        if self.mac_address is not None:
+                                            return True
+
+                                        if self.ipv4_address is not None:
+                                            return True
+
+                                        if self.is_wrapped is not None:
+                                            return True
+
+                                        if self.is_srr_supported is not None:
+                                            return True
+
+                                        if self.node_name is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation.RingNode']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:local-information'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.topology_timer is not None:
+                                        return True
+
+                                    if self.next_topology_packet_delay is not None:
+                                        return True
+
+                                    if self.time_since_last_topology_packet_received is not None:
+                                        return True
+
+                                    if self.time_since_last_topology_change is not None:
+                                        return True
+
+                                    if self.number_of_nodes_on_ring is not None:
+                                        return True
+
+                                    if self.ring_node is not None:
+                                        for child_ref in self.ring_node:
+                                            if child_ref._has_data():
+                                                return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                    return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:topology-info'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.is_admin_down is not None:
+                                    return True
+
+                                if self.local_information is not None:
+                                    for child_ref in self.local_information:
+                                        if child_ref._has_data():
+                                            return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo']['meta_info']
+
+
+                        class SrrInfo(object):
+                            """
+                            SRP SRR information
+                            
+                            .. attribute:: is_admin_down
+                            
+                            	Is the interfaceadministratively down
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_srr_enabled
+                            
+                            	SRR enabled
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: srr_detailed_info
+                            
+                            	SRP information
+                            	**type**\: list of :py:class:`SrrDetailedInfo <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'pfi-im-cmd-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.is_admin_down = None
+                                self.is_srr_enabled = None
+                                self.srr_detailed_info = YList()
+                                self.srr_detailed_info.parent = self
+                                self.srr_detailed_info.name = 'srr_detailed_info'
+
+
+                            class SrrDetailedInfo(object):
+                                """
+                                SRP information
+                                
+                                .. attribute:: version_number
+                                
+                                	Version number
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: is_wrong_version_received
+                                
+                                	Wrong version recieved
+                                	**type**\: int
+                                
+                                	**range:** \-2147483648..2147483647
+                                
+                                .. attribute:: last_wrong_version_receive_time
+                                
+                                	Time that last wrong version message recieved
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: mac_address
+                                
+                                	SRR node mac address
+                                	**type**\: str
+                                
+                                .. attribute:: node_state
+                                
+                                	SRR node state
+                                	**type**\: :py:class:`SrpMgmtSrrNodeStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrNodeStateEnum>`
+                                
+                                .. attribute:: is_outer_ring_in_use
+                                
+                                	Is the outer ring in use
+                                	**type**\: int
+                                
+                                	**range:** \-2147483648..2147483647
+                                
+                                .. attribute:: is_inner_ring_in_use
+                                
+                                	 Is the inner ring in use
+                                	**type**\: int
+                                
+                                	**range:** \-2147483648..2147483647
+                                
+                                .. attribute:: is_announce
+                                
+                                	Is announcing enabled
+                                	**type**\: int
+                                
+                                	**range:** \-2147483648..2147483647
+                                
+                                .. attribute:: outer_fail_type
+                                
+                                	Outer fail type
+                                	**type**\: :py:class:`SrpMgmtSrrFailureEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailureEnum>`
+                                
+                                .. attribute:: inner_fail_type
+                                
+                                	Inner fail type
+                                	**type**\: :py:class:`SrpMgmtSrrFailureEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailureEnum>`
+                                
+                                .. attribute:: packet_send_timer
+                                
+                                	SRR packet send timer interval in seconds
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: next_srr_packet_send_time
+                                
+                                	Time remaining in seconds to next SRR packet send
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: single_ring_bw
+                                
+                                	Single ring bandwidth Mbps
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: wtr_time
+                                
+                                	SRR Wait To Restore interval delay in seconds
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: wtr_timer_remaining_outer_ring
+                                
+                                	Time remaining in seconds until next outer ring wrap removal
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: wtr_timer_remaining_inner_ring
+                                
+                                	Time remaining in seconds until next inner ring wrap removal
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: nodes_on_ring
+                                
+                                	List of nodes on the ring info
+                                	**type**\: list of :py:class:`NodesOnRing <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesOnRing>`
+                                
+                                .. attribute:: nodes_not_on_ring
+                                
+                                	nodes not in topology map
+                                	**type**\: list of :py:class:`NodesNotOnRing <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesNotOnRing>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'pfi-im-cmd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.version_number = None
+                                    self.is_wrong_version_received = None
+                                    self.last_wrong_version_receive_time = None
+                                    self.mac_address = None
+                                    self.node_state = None
+                                    self.is_outer_ring_in_use = None
+                                    self.is_inner_ring_in_use = None
+                                    self.is_announce = None
+                                    self.outer_fail_type = None
+                                    self.inner_fail_type = None
+                                    self.packet_send_timer = None
+                                    self.next_srr_packet_send_time = None
+                                    self.single_ring_bw = None
+                                    self.wtr_time = None
+                                    self.wtr_timer_remaining_outer_ring = None
+                                    self.wtr_timer_remaining_inner_ring = None
+                                    self.nodes_on_ring = YList()
+                                    self.nodes_on_ring.parent = self
+                                    self.nodes_on_ring.name = 'nodes_on_ring'
+                                    self.nodes_not_on_ring = YList()
+                                    self.nodes_not_on_ring.parent = self
+                                    self.nodes_not_on_ring.name = 'nodes_not_on_ring'
+
+
+                                class NodesOnRing(object):
+                                    """
+                                    List of nodes on the ring info
+                                    
+                                    .. attribute:: node_name
+                                    
+                                    	Node name
+                                    	**type**\: str
+                                    
+                                    .. attribute:: srr_entry_exits
+                                    
+                                    	Does the SRR information exist for this node
+                                    	**type**\: int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
+                                    .. attribute:: mac_address
+                                    
+                                    	node mac address
+                                    	**type**\: str
+                                    
+                                    .. attribute:: outer_failure
+                                    
+                                    	Outer failure
+                                    	**type**\: :py:class:`SrpMgmtSrrFailureEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailureEnum>`
+                                    
+                                    .. attribute:: inner_failure
+                                    
+                                    	Inner failure
+                                    	**type**\: :py:class:`SrpMgmtSrrFailureEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailureEnum>`
+                                    
+                                    .. attribute:: is_last_announce_received
+                                    
+                                    	Announce last received ?
+                                    	**type**\: int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
+                                    .. attribute:: last_announce_received_time
+                                    
+                                    	Announce last received
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'pfi-im-cmd-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.node_name = None
+                                        self.srr_entry_exits = None
+                                        self.mac_address = None
+                                        self.outer_failure = None
+                                        self.inner_failure = None
+                                        self.is_last_announce_received = None
+                                        self.last_announce_received_time = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:nodes-on-ring'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.node_name is not None:
+                                            return True
+
+                                        if self.srr_entry_exits is not None:
+                                            return True
+
+                                        if self.mac_address is not None:
+                                            return True
+
+                                        if self.outer_failure is not None:
+                                            return True
+
+                                        if self.inner_failure is not None:
+                                            return True
+
+                                        if self.is_last_announce_received is not None:
+                                            return True
+
+                                        if self.last_announce_received_time is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesOnRing']['meta_info']
+
+
+                                class NodesNotOnRing(object):
+                                    """
+                                    nodes not in topology map
+                                    
+                                    .. attribute:: node_name
+                                    
+                                    	Node name
+                                    	**type**\: str
+                                    
+                                    .. attribute:: srr_entry_exits
+                                    
+                                    	Does the SRR information exist for this node
+                                    	**type**\: int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
+                                    .. attribute:: mac_address
+                                    
+                                    	node mac address
+                                    	**type**\: str
+                                    
+                                    .. attribute:: outer_failure
+                                    
+                                    	Outer failure
+                                    	**type**\: :py:class:`SrpMgmtSrrFailureEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailureEnum>`
+                                    
+                                    .. attribute:: inner_failure
+                                    
+                                    	Inner failure
+                                    	**type**\: :py:class:`SrpMgmtSrrFailureEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailureEnum>`
+                                    
+                                    .. attribute:: is_last_announce_received
+                                    
+                                    	Announce last received ?
+                                    	**type**\: int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
+                                    .. attribute:: last_announce_received_time
+                                    
+                                    	Announce last received
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'pfi-im-cmd-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.node_name = None
+                                        self.srr_entry_exits = None
+                                        self.mac_address = None
+                                        self.outer_failure = None
+                                        self.inner_failure = None
+                                        self.is_last_announce_received = None
+                                        self.last_announce_received_time = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:nodes-not-on-ring'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.node_name is not None:
+                                            return True
+
+                                        if self.srr_entry_exits is not None:
+                                            return True
+
+                                        if self.mac_address is not None:
+                                            return True
+
+                                        if self.outer_failure is not None:
+                                            return True
+
+                                        if self.inner_failure is not None:
+                                            return True
+
+                                        if self.is_last_announce_received is not None:
+                                            return True
+
+                                        if self.last_announce_received_time is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesNotOnRing']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:srr-detailed-info'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.version_number is not None:
+                                        return True
+
+                                    if self.is_wrong_version_received is not None:
+                                        return True
+
+                                    if self.last_wrong_version_receive_time is not None:
+                                        return True
+
+                                    if self.mac_address is not None:
+                                        return True
+
+                                    if self.node_state is not None:
+                                        return True
+
+                                    if self.is_outer_ring_in_use is not None:
+                                        return True
+
+                                    if self.is_inner_ring_in_use is not None:
+                                        return True
+
+                                    if self.is_announce is not None:
+                                        return True
+
+                                    if self.outer_fail_type is not None:
+                                        return True
+
+                                    if self.inner_fail_type is not None:
+                                        return True
+
+                                    if self.packet_send_timer is not None:
+                                        return True
+
+                                    if self.next_srr_packet_send_time is not None:
+                                        return True
+
+                                    if self.single_ring_bw is not None:
+                                        return True
+
+                                    if self.wtr_time is not None:
+                                        return True
+
+                                    if self.wtr_timer_remaining_outer_ring is not None:
+                                        return True
+
+                                    if self.wtr_timer_remaining_inner_ring is not None:
+                                        return True
+
+                                    if self.nodes_on_ring is not None:
+                                        for child_ref in self.nodes_on_ring:
+                                            if child_ref._has_data():
+                                                return True
+
+                                    if self.nodes_not_on_ring is not None:
+                                        for child_ref in self.nodes_not_on_ring:
+                                            if child_ref._has_data():
+                                                return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                    return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:srr-info'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.is_admin_down is not None:
+                                    return True
+
+                                if self.is_srr_enabled is not None:
+                                    return True
+
+                                if self.srr_detailed_info is not None:
+                                    for child_ref in self.srr_detailed_info:
+                                        if child_ref._has_data():
+                                            return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo']['meta_info']
 
 
                         class RateLimitInfo(object):
@@ -9475,779 +8282,6 @@ class Interfaces(object):
                                 from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
                                 return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.RateLimitInfo']['meta_info']
 
-
-                        class SrrInfo(object):
-                            """
-                            SRP SRR information
-                            
-                            .. attribute:: is_admin_down
-                            
-                            	Is the interfaceadministratively down
-                            	**type**\: int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: is_srr_enabled
-                            
-                            	SRR enabled
-                            	**type**\: int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: srr_detailed_info
-                            
-                            	SRP information
-                            	**type**\: list of :py:class:`SrrDetailedInfo <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'pfi-im-cmd-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.is_admin_down = None
-                                self.is_srr_enabled = None
-                                self.srr_detailed_info = YList()
-                                self.srr_detailed_info.parent = self
-                                self.srr_detailed_info.name = 'srr_detailed_info'
-
-
-                            class SrrDetailedInfo(object):
-                                """
-                                SRP information
-                                
-                                .. attribute:: inner_fail_type
-                                
-                                	Inner fail type
-                                	**type**\: :py:class:`SrpMgmtSrrFailureEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailureEnum>`
-                                
-                                .. attribute:: is_announce
-                                
-                                	Is announcing enabled
-                                	**type**\: int
-                                
-                                	**range:** \-2147483648..2147483647
-                                
-                                .. attribute:: is_inner_ring_in_use
-                                
-                                	 Is the inner ring in use
-                                	**type**\: int
-                                
-                                	**range:** \-2147483648..2147483647
-                                
-                                .. attribute:: is_outer_ring_in_use
-                                
-                                	Is the outer ring in use
-                                	**type**\: int
-                                
-                                	**range:** \-2147483648..2147483647
-                                
-                                .. attribute:: is_wrong_version_received
-                                
-                                	Wrong version recieved
-                                	**type**\: int
-                                
-                                	**range:** \-2147483648..2147483647
-                                
-                                .. attribute:: last_wrong_version_receive_time
-                                
-                                	Time that last wrong version message recieved
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: mac_address
-                                
-                                	SRR node mac address
-                                	**type**\: str
-                                
-                                .. attribute:: next_srr_packet_send_time
-                                
-                                	Time remaining in seconds to next SRR packet send
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: node_state
-                                
-                                	SRR node state
-                                	**type**\: :py:class:`SrpMgmtSrrNodeStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrNodeStateEnum>`
-                                
-                                .. attribute:: nodes_not_on_ring
-                                
-                                	nodes not in topology map
-                                	**type**\: list of :py:class:`NodesNotOnRing <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesNotOnRing>`
-                                
-                                .. attribute:: nodes_on_ring
-                                
-                                	List of nodes on the ring info
-                                	**type**\: list of :py:class:`NodesOnRing <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesOnRing>`
-                                
-                                .. attribute:: outer_fail_type
-                                
-                                	Outer fail type
-                                	**type**\: :py:class:`SrpMgmtSrrFailureEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailureEnum>`
-                                
-                                .. attribute:: packet_send_timer
-                                
-                                	SRR packet send timer interval in seconds
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: single_ring_bw
-                                
-                                	Single ring bandwidth Mbps
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: version_number
-                                
-                                	Version number
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: wtr_time
-                                
-                                	SRR Wait To Restore interval delay in seconds
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: wtr_timer_remaining_inner_ring
-                                
-                                	Time remaining in seconds until next inner ring wrap removal
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: wtr_timer_remaining_outer_ring
-                                
-                                	Time remaining in seconds until next outer ring wrap removal
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'pfi-im-cmd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.inner_fail_type = None
-                                    self.is_announce = None
-                                    self.is_inner_ring_in_use = None
-                                    self.is_outer_ring_in_use = None
-                                    self.is_wrong_version_received = None
-                                    self.last_wrong_version_receive_time = None
-                                    self.mac_address = None
-                                    self.next_srr_packet_send_time = None
-                                    self.node_state = None
-                                    self.nodes_not_on_ring = YList()
-                                    self.nodes_not_on_ring.parent = self
-                                    self.nodes_not_on_ring.name = 'nodes_not_on_ring'
-                                    self.nodes_on_ring = YList()
-                                    self.nodes_on_ring.parent = self
-                                    self.nodes_on_ring.name = 'nodes_on_ring'
-                                    self.outer_fail_type = None
-                                    self.packet_send_timer = None
-                                    self.single_ring_bw = None
-                                    self.version_number = None
-                                    self.wtr_time = None
-                                    self.wtr_timer_remaining_inner_ring = None
-                                    self.wtr_timer_remaining_outer_ring = None
-
-
-                                class NodesNotOnRing(object):
-                                    """
-                                    nodes not in topology map
-                                    
-                                    .. attribute:: inner_failure
-                                    
-                                    	Inner failure
-                                    	**type**\: :py:class:`SrpMgmtSrrFailureEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailureEnum>`
-                                    
-                                    .. attribute:: is_last_announce_received
-                                    
-                                    	Announce last received ?
-                                    	**type**\: int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
-                                    .. attribute:: last_announce_received_time
-                                    
-                                    	Announce last received
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: mac_address
-                                    
-                                    	node mac address
-                                    	**type**\: str
-                                    
-                                    .. attribute:: node_name
-                                    
-                                    	Node name
-                                    	**type**\: str
-                                    
-                                    .. attribute:: outer_failure
-                                    
-                                    	Outer failure
-                                    	**type**\: :py:class:`SrpMgmtSrrFailureEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailureEnum>`
-                                    
-                                    .. attribute:: srr_entry_exits
-                                    
-                                    	Does the SRR information exist for this node
-                                    	**type**\: int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'pfi-im-cmd-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.inner_failure = None
-                                        self.is_last_announce_received = None
-                                        self.last_announce_received_time = None
-                                        self.mac_address = None
-                                        self.node_name = None
-                                        self.outer_failure = None
-                                        self.srr_entry_exits = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:nodes-not-on-ring'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.inner_failure is not None:
-                                            return True
-
-                                        if self.is_last_announce_received is not None:
-                                            return True
-
-                                        if self.last_announce_received_time is not None:
-                                            return True
-
-                                        if self.mac_address is not None:
-                                            return True
-
-                                        if self.node_name is not None:
-                                            return True
-
-                                        if self.outer_failure is not None:
-                                            return True
-
-                                        if self.srr_entry_exits is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesNotOnRing']['meta_info']
-
-
-                                class NodesOnRing(object):
-                                    """
-                                    List of nodes on the ring info
-                                    
-                                    .. attribute:: inner_failure
-                                    
-                                    	Inner failure
-                                    	**type**\: :py:class:`SrpMgmtSrrFailureEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailureEnum>`
-                                    
-                                    .. attribute:: is_last_announce_received
-                                    
-                                    	Announce last received ?
-                                    	**type**\: int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
-                                    .. attribute:: last_announce_received_time
-                                    
-                                    	Announce last received
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: mac_address
-                                    
-                                    	node mac address
-                                    	**type**\: str
-                                    
-                                    .. attribute:: node_name
-                                    
-                                    	Node name
-                                    	**type**\: str
-                                    
-                                    .. attribute:: outer_failure
-                                    
-                                    	Outer failure
-                                    	**type**\: :py:class:`SrpMgmtSrrFailureEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailureEnum>`
-                                    
-                                    .. attribute:: srr_entry_exits
-                                    
-                                    	Does the SRR information exist for this node
-                                    	**type**\: int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'pfi-im-cmd-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.inner_failure = None
-                                        self.is_last_announce_received = None
-                                        self.last_announce_received_time = None
-                                        self.mac_address = None
-                                        self.node_name = None
-                                        self.outer_failure = None
-                                        self.srr_entry_exits = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:nodes-on-ring'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.inner_failure is not None:
-                                            return True
-
-                                        if self.is_last_announce_received is not None:
-                                            return True
-
-                                        if self.last_announce_received_time is not None:
-                                            return True
-
-                                        if self.mac_address is not None:
-                                            return True
-
-                                        if self.node_name is not None:
-                                            return True
-
-                                        if self.outer_failure is not None:
-                                            return True
-
-                                        if self.srr_entry_exits is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesOnRing']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:srr-detailed-info'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.inner_fail_type is not None:
-                                        return True
-
-                                    if self.is_announce is not None:
-                                        return True
-
-                                    if self.is_inner_ring_in_use is not None:
-                                        return True
-
-                                    if self.is_outer_ring_in_use is not None:
-                                        return True
-
-                                    if self.is_wrong_version_received is not None:
-                                        return True
-
-                                    if self.last_wrong_version_receive_time is not None:
-                                        return True
-
-                                    if self.mac_address is not None:
-                                        return True
-
-                                    if self.next_srr_packet_send_time is not None:
-                                        return True
-
-                                    if self.node_state is not None:
-                                        return True
-
-                                    if self.nodes_not_on_ring is not None:
-                                        for child_ref in self.nodes_not_on_ring:
-                                            if child_ref._has_data():
-                                                return True
-
-                                    if self.nodes_on_ring is not None:
-                                        for child_ref in self.nodes_on_ring:
-                                            if child_ref._has_data():
-                                                return True
-
-                                    if self.outer_fail_type is not None:
-                                        return True
-
-                                    if self.packet_send_timer is not None:
-                                        return True
-
-                                    if self.single_ring_bw is not None:
-                                        return True
-
-                                    if self.version_number is not None:
-                                        return True
-
-                                    if self.wtr_time is not None:
-                                        return True
-
-                                    if self.wtr_timer_remaining_inner_ring is not None:
-                                        return True
-
-                                    if self.wtr_timer_remaining_outer_ring is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                                    return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo']['meta_info']
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:srr-info'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.is_admin_down is not None:
-                                    return True
-
-                                if self.is_srr_enabled is not None:
-                                    return True
-
-                                if self.srr_detailed_info is not None:
-                                    for child_ref in self.srr_detailed_info:
-                                        if child_ref._has_data():
-                                            return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                                return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo']['meta_info']
-
-
-                        class TopologyInfo(object):
-                            """
-                            SRP topology information
-                            
-                            .. attribute:: is_admin_down
-                            
-                            	Is the interfaceadministratively down
-                            	**type**\: int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: local_information
-                            
-                            	Detailed SRP topology information
-                            	**type**\: list of :py:class:`LocalInformation <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'pfi-im-cmd-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.is_admin_down = None
-                                self.local_information = YList()
-                                self.local_information.parent = self
-                                self.local_information.name = 'local_information'
-
-
-                            class LocalInformation(object):
-                                """
-                                Detailed SRP topology information
-                                
-                                .. attribute:: next_topology_packet_delay
-                                
-                                	Time remaining until next topo pkt sent
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: number_of_nodes_on_ring
-                                
-                                	Number of nodes on ring
-                                	**type**\: int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: ring_node
-                                
-                                	List of nodes on the ring info
-                                	**type**\: list of :py:class:`RingNode <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation.RingNode>`
-                                
-                                .. attribute:: time_since_last_topology_change
-                                
-                                	Time since last topology change
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: time_since_last_topology_packet_received
-                                
-                                	Time since last topo pkt was received
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: topology_timer
-                                
-                                	How often a topology pkt is sent
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'pfi-im-cmd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.next_topology_packet_delay = None
-                                    self.number_of_nodes_on_ring = None
-                                    self.ring_node = YList()
-                                    self.ring_node.parent = self
-                                    self.ring_node.name = 'ring_node'
-                                    self.time_since_last_topology_change = None
-                                    self.time_since_last_topology_packet_received = None
-                                    self.topology_timer = None
-
-
-                                class RingNode(object):
-                                    """
-                                    List of nodes on the ring info
-                                    
-                                    .. attribute:: hop_count
-                                    
-                                    	Outer\-ring hops to reach this node
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..65535
-                                    
-                                    .. attribute:: ipv4_address
-                                    
-                                    	IPv4 address
-                                    	**type**\: str
-                                    
-                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                    
-                                    .. attribute:: is_srr_supported
-                                    
-                                    	SRR protocol supported
-                                    	**type**\: int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
-                                    .. attribute:: is_wrapped
-                                    
-                                    	Wrap state
-                                    	**type**\: int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
-                                    .. attribute:: mac_address
-                                    
-                                    	MAC address
-                                    	**type**\: str
-                                    
-                                    .. attribute:: node_name
-                                    
-                                    	Node name
-                                    	**type**\: str
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'pfi-im-cmd-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.hop_count = None
-                                        self.ipv4_address = None
-                                        self.is_srr_supported = None
-                                        self.is_wrapped = None
-                                        self.mac_address = None
-                                        self.node_name = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:ring-node'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.hop_count is not None:
-                                            return True
-
-                                        if self.ipv4_address is not None:
-                                            return True
-
-                                        if self.is_srr_supported is not None:
-                                            return True
-
-                                        if self.is_wrapped is not None:
-                                            return True
-
-                                        if self.mac_address is not None:
-                                            return True
-
-                                        if self.node_name is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation.RingNode']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:local-information'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.next_topology_packet_delay is not None:
-                                        return True
-
-                                    if self.number_of_nodes_on_ring is not None:
-                                        return True
-
-                                    if self.ring_node is not None:
-                                        for child_ref in self.ring_node:
-                                            if child_ref._has_data():
-                                                return True
-
-                                    if self.time_since_last_topology_change is not None:
-                                        return True
-
-                                    if self.time_since_last_topology_packet_received is not None:
-                                        return True
-
-                                    if self.topology_timer is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                                    return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation']['meta_info']
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:topology-info'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.is_admin_down is not None:
-                                    return True
-
-                                if self.local_information is not None:
-                                    for child_ref in self.local_information:
-                                        if child_ref._has_data():
-                                            return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                                return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo']['meta_info']
-
                         @property
                         def _common_path(self):
                             if self.parent is None:
@@ -10265,13 +8299,13 @@ class Interfaces(object):
                             if self.ips_info is not None and self.ips_info._has_data():
                                 return True
 
-                            if self.rate_limit_info is not None and self.rate_limit_info._has_data():
+                            if self.topology_info is not None and self.topology_info._has_data():
                                 return True
 
                             if self.srr_info is not None and self.srr_info._has_data():
                                 return True
 
-                            if self.topology_info is not None and self.topology_info._has_data():
+                            if self.rate_limit_info is not None and self.rate_limit_info._has_data():
                                 return True
 
                             return False
@@ -10286,32 +8320,32 @@ class Interfaces(object):
                         """
                         SRP\-specific packet and byte counters
                         
-                        .. attribute:: data_rate_interval
-                        
-                        	Data rate interval (5 mins or 30 seconds)
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
                         .. attribute:: side_a_data_rate
                         
                         	Data rates for side A interface
                         	**type**\: :py:class:`SideADataRate <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideADataRate>`
-                        
-                        .. attribute:: side_a_errors
-                        
-                        	Errors for side A interface
-                        	**type**\: :py:class:`SideAErrors <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors>`
                         
                         .. attribute:: side_b_data_rate
                         
                         	Data rates for side B interface
                         	**type**\: :py:class:`SideBDataRate <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBDataRate>`
                         
+                        .. attribute:: side_a_errors
+                        
+                        	Errors for side A interface
+                        	**type**\: :py:class:`SideAErrors <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors>`
+                        
                         .. attribute:: side_b_errors
                         
                         	Errors for side B interface
                         	**type**\: :py:class:`SideBErrors <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBErrors>`
+                        
+                        .. attribute:: data_rate_interval
+                        
+                        	Data rate interval (5 mins or 30 seconds)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
                         
                         
 
@@ -10322,27 +8356,20 @@ class Interfaces(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.data_rate_interval = None
                             self.side_a_data_rate = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideADataRate()
                             self.side_a_data_rate.parent = self
-                            self.side_a_errors = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors()
-                            self.side_a_errors.parent = self
                             self.side_b_data_rate = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBDataRate()
                             self.side_b_data_rate.parent = self
+                            self.side_a_errors = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors()
+                            self.side_a_errors.parent = self
                             self.side_b_errors = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBErrors()
                             self.side_b_errors.parent = self
+                            self.data_rate_interval = None
 
 
                         class SideADataRate(object):
                             """
                             Data rates for side A interface
-                            
-                            .. attribute:: bit_rate_received
-                            
-                            	Received bit rate
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
                             
                             .. attribute:: bit_rate_sent
                             
@@ -10351,16 +8378,23 @@ class Interfaces(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: packet_rate_received
+                            .. attribute:: packet_rate_sent
                             
-                            	Received packet rate
+                            	Sent packet rate
                             	**type**\: int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: packet_rate_sent
+                            .. attribute:: bit_rate_received
                             
-                            	Sent packet rate
+                            	Received bit rate
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: packet_rate_received
+                            
+                            	Received packet rate
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -10374,10 +8408,10 @@ class Interfaces(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.bit_rate_received = None
                                 self.bit_rate_sent = None
-                                self.packet_rate_received = None
                                 self.packet_rate_sent = None
+                                self.bit_rate_received = None
+                                self.packet_rate_received = None
 
                             @property
                             def _common_path(self):
@@ -10393,16 +8427,16 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.bit_rate_received is not None:
-                                    return True
-
                                 if self.bit_rate_sent is not None:
                                     return True
 
-                                if self.packet_rate_received is not None:
+                                if self.packet_rate_sent is not None:
                                     return True
 
-                                if self.packet_rate_sent is not None:
+                                if self.bit_rate_received is not None:
+                                    return True
+
+                                if self.packet_rate_received is not None:
                                     return True
 
                                 return False
@@ -10413,162 +8447,13 @@ class Interfaces(object):
                                 return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideADataRate']['meta_info']
 
 
-                        class SideAErrors(object):
-                            """
-                            Errors for side A interface
-                            
-                            .. attribute:: crc_errors
-                            
-                            	Input CRC errors
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: error_packets_received
-                            
-                            	Error packets received
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: framer_aborts_received
-                            
-                            	Aborts received at framer
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: framer_giant_packets_received
-                            
-                            	Too large packets received at framer
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: framer_runt_packets_received
-                            
-                            	Too small packets received at framer
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: input_insufficient_resource_events
-                            
-                            	Input insufficient resources events
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: mac_aborts_received
-                            
-                            	Aborts received at MAC/RAC
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: mac_giant_packets_received
-                            
-                            	Too large packets received at MAC/RAC
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: mac_runt_packets_received
-                            
-                            	Too small packets received at MAC/RAC
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
-
-                            """
-
-                            _prefix = 'pfi-im-cmd-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.crc_errors = None
-                                self.error_packets_received = None
-                                self.framer_aborts_received = None
-                                self.framer_giant_packets_received = None
-                                self.framer_runt_packets_received = None
-                                self.input_insufficient_resource_events = None
-                                self.mac_aborts_received = None
-                                self.mac_giant_packets_received = None
-                                self.mac_runt_packets_received = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:side-a-errors'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.crc_errors is not None:
-                                    return True
-
-                                if self.error_packets_received is not None:
-                                    return True
-
-                                if self.framer_aborts_received is not None:
-                                    return True
-
-                                if self.framer_giant_packets_received is not None:
-                                    return True
-
-                                if self.framer_runt_packets_received is not None:
-                                    return True
-
-                                if self.input_insufficient_resource_events is not None:
-                                    return True
-
-                                if self.mac_aborts_received is not None:
-                                    return True
-
-                                if self.mac_giant_packets_received is not None:
-                                    return True
-
-                                if self.mac_runt_packets_received is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                                return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors']['meta_info']
-
-
                         class SideBDataRate(object):
                             """
                             Data rates for side B interface
                             
-                            .. attribute:: bit_rate_received
-                            
-                            	Received bit rate
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
                             .. attribute:: bit_rate_sent
                             
                             	Sent bit rate
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: packet_rate_received
-                            
-                            	Received packet rate
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -10580,6 +8465,20 @@ class Interfaces(object):
                             
                             	**range:** 0..4294967295
                             
+                            .. attribute:: bit_rate_received
+                            
+                            	Received bit rate
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: packet_rate_received
+                            
+                            	Received packet rate
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
                             
 
                             """
@@ -10589,10 +8488,10 @@ class Interfaces(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.bit_rate_received = None
                                 self.bit_rate_sent = None
-                                self.packet_rate_received = None
                                 self.packet_rate_sent = None
+                                self.bit_rate_received = None
+                                self.packet_rate_received = None
 
                             @property
                             def _common_path(self):
@@ -10608,16 +8507,16 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.bit_rate_received is not None:
-                                    return True
-
                                 if self.bit_rate_sent is not None:
                                     return True
 
-                                if self.packet_rate_received is not None:
+                                if self.packet_rate_sent is not None:
                                     return True
 
-                                if self.packet_rate_sent is not None:
+                                if self.bit_rate_received is not None:
+                                    return True
+
+                                if self.packet_rate_received is not None:
                                     return True
 
                                 return False
@@ -10628,16 +8527,9 @@ class Interfaces(object):
                                 return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBDataRate']['meta_info']
 
 
-                        class SideBErrors(object):
+                        class SideAErrors(object):
                             """
-                            Errors for side B interface
-                            
-                            .. attribute:: crc_errors
-                            
-                            	Input CRC errors
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
+                            Errors for side A interface
                             
                             .. attribute:: error_packets_received
                             
@@ -10646,23 +8538,9 @@ class Interfaces(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: framer_aborts_received
+                            .. attribute:: crc_errors
                             
-                            	Aborts received at framer
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: framer_giant_packets_received
-                            
-                            	Too large packets received at framer
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: framer_runt_packets_received
-                            
-                            	Too small packets received at framer
+                            	Input CRC errors
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -10681,6 +8559,13 @@ class Interfaces(object):
                             
                             	**range:** 0..4294967295
                             
+                            .. attribute:: mac_runt_packets_received
+                            
+                            	Too small packets received at MAC/RAC
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
                             .. attribute:: mac_giant_packets_received
                             
                             	Too large packets received at MAC/RAC
@@ -10688,9 +8573,23 @@ class Interfaces(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: mac_runt_packets_received
+                            .. attribute:: framer_runt_packets_received
                             
-                            	Too small packets received at MAC/RAC
+                            	Too small packets received at framer
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: framer_giant_packets_received
+                            
+                            	Too large packets received at framer
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: framer_aborts_received
+                            
+                            	Aborts received at framer
                             	**type**\: int
                             
                             	**range:** 0..4294967295
@@ -10704,15 +8603,150 @@ class Interfaces(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.crc_errors = None
                                 self.error_packets_received = None
-                                self.framer_aborts_received = None
-                                self.framer_giant_packets_received = None
-                                self.framer_runt_packets_received = None
+                                self.crc_errors = None
                                 self.input_insufficient_resource_events = None
                                 self.mac_aborts_received = None
-                                self.mac_giant_packets_received = None
                                 self.mac_runt_packets_received = None
+                                self.mac_giant_packets_received = None
+                                self.framer_runt_packets_received = None
+                                self.framer_giant_packets_received = None
+                                self.framer_aborts_received = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:side-a-errors'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.error_packets_received is not None:
+                                    return True
+
+                                if self.crc_errors is not None:
+                                    return True
+
+                                if self.input_insufficient_resource_events is not None:
+                                    return True
+
+                                if self.mac_aborts_received is not None:
+                                    return True
+
+                                if self.mac_runt_packets_received is not None:
+                                    return True
+
+                                if self.mac_giant_packets_received is not None:
+                                    return True
+
+                                if self.framer_runt_packets_received is not None:
+                                    return True
+
+                                if self.framer_giant_packets_received is not None:
+                                    return True
+
+                                if self.framer_aborts_received is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors']['meta_info']
+
+
+                        class SideBErrors(object):
+                            """
+                            Errors for side B interface
+                            
+                            .. attribute:: error_packets_received
+                            
+                            	Error packets received
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: crc_errors
+                            
+                            	Input CRC errors
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: input_insufficient_resource_events
+                            
+                            	Input insufficient resources events
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: mac_aborts_received
+                            
+                            	Aborts received at MAC/RAC
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: mac_runt_packets_received
+                            
+                            	Too small packets received at MAC/RAC
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: mac_giant_packets_received
+                            
+                            	Too large packets received at MAC/RAC
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: framer_runt_packets_received
+                            
+                            	Too small packets received at framer
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: framer_giant_packets_received
+                            
+                            	Too large packets received at framer
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: framer_aborts_received
+                            
+                            	Aborts received at framer
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'pfi-im-cmd-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.error_packets_received = None
+                                self.crc_errors = None
+                                self.input_insufficient_resource_events = None
+                                self.mac_aborts_received = None
+                                self.mac_runt_packets_received = None
+                                self.mac_giant_packets_received = None
+                                self.framer_runt_packets_received = None
+                                self.framer_giant_packets_received = None
+                                self.framer_aborts_received = None
 
                             @property
                             def _common_path(self):
@@ -10728,19 +8762,10 @@ class Interfaces(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.crc_errors is not None:
-                                    return True
-
                                 if self.error_packets_received is not None:
                                     return True
 
-                                if self.framer_aborts_received is not None:
-                                    return True
-
-                                if self.framer_giant_packets_received is not None:
-                                    return True
-
-                                if self.framer_runt_packets_received is not None:
+                                if self.crc_errors is not None:
                                     return True
 
                                 if self.input_insufficient_resource_events is not None:
@@ -10749,10 +8774,19 @@ class Interfaces(object):
                                 if self.mac_aborts_received is not None:
                                     return True
 
+                                if self.mac_runt_packets_received is not None:
+                                    return True
+
                                 if self.mac_giant_packets_received is not None:
                                     return True
 
-                                if self.mac_runt_packets_received is not None:
+                                if self.framer_runt_packets_received is not None:
+                                    return True
+
+                                if self.framer_giant_packets_received is not None:
+                                    return True
+
+                                if self.framer_aborts_received is not None:
                                     return True
 
                                 return False
@@ -10776,19 +8810,19 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.data_rate_interval is not None:
-                                return True
-
                             if self.side_a_data_rate is not None and self.side_a_data_rate._has_data():
-                                return True
-
-                            if self.side_a_errors is not None and self.side_a_errors._has_data():
                                 return True
 
                             if self.side_b_data_rate is not None and self.side_b_data_rate._has_data():
                                 return True
 
+                            if self.side_a_errors is not None and self.side_a_errors._has_data():
+                                return True
+
                             if self.side_b_errors is not None and self.side_b_errors._has_data():
+                                return True
+
+                            if self.data_rate_interval is not None:
                                 return True
 
                             return False
@@ -10826,74 +8860,42 @@ class Interfaces(object):
                         return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation']['meta_info']
 
 
-                class TunnelGreInformation(object):
+                class TunnelInformation(object):
                     """
-                    Tunnel GRE interface information
-                    
-                    .. attribute:: destination_ip_address
-                    
-                    	Tunnel destination IP address
-                    	**type**\: :py:class:`DestinationIpAddress <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress>`
-                    
-                    .. attribute:: df_bit_state
-                    
-                    	DF Bit State
-                    	**type**\: :py:class:`TunnelKaDfStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelKaDfStateEnum>`
-                    
-                    .. attribute:: keepalive_maximum_retry
-                    
-                    	Keepalive retry
-                    	**type**\: int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: keepalive_period
-                    
-                    	Keepalive period in seconds
-                    	**type**\: int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: keepalive_state
-                    
-                    	Keepalive State
-                    	**type**\: :py:class:`TunnelKaDfStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelKaDfStateEnum>`
-                    
-                    .. attribute:: key
-                    
-                    	Key value for GRE Packet
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: key_bit_state
-                    
-                    	Key Config State
-                    	**type**\: :py:class:`TunnelKeyStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelKeyStateEnum>`
-                    
-                    .. attribute:: source_ip_address
-                    
-                    	Tunnel source IP address
-                    	**type**\: :py:class:`SourceIpAddress <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.SourceIpAddress>`
+                    Tunnel interface information
                     
                     .. attribute:: source_name
                     
                     	Tunnel source name
                     	**type**\: str
                     
-                    .. attribute:: tunnel_mode
+                    .. attribute:: source_ipv4_address
                     
-                    	Tunnel GRE Mode
-                    	**type**\: :py:class:`TunnelGreModeEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelGreModeEnum>`
+                    	Tunnel source IP address
+                    	**type**\: str
                     
-                    .. attribute:: tunnel_tos
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    	GRE tunnel TOS
+                    .. attribute:: destination_ipv4_address
+                    
+                    	Tunnel destination IP address
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: tunnel_type
+                    
+                    	Tunnel protocol/transport
+                    	**type**\: str
+                    
+                    .. attribute:: key
+                    
+                    	GRE tunnel key
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: tunnel_ttl
+                    .. attribute:: ttl
                     
                     	GRE tunnel TTL
                     	**type**\: int
@@ -10909,44 +8911,148 @@ class Interfaces(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.destination_ip_address = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress()
-                        self.destination_ip_address.parent = self
-                        self.df_bit_state = None
-                        self.keepalive_maximum_retry = None
-                        self.keepalive_period = None
-                        self.keepalive_state = None
-                        self.key = None
-                        self.key_bit_state = None
-                        self.source_ip_address = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.SourceIpAddress()
-                        self.source_ip_address.parent = self
                         self.source_name = None
-                        self.tunnel_mode = None
-                        self.tunnel_tos = None
-                        self.tunnel_ttl = None
+                        self.source_ipv4_address = None
+                        self.destination_ipv4_address = None
+                        self.tunnel_type = None
+                        self.key = None
+                        self.ttl = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:tunnel-information'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.source_name is not None:
+                            return True
+
+                        if self.source_ipv4_address is not None:
+                            return True
+
+                        if self.destination_ipv4_address is not None:
+                            return True
+
+                        if self.tunnel_type is not None:
+                            return True
+
+                        if self.key is not None:
+                            return True
+
+                        if self.ttl is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation']['meta_info']
 
 
-                    class DestinationIpAddress(object):
+                class BundleInformation(object):
+                    """
+                    Bundle interface information
+                    
+                    .. attribute:: member
+                    
+                    	List of bundle members and their properties
+                    	**type**\: list of :py:class:`Member <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'pfi-im-cmd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.member = YList()
+                        self.member.parent = self
+                        self.member.name = 'member'
+
+
+                    class Member(object):
                         """
-                        Tunnel destination IP address
+                        List of bundle members and their properties
                         
-                        .. attribute:: afi
+                        .. attribute:: member_mux_data
                         
-                        	AFI
-                        	**type**\: :py:class:`TunlPfiAfIdEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.TunlPfiAfIdEnum>`
+                        	Mux state machine data
+                        	**type**\: :py:class:`MemberMuxData <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData>`
                         
-                        .. attribute:: ipv4
+                        .. attribute:: mac_address
                         
-                        	IPv4 address type
+                        	MAC address of this member (deprecated)
+                        	**type**\: :py:class:`MacAddress <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress>`
+                        
+                        .. attribute:: bandwidth
+                        
+                        	Bandwidth of this member (kbps)
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: port_priority
+                        
+                        	The priority of this member
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: port_number
+                        
+                        	Member's link number
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: underlying_link_id
+                        
+                        	Member's underlying link ID
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: link_order_number
+                        
+                        	Member's link order number
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: interface_name
+                        
+                        	Member's interface name
                         	**type**\: str
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
-                        .. attribute:: ipv6
+                        .. attribute:: iccp_node
                         
-                        	IPv6 address type
+                        	Location of member
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: member_type
+                        
+                        	Member's type (local/foreign)
+                        	**type**\: :py:class:`BmdMemberTypeEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmdMemberTypeEnumEnum>`
+                        
+                        .. attribute:: member_name
+                        
+                        	Member's (short form) name
                         	**type**\: str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -10957,16 +9063,221 @@ class Interfaces(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.afi = None
-                            self.ipv4 = None
-                            self.ipv6 = None
+                            self.member_mux_data = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData()
+                            self.member_mux_data.parent = self
+                            self.mac_address = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress()
+                            self.mac_address.parent = self
+                            self.bandwidth = None
+                            self.port_priority = None
+                            self.port_number = None
+                            self.underlying_link_id = None
+                            self.link_order_number = None
+                            self.interface_name = None
+                            self.iccp_node = None
+                            self.member_type = None
+                            self.member_name = None
+
+
+                        class MemberMuxData(object):
+                            """
+                            Mux state machine data
+                            
+                            .. attribute:: member_mux_state_reason_data
+                            
+                            	Data regarding the reason for last Mux state change
+                            	**type**\: :py:class:`MemberMuxStateReasonData <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData>`
+                            
+                            .. attribute:: mux_state
+                            
+                            	Current state of this bundle member
+                            	**type**\: :py:class:`BmMuxstateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmMuxstateEnum>`
+                            
+                            .. attribute:: error
+                            
+                            	Internal value indicating if an error occurred trying to put a link into the desired state
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: member_mux_state_reason
+                            
+                            	Reason for last Mux state change
+                            	**type**\: :py:class:`BmMbrStateReasonEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmMbrStateReasonEnum>`
+                            
+                            .. attribute:: member_state
+                            
+                            	Current internal state of this bundle member
+                            	**type**\: :py:class:`BmdMemberStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmdMemberStateEnum>`
+                            
+                            .. attribute:: mux_state_reason
+                            
+                            	Reason for last Mux state change (Deprecated)
+                            	**type**\: :py:class:`BmMuxreasonEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmMuxreasonEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'pfi-im-cmd-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.member_mux_state_reason_data = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData()
+                                self.member_mux_state_reason_data.parent = self
+                                self.mux_state = None
+                                self.error = None
+                                self.member_mux_state_reason = None
+                                self.member_state = None
+                                self.mux_state_reason = None
+
+
+                            class MemberMuxStateReasonData(object):
+                                """
+                                Data regarding the reason for last Mux state
+                                change
+                                
+                                .. attribute:: reason_type
+                                
+                                	The item the reason applies to
+                                	**type**\: :py:class:`BmStateReasonTargetEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmStateReasonTargetEnum>`
+                                
+                                .. attribute:: severity
+                                
+                                	The severity of the reason
+                                	**type**\: :py:class:`BmSeverityEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.BmSeverityEnum>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'pfi-im-cmd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.reason_type = None
+                                    self.severity = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:member-mux-state-reason-data'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.reason_type is not None:
+                                        return True
+
+                                    if self.severity is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                    return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:member-mux-data'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.member_mux_state_reason_data is not None and self.member_mux_state_reason_data._has_data():
+                                    return True
+
+                                if self.mux_state is not None:
+                                    return True
+
+                                if self.error is not None:
+                                    return True
+
+                                if self.member_mux_state_reason is not None:
+                                    return True
+
+                                if self.member_state is not None:
+                                    return True
+
+                                if self.mux_state_reason is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData']['meta_info']
+
+
+                        class MacAddress(object):
+                            """
+                            MAC address of this member (deprecated)
+                            
+                            .. attribute:: address
+                            
+                            	MAC address
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            
+
+                            """
+
+                            _prefix = 'pfi-im-cmd-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.address = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:mac-address'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.address is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress']['meta_info']
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
                                 raise YPYDataValidationError('parent is not set . Cannot derive path.')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:destination-ip-address'
+                            return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:member'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
@@ -10975,13 +9286,37 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.afi is not None:
+                            if self.member_mux_data is not None and self.member_mux_data._has_data():
                                 return True
 
-                            if self.ipv4 is not None:
+                            if self.mac_address is not None and self.mac_address._has_data():
                                 return True
 
-                            if self.ipv6 is not None:
+                            if self.bandwidth is not None:
+                                return True
+
+                            if self.port_priority is not None:
+                                return True
+
+                            if self.port_number is not None:
+                                return True
+
+                            if self.underlying_link_id is not None:
+                                return True
+
+                            if self.link_order_number is not None:
+                                return True
+
+                            if self.interface_name is not None:
+                                return True
+
+                            if self.iccp_node is not None:
+                                return True
+
+                            if self.member_type is not None:
+                                return True
+
+                            if self.member_name is not None:
                                 return True
 
                             return False
@@ -10989,7 +9324,222 @@ class Interfaces(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                            return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress']['meta_info']
+                            return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:bundle-information'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.member is not None:
+                            for child_ref in self.member:
+                                if child_ref._has_data():
+                                    return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation']['meta_info']
+
+
+                class SerialInformation(object):
+                    """
+                    Serial interface information
+                    
+                    .. attribute:: timeslots
+                    
+                    	Timeslots separated by \: or \- from 1 to 31. \: indicates individual timeslot and \- represents a range. E.g. 1\-3\:5 represents timeslots 1, 2, 3, and 5
+                    	**type**\: str
+                    
+                    
+
+                    """
+
+                    _prefix = 'pfi-im-cmd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.timeslots = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:serial-information'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.timeslots is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation']['meta_info']
+
+
+                class SonetPosInformation(object):
+                    """
+                    SONET POS interface information
+                    
+                    .. attribute:: aps_state
+                    
+                    	APS state
+                    	**type**\: :py:class:`SonetApsEtEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.SonetApsEtEnum>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'pfi-im-cmd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.aps_state = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:sonet-pos-information'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.aps_state is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation']['meta_info']
+
+
+                class TunnelGreInformation(object):
+                    """
+                    Tunnel GRE interface information
+                    
+                    .. attribute:: source_ip_address
+                    
+                    	Tunnel source IP address
+                    	**type**\: :py:class:`SourceIpAddress <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.SourceIpAddress>`
+                    
+                    .. attribute:: destination_ip_address
+                    
+                    	Tunnel destination IP address
+                    	**type**\: :py:class:`DestinationIpAddress <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress>`
+                    
+                    .. attribute:: source_name
+                    
+                    	Tunnel source name
+                    	**type**\: str
+                    
+                    .. attribute:: tunnel_tos
+                    
+                    	GRE tunnel TOS
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: tunnel_ttl
+                    
+                    	GRE tunnel TTL
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: key
+                    
+                    	Key value for GRE Packet
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: keepalive_period
+                    
+                    	Keepalive period in seconds
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: keepalive_maximum_retry
+                    
+                    	Keepalive retry
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: tunnel_mode
+                    
+                    	Tunnel GRE Mode
+                    	**type**\: :py:class:`TunnelGreModeEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelGreModeEnum>`
+                    
+                    .. attribute:: keepalive_state
+                    
+                    	Keepalive State
+                    	**type**\: :py:class:`TunnelKaDfStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelKaDfStateEnum>`
+                    
+                    .. attribute:: df_bit_state
+                    
+                    	DF Bit State
+                    	**type**\: :py:class:`TunnelKaDfStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelKaDfStateEnum>`
+                    
+                    .. attribute:: key_bit_state
+                    
+                    	Key Config State
+                    	**type**\: :py:class:`TunnelKeyStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelKeyStateEnum>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'pfi-im-cmd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.source_ip_address = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.SourceIpAddress()
+                        self.source_ip_address.parent = self
+                        self.destination_ip_address = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress()
+                        self.destination_ip_address.parent = self
+                        self.source_name = None
+                        self.tunnel_tos = None
+                        self.tunnel_ttl = None
+                        self.key = None
+                        self.keepalive_period = None
+                        self.keepalive_maximum_retry = None
+                        self.tunnel_mode = None
+                        self.keepalive_state = None
+                        self.df_bit_state = None
+                        self.key_bit_state = None
 
 
                     class SourceIpAddress(object):
@@ -11058,6 +9608,73 @@ class Interfaces(object):
                             from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
                             return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.SourceIpAddress']['meta_info']
 
+
+                    class DestinationIpAddress(object):
+                        """
+                        Tunnel destination IP address
+                        
+                        .. attribute:: afi
+                        
+                        	AFI
+                        	**type**\: :py:class:`TunlPfiAfIdEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.TunlPfiAfIdEnum>`
+                        
+                        .. attribute:: ipv4
+                        
+                        	IPv4 address type
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: ipv6
+                        
+                        	IPv6 address type
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        
+
+                        """
+
+                        _prefix = 'pfi-im-cmd-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.afi = None
+                            self.ipv4 = None
+                            self.ipv6 = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:destination-ip-address'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.afi is not None:
+                                return True
+
+                            if self.ipv4 is not None:
+                                return True
+
+                            if self.ipv6 is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                            return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress']['meta_info']
+
                     @property
                     def _common_path(self):
                         if self.parent is None:
@@ -11072,40 +9689,40 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.destination_ip_address is not None and self.destination_ip_address._has_data():
-                            return True
-
-                        if self.df_bit_state is not None:
-                            return True
-
-                        if self.keepalive_maximum_retry is not None:
-                            return True
-
-                        if self.keepalive_period is not None:
-                            return True
-
-                        if self.keepalive_state is not None:
-                            return True
-
-                        if self.key is not None:
-                            return True
-
-                        if self.key_bit_state is not None:
-                            return True
-
                         if self.source_ip_address is not None and self.source_ip_address._has_data():
                             return True
 
-                        if self.source_name is not None:
+                        if self.destination_ip_address is not None and self.destination_ip_address._has_data():
                             return True
 
-                        if self.tunnel_mode is not None:
+                        if self.source_name is not None:
                             return True
 
                         if self.tunnel_tos is not None:
                             return True
 
                         if self.tunnel_ttl is not None:
+                            return True
+
+                        if self.key is not None:
+                            return True
+
+                        if self.keepalive_period is not None:
+                            return True
+
+                        if self.keepalive_maximum_retry is not None:
+                            return True
+
+                        if self.tunnel_mode is not None:
+                            return True
+
+                        if self.keepalive_state is not None:
+                            return True
+
+                        if self.df_bit_state is not None:
+                            return True
+
+                        if self.key_bit_state is not None:
                             return True
 
                         return False
@@ -11116,47 +9733,28 @@ class Interfaces(object):
                         return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation']['meta_info']
 
 
-                class TunnelInformation(object):
+                class PseudowireHeadEndInformation(object):
                     """
-                    Tunnel interface information
+                    PseudowireHeadEnd interface information
                     
-                    .. attribute:: destination_ipv4_address
+                    .. attribute:: interface_list_name
                     
-                    	Tunnel destination IP address
+                    	Interface list Name
                     	**type**\: str
                     
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    .. attribute:: l2_overhead
                     
-                    .. attribute:: key
-                    
-                    	GRE tunnel key
+                    	L2 Overhead
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: source_ipv4_address
+                    .. attribute:: internal_label
                     
-                    	Tunnel source IP address
-                    	**type**\: str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    .. attribute:: source_name
-                    
-                    	Tunnel source name
-                    	**type**\: str
-                    
-                    .. attribute:: ttl
-                    
-                    	GRE tunnel TTL
+                    	Internal Label
                     	**type**\: int
                     
                     	**range:** 0..4294967295
-                    
-                    .. attribute:: tunnel_type
-                    
-                    	Tunnel protocol/transport
-                    	**type**\: str
                     
                     
 
@@ -11167,19 +9765,16 @@ class Interfaces(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.destination_ipv4_address = None
-                        self.key = None
-                        self.source_ipv4_address = None
-                        self.source_name = None
-                        self.ttl = None
-                        self.tunnel_type = None
+                        self.interface_list_name = None
+                        self.l2_overhead = None
+                        self.internal_label = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
                             raise YPYDataValidationError('parent is not set . Cannot derive path.')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:tunnel-information'
+                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:pseudowire-head-end-information'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
@@ -11188,22 +9783,13 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.destination_ipv4_address is not None:
+                        if self.interface_list_name is not None:
                             return True
 
-                        if self.key is not None:
+                        if self.l2_overhead is not None:
                             return True
 
-                        if self.source_ipv4_address is not None:
-                            return True
-
-                        if self.source_name is not None:
-                            return True
-
-                        if self.ttl is not None:
-                            return True
-
-                        if self.tunnel_type is not None:
+                        if self.internal_label is not None:
                             return True
 
                         return False
@@ -11211,7 +9797,139 @@ class Interfaces(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation']['meta_info']
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation']['meta_info']
+
+
+                class CemInformation(object):
+                    """
+                    Cem interface information
+                    
+                    .. attribute:: timeslots
+                    
+                    	Timeslots separated by \: or \- from 1 to 32. \: indicates individual timeslot and \- represents a range. E.g. 1\-3\:5 represents timeslots 1, 2, 3, and 5
+                    	**type**\: str
+                    
+                    .. attribute:: payload
+                    
+                    	Payload size in bytes configured on CEM interface
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: dejitter_buffer
+                    
+                    	Dejitter buffer length configuredin milliseconds
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: framing
+                    
+                    	 If framing is TRUE then the CEM  interface is structure aware ; otherwise it is structure agnostic
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    
+
+                    """
+
+                    _prefix = 'pfi-im-cmd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.timeslots = None
+                        self.payload = None
+                        self.dejitter_buffer = None
+                        self.framing = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:cem-information'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.timeslots is not None:
+                            return True
+
+                        if self.payload is not None:
+                            return True
+
+                        if self.dejitter_buffer is not None:
+                            return True
+
+                        if self.framing is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.CemInformation']['meta_info']
+
+
+                class GccInformation(object):
+                    """
+                    GCC interface information
+                    
+                    .. attribute:: derived_mode
+                    
+                    	Derived State
+                    	**type**\: :py:class:`GccDerStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.GccDerStateEnum>`
+                    
+                    .. attribute:: sec_state
+                    
+                    	Sec State 
+                    	**type**\: :py:class:`GccSecStateEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.GccSecStateEnum>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'pfi-im-cmd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.derived_mode = None
+                        self.sec_state = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:gcc-information'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.derived_mode is not None:
+                            return True
+
+                        if self.sec_state is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.GccInformation']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -11227,7 +9945,25 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.srp_information is not None and self.srp_information._has_data():
+                        return True
+
+                    if self.tunnel_information is not None and self.tunnel_information._has_data():
+                        return True
+
                     if self.bundle_information is not None and self.bundle_information._has_data():
+                        return True
+
+                    if self.serial_information is not None and self.serial_information._has_data():
+                        return True
+
+                    if self.sonet_pos_information is not None and self.sonet_pos_information._has_data():
+                        return True
+
+                    if self.tunnel_gre_information is not None and self.tunnel_gre_information._has_data():
+                        return True
+
+                    if self.pseudowire_head_end_information is not None and self.pseudowire_head_end_information._has_data():
                         return True
 
                     if self.cem_information is not None and self.cem_information._has_data():
@@ -11239,24 +9975,6 @@ class Interfaces(object):
                     if self.interface_type_info is not None:
                         return True
 
-                    if self.pseudowire_head_end_information is not None and self.pseudowire_head_end_information._has_data():
-                        return True
-
-                    if self.serial_information is not None and self.serial_information._has_data():
-                        return True
-
-                    if self.sonet_pos_information is not None and self.sonet_pos_information._has_data():
-                        return True
-
-                    if self.srp_information is not None and self.srp_information._has_data():
-                        return True
-
-                    if self.tunnel_gre_information is not None and self.tunnel_gre_information._has_data():
-                        return True
-
-                    if self.tunnel_information is not None and self.tunnel_information._has_data():
-                        return True
-
                     return False
 
                 @staticmethod
@@ -11265,23 +9983,100 @@ class Interfaces(object):
                     return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation']['meta_info']
 
 
-            class IpInformation(object):
+            class DataRates(object):
                 """
-                Interface IP address info
+                Packet and byte rates
                 
-                .. attribute:: ip_address
+                .. attribute:: input_data_rate
                 
-                	Interface IPv4 address
-                	**type**\: str
+                	Input data rate in 1000's of bps
+                	**type**\: int
                 
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                	**range:** 0..18446744073709551615
                 
-                .. attribute:: subnet_mask_length
+                .. attribute:: input_packet_rate
                 
-                	Interface subnet mask length
+                	Input packets per second
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: output_data_rate
+                
+                	Output data rate in 1000's of bps
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: output_packet_rate
+                
+                	Output packets per second
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: peak_input_data_rate
+                
+                	Peak input data rate
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: peak_input_packet_rate
+                
+                	Peak input packet rate
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: peak_output_data_rate
+                
+                	Peak output data rate
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: peak_output_packet_rate
+                
+                	Peak output packet rate
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: bandwidth
+                
+                	Bandwidth (in kbps)
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                .. attribute:: load_interval
+                
+                	Number of 30\-sec intervals less one
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: output_load
+                
+                	Output load as fraction of 255
+                	**type**\: int
+                
+                	**range:** 0..255
+                
+                .. attribute:: input_load
+                
+                	Input load as fraction of 255
+                	**type**\: int
+                
+                	**range:** 0..255
+                
+                .. attribute:: reliability
+                
+                	Reliability coefficient
+                	**type**\: int
+                
+                	**range:** 0..255
                 
                 
 
@@ -11292,15 +10087,26 @@ class Interfaces(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.ip_address = None
-                    self.subnet_mask_length = None
+                    self.input_data_rate = None
+                    self.input_packet_rate = None
+                    self.output_data_rate = None
+                    self.output_packet_rate = None
+                    self.peak_input_data_rate = None
+                    self.peak_input_packet_rate = None
+                    self.peak_output_data_rate = None
+                    self.peak_output_packet_rate = None
+                    self.bandwidth = None
+                    self.load_interval = None
+                    self.output_load = None
+                    self.input_load = None
+                    self.reliability = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
                         raise YPYDataValidationError('parent is not set . Cannot derive path.')
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:ip-information'
+                    return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:data-rates'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -11309,10 +10115,43 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.ip_address is not None:
+                    if self.input_data_rate is not None:
                         return True
 
-                    if self.subnet_mask_length is not None:
+                    if self.input_packet_rate is not None:
+                        return True
+
+                    if self.output_data_rate is not None:
+                        return True
+
+                    if self.output_packet_rate is not None:
+                        return True
+
+                    if self.peak_input_data_rate is not None:
+                        return True
+
+                    if self.peak_input_packet_rate is not None:
+                        return True
+
+                    if self.peak_output_data_rate is not None:
+                        return True
+
+                    if self.peak_output_packet_rate is not None:
+                        return True
+
+                    if self.bandwidth is not None:
+                        return True
+
+                    if self.load_interval is not None:
+                        return True
+
+                    if self.output_load is not None:
+                        return True
+
+                    if self.input_load is not None:
+                        return True
+
+                    if self.reliability is not None:
                         return True
 
                     return False
@@ -11320,27 +10159,721 @@ class Interfaces(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                    return meta._meta_table['Interfaces.InterfaceXr.Interface.IpInformation']['meta_info']
+                    return meta._meta_table['Interfaces.InterfaceXr.Interface.DataRates']['meta_info']
+
+
+            class InterfaceStatistics(object):
+                """
+                Packet, byte and error counters
+                
+                .. attribute:: full_interface_stats
+                
+                	Packet, byte and all error counters
+                	**type**\: :py:class:`FullInterfaceStats <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats>`
+                
+                .. attribute:: basic_interface_stats
+                
+                	Packet, byte and selected error counters
+                	**type**\: :py:class:`BasicInterfaceStats <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats>`
+                
+                .. attribute:: stats_type
+                
+                	StatsType
+                	**type**\: :py:class:`ImCmdStatsEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdStatsEnumEnum>`
+                
+                
+
+                """
+
+                _prefix = 'pfi-im-cmd-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.full_interface_stats = Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats()
+                    self.full_interface_stats.parent = self
+                    self.basic_interface_stats = Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats()
+                    self.basic_interface_stats.parent = self
+                    self.stats_type = None
+
+
+                class FullInterfaceStats(object):
+                    """
+                    Packet, byte and all error counters
+                    
+                    .. attribute:: packets_received
+                    
+                    	Packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: bytes_received
+                    
+                    	Bytes received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: packets_sent
+                    
+                    	Packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: bytes_sent
+                    
+                    	Bytes sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: multicast_packets_received
+                    
+                    	Multicast packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: broadcast_packets_received
+                    
+                    	Broadcast packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: multicast_packets_sent
+                    
+                    	Multicast packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: broadcast_packets_sent
+                    
+                    	Broadcast packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: output_drops
+                    
+                    	Total output drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_queue_drops
+                    
+                    	Output queue drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_drops
+                    
+                    	Total input drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_queue_drops
+                    
+                    	Input queue drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: runt_packets_received
+                    
+                    	Received runt packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: giant_packets_received
+                    
+                    	Received giant packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: throttled_packets_received
+                    
+                    	Received throttled packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: parity_packets_received
+                    
+                    	Received parity packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: unknown_protocol_packets_received
+                    
+                    	Unknown protocol packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_errors
+                    
+                    	Total input errors
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: crc_errors
+                    
+                    	Input CRC errors
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_overruns
+                    
+                    	Input overruns
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: framing_errors_received
+                    
+                    	Framing\-errors received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_ignored_packets
+                    
+                    	Input ignored packets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_aborts
+                    
+                    	Input aborts
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_errors
+                    
+                    	Total output errors
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_underruns
+                    
+                    	Output underruns
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_buffer_failures
+                    
+                    	Output buffer failures
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_buffers_swapped_out
+                    
+                    	Output buffers swapped out
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: applique
+                    
+                    	Applique
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: resets
+                    
+                    	Number of board resets
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: carrier_transitions
+                    
+                    	Carrier transitions
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: availability_flag
+                    
+                    	Availability bit mask
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: last_data_time
+                    
+                    	Time when counters were last written (in seconds)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: seconds_since_last_clear_counters
+                    
+                    	Number of seconds since last clear counters
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: last_discontinuity_time
+                    
+                    	SysUpTime when counters were last reset (in seconds)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: seconds_since_packet_received
+                    
+                    	Seconds since packet received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: seconds_since_packet_sent
+                    
+                    	Seconds since packet sent
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'pfi-im-cmd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.packets_received = None
+                        self.bytes_received = None
+                        self.packets_sent = None
+                        self.bytes_sent = None
+                        self.multicast_packets_received = None
+                        self.broadcast_packets_received = None
+                        self.multicast_packets_sent = None
+                        self.broadcast_packets_sent = None
+                        self.output_drops = None
+                        self.output_queue_drops = None
+                        self.input_drops = None
+                        self.input_queue_drops = None
+                        self.runt_packets_received = None
+                        self.giant_packets_received = None
+                        self.throttled_packets_received = None
+                        self.parity_packets_received = None
+                        self.unknown_protocol_packets_received = None
+                        self.input_errors = None
+                        self.crc_errors = None
+                        self.input_overruns = None
+                        self.framing_errors_received = None
+                        self.input_ignored_packets = None
+                        self.input_aborts = None
+                        self.output_errors = None
+                        self.output_underruns = None
+                        self.output_buffer_failures = None
+                        self.output_buffers_swapped_out = None
+                        self.applique = None
+                        self.resets = None
+                        self.carrier_transitions = None
+                        self.availability_flag = None
+                        self.last_data_time = None
+                        self.seconds_since_last_clear_counters = None
+                        self.last_discontinuity_time = None
+                        self.seconds_since_packet_received = None
+                        self.seconds_since_packet_sent = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:full-interface-stats'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.packets_received is not None:
+                            return True
+
+                        if self.bytes_received is not None:
+                            return True
+
+                        if self.packets_sent is not None:
+                            return True
+
+                        if self.bytes_sent is not None:
+                            return True
+
+                        if self.multicast_packets_received is not None:
+                            return True
+
+                        if self.broadcast_packets_received is not None:
+                            return True
+
+                        if self.multicast_packets_sent is not None:
+                            return True
+
+                        if self.broadcast_packets_sent is not None:
+                            return True
+
+                        if self.output_drops is not None:
+                            return True
+
+                        if self.output_queue_drops is not None:
+                            return True
+
+                        if self.input_drops is not None:
+                            return True
+
+                        if self.input_queue_drops is not None:
+                            return True
+
+                        if self.runt_packets_received is not None:
+                            return True
+
+                        if self.giant_packets_received is not None:
+                            return True
+
+                        if self.throttled_packets_received is not None:
+                            return True
+
+                        if self.parity_packets_received is not None:
+                            return True
+
+                        if self.unknown_protocol_packets_received is not None:
+                            return True
+
+                        if self.input_errors is not None:
+                            return True
+
+                        if self.crc_errors is not None:
+                            return True
+
+                        if self.input_overruns is not None:
+                            return True
+
+                        if self.framing_errors_received is not None:
+                            return True
+
+                        if self.input_ignored_packets is not None:
+                            return True
+
+                        if self.input_aborts is not None:
+                            return True
+
+                        if self.output_errors is not None:
+                            return True
+
+                        if self.output_underruns is not None:
+                            return True
+
+                        if self.output_buffer_failures is not None:
+                            return True
+
+                        if self.output_buffers_swapped_out is not None:
+                            return True
+
+                        if self.applique is not None:
+                            return True
+
+                        if self.resets is not None:
+                            return True
+
+                        if self.carrier_transitions is not None:
+                            return True
+
+                        if self.availability_flag is not None:
+                            return True
+
+                        if self.last_data_time is not None:
+                            return True
+
+                        if self.seconds_since_last_clear_counters is not None:
+                            return True
+
+                        if self.last_discontinuity_time is not None:
+                            return True
+
+                        if self.seconds_since_packet_received is not None:
+                            return True
+
+                        if self.seconds_since_packet_sent is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats']['meta_info']
+
+
+                class BasicInterfaceStats(object):
+                    """
+                    Packet, byte and selected error counters
+                    
+                    .. attribute:: packets_received
+                    
+                    	Packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: bytes_received
+                    
+                    	Bytes received
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: packets_sent
+                    
+                    	Packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: bytes_sent
+                    
+                    	Bytes sent
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: input_drops
+                    
+                    	Total input drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_queue_drops
+                    
+                    	Input queue drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_errors
+                    
+                    	Total input errors
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: unknown_protocol_packets_received
+                    
+                    	Unknown protocol packets received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_drops
+                    
+                    	Total output drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_queue_drops
+                    
+                    	Output queue drops
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_errors
+                    
+                    	Total output errors
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: last_data_time
+                    
+                    	Time when counters were last written (in seconds)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: seconds_since_last_clear_counters
+                    
+                    	Number of seconds since last clear counters
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: last_discontinuity_time
+                    
+                    	SysUpTime when counters were last reset (in seconds)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: seconds_since_packet_received
+                    
+                    	Seconds since packet received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: seconds_since_packet_sent
+                    
+                    	Seconds since packet sent
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'pfi-im-cmd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.packets_received = None
+                        self.bytes_received = None
+                        self.packets_sent = None
+                        self.bytes_sent = None
+                        self.input_drops = None
+                        self.input_queue_drops = None
+                        self.input_errors = None
+                        self.unknown_protocol_packets_received = None
+                        self.output_drops = None
+                        self.output_queue_drops = None
+                        self.output_errors = None
+                        self.last_data_time = None
+                        self.seconds_since_last_clear_counters = None
+                        self.last_discontinuity_time = None
+                        self.seconds_since_packet_received = None
+                        self.seconds_since_packet_sent = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:basic-interface-stats'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.packets_received is not None:
+                            return True
+
+                        if self.bytes_received is not None:
+                            return True
+
+                        if self.packets_sent is not None:
+                            return True
+
+                        if self.bytes_sent is not None:
+                            return True
+
+                        if self.input_drops is not None:
+                            return True
+
+                        if self.input_queue_drops is not None:
+                            return True
+
+                        if self.input_errors is not None:
+                            return True
+
+                        if self.unknown_protocol_packets_received is not None:
+                            return True
+
+                        if self.output_drops is not None:
+                            return True
+
+                        if self.output_queue_drops is not None:
+                            return True
+
+                        if self.output_errors is not None:
+                            return True
+
+                        if self.last_data_time is not None:
+                            return True
+
+                        if self.seconds_since_last_clear_counters is not None:
+                            return True
+
+                        if self.last_discontinuity_time is not None:
+                            return True
+
+                        if self.seconds_since_packet_received is not None:
+                            return True
+
+                        if self.seconds_since_packet_sent is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:interface-statistics'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.full_interface_stats is not None and self.full_interface_stats._has_data():
+                        return True
+
+                    if self.basic_interface_stats is not None and self.basic_interface_stats._has_data():
+                        return True
+
+                    if self.stats_type is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                    return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceStatistics']['meta_info']
 
 
             class L2InterfaceStatistics(object):
                 """
                 L2 Protocol Statistics
-                
-                .. attribute:: block_array
-                
-                	Block Array
-                	**type**\: list of :py:class:`BlockArray <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.BlockArray>`
-                
-                .. attribute:: contents
-                
-                	Bag contents
-                	**type**\: :py:class:`StatsTypeContentsEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.StatsTypeContentsEnum>`
-                
-                .. attribute:: element_array
-                
-                	Element Array
-                	**type**\: list of :py:class:`ElementArray <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray>`
                 
                 .. attribute:: stats_id
                 
@@ -11354,6 +10887,21 @@ class Interfaces(object):
                 
                 	**range:** 0..4294967295
                 
+                .. attribute:: contents
+                
+                	Bag contents
+                	**type**\: :py:class:`StatsTypeContentsEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.StatsTypeContentsEnum>`
+                
+                .. attribute:: block_array
+                
+                	Block Array
+                	**type**\: list of :py:class:`BlockArray <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.BlockArray>`
+                
+                .. attribute:: element_array
+                
+                	Element Array
+                	**type**\: list of :py:class:`ElementArray <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray>`
+                
                 
 
                 """
@@ -11363,21 +10911,126 @@ class Interfaces(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.block_array = YList()
-                    self.block_array.parent = self
-                    self.block_array.name = 'block_array'
-                    self.contents = None
-                    self.element_array = YList()
-                    self.element_array.parent = self
-                    self.element_array.name = 'element_array'
                     self.stats_id = Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.StatsId()
                     self.stats_id.parent = self
                     self.stats_type = None
+                    self.contents = None
+                    self.block_array = YList()
+                    self.block_array.parent = self
+                    self.block_array.name = 'block_array'
+                    self.element_array = YList()
+                    self.element_array.parent = self
+                    self.element_array.name = 'element_array'
+
+
+                class StatsId(object):
+                    """
+                    Identifier
+                    
+                    .. attribute:: id_type
+                    
+                    	id type
+                    	**type**\: :py:class:`StatsIdEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.StatsIdEnum>`
+                    
+                    .. attribute:: unused
+                    
+                    	Unused
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: interface_handle
+                    
+                    	Interface Handle
+                    	**type**\: str
+                    
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: node_id
+                    
+                    	Node ID
+                    	**type**\: str
+                    
+                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                    
+                    .. attribute:: feature_id
+                    
+                    	Feature ID
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: id
+                    
+                    	ID
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'pfi-im-cmd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.id_type = None
+                        self.unused = None
+                        self.interface_handle = None
+                        self.node_id = None
+                        self.feature_id = None
+                        self.id = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:stats-id'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.id_type is not None:
+                            return True
+
+                        if self.unused is not None:
+                            return True
+
+                        if self.interface_handle is not None:
+                            return True
+
+                        if self.node_id is not None:
+                            return True
+
+                        if self.feature_id is not None:
+                            return True
+
+                        if self.id is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.StatsId']['meta_info']
 
 
                 class BlockArray(object):
                     """
                     Block Array
+                    
+                    .. attribute:: type
+                    
+                    	type
+                    	**type**\: :py:class:`StatsCounterEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.StatsCounterEnum>`
                     
                     .. attribute:: count
                     
@@ -11393,11 +11046,6 @@ class Interfaces(object):
                     
                     	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                     
-                    .. attribute:: type
-                    
-                    	type
-                    	**type**\: :py:class:`StatsCounterEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.StatsCounterEnum>`
-                    
                     
 
                     """
@@ -11407,9 +11055,9 @@ class Interfaces(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.type = None
                         self.count = None
                         self.data = None
-                        self.type = None
 
                     @property
                     def _common_path(self):
@@ -11425,13 +11073,13 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self.type is not None:
+                            return True
+
                         if self.count is not None:
                             return True
 
                         if self.data is not None:
-                            return True
-
-                        if self.type is not None:
                             return True
 
                         return False
@@ -11446,17 +11094,17 @@ class Interfaces(object):
                     """
                     Element Array
                     
-                    .. attribute:: block_array
-                    
-                    	block array
-                    	**type**\: list of :py:class:`BlockArray <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray.BlockArray>`
-                    
                     .. attribute:: key
                     
                     	key
                     	**type**\: str
                     
                     	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                    
+                    .. attribute:: block_array
+                    
+                    	block array
+                    	**type**\: list of :py:class:`BlockArray <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray.BlockArray>`
                     
                     
 
@@ -11467,15 +11115,20 @@ class Interfaces(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.key = None
                         self.block_array = YList()
                         self.block_array.parent = self
                         self.block_array.name = 'block_array'
-                        self.key = None
 
 
                     class BlockArray(object):
                         """
                         block array
+                        
+                        .. attribute:: type
+                        
+                        	type
+                        	**type**\: :py:class:`StatsCounterEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.StatsCounterEnum>`
                         
                         .. attribute:: count
                         
@@ -11491,11 +11144,6 @@ class Interfaces(object):
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                         
-                        .. attribute:: type
-                        
-                        	type
-                        	**type**\: :py:class:`StatsCounterEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.StatsCounterEnum>`
-                        
                         
 
                         """
@@ -11505,9 +11153,9 @@ class Interfaces(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.type = None
                             self.count = None
                             self.data = None
-                            self.type = None
 
                         @property
                         def _common_path(self):
@@ -11523,13 +11171,13 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
+                            if self.type is not None:
+                                return True
+
                             if self.count is not None:
                                 return True
 
                             if self.data is not None:
-                                return True
-
-                            if self.type is not None:
                                 return True
 
                             return False
@@ -11553,13 +11201,13 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self.key is not None:
+                            return True
+
                         if self.block_array is not None:
                             for child_ref in self.block_array:
                                 if child_ref._has_data():
                                     return True
-
-                        if self.key is not None:
-                            return True
 
                         return False
 
@@ -11567,106 +11215,6 @@ class Interfaces(object):
                     def _meta_info():
                         from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
                         return meta._meta_table['Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray']['meta_info']
-
-
-                class StatsId(object):
-                    """
-                    Identifier
-                    
-                    .. attribute:: feature_id
-                    
-                    	Feature ID
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: id
-                    
-                    	ID
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: id_type
-                    
-                    	id type
-                    	**type**\: :py:class:`StatsIdEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.StatsIdEnum>`
-                    
-                    .. attribute:: interface_handle
-                    
-                    	Interface Handle
-                    	**type**\: str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    .. attribute:: node_id
-                    
-                    	Node ID
-                    	**type**\: str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
-                    .. attribute:: unused
-                    
-                    	Unused
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.feature_id = None
-                        self.id = None
-                        self.id_type = None
-                        self.interface_handle = None
-                        self.node_id = None
-                        self.unused = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:stats-id'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.feature_id is not None:
-                            return True
-
-                        if self.id is not None:
-                            return True
-
-                        if self.id_type is not None:
-                            return True
-
-                        if self.interface_handle is not None:
-                            return True
-
-                        if self.node_id is not None:
-                            return True
-
-                        if self.unused is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                        return meta._meta_table['Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.StatsId']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -11682,24 +11230,24 @@ class Interfaces(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.block_array is not None:
-                        for child_ref in self.block_array:
-                            if child_ref._has_data():
-                                return True
-
-                    if self.contents is not None:
-                        return True
-
-                    if self.element_array is not None:
-                        for child_ref in self.element_array:
-                            if child_ref._has_data():
-                                return True
-
                     if self.stats_id is not None and self.stats_id._has_data():
                         return True
 
                     if self.stats_type is not None:
                         return True
+
+                    if self.contents is not None:
+                        return True
+
+                    if self.block_array is not None:
+                        for child_ref in self.block_array:
+                            if child_ref._has_data():
+                                return True
+
+                    if self.element_array is not None:
+                        for child_ref in self.element_array:
+                            if child_ref._has_data():
+                                return True
 
                     return False
 
@@ -11707,53 +11255,6 @@ class Interfaces(object):
                 def _meta_info():
                     from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
                     return meta._meta_table['Interfaces.InterfaceXr.Interface.L2InterfaceStatistics']['meta_info']
-
-
-            class MacAddress(object):
-                """
-                Interface MAC address
-                
-                .. attribute:: address
-                
-                	MAC Address
-                	**type**\: str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
-                
-
-                """
-
-                _prefix = 'pfi-im-cmd-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.address = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:mac-address'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.address is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                    return meta._meta_table['Interfaces.InterfaceXr.Interface.MacAddress']['meta_info']
 
 
             class NvOptical(object):
@@ -11817,10 +11318,10 @@ class Interfaces(object):
                 if self.interface_name is not None:
                     return True
 
-                if self.arp_information is not None and self.arp_information._has_data():
+                if self.dampening_information is not None and self.dampening_information._has_data():
                     return True
 
-                if self.bandwidth is not None:
+                if self.mac_address is not None and self.mac_address._has_data():
                     return True
 
                 if self.burned_in_address is not None and self.burned_in_address._has_data():
@@ -11829,115 +11330,115 @@ class Interfaces(object):
                 if self.carrier_delay is not None and self.carrier_delay._has_data():
                     return True
 
-                if self.crc_length is not None:
-                    return True
-
-                if self.dampening_information is not None and self.dampening_information._has_data():
-                    return True
-
-                if self.data_rates is not None and self.data_rates._has_data():
-                    return True
-
-                if self.description is not None:
-                    return True
-
-                if self.duplexity is not None:
-                    return True
-
-                if self.encapsulation is not None:
-                    return True
-
-                if self.encapsulation_information is not None and self.encapsulation_information._has_data():
-                    return True
-
-                if self.encapsulation_type_string is not None:
-                    return True
-
-                if self.hardware_type_string is not None:
-                    return True
-
-                if self.in_flow_control is not None:
-                    return True
-
-                if self.interface_handle is not None:
-                    return True
-
-                if self.interface_statistics is not None and self.interface_statistics._has_data():
-                    return True
-
-                if self.interface_type is not None:
-                    return True
-
-                if self.interface_type_information is not None and self.interface_type_information._has_data():
+                if self.arp_information is not None and self.arp_information._has_data():
                     return True
 
                 if self.ip_information is not None and self.ip_information._has_data():
                     return True
 
-                if self.is_dampening_enabled is not None:
+                if self.encapsulation_information is not None and self.encapsulation_information._has_data():
                     return True
 
-                if self.is_data_inverted is not None:
+                if self.interface_type_information is not None and self.interface_type_information._has_data():
                     return True
 
-                if self.is_l2_looped is not None:
+                if self.data_rates is not None and self.data_rates._has_data():
                     return True
 
-                if self.is_l2_transport_enabled is not None:
-                    return True
-
-                if self.is_maintenance_enabled is not None:
-                    return True
-
-                if self.is_scramble_enabled is not None:
-                    return True
-
-                if self.keepalive is not None:
+                if self.interface_statistics is not None and self.interface_statistics._has_data():
                     return True
 
                 if self.l2_interface_statistics is not None and self.l2_interface_statistics._has_data():
                     return True
 
-                if self.last_state_transition_time is not None:
-                    return True
-
-                if self.line_state is not None:
-                    return True
-
-                if self.link_type is not None:
-                    return True
-
-                if self.loopback_configuration is not None:
-                    return True
-
-                if self.mac_address is not None and self.mac_address._has_data():
-                    return True
-
-                if self.max_bandwidth is not None:
-                    return True
-
-                if self.media_type is not None:
-                    return True
-
-                if self.mtu is not None:
-                    return True
-
                 if self.nv_optical is not None and self.nv_optical._has_data():
                     return True
 
-                if self.out_flow_control is not None:
+                if self.interface_handle is not None:
                     return True
 
-                if self.parent_interface_name is not None:
+                if self.interface_type is not None:
                     return True
 
-                if self.speed is not None:
+                if self.hardware_type_string is not None:
                     return True
 
                 if self.state is not None:
                     return True
 
+                if self.line_state is not None:
+                    return True
+
+                if self.encapsulation is not None:
+                    return True
+
+                if self.encapsulation_type_string is not None:
+                    return True
+
+                if self.mtu is not None:
+                    return True
+
+                if self.is_l2_transport_enabled is not None:
+                    return True
+
                 if self.state_transition_count is not None:
+                    return True
+
+                if self.last_state_transition_time is not None:
+                    return True
+
+                if self.is_dampening_enabled is not None:
+                    return True
+
+                if self.speed is not None:
+                    return True
+
+                if self.crc_length is not None:
+                    return True
+
+                if self.is_scramble_enabled is not None:
+                    return True
+
+                if self.duplexity is not None:
+                    return True
+
+                if self.media_type is not None:
+                    return True
+
+                if self.link_type is not None:
+                    return True
+
+                if self.in_flow_control is not None:
+                    return True
+
+                if self.out_flow_control is not None:
+                    return True
+
+                if self.bandwidth is not None:
+                    return True
+
+                if self.max_bandwidth is not None:
+                    return True
+
+                if self.keepalive is not None:
+                    return True
+
+                if self.is_l2_looped is not None:
+                    return True
+
+                if self.parent_interface_name is not None:
+                    return True
+
+                if self.loopback_configuration is not None:
+                    return True
+
+                if self.description is not None:
+                    return True
+
+                if self.is_maintenance_enabled is not None:
+                    return True
+
+                if self.is_data_inverted is not None:
                     return True
 
                 if self.transport_mode is not None:
@@ -11975,413 +11476,6 @@ class Interfaces(object):
             return meta._meta_table['Interfaces.InterfaceXr']['meta_info']
 
 
-    class Interfaces(object):
-        """
-        Descriptions for interfaces
-        
-        .. attribute:: interface
-        
-        	Description for a particular interface
-        	**type**\: list of :py:class:`Interface <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.Interfaces.Interface>`
-        
-        
-
-        """
-
-        _prefix = 'pfi-im-cmd-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.interface = YList()
-            self.interface.parent = self
-            self.interface.name = 'interface'
-
-
-        class Interface(object):
-            """
-            Description for a particular interface
-            
-            .. attribute:: interface_name
-            
-            	The name of the interface
-            	**type**\: str
-            
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-            
-            .. attribute:: description
-            
-            	Interface description string
-            	**type**\: str
-            
-            .. attribute:: interface
-            
-            	Interface
-            	**type**\: str
-            
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-            
-            .. attribute:: line_state
-            
-            	Line protocol state with no translation of error disable or shutdown
-            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnumEnum>`
-            
-            .. attribute:: state
-            
-            	Operational state with no translation of error disable or shutdown
-            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnumEnum>`
-            
-            
-
-            """
-
-            _prefix = 'pfi-im-cmd-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.interface_name = None
-                self.description = None
-                self.interface = None
-                self.line_state = None
-                self.state = None
-
-            @property
-            def _common_path(self):
-                if self.interface_name is None:
-                    raise YPYDataValidationError('Key property interface_name is None')
-
-                return '/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/Cisco-IOS-XR-pfi-im-cmd-oper:interface[Cisco-IOS-XR-pfi-im-cmd-oper:interface-name = ' + str(self.interface_name) + ']'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.interface_name is not None:
-                    return True
-
-                if self.description is not None:
-                    return True
-
-                if self.interface is not None:
-                    return True
-
-                if self.line_state is not None:
-                    return True
-
-                if self.state is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                return meta._meta_table['Interfaces.Interfaces.Interface']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.interface is not None:
-                for child_ref in self.interface:
-                    if child_ref._has_data():
-                        return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-            return meta._meta_table['Interfaces.Interfaces']['meta_info']
-
-
-    class InventorySummary(object):
-        """
-        Inventory summary information
-        
-        .. attribute:: interface_counts
-        
-        	Counts for all interfaces
-        	**type**\: :py:class:`InterfaceCounts <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InventorySummary.InterfaceCounts>`
-        
-        .. attribute:: interface_type
-        
-        	List of per interface type summary information
-        	**type**\: list of :py:class:`InterfaceType <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InventorySummary.InterfaceType>`
-        
-        
-
-        """
-
-        _prefix = 'pfi-im-cmd-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.interface_counts = Interfaces.InventorySummary.InterfaceCounts()
-            self.interface_counts.parent = self
-            self.interface_type = YList()
-            self.interface_type.parent = self
-            self.interface_type.name = 'interface_type'
-
-
-        class InterfaceCounts(object):
-            """
-            Counts for all interfaces
-            
-            .. attribute:: admin_down_interface_count
-            
-            	Number of interfaces in an ADMINDOWN state
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: down_interface_count
-            
-            	Number of interfaces in DOWN state
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: interface_count
-            
-            	Number of interfaces
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: up_interface_count
-            
-            	Number of interfaces in UP state
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            
-
-            """
-
-            _prefix = 'pfi-im-cmd-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.admin_down_interface_count = None
-                self.down_interface_count = None
-                self.interface_count = None
-                self.up_interface_count = None
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/Cisco-IOS-XR-pfi-im-cmd-oper:inventory-summary/Cisco-IOS-XR-pfi-im-cmd-oper:interface-counts'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.admin_down_interface_count is not None:
-                    return True
-
-                if self.down_interface_count is not None:
-                    return True
-
-                if self.interface_count is not None:
-                    return True
-
-                if self.up_interface_count is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                return meta._meta_table['Interfaces.InventorySummary.InterfaceCounts']['meta_info']
-
-
-        class InterfaceType(object):
-            """
-            List of per interface type summary information
-            
-            .. attribute:: interface_counts
-            
-            	Counts for interfaces of this type
-            	**type**\: :py:class:`InterfaceCounts <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InventorySummary.InterfaceType.InterfaceCounts>`
-            
-            .. attribute:: interface_type_description
-            
-            	Description of the interface type
-            	**type**\: str
-            
-            .. attribute:: interface_type_name
-            
-            	Name of the interface type
-            	**type**\: str
-            
-            
-
-            """
-
-            _prefix = 'pfi-im-cmd-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.interface_counts = Interfaces.InventorySummary.InterfaceType.InterfaceCounts()
-                self.interface_counts.parent = self
-                self.interface_type_description = None
-                self.interface_type_name = None
-
-
-            class InterfaceCounts(object):
-                """
-                Counts for interfaces of this type
-                
-                .. attribute:: admin_down_interface_count
-                
-                	Number of interfaces in an ADMINDOWN state
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: down_interface_count
-                
-                	Number of interfaces in DOWN state
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: interface_count
-                
-                	Number of interfaces
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: up_interface_count
-                
-                	Number of interfaces in UP state
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'pfi-im-cmd-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.admin_down_interface_count = None
-                    self.down_interface_count = None
-                    self.interface_count = None
-                    self.up_interface_count = None
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/Cisco-IOS-XR-pfi-im-cmd-oper:inventory-summary/Cisco-IOS-XR-pfi-im-cmd-oper:interface-type/Cisco-IOS-XR-pfi-im-cmd-oper:interface-counts'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.admin_down_interface_count is not None:
-                        return True
-
-                    if self.down_interface_count is not None:
-                        return True
-
-                    if self.interface_count is not None:
-                        return True
-
-                    if self.up_interface_count is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                    return meta._meta_table['Interfaces.InventorySummary.InterfaceType.InterfaceCounts']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/Cisco-IOS-XR-pfi-im-cmd-oper:inventory-summary/Cisco-IOS-XR-pfi-im-cmd-oper:interface-type'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.interface_counts is not None and self.interface_counts._has_data():
-                    return True
-
-                if self.interface_type_description is not None:
-                    return True
-
-                if self.interface_type_name is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-                return meta._meta_table['Interfaces.InventorySummary.InterfaceType']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/Cisco-IOS-XR-pfi-im-cmd-oper:inventory-summary'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.interface_counts is not None and self.interface_counts._has_data():
-                return True
-
-            if self.interface_type is not None:
-                for child_ref in self.interface_type:
-                    if child_ref._has_data():
-                        return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
-            return meta._meta_table['Interfaces.InventorySummary']['meta_info']
-
-
     class NodeTypeSets(object):
         """
         Node and/or interface type specific view of
@@ -12411,11 +11505,6 @@ class Interfaces(object):
             Summary data for all interfaces on a particular
             node
             
-            .. attribute:: interface_summary
-            
-            	Interface summary information
-            	**type**\: :py:class:`InterfaceSummary <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary>`
-            
             .. attribute:: node_name
             
             	The location to filter on
@@ -12428,6 +11517,11 @@ class Interfaces(object):
             	The interface type to filter on
             	**type**\: :py:class:`InterfaceTypeSetEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.InterfaceTypeSetEnum>`
             
+            .. attribute:: interface_summary
+            
+            	Interface summary information
+            	**type**\: :py:class:`InterfaceSummary <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary>`
+            
             
 
             """
@@ -12437,10 +11531,10 @@ class Interfaces(object):
 
             def __init__(self):
                 self.parent = None
-                self.interface_summary = Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary()
-                self.interface_summary.parent = self
                 self.node_name = None
                 self.type_set_name = None
+                self.interface_summary = Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary()
+                self.interface_summary.parent = self
 
 
             class InterfaceSummary(object):
@@ -12477,20 +11571,6 @@ class Interfaces(object):
                     """
                     Counts for all interfaces
                     
-                    .. attribute:: admin_down_interface_count
-                    
-                    	Number of interfaces in an ADMINDOWN state
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: down_interface_count
-                    
-                    	Number of interfaces in DOWN state
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: interface_count
                     
                     	Number of interfaces
@@ -12505,6 +11585,20 @@ class Interfaces(object):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: down_interface_count
+                    
+                    	Number of interfaces in DOWN state
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: admin_down_interface_count
+                    
+                    	Number of interfaces in an ADMINDOWN state
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     
 
                     """
@@ -12514,10 +11608,10 @@ class Interfaces(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.admin_down_interface_count = None
-                        self.down_interface_count = None
                         self.interface_count = None
                         self.up_interface_count = None
+                        self.down_interface_count = None
+                        self.admin_down_interface_count = None
 
                     @property
                     def _common_path(self):
@@ -12531,16 +11625,16 @@ class Interfaces(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.admin_down_interface_count is not None:
+                        if self.interface_count is not None:
+                            return True
+
+                        if self.up_interface_count is not None:
                             return True
 
                         if self.down_interface_count is not None:
                             return True
 
-                        if self.interface_count is not None:
-                            return True
-
-                        if self.up_interface_count is not None:
+                        if self.admin_down_interface_count is not None:
                             return True
 
                         return False
@@ -12560,14 +11654,14 @@ class Interfaces(object):
                     	Counts for interfaces of this type
                     	**type**\: :py:class:`InterfaceCounts <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType.InterfaceCounts>`
                     
-                    .. attribute:: interface_type_description
-                    
-                    	Description of the interface type
-                    	**type**\: str
-                    
                     .. attribute:: interface_type_name
                     
                     	Name of the interface type
+                    	**type**\: str
+                    
+                    .. attribute:: interface_type_description
+                    
+                    	Description of the interface type
                     	**type**\: str
                     
                     
@@ -12581,27 +11675,13 @@ class Interfaces(object):
                         self.parent = None
                         self.interface_counts = Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType.InterfaceCounts()
                         self.interface_counts.parent = self
-                        self.interface_type_description = None
                         self.interface_type_name = None
+                        self.interface_type_description = None
 
 
                     class InterfaceCounts(object):
                         """
                         Counts for interfaces of this type
-                        
-                        .. attribute:: admin_down_interface_count
-                        
-                        	Number of interfaces in an ADMINDOWN state
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: down_interface_count
-                        
-                        	Number of interfaces in DOWN state
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
                         
                         .. attribute:: interface_count
                         
@@ -12617,6 +11697,20 @@ class Interfaces(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: down_interface_count
+                        
+                        	Number of interfaces in DOWN state
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: admin_down_interface_count
+                        
+                        	Number of interfaces in an ADMINDOWN state
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
                         
 
                         """
@@ -12626,10 +11720,10 @@ class Interfaces(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.admin_down_interface_count = None
-                            self.down_interface_count = None
                             self.interface_count = None
                             self.up_interface_count = None
+                            self.down_interface_count = None
+                            self.admin_down_interface_count = None
 
                         @property
                         def _common_path(self):
@@ -12643,16 +11737,16 @@ class Interfaces(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.admin_down_interface_count is not None:
+                            if self.interface_count is not None:
+                                return True
+
+                            if self.up_interface_count is not None:
                                 return True
 
                             if self.down_interface_count is not None:
                                 return True
 
-                            if self.interface_count is not None:
-                                return True
-
-                            if self.up_interface_count is not None:
+                            if self.admin_down_interface_count is not None:
                                 return True
 
                             return False
@@ -12677,10 +11771,10 @@ class Interfaces(object):
                         if self.interface_counts is not None and self.interface_counts._has_data():
                             return True
 
-                        if self.interface_type_description is not None:
+                        if self.interface_type_name is not None:
                             return True
 
-                        if self.interface_type_name is not None:
+                        if self.interface_type_description is not None:
                             return True
 
                         return False
@@ -12729,13 +11823,13 @@ class Interfaces(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.interface_summary is not None and self.interface_summary._has_data():
-                    return True
-
                 if self.node_name is not None:
                     return True
 
                 if self.type_set_name is not None:
+                    return True
+
+                if self.interface_summary is not None and self.interface_summary._has_data():
                     return True
 
                 return False
@@ -12769,6 +11863,912 @@ class Interfaces(object):
             from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
             return meta._meta_table['Interfaces.NodeTypeSets']['meta_info']
 
+
+    class InterfaceBriefs(object):
+        """
+        Brief operational data for interfaces
+        
+        .. attribute:: interface_brief
+        
+        	Brief operational attributes for a particular interface
+        	**type**\: list of :py:class:`InterfaceBrief <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceBriefs.InterfaceBrief>`
+        
+        
+
+        """
+
+        _prefix = 'pfi-im-cmd-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.interface_brief = YList()
+            self.interface_brief.parent = self
+            self.interface_brief.name = 'interface_brief'
+
+
+        class InterfaceBrief(object):
+            """
+            Brief operational attributes for a particular
+            interface
+            
+            .. attribute:: interface_name  <key>
+            
+            	The name of the interface
+            	**type**\: str
+            
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            
+            .. attribute:: interface
+            
+            	Interface
+            	**type**\: str
+            
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            
+            .. attribute:: parent_interface
+            
+            	Parent Interface
+            	**type**\: str
+            
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            
+            .. attribute:: type
+            
+            	Interface type
+            	**type**\: str
+            
+            .. attribute:: state
+            
+            	Operational state
+            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnumEnum>`
+            
+            .. attribute:: actual_state
+            
+            	Operational state with no translation of error disable or shutdown
+            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnumEnum>`
+            
+            .. attribute:: line_state
+            
+            	Line protocol state
+            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnumEnum>`
+            
+            .. attribute:: actual_line_state
+            
+            	Line protocol state with no translation of error disable or shutdown
+            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnumEnum>`
+            
+            .. attribute:: encapsulation
+            
+            	Interface encapsulation
+            	**type**\: str
+            
+            .. attribute:: encapsulation_type_string
+            
+            	Interface encapsulation description string
+            	**type**\: str
+            
+            	**range:** 0..32
+            
+            .. attribute:: mtu
+            
+            	MTU in bytes
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: sub_interface_mtu_overhead
+            
+            	Subif MTU overhead
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: l2_transport
+            
+            	L2 transport
+            	**type**\: bool
+            
+            .. attribute:: bandwidth
+            
+            	Interface bandwidth (Kb/s)
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'pfi-im-cmd-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.interface_name = None
+                self.interface = None
+                self.parent_interface = None
+                self.type = None
+                self.state = None
+                self.actual_state = None
+                self.line_state = None
+                self.actual_line_state = None
+                self.encapsulation = None
+                self.encapsulation_type_string = None
+                self.mtu = None
+                self.sub_interface_mtu_overhead = None
+                self.l2_transport = None
+                self.bandwidth = None
+
+            @property
+            def _common_path(self):
+                if self.interface_name is None:
+                    raise YPYDataValidationError('Key property interface_name is None')
+
+                return '/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/Cisco-IOS-XR-pfi-im-cmd-oper:interface-briefs/Cisco-IOS-XR-pfi-im-cmd-oper:interface-brief[Cisco-IOS-XR-pfi-im-cmd-oper:interface-name = ' + str(self.interface_name) + ']'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.interface_name is not None:
+                    return True
+
+                if self.interface is not None:
+                    return True
+
+                if self.parent_interface is not None:
+                    return True
+
+                if self.type is not None:
+                    return True
+
+                if self.state is not None:
+                    return True
+
+                if self.actual_state is not None:
+                    return True
+
+                if self.line_state is not None:
+                    return True
+
+                if self.actual_line_state is not None:
+                    return True
+
+                if self.encapsulation is not None:
+                    return True
+
+                if self.encapsulation_type_string is not None:
+                    return True
+
+                if self.mtu is not None:
+                    return True
+
+                if self.sub_interface_mtu_overhead is not None:
+                    return True
+
+                if self.l2_transport is not None:
+                    return True
+
+                if self.bandwidth is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                return meta._meta_table['Interfaces.InterfaceBriefs.InterfaceBrief']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/Cisco-IOS-XR-pfi-im-cmd-oper:interface-briefs'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.interface_brief is not None:
+                for child_ref in self.interface_brief:
+                    if child_ref._has_data():
+                        return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+            return meta._meta_table['Interfaces.InterfaceBriefs']['meta_info']
+
+
+    class InventorySummary(object):
+        """
+        Inventory summary information
+        
+        .. attribute:: interface_counts
+        
+        	Counts for all interfaces
+        	**type**\: :py:class:`InterfaceCounts <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InventorySummary.InterfaceCounts>`
+        
+        .. attribute:: interface_type
+        
+        	List of per interface type summary information
+        	**type**\: list of :py:class:`InterfaceType <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InventorySummary.InterfaceType>`
+        
+        
+
+        """
+
+        _prefix = 'pfi-im-cmd-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.interface_counts = Interfaces.InventorySummary.InterfaceCounts()
+            self.interface_counts.parent = self
+            self.interface_type = YList()
+            self.interface_type.parent = self
+            self.interface_type.name = 'interface_type'
+
+
+        class InterfaceCounts(object):
+            """
+            Counts for all interfaces
+            
+            .. attribute:: interface_count
+            
+            	Number of interfaces
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: up_interface_count
+            
+            	Number of interfaces in UP state
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: down_interface_count
+            
+            	Number of interfaces in DOWN state
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: admin_down_interface_count
+            
+            	Number of interfaces in an ADMINDOWN state
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'pfi-im-cmd-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.interface_count = None
+                self.up_interface_count = None
+                self.down_interface_count = None
+                self.admin_down_interface_count = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/Cisco-IOS-XR-pfi-im-cmd-oper:inventory-summary/Cisco-IOS-XR-pfi-im-cmd-oper:interface-counts'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.interface_count is not None:
+                    return True
+
+                if self.up_interface_count is not None:
+                    return True
+
+                if self.down_interface_count is not None:
+                    return True
+
+                if self.admin_down_interface_count is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                return meta._meta_table['Interfaces.InventorySummary.InterfaceCounts']['meta_info']
+
+
+        class InterfaceType(object):
+            """
+            List of per interface type summary information
+            
+            .. attribute:: interface_counts
+            
+            	Counts for interfaces of this type
+            	**type**\: :py:class:`InterfaceCounts <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InventorySummary.InterfaceType.InterfaceCounts>`
+            
+            .. attribute:: interface_type_name
+            
+            	Name of the interface type
+            	**type**\: str
+            
+            .. attribute:: interface_type_description
+            
+            	Description of the interface type
+            	**type**\: str
+            
+            
+
+            """
+
+            _prefix = 'pfi-im-cmd-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.interface_counts = Interfaces.InventorySummary.InterfaceType.InterfaceCounts()
+                self.interface_counts.parent = self
+                self.interface_type_name = None
+                self.interface_type_description = None
+
+
+            class InterfaceCounts(object):
+                """
+                Counts for interfaces of this type
+                
+                .. attribute:: interface_count
+                
+                	Number of interfaces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: up_interface_count
+                
+                	Number of interfaces in UP state
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: down_interface_count
+                
+                	Number of interfaces in DOWN state
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: admin_down_interface_count
+                
+                	Number of interfaces in an ADMINDOWN state
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                
+
+                """
+
+                _prefix = 'pfi-im-cmd-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.interface_count = None
+                    self.up_interface_count = None
+                    self.down_interface_count = None
+                    self.admin_down_interface_count = None
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/Cisco-IOS-XR-pfi-im-cmd-oper:inventory-summary/Cisco-IOS-XR-pfi-im-cmd-oper:interface-type/Cisco-IOS-XR-pfi-im-cmd-oper:interface-counts'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.interface_count is not None:
+                        return True
+
+                    if self.up_interface_count is not None:
+                        return True
+
+                    if self.down_interface_count is not None:
+                        return True
+
+                    if self.admin_down_interface_count is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                    return meta._meta_table['Interfaces.InventorySummary.InterfaceType.InterfaceCounts']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/Cisco-IOS-XR-pfi-im-cmd-oper:inventory-summary/Cisco-IOS-XR-pfi-im-cmd-oper:interface-type'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.interface_counts is not None and self.interface_counts._has_data():
+                    return True
+
+                if self.interface_type_name is not None:
+                    return True
+
+                if self.interface_type_description is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                return meta._meta_table['Interfaces.InventorySummary.InterfaceType']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/Cisco-IOS-XR-pfi-im-cmd-oper:inventory-summary'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.interface_counts is not None and self.interface_counts._has_data():
+                return True
+
+            if self.interface_type is not None:
+                for child_ref in self.interface_type:
+                    if child_ref._has_data():
+                        return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+            return meta._meta_table['Interfaces.InventorySummary']['meta_info']
+
+
+    class Interfaces(object):
+        """
+        Descriptions for interfaces
+        
+        .. attribute:: interface
+        
+        	Description for a particular interface
+        	**type**\: list of :py:class:`Interface <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.Interfaces.Interface>`
+        
+        
+
+        """
+
+        _prefix = 'pfi-im-cmd-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.interface = YList()
+            self.interface.parent = self
+            self.interface.name = 'interface'
+
+
+        class Interface(object):
+            """
+            Description for a particular interface
+            
+            .. attribute:: interface_name  <key>
+            
+            	The name of the interface
+            	**type**\: str
+            
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            
+            .. attribute:: interface
+            
+            	Interface
+            	**type**\: str
+            
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            
+            .. attribute:: state
+            
+            	Operational state with no translation of error disable or shutdown
+            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnumEnum>`
+            
+            .. attribute:: line_state
+            
+            	Line protocol state with no translation of error disable or shutdown
+            	**type**\: :py:class:`ImStateEnumEnum <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnumEnum>`
+            
+            .. attribute:: description
+            
+            	Interface description string
+            	**type**\: str
+            
+            
+
+            """
+
+            _prefix = 'pfi-im-cmd-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.interface_name = None
+                self.interface = None
+                self.state = None
+                self.line_state = None
+                self.description = None
+
+            @property
+            def _common_path(self):
+                if self.interface_name is None:
+                    raise YPYDataValidationError('Key property interface_name is None')
+
+                return '/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/Cisco-IOS-XR-pfi-im-cmd-oper:interface[Cisco-IOS-XR-pfi-im-cmd-oper:interface-name = ' + str(self.interface_name) + ']'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.interface_name is not None:
+                    return True
+
+                if self.interface is not None:
+                    return True
+
+                if self.state is not None:
+                    return True
+
+                if self.line_state is not None:
+                    return True
+
+                if self.description is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                return meta._meta_table['Interfaces.Interfaces.Interface']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.interface is not None:
+                for child_ref in self.interface:
+                    if child_ref._has_data():
+                        return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+            return meta._meta_table['Interfaces.Interfaces']['meta_info']
+
+
+    class InterfaceSummary(object):
+        """
+        Interface summary information
+        
+        .. attribute:: interface_counts
+        
+        	Counts for all interfaces
+        	**type**\: :py:class:`InterfaceCounts <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceSummary.InterfaceCounts>`
+        
+        .. attribute:: interface_type
+        
+        	List of per interface type summary information
+        	**type**\: list of :py:class:`InterfaceType <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceSummary.InterfaceType>`
+        
+        
+
+        """
+
+        _prefix = 'pfi-im-cmd-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.interface_counts = Interfaces.InterfaceSummary.InterfaceCounts()
+            self.interface_counts.parent = self
+            self.interface_type = YList()
+            self.interface_type.parent = self
+            self.interface_type.name = 'interface_type'
+
+
+        class InterfaceCounts(object):
+            """
+            Counts for all interfaces
+            
+            .. attribute:: interface_count
+            
+            	Number of interfaces
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: up_interface_count
+            
+            	Number of interfaces in UP state
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: down_interface_count
+            
+            	Number of interfaces in DOWN state
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: admin_down_interface_count
+            
+            	Number of interfaces in an ADMINDOWN state
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'pfi-im-cmd-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.interface_count = None
+                self.up_interface_count = None
+                self.down_interface_count = None
+                self.admin_down_interface_count = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/Cisco-IOS-XR-pfi-im-cmd-oper:interface-summary/Cisco-IOS-XR-pfi-im-cmd-oper:interface-counts'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.interface_count is not None:
+                    return True
+
+                if self.up_interface_count is not None:
+                    return True
+
+                if self.down_interface_count is not None:
+                    return True
+
+                if self.admin_down_interface_count is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                return meta._meta_table['Interfaces.InterfaceSummary.InterfaceCounts']['meta_info']
+
+
+        class InterfaceType(object):
+            """
+            List of per interface type summary information
+            
+            .. attribute:: interface_counts
+            
+            	Counts for interfaces of this type
+            	**type**\: :py:class:`InterfaceCounts <ydk.models.pfi.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts>`
+            
+            .. attribute:: interface_type_name
+            
+            	Name of the interface type
+            	**type**\: str
+            
+            .. attribute:: interface_type_description
+            
+            	Description of the interface type
+            	**type**\: str
+            
+            
+
+            """
+
+            _prefix = 'pfi-im-cmd-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.interface_counts = Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts()
+                self.interface_counts.parent = self
+                self.interface_type_name = None
+                self.interface_type_description = None
+
+
+            class InterfaceCounts(object):
+                """
+                Counts for interfaces of this type
+                
+                .. attribute:: interface_count
+                
+                	Number of interfaces
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: up_interface_count
+                
+                	Number of interfaces in UP state
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: down_interface_count
+                
+                	Number of interfaces in DOWN state
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: admin_down_interface_count
+                
+                	Number of interfaces in an ADMINDOWN state
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                
+
+                """
+
+                _prefix = 'pfi-im-cmd-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.interface_count = None
+                    self.up_interface_count = None
+                    self.down_interface_count = None
+                    self.admin_down_interface_count = None
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/Cisco-IOS-XR-pfi-im-cmd-oper:interface-summary/Cisco-IOS-XR-pfi-im-cmd-oper:interface-type/Cisco-IOS-XR-pfi-im-cmd-oper:interface-counts'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.interface_count is not None:
+                        return True
+
+                    if self.up_interface_count is not None:
+                        return True
+
+                    if self.down_interface_count is not None:
+                        return True
+
+                    if self.admin_down_interface_count is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                    return meta._meta_table['Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/Cisco-IOS-XR-pfi-im-cmd-oper:interface-summary/Cisco-IOS-XR-pfi-im-cmd-oper:interface-type'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.interface_counts is not None and self.interface_counts._has_data():
+                    return True
+
+                if self.interface_type_name is not None:
+                    return True
+
+                if self.interface_type_description is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                return meta._meta_table['Interfaces.InterfaceSummary.InterfaceType']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/Cisco-IOS-XR-pfi-im-cmd-oper:interface-summary'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.interface_counts is not None and self.interface_counts._has_data():
+                return True
+
+            if self.interface_type is not None:
+                for child_ref in self.interface_type:
+                    if child_ref._has_data():
+                        return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.pfi._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+            return meta._meta_table['Interfaces.InterfaceSummary']['meta_info']
+
     @property
     def _common_path(self):
 
@@ -12781,22 +12781,22 @@ class Interfaces(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.interface_briefs is not None and self.interface_briefs._has_data():
-            return True
-
-        if self.interface_summary is not None and self.interface_summary._has_data():
-            return True
-
         if self.interface_xr is not None and self.interface_xr._has_data():
             return True
 
-        if self.interfaces is not None and self.interfaces._has_data():
+        if self.node_type_sets is not None and self.node_type_sets._has_data():
+            return True
+
+        if self.interface_briefs is not None and self.interface_briefs._has_data():
             return True
 
         if self.inventory_summary is not None and self.inventory_summary._has_data():
             return True
 
-        if self.node_type_sets is not None and self.node_type_sets._has_data():
+        if self.interfaces is not None and self.interfaces._has_data():
+            return True
+
+        if self.interface_summary is not None and self.interface_summary._has_data():
             return True
 
         return False

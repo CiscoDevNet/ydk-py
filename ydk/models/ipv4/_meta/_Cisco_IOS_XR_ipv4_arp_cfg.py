@@ -7,7 +7,7 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
@@ -49,214 +49,6 @@ _meta_table = {
         'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg'
         ),
     },
-    'ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces.Interface' : {
-        'meta_info' : _MetaInfoClass('ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces.Interface',
-            False, 
-            [
-            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface name
-                ''',
-                'interface_name',
-                'Cisco-IOS-XR-ipv4-arp-cfg', True),
-            _MetaInfoClassMember('interface-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                Interface Id for the interface
-                ''',
-                'interface_id',
-                'Cisco-IOS-XR-ipv4-arp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-arp-cfg',
-            'interface',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-cfg'],
-        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg'
-        ),
-    },
-    'ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces' : {
-        'meta_info' : _MetaInfoClass('ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces',
-            False, 
-            [
-            _MetaInfoClassMember('interface', REFERENCE_LIST, 'Interface' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg', 'ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces.Interface', 
-                [], [], 
-                '''                Interface for this Group
-                ''',
-                'interface',
-                'Cisco-IOS-XR-ipv4-arp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-arp-cfg',
-            'interfaces',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-cfg'],
-        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg'
-        ),
-    },
-    'ArpRedundancy.Redundancy.Groups.Group.InterfaceList' : {
-        'meta_info' : _MetaInfoClass('ArpRedundancy.Redundancy.Groups.Group.InterfaceList',
-            False, 
-            [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable List of Interfaces for this Group.
-                Deletion of this object also causes deletion
-                of all associated objects under
-                InterfaceList.
-                ''',
-                'enable',
-                'Cisco-IOS-XR-ipv4-arp-cfg', False),
-            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg', 'ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces', 
-                [], [], 
-                '''                Table of Interface
-                ''',
-                'interfaces',
-                'Cisco-IOS-XR-ipv4-arp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-arp-cfg',
-            'interface-list',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-cfg'],
-        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg'
-        ),
-    },
-    'ArpRedundancy.Redundancy.Groups.Group.Peers.Peer' : {
-        'meta_info' : _MetaInfoClass('ArpRedundancy.Redundancy.Groups.Group.Peers.Peer',
-            False, 
-            [
-            _MetaInfoClassMember('prefix-string', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Neighbor IPv4 address
-                ''',
-                'prefix_string',
-                'Cisco-IOS-XR-ipv4-arp-cfg', True, [
-                    _MetaInfoClassMember('prefix-string', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        Neighbor IPv4 address
-                        ''',
-                        'prefix_string',
-                        'Cisco-IOS-XR-ipv4-arp-cfg', True),
-                    _MetaInfoClassMember('prefix-string', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        Neighbor IPv4 address
-                        ''',
-                        'prefix_string',
-                        'Cisco-IOS-XR-ipv4-arp-cfg', True),
-                ]),
-            ],
-            'Cisco-IOS-XR-ipv4-arp-cfg',
-            'peer',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-cfg'],
-        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg'
-        ),
-    },
-    'ArpRedundancy.Redundancy.Groups.Group.Peers' : {
-        'meta_info' : _MetaInfoClass('ArpRedundancy.Redundancy.Groups.Group.Peers',
-            False, 
-            [
-            _MetaInfoClassMember('peer', REFERENCE_LIST, 'Peer' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg', 'ArpRedundancy.Redundancy.Groups.Group.Peers.Peer', 
-                [], [], 
-                '''                None
-                ''',
-                'peer',
-                'Cisco-IOS-XR-ipv4-arp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-arp-cfg',
-            'peers',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-cfg'],
-        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg'
-        ),
-    },
-    'ArpRedundancy.Redundancy.Groups.Group' : {
-        'meta_info' : _MetaInfoClass('ArpRedundancy.Redundancy.Groups.Group',
-            False, 
-            [
-            _MetaInfoClassMember('group-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 32)], [], 
-                '''                Group ID
-                ''',
-                'group_id',
-                'Cisco-IOS-XR-ipv4-arp-cfg', True),
-            _MetaInfoClassMember('interface-list', REFERENCE_CLASS, 'InterfaceList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg', 'ArpRedundancy.Redundancy.Groups.Group.InterfaceList', 
-                [], [], 
-                '''                List of Interfaces for this Group
-                ''',
-                'interface_list',
-                'Cisco-IOS-XR-ipv4-arp-cfg', False),
-            _MetaInfoClassMember('peers', REFERENCE_CLASS, 'Peers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg', 'ArpRedundancy.Redundancy.Groups.Group.Peers', 
-                [], [], 
-                '''                Table of Peer
-                ''',
-                'peers',
-                'Cisco-IOS-XR-ipv4-arp-cfg', False),
-            _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface name
-                ''',
-                'source_interface',
-                'Cisco-IOS-XR-ipv4-arp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-arp-cfg',
-            'group',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-cfg'],
-        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg'
-        ),
-    },
-    'ArpRedundancy.Redundancy.Groups' : {
-        'meta_info' : _MetaInfoClass('ArpRedundancy.Redundancy.Groups',
-            False, 
-            [
-            _MetaInfoClassMember('group', REFERENCE_LIST, 'Group' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg', 'ArpRedundancy.Redundancy.Groups.Group', 
-                [], [], 
-                '''                None
-                ''',
-                'group',
-                'Cisco-IOS-XR-ipv4-arp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-arp-cfg',
-            'groups',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-cfg'],
-        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg'
-        ),
-    },
-    'ArpRedundancy.Redundancy' : {
-        'meta_info' : _MetaInfoClass('ArpRedundancy.Redundancy',
-            False, 
-            [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable Configure parameter for ARP Geo
-                redundancy. Deletion of this object also causes
-                deletion of all associated objects under
-                ArpRedundancy.
-                ''',
-                'enable',
-                'Cisco-IOS-XR-ipv4-arp-cfg', False),
-            _MetaInfoClassMember('groups', REFERENCE_CLASS, 'Groups' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg', 'ArpRedundancy.Redundancy.Groups', 
-                [], [], 
-                '''                Table of Group
-                ''',
-                'groups',
-                'Cisco-IOS-XR-ipv4-arp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-arp-cfg',
-            'redundancy',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-cfg'],
-        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg'
-        ),
-    },
-    'ArpRedundancy' : {
-        'meta_info' : _MetaInfoClass('ArpRedundancy',
-            False, 
-            [
-            _MetaInfoClassMember('redundancy', REFERENCE_CLASS, 'Redundancy' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg', 'ArpRedundancy.Redundancy', 
-                [], [], 
-                '''                Configure parameter for ARP Geo redundancy
-                ''',
-                'redundancy',
-                'Cisco-IOS-XR-ipv4-arp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-arp-cfg',
-            'arp-redundancy',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-cfg'],
-        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg'
-        ),
-    },
     'Arpgmp.Vrf.Entries.Entry' : {
         'meta_info' : _MetaInfoClass('Arpgmp.Vrf.Entries.Entry',
             False, 
@@ -267,6 +59,12 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-ipv4-arp-cfg', True),
+            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC Address
+                ''',
+                'mac_address',
+                'Cisco-IOS-XR-ipv4-arp-cfg', False),
             _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'ArpEncapEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg', 'ArpEncapEnum', 
                 [], [], 
                 '''                Encapsulation type
@@ -278,12 +76,6 @@ _meta_table = {
                 '''                Entry type
                 ''',
                 'entry_type',
-                'Cisco-IOS-XR-ipv4-arp-cfg', False),
-            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                MAC Address
-                ''',
-                'mac_address',
                 'Cisco-IOS-XR-ipv4-arp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-arp-cfg',
@@ -350,15 +142,223 @@ _meta_table = {
         'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg'
         ),
     },
+    'ArpRedundancy.Redundancy.Groups.Group.Peers.Peer' : {
+        'meta_info' : _MetaInfoClass('ArpRedundancy.Redundancy.Groups.Group.Peers.Peer',
+            False, 
+            [
+            _MetaInfoClassMember('prefix-string', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Neighbor IPv4 address
+                ''',
+                'prefix_string',
+                'Cisco-IOS-XR-ipv4-arp-cfg', True, [
+                    _MetaInfoClassMember('prefix-string', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Neighbor IPv4 address
+                        ''',
+                        'prefix_string',
+                        'Cisco-IOS-XR-ipv4-arp-cfg', True),
+                    _MetaInfoClassMember('prefix-string', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Neighbor IPv4 address
+                        ''',
+                        'prefix_string',
+                        'Cisco-IOS-XR-ipv4-arp-cfg', True),
+                ]),
+            ],
+            'Cisco-IOS-XR-ipv4-arp-cfg',
+            'peer',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-cfg'],
+        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg'
+        ),
+    },
+    'ArpRedundancy.Redundancy.Groups.Group.Peers' : {
+        'meta_info' : _MetaInfoClass('ArpRedundancy.Redundancy.Groups.Group.Peers',
+            False, 
+            [
+            _MetaInfoClassMember('peer', REFERENCE_LIST, 'Peer' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg', 'ArpRedundancy.Redundancy.Groups.Group.Peers.Peer', 
+                [], [], 
+                '''                None
+                ''',
+                'peer',
+                'Cisco-IOS-XR-ipv4-arp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-arp-cfg',
+            'peers',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-cfg'],
+        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg'
+        ),
+    },
+    'ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces.Interface' : {
+        'meta_info' : _MetaInfoClass('ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces.Interface',
+            False, 
+            [
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface name
+                ''',
+                'interface_name',
+                'Cisco-IOS-XR-ipv4-arp-cfg', True),
+            _MetaInfoClassMember('interface-id', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                Interface Id for the interface
+                ''',
+                'interface_id',
+                'Cisco-IOS-XR-ipv4-arp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-arp-cfg',
+            'interface',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-cfg'],
+        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg'
+        ),
+    },
+    'ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces' : {
+        'meta_info' : _MetaInfoClass('ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces',
+            False, 
+            [
+            _MetaInfoClassMember('interface', REFERENCE_LIST, 'Interface' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg', 'ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces.Interface', 
+                [], [], 
+                '''                Interface for this Group
+                ''',
+                'interface',
+                'Cisco-IOS-XR-ipv4-arp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-arp-cfg',
+            'interfaces',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-cfg'],
+        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg'
+        ),
+    },
+    'ArpRedundancy.Redundancy.Groups.Group.InterfaceList' : {
+        'meta_info' : _MetaInfoClass('ArpRedundancy.Redundancy.Groups.Group.InterfaceList',
+            False, 
+            [
+            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg', 'ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces', 
+                [], [], 
+                '''                Table of Interface
+                ''',
+                'interfaces',
+                'Cisco-IOS-XR-ipv4-arp-cfg', False),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable List of Interfaces for this Group.
+                Deletion of this object also causes deletion
+                of all associated objects under
+                InterfaceList.
+                ''',
+                'enable',
+                'Cisco-IOS-XR-ipv4-arp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-arp-cfg',
+            'interface-list',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-cfg'],
+        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg'
+        ),
+    },
+    'ArpRedundancy.Redundancy.Groups.Group' : {
+        'meta_info' : _MetaInfoClass('ArpRedundancy.Redundancy.Groups.Group',
+            False, 
+            [
+            _MetaInfoClassMember('group-id', ATTRIBUTE, 'int' , None, None, 
+                [(1, 32)], [], 
+                '''                Group ID
+                ''',
+                'group_id',
+                'Cisco-IOS-XR-ipv4-arp-cfg', True),
+            _MetaInfoClassMember('peers', REFERENCE_CLASS, 'Peers' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg', 'ArpRedundancy.Redundancy.Groups.Group.Peers', 
+                [], [], 
+                '''                Table of Peer
+                ''',
+                'peers',
+                'Cisco-IOS-XR-ipv4-arp-cfg', False),
+            _MetaInfoClassMember('interface-list', REFERENCE_CLASS, 'InterfaceList' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg', 'ArpRedundancy.Redundancy.Groups.Group.InterfaceList', 
+                [], [], 
+                '''                List of Interfaces for this Group
+                ''',
+                'interface_list',
+                'Cisco-IOS-XR-ipv4-arp-cfg', False),
+            _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface name
+                ''',
+                'source_interface',
+                'Cisco-IOS-XR-ipv4-arp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-arp-cfg',
+            'group',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-cfg'],
+        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg'
+        ),
+    },
+    'ArpRedundancy.Redundancy.Groups' : {
+        'meta_info' : _MetaInfoClass('ArpRedundancy.Redundancy.Groups',
+            False, 
+            [
+            _MetaInfoClassMember('group', REFERENCE_LIST, 'Group' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg', 'ArpRedundancy.Redundancy.Groups.Group', 
+                [], [], 
+                '''                None
+                ''',
+                'group',
+                'Cisco-IOS-XR-ipv4-arp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-arp-cfg',
+            'groups',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-cfg'],
+        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg'
+        ),
+    },
+    'ArpRedundancy.Redundancy' : {
+        'meta_info' : _MetaInfoClass('ArpRedundancy.Redundancy',
+            False, 
+            [
+            _MetaInfoClassMember('groups', REFERENCE_CLASS, 'Groups' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg', 'ArpRedundancy.Redundancy.Groups', 
+                [], [], 
+                '''                Table of Group
+                ''',
+                'groups',
+                'Cisco-IOS-XR-ipv4-arp-cfg', False),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable Configure parameter for ARP Geo
+                redundancy. Deletion of this object also causes
+                deletion of all associated objects under
+                ArpRedundancy.
+                ''',
+                'enable',
+                'Cisco-IOS-XR-ipv4-arp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-arp-cfg',
+            'redundancy',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-cfg'],
+        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg'
+        ),
+    },
+    'ArpRedundancy' : {
+        'meta_info' : _MetaInfoClass('ArpRedundancy',
+            False, 
+            [
+            _MetaInfoClassMember('redundancy', REFERENCE_CLASS, 'Redundancy' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg', 'ArpRedundancy.Redundancy', 
+                [], [], 
+                '''                Configure parameter for ARP Geo redundancy
+                ''',
+                'redundancy',
+                'Cisco-IOS-XR-ipv4-arp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-arp-cfg',
+            'arp-redundancy',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-cfg'],
+        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg'
+        ),
+    },
 }
-_meta_table['ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces.Interface']['meta_info'].parent =_meta_table['ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces']['meta_info']
-_meta_table['ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces']['meta_info'].parent =_meta_table['ArpRedundancy.Redundancy.Groups.Group.InterfaceList']['meta_info']
-_meta_table['ArpRedundancy.Redundancy.Groups.Group.Peers.Peer']['meta_info'].parent =_meta_table['ArpRedundancy.Redundancy.Groups.Group.Peers']['meta_info']
-_meta_table['ArpRedundancy.Redundancy.Groups.Group.InterfaceList']['meta_info'].parent =_meta_table['ArpRedundancy.Redundancy.Groups.Group']['meta_info']
-_meta_table['ArpRedundancy.Redundancy.Groups.Group.Peers']['meta_info'].parent =_meta_table['ArpRedundancy.Redundancy.Groups.Group']['meta_info']
-_meta_table['ArpRedundancy.Redundancy.Groups.Group']['meta_info'].parent =_meta_table['ArpRedundancy.Redundancy.Groups']['meta_info']
-_meta_table['ArpRedundancy.Redundancy.Groups']['meta_info'].parent =_meta_table['ArpRedundancy.Redundancy']['meta_info']
-_meta_table['ArpRedundancy.Redundancy']['meta_info'].parent =_meta_table['ArpRedundancy']['meta_info']
 _meta_table['Arpgmp.Vrf.Entries.Entry']['meta_info'].parent =_meta_table['Arpgmp.Vrf.Entries']['meta_info']
 _meta_table['Arpgmp.Vrf.Entries']['meta_info'].parent =_meta_table['Arpgmp.Vrf']['meta_info']
 _meta_table['Arpgmp.Vrf']['meta_info'].parent =_meta_table['Arpgmp']['meta_info']
+_meta_table['ArpRedundancy.Redundancy.Groups.Group.Peers.Peer']['meta_info'].parent =_meta_table['ArpRedundancy.Redundancy.Groups.Group.Peers']['meta_info']
+_meta_table['ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces.Interface']['meta_info'].parent =_meta_table['ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces']['meta_info']
+_meta_table['ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces']['meta_info'].parent =_meta_table['ArpRedundancy.Redundancy.Groups.Group.InterfaceList']['meta_info']
+_meta_table['ArpRedundancy.Redundancy.Groups.Group.Peers']['meta_info'].parent =_meta_table['ArpRedundancy.Redundancy.Groups.Group']['meta_info']
+_meta_table['ArpRedundancy.Redundancy.Groups.Group.InterfaceList']['meta_info'].parent =_meta_table['ArpRedundancy.Redundancy.Groups.Group']['meta_info']
+_meta_table['ArpRedundancy.Redundancy.Groups.Group']['meta_info'].parent =_meta_table['ArpRedundancy.Redundancy.Groups']['meta_info']
+_meta_table['ArpRedundancy.Redundancy.Groups']['meta_info'].parent =_meta_table['ArpRedundancy.Redundancy']['meta_info']
+_meta_table['ArpRedundancy.Redundancy']['meta_info'].parent =_meta_table['ArpRedundancy']['meta_info']

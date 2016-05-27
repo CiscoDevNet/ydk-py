@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -29,20 +29,20 @@ class MplsOam(object):
     """
     MPLS LSP verification configuration
     
-    .. attribute:: disable_vendor_extension
+    .. attribute:: reply_mode
     
-    	Disable vendor extension
-    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+    	Echo request reply mode attributes
+    	**type**\: :py:class:`ReplyMode <ydk.models.mpls.Cisco_IOS_XR_mpls_oam_cfg.MplsOam.ReplyMode>`
     
     .. attribute:: enable_oam
     
     	Enable/Disable MPLS OAM globally.Without creating this object the MPLS OAM feature will not be enabled. Deleting this object will stop the MPLS OAM feature
     	**type**\: :py:class:`Empty <ydk.types.Empty>`
     
-    .. attribute:: reply_mode
+    .. attribute:: disable_vendor_extension
     
-    	Echo request reply mode attributes
-    	**type**\: :py:class:`ReplyMode <ydk.models.mpls.Cisco_IOS_XR_mpls_oam_cfg.MplsOam.ReplyMode>`
+    	Disable vendor extension
+    	**type**\: :py:class:`Empty <ydk.types.Empty>`
     
     
 
@@ -52,10 +52,10 @@ class MplsOam(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.disable_vendor_extension = None
-        self.enable_oam = None
         self.reply_mode = MplsOam.ReplyMode()
         self.reply_mode.parent = self
+        self.enable_oam = None
+        self.disable_vendor_extension = None
 
 
     class ReplyMode(object):
@@ -156,13 +156,13 @@ class MplsOam(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.disable_vendor_extension is not None:
+        if self.reply_mode is not None and self.reply_mode._has_data():
             return True
 
         if self.enable_oam is not None:
             return True
 
-        if self.reply_mode is not None and self.reply_mode._has_data():
+        if self.disable_vendor_extension is not None:
             return True
 
         return False

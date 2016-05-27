@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -29,10 +29,17 @@ class Grpc(object):
     """
     GRPC configruation
     
-    .. attribute:: address_family
+    .. attribute:: tls
     
-    	Address family identifier type
-    	**type**\: str
+    	Transport Layer Security (TLS)
+    	**type**\: :py:class:`Tls <ydk.models.man.Cisco_IOS_XR_man_ems_cfg.Grpc.Tls>`
+    
+    .. attribute:: port
+    
+    	Server listening port
+    	**type**\: int
+    
+    	**range:** 57344..57999
     
     .. attribute:: enable
     
@@ -46,24 +53,17 @@ class Grpc(object):
     
     	**range:** 1..32
     
+    .. attribute:: address_family
+    
+    	Address family identifier type
+    	**type**\: str
+    
     .. attribute:: max_request_total
     
     	Maximum concurrent requests in total
     	**type**\: int
     
     	**range:** 1..256
-    
-    .. attribute:: port
-    
-    	Server listening port
-    	**type**\: int
-    
-    	**range:** 57344..57999
-    
-    .. attribute:: tls
-    
-    	Transport Layer Security (TLS)
-    	**type**\: :py:class:`Tls <ydk.models.man.Cisco_IOS_XR_man_ems_cfg.Grpc.Tls>`
     
     
 
@@ -73,28 +73,28 @@ class Grpc(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.address_family = None
-        self.enable = None
-        self.max_request_per_user = None
-        self.max_request_total = None
-        self.port = None
         self.tls = Grpc.Tls()
         self.tls.parent = self
+        self.port = None
+        self.enable = None
+        self.max_request_per_user = None
+        self.address_family = None
+        self.max_request_total = None
 
 
     class Tls(object):
         """
         Transport Layer Security (TLS)
         
-        .. attribute:: enable
-        
-        	Enable TLS
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-        
         .. attribute:: trustpoint
         
         	Trustpoint Name
         	**type**\: str
+        
+        .. attribute:: enable
+        
+        	Enable TLS
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
         
         
 
@@ -105,8 +105,8 @@ class Grpc(object):
 
         def __init__(self):
             self.parent = None
-            self.enable = None
             self.trustpoint = None
+            self.enable = None
 
         @property
         def _common_path(self):
@@ -120,10 +120,10 @@ class Grpc(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.enable is not None:
+            if self.trustpoint is not None:
                 return True
 
-            if self.trustpoint is not None:
+            if self.enable is not None:
                 return True
 
             return False
@@ -145,7 +145,10 @@ class Grpc(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.address_family is not None:
+        if self.tls is not None and self.tls._has_data():
+            return True
+
+        if self.port is not None:
             return True
 
         if self.enable is not None:
@@ -154,13 +157,10 @@ class Grpc(object):
         if self.max_request_per_user is not None:
             return True
 
+        if self.address_family is not None:
+            return True
+
         if self.max_request_total is not None:
-            return True
-
-        if self.port is not None:
-            return True
-
-        if self.tls is not None and self.tls._has_data():
             return True
 
         return False

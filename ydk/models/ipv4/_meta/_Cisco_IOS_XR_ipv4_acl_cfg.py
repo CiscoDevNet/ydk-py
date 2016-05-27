@@ -7,7 +7,7 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
@@ -20,6 +20,32 @@ _meta_table = {
             'regular-next-hop':'REGULAR_NEXT_HOP',
             'default-next-hop':'DEFAULT_NEXT_HOP',
         }, 'Cisco-IOS-XR-ipv4-acl-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-cfg']),
+    'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork' : {
+        'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork',
+            False, 
+            [
+            _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Source IPv4 address to match, leave unspecified
+                for any.
+                ''',
+                'source_address',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('source-wild-card-bits', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Wildcard bits to apply to source address 
+                (if specified), leave unspecified for no 
+                wildcarding.
+                ''',
+                'source_wild_card_bits',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-acl-cfg',
+            'source-network',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-cfg'],
+        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg'
+        ),
+    },
     'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork' : {
         'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork',
             False, 
@@ -42,6 +68,74 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-ipv4-acl-cfg',
             'destination-network',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-cfg'],
+        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg'
+        ),
+    },
+    'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourcePort' : {
+        'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourcePort',
+            False, 
+            [
+            _MetaInfoClassMember('source-operator', REFERENCE_ENUM_CLASS, 'Ipv4AclOperatorEnumEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclOperatorEnumEnum', 
+                [], [], 
+                '''                Source comparison operator . Leave unspecified 
+                if no source port comparison is to be done.
+                ''',
+                'source_operator',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('first-source-port', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                First source port for comparison, leave 
+                unspecified if source port comparison is not to
+                be performed.
+                ''',
+                'first_source_port',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False, [
+                    _MetaInfoClassMember('first-source-port', REFERENCE_ENUM_CLASS, 'Ipv4AclPortNumberEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclPortNumberEnum', 
+                        [], [], 
+                        '''                        First source port for comparison, leave 
+                        unspecified if source port comparison is not to
+                        be performed.
+                        ''',
+                        'first_source_port',
+                        'Cisco-IOS-XR-ipv4-acl-cfg', False),
+                    _MetaInfoClassMember('first-source-port', ATTRIBUTE, 'int' , None, None, 
+                        [(0, 65535)], [], 
+                        '''                        First source port for comparison, leave 
+                        unspecified if source port comparison is not to
+                        be performed.
+                        ''',
+                        'first_source_port',
+                        'Cisco-IOS-XR-ipv4-acl-cfg', False),
+                ]),
+            _MetaInfoClassMember('second-source-port', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Second source port for comparion, leave 
+                unspecified if source port comparison is not to
+                be performed.
+                ''',
+                'second_source_port',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False, [
+                    _MetaInfoClassMember('second-source-port', REFERENCE_ENUM_CLASS, 'Ipv4AclPortNumberEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclPortNumberEnum', 
+                        [], [], 
+                        '''                        Second source port for comparion, leave 
+                        unspecified if source port comparison is not to
+                        be performed.
+                        ''',
+                        'second_source_port',
+                        'Cisco-IOS-XR-ipv4-acl-cfg', False),
+                    _MetaInfoClassMember('second-source-port', ATTRIBUTE, 'int' , None, None, 
+                        [(0, 65535)], [], 
+                        '''                        Second source port for comparion, leave 
+                        unspecified if source port comparison is not to
+                        be performed.
+                        ''',
+                        'second_source_port',
+                        'Cisco-IOS-XR-ipv4-acl-cfg', False),
+                ]),
+            ],
+            'Cisco-IOS-XR-ipv4-acl-cfg',
+            'source-port',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-cfg'],
         'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg'
         ),
@@ -115,78 +209,6 @@ _meta_table = {
         'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg'
         ),
     },
-    'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Dscp' : {
-        'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Dscp',
-            False, 
-            [
-            _MetaInfoClassMember('dscp-max', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Maximum DSCP value for comparion, leave 
-                unspecified if DSCP comparison is not to 
-                be performed or if only the minimum DSCP
-                should be considered.
-                ''',
-                'dscp_max',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False, [
-                    _MetaInfoClassMember('dscp-max', REFERENCE_ENUM_CLASS, 'Ipv4AclDscpNumberEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclDscpNumberEnum', 
-                        [], [], 
-                        '''                        Maximum DSCP value for comparion, leave 
-                        unspecified if DSCP comparison is not to 
-                        be performed or if only the minimum DSCP
-                        should be considered.
-                        ''',
-                        'dscp_max',
-                        'Cisco-IOS-XR-ipv4-acl-cfg', False),
-                    _MetaInfoClassMember('dscp-max', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 63)], [], 
-                        '''                        Maximum DSCP value for comparion, leave 
-                        unspecified if DSCP comparison is not to 
-                        be performed or if only the minimum DSCP
-                        should be considered.
-                        ''',
-                        'dscp_max',
-                        'Cisco-IOS-XR-ipv4-acl-cfg', False),
-                ]),
-            _MetaInfoClassMember('dscp-min', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                DSCP value to match or minimum DSCP value 
-                for DSCP range comparison, leave unspecified 
-                if DSCP comparion is not to be performed.
-                ''',
-                'dscp_min',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False, [
-                    _MetaInfoClassMember('dscp-min', REFERENCE_ENUM_CLASS, 'Ipv4AclDscpNumberEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclDscpNumberEnum', 
-                        [], [], 
-                        '''                        DSCP value to match or minimum DSCP value 
-                        for DSCP range comparison, leave unspecified 
-                        if DSCP comparion is not to be performed.
-                        ''',
-                        'dscp_min',
-                        'Cisco-IOS-XR-ipv4-acl-cfg', False),
-                    _MetaInfoClassMember('dscp-min', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 63)], [], 
-                        '''                        DSCP value to match or minimum DSCP value 
-                        for DSCP range comparison, leave unspecified 
-                        if DSCP comparion is not to be performed.
-                        ''',
-                        'dscp_min',
-                        'Cisco-IOS-XR-ipv4-acl-cfg', False),
-                ]),
-            _MetaInfoClassMember('dscp-operator', REFERENCE_ENUM_CLASS, 'Ipv4AclOperatorEnumEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclOperatorEnumEnum', 
-                [], [], 
-                '''                DSCP operator is applicable only when DSCP 
-                range is configured. Leave unspecified if 
-                DSCP range is not required.
-                ''',
-                'dscp_operator',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-acl-cfg',
-            'dscp',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-cfg'],
-        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg'
-        ),
-    },
     'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Icmp' : {
         'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Icmp',
             False, 
@@ -206,263 +228,18 @@ _meta_table = {
         'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg'
         ),
     },
-    'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop1' : {
-        'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop1',
-            False, 
-            [
-            _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                The IPv4 address of the next-hop.
-                ''',
-                'next_hop',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('track-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                The object tracking name for the next-hop.
-                ''',
-                'track_name',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                The VRF name of the next-hop.
-                ''',
-                'vrf_name',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-acl-cfg',
-            'next-hop-1',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-cfg'],
-        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg'
-        ),
-    },
-    'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop2' : {
-        'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop2',
-            False, 
-            [
-            _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                The IPv4 address of the next-hop.
-                ''',
-                'next_hop',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('track-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                The object tracking name for the next-hop.
-                ''',
-                'track_name',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                The VRF name of the next-hop.
-                ''',
-                'vrf_name',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-acl-cfg',
-            'next-hop-2',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-cfg'],
-        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg'
-        ),
-    },
-    'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop3' : {
-        'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop3',
-            False, 
-            [
-            _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                The IPv4 address of the next-hop.
-                ''',
-                'next_hop',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('track-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                The object tracking name for the next-hop.
-                ''',
-                'track_name',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                The VRF name of the next-hop.
-                ''',
-                'vrf_name',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-acl-cfg',
-            'next-hop-3',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-cfg'],
-        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg'
-        ),
-    },
-    'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop' : {
-        'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop',
-            False, 
-            [
-            _MetaInfoClassMember('next-hop-1', REFERENCE_CLASS, 'NextHop1' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop1', 
-                [], [], 
-                '''                The first next-hop settings.
-                ''',
-                'next_hop_1',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('next-hop-2', REFERENCE_CLASS, 'NextHop2' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop2', 
-                [], [], 
-                '''                The second next-hop settings.
-                ''',
-                'next_hop_2',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('next-hop-3', REFERENCE_CLASS, 'NextHop3' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop3', 
-                [], [], 
-                '''                The third next-hop settings.
-                ''',
-                'next_hop_3',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('next-hop-type', REFERENCE_ENUM_CLASS, 'NextHopTypeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'NextHopTypeEnum', 
-                [], [], 
-                '''                The nexthop type.
-                ''',
-                'next_hop_type',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-acl-cfg',
-            'next-hop',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-cfg'],
-        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg'
-        ),
-    },
-    'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.PacketLength' : {
-        'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.PacketLength',
-            False, 
-            [
-            _MetaInfoClassMember('packet-length-max', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Maximum packet length for comparion, leave 
-                unspecified if packet length comparison is not 
-                to be performed or if only the minimum packet 
-                length should be considered.
-                ''',
-                'packet_length_max',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('packet-length-min', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Minimum packet length for comparison, leave 
-                unspecified if packet length comparison is not 
-                to be performed or if only the maximum packet 
-                length should be considered.
-                ''',
-                'packet_length_min',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('packet-length-operator', REFERENCE_ENUM_CLASS, 'Ipv4AclOperatorEnumEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclOperatorEnumEnum', 
-                [], [], 
-                '''                Packet length operator applicable if Packet 
-                length is to be compared. Leave unspecified if 
-                no packet length comparison is to be done.
-                ''',
-                'packet_length_operator',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-acl-cfg',
-            'packet-length',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-cfg'],
-        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg'
-        ),
-    },
-    'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork' : {
-        'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork',
-            False, 
-            [
-            _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Source IPv4 address to match, leave unspecified
-                for any.
-                ''',
-                'source_address',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('source-wild-card-bits', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Wildcard bits to apply to source address 
-                (if specified), leave unspecified for no 
-                wildcarding.
-                ''',
-                'source_wild_card_bits',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-acl-cfg',
-            'source-network',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-cfg'],
-        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg'
-        ),
-    },
-    'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourcePort' : {
-        'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourcePort',
-            False, 
-            [
-            _MetaInfoClassMember('first-source-port', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                First source port for comparison, leave 
-                unspecified if source port comparison is not to
-                be performed.
-                ''',
-                'first_source_port',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False, [
-                    _MetaInfoClassMember('first-source-port', REFERENCE_ENUM_CLASS, 'Ipv4AclPortNumberEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclPortNumberEnum', 
-                        [], [], 
-                        '''                        First source port for comparison, leave 
-                        unspecified if source port comparison is not to
-                        be performed.
-                        ''',
-                        'first_source_port',
-                        'Cisco-IOS-XR-ipv4-acl-cfg', False),
-                    _MetaInfoClassMember('first-source-port', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 65535)], [], 
-                        '''                        First source port for comparison, leave 
-                        unspecified if source port comparison is not to
-                        be performed.
-                        ''',
-                        'first_source_port',
-                        'Cisco-IOS-XR-ipv4-acl-cfg', False),
-                ]),
-            _MetaInfoClassMember('second-source-port', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Second source port for comparion, leave 
-                unspecified if source port comparison is not to
-                be performed.
-                ''',
-                'second_source_port',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False, [
-                    _MetaInfoClassMember('second-source-port', REFERENCE_ENUM_CLASS, 'Ipv4AclPortNumberEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclPortNumberEnum', 
-                        [], [], 
-                        '''                        Second source port for comparion, leave 
-                        unspecified if source port comparison is not to
-                        be performed.
-                        ''',
-                        'second_source_port',
-                        'Cisco-IOS-XR-ipv4-acl-cfg', False),
-                    _MetaInfoClassMember('second-source-port', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 65535)], [], 
-                        '''                        Second source port for comparion, leave 
-                        unspecified if source port comparison is not to
-                        be performed.
-                        ''',
-                        'second_source_port',
-                        'Cisco-IOS-XR-ipv4-acl-cfg', False),
-                ]),
-            _MetaInfoClassMember('source-operator', REFERENCE_ENUM_CLASS, 'Ipv4AclOperatorEnumEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclOperatorEnumEnum', 
-                [], [], 
-                '''                Source comparison operator . Leave unspecified 
-                if no source port comparison is to be done.
-                ''',
-                'source_operator',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-acl-cfg',
-            'source-port',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-cfg'],
-        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg'
-        ),
-    },
     'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Tcp' : {
         'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Tcp',
             False, 
             [
+            _MetaInfoClassMember('tcp-bits-match-operator', REFERENCE_ENUM_CLASS, 'Ipv4AclTcpMatchOperatorEnumEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclTcpMatchOperatorEnumEnum', 
+                [], [], 
+                '''                TCP Bits match operator. Leave unspecified if 
+                flexible comparison of TCP bits is not 
+                required.
+                ''',
+                'tcp_bits_match_operator',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
             _MetaInfoClassMember('tcp-bits', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                TCP bits to match.
@@ -513,17 +290,46 @@ _meta_table = {
                         'tcp_bits_mask',
                         'Cisco-IOS-XR-ipv4-acl-cfg', False),
                 ]),
-            _MetaInfoClassMember('tcp-bits-match-operator', REFERENCE_ENUM_CLASS, 'Ipv4AclTcpMatchOperatorEnumEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclTcpMatchOperatorEnumEnum', 
-                [], [], 
-                '''                TCP Bits match operator. Leave unspecified if 
-                flexible comparison of TCP bits is not 
-                required.
-                ''',
-                'tcp_bits_match_operator',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-acl-cfg',
             'tcp',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-cfg'],
+        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg'
+        ),
+    },
+    'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.PacketLength' : {
+        'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.PacketLength',
+            False, 
+            [
+            _MetaInfoClassMember('packet-length-operator', REFERENCE_ENUM_CLASS, 'Ipv4AclOperatorEnumEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclOperatorEnumEnum', 
+                [], [], 
+                '''                Packet length operator applicable if Packet 
+                length is to be compared. Leave unspecified if 
+                no packet length comparison is to be done.
+                ''',
+                'packet_length_operator',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('packet-length-min', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Minimum packet length for comparison, leave 
+                unspecified if packet length comparison is not 
+                to be performed or if only the maximum packet 
+                length should be considered.
+                ''',
+                'packet_length_min',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('packet-length-max', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Maximum packet length for comparion, leave 
+                unspecified if packet length comparison is not 
+                to be performed or if only the minimum packet 
+                length should be considered.
+                ''',
+                'packet_length_max',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-acl-cfg',
+            'packet-length',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-cfg'],
         'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg'
         ),
@@ -532,13 +338,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.TimeToLive',
             False, 
             [
-            _MetaInfoClassMember('time-to-live-max', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Maximum TTL for comparion, leave unspecified if 
-                TTL comparison is not to be performed or if only
-                the minimum TTL should be considered.
+            _MetaInfoClassMember('time-to-live-operator', REFERENCE_ENUM_CLASS, 'Ipv4AclOperatorEnumEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclOperatorEnumEnum', 
+                [], [], 
+                '''                TTL operator is applicable if TTL is to be 
+                compared. Leave unspecified if TTL 
+                classification is not required.
                 ''',
-                'time_to_live_max',
+                'time_to_live_operator',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
             _MetaInfoClassMember('time-to-live-min', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
@@ -548,17 +354,211 @@ _meta_table = {
                 ''',
                 'time_to_live_min',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('time-to-live-operator', REFERENCE_ENUM_CLASS, 'Ipv4AclOperatorEnumEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclOperatorEnumEnum', 
-                [], [], 
-                '''                TTL operator is applicable if TTL is to be 
-                compared. Leave unspecified if TTL 
-                classification is not required.
+            _MetaInfoClassMember('time-to-live-max', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Maximum TTL for comparion, leave unspecified if 
+                TTL comparison is not to be performed or if only
+                the minimum TTL should be considered.
                 ''',
-                'time_to_live_operator',
+                'time_to_live_max',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-acl-cfg',
             'time-to-live',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-cfg'],
+        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg'
+        ),
+    },
+    'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop1' : {
+        'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop1',
+            False, 
+            [
+            _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                The IPv4 address of the next-hop.
+                ''',
+                'next_hop',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                The VRF name of the next-hop.
+                ''',
+                'vrf_name',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('track-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                The object tracking name for the next-hop.
+                ''',
+                'track_name',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-acl-cfg',
+            'next-hop-1',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-cfg'],
+        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg'
+        ),
+    },
+    'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop2' : {
+        'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop2',
+            False, 
+            [
+            _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                The IPv4 address of the next-hop.
+                ''',
+                'next_hop',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                The VRF name of the next-hop.
+                ''',
+                'vrf_name',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('track-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                The object tracking name for the next-hop.
+                ''',
+                'track_name',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-acl-cfg',
+            'next-hop-2',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-cfg'],
+        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg'
+        ),
+    },
+    'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop3' : {
+        'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop3',
+            False, 
+            [
+            _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                The IPv4 address of the next-hop.
+                ''',
+                'next_hop',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                The VRF name of the next-hop.
+                ''',
+                'vrf_name',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('track-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                The object tracking name for the next-hop.
+                ''',
+                'track_name',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-acl-cfg',
+            'next-hop-3',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-cfg'],
+        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg'
+        ),
+    },
+    'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop' : {
+        'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop',
+            False, 
+            [
+            _MetaInfoClassMember('next-hop-type', REFERENCE_ENUM_CLASS, 'NextHopTypeEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'NextHopTypeEnum', 
+                [], [], 
+                '''                The nexthop type.
+                ''',
+                'next_hop_type',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('next-hop-1', REFERENCE_CLASS, 'NextHop1' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop1', 
+                [], [], 
+                '''                The first next-hop settings.
+                ''',
+                'next_hop_1',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('next-hop-2', REFERENCE_CLASS, 'NextHop2' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop2', 
+                [], [], 
+                '''                The second next-hop settings.
+                ''',
+                'next_hop_2',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('next-hop-3', REFERENCE_CLASS, 'NextHop3' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop3', 
+                [], [], 
+                '''                The third next-hop settings.
+                ''',
+                'next_hop_3',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-acl-cfg',
+            'next-hop',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-cfg'],
+        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg'
+        ),
+    },
+    'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Dscp' : {
+        'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Dscp',
+            False, 
+            [
+            _MetaInfoClassMember('dscp-operator', REFERENCE_ENUM_CLASS, 'Ipv4AclOperatorEnumEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclOperatorEnumEnum', 
+                [], [], 
+                '''                DSCP operator is applicable only when DSCP 
+                range is configured. Leave unspecified if 
+                DSCP range is not required.
+                ''',
+                'dscp_operator',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('dscp-min', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                DSCP value to match or minimum DSCP value 
+                for DSCP range comparison, leave unspecified 
+                if DSCP comparion is not to be performed.
+                ''',
+                'dscp_min',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False, [
+                    _MetaInfoClassMember('dscp-min', REFERENCE_ENUM_CLASS, 'Ipv4AclDscpNumberEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclDscpNumberEnum', 
+                        [], [], 
+                        '''                        DSCP value to match or minimum DSCP value 
+                        for DSCP range comparison, leave unspecified 
+                        if DSCP comparion is not to be performed.
+                        ''',
+                        'dscp_min',
+                        'Cisco-IOS-XR-ipv4-acl-cfg', False),
+                    _MetaInfoClassMember('dscp-min', ATTRIBUTE, 'int' , None, None, 
+                        [(0, 63)], [], 
+                        '''                        DSCP value to match or minimum DSCP value 
+                        for DSCP range comparison, leave unspecified 
+                        if DSCP comparion is not to be performed.
+                        ''',
+                        'dscp_min',
+                        'Cisco-IOS-XR-ipv4-acl-cfg', False),
+                ]),
+            _MetaInfoClassMember('dscp-max', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Maximum DSCP value for comparion, leave 
+                unspecified if DSCP comparison is not to 
+                be performed or if only the minimum DSCP
+                should be considered.
+                ''',
+                'dscp_max',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False, [
+                    _MetaInfoClassMember('dscp-max', REFERENCE_ENUM_CLASS, 'Ipv4AclDscpNumberEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclDscpNumberEnum', 
+                        [], [], 
+                        '''                        Maximum DSCP value for comparion, leave 
+                        unspecified if DSCP comparison is not to 
+                        be performed or if only the minimum DSCP
+                        should be considered.
+                        ''',
+                        'dscp_max',
+                        'Cisco-IOS-XR-ipv4-acl-cfg', False),
+                    _MetaInfoClassMember('dscp-max', ATTRIBUTE, 'int' , None, None, 
+                        [(0, 63)], [], 
+                        '''                        Maximum DSCP value for comparion, leave 
+                        unspecified if DSCP comparison is not to 
+                        be performed or if only the minimum DSCP
+                        should be considered.
+                        ''',
+                        'dscp_max',
+                        'Cisco-IOS-XR-ipv4-acl-cfg', False),
+                ]),
+            ],
+            'Cisco-IOS-XR-ipv4-acl-cfg',
+            'dscp',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-cfg'],
         'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg'
         ),
@@ -573,56 +573,6 @@ _meta_table = {
                 ''',
                 'sequence_number',
                 'Cisco-IOS-XR-ipv4-acl-cfg', True),
-            _MetaInfoClassMember('capture', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Enable capture.
-                ''',
-                'capture',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('counter-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Counter name.
-                ''',
-                'counter_name',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('destination-network', REFERENCE_CLASS, 'DestinationNetwork' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork', 
-                [], [], 
-                '''                Destination network settings.
-                ''',
-                'destination_network',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('destination-port', REFERENCE_CLASS, 'DestinationPort' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationPort', 
-                [], [], 
-                '''                Destination port settings.
-                ''',
-                'destination_port',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('destination-port-group', ATTRIBUTE, 'str' , None, None, 
-                [(1, 64)], [], 
-                '''                Destination port object group name.
-                ''',
-                'destination_port_group',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('destination-prefix-group', ATTRIBUTE, 'str' , None, None, 
-                [(1, 64)], [], 
-                '''                IPv4 destination network object group name.
-                ''',
-                'destination_prefix_group',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('dscp', REFERENCE_CLASS, 'Dscp' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Dscp', 
-                [], [], 
-                '''                DSCP settings.
-                ''',
-                'dscp',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('fragments', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Check non-initial fragments. Item is mutually 
-                exclusive with TCP, SCTP, UDP, IGMP and ICMP 
-                comparions and with logging.
-                ''',
-                'fragments',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
             _MetaInfoClassMember('grant', REFERENCE_ENUM_CLASS, 'Ipv4AclGrantEnumEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclGrantEnumEnum', 
                 [], [], 
                 '''                Whether to forward or drop packets matching the 
@@ -630,17 +580,84 @@ _meta_table = {
                 ''',
                 'grant',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('protocol', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Protocol to match.
+                ''',
+                'protocol',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False, [
+                    _MetaInfoClassMember('protocol', REFERENCE_ENUM_CLASS, 'Ipv4AclProtocolNumberEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclProtocolNumberEnum', 
+                        [], [], 
+                        '''                        Protocol to match.
+                        ''',
+                        'protocol',
+                        'Cisco-IOS-XR-ipv4-acl-cfg', False),
+                    _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
+                        [(0, 255)], [], 
+                        '''                        Protocol to match.
+                        ''',
+                        'protocol',
+                        'Cisco-IOS-XR-ipv4-acl-cfg', False),
+                ]),
+            _MetaInfoClassMember('source-network', REFERENCE_CLASS, 'SourceNetwork' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork', 
+                [], [], 
+                '''                Source network settings.
+                ''',
+                'source_network',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('destination-network', REFERENCE_CLASS, 'DestinationNetwork' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork', 
+                [], [], 
+                '''                Destination network settings.
+                ''',
+                'destination_network',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('source-port', REFERENCE_CLASS, 'SourcePort' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourcePort', 
+                [], [], 
+                '''                Source port settings.
+                ''',
+                'source_port',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('destination-port', REFERENCE_CLASS, 'DestinationPort' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationPort', 
+                [], [], 
+                '''                Destination port settings.
+                ''',
+                'destination_port',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
             _MetaInfoClassMember('icmp', REFERENCE_CLASS, 'Icmp' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Icmp', 
                 [], [], 
                 '''                ICMP settings.
                 ''',
                 'icmp',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('icmp-off', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('tcp', REFERENCE_CLASS, 'Tcp' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Tcp', 
                 [], [], 
-                '''                To turn off ICMP generation for deny ACEs.
+                '''                TCP settings.
                 ''',
-                'icmp_off',
+                'tcp',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('packet-length', REFERENCE_CLASS, 'PacketLength' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.PacketLength', 
+                [], [], 
+                '''                Packet length settings.
+                ''',
+                'packet_length',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('time-to-live', REFERENCE_CLASS, 'TimeToLive' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.TimeToLive', 
+                [], [], 
+                '''                TTL settings.
+                ''',
+                'time_to_live',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('next-hop', REFERENCE_CLASS, 'NextHop' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop', 
+                [], [], 
+                '''                Next-hop settings.
+                ''',
+                'next_hop',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('counter-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Counter name.
+                ''',
+                'counter_name',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
             _MetaInfoClassMember('igmp-message-type', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
@@ -664,24 +681,11 @@ _meta_table = {
                         'igmp_message_type',
                         'Cisco-IOS-XR-ipv4-acl-cfg', False),
                 ]),
-            _MetaInfoClassMember('log-option', REFERENCE_ENUM_CLASS, 'Ipv4AclLoggingEnumEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclLoggingEnumEnum', 
+            _MetaInfoClassMember('dscp', REFERENCE_CLASS, 'Dscp' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Dscp', 
                 [], [], 
-                '''                Whether and how to log matches against this 
-                entry.
+                '''                DSCP settings.
                 ''',
-                'log_option',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('next-hop', REFERENCE_CLASS, 'NextHop' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop', 
-                [], [], 
-                '''                Next-hop settings.
-                ''',
-                'next_hop',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('packet-length', REFERENCE_CLASS, 'PacketLength' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.PacketLength', 
-                [], [], 
-                '''                Packet length settings.
-                ''',
-                'packet_length',
+                'dscp',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
             _MetaInfoClassMember('precedence', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
@@ -708,48 +712,38 @@ _meta_table = {
                         'precedence',
                         'Cisco-IOS-XR-ipv4-acl-cfg', False),
                 ]),
-            _MetaInfoClassMember('protocol', REFERENCE_UNION, 'str' , None, None, 
+            _MetaInfoClassMember('log-option', REFERENCE_ENUM_CLASS, 'Ipv4AclLoggingEnumEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclLoggingEnumEnum', 
                 [], [], 
-                '''                Protocol to match.
+                '''                Whether and how to log matches against this 
+                entry.
                 ''',
-                'protocol',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False, [
-                    _MetaInfoClassMember('protocol', REFERENCE_ENUM_CLASS, 'Ipv4AclProtocolNumberEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclProtocolNumberEnum', 
-                        [], [], 
-                        '''                        Protocol to match.
-                        ''',
-                        'protocol',
-                        'Cisco-IOS-XR-ipv4-acl-cfg', False),
-                    _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 255)], [], 
-                        '''                        Protocol to match.
-                        ''',
-                        'protocol',
-                        'Cisco-IOS-XR-ipv4-acl-cfg', False),
-                ]),
+                'log_option',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('capture', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable capture.
+                ''',
+                'capture',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('icmp-off', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                To turn off ICMP generation for deny ACEs.
+                ''',
+                'icmp_off',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('fragments', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Check non-initial fragments. Item is mutually 
+                exclusive with TCP, SCTP, UDP, IGMP and ICMP 
+                comparions and with logging.
+                ''',
+                'fragments',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
             _MetaInfoClassMember('remark', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Comments or a description for the access list.
                 ''',
                 'remark',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('source-network', REFERENCE_CLASS, 'SourceNetwork' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork', 
-                [], [], 
-                '''                Source network settings.
-                ''',
-                'source_network',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('source-port', REFERENCE_CLASS, 'SourcePort' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourcePort', 
-                [], [], 
-                '''                Source port settings.
-                ''',
-                'source_port',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('source-port-group', ATTRIBUTE, 'str' , None, None, 
-                [(1, 64)], [], 
-                '''                Source port object group name.
-                ''',
-                'source_port_group',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
             _MetaInfoClassMember('source-prefix-group', ATTRIBUTE, 'str' , None, None, 
                 [(1, 64)], [], 
@@ -757,17 +751,23 @@ _meta_table = {
                 ''',
                 'source_prefix_group',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('tcp', REFERENCE_CLASS, 'Tcp' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Tcp', 
-                [], [], 
-                '''                TCP settings.
+            _MetaInfoClassMember('destination-prefix-group', ATTRIBUTE, 'str' , None, None, 
+                [(1, 64)], [], 
+                '''                IPv4 destination network object group name.
                 ''',
-                'tcp',
+                'destination_prefix_group',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('time-to-live', REFERENCE_CLASS, 'TimeToLive' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.TimeToLive', 
-                [], [], 
-                '''                TTL settings.
+            _MetaInfoClassMember('source-port-group', ATTRIBUTE, 'str' , None, None, 
+                [(1, 64)], [], 
+                '''                Source port object group name.
                 ''',
-                'time_to_live',
+                'source_port_group',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('destination-port-group', ATTRIBUTE, 'str' , None, None, 
+                [(1, 64)], [], 
+                '''                Destination port object group name.
+                ''',
+                'destination_port_group',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-acl-cfg',
@@ -834,29 +834,6 @@ _meta_table = {
         'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg'
         ),
     },
-    'Ipv4AclAndPrefixList.LogUpdate' : {
-        'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.LogUpdate',
-            False, 
-            [
-            _MetaInfoClassMember('rate', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1000)], [], 
-                '''                Log update rate (log msgs per second)
-                ''',
-                'rate',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('threshold', ATTRIBUTE, 'int' , None, None, 
-                [(1, 2147483647)], [], 
-                '''                Log update threshold (number of hits)
-                ''',
-                'threshold',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-acl-cfg',
-            'log-update',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-cfg'],
-        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg'
-        ),
-    },
     'Ipv4AclAndPrefixList.Prefixes.Prefix.PrefixListEntries.PrefixListEntry' : {
         'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.Prefixes.Prefix.PrefixListEntries.PrefixListEntry',
             False, 
@@ -867,19 +844,24 @@ _meta_table = {
                 ''',
                 'sequence_number',
                 'Cisco-IOS-XR-ipv4-acl-cfg', True),
-            _MetaInfoClassMember('exact-prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 32)], [], 
-                '''                If exact prefix length matching specified,
-                set the length of prefix to be matched
-                ''',
-                'exact_prefix_length',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
             _MetaInfoClassMember('grant', REFERENCE_ENUM_CLASS, 'Ipv4AclGrantEnumEnum' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclGrantEnumEnum', 
                 [], [], 
                 '''                Whether to forward or drop packets matching
                 the prefix list
                 ''',
                 'grant',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv4 address prefix to match
+                ''',
+                'prefix',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('netmask', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Mask of IPv4 address prefix
+                ''',
+                'netmask',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
             _MetaInfoClassMember('match-exact-length', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -889,6 +871,13 @@ _meta_table = {
                 ''',
                 'match_exact_length',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('exact-prefix-length', ATTRIBUTE, 'int' , None, None, 
+                [(0, 32)], [], 
+                '''                If exact prefix length matching specified,
+                set the length of prefix to be matched
+                ''',
+                'exact_prefix_length',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
             _MetaInfoClassMember('match-max-length', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Set to perform a maximum length prefix match
@@ -896,14 +885,6 @@ _meta_table = {
                 length match item
                 ''',
                 'match_max_length',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('match-min-length', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Set to perform a minimum length prefix match
-                .  Item is mutually exclusive with exact
-                length match item
-                ''',
-                'match_min_length',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
             _MetaInfoClassMember('max-prefix-length', ATTRIBUTE, 'int' , None, None, 
                 [(0, 32)], [], 
@@ -913,6 +894,14 @@ _meta_table = {
                 ''',
                 'max_prefix_length',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('match-min-length', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Set to perform a minimum length prefix match
+                .  Item is mutually exclusive with exact
+                length match item
+                ''',
+                'match_min_length',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
             _MetaInfoClassMember('min-prefix-length', ATTRIBUTE, 'int' , None, None, 
                 [(0, 32)], [], 
                 '''                If minimum length prefix matching specified,
@@ -920,18 +909,6 @@ _meta_table = {
                 matched
                 ''',
                 'min_prefix_length',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('netmask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Mask of IPv4 address prefix
-                ''',
-                'netmask',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                IPv4 address prefix to match
-                ''',
-                'prefix',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
             _MetaInfoClassMember('remark', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -1006,6 +983,29 @@ _meta_table = {
         'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg'
         ),
     },
+    'Ipv4AclAndPrefixList.LogUpdate' : {
+        'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.LogUpdate',
+            False, 
+            [
+            _MetaInfoClassMember('threshold', ATTRIBUTE, 'int' , None, None, 
+                [(1, 2147483647)], [], 
+                '''                Log update threshold (number of hits)
+                ''',
+                'threshold',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('rate', ATTRIBUTE, 'int' , None, None, 
+                [(1, 1000)], [], 
+                '''                Log update rate (log msgs per second)
+                ''',
+                'rate',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-acl-cfg',
+            'log-update',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-cfg'],
+        'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg'
+        ),
+    },
     'Ipv4AclAndPrefixList' : {
         'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList',
             False, 
@@ -1018,12 +1018,6 @@ _meta_table = {
                 ''',
                 'accesses',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
-            _MetaInfoClassMember('log-update', REFERENCE_CLASS, 'LogUpdate' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.LogUpdate', 
-                [], [], 
-                '''                Control access lists log updates
-                ''',
-                'log_update',
-                'Cisco-IOS-XR-ipv4-acl-cfg', False),
             _MetaInfoClassMember('prefixes', REFERENCE_CLASS, 'Prefixes' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Prefixes', 
                 [], [], 
                 '''                Table of ACL prefix lists.  Entries in this
@@ -1031,6 +1025,12 @@ _meta_table = {
                 must be kept consistent
                 ''',
                 'prefixes',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('log-update', REFERENCE_CLASS, 'LogUpdate' , 'ydk.models.ipv4.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.LogUpdate', 
+                [], [], 
+                '''                Control access lists log updates
+                ''',
+                'log_update',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-acl-cfg',
@@ -1043,16 +1043,16 @@ _meta_table = {
 _meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop1']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop']['meta_info']
 _meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop2']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop']['meta_info']
 _meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop3']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop']['meta_info']
-_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
-_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationPort']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
-_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Dscp']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
-_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Icmp']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
-_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
-_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.PacketLength']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
 _meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
+_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
 _meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourcePort']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
+_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationPort']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
+_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Icmp']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
 _meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Tcp']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
+_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.PacketLength']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
 _meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.TimeToLive']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
+_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
+_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Dscp']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
 _meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries']['meta_info']
 _meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access']['meta_info']
 _meta_table['Ipv4AclAndPrefixList.Accesses.Access']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses']['meta_info']
@@ -1060,5 +1060,5 @@ _meta_table['Ipv4AclAndPrefixList.Prefixes.Prefix.PrefixListEntries.PrefixListEn
 _meta_table['Ipv4AclAndPrefixList.Prefixes.Prefix.PrefixListEntries']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Prefixes.Prefix']['meta_info']
 _meta_table['Ipv4AclAndPrefixList.Prefixes.Prefix']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Prefixes']['meta_info']
 _meta_table['Ipv4AclAndPrefixList.Accesses']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList']['meta_info']
-_meta_table['Ipv4AclAndPrefixList.LogUpdate']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList']['meta_info']
 _meta_table['Ipv4AclAndPrefixList.Prefixes']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList']['meta_info']
+_meta_table['Ipv4AclAndPrefixList.LogUpdate']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList']['meta_info']

@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -100,22 +100,22 @@ class Lldp(object):
             """
             The LLDP operational data for a particular node
             
-            .. attribute:: node_name
+            .. attribute:: node_name  <key>
             
             	The identifier for the node
             	**type**\: str
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
-            .. attribute:: interfaces
-            
-            	The table of interfaces on which LLDP is running on this node
-            	**type**\: :py:class:`Interfaces <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces>`
-            
             .. attribute:: neighbors
             
             	The LLDP neighbor tables on this node
             	**type**\: :py:class:`Neighbors <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors>`
+            
+            .. attribute:: interfaces
+            
+            	The table of interfaces on which LLDP is running on this node
+            	**type**\: :py:class:`Interfaces <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces>`
             
             .. attribute:: statistics
             
@@ -132,412 +132,27 @@ class Lldp(object):
             def __init__(self):
                 self.parent = None
                 self.node_name = None
-                self.interfaces = Lldp.Nodes.Node.Interfaces()
-                self.interfaces.parent = self
                 self.neighbors = Lldp.Nodes.Node.Neighbors()
                 self.neighbors.parent = self
+                self.interfaces = Lldp.Nodes.Node.Interfaces()
+                self.interfaces.parent = self
                 self.statistics = Lldp.Nodes.Node.Statistics()
                 self.statistics.parent = self
-
-
-            class Interfaces(object):
-                """
-                The table of interfaces on which LLDP is
-                running on this node
-                
-                .. attribute:: interface
-                
-                	Operational data for an interface on which LLDP is running
-                	**type**\: list of :py:class:`Interface <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces.Interface>`
-                
-                
-
-                """
-
-                _prefix = 'ethernet-lldp-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.interface = YList()
-                    self.interface.parent = self
-                    self.interface.name = 'interface'
-
-
-                class Interface(object):
-                    """
-                    Operational data for an interface on which
-                    LLDP is running
-                    
-                    .. attribute:: interface_name
-                    
-                    	The interface name
-                    	**type**\: str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    .. attribute:: if_index
-                    
-                    	ifIndex
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: interface_name_xr
-                    
-                    	Interface
-                    	**type**\: str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    .. attribute:: local_network_addresses
-                    
-                    	Local Management Addresses
-                    	**type**\: :py:class:`LocalNetworkAddresses <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses>`
-                    
-                    .. attribute:: port_description
-                    
-                    	Port Description
-                    	**type**\: str
-                    
-                    .. attribute:: port_id
-                    
-                    	Outgoing port identifier
-                    	**type**\: str
-                    
-                    .. attribute:: port_id_sub_type
-                    
-                    	Port ID sub type
-                    	**type**\: int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: rx_enabled
-                    
-                    	RX Enabled
-                    	**type**\: int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: rx_state
-                    
-                    	RX State
-                    	**type**\: str
-                    
-                    .. attribute:: tx_enabled
-                    
-                    	TX Enabled
-                    	**type**\: int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: tx_state
-                    
-                    	TX State
-                    	**type**\: str
-                    
-                    
-
-                    """
-
-                    _prefix = 'ethernet-lldp-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.interface_name = None
-                        self.if_index = None
-                        self.interface_name_xr = None
-                        self.local_network_addresses = Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses()
-                        self.local_network_addresses.parent = self
-                        self.port_description = None
-                        self.port_id = None
-                        self.port_id_sub_type = None
-                        self.rx_enabled = None
-                        self.rx_state = None
-                        self.tx_enabled = None
-                        self.tx_state = None
-
-
-                    class LocalNetworkAddresses(object):
-                        """
-                        Local Management Addresses
-                        
-                        .. attribute:: lldp_addr_entry
-                        
-                        	lldp addr entry
-                        	**type**\: list of :py:class:`LldpAddrEntry <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-lldp-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.lldp_addr_entry = YList()
-                            self.lldp_addr_entry.parent = self
-                            self.lldp_addr_entry.name = 'lldp_addr_entry'
-
-
-                        class LldpAddrEntry(object):
-                            """
-                            lldp addr entry
-                            
-                            .. attribute:: address
-                            
-                            	Network layer address
-                            	**type**\: :py:class:`Address <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry.Address>`
-                            
-                            .. attribute:: if_num
-                            
-                            	Interface num
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: ma_subtype
-                            
-                            	MA sub type
-                            	**type**\: int
-                            
-                            	**range:** 0..255
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-lldp-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.address = Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry.Address()
-                                self.address.parent = self
-                                self.if_num = None
-                                self.ma_subtype = None
-
-
-                            class Address(object):
-                                """
-                                Network layer address
-                                
-                                .. attribute:: address_type
-                                
-                                	AddressType
-                                	**type**\: :py:class:`LldpL3AddrProtocolEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.LldpL3AddrProtocolEnum>`
-                                
-                                .. attribute:: ipv4_address
-                                
-                                	IPv4 address
-                                	**type**\: str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: ipv6_address
-                                
-                                	IPv6 address
-                                	**type**\: str
-                                
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                
-                                
-
-                                """
-
-                                _prefix = 'ethernet-lldp-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.address_type = None
-                                    self.ipv4_address = None
-                                    self.ipv6_address = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:address'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.address_type is not None:
-                                        return True
-
-                                    if self.ipv4_address is not None:
-                                        return True
-
-                                    if self.ipv6_address is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
-                                    return meta._meta_table['Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry.Address']['meta_info']
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:lldp-addr-entry'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.address is not None and self.address._has_data():
-                                    return True
-
-                                if self.if_num is not None:
-                                    return True
-
-                                if self.ma_subtype is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
-                                return meta._meta_table['Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:local-network-addresses'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.lldp_addr_entry is not None:
-                                for child_ref in self.lldp_addr_entry:
-                                    if child_ref._has_data():
-                                        return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
-                            return meta._meta_table['Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                        if self.interface_name is None:
-                            raise YPYDataValidationError('Key property interface_name is None')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:interface[Cisco-IOS-XR-ethernet-lldp-oper:interface-name = ' + str(self.interface_name) + ']'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.interface_name is not None:
-                            return True
-
-                        if self.if_index is not None:
-                            return True
-
-                        if self.interface_name_xr is not None:
-                            return True
-
-                        if self.local_network_addresses is not None and self.local_network_addresses._has_data():
-                            return True
-
-                        if self.port_description is not None:
-                            return True
-
-                        if self.port_id is not None:
-                            return True
-
-                        if self.port_id_sub_type is not None:
-                            return True
-
-                        if self.rx_enabled is not None:
-                            return True
-
-                        if self.rx_state is not None:
-                            return True
-
-                        if self.tx_enabled is not None:
-                            return True
-
-                        if self.tx_state is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
-                        return meta._meta_table['Lldp.Nodes.Node.Interfaces.Interface']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:interfaces'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.interface is not None:
-                        for child_ref in self.interface:
-                            if child_ref._has_data():
-                                return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
-                    return meta._meta_table['Lldp.Nodes.Node.Interfaces']['meta_info']
 
 
             class Neighbors(object):
                 """
                 The LLDP neighbor tables on this node
                 
-                .. attribute:: details
-                
-                	The detailed LLDP neighbor table
-                	**type**\: :py:class:`Details <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details>`
-                
                 .. attribute:: devices
                 
                 	The detailed LLDP neighbor table on this device
                 	**type**\: :py:class:`Devices <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices>`
+                
+                .. attribute:: details
+                
+                	The detailed LLDP neighbor table
+                	**type**\: :py:class:`Details <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details>`
                 
                 .. attribute:: summaries
                 
@@ -553,982 +168,12 @@ class Lldp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.details = Lldp.Nodes.Node.Neighbors.Details()
-                    self.details.parent = self
                     self.devices = Lldp.Nodes.Node.Neighbors.Devices()
                     self.devices.parent = self
+                    self.details = Lldp.Nodes.Node.Neighbors.Details()
+                    self.details.parent = self
                     self.summaries = Lldp.Nodes.Node.Neighbors.Summaries()
                     self.summaries.parent = self
-
-
-                class Details(object):
-                    """
-                    The detailed LLDP neighbor table
-                    
-                    .. attribute:: detail
-                    
-                    	Detailed information about a LLDP neighbor entry
-                    	**type**\: list of :py:class:`Detail <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ethernet-lldp-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.detail = YList()
-                        self.detail.parent = self
-                        self.detail.name = 'detail'
-
-
-                    class Detail(object):
-                        """
-                        Detailed information about a LLDP neighbor
-                        entry
-                        
-                        .. attribute:: device_id
-                        
-                        	The neighboring device identifier
-                        	**type**\: str
-                        
-                        .. attribute:: interface_name
-                        
-                        	The interface name
-                        	**type**\: str
-                        
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                        
-                        .. attribute:: lldp_neighbor
-                        
-                        	lldp neighbor
-                        	**type**\: list of :py:class:`LldpNeighbor <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-lldp-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.device_id = None
-                            self.interface_name = None
-                            self.lldp_neighbor = YList()
-                            self.lldp_neighbor.parent = self
-                            self.lldp_neighbor.name = 'lldp_neighbor'
-
-
-                        class LldpNeighbor(object):
-                            """
-                            lldp neighbor
-                            
-                            .. attribute:: chassis_id
-                            
-                            	Chassis id
-                            	**type**\: str
-                            
-                            .. attribute:: detail
-                            
-                            	Detailed neighbor info
-                            	**type**\: :py:class:`Detail <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail>`
-                            
-                            .. attribute:: device_id
-                            
-                            	Device identifier
-                            	**type**\: str
-                            
-                            .. attribute:: enabled_capabilities
-                            
-                            	Enabled Capabilities
-                            	**type**\: str
-                            
-                            .. attribute:: header_version
-                            
-                            	Version number
-                            	**type**\: int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: hold_time
-                            
-                            	Remaining hold time
-                            	**type**\: int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: mib
-                            
-                            	MIB nieghbor info
-                            	**type**\: :py:class:`Mib <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib>`
-                            
-                            .. attribute:: platform
-                            
-                            	Platform type
-                            	**type**\: str
-                            
-                            .. attribute:: port_id_detail
-                            
-                            	Outgoing port identifier
-                            	**type**\: str
-                            
-                            .. attribute:: receiving_interface_name
-                            
-                            	Interface the neighbor entry was received on 
-                            	**type**\: str
-                            
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                            
-                            .. attribute:: receiving_parent_interface_name
-                            
-                            	Parent Interface the neighbor entry was received on 
-                            	**type**\: str
-                            
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-lldp-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.chassis_id = None
-                                self.detail = Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail()
-                                self.detail.parent = self
-                                self.device_id = None
-                                self.enabled_capabilities = None
-                                self.header_version = None
-                                self.hold_time = None
-                                self.mib = Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib()
-                                self.mib.parent = self
-                                self.platform = None
-                                self.port_id_detail = None
-                                self.receiving_interface_name = None
-                                self.receiving_parent_interface_name = None
-
-
-                            class Detail(object):
-                                """
-                                Detailed neighbor info
-                                
-                                .. attribute:: auto_negotiation
-                                
-                                	Auto Negotiation
-                                	**type**\: str
-                                
-                                .. attribute:: enabled_capabilities
-                                
-                                	Enabled Capabilities
-                                	**type**\: str
-                                
-                                .. attribute:: media_attachment_unit_type
-                                
-                                	Media Attachment Unit type
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: network_addresses
-                                
-                                	Management Addresses
-                                	**type**\: :py:class:`NetworkAddresses <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses>`
-                                
-                                .. attribute:: physical_media_capabilities
-                                
-                                	Physical media capabilities
-                                	**type**\: str
-                                
-                                .. attribute:: port_description
-                                
-                                	Port Description
-                                	**type**\: str
-                                
-                                .. attribute:: port_vlan_id
-                                
-                                	Vlan ID
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: system_capabilities
-                                
-                                	System Capabilities
-                                	**type**\: str
-                                
-                                .. attribute:: system_description
-                                
-                                	System Description
-                                	**type**\: str
-                                
-                                .. attribute:: system_name
-                                
-                                	System Name
-                                	**type**\: str
-                                
-                                .. attribute:: time_remaining
-                                
-                                	Time remaining
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'ethernet-lldp-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.auto_negotiation = None
-                                    self.enabled_capabilities = None
-                                    self.media_attachment_unit_type = None
-                                    self.network_addresses = Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses()
-                                    self.network_addresses.parent = self
-                                    self.physical_media_capabilities = None
-                                    self.port_description = None
-                                    self.port_vlan_id = None
-                                    self.system_capabilities = None
-                                    self.system_description = None
-                                    self.system_name = None
-                                    self.time_remaining = None
-
-
-                                class NetworkAddresses(object):
-                                    """
-                                    Management Addresses
-                                    
-                                    .. attribute:: lldp_addr_entry
-                                    
-                                    	lldp addr entry
-                                    	**type**\: list of :py:class:`LldpAddrEntry <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ethernet-lldp-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.lldp_addr_entry = YList()
-                                        self.lldp_addr_entry.parent = self
-                                        self.lldp_addr_entry.name = 'lldp_addr_entry'
-
-
-                                    class LldpAddrEntry(object):
-                                        """
-                                        lldp addr entry
-                                        
-                                        .. attribute:: address
-                                        
-                                        	Network layer address
-                                        	**type**\: :py:class:`Address <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address>`
-                                        
-                                        .. attribute:: if_num
-                                        
-                                        	Interface num
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: ma_subtype
-                                        
-                                        	MA sub type
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..255
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ethernet-lldp-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.address = Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address()
-                                            self.address.parent = self
-                                            self.if_num = None
-                                            self.ma_subtype = None
-
-
-                                        class Address(object):
-                                            """
-                                            Network layer address
-                                            
-                                            .. attribute:: address_type
-                                            
-                                            	AddressType
-                                            	**type**\: :py:class:`LldpL3AddrProtocolEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.LldpL3AddrProtocolEnum>`
-                                            
-                                            .. attribute:: ipv4_address
-                                            
-                                            	IPv4 address
-                                            	**type**\: str
-                                            
-                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                            
-                                            .. attribute:: ipv6_address
-                                            
-                                            	IPv6 address
-                                            	**type**\: str
-                                            
-                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ethernet-lldp-oper'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.address_type = None
-                                                self.ipv4_address = None
-                                                self.ipv6_address = None
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:address'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return False
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.address_type is not None:
-                                                    return True
-
-                                                if self.ipv4_address is not None:
-                                                    return True
-
-                                                if self.ipv6_address is not None:
-                                                    return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
-                                                return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address']['meta_info']
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:lldp-addr-entry'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return False
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.address is not None and self.address._has_data():
-                                                return True
-
-                                            if self.if_num is not None:
-                                                return True
-
-                                            if self.ma_subtype is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
-                                            return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry']['meta_info']
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:network-addresses'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.lldp_addr_entry is not None:
-                                            for child_ref in self.lldp_addr_entry:
-                                                if child_ref._has_data():
-                                                    return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
-                                        return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:detail'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.auto_negotiation is not None:
-                                        return True
-
-                                    if self.enabled_capabilities is not None:
-                                        return True
-
-                                    if self.media_attachment_unit_type is not None:
-                                        return True
-
-                                    if self.network_addresses is not None and self.network_addresses._has_data():
-                                        return True
-
-                                    if self.physical_media_capabilities is not None:
-                                        return True
-
-                                    if self.port_description is not None:
-                                        return True
-
-                                    if self.port_vlan_id is not None:
-                                        return True
-
-                                    if self.system_capabilities is not None:
-                                        return True
-
-                                    if self.system_description is not None:
-                                        return True
-
-                                    if self.system_name is not None:
-                                        return True
-
-                                    if self.time_remaining is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
-                                    return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail']['meta_info']
-
-
-                            class Mib(object):
-                                """
-                                MIB nieghbor info
-                                
-                                .. attribute:: chassis_id_len
-                                
-                                	Chassis ID length
-                                	**type**\: int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: chassis_id_sub_type
-                                
-                                	Chassis ID sub type
-                                	**type**\: int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: combined_capabilities
-                                
-                                	Supported and combined cpabilities
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: org_def_tlv_list
-                                
-                                	Org Def TLV list
-                                	**type**\: :py:class:`OrgDefTlvList <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList>`
-                                
-                                .. attribute:: port_id_len
-                                
-                                	Port ID length
-                                	**type**\: int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: port_id_sub_type
-                                
-                                	Port ID sub type
-                                	**type**\: int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: rem_index
-                                
-                                	lldpRemIndex
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: rem_local_port_num
-                                
-                                	LldpPortNumber
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: rem_time_mark
-                                
-                                	TimeFilter
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: unknown_tlv_list
-                                
-                                	Unknown TLV list
-                                	**type**\: :py:class:`UnknownTlvList <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ethernet-lldp-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.chassis_id_len = None
-                                    self.chassis_id_sub_type = None
-                                    self.combined_capabilities = None
-                                    self.org_def_tlv_list = Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList()
-                                    self.org_def_tlv_list.parent = self
-                                    self.port_id_len = None
-                                    self.port_id_sub_type = None
-                                    self.rem_index = None
-                                    self.rem_local_port_num = None
-                                    self.rem_time_mark = None
-                                    self.unknown_tlv_list = Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList()
-                                    self.unknown_tlv_list.parent = self
-
-
-                                class OrgDefTlvList(object):
-                                    """
-                                    Org Def TLV list
-                                    
-                                    .. attribute:: lldp_org_def_tlv_entry
-                                    
-                                    	lldp org def tlv entry
-                                    	**type**\: list of :py:class:`LldpOrgDefTlvEntry <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ethernet-lldp-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.lldp_org_def_tlv_entry = YList()
-                                        self.lldp_org_def_tlv_entry.parent = self
-                                        self.lldp_org_def_tlv_entry.name = 'lldp_org_def_tlv_entry'
-
-
-                                    class LldpOrgDefTlvEntry(object):
-                                        """
-                                        lldp org def tlv entry
-                                        
-                                        .. attribute:: oui
-                                        
-                                        	Organizationally Unique Identifier
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: tlv_info_indes
-                                        
-                                        	lldpRemOrgDefInfoIndex
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: tlv_subtype
-                                        
-                                        	Org Def TLV subtype
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..255
-                                        
-                                        .. attribute:: tlv_value
-                                        
-                                        	Org Def TLV payload
-                                        	**type**\: str
-                                        
-                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ethernet-lldp-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.oui = None
-                                            self.tlv_info_indes = None
-                                            self.tlv_subtype = None
-                                            self.tlv_value = None
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:lldp-org-def-tlv-entry'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return False
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.oui is not None:
-                                                return True
-
-                                            if self.tlv_info_indes is not None:
-                                                return True
-
-                                            if self.tlv_subtype is not None:
-                                                return True
-
-                                            if self.tlv_value is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
-                                            return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry']['meta_info']
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:org-def-tlv-list'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.lldp_org_def_tlv_entry is not None:
-                                            for child_ref in self.lldp_org_def_tlv_entry:
-                                                if child_ref._has_data():
-                                                    return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
-                                        return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList']['meta_info']
-
-
-                                class UnknownTlvList(object):
-                                    """
-                                    Unknown TLV list
-                                    
-                                    .. attribute:: lldp_unknown_tlv_entry
-                                    
-                                    	lldp unknown tlv entry
-                                    	**type**\: list of :py:class:`LldpUnknownTlvEntry <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ethernet-lldp-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.lldp_unknown_tlv_entry = YList()
-                                        self.lldp_unknown_tlv_entry.parent = self
-                                        self.lldp_unknown_tlv_entry.name = 'lldp_unknown_tlv_entry'
-
-
-                                    class LldpUnknownTlvEntry(object):
-                                        """
-                                        lldp unknown tlv entry
-                                        
-                                        .. attribute:: tlv_type
-                                        
-                                        	Unknown TLV type
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..255
-                                        
-                                        .. attribute:: tlv_value
-                                        
-                                        	Unknown TLV payload
-                                        	**type**\: str
-                                        
-                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ethernet-lldp-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.tlv_type = None
-                                            self.tlv_value = None
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:lldp-unknown-tlv-entry'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return False
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.tlv_type is not None:
-                                                return True
-
-                                            if self.tlv_value is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
-                                            return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry']['meta_info']
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:unknown-tlv-list'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.lldp_unknown_tlv_entry is not None:
-                                            for child_ref in self.lldp_unknown_tlv_entry:
-                                                if child_ref._has_data():
-                                                    return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
-                                        return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:mib'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.chassis_id_len is not None:
-                                        return True
-
-                                    if self.chassis_id_sub_type is not None:
-                                        return True
-
-                                    if self.combined_capabilities is not None:
-                                        return True
-
-                                    if self.org_def_tlv_list is not None and self.org_def_tlv_list._has_data():
-                                        return True
-
-                                    if self.port_id_len is not None:
-                                        return True
-
-                                    if self.port_id_sub_type is not None:
-                                        return True
-
-                                    if self.rem_index is not None:
-                                        return True
-
-                                    if self.rem_local_port_num is not None:
-                                        return True
-
-                                    if self.rem_time_mark is not None:
-                                        return True
-
-                                    if self.unknown_tlv_list is not None and self.unknown_tlv_list._has_data():
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
-                                    return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib']['meta_info']
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:lldp-neighbor'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.chassis_id is not None:
-                                    return True
-
-                                if self.detail is not None and self.detail._has_data():
-                                    return True
-
-                                if self.device_id is not None:
-                                    return True
-
-                                if self.enabled_capabilities is not None:
-                                    return True
-
-                                if self.header_version is not None:
-                                    return True
-
-                                if self.hold_time is not None:
-                                    return True
-
-                                if self.mib is not None and self.mib._has_data():
-                                    return True
-
-                                if self.platform is not None:
-                                    return True
-
-                                if self.port_id_detail is not None:
-                                    return True
-
-                                if self.receiving_interface_name is not None:
-                                    return True
-
-                                if self.receiving_parent_interface_name is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
-                                return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:detail'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.device_id is not None:
-                                return True
-
-                            if self.interface_name is not None:
-                                return True
-
-                            if self.lldp_neighbor is not None:
-                                for child_ref in self.lldp_neighbor:
-                                    if child_ref._has_data():
-                                        return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
-                            return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:details'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.detail is not None:
-                            for child_ref in self.detail:
-                                if child_ref._has_data():
-                                    return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
-                        return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details']['meta_info']
 
 
                 class Devices(object):
@@ -1560,7 +205,7 @@ class Lldp(object):
                         Detailed information about a LLDP neighbor
                         entry
                         
-                        .. attribute:: device_id
+                        .. attribute:: device_id  <key>
                         
                         	The neighboring device identifier
                         	**type**\: str
@@ -1589,24 +234,43 @@ class Lldp(object):
                             """
                             lldp neighbor
                             
-                            .. attribute:: chassis_id
-                            
-                            	Chassis id
-                            	**type**\: str
-                            
                             .. attribute:: detail
                             
                             	Detailed neighbor info
                             	**type**\: :py:class:`Detail <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail>`
+                            
+                            .. attribute:: mib
+                            
+                            	MIB nieghbor info
+                            	**type**\: :py:class:`Mib <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib>`
+                            
+                            .. attribute:: receiving_interface_name
+                            
+                            	Interface the neighbor entry was received on 
+                            	**type**\: str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: receiving_parent_interface_name
+                            
+                            	Parent Interface the neighbor entry was received on 
+                            	**type**\: str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: device_id
                             
                             	Device identifier
                             	**type**\: str
                             
-                            .. attribute:: enabled_capabilities
+                            .. attribute:: chassis_id
                             
-                            	Enabled Capabilities
+                            	Chassis id
+                            	**type**\: str
+                            
+                            .. attribute:: port_id_detail
+                            
+                            	Outgoing port identifier
                             	**type**\: str
                             
                             .. attribute:: header_version
@@ -1623,34 +287,15 @@ class Lldp(object):
                             
                             	**range:** 0..65535
                             
-                            .. attribute:: mib
+                            .. attribute:: enabled_capabilities
                             
-                            	MIB nieghbor info
-                            	**type**\: :py:class:`Mib <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib>`
+                            	Enabled Capabilities
+                            	**type**\: str
                             
                             .. attribute:: platform
                             
                             	Platform type
                             	**type**\: str
-                            
-                            .. attribute:: port_id_detail
-                            
-                            	Outgoing port identifier
-                            	**type**\: str
-                            
-                            .. attribute:: receiving_interface_name
-                            
-                            	Interface the neighbor entry was received on 
-                            	**type**\: str
-                            
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                            
-                            .. attribute:: receiving_parent_interface_name
-                            
-                            	Parent Interface the neighbor entry was received on 
-                            	**type**\: str
-                            
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             
 
@@ -1661,60 +306,48 @@ class Lldp(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.chassis_id = None
                                 self.detail = Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail()
                                 self.detail.parent = self
-                                self.device_id = None
-                                self.enabled_capabilities = None
-                                self.header_version = None
-                                self.hold_time = None
                                 self.mib = Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib()
                                 self.mib.parent = self
-                                self.platform = None
-                                self.port_id_detail = None
                                 self.receiving_interface_name = None
                                 self.receiving_parent_interface_name = None
+                                self.device_id = None
+                                self.chassis_id = None
+                                self.port_id_detail = None
+                                self.header_version = None
+                                self.hold_time = None
+                                self.enabled_capabilities = None
+                                self.platform = None
 
 
                             class Detail(object):
                                 """
                                 Detailed neighbor info
                                 
-                                .. attribute:: auto_negotiation
-                                
-                                	Auto Negotiation
-                                	**type**\: str
-                                
-                                .. attribute:: enabled_capabilities
-                                
-                                	Enabled Capabilities
-                                	**type**\: str
-                                
-                                .. attribute:: media_attachment_unit_type
-                                
-                                	Media Attachment Unit type
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
                                 .. attribute:: network_addresses
                                 
                                 	Management Addresses
                                 	**type**\: :py:class:`NetworkAddresses <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses>`
-                                
-                                .. attribute:: physical_media_capabilities
-                                
-                                	Physical media capabilities
-                                	**type**\: str
                                 
                                 .. attribute:: port_description
                                 
                                 	Port Description
                                 	**type**\: str
                                 
-                                .. attribute:: port_vlan_id
+                                .. attribute:: system_name
                                 
-                                	Vlan ID
+                                	System Name
+                                	**type**\: str
+                                
+                                .. attribute:: system_description
+                                
+                                	System Description
+                                	**type**\: str
+                                
+                                .. attribute:: time_remaining
+                                
+                                	Time remaining
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -1724,19 +357,31 @@ class Lldp(object):
                                 	System Capabilities
                                 	**type**\: str
                                 
-                                .. attribute:: system_description
+                                .. attribute:: enabled_capabilities
                                 
-                                	System Description
+                                	Enabled Capabilities
                                 	**type**\: str
                                 
-                                .. attribute:: system_name
+                                .. attribute:: auto_negotiation
                                 
-                                	System Name
+                                	Auto Negotiation
                                 	**type**\: str
                                 
-                                .. attribute:: time_remaining
+                                .. attribute:: physical_media_capabilities
                                 
-                                	Time remaining
+                                	Physical media capabilities
+                                	**type**\: str
+                                
+                                .. attribute:: media_attachment_unit_type
+                                
+                                	Media Attachment Unit type
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: port_vlan_id
+                                
+                                	Vlan ID
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -1750,18 +395,18 @@ class Lldp(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.auto_negotiation = None
-                                    self.enabled_capabilities = None
-                                    self.media_attachment_unit_type = None
                                     self.network_addresses = Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses()
                                     self.network_addresses.parent = self
-                                    self.physical_media_capabilities = None
                                     self.port_description = None
-                                    self.port_vlan_id = None
-                                    self.system_capabilities = None
-                                    self.system_description = None
                                     self.system_name = None
+                                    self.system_description = None
                                     self.time_remaining = None
+                                    self.system_capabilities = None
+                                    self.enabled_capabilities = None
+                                    self.auto_negotiation = None
+                                    self.physical_media_capabilities = None
+                                    self.media_attachment_unit_type = None
+                                    self.port_vlan_id = None
 
 
                                 class NetworkAddresses(object):
@@ -1796,19 +441,19 @@ class Lldp(object):
                                         	Network layer address
                                         	**type**\: :py:class:`Address <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address>`
                                         
-                                        .. attribute:: if_num
-                                        
-                                        	Interface num
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
-                                        
                                         .. attribute:: ma_subtype
                                         
                                         	MA sub type
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        .. attribute:: if_num
+                                        
+                                        	Interface num
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
                                         
                                         
 
@@ -1821,8 +466,8 @@ class Lldp(object):
                                             self.parent = None
                                             self.address = Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address()
                                             self.address.parent = self
-                                            self.if_num = None
                                             self.ma_subtype = None
+                                            self.if_num = None
 
 
                                         class Address(object):
@@ -1908,10 +553,10 @@ class Lldp(object):
                                             if self.address is not None and self.address._has_data():
                                                 return True
 
-                                            if self.if_num is not None:
+                                            if self.ma_subtype is not None:
                                                 return True
 
-                                            if self.ma_subtype is not None:
+                                            if self.if_num is not None:
                                                 return True
 
                                             return False
@@ -1961,37 +606,37 @@ class Lldp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.auto_negotiation is not None:
-                                        return True
-
-                                    if self.enabled_capabilities is not None:
-                                        return True
-
-                                    if self.media_attachment_unit_type is not None:
-                                        return True
-
                                     if self.network_addresses is not None and self.network_addresses._has_data():
-                                        return True
-
-                                    if self.physical_media_capabilities is not None:
                                         return True
 
                                     if self.port_description is not None:
                                         return True
 
-                                    if self.port_vlan_id is not None:
-                                        return True
-
-                                    if self.system_capabilities is not None:
+                                    if self.system_name is not None:
                                         return True
 
                                     if self.system_description is not None:
                                         return True
 
-                                    if self.system_name is not None:
+                                    if self.time_remaining is not None:
                                         return True
 
-                                    if self.time_remaining is not None:
+                                    if self.system_capabilities is not None:
+                                        return True
+
+                                    if self.enabled_capabilities is not None:
+                                        return True
+
+                                    if self.auto_negotiation is not None:
+                                        return True
+
+                                    if self.physical_media_capabilities is not None:
+                                        return True
+
+                                    if self.media_attachment_unit_type is not None:
+                                        return True
+
+                                    if self.port_vlan_id is not None:
                                         return True
 
                                     return False
@@ -2006,49 +651,19 @@ class Lldp(object):
                                 """
                                 MIB nieghbor info
                                 
-                                .. attribute:: chassis_id_len
+                                .. attribute:: unknown_tlv_list
                                 
-                                	Chassis ID length
-                                	**type**\: int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: chassis_id_sub_type
-                                
-                                	Chassis ID sub type
-                                	**type**\: int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: combined_capabilities
-                                
-                                	Supported and combined cpabilities
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
+                                	Unknown TLV list
+                                	**type**\: :py:class:`UnknownTlvList <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList>`
                                 
                                 .. attribute:: org_def_tlv_list
                                 
                                 	Org Def TLV list
                                 	**type**\: :py:class:`OrgDefTlvList <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList>`
                                 
-                                .. attribute:: port_id_len
+                                .. attribute:: rem_time_mark
                                 
-                                	Port ID length
-                                	**type**\: int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: port_id_sub_type
-                                
-                                	Port ID sub type
-                                	**type**\: int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: rem_index
-                                
-                                	lldpRemIndex
+                                	TimeFilter
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -2060,17 +675,47 @@ class Lldp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: rem_time_mark
+                                .. attribute:: rem_index
                                 
-                                	TimeFilter
+                                	lldpRemIndex
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: unknown_tlv_list
+                                .. attribute:: chassis_id_sub_type
                                 
-                                	Unknown TLV list
-                                	**type**\: :py:class:`UnknownTlvList <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList>`
+                                	Chassis ID sub type
+                                	**type**\: int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: chassis_id_len
+                                
+                                	Chassis ID length
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: port_id_sub_type
+                                
+                                	Port ID sub type
+                                	**type**\: int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: port_id_len
+                                
+                                	Port ID length
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: combined_capabilities
+                                
+                                	Supported and combined cpabilities
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
                                 
                                 
 
@@ -2081,147 +726,18 @@ class Lldp(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.chassis_id_len = None
-                                    self.chassis_id_sub_type = None
-                                    self.combined_capabilities = None
-                                    self.org_def_tlv_list = Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList()
-                                    self.org_def_tlv_list.parent = self
-                                    self.port_id_len = None
-                                    self.port_id_sub_type = None
-                                    self.rem_index = None
-                                    self.rem_local_port_num = None
-                                    self.rem_time_mark = None
                                     self.unknown_tlv_list = Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList()
                                     self.unknown_tlv_list.parent = self
-
-
-                                class OrgDefTlvList(object):
-                                    """
-                                    Org Def TLV list
-                                    
-                                    .. attribute:: lldp_org_def_tlv_entry
-                                    
-                                    	lldp org def tlv entry
-                                    	**type**\: list of :py:class:`LldpOrgDefTlvEntry <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ethernet-lldp-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.lldp_org_def_tlv_entry = YList()
-                                        self.lldp_org_def_tlv_entry.parent = self
-                                        self.lldp_org_def_tlv_entry.name = 'lldp_org_def_tlv_entry'
-
-
-                                    class LldpOrgDefTlvEntry(object):
-                                        """
-                                        lldp org def tlv entry
-                                        
-                                        .. attribute:: oui
-                                        
-                                        	Organizationally Unique Identifier
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: tlv_info_indes
-                                        
-                                        	lldpRemOrgDefInfoIndex
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: tlv_subtype
-                                        
-                                        	Org Def TLV subtype
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..255
-                                        
-                                        .. attribute:: tlv_value
-                                        
-                                        	Org Def TLV payload
-                                        	**type**\: str
-                                        
-                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ethernet-lldp-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.oui = None
-                                            self.tlv_info_indes = None
-                                            self.tlv_subtype = None
-                                            self.tlv_value = None
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:lldp-org-def-tlv-entry'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return False
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.oui is not None:
-                                                return True
-
-                                            if self.tlv_info_indes is not None:
-                                                return True
-
-                                            if self.tlv_subtype is not None:
-                                                return True
-
-                                            if self.tlv_value is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
-                                            return meta._meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry']['meta_info']
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:org-def-tlv-list'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.lldp_org_def_tlv_entry is not None:
-                                            for child_ref in self.lldp_org_def_tlv_entry:
-                                                if child_ref._has_data():
-                                                    return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
-                                        return meta._meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList']['meta_info']
+                                    self.org_def_tlv_list = Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList()
+                                    self.org_def_tlv_list.parent = self
+                                    self.rem_time_mark = None
+                                    self.rem_local_port_num = None
+                                    self.rem_index = None
+                                    self.chassis_id_sub_type = None
+                                    self.chassis_id_len = None
+                                    self.port_id_sub_type = None
+                                    self.port_id_len = None
+                                    self.combined_capabilities = None
 
 
                                 class UnknownTlvList(object):
@@ -2330,6 +846,135 @@ class Lldp(object):
                                         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
                                         return meta._meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList']['meta_info']
 
+
+                                class OrgDefTlvList(object):
+                                    """
+                                    Org Def TLV list
+                                    
+                                    .. attribute:: lldp_org_def_tlv_entry
+                                    
+                                    	lldp org def tlv entry
+                                    	**type**\: list of :py:class:`LldpOrgDefTlvEntry <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ethernet-lldp-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.lldp_org_def_tlv_entry = YList()
+                                        self.lldp_org_def_tlv_entry.parent = self
+                                        self.lldp_org_def_tlv_entry.name = 'lldp_org_def_tlv_entry'
+
+
+                                    class LldpOrgDefTlvEntry(object):
+                                        """
+                                        lldp org def tlv entry
+                                        
+                                        .. attribute:: oui
+                                        
+                                        	Organizationally Unique Identifier
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: tlv_subtype
+                                        
+                                        	Org Def TLV subtype
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..255
+                                        
+                                        .. attribute:: tlv_info_indes
+                                        
+                                        	lldpRemOrgDefInfoIndex
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: tlv_value
+                                        
+                                        	Org Def TLV payload
+                                        	**type**\: str
+                                        
+                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ethernet-lldp-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.oui = None
+                                            self.tlv_subtype = None
+                                            self.tlv_info_indes = None
+                                            self.tlv_value = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:lldp-org-def-tlv-entry'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.oui is not None:
+                                                return True
+
+                                            if self.tlv_subtype is not None:
+                                                return True
+
+                                            if self.tlv_info_indes is not None:
+                                                return True
+
+                                            if self.tlv_value is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                            return meta._meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:org-def-tlv-list'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.lldp_org_def_tlv_entry is not None:
+                                            for child_ref in self.lldp_org_def_tlv_entry:
+                                                if child_ref._has_data():
+                                                    return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                        return meta._meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList']['meta_info']
+
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
@@ -2344,34 +989,34 @@ class Lldp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.chassis_id_len is not None:
-                                        return True
-
-                                    if self.chassis_id_sub_type is not None:
-                                        return True
-
-                                    if self.combined_capabilities is not None:
+                                    if self.unknown_tlv_list is not None and self.unknown_tlv_list._has_data():
                                         return True
 
                                     if self.org_def_tlv_list is not None and self.org_def_tlv_list._has_data():
                                         return True
 
-                                    if self.port_id_len is not None:
-                                        return True
-
-                                    if self.port_id_sub_type is not None:
-                                        return True
-
-                                    if self.rem_index is not None:
+                                    if self.rem_time_mark is not None:
                                         return True
 
                                     if self.rem_local_port_num is not None:
                                         return True
 
-                                    if self.rem_time_mark is not None:
+                                    if self.rem_index is not None:
                                         return True
 
-                                    if self.unknown_tlv_list is not None and self.unknown_tlv_list._has_data():
+                                    if self.chassis_id_sub_type is not None:
+                                        return True
+
+                                    if self.chassis_id_len is not None:
+                                        return True
+
+                                    if self.port_id_sub_type is not None:
+                                        return True
+
+                                    if self.port_id_len is not None:
+                                        return True
+
+                                    if self.combined_capabilities is not None:
                                         return True
 
                                     return False
@@ -2395,16 +1040,25 @@ class Lldp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.chassis_id is not None:
+                                if self.detail is not None and self.detail._has_data():
                                     return True
 
-                                if self.detail is not None and self.detail._has_data():
+                                if self.mib is not None and self.mib._has_data():
+                                    return True
+
+                                if self.receiving_interface_name is not None:
+                                    return True
+
+                                if self.receiving_parent_interface_name is not None:
                                     return True
 
                                 if self.device_id is not None:
                                     return True
 
-                                if self.enabled_capabilities is not None:
+                                if self.chassis_id is not None:
+                                    return True
+
+                                if self.port_id_detail is not None:
                                     return True
 
                                 if self.header_version is not None:
@@ -2413,19 +1067,10 @@ class Lldp(object):
                                 if self.hold_time is not None:
                                     return True
 
-                                if self.mib is not None and self.mib._has_data():
+                                if self.enabled_capabilities is not None:
                                     return True
 
                                 if self.platform is not None:
-                                    return True
-
-                                if self.port_id_detail is not None:
-                                    return True
-
-                                if self.receiving_interface_name is not None:
-                                    return True
-
-                                if self.receiving_parent_interface_name is not None:
                                     return True
 
                                 return False
@@ -2493,6 +1138,976 @@ class Lldp(object):
                         return meta._meta_table['Lldp.Nodes.Node.Neighbors.Devices']['meta_info']
 
 
+                class Details(object):
+                    """
+                    The detailed LLDP neighbor table
+                    
+                    .. attribute:: detail
+                    
+                    	Detailed information about a LLDP neighbor entry
+                    	**type**\: list of :py:class:`Detail <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ethernet-lldp-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.detail = YList()
+                        self.detail.parent = self
+                        self.detail.name = 'detail'
+
+
+                    class Detail(object):
+                        """
+                        Detailed information about a LLDP neighbor
+                        entry
+                        
+                        .. attribute:: interface_name
+                        
+                        	The interface name
+                        	**type**\: str
+                        
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        
+                        .. attribute:: device_id
+                        
+                        	The neighboring device identifier
+                        	**type**\: str
+                        
+                        .. attribute:: lldp_neighbor
+                        
+                        	lldp neighbor
+                        	**type**\: list of :py:class:`LldpNeighbor <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-lldp-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.interface_name = None
+                            self.device_id = None
+                            self.lldp_neighbor = YList()
+                            self.lldp_neighbor.parent = self
+                            self.lldp_neighbor.name = 'lldp_neighbor'
+
+
+                        class LldpNeighbor(object):
+                            """
+                            lldp neighbor
+                            
+                            .. attribute:: detail
+                            
+                            	Detailed neighbor info
+                            	**type**\: :py:class:`Detail <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail>`
+                            
+                            .. attribute:: mib
+                            
+                            	MIB nieghbor info
+                            	**type**\: :py:class:`Mib <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib>`
+                            
+                            .. attribute:: receiving_interface_name
+                            
+                            	Interface the neighbor entry was received on 
+                            	**type**\: str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: receiving_parent_interface_name
+                            
+                            	Parent Interface the neighbor entry was received on 
+                            	**type**\: str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: device_id
+                            
+                            	Device identifier
+                            	**type**\: str
+                            
+                            .. attribute:: chassis_id
+                            
+                            	Chassis id
+                            	**type**\: str
+                            
+                            .. attribute:: port_id_detail
+                            
+                            	Outgoing port identifier
+                            	**type**\: str
+                            
+                            .. attribute:: header_version
+                            
+                            	Version number
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: hold_time
+                            
+                            	Remaining hold time
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: enabled_capabilities
+                            
+                            	Enabled Capabilities
+                            	**type**\: str
+                            
+                            .. attribute:: platform
+                            
+                            	Platform type
+                            	**type**\: str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-lldp-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.detail = Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail()
+                                self.detail.parent = self
+                                self.mib = Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib()
+                                self.mib.parent = self
+                                self.receiving_interface_name = None
+                                self.receiving_parent_interface_name = None
+                                self.device_id = None
+                                self.chassis_id = None
+                                self.port_id_detail = None
+                                self.header_version = None
+                                self.hold_time = None
+                                self.enabled_capabilities = None
+                                self.platform = None
+
+
+                            class Detail(object):
+                                """
+                                Detailed neighbor info
+                                
+                                .. attribute:: network_addresses
+                                
+                                	Management Addresses
+                                	**type**\: :py:class:`NetworkAddresses <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses>`
+                                
+                                .. attribute:: port_description
+                                
+                                	Port Description
+                                	**type**\: str
+                                
+                                .. attribute:: system_name
+                                
+                                	System Name
+                                	**type**\: str
+                                
+                                .. attribute:: system_description
+                                
+                                	System Description
+                                	**type**\: str
+                                
+                                .. attribute:: time_remaining
+                                
+                                	Time remaining
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: system_capabilities
+                                
+                                	System Capabilities
+                                	**type**\: str
+                                
+                                .. attribute:: enabled_capabilities
+                                
+                                	Enabled Capabilities
+                                	**type**\: str
+                                
+                                .. attribute:: auto_negotiation
+                                
+                                	Auto Negotiation
+                                	**type**\: str
+                                
+                                .. attribute:: physical_media_capabilities
+                                
+                                	Physical media capabilities
+                                	**type**\: str
+                                
+                                .. attribute:: media_attachment_unit_type
+                                
+                                	Media Attachment Unit type
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: port_vlan_id
+                                
+                                	Vlan ID
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'ethernet-lldp-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.network_addresses = Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses()
+                                    self.network_addresses.parent = self
+                                    self.port_description = None
+                                    self.system_name = None
+                                    self.system_description = None
+                                    self.time_remaining = None
+                                    self.system_capabilities = None
+                                    self.enabled_capabilities = None
+                                    self.auto_negotiation = None
+                                    self.physical_media_capabilities = None
+                                    self.media_attachment_unit_type = None
+                                    self.port_vlan_id = None
+
+
+                                class NetworkAddresses(object):
+                                    """
+                                    Management Addresses
+                                    
+                                    .. attribute:: lldp_addr_entry
+                                    
+                                    	lldp addr entry
+                                    	**type**\: list of :py:class:`LldpAddrEntry <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ethernet-lldp-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.lldp_addr_entry = YList()
+                                        self.lldp_addr_entry.parent = self
+                                        self.lldp_addr_entry.name = 'lldp_addr_entry'
+
+
+                                    class LldpAddrEntry(object):
+                                        """
+                                        lldp addr entry
+                                        
+                                        .. attribute:: address
+                                        
+                                        	Network layer address
+                                        	**type**\: :py:class:`Address <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address>`
+                                        
+                                        .. attribute:: ma_subtype
+                                        
+                                        	MA sub type
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..255
+                                        
+                                        .. attribute:: if_num
+                                        
+                                        	Interface num
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ethernet-lldp-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.address = Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address()
+                                            self.address.parent = self
+                                            self.ma_subtype = None
+                                            self.if_num = None
+
+
+                                        class Address(object):
+                                            """
+                                            Network layer address
+                                            
+                                            .. attribute:: address_type
+                                            
+                                            	AddressType
+                                            	**type**\: :py:class:`LldpL3AddrProtocolEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.LldpL3AddrProtocolEnum>`
+                                            
+                                            .. attribute:: ipv4_address
+                                            
+                                            	IPv4 address
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                            
+                                            .. attribute:: ipv6_address
+                                            
+                                            	IPv6 address
+                                            	**type**\: str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ethernet-lldp-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.address_type = None
+                                                self.ipv4_address = None
+                                                self.ipv6_address = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:address'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.address_type is not None:
+                                                    return True
+
+                                                if self.ipv4_address is not None:
+                                                    return True
+
+                                                if self.ipv6_address is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                                return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:lldp-addr-entry'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.address is not None and self.address._has_data():
+                                                return True
+
+                                            if self.ma_subtype is not None:
+                                                return True
+
+                                            if self.if_num is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                            return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:network-addresses'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.lldp_addr_entry is not None:
+                                            for child_ref in self.lldp_addr_entry:
+                                                if child_ref._has_data():
+                                                    return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                        return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:detail'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.network_addresses is not None and self.network_addresses._has_data():
+                                        return True
+
+                                    if self.port_description is not None:
+                                        return True
+
+                                    if self.system_name is not None:
+                                        return True
+
+                                    if self.system_description is not None:
+                                        return True
+
+                                    if self.time_remaining is not None:
+                                        return True
+
+                                    if self.system_capabilities is not None:
+                                        return True
+
+                                    if self.enabled_capabilities is not None:
+                                        return True
+
+                                    if self.auto_negotiation is not None:
+                                        return True
+
+                                    if self.physical_media_capabilities is not None:
+                                        return True
+
+                                    if self.media_attachment_unit_type is not None:
+                                        return True
+
+                                    if self.port_vlan_id is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                    return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail']['meta_info']
+
+
+                            class Mib(object):
+                                """
+                                MIB nieghbor info
+                                
+                                .. attribute:: unknown_tlv_list
+                                
+                                	Unknown TLV list
+                                	**type**\: :py:class:`UnknownTlvList <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList>`
+                                
+                                .. attribute:: org_def_tlv_list
+                                
+                                	Org Def TLV list
+                                	**type**\: :py:class:`OrgDefTlvList <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList>`
+                                
+                                .. attribute:: rem_time_mark
+                                
+                                	TimeFilter
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: rem_local_port_num
+                                
+                                	LldpPortNumber
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: rem_index
+                                
+                                	lldpRemIndex
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: chassis_id_sub_type
+                                
+                                	Chassis ID sub type
+                                	**type**\: int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: chassis_id_len
+                                
+                                	Chassis ID length
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: port_id_sub_type
+                                
+                                	Port ID sub type
+                                	**type**\: int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: port_id_len
+                                
+                                	Port ID length
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: combined_capabilities
+                                
+                                	Supported and combined cpabilities
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'ethernet-lldp-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.unknown_tlv_list = Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList()
+                                    self.unknown_tlv_list.parent = self
+                                    self.org_def_tlv_list = Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList()
+                                    self.org_def_tlv_list.parent = self
+                                    self.rem_time_mark = None
+                                    self.rem_local_port_num = None
+                                    self.rem_index = None
+                                    self.chassis_id_sub_type = None
+                                    self.chassis_id_len = None
+                                    self.port_id_sub_type = None
+                                    self.port_id_len = None
+                                    self.combined_capabilities = None
+
+
+                                class UnknownTlvList(object):
+                                    """
+                                    Unknown TLV list
+                                    
+                                    .. attribute:: lldp_unknown_tlv_entry
+                                    
+                                    	lldp unknown tlv entry
+                                    	**type**\: list of :py:class:`LldpUnknownTlvEntry <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ethernet-lldp-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.lldp_unknown_tlv_entry = YList()
+                                        self.lldp_unknown_tlv_entry.parent = self
+                                        self.lldp_unknown_tlv_entry.name = 'lldp_unknown_tlv_entry'
+
+
+                                    class LldpUnknownTlvEntry(object):
+                                        """
+                                        lldp unknown tlv entry
+                                        
+                                        .. attribute:: tlv_type
+                                        
+                                        	Unknown TLV type
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..255
+                                        
+                                        .. attribute:: tlv_value
+                                        
+                                        	Unknown TLV payload
+                                        	**type**\: str
+                                        
+                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ethernet-lldp-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.tlv_type = None
+                                            self.tlv_value = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:lldp-unknown-tlv-entry'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.tlv_type is not None:
+                                                return True
+
+                                            if self.tlv_value is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                            return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:unknown-tlv-list'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.lldp_unknown_tlv_entry is not None:
+                                            for child_ref in self.lldp_unknown_tlv_entry:
+                                                if child_ref._has_data():
+                                                    return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                        return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList']['meta_info']
+
+
+                                class OrgDefTlvList(object):
+                                    """
+                                    Org Def TLV list
+                                    
+                                    .. attribute:: lldp_org_def_tlv_entry
+                                    
+                                    	lldp org def tlv entry
+                                    	**type**\: list of :py:class:`LldpOrgDefTlvEntry <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ethernet-lldp-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.lldp_org_def_tlv_entry = YList()
+                                        self.lldp_org_def_tlv_entry.parent = self
+                                        self.lldp_org_def_tlv_entry.name = 'lldp_org_def_tlv_entry'
+
+
+                                    class LldpOrgDefTlvEntry(object):
+                                        """
+                                        lldp org def tlv entry
+                                        
+                                        .. attribute:: oui
+                                        
+                                        	Organizationally Unique Identifier
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: tlv_subtype
+                                        
+                                        	Org Def TLV subtype
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..255
+                                        
+                                        .. attribute:: tlv_info_indes
+                                        
+                                        	lldpRemOrgDefInfoIndex
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: tlv_value
+                                        
+                                        	Org Def TLV payload
+                                        	**type**\: str
+                                        
+                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ethernet-lldp-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.oui = None
+                                            self.tlv_subtype = None
+                                            self.tlv_info_indes = None
+                                            self.tlv_value = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:lldp-org-def-tlv-entry'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.oui is not None:
+                                                return True
+
+                                            if self.tlv_subtype is not None:
+                                                return True
+
+                                            if self.tlv_info_indes is not None:
+                                                return True
+
+                                            if self.tlv_value is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                            return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:org-def-tlv-list'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.lldp_org_def_tlv_entry is not None:
+                                            for child_ref in self.lldp_org_def_tlv_entry:
+                                                if child_ref._has_data():
+                                                    return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                        return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:mib'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.unknown_tlv_list is not None and self.unknown_tlv_list._has_data():
+                                        return True
+
+                                    if self.org_def_tlv_list is not None and self.org_def_tlv_list._has_data():
+                                        return True
+
+                                    if self.rem_time_mark is not None:
+                                        return True
+
+                                    if self.rem_local_port_num is not None:
+                                        return True
+
+                                    if self.rem_index is not None:
+                                        return True
+
+                                    if self.chassis_id_sub_type is not None:
+                                        return True
+
+                                    if self.chassis_id_len is not None:
+                                        return True
+
+                                    if self.port_id_sub_type is not None:
+                                        return True
+
+                                    if self.port_id_len is not None:
+                                        return True
+
+                                    if self.combined_capabilities is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                    return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:lldp-neighbor'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.detail is not None and self.detail._has_data():
+                                    return True
+
+                                if self.mib is not None and self.mib._has_data():
+                                    return True
+
+                                if self.receiving_interface_name is not None:
+                                    return True
+
+                                if self.receiving_parent_interface_name is not None:
+                                    return True
+
+                                if self.device_id is not None:
+                                    return True
+
+                                if self.chassis_id is not None:
+                                    return True
+
+                                if self.port_id_detail is not None:
+                                    return True
+
+                                if self.header_version is not None:
+                                    return True
+
+                                if self.hold_time is not None:
+                                    return True
+
+                                if self.enabled_capabilities is not None:
+                                    return True
+
+                                if self.platform is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:detail'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.interface_name is not None:
+                                return True
+
+                            if self.device_id is not None:
+                                return True
+
+                            if self.lldp_neighbor is not None:
+                                for child_ref in self.lldp_neighbor:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                            return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:details'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.detail is not None:
+                            for child_ref in self.detail:
+                                if child_ref._has_data():
+                                    return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                        return meta._meta_table['Lldp.Nodes.Node.Neighbors.Details']['meta_info']
+
+
                 class Summaries(object):
                     """
                     The LLDP neighbor summary table
@@ -2521,17 +2136,17 @@ class Lldp(object):
                         Brief information about a LLDP neighbor
                         entry
                         
-                        .. attribute:: device_id
-                        
-                        	The neighboring device identifier
-                        	**type**\: str
-                        
                         .. attribute:: interface_name
                         
                         	The interface name
                         	**type**\: str
                         
                         	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        
+                        .. attribute:: device_id
+                        
+                        	The neighboring device identifier
+                        	**type**\: str
                         
                         .. attribute:: lldp_neighbor
                         
@@ -2547,8 +2162,8 @@ class Lldp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.device_id = None
                             self.interface_name = None
+                            self.device_id = None
                             self.lldp_neighbor = YList()
                             self.lldp_neighbor.parent = self
                             self.lldp_neighbor.name = 'lldp_neighbor'
@@ -2558,24 +2173,43 @@ class Lldp(object):
                             """
                             lldp neighbor
                             
-                            .. attribute:: chassis_id
-                            
-                            	Chassis id
-                            	**type**\: str
-                            
                             .. attribute:: detail
                             
                             	Detailed neighbor info
                             	**type**\: :py:class:`Detail <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail>`
+                            
+                            .. attribute:: mib
+                            
+                            	MIB nieghbor info
+                            	**type**\: :py:class:`Mib <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib>`
+                            
+                            .. attribute:: receiving_interface_name
+                            
+                            	Interface the neighbor entry was received on 
+                            	**type**\: str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: receiving_parent_interface_name
+                            
+                            	Parent Interface the neighbor entry was received on 
+                            	**type**\: str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: device_id
                             
                             	Device identifier
                             	**type**\: str
                             
-                            .. attribute:: enabled_capabilities
+                            .. attribute:: chassis_id
                             
-                            	Enabled Capabilities
+                            	Chassis id
+                            	**type**\: str
+                            
+                            .. attribute:: port_id_detail
+                            
+                            	Outgoing port identifier
                             	**type**\: str
                             
                             .. attribute:: header_version
@@ -2592,34 +2226,15 @@ class Lldp(object):
                             
                             	**range:** 0..65535
                             
-                            .. attribute:: mib
+                            .. attribute:: enabled_capabilities
                             
-                            	MIB nieghbor info
-                            	**type**\: :py:class:`Mib <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib>`
+                            	Enabled Capabilities
+                            	**type**\: str
                             
                             .. attribute:: platform
                             
                             	Platform type
                             	**type**\: str
-                            
-                            .. attribute:: port_id_detail
-                            
-                            	Outgoing port identifier
-                            	**type**\: str
-                            
-                            .. attribute:: receiving_interface_name
-                            
-                            	Interface the neighbor entry was received on 
-                            	**type**\: str
-                            
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                            
-                            .. attribute:: receiving_parent_interface_name
-                            
-                            	Parent Interface the neighbor entry was received on 
-                            	**type**\: str
-                            
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             
 
@@ -2630,60 +2245,48 @@ class Lldp(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.chassis_id = None
                                 self.detail = Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail()
                                 self.detail.parent = self
-                                self.device_id = None
-                                self.enabled_capabilities = None
-                                self.header_version = None
-                                self.hold_time = None
                                 self.mib = Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib()
                                 self.mib.parent = self
-                                self.platform = None
-                                self.port_id_detail = None
                                 self.receiving_interface_name = None
                                 self.receiving_parent_interface_name = None
+                                self.device_id = None
+                                self.chassis_id = None
+                                self.port_id_detail = None
+                                self.header_version = None
+                                self.hold_time = None
+                                self.enabled_capabilities = None
+                                self.platform = None
 
 
                             class Detail(object):
                                 """
                                 Detailed neighbor info
                                 
-                                .. attribute:: auto_negotiation
-                                
-                                	Auto Negotiation
-                                	**type**\: str
-                                
-                                .. attribute:: enabled_capabilities
-                                
-                                	Enabled Capabilities
-                                	**type**\: str
-                                
-                                .. attribute:: media_attachment_unit_type
-                                
-                                	Media Attachment Unit type
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
                                 .. attribute:: network_addresses
                                 
                                 	Management Addresses
                                 	**type**\: :py:class:`NetworkAddresses <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses>`
-                                
-                                .. attribute:: physical_media_capabilities
-                                
-                                	Physical media capabilities
-                                	**type**\: str
                                 
                                 .. attribute:: port_description
                                 
                                 	Port Description
                                 	**type**\: str
                                 
-                                .. attribute:: port_vlan_id
+                                .. attribute:: system_name
                                 
-                                	Vlan ID
+                                	System Name
+                                	**type**\: str
+                                
+                                .. attribute:: system_description
+                                
+                                	System Description
+                                	**type**\: str
+                                
+                                .. attribute:: time_remaining
+                                
+                                	Time remaining
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -2693,19 +2296,31 @@ class Lldp(object):
                                 	System Capabilities
                                 	**type**\: str
                                 
-                                .. attribute:: system_description
+                                .. attribute:: enabled_capabilities
                                 
-                                	System Description
+                                	Enabled Capabilities
                                 	**type**\: str
                                 
-                                .. attribute:: system_name
+                                .. attribute:: auto_negotiation
                                 
-                                	System Name
+                                	Auto Negotiation
                                 	**type**\: str
                                 
-                                .. attribute:: time_remaining
+                                .. attribute:: physical_media_capabilities
                                 
-                                	Time remaining
+                                	Physical media capabilities
+                                	**type**\: str
+                                
+                                .. attribute:: media_attachment_unit_type
+                                
+                                	Media Attachment Unit type
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: port_vlan_id
+                                
+                                	Vlan ID
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -2719,18 +2334,18 @@ class Lldp(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.auto_negotiation = None
-                                    self.enabled_capabilities = None
-                                    self.media_attachment_unit_type = None
                                     self.network_addresses = Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses()
                                     self.network_addresses.parent = self
-                                    self.physical_media_capabilities = None
                                     self.port_description = None
-                                    self.port_vlan_id = None
-                                    self.system_capabilities = None
-                                    self.system_description = None
                                     self.system_name = None
+                                    self.system_description = None
                                     self.time_remaining = None
+                                    self.system_capabilities = None
+                                    self.enabled_capabilities = None
+                                    self.auto_negotiation = None
+                                    self.physical_media_capabilities = None
+                                    self.media_attachment_unit_type = None
+                                    self.port_vlan_id = None
 
 
                                 class NetworkAddresses(object):
@@ -2765,19 +2380,19 @@ class Lldp(object):
                                         	Network layer address
                                         	**type**\: :py:class:`Address <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address>`
                                         
-                                        .. attribute:: if_num
-                                        
-                                        	Interface num
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
-                                        
                                         .. attribute:: ma_subtype
                                         
                                         	MA sub type
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        .. attribute:: if_num
+                                        
+                                        	Interface num
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
                                         
                                         
 
@@ -2790,8 +2405,8 @@ class Lldp(object):
                                             self.parent = None
                                             self.address = Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address()
                                             self.address.parent = self
-                                            self.if_num = None
                                             self.ma_subtype = None
+                                            self.if_num = None
 
 
                                         class Address(object):
@@ -2877,10 +2492,10 @@ class Lldp(object):
                                             if self.address is not None and self.address._has_data():
                                                 return True
 
-                                            if self.if_num is not None:
+                                            if self.ma_subtype is not None:
                                                 return True
 
-                                            if self.ma_subtype is not None:
+                                            if self.if_num is not None:
                                                 return True
 
                                             return False
@@ -2930,37 +2545,37 @@ class Lldp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.auto_negotiation is not None:
-                                        return True
-
-                                    if self.enabled_capabilities is not None:
-                                        return True
-
-                                    if self.media_attachment_unit_type is not None:
-                                        return True
-
                                     if self.network_addresses is not None and self.network_addresses._has_data():
-                                        return True
-
-                                    if self.physical_media_capabilities is not None:
                                         return True
 
                                     if self.port_description is not None:
                                         return True
 
-                                    if self.port_vlan_id is not None:
-                                        return True
-
-                                    if self.system_capabilities is not None:
+                                    if self.system_name is not None:
                                         return True
 
                                     if self.system_description is not None:
                                         return True
 
-                                    if self.system_name is not None:
+                                    if self.time_remaining is not None:
                                         return True
 
-                                    if self.time_remaining is not None:
+                                    if self.system_capabilities is not None:
+                                        return True
+
+                                    if self.enabled_capabilities is not None:
+                                        return True
+
+                                    if self.auto_negotiation is not None:
+                                        return True
+
+                                    if self.physical_media_capabilities is not None:
+                                        return True
+
+                                    if self.media_attachment_unit_type is not None:
+                                        return True
+
+                                    if self.port_vlan_id is not None:
                                         return True
 
                                     return False
@@ -2975,49 +2590,19 @@ class Lldp(object):
                                 """
                                 MIB nieghbor info
                                 
-                                .. attribute:: chassis_id_len
+                                .. attribute:: unknown_tlv_list
                                 
-                                	Chassis ID length
-                                	**type**\: int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: chassis_id_sub_type
-                                
-                                	Chassis ID sub type
-                                	**type**\: int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: combined_capabilities
-                                
-                                	Supported and combined cpabilities
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
+                                	Unknown TLV list
+                                	**type**\: :py:class:`UnknownTlvList <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList>`
                                 
                                 .. attribute:: org_def_tlv_list
                                 
                                 	Org Def TLV list
                                 	**type**\: :py:class:`OrgDefTlvList <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList>`
                                 
-                                .. attribute:: port_id_len
+                                .. attribute:: rem_time_mark
                                 
-                                	Port ID length
-                                	**type**\: int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: port_id_sub_type
-                                
-                                	Port ID sub type
-                                	**type**\: int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: rem_index
-                                
-                                	lldpRemIndex
+                                	TimeFilter
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
@@ -3029,17 +2614,47 @@ class Lldp(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: rem_time_mark
+                                .. attribute:: rem_index
                                 
-                                	TimeFilter
+                                	lldpRemIndex
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: unknown_tlv_list
+                                .. attribute:: chassis_id_sub_type
                                 
-                                	Unknown TLV list
-                                	**type**\: :py:class:`UnknownTlvList <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList>`
+                                	Chassis ID sub type
+                                	**type**\: int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: chassis_id_len
+                                
+                                	Chassis ID length
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: port_id_sub_type
+                                
+                                	Port ID sub type
+                                	**type**\: int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: port_id_len
+                                
+                                	Port ID length
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: combined_capabilities
+                                
+                                	Supported and combined cpabilities
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
                                 
                                 
 
@@ -3050,147 +2665,18 @@ class Lldp(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.chassis_id_len = None
-                                    self.chassis_id_sub_type = None
-                                    self.combined_capabilities = None
-                                    self.org_def_tlv_list = Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList()
-                                    self.org_def_tlv_list.parent = self
-                                    self.port_id_len = None
-                                    self.port_id_sub_type = None
-                                    self.rem_index = None
-                                    self.rem_local_port_num = None
-                                    self.rem_time_mark = None
                                     self.unknown_tlv_list = Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList()
                                     self.unknown_tlv_list.parent = self
-
-
-                                class OrgDefTlvList(object):
-                                    """
-                                    Org Def TLV list
-                                    
-                                    .. attribute:: lldp_org_def_tlv_entry
-                                    
-                                    	lldp org def tlv entry
-                                    	**type**\: list of :py:class:`LldpOrgDefTlvEntry <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ethernet-lldp-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.lldp_org_def_tlv_entry = YList()
-                                        self.lldp_org_def_tlv_entry.parent = self
-                                        self.lldp_org_def_tlv_entry.name = 'lldp_org_def_tlv_entry'
-
-
-                                    class LldpOrgDefTlvEntry(object):
-                                        """
-                                        lldp org def tlv entry
-                                        
-                                        .. attribute:: oui
-                                        
-                                        	Organizationally Unique Identifier
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: tlv_info_indes
-                                        
-                                        	lldpRemOrgDefInfoIndex
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: tlv_subtype
-                                        
-                                        	Org Def TLV subtype
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..255
-                                        
-                                        .. attribute:: tlv_value
-                                        
-                                        	Org Def TLV payload
-                                        	**type**\: str
-                                        
-                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ethernet-lldp-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.oui = None
-                                            self.tlv_info_indes = None
-                                            self.tlv_subtype = None
-                                            self.tlv_value = None
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:lldp-org-def-tlv-entry'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return False
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.oui is not None:
-                                                return True
-
-                                            if self.tlv_info_indes is not None:
-                                                return True
-
-                                            if self.tlv_subtype is not None:
-                                                return True
-
-                                            if self.tlv_value is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
-                                            return meta._meta_table['Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry']['meta_info']
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:org-def-tlv-list'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.lldp_org_def_tlv_entry is not None:
-                                            for child_ref in self.lldp_org_def_tlv_entry:
-                                                if child_ref._has_data():
-                                                    return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
-                                        return meta._meta_table['Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList']['meta_info']
+                                    self.org_def_tlv_list = Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList()
+                                    self.org_def_tlv_list.parent = self
+                                    self.rem_time_mark = None
+                                    self.rem_local_port_num = None
+                                    self.rem_index = None
+                                    self.chassis_id_sub_type = None
+                                    self.chassis_id_len = None
+                                    self.port_id_sub_type = None
+                                    self.port_id_len = None
+                                    self.combined_capabilities = None
 
 
                                 class UnknownTlvList(object):
@@ -3299,6 +2785,135 @@ class Lldp(object):
                                         from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
                                         return meta._meta_table['Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList']['meta_info']
 
+
+                                class OrgDefTlvList(object):
+                                    """
+                                    Org Def TLV list
+                                    
+                                    .. attribute:: lldp_org_def_tlv_entry
+                                    
+                                    	lldp org def tlv entry
+                                    	**type**\: list of :py:class:`LldpOrgDefTlvEntry <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ethernet-lldp-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.lldp_org_def_tlv_entry = YList()
+                                        self.lldp_org_def_tlv_entry.parent = self
+                                        self.lldp_org_def_tlv_entry.name = 'lldp_org_def_tlv_entry'
+
+
+                                    class LldpOrgDefTlvEntry(object):
+                                        """
+                                        lldp org def tlv entry
+                                        
+                                        .. attribute:: oui
+                                        
+                                        	Organizationally Unique Identifier
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: tlv_subtype
+                                        
+                                        	Org Def TLV subtype
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..255
+                                        
+                                        .. attribute:: tlv_info_indes
+                                        
+                                        	lldpRemOrgDefInfoIndex
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: tlv_value
+                                        
+                                        	Org Def TLV payload
+                                        	**type**\: str
+                                        
+                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ethernet-lldp-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.oui = None
+                                            self.tlv_subtype = None
+                                            self.tlv_info_indes = None
+                                            self.tlv_value = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:lldp-org-def-tlv-entry'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.oui is not None:
+                                                return True
+
+                                            if self.tlv_subtype is not None:
+                                                return True
+
+                                            if self.tlv_info_indes is not None:
+                                                return True
+
+                                            if self.tlv_value is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                            return meta._meta_table['Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:org-def-tlv-list'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.lldp_org_def_tlv_entry is not None:
+                                            for child_ref in self.lldp_org_def_tlv_entry:
+                                                if child_ref._has_data():
+                                                    return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                        return meta._meta_table['Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList']['meta_info']
+
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
@@ -3313,34 +2928,34 @@ class Lldp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.chassis_id_len is not None:
-                                        return True
-
-                                    if self.chassis_id_sub_type is not None:
-                                        return True
-
-                                    if self.combined_capabilities is not None:
+                                    if self.unknown_tlv_list is not None and self.unknown_tlv_list._has_data():
                                         return True
 
                                     if self.org_def_tlv_list is not None and self.org_def_tlv_list._has_data():
                                         return True
 
-                                    if self.port_id_len is not None:
-                                        return True
-
-                                    if self.port_id_sub_type is not None:
-                                        return True
-
-                                    if self.rem_index is not None:
+                                    if self.rem_time_mark is not None:
                                         return True
 
                                     if self.rem_local_port_num is not None:
                                         return True
 
-                                    if self.rem_time_mark is not None:
+                                    if self.rem_index is not None:
                                         return True
 
-                                    if self.unknown_tlv_list is not None and self.unknown_tlv_list._has_data():
+                                    if self.chassis_id_sub_type is not None:
+                                        return True
+
+                                    if self.chassis_id_len is not None:
+                                        return True
+
+                                    if self.port_id_sub_type is not None:
+                                        return True
+
+                                    if self.port_id_len is not None:
+                                        return True
+
+                                    if self.combined_capabilities is not None:
                                         return True
 
                                     return False
@@ -3364,16 +2979,25 @@ class Lldp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.chassis_id is not None:
+                                if self.detail is not None and self.detail._has_data():
                                     return True
 
-                                if self.detail is not None and self.detail._has_data():
+                                if self.mib is not None and self.mib._has_data():
+                                    return True
+
+                                if self.receiving_interface_name is not None:
+                                    return True
+
+                                if self.receiving_parent_interface_name is not None:
                                     return True
 
                                 if self.device_id is not None:
                                     return True
 
-                                if self.enabled_capabilities is not None:
+                                if self.chassis_id is not None:
+                                    return True
+
+                                if self.port_id_detail is not None:
                                     return True
 
                                 if self.header_version is not None:
@@ -3382,19 +3006,10 @@ class Lldp(object):
                                 if self.hold_time is not None:
                                     return True
 
-                                if self.mib is not None and self.mib._has_data():
+                                if self.enabled_capabilities is not None:
                                     return True
 
                                 if self.platform is not None:
-                                    return True
-
-                                if self.port_id_detail is not None:
-                                    return True
-
-                                if self.receiving_interface_name is not None:
-                                    return True
-
-                                if self.receiving_parent_interface_name is not None:
                                     return True
 
                                 return False
@@ -3418,10 +3033,10 @@ class Lldp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.device_id is not None:
+                            if self.interface_name is not None:
                                 return True
 
-                            if self.interface_name is not None:
+                            if self.device_id is not None:
                                 return True
 
                             if self.lldp_neighbor is not None:
@@ -3476,10 +3091,10 @@ class Lldp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.details is not None and self.details._has_data():
+                    if self.devices is not None and self.devices._has_data():
                         return True
 
-                    if self.devices is not None and self.devices._has_data():
+                    if self.details is not None and self.details._has_data():
                         return True
 
                     if self.summaries is not None and self.summaries._has_data():
@@ -3493,20 +3108,405 @@ class Lldp(object):
                     return meta._meta_table['Lldp.Nodes.Node.Neighbors']['meta_info']
 
 
+            class Interfaces(object):
+                """
+                The table of interfaces on which LLDP is
+                running on this node
+                
+                .. attribute:: interface
+                
+                	Operational data for an interface on which LLDP is running
+                	**type**\: list of :py:class:`Interface <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces.Interface>`
+                
+                
+
+                """
+
+                _prefix = 'ethernet-lldp-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.interface = YList()
+                    self.interface.parent = self
+                    self.interface.name = 'interface'
+
+
+                class Interface(object):
+                    """
+                    Operational data for an interface on which
+                    LLDP is running
+                    
+                    .. attribute:: interface_name  <key>
+                    
+                    	The interface name
+                    	**type**\: str
+                    
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: local_network_addresses
+                    
+                    	Local Management Addresses
+                    	**type**\: :py:class:`LocalNetworkAddresses <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses>`
+                    
+                    .. attribute:: interface_name_xr
+                    
+                    	Interface
+                    	**type**\: str
+                    
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: tx_enabled
+                    
+                    	TX Enabled
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: rx_enabled
+                    
+                    	RX Enabled
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: tx_state
+                    
+                    	TX State
+                    	**type**\: str
+                    
+                    .. attribute:: rx_state
+                    
+                    	RX State
+                    	**type**\: str
+                    
+                    .. attribute:: if_index
+                    
+                    	ifIndex
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: port_id
+                    
+                    	Outgoing port identifier
+                    	**type**\: str
+                    
+                    .. attribute:: port_id_sub_type
+                    
+                    	Port ID sub type
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: port_description
+                    
+                    	Port Description
+                    	**type**\: str
+                    
+                    
+
+                    """
+
+                    _prefix = 'ethernet-lldp-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.interface_name = None
+                        self.local_network_addresses = Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses()
+                        self.local_network_addresses.parent = self
+                        self.interface_name_xr = None
+                        self.tx_enabled = None
+                        self.rx_enabled = None
+                        self.tx_state = None
+                        self.rx_state = None
+                        self.if_index = None
+                        self.port_id = None
+                        self.port_id_sub_type = None
+                        self.port_description = None
+
+
+                    class LocalNetworkAddresses(object):
+                        """
+                        Local Management Addresses
+                        
+                        .. attribute:: lldp_addr_entry
+                        
+                        	lldp addr entry
+                        	**type**\: list of :py:class:`LldpAddrEntry <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-lldp-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.lldp_addr_entry = YList()
+                            self.lldp_addr_entry.parent = self
+                            self.lldp_addr_entry.name = 'lldp_addr_entry'
+
+
+                        class LldpAddrEntry(object):
+                            """
+                            lldp addr entry
+                            
+                            .. attribute:: address
+                            
+                            	Network layer address
+                            	**type**\: :py:class:`Address <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry.Address>`
+                            
+                            .. attribute:: ma_subtype
+                            
+                            	MA sub type
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: if_num
+                            
+                            	Interface num
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-lldp-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.address = Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry.Address()
+                                self.address.parent = self
+                                self.ma_subtype = None
+                                self.if_num = None
+
+
+                            class Address(object):
+                                """
+                                Network layer address
+                                
+                                .. attribute:: address_type
+                                
+                                	AddressType
+                                	**type**\: :py:class:`LldpL3AddrProtocolEnum <ydk.models.ethernet.Cisco_IOS_XR_ethernet_lldp_oper.LldpL3AddrProtocolEnum>`
+                                
+                                .. attribute:: ipv4_address
+                                
+                                	IPv4 address
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: ipv6_address
+                                
+                                	IPv6 address
+                                	**type**\: str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
+                                
+
+                                """
+
+                                _prefix = 'ethernet-lldp-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.address_type = None
+                                    self.ipv4_address = None
+                                    self.ipv6_address = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:address'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.address_type is not None:
+                                        return True
+
+                                    if self.ipv4_address is not None:
+                                        return True
+
+                                    if self.ipv6_address is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                    return meta._meta_table['Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry.Address']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:lldp-addr-entry'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.address is not None and self.address._has_data():
+                                    return True
+
+                                if self.ma_subtype is not None:
+                                    return True
+
+                                if self.if_num is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                                return meta._meta_table['Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:local-network-addresses'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.lldp_addr_entry is not None:
+                                for child_ref in self.lldp_addr_entry:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                            return meta._meta_table['Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        if self.interface_name is None:
+                            raise YPYDataValidationError('Key property interface_name is None')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:interface[Cisco-IOS-XR-ethernet-lldp-oper:interface-name = ' + str(self.interface_name) + ']'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.interface_name is not None:
+                            return True
+
+                        if self.local_network_addresses is not None and self.local_network_addresses._has_data():
+                            return True
+
+                        if self.interface_name_xr is not None:
+                            return True
+
+                        if self.tx_enabled is not None:
+                            return True
+
+                        if self.rx_enabled is not None:
+                            return True
+
+                        if self.tx_state is not None:
+                            return True
+
+                        if self.rx_state is not None:
+                            return True
+
+                        if self.if_index is not None:
+                            return True
+
+                        if self.port_id is not None:
+                            return True
+
+                        if self.port_id_sub_type is not None:
+                            return True
+
+                        if self.port_description is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                        return meta._meta_table['Lldp.Nodes.Node.Interfaces.Interface']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ethernet-lldp-oper:interfaces'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.interface is not None:
+                        for child_ref in self.interface:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.ethernet._meta import _Cisco_IOS_XR_ethernet_lldp_oper as meta
+                    return meta._meta_table['Lldp.Nodes.Node.Interfaces']['meta_info']
+
+
             class Statistics(object):
                 """
                 The LLDP traffic statistics for this node
                 
-                .. attribute:: aged_out_entries
+                .. attribute:: transmitted_packets
                 
-                	Aged out entries
+                	Transmitted packets
                 	**type**\: int
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: bad_packets
+                .. attribute:: aged_out_entries
                 
-                	Bad packet received and dropped
+                	Aged out entries
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3518,30 +3518,9 @@ class Lldp(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: discarded_tl_vs
+                .. attribute:: bad_packets
                 
-                	Discarded TLVs
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: encapsulation_errors
-                
-                	Transmission errors
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: out_of_memory_errors
-                
-                	Out\-of\-memory conditions
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: queue_overflow_errors
-                
-                	Queue overflows
+                	Bad packet received and dropped
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3553,16 +3532,9 @@ class Lldp(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: table_overflow_errors
+                .. attribute:: discarded_tl_vs
                 
-                	Table overflows
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: transmitted_packets
-                
-                	Transmitted packets
+                	Discarded TLVs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3570,6 +3542,34 @@ class Lldp(object):
                 .. attribute:: unrecognized_tl_vs
                 
                 	Unrecognized TLVs
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: out_of_memory_errors
+                
+                	Out\-of\-memory conditions
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: encapsulation_errors
+                
+                	Transmission errors
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: queue_overflow_errors
+                
+                	Queue overflows
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: table_overflow_errors
+                
+                	Table overflows
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -3583,17 +3583,17 @@ class Lldp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.aged_out_entries = None
-                    self.bad_packets = None
-                    self.discarded_packets = None
-                    self.discarded_tl_vs = None
-                    self.encapsulation_errors = None
-                    self.out_of_memory_errors = None
-                    self.queue_overflow_errors = None
-                    self.received_packets = None
-                    self.table_overflow_errors = None
                     self.transmitted_packets = None
+                    self.aged_out_entries = None
+                    self.discarded_packets = None
+                    self.bad_packets = None
+                    self.received_packets = None
+                    self.discarded_tl_vs = None
                     self.unrecognized_tl_vs = None
+                    self.out_of_memory_errors = None
+                    self.encapsulation_errors = None
+                    self.queue_overflow_errors = None
+                    self.table_overflow_errors = None
 
                 @property
                 def _common_path(self):
@@ -3609,37 +3609,37 @@ class Lldp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.aged_out_entries is not None:
+                    if self.transmitted_packets is not None:
                         return True
 
-                    if self.bad_packets is not None:
+                    if self.aged_out_entries is not None:
                         return True
 
                     if self.discarded_packets is not None:
                         return True
 
-                    if self.discarded_tl_vs is not None:
-                        return True
-
-                    if self.encapsulation_errors is not None:
-                        return True
-
-                    if self.out_of_memory_errors is not None:
-                        return True
-
-                    if self.queue_overflow_errors is not None:
+                    if self.bad_packets is not None:
                         return True
 
                     if self.received_packets is not None:
                         return True
 
-                    if self.table_overflow_errors is not None:
-                        return True
-
-                    if self.transmitted_packets is not None:
+                    if self.discarded_tl_vs is not None:
                         return True
 
                     if self.unrecognized_tl_vs is not None:
+                        return True
+
+                    if self.out_of_memory_errors is not None:
+                        return True
+
+                    if self.encapsulation_errors is not None:
+                        return True
+
+                    if self.queue_overflow_errors is not None:
+                        return True
+
+                    if self.table_overflow_errors is not None:
                         return True
 
                     return False
@@ -3666,10 +3666,10 @@ class Lldp(object):
                 if self.node_name is not None:
                     return True
 
-                if self.interfaces is not None and self.interfaces._has_data():
+                if self.neighbors is not None and self.neighbors._has_data():
                     return True
 
-                if self.neighbors is not None and self.neighbors._has_data():
+                if self.interfaces is not None and self.interfaces._has_data():
                     return True
 
                 if self.statistics is not None and self.statistics._has_data():

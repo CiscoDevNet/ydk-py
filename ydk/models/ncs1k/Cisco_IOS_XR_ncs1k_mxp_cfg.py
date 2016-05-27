@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -144,7 +144,7 @@ class HardwareModule(object):
         """
         Node
         
-        .. attribute:: location
+        .. attribute:: location  <key>
         
         	Fully qualified line card specification
         	**type**\: str
@@ -197,7 +197,7 @@ class HardwareModule(object):
                 """
                 Data rates & FEC
                 
-                .. attribute:: slice_id
+                .. attribute:: slice_id  <key>
                 
                 	Set Slice
                 	**type**\: str
@@ -209,15 +209,15 @@ class HardwareModule(object):
                 	Client Rate
                 	**type**\: :py:class:`ClientDataRateEnum <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg.ClientDataRateEnum>`
                 
-                .. attribute:: fec
-                
-                	FEC
-                	**type**\: :py:class:`FecEnum <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg.FecEnum>`
-                
                 .. attribute:: trunk_rate
                 
                 	TrunkRate
                 	**type**\: :py:class:`TrunkDataRateEnum <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg.TrunkDataRateEnum>`
+                
+                .. attribute:: fec
+                
+                	FEC
+                	**type**\: :py:class:`FecEnum <ydk.models.ncs1k.Cisco_IOS_XR_ncs1k_mxp_cfg.FecEnum>`
                 
                 
 
@@ -230,8 +230,8 @@ class HardwareModule(object):
                     self.parent = None
                     self.slice_id = None
                     self.client_rate = None
-                    self.fec = None
                     self.trunk_rate = None
+                    self.fec = None
 
                 @property
                 def _common_path(self):
@@ -255,10 +255,10 @@ class HardwareModule(object):
                     if self.client_rate is not None:
                         return True
 
-                    if self.fec is not None:
+                    if self.trunk_rate is not None:
                         return True
 
-                    if self.trunk_rate is not None:
+                    if self.fec is not None:
                         return True
 
                     return False
