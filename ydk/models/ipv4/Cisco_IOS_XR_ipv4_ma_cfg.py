@@ -19,7 +19,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -76,10 +76,20 @@ class Ipv4NetworkGlobal(object):
     	ICMP options
     	**type**\: :py:class:`Icmp <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Icmp>`
     
+    .. attribute:: unnumbered
+    
+    	Enable IPv4 processing without an explicit address
+    	**type**\: :py:class:`Unnumbered <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Unnumbered>`
+    
     .. attribute:: qppb
     
     	QPPB
     	**type**\: :py:class:`Qppb <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Qppb>`
+    
+    .. attribute:: source_route
+    
+    	The flag for enabling whether to process packets with source routing header options
+    	**type**\: bool
     
     .. attribute:: reassemble_max_packets
     
@@ -95,16 +105,6 @@ class Ipv4NetworkGlobal(object):
     
     	**range:** 1..120
     
-    .. attribute:: source_route
-    
-    	The flag for enabling whether to process packets with source routing header options
-    	**type**\: bool
-    
-    .. attribute:: unnumbered
-    
-    	Enable IPv4 processing without an explicit address
-    	**type**\: :py:class:`Unnumbered <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Unnumbered>`
-    
     
 
     """
@@ -115,13 +115,13 @@ class Ipv4NetworkGlobal(object):
     def __init__(self):
         self.icmp = Ipv4NetworkGlobal.Icmp()
         self.icmp.parent = self
-        self.qppb = Ipv4NetworkGlobal.Qppb()
-        self.qppb.parent = self
-        self.reassemble_max_packets = None
-        self.reassemble_time_out = None
-        self.source_route = None
         self.unnumbered = Ipv4NetworkGlobal.Unnumbered()
         self.unnumbered.parent = self
+        self.qppb = Ipv4NetworkGlobal.Qppb()
+        self.qppb.parent = self
+        self.source_route = None
+        self.reassemble_max_packets = None
+        self.reassemble_time_out = None
 
 
     class Icmp(object):
@@ -172,16 +172,16 @@ class Ipv4NetworkGlobal(object):
                 """
                 Destination Unreachable rate limiting
                 
-                .. attribute:: df
+                .. attribute:: rate
                 
-                	Destination Unreachable DF packets requiring fragmentation response rate limit value in milliseconds
+                	Destination Unreachable packet response rate limit value in milliseconds
                 	**type**\: int
                 
                 	**range:** 1..4294967295
                 
-                .. attribute:: rate
+                .. attribute:: df
                 
-                	Destination Unreachable packet response rate limit value in milliseconds
+                	Destination Unreachable DF packets requiring fragmentation response rate limit value in milliseconds
                 	**type**\: int
                 
                 	**range:** 1..4294967295
@@ -195,8 +195,8 @@ class Ipv4NetworkGlobal(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.df = None
                     self.rate = None
+                    self.df = None
 
                 @property
                 def _common_path(self):
@@ -210,10 +210,10 @@ class Ipv4NetworkGlobal(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.df is not None:
+                    if self.rate is not None:
                         return True
 
-                    if self.rate is not None:
+                    if self.df is not None:
                         return True
 
                     return False
@@ -266,58 +266,6 @@ class Ipv4NetworkGlobal(object):
         def _meta_info():
             from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ma_cfg as meta
             return meta._meta_table['Ipv4NetworkGlobal.Icmp']['meta_info']
-
-
-    class Qppb(object):
-        """
-        QPPB
-        
-        .. attribute:: destination
-        
-        	QPPB configuration on destination
-        	**type**\: :py:class:`Ipv4QppbEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4QppbEnum>`
-        
-        .. attribute:: source
-        
-        	QPPB configuration on source
-        	**type**\: :py:class:`Ipv4QppbEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4QppbEnum>`
-        
-        
-
-        """
-
-        _prefix = 'ipv4-ma-cfg'
-        _revision = '2015-07-30'
-
-        def __init__(self):
-            self.parent = None
-            self.destination = None
-            self.source = None
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global/Cisco-IOS-XR-ipv4-ma-cfg:qppb'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.destination is not None:
-                return True
-
-            if self.source is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ma_cfg as meta
-            return meta._meta_table['Ipv4NetworkGlobal.Qppb']['meta_info']
 
 
     class Unnumbered(object):
@@ -451,6 +399,58 @@ class Ipv4NetworkGlobal(object):
             from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ma_cfg as meta
             return meta._meta_table['Ipv4NetworkGlobal.Unnumbered']['meta_info']
 
+
+    class Qppb(object):
+        """
+        QPPB
+        
+        .. attribute:: source
+        
+        	QPPB configuration on source
+        	**type**\: :py:class:`Ipv4QppbEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4QppbEnum>`
+        
+        .. attribute:: destination
+        
+        	QPPB configuration on destination
+        	**type**\: :py:class:`Ipv4QppbEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4QppbEnum>`
+        
+        
+
+        """
+
+        _prefix = 'ipv4-ma-cfg'
+        _revision = '2015-07-30'
+
+        def __init__(self):
+            self.parent = None
+            self.source = None
+            self.destination = None
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global/Cisco-IOS-XR-ipv4-ma-cfg:qppb'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.source is not None:
+                return True
+
+            if self.destination is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_ma_cfg as meta
+            return meta._meta_table['Ipv4NetworkGlobal.Qppb']['meta_info']
+
     @property
     def _common_path(self):
 
@@ -466,19 +466,19 @@ class Ipv4NetworkGlobal(object):
         if self.icmp is not None and self.icmp._has_data():
             return True
 
+        if self.unnumbered is not None and self.unnumbered._has_data():
+            return True
+
         if self.qppb is not None and self.qppb._has_data():
+            return True
+
+        if self.source_route is not None:
             return True
 
         if self.reassemble_max_packets is not None:
             return True
 
         if self.reassemble_time_out is not None:
-            return True
-
-        if self.source_route is not None:
-            return True
-
-        if self.unnumbered is not None and self.unnumbered._has_data():
             return True
 
         return False

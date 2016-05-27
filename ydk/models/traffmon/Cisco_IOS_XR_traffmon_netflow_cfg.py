@@ -22,7 +22,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -86,20 +86,20 @@ class NetFlow(object):
     	Configure a flow exporter map
     	**type**\: :py:class:`FlowExporterMaps <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowExporterMaps>`
     
-    .. attribute:: flow_monitor_map_performance_table
+    .. attribute:: flow_sampler_maps
     
-    	Configure a performance traffic flow monitor map
-    	**type**\: :py:class:`FlowMonitorMapPerformanceTable <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapPerformanceTable>`
+    	Flow sampler map configuration
+    	**type**\: :py:class:`FlowSamplerMaps <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowSamplerMaps>`
     
     .. attribute:: flow_monitor_map_table
     
     	Flow monitor map configuration
     	**type**\: :py:class:`FlowMonitorMapTable <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapTable>`
     
-    .. attribute:: flow_sampler_maps
+    .. attribute:: flow_monitor_map_performance_table
     
-    	Flow sampler map configuration
-    	**type**\: :py:class:`FlowSamplerMaps <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowSamplerMaps>`
+    	Configure a performance traffic flow monitor map
+    	**type**\: :py:class:`FlowMonitorMapPerformanceTable <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapPerformanceTable>`
     
     
 
@@ -111,12 +111,12 @@ class NetFlow(object):
     def __init__(self):
         self.flow_exporter_maps = NetFlow.FlowExporterMaps()
         self.flow_exporter_maps.parent = self
-        self.flow_monitor_map_performance_table = NetFlow.FlowMonitorMapPerformanceTable()
-        self.flow_monitor_map_performance_table.parent = self
-        self.flow_monitor_map_table = NetFlow.FlowMonitorMapTable()
-        self.flow_monitor_map_table.parent = self
         self.flow_sampler_maps = NetFlow.FlowSamplerMaps()
         self.flow_sampler_maps.parent = self
+        self.flow_monitor_map_table = NetFlow.FlowMonitorMapTable()
+        self.flow_monitor_map_table.parent = self
+        self.flow_monitor_map_performance_table = NetFlow.FlowMonitorMapPerformanceTable()
+        self.flow_monitor_map_performance_table.parent = self
 
 
     class FlowExporterMaps(object):
@@ -146,31 +146,12 @@ class NetFlow(object):
             """
             Exporter map name
             
-            .. attribute:: exporter_map_name
+            .. attribute:: exporter_map_name  <key>
             
             	Exporter map name
             	**type**\: str
             
             	**range:** 0..32
-            
-            .. attribute:: destination
-            
-            	Configure export destination (collector)
-            	**type**\: :py:class:`Destination <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowExporterMaps.FlowExporterMap.Destination>`
-            
-            .. attribute:: dscp
-            
-            	Specify DSCP value for export packets
-            	**type**\: int
-            
-            	**range:** 0..63
-            
-            .. attribute:: source_interface
-            
-            	Configure source interface for collector
-            	**type**\: str
-            
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: udp
             
@@ -182,6 +163,25 @@ class NetFlow(object):
             	Specify export version parameters
             	**type**\: :py:class:`Versions <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowExporterMaps.FlowExporterMap.Versions>`
             
+            .. attribute:: destination
+            
+            	Configure export destination (collector)
+            	**type**\: :py:class:`Destination <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowExporterMaps.FlowExporterMap.Destination>`
+            
+            .. attribute:: source_interface
+            
+            	Configure source interface for collector
+            	**type**\: str
+            
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            
+            .. attribute:: dscp
+            
+            	Specify DSCP value for export packets
+            	**type**\: int
+            
+            	**range:** 0..63
+            
             
 
             """
@@ -192,79 +192,14 @@ class NetFlow(object):
             def __init__(self):
                 self.parent = None
                 self.exporter_map_name = None
-                self.destination = NetFlow.FlowExporterMaps.FlowExporterMap.Destination()
-                self.destination.parent = self
-                self.dscp = None
-                self.source_interface = None
                 self.udp = NetFlow.FlowExporterMaps.FlowExporterMap.Udp()
                 self.udp.parent = self
                 self.versions = NetFlow.FlowExporterMaps.FlowExporterMap.Versions()
                 self.versions.parent = self
-
-
-            class Destination(object):
-                """
-                Configure export destination (collector)
-                
-                .. attribute:: ip_address
-                
-                	Destination IPv4 address
-                	**type**\: str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: ipv6_address
-                
-                	IPV6 address of the tunnel destination
-                	**type**\: str
-                
-                .. attribute:: vrf_name
-                
-                	VRF name
-                	**type**\: str
-                
-                
-
-                """
-
-                _prefix = 'traffmon-netflow-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.ip_address = None
-                    self.ipv6_address = None
-                    self.vrf_name = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:destination'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.ip_address is not None:
-                        return True
-
-                    if self.ipv6_address is not None:
-                        return True
-
-                    if self.vrf_name is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                    return meta._meta_table['NetFlow.FlowExporterMaps.FlowExporterMap.Destination']['meta_info']
+                self.destination = NetFlow.FlowExporterMaps.FlowExporterMap.Destination()
+                self.destination.parent = self
+                self.source_interface = None
+                self.dscp = None
 
 
             class Udp(object):
@@ -341,12 +276,24 @@ class NetFlow(object):
                     """
                     Configure export version options
                     
-                    .. attribute:: version_number
+                    .. attribute:: version_number  <key>
                     
                     	Export version number
                     	**type**\: int
                     
                     	**range:** 9..10
+                    
+                    .. attribute:: options
+                    
+                    	Specify options for exporting templates
+                    	**type**\: :py:class:`Options <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowExporterMaps.FlowExporterMap.Versions.Version.Options>`
+                    
+                    .. attribute:: options_template_timeout
+                    
+                    	Option template configuration options
+                    	**type**\: int
+                    
+                    	**range:** 1..604800
                     
                     .. attribute:: common_template_timeout
                     
@@ -362,18 +309,6 @@ class NetFlow(object):
                     
                     	**range:** 1..604800
                     
-                    .. attribute:: options
-                    
-                    	Specify options for exporting templates
-                    	**type**\: :py:class:`Options <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowExporterMaps.FlowExporterMap.Versions.Version.Options>`
-                    
-                    .. attribute:: options_template_timeout
-                    
-                    	Option template configuration options
-                    	**type**\: int
-                    
-                    	**range:** 1..604800
-                    
                     
 
                     """
@@ -384,11 +319,11 @@ class NetFlow(object):
                     def __init__(self):
                         self.parent = None
                         self.version_number = None
-                        self.common_template_timeout = None
-                        self.data_template_timeout = None
                         self.options = NetFlow.FlowExporterMaps.FlowExporterMap.Versions.Version.Options()
                         self.options.parent = self
                         self.options_template_timeout = None
+                        self.common_template_timeout = None
+                        self.data_template_timeout = None
 
 
                     class Options(object):
@@ -478,16 +413,16 @@ class NetFlow(object):
                         if self.version_number is not None:
                             return True
 
-                        if self.common_template_timeout is not None:
-                            return True
-
-                        if self.data_template_timeout is not None:
-                            return True
-
                         if self.options is not None and self.options._has_data():
                             return True
 
                         if self.options_template_timeout is not None:
+                            return True
+
+                        if self.common_template_timeout is not None:
+                            return True
+
+                        if self.data_template_timeout is not None:
                             return True
 
                         return False
@@ -523,6 +458,71 @@ class NetFlow(object):
                     from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
                     return meta._meta_table['NetFlow.FlowExporterMaps.FlowExporterMap.Versions']['meta_info']
 
+
+            class Destination(object):
+                """
+                Configure export destination (collector)
+                
+                .. attribute:: ip_address
+                
+                	Destination IPv4 address
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                .. attribute:: ipv6_address
+                
+                	IPV6 address of the tunnel destination
+                	**type**\: str
+                
+                .. attribute:: vrf_name
+                
+                	VRF name
+                	**type**\: str
+                
+                
+
+                """
+
+                _prefix = 'traffmon-netflow-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.ip_address = None
+                    self.ipv6_address = None
+                    self.vrf_name = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:destination'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.ip_address is not None:
+                        return True
+
+                    if self.ipv6_address is not None:
+                        return True
+
+                    if self.vrf_name is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                    return meta._meta_table['NetFlow.FlowExporterMaps.FlowExporterMap.Destination']['meta_info']
+
             @property
             def _common_path(self):
                 if self.exporter_map_name is None:
@@ -540,19 +540,19 @@ class NetFlow(object):
                 if self.exporter_map_name is not None:
                     return True
 
-                if self.destination is not None and self.destination._has_data():
+                if self.udp is not None and self.udp._has_data():
                     return True
 
-                if self.dscp is not None:
+                if self.versions is not None and self.versions._has_data():
+                    return True
+
+                if self.destination is not None and self.destination._has_data():
                     return True
 
                 if self.source_interface is not None:
                     return True
 
-                if self.udp is not None and self.udp._has_data():
-                    return True
-
-                if self.versions is not None and self.versions._has_data():
+                if self.dscp is not None:
                     return True
 
                 return False
@@ -587,828 +587,6 @@ class NetFlow(object):
             return meta._meta_table['NetFlow.FlowExporterMaps']['meta_info']
 
 
-    class FlowMonitorMapPerformanceTable(object):
-        """
-        Configure a performance traffic flow monitor map
-        
-        .. attribute:: flow_monitor_map
-        
-        	Monitor map name
-        	**type**\: list of :py:class:`FlowMonitorMap <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap>`
-        
-        
-
-        """
-
-        _prefix = 'traffmon-netflow-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.flow_monitor_map = YList()
-            self.flow_monitor_map.parent = self
-            self.flow_monitor_map.name = 'flow_monitor_map'
-
-
-        class FlowMonitorMap(object):
-            """
-            Monitor map name
-            
-            .. attribute:: monitor_map_name
-            
-            	Monitor map name
-            	**type**\: str
-            
-            	**range:** 0..32
-            
-            .. attribute:: cache_active_aging_timeout
-            
-            	Specify the active flow cache aging timeout
-            	**type**\: int
-            
-            	**range:** 1..604800
-            
-            .. attribute:: cache_aging_mode
-            
-            	Specify the flow cache aging mode
-            	**type**\: :py:class:`NfCacheAgingModeEnum <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NfCacheAgingModeEnum>`
-            
-            .. attribute:: cache_entries
-            
-            	Specify the number of entries in the flow cache
-            	**type**\: int
-            
-            	**range:** 4096..1000000
-            
-            .. attribute:: cache_inactive_aging_timeout
-            
-            	Specify the inactive flow cache aging timeout
-            	**type**\: int
-            
-            	**range:** 0..604800
-            
-            .. attribute:: cache_timeout_rate_limit
-            
-            	Specify the maximum number of entries to age each second
-            	**type**\: int
-            
-            	**range:** 1..1000000
-            
-            .. attribute:: cache_update_aging_timeout
-            
-            	Specify the update flow cache aging timeout
-            	**type**\: int
-            
-            	**range:** 1..604800
-            
-            .. attribute:: exporters
-            
-            	Configure exporters to be used by the monitor\-map
-            	**type**\: :py:class:`Exporters <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters>`
-            
-            .. attribute:: option
-            
-            	Specify an option for the flow cache
-            	**type**\: :py:class:`Option <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Option>`
-            
-            .. attribute:: record
-            
-            	Specify a flow record format
-            	**type**\: :py:class:`Record <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Record>`
-            
-            
-
-            """
-
-            _prefix = 'traffmon-netflow-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.monitor_map_name = None
-                self.cache_active_aging_timeout = None
-                self.cache_aging_mode = None
-                self.cache_entries = None
-                self.cache_inactive_aging_timeout = None
-                self.cache_timeout_rate_limit = None
-                self.cache_update_aging_timeout = None
-                self.exporters = NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters()
-                self.exporters.parent = self
-                self.option = NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Option()
-                self.option.parent = self
-                self.record = None
-
-
-            class Exporters(object):
-                """
-                Configure exporters to be used by the
-                monitor\-map
-                
-                .. attribute:: exporter
-                
-                	Configure exporter to be used by the monitor\-map
-                	**type**\: list of :py:class:`Exporter <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters.Exporter>`
-                
-                
-
-                """
-
-                _prefix = 'traffmon-netflow-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.exporter = YList()
-                    self.exporter.parent = self
-                    self.exporter.name = 'exporter'
-
-
-                class Exporter(object):
-                    """
-                    Configure exporter to be used by the
-                    monitor\-map
-                    
-                    .. attribute:: exporter_name
-                    
-                    	Exporter name
-                    	**type**\: str
-                    
-                    	**range:** 0..32
-                    
-                    
-
-                    """
-
-                    _prefix = 'traffmon-netflow-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.exporter_name = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                        if self.exporter_name is None:
-                            raise YPYDataValidationError('Key property exporter_name is None')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:exporter[Cisco-IOS-XR-traffmon-netflow-cfg:exporter-name = ' + str(self.exporter_name) + ']'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.exporter_name is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                        return meta._meta_table['NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters.Exporter']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:exporters'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.exporter is not None:
-                        for child_ref in self.exporter:
-                            if child_ref._has_data():
-                                return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                    return meta._meta_table['NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters']['meta_info']
-
-
-            class Option(object):
-                """
-                Specify an option for the flow cache
-                
-                .. attribute:: filtered
-                
-                	Specify whether data should be filtered
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: out_phys_int
-                
-                	Specify whether it exports the physical output interface
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                
-
-                """
-
-                _prefix = 'traffmon-netflow-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.filtered = None
-                    self.out_phys_int = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:option'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.filtered is not None:
-                        return True
-
-                    if self.out_phys_int is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                    return meta._meta_table['NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Option']['meta_info']
-
-
-            class Record(object):
-                """
-                Specify a flow record format
-                
-                .. attribute:: label
-                
-                	Enter label value for MPLS record type
-                	**type**\: int
-                
-                	**range:** 1..6
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: record_name
-                
-                	Flow record format (Either 'ipv4\-raw' ,'ipv4\-peer\-as', 'ipv6', 'mpls', 'mpls\-ipv4', 'mpls\-ipv6', 'mpls\-ipv4\-ipv6', 'ipv6\-peer\-as')
-                	**type**\: str
-                
-                	**range:** 0..32
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                
-
-                This class is a :ref:`presence class<presence-class>`
-
-                """
-
-                _prefix = 'traffmon-netflow-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.label = None
-                    self.record_name = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:record'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.label is not None:
-                        return True
-
-                    if self.record_name is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                    return meta._meta_table['NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Record']['meta_info']
-
-            @property
-            def _common_path(self):
-                if self.monitor_map_name is None:
-                    raise YPYDataValidationError('Key property monitor_map_name is None')
-
-                return '/Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/Cisco-IOS-XR-traffmon-netflow-cfg:flow-monitor-map-performance-table/Cisco-IOS-XR-traffmon-netflow-cfg:flow-monitor-map[Cisco-IOS-XR-traffmon-netflow-cfg:monitor-map-name = ' + str(self.monitor_map_name) + ']'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.monitor_map_name is not None:
-                    return True
-
-                if self.cache_active_aging_timeout is not None:
-                    return True
-
-                if self.cache_aging_mode is not None:
-                    return True
-
-                if self.cache_entries is not None:
-                    return True
-
-                if self.cache_inactive_aging_timeout is not None:
-                    return True
-
-                if self.cache_timeout_rate_limit is not None:
-                    return True
-
-                if self.cache_update_aging_timeout is not None:
-                    return True
-
-                if self.exporters is not None and self.exporters._has_data():
-                    return True
-
-                if self.option is not None and self.option._has_data():
-                    return True
-
-                if self.record is not None and self.record._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                return meta._meta_table['NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/Cisco-IOS-XR-traffmon-netflow-cfg:flow-monitor-map-performance-table'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.flow_monitor_map is not None:
-                for child_ref in self.flow_monitor_map:
-                    if child_ref._has_data():
-                        return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-            return meta._meta_table['NetFlow.FlowMonitorMapPerformanceTable']['meta_info']
-
-
-    class FlowMonitorMapTable(object):
-        """
-        Flow monitor map configuration
-        
-        .. attribute:: flow_monitor_map
-        
-        	Monitor map name
-        	**type**\: list of :py:class:`FlowMonitorMap <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapTable.FlowMonitorMap>`
-        
-        
-
-        """
-
-        _prefix = 'traffmon-netflow-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.flow_monitor_map = YList()
-            self.flow_monitor_map.parent = self
-            self.flow_monitor_map.name = 'flow_monitor_map'
-
-
-        class FlowMonitorMap(object):
-            """
-            Monitor map name
-            
-            .. attribute:: monitor_map_name
-            
-            	Monitor map name
-            	**type**\: str
-            
-            	**range:** 0..32
-            
-            .. attribute:: cache_active_aging_timeout
-            
-            	Specify the active flow cache aging timeout
-            	**type**\: int
-            
-            	**range:** 1..604800
-            
-            .. attribute:: cache_aging_mode
-            
-            	Specify the flow cache aging mode
-            	**type**\: :py:class:`NfCacheAgingModeEnum <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NfCacheAgingModeEnum>`
-            
-            .. attribute:: cache_entries
-            
-            	Specify the number of entries in the flow cache
-            	**type**\: int
-            
-            	**range:** 4096..1000000
-            
-            .. attribute:: cache_inactive_aging_timeout
-            
-            	Specify the inactive flow cache aging timeout
-            	**type**\: int
-            
-            	**range:** 0..604800
-            
-            .. attribute:: cache_timeout_rate_limit
-            
-            	Specify the maximum number of entries to age each second
-            	**type**\: int
-            
-            	**range:** 1..1000000
-            
-            .. attribute:: cache_update_aging_timeout
-            
-            	Specify the update flow cache aging timeout
-            	**type**\: int
-            
-            	**range:** 1..604800
-            
-            .. attribute:: exporters
-            
-            	Configure exporters to be used by the monitor\-map
-            	**type**\: :py:class:`Exporters <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters>`
-            
-            .. attribute:: option
-            
-            	Specify an option for the flow cache
-            	**type**\: :py:class:`Option <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapTable.FlowMonitorMap.Option>`
-            
-            .. attribute:: record
-            
-            	Specify a flow record format
-            	**type**\: :py:class:`Record <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapTable.FlowMonitorMap.Record>`
-            
-            
-
-            """
-
-            _prefix = 'traffmon-netflow-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.monitor_map_name = None
-                self.cache_active_aging_timeout = None
-                self.cache_aging_mode = None
-                self.cache_entries = None
-                self.cache_inactive_aging_timeout = None
-                self.cache_timeout_rate_limit = None
-                self.cache_update_aging_timeout = None
-                self.exporters = NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters()
-                self.exporters.parent = self
-                self.option = NetFlow.FlowMonitorMapTable.FlowMonitorMap.Option()
-                self.option.parent = self
-                self.record = None
-
-
-            class Exporters(object):
-                """
-                Configure exporters to be used by the
-                monitor\-map
-                
-                .. attribute:: exporter
-                
-                	Configure exporter to be used by the monitor\-map
-                	**type**\: list of :py:class:`Exporter <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters.Exporter>`
-                
-                
-
-                """
-
-                _prefix = 'traffmon-netflow-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.exporter = YList()
-                    self.exporter.parent = self
-                    self.exporter.name = 'exporter'
-
-
-                class Exporter(object):
-                    """
-                    Configure exporter to be used by the
-                    monitor\-map
-                    
-                    .. attribute:: exporter_name
-                    
-                    	Exporter name
-                    	**type**\: str
-                    
-                    	**range:** 0..32
-                    
-                    
-
-                    """
-
-                    _prefix = 'traffmon-netflow-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.exporter_name = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                        if self.exporter_name is None:
-                            raise YPYDataValidationError('Key property exporter_name is None')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:exporter[Cisco-IOS-XR-traffmon-netflow-cfg:exporter-name = ' + str(self.exporter_name) + ']'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.exporter_name is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                        return meta._meta_table['NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters.Exporter']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:exporters'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.exporter is not None:
-                        for child_ref in self.exporter:
-                            if child_ref._has_data():
-                                return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                    return meta._meta_table['NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters']['meta_info']
-
-
-            class Option(object):
-                """
-                Specify an option for the flow cache
-                
-                .. attribute:: filtered
-                
-                	Specify whether data should be filtered
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: out_phys_int
-                
-                	Specify whether it exports the physical output interface
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                
-
-                """
-
-                _prefix = 'traffmon-netflow-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.filtered = None
-                    self.out_phys_int = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:option'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.filtered is not None:
-                        return True
-
-                    if self.out_phys_int is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                    return meta._meta_table['NetFlow.FlowMonitorMapTable.FlowMonitorMap.Option']['meta_info']
-
-
-            class Record(object):
-                """
-                Specify a flow record format
-                
-                .. attribute:: label
-                
-                	Enter label value for MPLS record type
-                	**type**\: int
-                
-                	**range:** 1..6
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                .. attribute:: record_name
-                
-                	Flow record format (Either 'ipv4\-raw' ,'ipv4\-peer\-as', 'ipv6', 'mpls', 'mpls\-ipv4', 'mpls\-ipv6', 'mpls\-ipv4\-ipv6', 'ipv6\-peer\-as')
-                	**type**\: str
-                
-                	**range:** 0..32
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                
-
-                This class is a :ref:`presence class<presence-class>`
-
-                """
-
-                _prefix = 'traffmon-netflow-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.label = None
-                    self.record_name = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:record'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.label is not None:
-                        return True
-
-                    if self.record_name is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                    return meta._meta_table['NetFlow.FlowMonitorMapTable.FlowMonitorMap.Record']['meta_info']
-
-            @property
-            def _common_path(self):
-                if self.monitor_map_name is None:
-                    raise YPYDataValidationError('Key property monitor_map_name is None')
-
-                return '/Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/Cisco-IOS-XR-traffmon-netflow-cfg:flow-monitor-map-table/Cisco-IOS-XR-traffmon-netflow-cfg:flow-monitor-map[Cisco-IOS-XR-traffmon-netflow-cfg:monitor-map-name = ' + str(self.monitor_map_name) + ']'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.monitor_map_name is not None:
-                    return True
-
-                if self.cache_active_aging_timeout is not None:
-                    return True
-
-                if self.cache_aging_mode is not None:
-                    return True
-
-                if self.cache_entries is not None:
-                    return True
-
-                if self.cache_inactive_aging_timeout is not None:
-                    return True
-
-                if self.cache_timeout_rate_limit is not None:
-                    return True
-
-                if self.cache_update_aging_timeout is not None:
-                    return True
-
-                if self.exporters is not None and self.exporters._has_data():
-                    return True
-
-                if self.option is not None and self.option._has_data():
-                    return True
-
-                if self.record is not None and self.record._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-                return meta._meta_table['NetFlow.FlowMonitorMapTable.FlowMonitorMap']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/Cisco-IOS-XR-traffmon-netflow-cfg:flow-monitor-map-table'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.flow_monitor_map is not None:
-                for child_ref in self.flow_monitor_map:
-                    if child_ref._has_data():
-                        return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
-            return meta._meta_table['NetFlow.FlowMonitorMapTable']['meta_info']
-
-
     class FlowSamplerMaps(object):
         """
         Flow sampler map configuration
@@ -1436,7 +614,7 @@ class NetFlow(object):
             """
             Sampler map name
             
-            .. attribute:: sampler_map_name
+            .. attribute:: sampler_map_name  <key>
             
             	Sampler map name
             	**type**\: str
@@ -1489,17 +667,10 @@ class NetFlow(object):
                     """
                     Configure sampling mode
                     
-                    .. attribute:: mode
+                    .. attribute:: mode  <key>
                     
                     	Sampling mode
                     	**type**\: :py:class:`NfSamplingModeEnum <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NfSamplingModeEnum>`
-                    
-                    .. attribute:: interval
-                    
-                    	Sampling interval in units of packets
-                    	**type**\: int
-                    
-                    	**range:** 1..65535
                     
                     .. attribute:: sample_number
                     
@@ -1507,6 +678,13 @@ class NetFlow(object):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: interval
+                    
+                    	Sampling interval in units of packets
+                    	**type**\: int
+                    
+                    	**range:** 1..65535
                     
                     
 
@@ -1518,8 +696,8 @@ class NetFlow(object):
                     def __init__(self):
                         self.parent = None
                         self.mode = None
-                        self.interval = None
                         self.sample_number = None
+                        self.interval = None
 
                     @property
                     def _common_path(self):
@@ -1540,10 +718,10 @@ class NetFlow(object):
                         if self.mode is not None:
                             return True
 
-                        if self.interval is not None:
+                        if self.sample_number is not None:
                             return True
 
-                        if self.sample_number is not None:
+                        if self.interval is not None:
                             return True
 
                         return False
@@ -1630,6 +808,828 @@ class NetFlow(object):
             from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
             return meta._meta_table['NetFlow.FlowSamplerMaps']['meta_info']
 
+
+    class FlowMonitorMapTable(object):
+        """
+        Flow monitor map configuration
+        
+        .. attribute:: flow_monitor_map
+        
+        	Monitor map name
+        	**type**\: list of :py:class:`FlowMonitorMap <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapTable.FlowMonitorMap>`
+        
+        
+
+        """
+
+        _prefix = 'traffmon-netflow-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.flow_monitor_map = YList()
+            self.flow_monitor_map.parent = self
+            self.flow_monitor_map.name = 'flow_monitor_map'
+
+
+        class FlowMonitorMap(object):
+            """
+            Monitor map name
+            
+            .. attribute:: monitor_map_name  <key>
+            
+            	Monitor map name
+            	**type**\: str
+            
+            	**range:** 0..32
+            
+            .. attribute:: option
+            
+            	Specify an option for the flow cache
+            	**type**\: :py:class:`Option <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapTable.FlowMonitorMap.Option>`
+            
+            .. attribute:: exporters
+            
+            	Configure exporters to be used by the monitor\-map
+            	**type**\: :py:class:`Exporters <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters>`
+            
+            .. attribute:: record
+            
+            	Specify a flow record format
+            	**type**\: :py:class:`Record <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapTable.FlowMonitorMap.Record>`
+            
+            .. attribute:: cache_update_aging_timeout
+            
+            	Specify the update flow cache aging timeout
+            	**type**\: int
+            
+            	**range:** 1..604800
+            
+            .. attribute:: cache_entries
+            
+            	Specify the number of entries in the flow cache
+            	**type**\: int
+            
+            	**range:** 4096..1000000
+            
+            .. attribute:: cache_inactive_aging_timeout
+            
+            	Specify the inactive flow cache aging timeout
+            	**type**\: int
+            
+            	**range:** 0..604800
+            
+            .. attribute:: cache_active_aging_timeout
+            
+            	Specify the active flow cache aging timeout
+            	**type**\: int
+            
+            	**range:** 1..604800
+            
+            .. attribute:: cache_timeout_rate_limit
+            
+            	Specify the maximum number of entries to age each second
+            	**type**\: int
+            
+            	**range:** 1..1000000
+            
+            .. attribute:: cache_aging_mode
+            
+            	Specify the flow cache aging mode
+            	**type**\: :py:class:`NfCacheAgingModeEnum <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NfCacheAgingModeEnum>`
+            
+            
+
+            """
+
+            _prefix = 'traffmon-netflow-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.monitor_map_name = None
+                self.option = NetFlow.FlowMonitorMapTable.FlowMonitorMap.Option()
+                self.option.parent = self
+                self.exporters = NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters()
+                self.exporters.parent = self
+                self.record = None
+                self.cache_update_aging_timeout = None
+                self.cache_entries = None
+                self.cache_inactive_aging_timeout = None
+                self.cache_active_aging_timeout = None
+                self.cache_timeout_rate_limit = None
+                self.cache_aging_mode = None
+
+
+            class Option(object):
+                """
+                Specify an option for the flow cache
+                
+                .. attribute:: filtered
+                
+                	Specify whether data should be filtered
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: out_phys_int
+                
+                	Specify whether it exports the physical output interface
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                
+
+                """
+
+                _prefix = 'traffmon-netflow-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.filtered = None
+                    self.out_phys_int = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:option'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.filtered is not None:
+                        return True
+
+                    if self.out_phys_int is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                    return meta._meta_table['NetFlow.FlowMonitorMapTable.FlowMonitorMap.Option']['meta_info']
+
+
+            class Exporters(object):
+                """
+                Configure exporters to be used by the
+                monitor\-map
+                
+                .. attribute:: exporter
+                
+                	Configure exporter to be used by the monitor\-map
+                	**type**\: list of :py:class:`Exporter <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters.Exporter>`
+                
+                
+
+                """
+
+                _prefix = 'traffmon-netflow-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.exporter = YList()
+                    self.exporter.parent = self
+                    self.exporter.name = 'exporter'
+
+
+                class Exporter(object):
+                    """
+                    Configure exporter to be used by the
+                    monitor\-map
+                    
+                    .. attribute:: exporter_name  <key>
+                    
+                    	Exporter name
+                    	**type**\: str
+                    
+                    	**range:** 0..32
+                    
+                    
+
+                    """
+
+                    _prefix = 'traffmon-netflow-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.exporter_name = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        if self.exporter_name is None:
+                            raise YPYDataValidationError('Key property exporter_name is None')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:exporter[Cisco-IOS-XR-traffmon-netflow-cfg:exporter-name = ' + str(self.exporter_name) + ']'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.exporter_name is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                        return meta._meta_table['NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters.Exporter']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:exporters'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.exporter is not None:
+                        for child_ref in self.exporter:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                    return meta._meta_table['NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters']['meta_info']
+
+
+            class Record(object):
+                """
+                Specify a flow record format
+                
+                .. attribute:: record_name
+                
+                	Flow record format (Either 'ipv4\-raw' ,'ipv4\-peer\-as', 'ipv6', 'mpls', 'mpls\-ipv4', 'mpls\-ipv6', 'mpls\-ipv4\-ipv6', 'ipv6\-peer\-as')
+                	**type**\: str
+                
+                	**range:** 0..32
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: label
+                
+                	Enter label value for MPLS record type
+                	**type**\: int
+                
+                	**range:** 1..6
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                
+
+                This class is a :ref:`presence class<presence-class>`
+
+                """
+
+                _prefix = 'traffmon-netflow-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.record_name = None
+                    self.label = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:record'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.record_name is not None:
+                        return True
+
+                    if self.label is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                    return meta._meta_table['NetFlow.FlowMonitorMapTable.FlowMonitorMap.Record']['meta_info']
+
+            @property
+            def _common_path(self):
+                if self.monitor_map_name is None:
+                    raise YPYDataValidationError('Key property monitor_map_name is None')
+
+                return '/Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/Cisco-IOS-XR-traffmon-netflow-cfg:flow-monitor-map-table/Cisco-IOS-XR-traffmon-netflow-cfg:flow-monitor-map[Cisco-IOS-XR-traffmon-netflow-cfg:monitor-map-name = ' + str(self.monitor_map_name) + ']'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.monitor_map_name is not None:
+                    return True
+
+                if self.option is not None and self.option._has_data():
+                    return True
+
+                if self.exporters is not None and self.exporters._has_data():
+                    return True
+
+                if self.record is not None and self.record._has_data():
+                    return True
+
+                if self.cache_update_aging_timeout is not None:
+                    return True
+
+                if self.cache_entries is not None:
+                    return True
+
+                if self.cache_inactive_aging_timeout is not None:
+                    return True
+
+                if self.cache_active_aging_timeout is not None:
+                    return True
+
+                if self.cache_timeout_rate_limit is not None:
+                    return True
+
+                if self.cache_aging_mode is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                return meta._meta_table['NetFlow.FlowMonitorMapTable.FlowMonitorMap']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/Cisco-IOS-XR-traffmon-netflow-cfg:flow-monitor-map-table'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.flow_monitor_map is not None:
+                for child_ref in self.flow_monitor_map:
+                    if child_ref._has_data():
+                        return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+            return meta._meta_table['NetFlow.FlowMonitorMapTable']['meta_info']
+
+
+    class FlowMonitorMapPerformanceTable(object):
+        """
+        Configure a performance traffic flow monitor map
+        
+        .. attribute:: flow_monitor_map
+        
+        	Monitor map name
+        	**type**\: list of :py:class:`FlowMonitorMap <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap>`
+        
+        
+
+        """
+
+        _prefix = 'traffmon-netflow-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.flow_monitor_map = YList()
+            self.flow_monitor_map.parent = self
+            self.flow_monitor_map.name = 'flow_monitor_map'
+
+
+        class FlowMonitorMap(object):
+            """
+            Monitor map name
+            
+            .. attribute:: monitor_map_name  <key>
+            
+            	Monitor map name
+            	**type**\: str
+            
+            	**range:** 0..32
+            
+            .. attribute:: option
+            
+            	Specify an option for the flow cache
+            	**type**\: :py:class:`Option <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Option>`
+            
+            .. attribute:: exporters
+            
+            	Configure exporters to be used by the monitor\-map
+            	**type**\: :py:class:`Exporters <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters>`
+            
+            .. attribute:: record
+            
+            	Specify a flow record format
+            	**type**\: :py:class:`Record <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Record>`
+            
+            .. attribute:: cache_update_aging_timeout
+            
+            	Specify the update flow cache aging timeout
+            	**type**\: int
+            
+            	**range:** 1..604800
+            
+            .. attribute:: cache_entries
+            
+            	Specify the number of entries in the flow cache
+            	**type**\: int
+            
+            	**range:** 4096..1000000
+            
+            .. attribute:: cache_inactive_aging_timeout
+            
+            	Specify the inactive flow cache aging timeout
+            	**type**\: int
+            
+            	**range:** 0..604800
+            
+            .. attribute:: cache_active_aging_timeout
+            
+            	Specify the active flow cache aging timeout
+            	**type**\: int
+            
+            	**range:** 1..604800
+            
+            .. attribute:: cache_timeout_rate_limit
+            
+            	Specify the maximum number of entries to age each second
+            	**type**\: int
+            
+            	**range:** 1..1000000
+            
+            .. attribute:: cache_aging_mode
+            
+            	Specify the flow cache aging mode
+            	**type**\: :py:class:`NfCacheAgingModeEnum <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NfCacheAgingModeEnum>`
+            
+            
+
+            """
+
+            _prefix = 'traffmon-netflow-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.monitor_map_name = None
+                self.option = NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Option()
+                self.option.parent = self
+                self.exporters = NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters()
+                self.exporters.parent = self
+                self.record = None
+                self.cache_update_aging_timeout = None
+                self.cache_entries = None
+                self.cache_inactive_aging_timeout = None
+                self.cache_active_aging_timeout = None
+                self.cache_timeout_rate_limit = None
+                self.cache_aging_mode = None
+
+
+            class Option(object):
+                """
+                Specify an option for the flow cache
+                
+                .. attribute:: filtered
+                
+                	Specify whether data should be filtered
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: out_phys_int
+                
+                	Specify whether it exports the physical output interface
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                
+                
+
+                """
+
+                _prefix = 'traffmon-netflow-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.filtered = None
+                    self.out_phys_int = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:option'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.filtered is not None:
+                        return True
+
+                    if self.out_phys_int is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                    return meta._meta_table['NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Option']['meta_info']
+
+
+            class Exporters(object):
+                """
+                Configure exporters to be used by the
+                monitor\-map
+                
+                .. attribute:: exporter
+                
+                	Configure exporter to be used by the monitor\-map
+                	**type**\: list of :py:class:`Exporter <ydk.models.traffmon.Cisco_IOS_XR_traffmon_netflow_cfg.NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters.Exporter>`
+                
+                
+
+                """
+
+                _prefix = 'traffmon-netflow-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.exporter = YList()
+                    self.exporter.parent = self
+                    self.exporter.name = 'exporter'
+
+
+                class Exporter(object):
+                    """
+                    Configure exporter to be used by the
+                    monitor\-map
+                    
+                    .. attribute:: exporter_name  <key>
+                    
+                    	Exporter name
+                    	**type**\: str
+                    
+                    	**range:** 0..32
+                    
+                    
+
+                    """
+
+                    _prefix = 'traffmon-netflow-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.exporter_name = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                        if self.exporter_name is None:
+                            raise YPYDataValidationError('Key property exporter_name is None')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:exporter[Cisco-IOS-XR-traffmon-netflow-cfg:exporter-name = ' + str(self.exporter_name) + ']'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.exporter_name is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                        return meta._meta_table['NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters.Exporter']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:exporters'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.exporter is not None:
+                        for child_ref in self.exporter:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                    return meta._meta_table['NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters']['meta_info']
+
+
+            class Record(object):
+                """
+                Specify a flow record format
+                
+                .. attribute:: record_name
+                
+                	Flow record format (Either 'ipv4\-raw' ,'ipv4\-peer\-as', 'ipv6', 'mpls', 'mpls\-ipv4', 'mpls\-ipv6', 'mpls\-ipv4\-ipv6', 'ipv6\-peer\-as')
+                	**type**\: str
+                
+                	**range:** 0..32
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                .. attribute:: label
+                
+                	Enter label value for MPLS record type
+                	**type**\: int
+                
+                	**range:** 1..6
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                
+
+                This class is a :ref:`presence class<presence-class>`
+
+                """
+
+                _prefix = 'traffmon-netflow-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.record_name = None
+                    self.label = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-traffmon-netflow-cfg:record'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.record_name is not None:
+                        return True
+
+                    if self.label is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                    return meta._meta_table['NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Record']['meta_info']
+
+            @property
+            def _common_path(self):
+                if self.monitor_map_name is None:
+                    raise YPYDataValidationError('Key property monitor_map_name is None')
+
+                return '/Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/Cisco-IOS-XR-traffmon-netflow-cfg:flow-monitor-map-performance-table/Cisco-IOS-XR-traffmon-netflow-cfg:flow-monitor-map[Cisco-IOS-XR-traffmon-netflow-cfg:monitor-map-name = ' + str(self.monitor_map_name) + ']'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.monitor_map_name is not None:
+                    return True
+
+                if self.option is not None and self.option._has_data():
+                    return True
+
+                if self.exporters is not None and self.exporters._has_data():
+                    return True
+
+                if self.record is not None and self.record._has_data():
+                    return True
+
+                if self.cache_update_aging_timeout is not None:
+                    return True
+
+                if self.cache_entries is not None:
+                    return True
+
+                if self.cache_inactive_aging_timeout is not None:
+                    return True
+
+                if self.cache_active_aging_timeout is not None:
+                    return True
+
+                if self.cache_timeout_rate_limit is not None:
+                    return True
+
+                if self.cache_aging_mode is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+                return meta._meta_table['NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-traffmon-netflow-cfg:net-flow/Cisco-IOS-XR-traffmon-netflow-cfg:flow-monitor-map-performance-table'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.flow_monitor_map is not None:
+                for child_ref in self.flow_monitor_map:
+                    if child_ref._has_data():
+                        return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.traffmon._meta import _Cisco_IOS_XR_traffmon_netflow_cfg as meta
+            return meta._meta_table['NetFlow.FlowMonitorMapPerformanceTable']['meta_info']
+
     @property
     def _common_path(self):
 
@@ -1645,13 +1645,13 @@ class NetFlow(object):
         if self.flow_exporter_maps is not None and self.flow_exporter_maps._has_data():
             return True
 
-        if self.flow_monitor_map_performance_table is not None and self.flow_monitor_map_performance_table._has_data():
+        if self.flow_sampler_maps is not None and self.flow_sampler_maps._has_data():
             return True
 
         if self.flow_monitor_map_table is not None and self.flow_monitor_map_table._has_data():
             return True
 
-        if self.flow_sampler_maps is not None and self.flow_sampler_maps._has_data():
+        if self.flow_monitor_map_performance_table is not None and self.flow_monitor_map_performance_table._has_data():
             return True
 
         return False

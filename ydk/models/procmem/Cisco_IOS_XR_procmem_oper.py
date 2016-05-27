@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -73,7 +73,7 @@ class ProcessesMemory(object):
             """
             Node ID
             
-            .. attribute:: node_name
+            .. attribute:: node_name  <key>
             
             	Node name
             	**type**\: str
@@ -126,19 +126,17 @@ class ProcessesMemory(object):
                     """
                     Job Id
                     
-                    .. attribute:: job_id
+                    .. attribute:: job_id  <key>
                     
                     	Job Id
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
-                    .. attribute:: data_seg_size
+                    .. attribute:: name
                     
-                    	Data Segment Size
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
+                    	Process name
+                    	**type**\: str
                     
                     .. attribute:: jid
                     
@@ -147,17 +145,19 @@ class ProcessesMemory(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: malloc_size
+                    .. attribute:: text_seg_size
                     
-                    	Malloced Memory Size
+                    	Text Segment Size
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: name
+                    .. attribute:: data_seg_size
                     
-                    	Process name
-                    	**type**\: str
+                    	Data Segment Size
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: stack_seg_size
                     
@@ -166,9 +166,9 @@ class ProcessesMemory(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: text_seg_size
+                    .. attribute:: malloc_size
                     
-                    	Text Segment Size
+                    	Malloced Memory Size
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -183,12 +183,12 @@ class ProcessesMemory(object):
                     def __init__(self):
                         self.parent = None
                         self.job_id = None
-                        self.data_seg_size = None
-                        self.jid = None
-                        self.malloc_size = None
                         self.name = None
-                        self.stack_seg_size = None
+                        self.jid = None
                         self.text_seg_size = None
+                        self.data_seg_size = None
+                        self.stack_seg_size = None
+                        self.malloc_size = None
 
                     @property
                     def _common_path(self):
@@ -209,22 +209,22 @@ class ProcessesMemory(object):
                         if self.job_id is not None:
                             return True
 
-                        if self.data_seg_size is not None:
+                        if self.name is not None:
                             return True
 
                         if self.jid is not None:
                             return True
 
-                        if self.malloc_size is not None:
+                        if self.text_seg_size is not None:
                             return True
 
-                        if self.name is not None:
+                        if self.data_seg_size is not None:
                             return True
 
                         if self.stack_seg_size is not None:
                             return True
 
-                        if self.text_seg_size is not None:
+                        if self.malloc_size is not None:
                             return True
 
                         return False

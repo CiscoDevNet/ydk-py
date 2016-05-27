@@ -7,7 +7,7 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
@@ -24,11 +24,11 @@ _meta_table = {
                 ''',
                 'job_id',
                 'Cisco-IOS-XR-procmem-oper', True),
-            _MetaInfoClassMember('data-seg-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Data Segment Size
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Process name
                 ''',
-                'data_seg_size',
+                'name',
                 'Cisco-IOS-XR-procmem-oper', False),
             _MetaInfoClassMember('jid', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -36,17 +36,17 @@ _meta_table = {
                 ''',
                 'jid',
                 'Cisco-IOS-XR-procmem-oper', False),
-            _MetaInfoClassMember('malloc-size', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('text-seg-size', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Malloced Memory Size
+                '''                Text Segment Size
                 ''',
-                'malloc_size',
+                'text_seg_size',
                 'Cisco-IOS-XR-procmem-oper', False),
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Process name
+            _MetaInfoClassMember('data-seg-size', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Data Segment Size
                 ''',
-                'name',
+                'data_seg_size',
                 'Cisco-IOS-XR-procmem-oper', False),
             _MetaInfoClassMember('stack-seg-size', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -54,11 +54,11 @@ _meta_table = {
                 ''',
                 'stack_seg_size',
                 'Cisco-IOS-XR-procmem-oper', False),
-            _MetaInfoClassMember('text-seg-size', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('malloc-size', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Text Segment Size
+                '''                Malloced Memory Size
                 ''',
-                'text_seg_size',
+                'malloc_size',
                 'Cisco-IOS-XR-procmem-oper', False),
             ],
             'Cisco-IOS-XR-procmem-oper',

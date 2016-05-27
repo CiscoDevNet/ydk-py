@@ -7,7 +7,7 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
@@ -101,438 +101,6 @@ _meta_table = {
             'remark':'REMARK',
             'abf':'ABF',
         }, 'Cisco-IOS-XR-ipv6-acl-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-oper']),
-    'Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo' : {
-        'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo',
-            False, 
-            [
-            _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                The Next Hop
-                ''',
-                'next_hop',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Table ID
-                ''',
-                'table_id',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BagAclNhEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'BagAclNhEnum', 
-                [], [], 
-                '''                The next-hop type
-                ''',
-                'type',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
-                '''                Vrf Name
-                ''',
-                'vrf_name',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-acl-oper',
-            'hw-next-hop-info',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper'
-        ),
-    },
-    'Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo' : {
-        'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo',
-            False, 
-            [
-            _MetaInfoClassMember('acl-nh-exist', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                The nexthop exist
-                ''',
-                'acl_nh_exist',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('at-status', REFERENCE_ENUM_CLASS, 'BagAclNhAtStatusEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'BagAclNhAtStatusEnum', 
-                [], [], 
-                '''                The next hop at status
-                ''',
-                'at_status',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                The next hop
-                ''',
-                'next_hop',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'BagAclNhStatusEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'BagAclNhStatusEnum', 
-                [], [], 
-                '''                The next hop status
-                ''',
-                'status',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('track-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 33)], [], 
-                '''                Track name
-                ''',
-                'track_name',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
-                '''                Vrf Name
-                ''',
-                'vrf_name',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-acl-oper',
-            'next-hop-info',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper'
-        ),
-    },
-    'Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence' : {
-        'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence',
-            False, 
-            [
-            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'int' , None, None, 
-                [(1, 2147483646)], [], 
-                '''                ACL entry sequence number
-                ''',
-                'sequence_number',
-                'Cisco-IOS-XR-ipv6-acl-oper', True),
-            _MetaInfoClassMember('acl-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                ACL Name
-                ''',
-                'acl_name',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('capture', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Capture option, TRUE if enabled
-                ''',
-                'capture',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('counter-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Counter name
-                ''',
-                'counter_name',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('destination-mask', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                Destination Mask
-                ''',
-                'destination_mask',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('destination-port-group', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Destination port object-group
-                ''',
-                'destination_port_group',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('destination-prefix-group', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Destination prefix object-group
-                ''',
-                'destination_prefix_group',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('hits', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                hits
-                ''',
-                'hits',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('hw-next-hop-info', REFERENCE_CLASS, 'HwNextHopInfo' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo', 
-                [], [], 
-                '''                HW Next hop info
-                ''',
-                'hw_next_hop_info',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-ace-sequence-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                ACLE sequence number
-                ''',
-                'is_ace_sequence_number',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-ace-type', REFERENCE_ENUM_CLASS, 'AclAce1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'AclAce1Enum', 
-                [], [], 
-                '''                ACE type (acl, remark)
-                ''',
-                'is_ace_type',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-comment-for-entry', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                IsCommentForEntry
-                ''',
-                'is_comment_for_entry',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-destination-address-in-numbers', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                IsDestinationAddressInNumbers
-                ''',
-                'is_destination_address_in_numbers',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-destination-address-prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                IsDestinationAddressPrefixLength
-                ''',
-                'is_destination_address_prefix_length',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-destination-operator', REFERENCE_ENUM_CLASS, 'AclPortOperatorEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'AclPortOperatorEnum', 
-                [], [], 
-                '''                eq, ne, lt, etc...
-                ''',
-                'is_destination_operator',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-destination-port1', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                IsDestinationPort1
-                ''',
-                'is_destination_port1',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-destination-port2', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                IsDestinationPort2
-                ''',
-                'is_destination_port2',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-dscp-present', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                IsDSCPPresent
-                ''',
-                'is_dscp_present',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-dscp-valu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                IsDSCPValu
-                ''',
-                'is_dscp_valu',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-flow-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                IsFlowId
-                ''',
-                'is_flow_id',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-header-matches', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Match if routing header is presant
-                ''',
-                'is_header_matches',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-icmp-message-off', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Don't generate the icmp message
-                ''',
-                'is_icmp_message_off',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-ipv6-protocol-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                IsIPV6ProtocolType
-                ''',
-                'is_ipv6_protocol_type',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-log-option', REFERENCE_ENUM_CLASS, 'AclLogEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'AclLogEnum', 
-                [], [], 
-                '''                IsLogOption
-                ''',
-                'is_log_option',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-packet-allow-or-deny', REFERENCE_ENUM_CLASS, 'AclActionEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'AclActionEnum', 
-                [], [], 
-                '''                Grant value permit/deny 
-                ''',
-                'is_packet_allow_or_deny',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-packet-length-end', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                IsPacketLengthEnd
-                ''',
-                'is_packet_length_end',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-packet-length-operator', REFERENCE_ENUM_CLASS, 'AclPortOperatorEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'AclPortOperatorEnum', 
-                [], [], 
-                '''                Match if routing header is presant
-                ''',
-                'is_packet_length_operator',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-packet-length-start', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                IsPacketLengthStart
-                ''',
-                'is_packet_length_start',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-precedence-present', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                IsPrecedencePresent
-                ''',
-                'is_precedence_present',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-precedence-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                range from 0 to 7
-                ''',
-                'is_precedence_value',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-source-address-in-numbers', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                IsSourceAddressInNumbers
-                ''',
-                'is_source_address_in_numbers',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-source-address-prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                IsSourceAddressPrefixLength
-                ''',
-                'is_source_address_prefix_length',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-source-operator', REFERENCE_ENUM_CLASS, 'AclPortOperatorEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'AclPortOperatorEnum', 
-                [], [], 
-                '''                eq, ne, lt, etc...
-                ''',
-                'is_source_operator',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-source-port1', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                IsSourcePort1
-                ''',
-                'is_source_port1',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-source-port2', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                IsSourcePort2
-                ''',
-                'is_source_port2',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-tcp-bits', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                IsTCPBits
-                ''',
-                'is_tcp_bits',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-tcp-bits-mask', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                IsTCPBitsMask
-                ''',
-                'is_tcp_bits_mask',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-tcp-bits-operator', REFERENCE_ENUM_CLASS, 'AclTcpflagsOperatorEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'AclTcpflagsOperatorEnum', 
-                [], [], 
-                '''                IsTCPBitsOperator
-                ''',
-                'is_tcp_bits_operator',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-time-to-live-end', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                IsTimeToLiveEnd
-                ''',
-                'is_time_to_live_end',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-time-to-live-operator', REFERENCE_ENUM_CLASS, 'AclPortOperatorEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'AclPortOperatorEnum', 
-                [], [], 
-                '''                IsTimeToLiveOperator
-                ''',
-                'is_time_to_live_operator',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-time-to-live-start', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                IsTimeToLiveStart
-                ''',
-                'is_time_to_live_start',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('next-hop-info', REFERENCE_LIST, 'NextHopInfo' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo', 
-                [], [], 
-                '''                Next hop info
-                ''',
-                'next_hop_info',
-                'Cisco-IOS-XR-ipv6-acl-oper', False, max_elements=3),
-            _MetaInfoClassMember('next-hop-type', REFERENCE_ENUM_CLASS, 'BagAclNhEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'BagAclNhEnum', 
-                [], [], 
-                '''                Next hop type
-                ''',
-                'next_hop_type',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('no-stats', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                no stats
-                ''',
-                'no_stats',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('source-mask', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                Source Mask
-                ''',
-                'source_mask',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('source-port-group', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Source port object-group
-                ''',
-                'source_port_group',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('source-prefix-group', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Source prefix object-group
-                ''',
-                'source_prefix_group',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-acl-oper',
-            'access-list-sequence',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper'
-        ),
-    },
-    'Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences' : {
-        'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences',
-            False, 
-            [
-            _MetaInfoClassMember('access-list-sequence', REFERENCE_LIST, 'AccessListSequence' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence', 
-                [], [], 
-                '''                Sequence number of an ACL entry
-                ''',
-                'access_list_sequence',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-acl-oper',
-            'access-list-sequences',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper'
-        ),
-    },
-    'Ipv6AclAndPrefixList.AccessListManager.Accesses.Access' : {
-        'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.AccessListManager.Accesses.Access',
-            False, 
-            [
-            _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 65)], [], 
-                '''                Name of the Access List
-                ''',
-                'access_list_name',
-                'Cisco-IOS-XR-ipv6-acl-oper', True),
-            _MetaInfoClassMember('access-list-sequences', REFERENCE_CLASS, 'AccessListSequences' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences', 
-                [], [], 
-                '''                Table of all the sequence numbers per ACL
-                ''',
-                'access_list_sequences',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-acl-oper',
-            'access',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper'
-        ),
-    },
-    'Ipv6AclAndPrefixList.AccessListManager.Accesses' : {
-        'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.AccessListManager.Accesses',
-            False, 
-            [
-            _MetaInfoClassMember('access', REFERENCE_LIST, 'Access' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'Ipv6AclAndPrefixList.AccessListManager.Accesses.Access', 
-                [], [], 
-                '''                Name of the Access List
-                ''',
-                'access',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-acl-oper',
-            'accesses',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper'
-        ),
-    },
     'Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences.PrefixListSequence' : {
         'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences.PrefixListSequence',
             False, 
@@ -543,17 +111,11 @@ _meta_table = {
                 ''',
                 'sequence_number',
                 'Cisco-IOS-XR-ipv6-acl-oper', True),
-            _MetaInfoClassMember('acl-name', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('is-ace-type', REFERENCE_ENUM_CLASS, 'AclAce1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'AclAce1Enum', 
                 [], [], 
-                '''                ACL Name
+                '''                ACE type (acl, remark)
                 ''',
-                'acl_name',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('hits', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of hits
-                ''',
-                'hits',
+                'is_ace_type',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
             _MetaInfoClassMember('is-ace-sequence-number', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -561,11 +123,11 @@ _meta_table = {
                 ''',
                 'is_ace_sequence_number',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-ace-type', REFERENCE_ENUM_CLASS, 'AclAce1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'AclAce1Enum', 
+            _MetaInfoClassMember('is-packet-allow-or-deny', REFERENCE_ENUM_CLASS, 'AclActionEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'AclActionEnum', 
                 [], [], 
-                '''                ACE type (acl, remark)
+                '''                Grant value permit/deny 
                 ''',
-                'is_ace_type',
+                'is_packet_allow_or_deny',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
             _MetaInfoClassMember('is-address-in-numbers', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
@@ -579,23 +141,17 @@ _meta_table = {
                 ''',
                 'is_address_mask_length',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-comment-for-entry', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Remark String
-                ''',
-                'is_comment_for_entry',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
             _MetaInfoClassMember('is-length-operator', REFERENCE_ENUM_CLASS, 'AclPortOperatorEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'AclPortOperatorEnum', 
                 [], [], 
                 '''                Port Operator
                 ''',
                 'is_length_operator',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-packet-allow-or-deny', REFERENCE_ENUM_CLASS, 'AclActionEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'AclActionEnum', 
-                [], [], 
-                '''                Grant value permit/deny 
+            _MetaInfoClassMember('is-packet-minimum-length', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Min length
                 ''',
-                'is_packet_allow_or_deny',
+                'is_packet_minimum_length',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
             _MetaInfoClassMember('is-packet-maximum-length', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -603,11 +159,23 @@ _meta_table = {
                 ''',
                 'is_packet_maximum_length',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-packet-minimum-length', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('hits', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Min length
+                '''                Number of hits
                 ''',
-                'is_packet_minimum_length',
+                'hits',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-comment-for-entry', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Remark String
+                ''',
+                'is_comment_for_entry',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('acl-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                ACL Name
+                ''',
+                'acl_name',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-acl-oper',
@@ -678,11 +246,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.AccessListManager.Usages.Usage',
             False, 
             [
-            _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 65)], [], 
-                '''                Name of the ACL
+            _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                '''                Node where ACL is applied
                 ''',
-                'access_list_name',
+                'node_name',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
             _MetaInfoClassMember('application-id', REFERENCE_ENUM_CLASS, 'AclUsageAppIdEnumEnum' , 'ydk.models.common.Cisco_IOS_XR_common_acl_datatypes', 'AclUsageAppIdEnumEnum', 
                 [], [], 
@@ -690,11 +258,11 @@ _meta_table = {
                 ''',
                 'application_id',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
-                '''                Node where ACL is applied
+            _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 65)], [], 
+                '''                Name of the ACL
                 ''',
-                'node_name',
+                'access_list_name',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
             _MetaInfoClassMember('usage-details', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -726,16 +294,442 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper'
         ),
     },
+    'Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo' : {
+        'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo',
+            False, 
+            [
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'BagAclNhEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'BagAclNhEnum', 
+                [], [], 
+                '''                The next-hop type
+                ''',
+                'type',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                The Next Hop
+                ''',
+                'next_hop',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Table ID
+                ''',
+                'table_id',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 32)], [], 
+                '''                Vrf Name
+                ''',
+                'vrf_name',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-acl-oper',
+            'hw-next-hop-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper'
+        ),
+    },
+    'Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo' : {
+        'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo',
+            False, 
+            [
+            _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                The next hop
+                ''',
+                'next_hop',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 32)], [], 
+                '''                Vrf Name
+                ''',
+                'vrf_name',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('track-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 33)], [], 
+                '''                Track name
+                ''',
+                'track_name',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'BagAclNhStatusEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'BagAclNhStatusEnum', 
+                [], [], 
+                '''                The next hop status
+                ''',
+                'status',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('at-status', REFERENCE_ENUM_CLASS, 'BagAclNhAtStatusEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'BagAclNhAtStatusEnum', 
+                [], [], 
+                '''                The next hop at status
+                ''',
+                'at_status',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('acl-nh-exist', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                The nexthop exist
+                ''',
+                'acl_nh_exist',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-acl-oper',
+            'next-hop-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper'
+        ),
+    },
+    'Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence' : {
+        'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence',
+            False, 
+            [
+            _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'int' , None, None, 
+                [(1, 2147483646)], [], 
+                '''                ACL entry sequence number
+                ''',
+                'sequence_number',
+                'Cisco-IOS-XR-ipv6-acl-oper', True),
+            _MetaInfoClassMember('hw-next-hop-info', REFERENCE_CLASS, 'HwNextHopInfo' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo', 
+                [], [], 
+                '''                HW Next hop info
+                ''',
+                'hw_next_hop_info',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-ace-type', REFERENCE_ENUM_CLASS, 'AclAce1Enum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'AclAce1Enum', 
+                [], [], 
+                '''                ACE type (acl, remark)
+                ''',
+                'is_ace_type',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-ace-sequence-number', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ACLE sequence number
+                ''',
+                'is_ace_sequence_number',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-packet-allow-or-deny', REFERENCE_ENUM_CLASS, 'AclActionEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'AclActionEnum', 
+                [], [], 
+                '''                Grant value permit/deny 
+                ''',
+                'is_packet_allow_or_deny',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-ipv6-protocol-type', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                IsIPV6ProtocolType
+                ''',
+                'is_ipv6_protocol_type',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-source-address-in-numbers', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                IsSourceAddressInNumbers
+                ''',
+                'is_source_address_in_numbers',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-source-address-prefix-length', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                IsSourceAddressPrefixLength
+                ''',
+                'is_source_address_prefix_length',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('source-mask', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                Source Mask
+                ''',
+                'source_mask',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-destination-address-in-numbers', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                IsDestinationAddressInNumbers
+                ''',
+                'is_destination_address_in_numbers',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-destination-address-prefix-length', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                IsDestinationAddressPrefixLength
+                ''',
+                'is_destination_address_prefix_length',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('destination-mask', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                Destination Mask
+                ''',
+                'destination_mask',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-source-operator', REFERENCE_ENUM_CLASS, 'AclPortOperatorEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'AclPortOperatorEnum', 
+                [], [], 
+                '''                eq, ne, lt, etc...
+                ''',
+                'is_source_operator',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-source-port1', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                IsSourcePort1
+                ''',
+                'is_source_port1',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-source-port2', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                IsSourcePort2
+                ''',
+                'is_source_port2',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-destination-operator', REFERENCE_ENUM_CLASS, 'AclPortOperatorEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'AclPortOperatorEnum', 
+                [], [], 
+                '''                eq, ne, lt, etc...
+                ''',
+                'is_destination_operator',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-destination-port1', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                IsDestinationPort1
+                ''',
+                'is_destination_port1',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-destination-port2', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                IsDestinationPort2
+                ''',
+                'is_destination_port2',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-log-option', REFERENCE_ENUM_CLASS, 'AclLogEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'AclLogEnum', 
+                [], [], 
+                '''                IsLogOption
+                ''',
+                'is_log_option',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('counter-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Counter name
+                ''',
+                'counter_name',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-tcp-bits-operator', REFERENCE_ENUM_CLASS, 'AclTcpflagsOperatorEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'AclTcpflagsOperatorEnum', 
+                [], [], 
+                '''                IsTCPBitsOperator
+                ''',
+                'is_tcp_bits_operator',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-tcp-bits', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                IsTCPBits
+                ''',
+                'is_tcp_bits',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-tcp-bits-mask', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                IsTCPBitsMask
+                ''',
+                'is_tcp_bits_mask',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-dscp-present', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                IsDSCPPresent
+                ''',
+                'is_dscp_present',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-dscp-valu', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                IsDSCPValu
+                ''',
+                'is_dscp_valu',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-precedence-present', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                IsPrecedencePresent
+                ''',
+                'is_precedence_present',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-precedence-value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                range from 0 to 7
+                ''',
+                'is_precedence_value',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-header-matches', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Match if routing header is presant
+                ''',
+                'is_header_matches',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-packet-length-operator', REFERENCE_ENUM_CLASS, 'AclPortOperatorEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'AclPortOperatorEnum', 
+                [], [], 
+                '''                Match if routing header is presant
+                ''',
+                'is_packet_length_operator',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-packet-length-start', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                IsPacketLengthStart
+                ''',
+                'is_packet_length_start',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-packet-length-end', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                IsPacketLengthEnd
+                ''',
+                'is_packet_length_end',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-time-to-live-operator', REFERENCE_ENUM_CLASS, 'AclPortOperatorEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'AclPortOperatorEnum', 
+                [], [], 
+                '''                IsTimeToLiveOperator
+                ''',
+                'is_time_to_live_operator',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-time-to-live-start', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                IsTimeToLiveStart
+                ''',
+                'is_time_to_live_start',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-time-to-live-end', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                IsTimeToLiveEnd
+                ''',
+                'is_time_to_live_end',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('no-stats', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                no stats
+                ''',
+                'no_stats',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('hits', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                hits
+                ''',
+                'hits',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('capture', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Capture option, TRUE if enabled
+                ''',
+                'capture',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-icmp-message-off', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Don't generate the icmp message
+                ''',
+                'is_icmp_message_off',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-comment-for-entry', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                IsCommentForEntry
+                ''',
+                'is_comment_for_entry',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('next-hop-type', REFERENCE_ENUM_CLASS, 'BagAclNhEnum' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'BagAclNhEnum', 
+                [], [], 
+                '''                Next hop type
+                ''',
+                'next_hop_type',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-flow-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                IsFlowId
+                ''',
+                'is_flow_id',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('source-prefix-group', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Source prefix object-group
+                ''',
+                'source_prefix_group',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('destination-prefix-group', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Destination prefix object-group
+                ''',
+                'destination_prefix_group',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('source-port-group', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Source port object-group
+                ''',
+                'source_port_group',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('destination-port-group', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Destination port object-group
+                ''',
+                'destination_port_group',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('acl-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                ACL Name
+                ''',
+                'acl_name',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('next-hop-info', REFERENCE_LIST, 'NextHopInfo' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo', 
+                [], [], 
+                '''                Next hop info
+                ''',
+                'next_hop_info',
+                'Cisco-IOS-XR-ipv6-acl-oper', False, max_elements=3),
+            ],
+            'Cisco-IOS-XR-ipv6-acl-oper',
+            'access-list-sequence',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper'
+        ),
+    },
+    'Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences' : {
+        'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences',
+            False, 
+            [
+            _MetaInfoClassMember('access-list-sequence', REFERENCE_LIST, 'AccessListSequence' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence', 
+                [], [], 
+                '''                Sequence number of an ACL entry
+                ''',
+                'access_list_sequence',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-acl-oper',
+            'access-list-sequences',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper'
+        ),
+    },
+    'Ipv6AclAndPrefixList.AccessListManager.Accesses.Access' : {
+        'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.AccessListManager.Accesses.Access',
+            False, 
+            [
+            _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 65)], [], 
+                '''                Name of the Access List
+                ''',
+                'access_list_name',
+                'Cisco-IOS-XR-ipv6-acl-oper', True),
+            _MetaInfoClassMember('access-list-sequences', REFERENCE_CLASS, 'AccessListSequences' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences', 
+                [], [], 
+                '''                Table of all the sequence numbers per ACL
+                ''',
+                'access_list_sequences',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-acl-oper',
+            'access',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper'
+        ),
+    },
+    'Ipv6AclAndPrefixList.AccessListManager.Accesses' : {
+        'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.AccessListManager.Accesses',
+            False, 
+            [
+            _MetaInfoClassMember('access', REFERENCE_LIST, 'Access' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'Ipv6AclAndPrefixList.AccessListManager.Accesses.Access', 
+                [], [], 
+                '''                Name of the Access List
+                ''',
+                'access',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-acl-oper',
+            'accesses',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper'
+        ),
+    },
     'Ipv6AclAndPrefixList.AccessListManager' : {
         'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.AccessListManager',
             False, 
             [
-            _MetaInfoClassMember('accesses', REFERENCE_CLASS, 'Accesses' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'Ipv6AclAndPrefixList.AccessListManager.Accesses', 
-                [], [], 
-                '''                ACL class displaying Usage and Entries
-                ''',
-                'accesses',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
             _MetaInfoClassMember('prefixes', REFERENCE_CLASS, 'Prefixes' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'Ipv6AclAndPrefixList.AccessListManager.Prefixes', 
                 [], [], 
                 '''                Table of prefix lists
@@ -749,86 +743,15 @@ _meta_table = {
                 ''',
                 'usages',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('accesses', REFERENCE_CLASS, 'Accesses' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'Ipv6AclAndPrefixList.AccessListManager.Accesses', 
+                [], [], 
+                '''                ACL class displaying Usage and Entries
+                ''',
+                'accesses',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-acl-oper',
             'access-list-manager',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper'
-        ),
-    },
-    'Ipv6AclAndPrefixList.Oor.AccessListSummary.Details' : {
-        'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.Oor.AccessListSummary.Details',
-            False, 
-            [
-            _MetaInfoClassMember('is-current-configured-ac-ls', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Current configured acls
-                ''',
-                'is_current_configured_ac_ls',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-current-configured-aces', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Current configured aces
-                ''',
-                'is_current_configured_aces',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-current-maximum-configurable-aces', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Current max configurable aces
-                ''',
-                'is_current_maximum_configurable_aces',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-current-maximum-configurable-acls', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Current max configurable acls
-                ''',
-                'is_current_maximum_configurable_acls',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-default-maximum-configurable-ac-es', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                default max configurable aces
-                ''',
-                'is_default_maximum_configurable_ac_es',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-default-maximum-configurable-ac-ls', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                default max configurable acls
-                ''',
-                'is_default_maximum_configurable_ac_ls',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-maximum-configurable-ac-es', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                max configurable aces
-                ''',
-                'is_maximum_configurable_ac_es',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-maximum-configurable-ac-ls', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                max configurable acls
-                ''',
-                'is_maximum_configurable_ac_ls',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-acl-oper',
-            'details',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-oper'],
-        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper'
-        ),
-    },
-    'Ipv6AclAndPrefixList.Oor.AccessListSummary' : {
-        'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.Oor.AccessListSummary',
-            False, 
-            [
-            _MetaInfoClassMember('details', REFERENCE_CLASS, 'Details' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'Ipv6AclAndPrefixList.Oor.AccessListSummary.Details', 
-                [], [], 
-                '''                Details containing the resource limits of the
-                ACLs
-                ''',
-                'details',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-acl-oper',
-            'access-list-summary',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-oper'],
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper'
         ),
@@ -837,6 +760,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.Oor.Details',
             False, 
             [
+            _MetaInfoClassMember('is-default-maximum-configurable-ac-ls', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                default max configurable acls
+                ''',
+                'is_default_maximum_configurable_ac_ls',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-default-maximum-configurable-ac-es', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                default max configurable aces
+                ''',
+                'is_default_maximum_configurable_ac_es',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
             _MetaInfoClassMember('is-current-configured-ac-ls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Current configured acls
@@ -849,35 +784,17 @@ _meta_table = {
                 ''',
                 'is_current_configured_aces',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-current-maximum-configurable-aces', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Current max configurable aces
-                ''',
-                'is_current_maximum_configurable_aces',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
             _MetaInfoClassMember('is-current-maximum-configurable-acls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Current max configurable acls
                 ''',
                 'is_current_maximum_configurable_acls',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-default-maximum-configurable-ac-es', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('is-current-maximum-configurable-aces', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                default max configurable aces
+                '''                Current max configurable aces
                 ''',
-                'is_default_maximum_configurable_ac_es',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-default-maximum-configurable-ac-ls', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                default max configurable acls
-                ''',
-                'is_default_maximum_configurable_ac_ls',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-maximum-configurable-ac-es', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                max configurable aces
-                ''',
-                'is_maximum_configurable_ac_es',
+                'is_current_maximum_configurable_aces',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
             _MetaInfoClassMember('is-maximum-configurable-ac-ls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -885,9 +802,92 @@ _meta_table = {
                 ''',
                 'is_maximum_configurable_ac_ls',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-maximum-configurable-ac-es', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                max configurable aces
+                ''',
+                'is_maximum_configurable_ac_es',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-acl-oper',
             'details',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper'
+        ),
+    },
+    'Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details' : {
+        'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details',
+            False, 
+            [
+            _MetaInfoClassMember('is-default-maximum-configurable-ac-ls', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                default max configurable acls
+                ''',
+                'is_default_maximum_configurable_ac_ls',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-default-maximum-configurable-ac-es', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                default max configurable aces
+                ''',
+                'is_default_maximum_configurable_ac_es',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-current-configured-ac-ls', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Current configured acls
+                ''',
+                'is_current_configured_ac_ls',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-current-configured-aces', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Current configured aces
+                ''',
+                'is_current_configured_aces',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-current-maximum-configurable-acls', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Current max configurable acls
+                ''',
+                'is_current_maximum_configurable_acls',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-current-maximum-configurable-aces', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Current max configurable aces
+                ''',
+                'is_current_maximum_configurable_aces',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-maximum-configurable-ac-ls', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                max configurable acls
+                ''',
+                'is_maximum_configurable_ac_ls',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-maximum-configurable-ac-es', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                max configurable aces
+                ''',
+                'is_maximum_configurable_ac_es',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-acl-oper',
+            'details',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-oper'],
+        'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper'
+        ),
+    },
+    'Ipv6AclAndPrefixList.Oor.PrefixListSummary' : {
+        'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.Oor.PrefixListSummary',
+            False, 
+            [
+            _MetaInfoClassMember('details', REFERENCE_CLASS, 'Details' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details', 
+                [], [], 
+                '''                Summary Detail of the prefix list Resource
+                Utilisation
+                ''',
+                'details',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-acl-oper',
+            'prefix-list-summary',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-oper'],
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper'
         ),
@@ -902,6 +902,18 @@ _meta_table = {
                 ''',
                 'access_list_name',
                 'Cisco-IOS-XR-ipv6-acl-oper', True),
+            _MetaInfoClassMember('is-default-maximum-configurable-ac-ls', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                default max configurable acls
+                ''',
+                'is_default_maximum_configurable_ac_ls',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-default-maximum-configurable-ac-es', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                default max configurable aces
+                ''',
+                'is_default_maximum_configurable_ac_es',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
             _MetaInfoClassMember('is-current-configured-ac-ls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Current configured acls
@@ -914,41 +926,29 @@ _meta_table = {
                 ''',
                 'is_current_configured_aces',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-current-maximum-configurable-aces', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Current max configurable aces
-                ''',
-                'is_current_maximum_configurable_aces',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
             _MetaInfoClassMember('is-current-maximum-configurable-acls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Current max configurable acls
                 ''',
                 'is_current_maximum_configurable_acls',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-default-maximum-configurable-ac-es', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('is-current-maximum-configurable-aces', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                default max configurable aces
+                '''                Current max configurable aces
                 ''',
-                'is_default_maximum_configurable_ac_es',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-default-maximum-configurable-ac-ls', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                default max configurable acls
-                ''',
-                'is_default_maximum_configurable_ac_ls',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-maximum-configurable-ac-es', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                max configurable aces
-                ''',
-                'is_maximum_configurable_ac_es',
+                'is_current_maximum_configurable_aces',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
             _MetaInfoClassMember('is-maximum-configurable-ac-ls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                max configurable acls
                 ''',
                 'is_maximum_configurable_ac_ls',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-maximum-configurable-ac-es', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                max configurable aces
+                ''',
+                'is_maximum_configurable_ac_es',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-acl-oper',
@@ -985,6 +985,18 @@ _meta_table = {
                 ''',
                 'prefix_list_name',
                 'Cisco-IOS-XR-ipv6-acl-oper', True),
+            _MetaInfoClassMember('is-default-maximum-configurable-ac-ls', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                default max configurable acls
+                ''',
+                'is_default_maximum_configurable_ac_ls',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-default-maximum-configurable-ac-es', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                default max configurable aces
+                ''',
+                'is_default_maximum_configurable_ac_es',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
             _MetaInfoClassMember('is-current-configured-ac-ls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Current configured acls
@@ -997,41 +1009,29 @@ _meta_table = {
                 ''',
                 'is_current_configured_aces',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-current-maximum-configurable-aces', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Current max configurable aces
-                ''',
-                'is_current_maximum_configurable_aces',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
             _MetaInfoClassMember('is-current-maximum-configurable-acls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Current max configurable acls
                 ''',
                 'is_current_maximum_configurable_acls',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-default-maximum-configurable-ac-es', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('is-current-maximum-configurable-aces', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                default max configurable aces
+                '''                Current max configurable aces
                 ''',
-                'is_default_maximum_configurable_ac_es',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-default-maximum-configurable-ac-ls', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                default max configurable acls
-                ''',
-                'is_default_maximum_configurable_ac_ls',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-maximum-configurable-ac-es', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                max configurable aces
-                ''',
-                'is_maximum_configurable_ac_es',
+                'is_current_maximum_configurable_aces',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
             _MetaInfoClassMember('is-maximum-configurable-ac-ls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                max configurable acls
                 ''',
                 'is_maximum_configurable_ac_ls',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-maximum-configurable-ac-es', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                max configurable aces
+                ''',
+                'is_maximum_configurable_ac_es',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-acl-oper',
@@ -1058,10 +1058,22 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper'
         ),
     },
-    'Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details' : {
-        'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details',
+    'Ipv6AclAndPrefixList.Oor.AccessListSummary.Details' : {
+        'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.Oor.AccessListSummary.Details',
             False, 
             [
+            _MetaInfoClassMember('is-default-maximum-configurable-ac-ls', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                default max configurable acls
+                ''',
+                'is_default_maximum_configurable_ac_ls',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-default-maximum-configurable-ac-es', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                default max configurable aces
+                ''',
+                'is_default_maximum_configurable_ac_es',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
             _MetaInfoClassMember('is-current-configured-ac-ls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Current configured acls
@@ -1074,41 +1086,29 @@ _meta_table = {
                 ''',
                 'is_current_configured_aces',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-current-maximum-configurable-aces', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Current max configurable aces
-                ''',
-                'is_current_maximum_configurable_aces',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
             _MetaInfoClassMember('is-current-maximum-configurable-acls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Current max configurable acls
                 ''',
                 'is_current_maximum_configurable_acls',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-default-maximum-configurable-ac-es', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('is-current-maximum-configurable-aces', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                default max configurable aces
+                '''                Current max configurable aces
                 ''',
-                'is_default_maximum_configurable_ac_es',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-default-maximum-configurable-ac-ls', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                default max configurable acls
-                ''',
-                'is_default_maximum_configurable_ac_ls',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('is-maximum-configurable-ac-es', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                max configurable aces
-                ''',
-                'is_maximum_configurable_ac_es',
+                'is_current_maximum_configurable_aces',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
             _MetaInfoClassMember('is-maximum-configurable-ac-ls', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                max configurable acls
                 ''',
                 'is_maximum_configurable_ac_ls',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('is-maximum-configurable-ac-es', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                max configurable aces
+                ''',
+                'is_maximum_configurable_ac_es',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-acl-oper',
@@ -1117,20 +1117,20 @@ _meta_table = {
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper'
         ),
     },
-    'Ipv6AclAndPrefixList.Oor.PrefixListSummary' : {
-        'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.Oor.PrefixListSummary',
+    'Ipv6AclAndPrefixList.Oor.AccessListSummary' : {
+        'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.Oor.AccessListSummary',
             False, 
             [
-            _MetaInfoClassMember('details', REFERENCE_CLASS, 'Details' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details', 
+            _MetaInfoClassMember('details', REFERENCE_CLASS, 'Details' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'Ipv6AclAndPrefixList.Oor.AccessListSummary.Details', 
                 [], [], 
-                '''                Summary Detail of the prefix list Resource
-                Utilisation
+                '''                Details containing the resource limits of the
+                ACLs
                 ''',
                 'details',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-acl-oper',
-            'prefix-list-summary',
+            'access-list-summary',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-oper'],
         'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper'
         ),
@@ -1139,17 +1139,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.Oor',
             False, 
             [
-            _MetaInfoClassMember('access-list-summary', REFERENCE_CLASS, 'AccessListSummary' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'Ipv6AclAndPrefixList.Oor.AccessListSummary', 
-                [], [], 
-                '''                Resource Limits pertaining to ACLs only
-                ''',
-                'access_list_summary',
-                'Cisco-IOS-XR-ipv6-acl-oper', False),
             _MetaInfoClassMember('details', REFERENCE_CLASS, 'Details' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'Ipv6AclAndPrefixList.Oor.Details', 
                 [], [], 
                 '''                Details of the overall out of resource limit
                 ''',
                 'details',
+                'Cisco-IOS-XR-ipv6-acl-oper', False),
+            _MetaInfoClassMember('prefix-list-summary', REFERENCE_CLASS, 'PrefixListSummary' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'Ipv6AclAndPrefixList.Oor.PrefixListSummary', 
+                [], [], 
+                '''                Summary of the prefix Lists resource
+                utilization
+                ''',
+                'prefix_list_summary',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
             _MetaInfoClassMember('oor-accesses', REFERENCE_CLASS, 'OorAccesses' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'Ipv6AclAndPrefixList.Oor.OorAccesses', 
                 [], [], 
@@ -1163,12 +1164,11 @@ _meta_table = {
                 ''',
                 'oor_prefixes',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
-            _MetaInfoClassMember('prefix-list-summary', REFERENCE_CLASS, 'PrefixListSummary' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'Ipv6AclAndPrefixList.Oor.PrefixListSummary', 
+            _MetaInfoClassMember('access-list-summary', REFERENCE_CLASS, 'AccessListSummary' , 'ydk.models.ipv6.Cisco_IOS_XR_ipv6_acl_oper', 'Ipv6AclAndPrefixList.Oor.AccessListSummary', 
                 [], [], 
-                '''                Summary of the prefix Lists resource
-                utilization
+                '''                Resource Limits pertaining to ACLs only
                 ''',
-                'prefix_list_summary',
+                'access_list_summary',
                 'Cisco-IOS-XR-ipv6-acl-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-acl-oper',
@@ -1203,26 +1203,26 @@ _meta_table = {
         ),
     },
 }
+_meta_table['Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences.PrefixListSequence']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences']['meta_info']
+_meta_table['Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix']['meta_info']
+_meta_table['Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.AccessListManager.Prefixes']['meta_info']
+_meta_table['Ipv6AclAndPrefixList.AccessListManager.Usages.Usage']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.AccessListManager.Usages']['meta_info']
 _meta_table['Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence']['meta_info']
 _meta_table['Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence']['meta_info']
 _meta_table['Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences']['meta_info']
 _meta_table['Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.AccessListManager.Accesses.Access']['meta_info']
 _meta_table['Ipv6AclAndPrefixList.AccessListManager.Accesses.Access']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.AccessListManager.Accesses']['meta_info']
-_meta_table['Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences.PrefixListSequence']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences']['meta_info']
-_meta_table['Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix']['meta_info']
-_meta_table['Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.AccessListManager.Prefixes']['meta_info']
-_meta_table['Ipv6AclAndPrefixList.AccessListManager.Usages.Usage']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.AccessListManager.Usages']['meta_info']
-_meta_table['Ipv6AclAndPrefixList.AccessListManager.Accesses']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.AccessListManager']['meta_info']
 _meta_table['Ipv6AclAndPrefixList.AccessListManager.Prefixes']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.AccessListManager']['meta_info']
 _meta_table['Ipv6AclAndPrefixList.AccessListManager.Usages']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.AccessListManager']['meta_info']
-_meta_table['Ipv6AclAndPrefixList.Oor.AccessListSummary.Details']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.Oor.AccessListSummary']['meta_info']
+_meta_table['Ipv6AclAndPrefixList.AccessListManager.Accesses']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.AccessListManager']['meta_info']
+_meta_table['Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.Oor.PrefixListSummary']['meta_info']
 _meta_table['Ipv6AclAndPrefixList.Oor.OorAccesses.OorAccess']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.Oor.OorAccesses']['meta_info']
 _meta_table['Ipv6AclAndPrefixList.Oor.OorPrefixes.OorPrefix']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.Oor.OorPrefixes']['meta_info']
-_meta_table['Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.Oor.PrefixListSummary']['meta_info']
-_meta_table['Ipv6AclAndPrefixList.Oor.AccessListSummary']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.Oor']['meta_info']
+_meta_table['Ipv6AclAndPrefixList.Oor.AccessListSummary.Details']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.Oor.AccessListSummary']['meta_info']
 _meta_table['Ipv6AclAndPrefixList.Oor.Details']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.Oor']['meta_info']
+_meta_table['Ipv6AclAndPrefixList.Oor.PrefixListSummary']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.Oor']['meta_info']
 _meta_table['Ipv6AclAndPrefixList.Oor.OorAccesses']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.Oor']['meta_info']
 _meta_table['Ipv6AclAndPrefixList.Oor.OorPrefixes']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.Oor']['meta_info']
-_meta_table['Ipv6AclAndPrefixList.Oor.PrefixListSummary']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.Oor']['meta_info']
+_meta_table['Ipv6AclAndPrefixList.Oor.AccessListSummary']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.Oor']['meta_info']
 _meta_table['Ipv6AclAndPrefixList.AccessListManager']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList']['meta_info']
 _meta_table['Ipv6AclAndPrefixList.Oor']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList']['meta_info']

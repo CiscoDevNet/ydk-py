@@ -11,7 +11,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -72,7 +72,7 @@ class Vlans(object):
         """
         Configured VLANs keyed by id
         
-        .. attribute:: vlan_id
+        .. attribute:: vlan_id  <key>
         
         	references the configured vlan\-id
         	**type**\: int
@@ -109,6 +109,13 @@ class Vlans(object):
             """
             Configuration parameters for VLANs
             
+            .. attribute:: vlan_id
+            
+            	Interface VLAN id
+            	**type**\: int
+            
+            	**range:** 1..4094
+            
             .. attribute:: name
             
             	Interface VLAN name
@@ -119,13 +126,6 @@ class Vlans(object):
             	Admin state of the VLAN
             	**type**\: :py:class:`StatusEnum <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.Config.StatusEnum>`
             
-            .. attribute:: vlan_id
-            
-            	Interface VLAN id
-            	**type**\: int
-            
-            	**range:** 1..4094
-            
             
 
             """
@@ -135,9 +135,9 @@ class Vlans(object):
 
             def __init__(self):
                 self.parent = None
+                self.vlan_id = None
                 self.name = None
                 self.status = None
-                self.vlan_id = None
 
             class StatusEnum(Enum):
                 """
@@ -180,13 +180,13 @@ class Vlans(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
+                if self.vlan_id is not None:
+                    return True
+
                 if self.name is not None:
                     return True
 
                 if self.status is not None:
-                    return True
-
-                if self.vlan_id is not None:
                     return True
 
                 return False
@@ -201,10 +201,12 @@ class Vlans(object):
             """
             State variables for VLANs
             
-            .. attribute:: member_ports
+            .. attribute:: vlan_id
             
-            	List of current member ports including access ports and trunk ports that support this vlan
-            	**type**\: list of str
+            	Interface VLAN id
+            	**type**\: int
+            
+            	**range:** 1..4094
             
             .. attribute:: name
             
@@ -216,12 +218,10 @@ class Vlans(object):
             	Admin state of the VLAN
             	**type**\: :py:class:`StatusEnum <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.State.StatusEnum>`
             
-            .. attribute:: vlan_id
+            .. attribute:: member_ports
             
-            	Interface VLAN id
-            	**type**\: int
-            
-            	**range:** 1..4094
+            	List of current member ports including access ports and trunk ports that support this vlan
+            	**type**\: list of str
             
             
 
@@ -232,10 +232,12 @@ class Vlans(object):
 
             def __init__(self):
                 self.parent = None
-                self.member_ports = []
+                self.vlan_id = None
                 self.name = None
                 self.status = None
-                self.vlan_id = None
+                self.member_ports = YLeafList()
+                self.member_ports.parent = self
+                self.member_ports.name = 'member_ports'
 
             class StatusEnum(Enum):
                 """
@@ -278,10 +280,8 @@ class Vlans(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.member_ports is not None:
-                    for child in self.member_ports:
-                        if child is not None:
-                            return True
+                if self.vlan_id is not None:
+                    return True
 
                 if self.name is not None:
                     return True
@@ -289,8 +289,10 @@ class Vlans(object):
                 if self.status is not None:
                     return True
 
-                if self.vlan_id is not None:
-                    return True
+                if self.member_ports is not None:
+                    for child in self.member_ports:
+                        if child is not None:
+                            return True
 
                 return False
 

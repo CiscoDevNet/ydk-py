@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -55,15 +55,15 @@ class XrXml(object):
         	XML default dedicated agent
         	**type**\: :py:class:`Default <ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Default>`
         
-        .. attribute:: ssl
-        
-        	XML SSL agent
-        	**type**\: :py:class:`Ssl <ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Ssl>`
-        
         .. attribute:: tty
         
         	XML TTY agent
         	**type**\: :py:class:`Tty <ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Tty>`
+        
+        .. attribute:: ssl
+        
+        	XML SSL agent
+        	**type**\: :py:class:`Ssl <ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Ssl>`
         
         
 
@@ -76,30 +76,30 @@ class XrXml(object):
             self.parent = None
             self.default = XrXml.Agent.Default()
             self.default.parent = self
-            self.ssl = XrXml.Agent.Ssl()
-            self.ssl.parent = self
             self.tty = XrXml.Agent.Tty()
             self.tty.parent = self
+            self.ssl = XrXml.Agent.Ssl()
+            self.ssl.parent = self
 
 
         class Default(object):
             """
             XML default dedicated agent
             
-            .. attribute:: enable
+            .. attribute:: ipv6_enable
             
-            	Enable specified XML agent
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            	IPv6 Transport State
+            	**type**\: bool
             
             .. attribute:: ipv4_disable
             
             	TRUE to disable IPV4
             	**type**\: bool
             
-            .. attribute:: ipv6_enable
+            .. attribute:: session
             
-            	IPv6 Transport State
-            	**type**\: bool
+            	Session attributes
+            	**type**\: :py:class:`Session <ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Default.Session>`
             
             .. attribute:: iteration_size
             
@@ -108,10 +108,15 @@ class XrXml(object):
             
             	**range:** 0..100000
             
-            .. attribute:: session
+            .. attribute:: throttle
             
-            	Session attributes
-            	**type**\: :py:class:`Session <ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Default.Session>`
+            	XML agent throttling
+            	**type**\: :py:class:`Throttle <ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Default.Throttle>`
+            
+            .. attribute:: enable
+            
+            	Enable specified XML agent
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             .. attribute:: streaming_size
             
@@ -119,11 +124,6 @@ class XrXml(object):
             	**type**\: int
             
             	**range:** 1..100000
-            
-            .. attribute:: throttle
-            
-            	XML agent throttling
-            	**type**\: :py:class:`Throttle <ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Default.Throttle>`
             
             .. attribute:: vrfs
             
@@ -139,15 +139,15 @@ class XrXml(object):
 
             def __init__(self):
                 self.parent = None
-                self.enable = None
-                self.ipv4_disable = None
                 self.ipv6_enable = None
-                self.iteration_size = None
+                self.ipv4_disable = None
                 self.session = XrXml.Agent.Default.Session()
                 self.session.parent = self
-                self.streaming_size = None
+                self.iteration_size = None
                 self.throttle = XrXml.Agent.Default.Throttle()
                 self.throttle.parent = self
+                self.enable = None
+                self.streaming_size = None
                 self.vrfs = XrXml.Agent.Default.Vrfs()
                 self.vrfs.parent = self
 
@@ -201,19 +201,19 @@ class XrXml(object):
                 """
                 XML agent throttling
                 
-                .. attribute:: memory
-                
-                	Size of memory usage, in MBytes, per session
-                	**type**\: int
-                
-                	**range:** 100..600
-                
                 .. attribute:: process_rate
                 
                 	Process rate in number of XML tags per second
                 	**type**\: int
                 
                 	**range:** 1000..30000
+                
+                .. attribute:: memory
+                
+                	Size of memory usage, in MBytes, per session
+                	**type**\: int
+                
+                	**range:** 100..600
                 
                 
 
@@ -224,8 +224,8 @@ class XrXml(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.memory = None
                     self.process_rate = None
+                    self.memory = None
 
                 @property
                 def _common_path(self):
@@ -239,10 +239,10 @@ class XrXml(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.memory is not None:
+                    if self.process_rate is not None:
                         return True
 
-                    if self.process_rate is not None:
+                    if self.memory is not None:
                         return True
 
                     return False
@@ -280,16 +280,16 @@ class XrXml(object):
                     """
                     A specific VRF
                     
-                    .. attribute:: vrf_name
+                    .. attribute:: vrf_name  <key>
                     
                     	VRF name
                     	**type**\: str
                     
                     	**range:** 0..32
                     
-                    .. attribute:: access_list
+                    .. attribute:: ipv6_access_list
                     
-                    	Access list for XML agent
+                    	IPv6 Transport Access list for VRF
                     	**type**\: str
                     
                     	**range:** 0..32
@@ -301,9 +301,9 @@ class XrXml(object):
                     
                     	**range:** 0..32
                     
-                    .. attribute:: ipv6_access_list
+                    .. attribute:: access_list
                     
-                    	IPv6 Transport Access list for VRF
+                    	Access list for XML agent
                     	**type**\: str
                     
                     	**range:** 0..32
@@ -323,9 +323,9 @@ class XrXml(object):
                     def __init__(self):
                         self.parent = None
                         self.vrf_name = None
-                        self.access_list = None
-                        self.ipv4_access_list = None
                         self.ipv6_access_list = None
+                        self.ipv4_access_list = None
+                        self.access_list = None
                         self.shutdown = None
 
                     @property
@@ -345,13 +345,13 @@ class XrXml(object):
                         if self.vrf_name is not None:
                             return True
 
-                        if self.access_list is not None:
+                        if self.ipv6_access_list is not None:
                             return True
 
                         if self.ipv4_access_list is not None:
                             return True
 
-                        if self.ipv6_access_list is not None:
+                        if self.access_list is not None:
                             return True
 
                         if self.shutdown is not None:
@@ -400,25 +400,25 @@ class XrXml(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.enable is not None:
+                if self.ipv6_enable is not None:
                     return True
 
                 if self.ipv4_disable is not None:
                     return True
 
-                if self.ipv6_enable is not None:
+                if self.session is not None and self.session._has_data():
                     return True
 
                 if self.iteration_size is not None:
                     return True
 
-                if self.session is not None and self.session._has_data():
+                if self.throttle is not None and self.throttle._has_data():
+                    return True
+
+                if self.enable is not None:
                     return True
 
                 if self.streaming_size is not None:
-                    return True
-
-                if self.throttle is not None and self.throttle._has_data():
                     return True
 
                 if self.vrfs is not None and self.vrfs._has_data():
@@ -432,14 +432,14 @@ class XrXml(object):
                 return meta._meta_table['XrXml.Agent.Default']['meta_info']
 
 
-        class Ssl(object):
+        class Tty(object):
             """
-            XML SSL agent
+            XML TTY agent
             
-            .. attribute:: enable
+            .. attribute:: session
             
-            	Enable specified XML agent
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            	Session attributes
+            	**type**\: :py:class:`Session <ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Tty.Session>`
             
             .. attribute:: iteration_size
             
@@ -448,10 +448,15 @@ class XrXml(object):
             
             	**range:** 0..100000
             
-            .. attribute:: session
+            .. attribute:: throttle
             
-            	Session attributes
-            	**type**\: :py:class:`Session <ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Ssl.Session>`
+            	XML agent throttling
+            	**type**\: :py:class:`Throttle <ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Tty.Throttle>`
+            
+            .. attribute:: enable
+            
+            	Enable specified XML agent
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             .. attribute:: streaming_size
             
@@ -460,10 +465,191 @@ class XrXml(object):
             
             	**range:** 1..100000
             
+            
+
+            """
+
+            _prefix = 'man-xml-ttyagent-cfg'
+            _revision = '2015-07-30'
+
+            def __init__(self):
+                self.parent = None
+                self.session = XrXml.Agent.Tty.Session()
+                self.session.parent = self
+                self.iteration_size = None
+                self.throttle = XrXml.Agent.Tty.Throttle()
+                self.throttle.parent = self
+                self.enable = None
+                self.streaming_size = None
+
+
+            class Session(object):
+                """
+                Session attributes
+                
+                .. attribute:: timeout
+                
+                	Timeout in minutes
+                	**type**\: int
+                
+                	**range:** 1..1440
+                
+                
+
+                """
+
+                _prefix = 'man-xml-ttyagent-cfg'
+                _revision = '2015-07-30'
+
+                def __init__(self):
+                    self.parent = None
+                    self.timeout = None
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent/Cisco-IOS-XR-man-xml-ttyagent-cfg:tty/Cisco-IOS-XR-man-xml-ttyagent-cfg:session'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.timeout is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.man._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+                    return meta._meta_table['XrXml.Agent.Tty.Session']['meta_info']
+
+
+            class Throttle(object):
+                """
+                XML agent throttling
+                
+                .. attribute:: process_rate
+                
+                	Process rate in number of XML tags per second
+                	**type**\: int
+                
+                	**range:** 1000..30000
+                
+                .. attribute:: memory
+                
+                	Size of memory usage, in MBytes, per session
+                	**type**\: int
+                
+                	**range:** 100..600
+                
+                
+
+                """
+
+                _prefix = 'man-xml-ttyagent-cfg'
+                _revision = '2015-07-30'
+
+                def __init__(self):
+                    self.parent = None
+                    self.process_rate = None
+                    self.memory = None
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent/Cisco-IOS-XR-man-xml-ttyagent-cfg:tty/Cisco-IOS-XR-man-xml-ttyagent-cfg:throttle'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.process_rate is not None:
+                        return True
+
+                    if self.memory is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.man._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+                    return meta._meta_table['XrXml.Agent.Tty.Throttle']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent/Cisco-IOS-XR-man-xml-ttyagent-cfg:tty'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.session is not None and self.session._has_data():
+                    return True
+
+                if self.iteration_size is not None:
+                    return True
+
+                if self.throttle is not None and self.throttle._has_data():
+                    return True
+
+                if self.enable is not None:
+                    return True
+
+                if self.streaming_size is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.man._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+                return meta._meta_table['XrXml.Agent.Tty']['meta_info']
+
+
+        class Ssl(object):
+            """
+            XML SSL agent
+            
+            .. attribute:: session
+            
+            	Session attributes
+            	**type**\: :py:class:`Session <ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Ssl.Session>`
+            
+            .. attribute:: iteration_size
+            
+            	Iterator size, in KBytes, of the XML response. Specify 0 to turn off the XML response iterator
+            	**type**\: int
+            
+            	**range:** 0..100000
+            
             .. attribute:: throttle
             
             	XML agent throttling
             	**type**\: :py:class:`Throttle <ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Ssl.Throttle>`
+            
+            .. attribute:: enable
+            
+            	Enable specified XML agent
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: streaming_size
+            
+            	Streaming size, in KBytes, of the XML response
+            	**type**\: int
+            
+            	**range:** 1..100000
             
             .. attribute:: vrfs
             
@@ -479,13 +665,13 @@ class XrXml(object):
 
             def __init__(self):
                 self.parent = None
-                self.enable = None
-                self.iteration_size = None
                 self.session = XrXml.Agent.Ssl.Session()
                 self.session.parent = self
-                self.streaming_size = None
+                self.iteration_size = None
                 self.throttle = XrXml.Agent.Ssl.Throttle()
                 self.throttle.parent = self
+                self.enable = None
+                self.streaming_size = None
                 self.vrfs = XrXml.Agent.Ssl.Vrfs()
                 self.vrfs.parent = self
 
@@ -539,19 +725,19 @@ class XrXml(object):
                 """
                 XML agent throttling
                 
-                .. attribute:: memory
-                
-                	Size of memory usage, in MBytes, per session
-                	**type**\: int
-                
-                	**range:** 100..600
-                
                 .. attribute:: process_rate
                 
                 	Process rate in number of XML tags per second
                 	**type**\: int
                 
                 	**range:** 1000..30000
+                
+                .. attribute:: memory
+                
+                	Size of memory usage, in MBytes, per session
+                	**type**\: int
+                
+                	**range:** 100..600
                 
                 
 
@@ -562,8 +748,8 @@ class XrXml(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.memory = None
                     self.process_rate = None
+                    self.memory = None
 
                 @property
                 def _common_path(self):
@@ -577,10 +763,10 @@ class XrXml(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.memory is not None:
+                    if self.process_rate is not None:
                         return True
 
-                    if self.process_rate is not None:
+                    if self.memory is not None:
                         return True
 
                     return False
@@ -618,16 +804,16 @@ class XrXml(object):
                     """
                     A specific VRF
                     
-                    .. attribute:: vrf_name
+                    .. attribute:: vrf_name  <key>
                     
                     	VRF name
                     	**type**\: str
                     
                     	**range:** 0..32
                     
-                    .. attribute:: access_list
+                    .. attribute:: ipv6_access_list
                     
-                    	Access list for XML agent
+                    	IPv6 Transport Access list for VRF
                     	**type**\: str
                     
                     	**range:** 0..32
@@ -639,9 +825,9 @@ class XrXml(object):
                     
                     	**range:** 0..32
                     
-                    .. attribute:: ipv6_access_list
+                    .. attribute:: access_list
                     
-                    	IPv6 Transport Access list for VRF
+                    	Access list for XML agent
                     	**type**\: str
                     
                     	**range:** 0..32
@@ -661,9 +847,9 @@ class XrXml(object):
                     def __init__(self):
                         self.parent = None
                         self.vrf_name = None
-                        self.access_list = None
-                        self.ipv4_access_list = None
                         self.ipv6_access_list = None
+                        self.ipv4_access_list = None
+                        self.access_list = None
                         self.shutdown = None
 
                     @property
@@ -683,13 +869,13 @@ class XrXml(object):
                         if self.vrf_name is not None:
                             return True
 
-                        if self.access_list is not None:
+                        if self.ipv6_access_list is not None:
                             return True
 
                         if self.ipv4_access_list is not None:
                             return True
 
-                        if self.ipv6_access_list is not None:
+                        if self.access_list is not None:
                             return True
 
                         if self.shutdown is not None:
@@ -738,19 +924,19 @@ class XrXml(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.enable is not None:
+                if self.session is not None and self.session._has_data():
                     return True
 
                 if self.iteration_size is not None:
                     return True
 
-                if self.session is not None and self.session._has_data():
+                if self.throttle is not None and self.throttle._has_data():
+                    return True
+
+                if self.enable is not None:
                     return True
 
                 if self.streaming_size is not None:
-                    return True
-
-                if self.throttle is not None and self.throttle._has_data():
                     return True
 
                 if self.vrfs is not None and self.vrfs._has_data():
@@ -762,192 +948,6 @@ class XrXml(object):
             def _meta_info():
                 from ydk.models.man._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
                 return meta._meta_table['XrXml.Agent.Ssl']['meta_info']
-
-
-        class Tty(object):
-            """
-            XML TTY agent
-            
-            .. attribute:: enable
-            
-            	Enable specified XML agent
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: iteration_size
-            
-            	Iterator size, in KBytes, of the XML response. Specify 0 to turn off the XML response iterator
-            	**type**\: int
-            
-            	**range:** 0..100000
-            
-            .. attribute:: session
-            
-            	Session attributes
-            	**type**\: :py:class:`Session <ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Tty.Session>`
-            
-            .. attribute:: streaming_size
-            
-            	Streaming size, in KBytes, of the XML response
-            	**type**\: int
-            
-            	**range:** 1..100000
-            
-            .. attribute:: throttle
-            
-            	XML agent throttling
-            	**type**\: :py:class:`Throttle <ydk.models.man.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Tty.Throttle>`
-            
-            
-
-            """
-
-            _prefix = 'man-xml-ttyagent-cfg'
-            _revision = '2015-07-30'
-
-            def __init__(self):
-                self.parent = None
-                self.enable = None
-                self.iteration_size = None
-                self.session = XrXml.Agent.Tty.Session()
-                self.session.parent = self
-                self.streaming_size = None
-                self.throttle = XrXml.Agent.Tty.Throttle()
-                self.throttle.parent = self
-
-
-            class Session(object):
-                """
-                Session attributes
-                
-                .. attribute:: timeout
-                
-                	Timeout in minutes
-                	**type**\: int
-                
-                	**range:** 1..1440
-                
-                
-
-                """
-
-                _prefix = 'man-xml-ttyagent-cfg'
-                _revision = '2015-07-30'
-
-                def __init__(self):
-                    self.parent = None
-                    self.timeout = None
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent/Cisco-IOS-XR-man-xml-ttyagent-cfg:tty/Cisco-IOS-XR-man-xml-ttyagent-cfg:session'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.timeout is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.man._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
-                    return meta._meta_table['XrXml.Agent.Tty.Session']['meta_info']
-
-
-            class Throttle(object):
-                """
-                XML agent throttling
-                
-                .. attribute:: memory
-                
-                	Size of memory usage, in MBytes, per session
-                	**type**\: int
-                
-                	**range:** 100..600
-                
-                .. attribute:: process_rate
-                
-                	Process rate in number of XML tags per second
-                	**type**\: int
-                
-                	**range:** 1000..30000
-                
-                
-
-                """
-
-                _prefix = 'man-xml-ttyagent-cfg'
-                _revision = '2015-07-30'
-
-                def __init__(self):
-                    self.parent = None
-                    self.memory = None
-                    self.process_rate = None
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent/Cisco-IOS-XR-man-xml-ttyagent-cfg:tty/Cisco-IOS-XR-man-xml-ttyagent-cfg:throttle'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.memory is not None:
-                        return True
-
-                    if self.process_rate is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.man._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
-                    return meta._meta_table['XrXml.Agent.Tty.Throttle']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent/Cisco-IOS-XR-man-xml-ttyagent-cfg:tty'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.enable is not None:
-                    return True
-
-                if self.iteration_size is not None:
-                    return True
-
-                if self.session is not None and self.session._has_data():
-                    return True
-
-                if self.streaming_size is not None:
-                    return True
-
-                if self.throttle is not None and self.throttle._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.man._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
-                return meta._meta_table['XrXml.Agent.Tty']['meta_info']
 
         @property
         def _common_path(self):
@@ -964,10 +964,10 @@ class XrXml(object):
             if self.default is not None and self.default._has_data():
                 return True
 
-            if self.ssl is not None and self.ssl._has_data():
+            if self.tty is not None and self.tty._has_data():
                 return True
 
-            if self.tty is not None and self.tty._has_data():
+            if self.ssl is not None and self.ssl._has_data():
                 return True
 
             return False

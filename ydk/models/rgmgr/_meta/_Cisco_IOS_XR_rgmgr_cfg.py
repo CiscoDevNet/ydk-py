@@ -7,7 +7,7 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
@@ -22,17 +22,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RedundancyGroupManager.Aps.DefaultRedundancyGroup',
             False, 
             [
-            _MetaInfoClassMember('backup-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Backup interface name
-                ''',
-                'backup_interface_name',
-                'Cisco-IOS-XR-rgmgr-cfg', False),
             _MetaInfoClassMember('next-hop-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address of remote peer
                 ''',
                 'next_hop_address',
+                'Cisco-IOS-XR-rgmgr-cfg', False),
+            _MetaInfoClassMember('backup-interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Backup interface name
+                ''',
+                'backup_interface_name',
                 'Cisco-IOS-XR-rgmgr-cfg', False),
             ],
             'Cisco-IOS-XR-rgmgr-cfg',
@@ -51,17 +51,17 @@ _meta_table = {
                 ''',
                 'controller_name',
                 'Cisco-IOS-XR-rgmgr-cfg', True),
-            _MetaInfoClassMember('backup-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Backup interface name
-                ''',
-                'backup_interface_name',
-                'Cisco-IOS-XR-rgmgr-cfg', False),
             _MetaInfoClassMember('next-hop-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address of remote peer
                 ''',
                 'next_hop_address',
+                'Cisco-IOS-XR-rgmgr-cfg', False),
+            _MetaInfoClassMember('backup-interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Backup interface name
+                ''',
+                'backup_interface_name',
                 'Cisco-IOS-XR-rgmgr-cfg', False),
             ],
             'Cisco-IOS-XR-rgmgr-cfg',
@@ -251,17 +251,17 @@ _meta_table = {
                 ''',
                 'backbones',
                 'Cisco-IOS-XR-rgmgr-cfg', False),
-            _MetaInfoClassMember('isolation-recovery-delay', ATTRIBUTE, 'int' , None, None, 
-                [(30, 600)], [], 
-                '''                ICCP isolation recovery delay
-                ''',
-                'isolation_recovery_delay',
-                'Cisco-IOS-XR-rgmgr-cfg', False),
             _MetaInfoClassMember('members', REFERENCE_CLASS, 'Members' , 'ydk.models.rgmgr.Cisco_IOS_XR_rgmgr_cfg', 'RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members', 
                 [], [], 
                 '''                ICCP member configuration
                 ''',
                 'members',
+                'Cisco-IOS-XR-rgmgr-cfg', False),
+            _MetaInfoClassMember('isolation-recovery-delay', ATTRIBUTE, 'int' , None, None, 
+                [(30, 600)], [], 
+                '''                ICCP isolation recovery delay
+                ''',
+                'isolation_recovery_delay',
                 'Cisco-IOS-XR-rgmgr-cfg', False),
             _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'IccpModeEnum' , 'ydk.models.rgmgr.Cisco_IOS_XR_rgmgr_cfg', 'IccpModeEnum', 
                 [], [], 
@@ -326,17 +326,17 @@ _meta_table = {
                 ''',
                 'aps',
                 'Cisco-IOS-XR-rgmgr-cfg', False),
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable redundancy group manager
-                ''',
-                'enable',
-                'Cisco-IOS-XR-rgmgr-cfg', False),
             _MetaInfoClassMember('iccp', REFERENCE_CLASS, 'Iccp' , 'ydk.models.rgmgr.Cisco_IOS_XR_rgmgr_cfg', 'RedundancyGroupManager.Iccp', 
                 [], [], 
                 '''                ICCP configuration
                 ''',
                 'iccp',
+                'Cisco-IOS-XR-rgmgr-cfg', False),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable redundancy group manager
+                ''',
+                'enable',
                 'Cisco-IOS-XR-rgmgr-cfg', False),
             ],
             'Cisco-IOS-XR-rgmgr-cfg',

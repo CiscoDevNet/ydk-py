@@ -7,7 +7,7 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
@@ -24,65 +24,11 @@ _meta_table = {
                 ''',
                 'data_block_number',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', True),
-            _MetaInfoClassMember('encap-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('trap-strength', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                encap id
+                '''                trap strength
                 ''',
-                'encap_id',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('fec-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                fec id
-                ''',
-                'fec_id',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('gport', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                gport
-                ''',
-                'gport',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                id
-                ''',
-                'id',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('mc-group', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                mc group
-                ''',
-                'mc_group',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('npu-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                npu id
-                ''',
-                'npu_id',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                offset
-                ''',
-                'offset',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('packet-accepted', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                packet accepted
-                ''',
-                'packet_accepted',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('packet-dropped', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                packet dropped
-                ''',
-                'packet_dropped',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('policer-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                policer id
-                ''',
-                'policer_id',
+                'trap_strength',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
             _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -90,29 +36,83 @@ _meta_table = {
                 ''',
                 'priority',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('stats-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                stats id
-                ''',
-                'stats_id',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
             _MetaInfoClassMember('trap-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                trap id
                 ''',
                 'trap_id',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('trap-strength', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('gport', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                trap strength
+                '''                gport
                 ''',
-                'trap_strength',
+                'gport',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('fec-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                fec id
+                ''',
+                'fec_id',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('policer-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                policer id
+                ''',
+                'policer_id',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('stats-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                stats id
+                ''',
+                'stats_id',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('encap-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                encap id
+                ''',
+                'encap_id',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('mc-group', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                mc group
+                ''',
+                'mc_group',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
             _MetaInfoClassMember('trap-string', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                trap string
                 ''',
                 'trap_string',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                id
+                ''',
+                'id',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                offset
+                ''',
+                'offset',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('npu-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                npu id
+                ''',
+                'npu_id',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('packet-dropped', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                packet dropped
+                ''',
+                'packet_dropped',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('packet-accepted', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                packet accepted
+                ''',
+                'packet_accepted',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
             ],
             'Cisco-IOS-XR-fretta-bcm-dpa-oper',
@@ -140,161 +140,6 @@ _meta_table = {
         'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper'
         ),
     },
-    'Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks.AllVoqStatsDataBlock.VoqStat' : {
-        'meta_info' : _MetaInfoClass('Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks.AllVoqStatsDataBlock.VoqStat',
-            False, 
-            [
-            _MetaInfoClassMember('gport-dropped-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                GportDroppedBytes
-                ''',
-                'gport_dropped_bytes',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('gport-dropped-pkts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                GportDroppedPkts
-                ''',
-                'gport_dropped_pkts',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('gport-received-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                GportReceivedBytes
-                ''',
-                'gport_received_bytes',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('gport-received-pkts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                GportReceivedPkts
-                ''',
-                'gport_received_pkts',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            ],
-            'Cisco-IOS-XR-fretta-bcm-dpa-oper',
-            'voq-stat',
-            _yang_ns._namespaces['Cisco-IOS-XR-fretta-bcm-dpa-oper'],
-        'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper'
-        ),
-    },
-    'Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks.AllVoqStatsDataBlock' : {
-        'meta_info' : _MetaInfoClass('Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks.AllVoqStatsDataBlock',
-            False, 
-            [
-            _MetaInfoClassMember('data-block-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Data Block Number
-                ''',
-                'data_block_number',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', True),
-            _MetaInfoClassMember('connector-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                connector id
-                ''',
-                'connector_id',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('ifhandle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                ifhandle
-                ''',
-                'ifhandle',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('is-inuse', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                is inuse
-                ''',
-                'is_inuse',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('is-local-port', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                is local port
-                ''',
-                'is_local_port',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('npu-core', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                npu core
-                ''',
-                'npu_core',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('npu-num', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                npu num
-                ''',
-                'npu_num',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('port-num', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                port num
-                ''',
-                'port_num',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('port-speed', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                port speed
-                ''',
-                'port_speed',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('pp-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                pp port
-                ''',
-                'pp_port',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('rack-num', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                rack num
-                ''',
-                'rack_num',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('slot-num', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                slot num
-                ''',
-                'slot_num',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('sysport', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                sysport
-                ''',
-                'sysport',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('voq-base', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                voq base
-                ''',
-                'voq_base',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('voq-stat', REFERENCE_LIST, 'VoqStat' , 'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper', 'Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks.AllVoqStatsDataBlock.VoqStat', 
-                [], [], 
-                '''                voq stat
-                ''',
-                'voq_stat',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False, max_elements=8),
-            ],
-            'Cisco-IOS-XR-fretta-bcm-dpa-oper',
-            'all-voq-stats-data-block',
-            _yang_ns._namespaces['Cisco-IOS-XR-fretta-bcm-dpa-oper'],
-        'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper'
-        ),
-    },
-    'Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks' : {
-        'meta_info' : _MetaInfoClass('Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks',
-            False, 
-            [
-            _MetaInfoClassMember('all-voq-stats-data-block', REFERENCE_LIST, 'AllVoqStatsDataBlock' , 'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper', 'Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks.AllVoqStatsDataBlock', 
-                [], [], 
-                '''                Indicate the data block number of the voq
-                stats data block and cannot be used to
-                extract a single data block
-                ''',
-                'all_voq_stats_data_block',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            ],
-            'Cisco-IOS-XR-fretta-bcm-dpa-oper',
-            'all-voq-stats-data-blocks',
-            _yang_ns._namespaces['Cisco-IOS-XR-fretta-bcm-dpa-oper'],
-        'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper'
-        ),
-    },
     'Dpa.Stats.Nodes.Node.SingleTrapStatsDataBlocks.SingleTrapStatsDataBlock.TrapDataBlockNumber' : {
         'meta_info' : _MetaInfoClass('Dpa.Stats.Nodes.Node.SingleTrapStatsDataBlocks.SingleTrapStatsDataBlock.TrapDataBlockNumber',
             False, 
@@ -305,65 +150,11 @@ _meta_table = {
                 ''',
                 'data_block_number',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', True),
-            _MetaInfoClassMember('encap-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('trap-strength', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                encap id
+                '''                trap strength
                 ''',
-                'encap_id',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('fec-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                fec id
-                ''',
-                'fec_id',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('gport', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                gport
-                ''',
-                'gport',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                id
-                ''',
-                'id',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('mc-group', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                mc group
-                ''',
-                'mc_group',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('npu-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                npu id
-                ''',
-                'npu_id',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                offset
-                ''',
-                'offset',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('packet-accepted', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                packet accepted
-                ''',
-                'packet_accepted',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('packet-dropped', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                packet dropped
-                ''',
-                'packet_dropped',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('policer-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                policer id
-                ''',
-                'policer_id',
+                'trap_strength',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
             _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -371,29 +162,83 @@ _meta_table = {
                 ''',
                 'priority',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('stats-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                stats id
-                ''',
-                'stats_id',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
             _MetaInfoClassMember('trap-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                trap id
                 ''',
                 'trap_id',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('trap-strength', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('gport', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                trap strength
+                '''                gport
                 ''',
-                'trap_strength',
+                'gport',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('fec-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                fec id
+                ''',
+                'fec_id',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('policer-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                policer id
+                ''',
+                'policer_id',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('stats-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                stats id
+                ''',
+                'stats_id',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('encap-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                encap id
+                ''',
+                'encap_id',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('mc-group', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                mc group
+                ''',
+                'mc_group',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
             _MetaInfoClassMember('trap-string', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                trap string
                 ''',
                 'trap_string',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                id
+                ''',
+                'id',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                offset
+                ''',
+                'offset',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('npu-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                npu id
+                ''',
+                'npu_id',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('packet-dropped', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                packet dropped
+                ''',
+                'packet_dropped',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('packet-accepted', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                packet accepted
+                ''',
+                'packet_accepted',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
             ],
             'Cisco-IOS-XR-fretta-bcm-dpa-oper',
@@ -444,22 +289,10 @@ _meta_table = {
         'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper'
         ),
     },
-    'Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock.VoqStatsDataBlockNumber.VoqStat' : {
-        'meta_info' : _MetaInfoClass('Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock.VoqStatsDataBlockNumber.VoqStat',
+    'Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks.AllVoqStatsDataBlock.VoqStat' : {
+        'meta_info' : _MetaInfoClass('Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks.AllVoqStatsDataBlock.VoqStat',
             False, 
             [
-            _MetaInfoClassMember('gport-dropped-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                GportDroppedBytes
-                ''',
-                'gport_dropped_bytes',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('gport-dropped-pkts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                GportDroppedPkts
-                ''',
-                'gport_dropped_pkts',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
             _MetaInfoClassMember('gport-received-bytes', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                GportReceivedBytes
@@ -472,6 +305,18 @@ _meta_table = {
                 ''',
                 'gport_received_pkts',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('gport-dropped-bytes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                GportDroppedBytes
+                ''',
+                'gport_dropped_bytes',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('gport-dropped-pkts', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                GportDroppedPkts
+                ''',
+                'gport_dropped_pkts',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
             ],
             'Cisco-IOS-XR-fretta-bcm-dpa-oper',
             'voq-stat',
@@ -479,8 +324,8 @@ _meta_table = {
         'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper'
         ),
     },
-    'Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock.VoqStatsDataBlockNumber' : {
-        'meta_info' : _MetaInfoClass('Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock.VoqStatsDataBlockNumber',
+    'Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks.AllVoqStatsDataBlock' : {
+        'meta_info' : _MetaInfoClass('Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks.AllVoqStatsDataBlock',
             False, 
             [
             _MetaInfoClassMember('data-block-number', ATTRIBUTE, 'int' , None, None, 
@@ -489,59 +334,11 @@ _meta_table = {
                 ''',
                 'data_block_number',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', True),
-            _MetaInfoClassMember('connector-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                connector id
-                ''',
-                'connector_id',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('ifhandle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                ifhandle
-                ''',
-                'ifhandle',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
             _MetaInfoClassMember('is-inuse', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                is inuse
                 ''',
                 'is_inuse',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('is-local-port', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                is local port
-                ''',
-                'is_local_port',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('npu-core', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                npu core
-                ''',
-                'npu_core',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('npu-num', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                npu num
-                ''',
-                'npu_num',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('port-num', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                port num
-                ''',
-                'port_num',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('port-speed', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                port speed
-                ''',
-                'port_speed',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('pp-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                pp port
-                ''',
-                'pp_port',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
             _MetaInfoClassMember('rack-num', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
@@ -555,11 +352,47 @@ _meta_table = {
                 ''',
                 'slot_num',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('npu-num', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                npu num
+                ''',
+                'npu_num',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('npu-core', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                npu core
+                ''',
+                'npu_core',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('port-num', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                port num
+                ''',
+                'port_num',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('ifhandle', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ifhandle
+                ''',
+                'ifhandle',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
             _MetaInfoClassMember('sysport', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                sysport
                 ''',
                 'sysport',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('pp-port', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                pp port
+                ''',
+                'pp_port',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('port-speed', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                port speed
+                ''',
+                'port_speed',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
             _MetaInfoClassMember('voq-base', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -567,7 +400,19 @@ _meta_table = {
                 ''',
                 'voq_base',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('voq-stat', REFERENCE_LIST, 'VoqStat' , 'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper', 'Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock.VoqStatsDataBlockNumber.VoqStat', 
+            _MetaInfoClassMember('connector-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                connector id
+                ''',
+                'connector_id',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('is-local-port', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                is local port
+                ''',
+                'is_local_port',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('voq-stat', REFERENCE_LIST, 'VoqStat' , 'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper', 'Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks.AllVoqStatsDataBlock.VoqStat', 
                 [], [], 
                 '''                voq stat
                 ''',
@@ -575,49 +420,26 @@ _meta_table = {
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', False, max_elements=8),
             ],
             'Cisco-IOS-XR-fretta-bcm-dpa-oper',
-            'voq-stats-data-block-number',
+            'all-voq-stats-data-block',
             _yang_ns._namespaces['Cisco-IOS-XR-fretta-bcm-dpa-oper'],
         'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper'
         ),
     },
-    'Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock' : {
-        'meta_info' : _MetaInfoClass('Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock',
+    'Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks' : {
+        'meta_info' : _MetaInfoClass('Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks',
             False, 
             [
-            _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Interface handle
-                ''',
-                'interface_handle',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', True),
-            _MetaInfoClassMember('voq-stats-data-block-number', REFERENCE_LIST, 'VoqStatsDataBlockNumber' , 'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper', 'Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock.VoqStatsDataBlockNumber', 
+            _MetaInfoClassMember('all-voq-stats-data-block', REFERENCE_LIST, 'AllVoqStatsDataBlock' , 'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper', 'Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks.AllVoqStatsDataBlock', 
                 [], [], 
-                '''                Indicates the data block number for a
-                particular voq and cannot be used to
-                extract a single element
+                '''                Indicate the data block number of the voq
+                stats data block and cannot be used to
+                extract a single data block
                 ''',
-                'voq_stats_data_block_number',
+                'all_voq_stats_data_block',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
             ],
             'Cisco-IOS-XR-fretta-bcm-dpa-oper',
-            'single-voq-stats-data-block',
-            _yang_ns._namespaces['Cisco-IOS-XR-fretta-bcm-dpa-oper'],
-        'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper'
-        ),
-    },
-    'Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks' : {
-        'meta_info' : _MetaInfoClass('Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks',
-            False, 
-            [
-            _MetaInfoClassMember('single-voq-stats-data-block', REFERENCE_LIST, 'SingleVoqStatsDataBlock' , 'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper', 'Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock', 
-                [], [], 
-                '''                Interface handle for a particular voq
-                ''',
-                'single_voq_stats_data_block',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            ],
-            'Cisco-IOS-XR-fretta-bcm-dpa-oper',
-            'single-voq-stats-data-blocks',
+            'all-voq-stats-data-blocks',
             _yang_ns._namespaces['Cisco-IOS-XR-fretta-bcm-dpa-oper'],
         'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper'
         ),
@@ -626,18 +448,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Dpa.Stats.Nodes.Node.VoqBaseNumbers.VoqBaseNumber.VoqBaseDataBlockNumber.VoqStat',
             False, 
             [
-            _MetaInfoClassMember('gport-dropped-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                GportDroppedBytes
-                ''',
-                'gport_dropped_bytes',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('gport-dropped-pkts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                GportDroppedPkts
-                ''',
-                'gport_dropped_pkts',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
             _MetaInfoClassMember('gport-received-bytes', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                GportReceivedBytes
@@ -649,6 +459,18 @@ _meta_table = {
                 '''                GportReceivedPkts
                 ''',
                 'gport_received_pkts',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('gport-dropped-bytes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                GportDroppedBytes
+                ''',
+                'gport_dropped_bytes',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('gport-dropped-pkts', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                GportDroppedPkts
+                ''',
+                'gport_dropped_pkts',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
             ],
             'Cisco-IOS-XR-fretta-bcm-dpa-oper',
@@ -667,59 +489,11 @@ _meta_table = {
                 ''',
                 'data_block_number',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', True),
-            _MetaInfoClassMember('connector-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                connector id
-                ''',
-                'connector_id',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('ifhandle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                ifhandle
-                ''',
-                'ifhandle',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
             _MetaInfoClassMember('is-inuse', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                is inuse
                 ''',
                 'is_inuse',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('is-local-port', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                is local port
-                ''',
-                'is_local_port',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('npu-core', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                npu core
-                ''',
-                'npu_core',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('npu-num', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                npu num
-                ''',
-                'npu_num',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('port-num', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                port num
-                ''',
-                'port_num',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('port-speed', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                port speed
-                ''',
-                'port_speed',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('pp-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                pp port
-                ''',
-                'pp_port',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
             _MetaInfoClassMember('rack-num', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
@@ -733,17 +507,65 @@ _meta_table = {
                 ''',
                 'slot_num',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('npu-num', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                npu num
+                ''',
+                'npu_num',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('npu-core', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                npu core
+                ''',
+                'npu_core',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('port-num', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                port num
+                ''',
+                'port_num',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('ifhandle', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ifhandle
+                ''',
+                'ifhandle',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
             _MetaInfoClassMember('sysport', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                sysport
                 ''',
                 'sysport',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('pp-port', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                pp port
+                ''',
+                'pp_port',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('port-speed', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                port speed
+                ''',
+                'port_speed',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
             _MetaInfoClassMember('voq-base', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                voq base
                 ''',
                 'voq_base',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('connector-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                connector id
+                ''',
+                'connector_id',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('is-local-port', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                is local port
+                ''',
+                'is_local_port',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
             _MetaInfoClassMember('voq-stat', REFERENCE_LIST, 'VoqStat' , 'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper', 'Dpa.Stats.Nodes.Node.VoqBaseNumbers.VoqBaseNumber.VoqBaseDataBlockNumber.VoqStat', 
                 [], [], 
@@ -800,6 +622,184 @@ _meta_table = {
         'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper'
         ),
     },
+    'Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock.VoqStatsDataBlockNumber.VoqStat' : {
+        'meta_info' : _MetaInfoClass('Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock.VoqStatsDataBlockNumber.VoqStat',
+            False, 
+            [
+            _MetaInfoClassMember('gport-received-bytes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                GportReceivedBytes
+                ''',
+                'gport_received_bytes',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('gport-received-pkts', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                GportReceivedPkts
+                ''',
+                'gport_received_pkts',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('gport-dropped-bytes', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                GportDroppedBytes
+                ''',
+                'gport_dropped_bytes',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('gport-dropped-pkts', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                GportDroppedPkts
+                ''',
+                'gport_dropped_pkts',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            ],
+            'Cisco-IOS-XR-fretta-bcm-dpa-oper',
+            'voq-stat',
+            _yang_ns._namespaces['Cisco-IOS-XR-fretta-bcm-dpa-oper'],
+        'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper'
+        ),
+    },
+    'Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock.VoqStatsDataBlockNumber' : {
+        'meta_info' : _MetaInfoClass('Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock.VoqStatsDataBlockNumber',
+            False, 
+            [
+            _MetaInfoClassMember('data-block-number', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Data Block Number
+                ''',
+                'data_block_number',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', True),
+            _MetaInfoClassMember('is-inuse', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                is inuse
+                ''',
+                'is_inuse',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('rack-num', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                rack num
+                ''',
+                'rack_num',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('slot-num', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                slot num
+                ''',
+                'slot_num',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('npu-num', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                npu num
+                ''',
+                'npu_num',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('npu-core', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                npu core
+                ''',
+                'npu_core',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('port-num', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                port num
+                ''',
+                'port_num',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('ifhandle', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                ifhandle
+                ''',
+                'ifhandle',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('sysport', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                sysport
+                ''',
+                'sysport',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('pp-port', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                pp port
+                ''',
+                'pp_port',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('port-speed', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                port speed
+                ''',
+                'port_speed',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('voq-base', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                voq base
+                ''',
+                'voq_base',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('connector-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                connector id
+                ''',
+                'connector_id',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('is-local-port', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                is local port
+                ''',
+                'is_local_port',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('voq-stat', REFERENCE_LIST, 'VoqStat' , 'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper', 'Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock.VoqStatsDataBlockNumber.VoqStat', 
+                [], [], 
+                '''                voq stat
+                ''',
+                'voq_stat',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False, max_elements=8),
+            ],
+            'Cisco-IOS-XR-fretta-bcm-dpa-oper',
+            'voq-stats-data-block-number',
+            _yang_ns._namespaces['Cisco-IOS-XR-fretta-bcm-dpa-oper'],
+        'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper'
+        ),
+    },
+    'Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock' : {
+        'meta_info' : _MetaInfoClass('Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock',
+            False, 
+            [
+            _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Interface handle
+                ''',
+                'interface_handle',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', True),
+            _MetaInfoClassMember('voq-stats-data-block-number', REFERENCE_LIST, 'VoqStatsDataBlockNumber' , 'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper', 'Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock.VoqStatsDataBlockNumber', 
+                [], [], 
+                '''                Indicates the data block number for a
+                particular voq and cannot be used to
+                extract a single element
+                ''',
+                'voq_stats_data_block_number',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            ],
+            'Cisco-IOS-XR-fretta-bcm-dpa-oper',
+            'single-voq-stats-data-block',
+            _yang_ns._namespaces['Cisco-IOS-XR-fretta-bcm-dpa-oper'],
+        'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper'
+        ),
+    },
+    'Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks' : {
+        'meta_info' : _MetaInfoClass('Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks',
+            False, 
+            [
+            _MetaInfoClassMember('single-voq-stats-data-block', REFERENCE_LIST, 'SingleVoqStatsDataBlock' , 'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper', 'Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock', 
+                [], [], 
+                '''                Interface handle for a particular voq
+                ''',
+                'single_voq_stats_data_block',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            ],
+            'Cisco-IOS-XR-fretta-bcm-dpa-oper',
+            'single-voq-stats-data-blocks',
+            _yang_ns._namespaces['Cisco-IOS-XR-fretta-bcm-dpa-oper'],
+        'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper'
+        ),
+    },
     'Dpa.Stats.Nodes.Node' : {
         'meta_info' : _MetaInfoClass('Dpa.Stats.Nodes.Node',
             False, 
@@ -816,29 +816,29 @@ _meta_table = {
                 ''',
                 'all_traps_stats_data_blocks',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('all-voq-stats-data-blocks', REFERENCE_CLASS, 'AllVoqStatsDataBlocks' , 'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper', 'Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks', 
-                [], [], 
-                '''                DPA voq ingress stats 
-                ''',
-                'all_voq_stats_data_blocks',
-                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
             _MetaInfoClassMember('single-trap-stats-data-blocks', REFERENCE_CLASS, 'SingleTrapStatsDataBlocks' , 'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper', 'Dpa.Stats.Nodes.Node.SingleTrapStatsDataBlocks', 
                 [], [], 
                 '''                DPA stats for a single trap
                 ''',
                 'single_trap_stats_data_blocks',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
-            _MetaInfoClassMember('single-voq-stats-data-blocks', REFERENCE_CLASS, 'SingleVoqStatsDataBlocks' , 'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper', 'Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks', 
+            _MetaInfoClassMember('all-voq-stats-data-blocks', REFERENCE_CLASS, 'AllVoqStatsDataBlocks' , 'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper', 'Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks', 
                 [], [], 
-                '''                DPA voq ingress stats for a single interface
+                '''                DPA voq ingress stats 
                 ''',
-                'single_voq_stats_data_blocks',
+                'all_voq_stats_data_blocks',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
             _MetaInfoClassMember('voq-base-numbers', REFERENCE_CLASS, 'VoqBaseNumbers' , 'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper', 'Dpa.Stats.Nodes.Node.VoqBaseNumbers', 
                 [], [], 
                 '''                DPA voq base stats 
                 ''',
                 'voq_base_numbers',
+                'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
+            _MetaInfoClassMember('single-voq-stats-data-blocks', REFERENCE_CLASS, 'SingleVoqStatsDataBlocks' , 'ydk.models.fretta.Cisco_IOS_XR_fretta_bcm_dpa_oper', 'Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks', 
+                [], [], 
+                '''                DPA voq ingress stats for a single interface
+                ''',
+                'single_voq_stats_data_blocks',
                 'Cisco-IOS-XR-fretta-bcm-dpa-oper', False),
             ],
             'Cisco-IOS-XR-fretta-bcm-dpa-oper',
@@ -900,21 +900,21 @@ _meta_table = {
     },
 }
 _meta_table['Dpa.Stats.Nodes.Node.AllTrapsStatsDataBlocks.AllTrapsStatsDataBlock']['meta_info'].parent =_meta_table['Dpa.Stats.Nodes.Node.AllTrapsStatsDataBlocks']['meta_info']
-_meta_table['Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks.AllVoqStatsDataBlock.VoqStat']['meta_info'].parent =_meta_table['Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks.AllVoqStatsDataBlock']['meta_info']
-_meta_table['Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks.AllVoqStatsDataBlock']['meta_info'].parent =_meta_table['Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks']['meta_info']
 _meta_table['Dpa.Stats.Nodes.Node.SingleTrapStatsDataBlocks.SingleTrapStatsDataBlock.TrapDataBlockNumber']['meta_info'].parent =_meta_table['Dpa.Stats.Nodes.Node.SingleTrapStatsDataBlocks.SingleTrapStatsDataBlock']['meta_info']
 _meta_table['Dpa.Stats.Nodes.Node.SingleTrapStatsDataBlocks.SingleTrapStatsDataBlock']['meta_info'].parent =_meta_table['Dpa.Stats.Nodes.Node.SingleTrapStatsDataBlocks']['meta_info']
-_meta_table['Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock.VoqStatsDataBlockNumber.VoqStat']['meta_info'].parent =_meta_table['Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock.VoqStatsDataBlockNumber']['meta_info']
-_meta_table['Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock.VoqStatsDataBlockNumber']['meta_info'].parent =_meta_table['Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock']['meta_info']
-_meta_table['Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock']['meta_info'].parent =_meta_table['Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks']['meta_info']
+_meta_table['Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks.AllVoqStatsDataBlock.VoqStat']['meta_info'].parent =_meta_table['Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks.AllVoqStatsDataBlock']['meta_info']
+_meta_table['Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks.AllVoqStatsDataBlock']['meta_info'].parent =_meta_table['Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks']['meta_info']
 _meta_table['Dpa.Stats.Nodes.Node.VoqBaseNumbers.VoqBaseNumber.VoqBaseDataBlockNumber.VoqStat']['meta_info'].parent =_meta_table['Dpa.Stats.Nodes.Node.VoqBaseNumbers.VoqBaseNumber.VoqBaseDataBlockNumber']['meta_info']
 _meta_table['Dpa.Stats.Nodes.Node.VoqBaseNumbers.VoqBaseNumber.VoqBaseDataBlockNumber']['meta_info'].parent =_meta_table['Dpa.Stats.Nodes.Node.VoqBaseNumbers.VoqBaseNumber']['meta_info']
 _meta_table['Dpa.Stats.Nodes.Node.VoqBaseNumbers.VoqBaseNumber']['meta_info'].parent =_meta_table['Dpa.Stats.Nodes.Node.VoqBaseNumbers']['meta_info']
+_meta_table['Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock.VoqStatsDataBlockNumber.VoqStat']['meta_info'].parent =_meta_table['Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock.VoqStatsDataBlockNumber']['meta_info']
+_meta_table['Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock.VoqStatsDataBlockNumber']['meta_info'].parent =_meta_table['Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock']['meta_info']
+_meta_table['Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks.SingleVoqStatsDataBlock']['meta_info'].parent =_meta_table['Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks']['meta_info']
 _meta_table['Dpa.Stats.Nodes.Node.AllTrapsStatsDataBlocks']['meta_info'].parent =_meta_table['Dpa.Stats.Nodes.Node']['meta_info']
-_meta_table['Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks']['meta_info'].parent =_meta_table['Dpa.Stats.Nodes.Node']['meta_info']
 _meta_table['Dpa.Stats.Nodes.Node.SingleTrapStatsDataBlocks']['meta_info'].parent =_meta_table['Dpa.Stats.Nodes.Node']['meta_info']
-_meta_table['Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks']['meta_info'].parent =_meta_table['Dpa.Stats.Nodes.Node']['meta_info']
+_meta_table['Dpa.Stats.Nodes.Node.AllVoqStatsDataBlocks']['meta_info'].parent =_meta_table['Dpa.Stats.Nodes.Node']['meta_info']
 _meta_table['Dpa.Stats.Nodes.Node.VoqBaseNumbers']['meta_info'].parent =_meta_table['Dpa.Stats.Nodes.Node']['meta_info']
+_meta_table['Dpa.Stats.Nodes.Node.SingleVoqStatsDataBlocks']['meta_info'].parent =_meta_table['Dpa.Stats.Nodes.Node']['meta_info']
 _meta_table['Dpa.Stats.Nodes.Node']['meta_info'].parent =_meta_table['Dpa.Stats.Nodes']['meta_info']
 _meta_table['Dpa.Stats.Nodes']['meta_info'].parent =_meta_table['Dpa.Stats']['meta_info']
 _meta_table['Dpa.Stats']['meta_info'].parent =_meta_table['Dpa']['meta_info']

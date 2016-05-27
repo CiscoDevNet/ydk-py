@@ -7,7 +7,7 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
@@ -28,6 +28,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vlans.Vlan.Config',
             False, 
             [
+            _MetaInfoClassMember('vlan-id', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4094)], [], 
+                '''                Interface VLAN id.
+                ''',
+                'vlan_id',
+                'openconfig-vlan', False),
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface VLAN name.
@@ -39,12 +45,6 @@ _meta_table = {
                 '''                Admin state of the VLAN
                 ''',
                 'status',
-                'openconfig-vlan', False),
-            _MetaInfoClassMember('vlan-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
-                '''                Interface VLAN id.
-                ''',
-                'vlan_id',
                 'openconfig-vlan', False),
             ],
             'openconfig-vlan',
@@ -62,12 +62,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vlans.Vlan.State',
             False, 
             [
-            _MetaInfoClassMember('member-ports', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], [], 
-                '''                List of current member ports including access ports
-                and trunk ports that support this vlan
+            _MetaInfoClassMember('vlan-id', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4094)], [], 
+                '''                Interface VLAN id.
                 ''',
-                'member_ports',
+                'vlan_id',
                 'openconfig-vlan', False),
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -81,11 +80,12 @@ _meta_table = {
                 ''',
                 'status',
                 'openconfig-vlan', False),
-            _MetaInfoClassMember('vlan-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
-                '''                Interface VLAN id.
+            _MetaInfoClassMember('member-ports', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                List of current member ports including access ports
+                and trunk ports that support this vlan
                 ''',
-                'vlan_id',
+                'member_ports',
                 'openconfig-vlan', False),
             ],
             'openconfig-vlan',

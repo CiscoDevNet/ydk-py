@@ -7,7 +7,7 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
@@ -18,6 +18,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cdp',
             False, 
             [
+            _MetaInfoClassMember('timer', ATTRIBUTE, 'int' , None, None, 
+                [(5, 255)], [], 
+                '''                Specify the rate at which CDP packets are sent
+                ''',
+                'timer',
+                'Cisco-IOS-XR-cdp-cfg', False),
             _MetaInfoClassMember('advertise-v1-only', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable CDPv1 only advertisements
@@ -42,12 +48,6 @@ _meta_table = {
                 '''                Enable logging of adjacency changes
                 ''',
                 'log_adjacency',
-                'Cisco-IOS-XR-cdp-cfg', False),
-            _MetaInfoClassMember('timer', ATTRIBUTE, 'int' , None, None, 
-                [(5, 255)], [], 
-                '''                Specify the rate at which CDP packets are sent
-                ''',
-                'timer',
                 'Cisco-IOS-XR-cdp-cfg', False),
             ],
             'Cisco-IOS-XR-cdp-cfg',

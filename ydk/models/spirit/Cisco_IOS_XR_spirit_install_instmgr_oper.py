@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -506,70 +506,70 @@ class SoftwareInstall(object):
     """
     Install operations info
     
-    .. attribute:: active
-    
-    	Show active packages installed
-    	**type**\: :py:class:`Active <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Active>`
-    
-    .. attribute:: all_operations_log
-    
-    	Show log file for all operations
-    	**type**\: :py:class:`AllOperationsLog <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.AllOperationsLog>`
-    
-    .. attribute:: committed
-    
-    	Show Committed packages installed
-    	**type**\: :py:class:`Committed <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Committed>`
-    
     .. attribute:: files
     
     	Show information about an installed file
     	**type**\: :py:class:`Files <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Files>`
-    
-    .. attribute:: inactive
-    
-    	Show XR inactive packages
-    	**type**\: :py:class:`Inactive <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Inactive>`
-    
-    .. attribute:: issu
-    
-    	ISSU operation
-    	**type**\: :py:class:`Issu <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Issu>`
     
     .. attribute:: last_n_operation_logs
     
     	Show log file for last n operations
     	**type**\: :py:class:`LastNOperationLogs <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.LastNOperationLogs>`
     
-    .. attribute:: operation_logs
-    
-    	Show log file
-    	**type**\: :py:class:`OperationLogs <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.OperationLogs>`
-    
-    .. attribute:: packages
-    
-    	Show the list of installed packages
-    	**type**\: :py:class:`Packages <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Packages>`
-    
     .. attribute:: prepare
     
     	Show prepared packages ready for activation
     	**type**\: :py:class:`Prepare <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Prepare>`
     
-    .. attribute:: repository
+    .. attribute:: active
     
-    	Show packages stored in install software repositories
-    	**type**\: :py:class:`Repository <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Repository>`
+    	Show active packages installed
+    	**type**\: :py:class:`Active <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Active>`
+    
+    .. attribute:: version
+    
+    	Show install version
+    	**type**\: :py:class:`Version <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Version>`
+    
+    .. attribute:: inactive
+    
+    	Show XR inactive packages
+    	**type**\: :py:class:`Inactive <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Inactive>`
     
     .. attribute:: request
     
     	Show current request
     	**type**\: :py:class:`Request <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Request>`
     
-    .. attribute:: version
+    .. attribute:: issu
     
-    	Show install version
-    	**type**\: :py:class:`Version <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Version>`
+    	ISSU operation
+    	**type**\: :py:class:`Issu <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Issu>`
+    
+    .. attribute:: committed
+    
+    	Show Committed packages installed
+    	**type**\: :py:class:`Committed <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Committed>`
+    
+    .. attribute:: all_operations_log
+    
+    	Show log file for all operations
+    	**type**\: :py:class:`AllOperationsLog <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.AllOperationsLog>`
+    
+    .. attribute:: packages
+    
+    	Show the list of installed packages
+    	**type**\: :py:class:`Packages <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Packages>`
+    
+    .. attribute:: operation_logs
+    
+    	Show log file
+    	**type**\: :py:class:`OperationLogs <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.OperationLogs>`
+    
+    .. attribute:: repository
+    
+    	Show packages stored in install software repositories
+    	**type**\: :py:class:`Repository <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Repository>`
     
     
 
@@ -579,446 +579,32 @@ class SoftwareInstall(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.active = SoftwareInstall.Active()
-        self.active.parent = self
-        self.all_operations_log = SoftwareInstall.AllOperationsLog()
-        self.all_operations_log.parent = self
-        self.committed = SoftwareInstall.Committed()
-        self.committed.parent = self
         self.files = SoftwareInstall.Files()
         self.files.parent = self
-        self.inactive = SoftwareInstall.Inactive()
-        self.inactive.parent = self
-        self.issu = SoftwareInstall.Issu()
-        self.issu.parent = self
         self.last_n_operation_logs = SoftwareInstall.LastNOperationLogs()
         self.last_n_operation_logs.parent = self
-        self.operation_logs = SoftwareInstall.OperationLogs()
-        self.operation_logs.parent = self
-        self.packages = SoftwareInstall.Packages()
-        self.packages.parent = self
         self.prepare = SoftwareInstall.Prepare()
         self.prepare.parent = self
-        self.repository = SoftwareInstall.Repository()
-        self.repository.parent = self
-        self.request = SoftwareInstall.Request()
-        self.request.parent = self
+        self.active = SoftwareInstall.Active()
+        self.active.parent = self
         self.version = SoftwareInstall.Version()
         self.version.parent = self
-
-
-    class Active(object):
-        """
-        Show active packages installed
-        
-        .. attribute:: active_package_info
-        
-        	active package info
-        	**type**\: list of :py:class:`ActivePackageInfo <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Active.ActivePackageInfo>`
-        
-        
-
-        """
-
-        _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.active_package_info = YList()
-            self.active_package_info.parent = self
-            self.active_package_info.name = 'active_package_info'
-
-
-        class ActivePackageInfo(object):
-            """
-            active package info
-            
-            .. attribute:: active_packages
-            
-            	ActivePackages
-            	**type**\: str
-            
-            .. attribute:: boot_partition_name
-            
-            	BootPartitionName
-            	**type**\: str
-            
-            .. attribute:: error_message
-            
-            	ErrorMessage
-            	**type**\: str
-            
-            .. attribute:: location
-            
-            	Location
-            	**type**\: str
-            
-            .. attribute:: node_type
-            
-            	NodeType
-            	**type**\: str
-            
-            .. attribute:: number_of_active_packages
-            
-            	NumberOfActivePackages
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            
-
-            """
-
-            _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.active_packages = None
-                self.boot_partition_name = None
-                self.error_message = None
-                self.location = None
-                self.node_type = None
-                self.number_of_active_packages = None
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:active/Cisco-IOS-XR-spirit-install-instmgr-oper:active-package-info'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.active_packages is not None:
-                    return True
-
-                if self.boot_partition_name is not None:
-                    return True
-
-                if self.error_message is not None:
-                    return True
-
-                if self.location is not None:
-                    return True
-
-                if self.node_type is not None:
-                    return True
-
-                if self.number_of_active_packages is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-                return meta._meta_table['SoftwareInstall.Active.ActivePackageInfo']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:active'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.active_package_info is not None:
-                for child_ref in self.active_package_info:
-                    if child_ref._has_data():
-                        return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-            return meta._meta_table['SoftwareInstall.Active']['meta_info']
-
-
-    class AllOperationsLog(object):
-        """
-        Show log file for all operations
-        
-        .. attribute:: detail
-        
-        	Show detailed log file for all operations
-        	**type**\: :py:class:`Detail <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.AllOperationsLog.Detail>`
-        
-        .. attribute:: summary
-        
-        	Show summary log file for all operations
-        	**type**\: :py:class:`Summary <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.AllOperationsLog.Summary>`
-        
-        
-
-        """
-
-        _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.detail = SoftwareInstall.AllOperationsLog.Detail()
-            self.detail.parent = self
-            self.summary = SoftwareInstall.AllOperationsLog.Summary()
-            self.summary.parent = self
-
-
-        class Detail(object):
-            """
-            Show detailed log file for all operations
-            
-            .. attribute:: log
-            
-            	log
-            	**type**\: str
-            
-            
-
-            """
-
-            _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.log = None
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:all-operations-log/Cisco-IOS-XR-spirit-install-instmgr-oper:detail'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.log is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-                return meta._meta_table['SoftwareInstall.AllOperationsLog.Detail']['meta_info']
-
-
-        class Summary(object):
-            """
-            Show summary log file for all operations
-            
-            .. attribute:: log
-            
-            	log
-            	**type**\: str
-            
-            
-
-            """
-
-            _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.log = None
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:all-operations-log/Cisco-IOS-XR-spirit-install-instmgr-oper:summary'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.log is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-                return meta._meta_table['SoftwareInstall.AllOperationsLog.Summary']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:all-operations-log'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.detail is not None and self.detail._has_data():
-                return True
-
-            if self.summary is not None and self.summary._has_data():
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-            return meta._meta_table['SoftwareInstall.AllOperationsLog']['meta_info']
-
-
-    class Committed(object):
-        """
-        Show Committed packages installed
-        
-        .. attribute:: committed_package_info
-        
-        	committed package info
-        	**type**\: list of :py:class:`CommittedPackageInfo <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Committed.CommittedPackageInfo>`
-        
-        
-
-        """
-
-        _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.committed_package_info = YList()
-            self.committed_package_info.parent = self
-            self.committed_package_info.name = 'committed_package_info'
-
-
-        class CommittedPackageInfo(object):
-            """
-            committed package info
-            
-            .. attribute:: boot_partition_name
-            
-            	BootPartitionName
-            	**type**\: str
-            
-            .. attribute:: committed_packages
-            
-            	CommittedPackages
-            	**type**\: str
-            
-            .. attribute:: error_message
-            
-            	ErrorMessage
-            	**type**\: str
-            
-            .. attribute:: location
-            
-            	Location
-            	**type**\: str
-            
-            .. attribute:: node_type
-            
-            	NodeType
-            	**type**\: str
-            
-            .. attribute:: number_of_committed_packages
-            
-            	NumberOfCommittedPackages
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            
-
-            """
-
-            _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.boot_partition_name = None
-                self.committed_packages = None
-                self.error_message = None
-                self.location = None
-                self.node_type = None
-                self.number_of_committed_packages = None
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:committed/Cisco-IOS-XR-spirit-install-instmgr-oper:committed-package-info'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.boot_partition_name is not None:
-                    return True
-
-                if self.committed_packages is not None:
-                    return True
-
-                if self.error_message is not None:
-                    return True
-
-                if self.location is not None:
-                    return True
-
-                if self.node_type is not None:
-                    return True
-
-                if self.number_of_committed_packages is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-                return meta._meta_table['SoftwareInstall.Committed.CommittedPackageInfo']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:committed'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.committed_package_info is not None:
-                for child_ref in self.committed_package_info:
-                    if child_ref._has_data():
-                        return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-            return meta._meta_table['SoftwareInstall.Committed']['meta_info']
+        self.inactive = SoftwareInstall.Inactive()
+        self.inactive.parent = self
+        self.request = SoftwareInstall.Request()
+        self.request.parent = self
+        self.issu = SoftwareInstall.Issu()
+        self.issu.parent = self
+        self.committed = SoftwareInstall.Committed()
+        self.committed.parent = self
+        self.all_operations_log = SoftwareInstall.AllOperationsLog()
+        self.all_operations_log.parent = self
+        self.packages = SoftwareInstall.Packages()
+        self.packages.parent = self
+        self.operation_logs = SoftwareInstall.OperationLogs()
+        self.operation_logs.parent = self
+        self.repository = SoftwareInstall.Repository()
+        self.repository.parent = self
 
 
     class Files(object):
@@ -1048,7 +634,7 @@ class SoftwareInstall(object):
             """
             Show information about an installed file
             
-            .. attribute:: file_name
+            .. attribute:: file_name  <key>
             
             	File name
             	**type**\: str
@@ -1224,325 +810,6 @@ class SoftwareInstall(object):
             return meta._meta_table['SoftwareInstall.Files']['meta_info']
 
 
-    class Inactive(object):
-        """
-        Show XR inactive packages
-        
-        .. attribute:: log
-        
-        	log
-        	**type**\: str
-        
-        
-
-        """
-
-        _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.log = None
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:inactive'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.log is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-            return meta._meta_table['SoftwareInstall.Inactive']['meta_info']
-
-
-    class Issu(object):
-        """
-        ISSU operation
-        
-        .. attribute:: inventory
-        
-        	Show XR install issu inventory
-        	**type**\: :py:class:`Inventory <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Issu.Inventory>`
-        
-        .. attribute:: stage
-        
-        	Show XR install issu stage
-        	**type**\: :py:class:`Stage <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Issu.Stage>`
-        
-        
-
-        """
-
-        _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.inventory = SoftwareInstall.Issu.Inventory()
-            self.inventory.parent = self
-            self.stage = SoftwareInstall.Issu.Stage()
-            self.stage.parent = self
-
-
-        class Inventory(object):
-            """
-            Show XR install issu inventory
-            
-            .. attribute:: invinfo
-            
-            	invinfo
-            	**type**\: list of :py:class:`Invinfo <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Issu.Inventory.Invinfo>`
-            
-            
-
-            """
-
-            _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.invinfo = YList()
-                self.invinfo.parent = self
-                self.invinfo.name = 'invinfo'
-
-
-            class Invinfo(object):
-                """
-                invinfo
-                
-                .. attribute:: issu_node_role
-                
-                	ISSU Node Role
-                	**type**\: :py:class:`IssuNodeRoleEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IssuNodeRoleEtEnum>`
-                
-                .. attribute:: node_id
-                
-                	Node ID
-                	**type**\: int
-                
-                	**range:** \-2147483648..2147483647
-                
-                .. attribute:: node_role
-                
-                	Node role
-                	**type**\: :py:class:`NodeRoleEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.NodeRoleEtEnum>`
-                
-                .. attribute:: node_state
-                
-                	Node State
-                	**type**\: :py:class:`IssudirNodeStatusEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IssudirNodeStatusEtEnum>`
-                
-                .. attribute:: node_type
-                
-                	Node Type
-                	**type**\: :py:class:`CardTypeEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.CardTypeEtEnum>`
-                
-                
-
-                """
-
-                _prefix = 'spirit-install-instmgr-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.issu_node_role = None
-                    self.node_id = None
-                    self.node_role = None
-                    self.node_state = None
-                    self.node_type = None
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:issu/Cisco-IOS-XR-spirit-install-instmgr-oper:inventory/Cisco-IOS-XR-spirit-install-instmgr-oper:invinfo'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.issu_node_role is not None:
-                        return True
-
-                    if self.node_id is not None:
-                        return True
-
-                    if self.node_role is not None:
-                        return True
-
-                    if self.node_state is not None:
-                        return True
-
-                    if self.node_type is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-                    return meta._meta_table['SoftwareInstall.Issu.Inventory.Invinfo']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:issu/Cisco-IOS-XR-spirit-install-instmgr-oper:inventory'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.invinfo is not None:
-                    for child_ref in self.invinfo:
-                        if child_ref._has_data():
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-                return meta._meta_table['SoftwareInstall.Issu.Inventory']['meta_info']
-
-
-        class Stage(object):
-            """
-            Show XR install issu stage
-            
-            .. attribute:: issu_error
-            
-            	ISSU Error
-            	**type**\: :py:class:`IsdErrorEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IsdErrorEtEnum>`
-            
-            .. attribute:: issu_node_cnt
-            
-            	ISSU Node Count
-            	**type**\: int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: issu_ready_node_cnt
-            
-            	ISSU Ready Node Count
-            	**type**\: int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: issu_status
-            
-            	Abort Status
-            	**type**\: :py:class:`IsdIssuStatusEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IsdIssuStatusEtEnum>`
-            
-            .. attribute:: percentage
-            
-            	Percentage
-            	**type**\: int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: state
-            
-            	State
-            	**type**\: :py:class:`IsdStateEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IsdStateEtEnum>`
-            
-            
-
-            """
-
-            _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.issu_error = None
-                self.issu_node_cnt = None
-                self.issu_ready_node_cnt = None
-                self.issu_status = None
-                self.percentage = None
-                self.state = None
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:issu/Cisco-IOS-XR-spirit-install-instmgr-oper:stage'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.issu_error is not None:
-                    return True
-
-                if self.issu_node_cnt is not None:
-                    return True
-
-                if self.issu_ready_node_cnt is not None:
-                    return True
-
-                if self.issu_status is not None:
-                    return True
-
-                if self.percentage is not None:
-                    return True
-
-                if self.state is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-                return meta._meta_table['SoftwareInstall.Issu.Stage']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:issu'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.inventory is not None and self.inventory._has_data():
-                return True
-
-            if self.stage is not None and self.stage._has_data():
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-            return meta._meta_table['SoftwareInstall.Issu']['meta_info']
-
-
     class LastNOperationLogs(object):
         """
         Show log file for last n operations
@@ -1570,22 +837,22 @@ class SoftwareInstall(object):
             """
             Show log file of last n operations
             
-            .. attribute:: last_n_logs
+            .. attribute:: last_n_logs  <key>
             
             	Last N opeartion logs
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
-            .. attribute:: detail
-            
-            	Show detailed log file for last n operations
-            	**type**\: :py:class:`Detail <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.LastNOperationLogs.LastNOperationLog.Detail>`
-            
             .. attribute:: summary
             
             	Show summary log file for last n operations
             	**type**\: :py:class:`Summary <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.LastNOperationLogs.LastNOperationLog.Summary>`
+            
+            .. attribute:: detail
+            
+            	Show detailed log file for last n operations
+            	**type**\: :py:class:`Detail <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.LastNOperationLogs.LastNOperationLog.Detail>`
             
             
 
@@ -1597,55 +864,10 @@ class SoftwareInstall(object):
             def __init__(self):
                 self.parent = None
                 self.last_n_logs = None
-                self.detail = SoftwareInstall.LastNOperationLogs.LastNOperationLog.Detail()
-                self.detail.parent = self
                 self.summary = SoftwareInstall.LastNOperationLogs.LastNOperationLog.Summary()
                 self.summary.parent = self
-
-
-            class Detail(object):
-                """
-                Show detailed log file for last n operations
-                
-                .. attribute:: log
-                
-                	log
-                	**type**\: str
-                
-                
-
-                """
-
-                _prefix = 'spirit-install-instmgr-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.log = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-spirit-install-instmgr-oper:detail'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.log is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-                    return meta._meta_table['SoftwareInstall.LastNOperationLogs.LastNOperationLog.Detail']['meta_info']
+                self.detail = SoftwareInstall.LastNOperationLogs.LastNOperationLog.Detail()
+                self.detail.parent = self
 
 
             class Summary(object):
@@ -1692,125 +914,10 @@ class SoftwareInstall(object):
                     from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
                     return meta._meta_table['SoftwareInstall.LastNOperationLogs.LastNOperationLog.Summary']['meta_info']
 
-            @property
-            def _common_path(self):
-                if self.last_n_logs is None:
-                    raise YPYDataValidationError('Key property last_n_logs is None')
-
-                return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:last-n-operation-logs/Cisco-IOS-XR-spirit-install-instmgr-oper:last-n-operation-log[Cisco-IOS-XR-spirit-install-instmgr-oper:last-n-logs = ' + str(self.last_n_logs) + ']'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.last_n_logs is not None:
-                    return True
-
-                if self.detail is not None and self.detail._has_data():
-                    return True
-
-                if self.summary is not None and self.summary._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-                return meta._meta_table['SoftwareInstall.LastNOperationLogs.LastNOperationLog']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:last-n-operation-logs'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.last_n_operation_log is not None:
-                for child_ref in self.last_n_operation_log:
-                    if child_ref._has_data():
-                        return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-            return meta._meta_table['SoftwareInstall.LastNOperationLogs']['meta_info']
-
-
-    class OperationLogs(object):
-        """
-        Show log file
-        
-        .. attribute:: operation_log
-        
-        	Show log file for the specified install ID
-        	**type**\: list of :py:class:`OperationLog <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.OperationLogs.OperationLog>`
-        
-        
-
-        """
-
-        _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.operation_log = YList()
-            self.operation_log.parent = self
-            self.operation_log.name = 'operation_log'
-
-
-        class OperationLog(object):
-            """
-            Show log file for the specified install ID
-            
-            .. attribute:: log_id
-            
-            	Log ID number
-            	**type**\: int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: detail
-            
-            	Show detailed log file for the specified install ID
-            	**type**\: :py:class:`Detail <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.OperationLogs.OperationLog.Detail>`
-            
-            .. attribute:: summary
-            
-            	Show summary log file for the specified install ID
-            	**type**\: :py:class:`Summary <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.OperationLogs.OperationLog.Summary>`
-            
-            
-
-            """
-
-            _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.log_id = None
-                self.detail = SoftwareInstall.OperationLogs.OperationLog.Detail()
-                self.detail.parent = self
-                self.summary = SoftwareInstall.OperationLogs.OperationLog.Summary()
-                self.summary.parent = self
-
 
             class Detail(object):
                 """
-                Show detailed log file for the specified
-                install ID
+                Show detailed log file for last n operations
                 
                 .. attribute:: log
                 
@@ -1850,18 +957,548 @@ class SoftwareInstall(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-                    return meta._meta_table['SoftwareInstall.OperationLogs.OperationLog.Detail']['meta_info']
+                    return meta._meta_table['SoftwareInstall.LastNOperationLogs.LastNOperationLog.Detail']['meta_info']
+
+            @property
+            def _common_path(self):
+                if self.last_n_logs is None:
+                    raise YPYDataValidationError('Key property last_n_logs is None')
+
+                return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:last-n-operation-logs/Cisco-IOS-XR-spirit-install-instmgr-oper:last-n-operation-log[Cisco-IOS-XR-spirit-install-instmgr-oper:last-n-logs = ' + str(self.last_n_logs) + ']'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.last_n_logs is not None:
+                    return True
+
+                if self.summary is not None and self.summary._has_data():
+                    return True
+
+                if self.detail is not None and self.detail._has_data():
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.LastNOperationLogs.LastNOperationLog']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:last-n-operation-logs'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.last_n_operation_log is not None:
+                for child_ref in self.last_n_operation_log:
+                    if child_ref._has_data():
+                        return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+            return meta._meta_table['SoftwareInstall.LastNOperationLogs']['meta_info']
 
 
-            class Summary(object):
+    class Prepare(object):
+        """
+        Show prepared packages ready for activation
+        
+        .. attribute:: log
+        
+        	log
+        	**type**\: str
+        
+        
+
+        """
+
+        _prefix = 'spirit-install-instmgr-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.log = None
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:prepare'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.log is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+            return meta._meta_table['SoftwareInstall.Prepare']['meta_info']
+
+
+    class Active(object):
+        """
+        Show active packages installed
+        
+        .. attribute:: active_package_info
+        
+        	active package info
+        	**type**\: list of :py:class:`ActivePackageInfo <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Active.ActivePackageInfo>`
+        
+        
+
+        """
+
+        _prefix = 'spirit-install-instmgr-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.active_package_info = YList()
+            self.active_package_info.parent = self
+            self.active_package_info.name = 'active_package_info'
+
+
+        class ActivePackageInfo(object):
+            """
+            active package info
+            
+            .. attribute:: error_message
+            
+            	ErrorMessage
+            	**type**\: str
+            
+            .. attribute:: location
+            
+            	Location
+            	**type**\: str
+            
+            .. attribute:: node_type
+            
+            	NodeType
+            	**type**\: str
+            
+            .. attribute:: boot_partition_name
+            
+            	BootPartitionName
+            	**type**\: str
+            
+            .. attribute:: number_of_active_packages
+            
+            	NumberOfActivePackages
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: active_packages
+            
+            	ActivePackages
+            	**type**\: str
+            
+            
+
+            """
+
+            _prefix = 'spirit-install-instmgr-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.error_message = None
+                self.location = None
+                self.node_type = None
+                self.boot_partition_name = None
+                self.number_of_active_packages = None
+                self.active_packages = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:active/Cisco-IOS-XR-spirit-install-instmgr-oper:active-package-info'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.error_message is not None:
+                    return True
+
+                if self.location is not None:
+                    return True
+
+                if self.node_type is not None:
+                    return True
+
+                if self.boot_partition_name is not None:
+                    return True
+
+                if self.number_of_active_packages is not None:
+                    return True
+
+                if self.active_packages is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.Active.ActivePackageInfo']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:active'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.active_package_info is not None:
+                for child_ref in self.active_package_info:
+                    if child_ref._has_data():
+                        return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+            return meta._meta_table['SoftwareInstall.Active']['meta_info']
+
+
+    class Version(object):
+        """
+        Show install version
+        
+        .. attribute:: log
+        
+        	log
+        	**type**\: str
+        
+        
+
+        """
+
+        _prefix = 'spirit-install-instmgr-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.log = None
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:version'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.log is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+            return meta._meta_table['SoftwareInstall.Version']['meta_info']
+
+
+    class Inactive(object):
+        """
+        Show XR inactive packages
+        
+        .. attribute:: log
+        
+        	log
+        	**type**\: str
+        
+        
+
+        """
+
+        _prefix = 'spirit-install-instmgr-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.log = None
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:inactive'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.log is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+            return meta._meta_table['SoftwareInstall.Inactive']['meta_info']
+
+
+    class Request(object):
+        """
+        Show current request
+        
+        .. attribute:: log
+        
+        	log
+        	**type**\: str
+        
+        
+
+        """
+
+        _prefix = 'spirit-install-instmgr-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.log = None
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:request'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.log is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+            return meta._meta_table['SoftwareInstall.Request']['meta_info']
+
+
+    class Issu(object):
+        """
+        ISSU operation
+        
+        .. attribute:: stage
+        
+        	Show XR install issu stage
+        	**type**\: :py:class:`Stage <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Issu.Stage>`
+        
+        .. attribute:: inventory
+        
+        	Show XR install issu inventory
+        	**type**\: :py:class:`Inventory <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Issu.Inventory>`
+        
+        
+
+        """
+
+        _prefix = 'spirit-install-instmgr-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.stage = SoftwareInstall.Issu.Stage()
+            self.stage.parent = self
+            self.inventory = SoftwareInstall.Issu.Inventory()
+            self.inventory.parent = self
+
+
+        class Stage(object):
+            """
+            Show XR install issu stage
+            
+            .. attribute:: state
+            
+            	State
+            	**type**\: :py:class:`IsdStateEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IsdStateEtEnum>`
+            
+            .. attribute:: issu_node_cnt
+            
+            	ISSU Node Count
+            	**type**\: int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: issu_ready_node_cnt
+            
+            	ISSU Ready Node Count
+            	**type**\: int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: percentage
+            
+            	Percentage
+            	**type**\: int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: issu_status
+            
+            	Abort Status
+            	**type**\: :py:class:`IsdIssuStatusEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IsdIssuStatusEtEnum>`
+            
+            .. attribute:: issu_error
+            
+            	ISSU Error
+            	**type**\: :py:class:`IsdErrorEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IsdErrorEtEnum>`
+            
+            
+
+            """
+
+            _prefix = 'spirit-install-instmgr-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.state = None
+                self.issu_node_cnt = None
+                self.issu_ready_node_cnt = None
+                self.percentage = None
+                self.issu_status = None
+                self.issu_error = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:issu/Cisco-IOS-XR-spirit-install-instmgr-oper:stage'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.state is not None:
+                    return True
+
+                if self.issu_node_cnt is not None:
+                    return True
+
+                if self.issu_ready_node_cnt is not None:
+                    return True
+
+                if self.percentage is not None:
+                    return True
+
+                if self.issu_status is not None:
+                    return True
+
+                if self.issu_error is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.Issu.Stage']['meta_info']
+
+
+        class Inventory(object):
+            """
+            Show XR install issu inventory
+            
+            .. attribute:: invinfo
+            
+            	invinfo
+            	**type**\: list of :py:class:`Invinfo <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Issu.Inventory.Invinfo>`
+            
+            
+
+            """
+
+            _prefix = 'spirit-install-instmgr-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.invinfo = YList()
+                self.invinfo.parent = self
+                self.invinfo.name = 'invinfo'
+
+
+            class Invinfo(object):
                 """
-                Show summary log file for the specified
-                install ID
+                invinfo
                 
-                .. attribute:: log
+                .. attribute:: node_id
                 
-                	log
-                	**type**\: str
+                	Node ID
+                	**type**\: int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: node_type
+                
+                	Node Type
+                	**type**\: :py:class:`CardTypeEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.CardTypeEtEnum>`
+                
+                .. attribute:: issu_node_role
+                
+                	ISSU Node Role
+                	**type**\: :py:class:`IssuNodeRoleEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IssuNodeRoleEtEnum>`
+                
+                .. attribute:: node_state
+                
+                	Node State
+                	**type**\: :py:class:`IssudirNodeStatusEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.IssudirNodeStatusEtEnum>`
+                
+                .. attribute:: node_role
+                
+                	Node role
+                	**type**\: :py:class:`NodeRoleEtEnum <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.NodeRoleEtEnum>`
                 
                 
 
@@ -1872,14 +1509,16 @@ class SoftwareInstall(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.log = None
+                    self.node_id = None
+                    self.node_type = None
+                    self.issu_node_role = None
+                    self.node_state = None
+                    self.node_role = None
 
                 @property
                 def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-spirit-install-instmgr-oper:summary'
+                    return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:issu/Cisco-IOS-XR-spirit-install-instmgr-oper:inventory/Cisco-IOS-XR-spirit-install-instmgr-oper:invinfo'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -1888,7 +1527,19 @@ class SoftwareInstall(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.log is not None:
+                    if self.node_id is not None:
+                        return True
+
+                    if self.node_type is not None:
+                        return True
+
+                    if self.issu_node_role is not None:
+                        return True
+
+                    if self.node_state is not None:
+                        return True
+
+                    if self.node_role is not None:
                         return True
 
                     return False
@@ -1896,14 +1547,12 @@ class SoftwareInstall(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-                    return meta._meta_table['SoftwareInstall.OperationLogs.OperationLog.Summary']['meta_info']
+                    return meta._meta_table['SoftwareInstall.Issu.Inventory.Invinfo']['meta_info']
 
             @property
             def _common_path(self):
-                if self.log_id is None:
-                    raise YPYDataValidationError('Key property log_id is None')
 
-                return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:operation-logs/Cisco-IOS-XR-spirit-install-instmgr-oper:operation-log[Cisco-IOS-XR-spirit-install-instmgr-oper:log-id = ' + str(self.log_id) + ']'
+                return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:issu/Cisco-IOS-XR-spirit-install-instmgr-oper:inventory'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
@@ -1912,26 +1561,22 @@ class SoftwareInstall(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.log_id is not None:
-                    return True
-
-                if self.detail is not None and self.detail._has_data():
-                    return True
-
-                if self.summary is not None and self.summary._has_data():
-                    return True
+                if self.invinfo is not None:
+                    for child_ref in self.invinfo:
+                        if child_ref._has_data():
+                            return True
 
                 return False
 
             @staticmethod
             def _meta_info():
                 from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-                return meta._meta_table['SoftwareInstall.OperationLogs.OperationLog']['meta_info']
+                return meta._meta_table['SoftwareInstall.Issu.Inventory']['meta_info']
 
         @property
         def _common_path(self):
 
-            return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:operation-logs'
+            return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:issu'
 
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
@@ -1940,8 +1585,146 @@ class SoftwareInstall(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.operation_log is not None:
-                for child_ref in self.operation_log:
+            if self.stage is not None and self.stage._has_data():
+                return True
+
+            if self.inventory is not None and self.inventory._has_data():
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+            return meta._meta_table['SoftwareInstall.Issu']['meta_info']
+
+
+    class Committed(object):
+        """
+        Show Committed packages installed
+        
+        .. attribute:: committed_package_info
+        
+        	committed package info
+        	**type**\: list of :py:class:`CommittedPackageInfo <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Committed.CommittedPackageInfo>`
+        
+        
+
+        """
+
+        _prefix = 'spirit-install-instmgr-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.committed_package_info = YList()
+            self.committed_package_info.parent = self
+            self.committed_package_info.name = 'committed_package_info'
+
+
+        class CommittedPackageInfo(object):
+            """
+            committed package info
+            
+            .. attribute:: error_message
+            
+            	ErrorMessage
+            	**type**\: str
+            
+            .. attribute:: location
+            
+            	Location
+            	**type**\: str
+            
+            .. attribute:: node_type
+            
+            	NodeType
+            	**type**\: str
+            
+            .. attribute:: boot_partition_name
+            
+            	BootPartitionName
+            	**type**\: str
+            
+            .. attribute:: number_of_committed_packages
+            
+            	NumberOfCommittedPackages
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: committed_packages
+            
+            	CommittedPackages
+            	**type**\: str
+            
+            
+
+            """
+
+            _prefix = 'spirit-install-instmgr-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.error_message = None
+                self.location = None
+                self.node_type = None
+                self.boot_partition_name = None
+                self.number_of_committed_packages = None
+                self.committed_packages = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:committed/Cisco-IOS-XR-spirit-install-instmgr-oper:committed-package-info'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.error_message is not None:
+                    return True
+
+                if self.location is not None:
+                    return True
+
+                if self.node_type is not None:
+                    return True
+
+                if self.boot_partition_name is not None:
+                    return True
+
+                if self.number_of_committed_packages is not None:
+                    return True
+
+                if self.committed_packages is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.Committed.CommittedPackageInfo']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:committed'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.committed_package_info is not None:
+                for child_ref in self.committed_package_info:
                     if child_ref._has_data():
                         return True
 
@@ -1950,7 +1733,147 @@ class SoftwareInstall(object):
         @staticmethod
         def _meta_info():
             from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-            return meta._meta_table['SoftwareInstall.OperationLogs']['meta_info']
+            return meta._meta_table['SoftwareInstall.Committed']['meta_info']
+
+
+    class AllOperationsLog(object):
+        """
+        Show log file for all operations
+        
+        .. attribute:: summary
+        
+        	Show summary log file for all operations
+        	**type**\: :py:class:`Summary <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.AllOperationsLog.Summary>`
+        
+        .. attribute:: detail
+        
+        	Show detailed log file for all operations
+        	**type**\: :py:class:`Detail <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.AllOperationsLog.Detail>`
+        
+        
+
+        """
+
+        _prefix = 'spirit-install-instmgr-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.summary = SoftwareInstall.AllOperationsLog.Summary()
+            self.summary.parent = self
+            self.detail = SoftwareInstall.AllOperationsLog.Detail()
+            self.detail.parent = self
+
+
+        class Summary(object):
+            """
+            Show summary log file for all operations
+            
+            .. attribute:: log
+            
+            	log
+            	**type**\: str
+            
+            
+
+            """
+
+            _prefix = 'spirit-install-instmgr-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.log = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:all-operations-log/Cisco-IOS-XR-spirit-install-instmgr-oper:summary'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.log is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.AllOperationsLog.Summary']['meta_info']
+
+
+        class Detail(object):
+            """
+            Show detailed log file for all operations
+            
+            .. attribute:: log
+            
+            	log
+            	**type**\: str
+            
+            
+
+            """
+
+            _prefix = 'spirit-install-instmgr-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.log = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:all-operations-log/Cisco-IOS-XR-spirit-install-instmgr-oper:detail'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.log is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.AllOperationsLog.Detail']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:all-operations-log'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.summary is not None and self.summary._has_data():
+                return True
+
+            if self.detail is not None and self.detail._has_data():
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+            return meta._meta_table['SoftwareInstall.AllOperationsLog']['meta_info']
 
 
     class Packages(object):
@@ -1980,10 +1903,15 @@ class SoftwareInstall(object):
             """
             Show the info for a installed package
             
-            .. attribute:: package_name
+            .. attribute:: package_name  <key>
             
             	Package name
             	**type**\: str
+            
+            .. attribute:: verbose
+            
+            	Show the verbose info for a installed package
+            	**type**\: :py:class:`Verbose <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Packages.Package.Verbose>`
             
             .. attribute:: brief
             
@@ -1995,11 +1923,6 @@ class SoftwareInstall(object):
             	Show the deatil info for a installed package
             	**type**\: :py:class:`Detail <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Packages.Package.Detail>`
             
-            .. attribute:: verbose
-            
-            	Show the verbose info for a installed package
-            	**type**\: :py:class:`Verbose <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Packages.Package.Verbose>`
-            
             
 
             """
@@ -2010,12 +1933,57 @@ class SoftwareInstall(object):
             def __init__(self):
                 self.parent = None
                 self.package_name = None
+                self.verbose = SoftwareInstall.Packages.Package.Verbose()
+                self.verbose.parent = self
                 self.brief = SoftwareInstall.Packages.Package.Brief()
                 self.brief.parent = self
                 self.detail = SoftwareInstall.Packages.Package.Detail()
                 self.detail.parent = self
-                self.verbose = SoftwareInstall.Packages.Package.Verbose()
-                self.verbose.parent = self
+
+
+            class Verbose(object):
+                """
+                Show the verbose info for a installed package
+                
+                .. attribute:: log
+                
+                	log
+                	**type**\: str
+                
+                
+
+                """
+
+                _prefix = 'spirit-install-instmgr-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.log = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-spirit-install-instmgr-oper:verbose'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.log is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                    return meta._meta_table['SoftwareInstall.Packages.Package.Verbose']['meta_info']
 
 
             class Brief(object):
@@ -2107,51 +2075,6 @@ class SoftwareInstall(object):
                     from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
                     return meta._meta_table['SoftwareInstall.Packages.Package.Detail']['meta_info']
 
-
-            class Verbose(object):
-                """
-                Show the verbose info for a installed package
-                
-                .. attribute:: log
-                
-                	log
-                	**type**\: str
-                
-                
-
-                """
-
-                _prefix = 'spirit-install-instmgr-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.log = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-spirit-install-instmgr-oper:verbose'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.log is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-                    return meta._meta_table['SoftwareInstall.Packages.Package.Verbose']['meta_info']
-
             @property
             def _common_path(self):
                 if self.package_name is None:
@@ -2169,13 +2092,13 @@ class SoftwareInstall(object):
                 if self.package_name is not None:
                     return True
 
+                if self.verbose is not None and self.verbose._has_data():
+                    return True
+
                 if self.brief is not None and self.brief._has_data():
                     return True
 
                 if self.detail is not None and self.detail._has_data():
-                    return True
-
-                if self.verbose is not None and self.verbose._has_data():
                     return True
 
                 return False
@@ -2210,14 +2133,14 @@ class SoftwareInstall(object):
             return meta._meta_table['SoftwareInstall.Packages']['meta_info']
 
 
-    class Prepare(object):
+    class OperationLogs(object):
         """
-        Show prepared packages ready for activation
+        Show log file
         
-        .. attribute:: log
+        .. attribute:: operation_log
         
-        	log
-        	**type**\: str
+        	Show log file for the specified install ID
+        	**type**\: list of :py:class:`OperationLog <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.OperationLogs.OperationLog>`
         
         
 
@@ -2228,12 +2151,173 @@ class SoftwareInstall(object):
 
         def __init__(self):
             self.parent = None
-            self.log = None
+            self.operation_log = YList()
+            self.operation_log.parent = self
+            self.operation_log.name = 'operation_log'
+
+
+        class OperationLog(object):
+            """
+            Show log file for the specified install ID
+            
+            .. attribute:: log_id  <key>
+            
+            	Log ID number
+            	**type**\: int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: summary
+            
+            	Show summary log file for the specified install ID
+            	**type**\: :py:class:`Summary <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.OperationLogs.OperationLog.Summary>`
+            
+            .. attribute:: detail
+            
+            	Show detailed log file for the specified install ID
+            	**type**\: :py:class:`Detail <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.OperationLogs.OperationLog.Detail>`
+            
+            
+
+            """
+
+            _prefix = 'spirit-install-instmgr-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.log_id = None
+                self.summary = SoftwareInstall.OperationLogs.OperationLog.Summary()
+                self.summary.parent = self
+                self.detail = SoftwareInstall.OperationLogs.OperationLog.Detail()
+                self.detail.parent = self
+
+
+            class Summary(object):
+                """
+                Show summary log file for the specified
+                install ID
+                
+                .. attribute:: log
+                
+                	log
+                	**type**\: str
+                
+                
+
+                """
+
+                _prefix = 'spirit-install-instmgr-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.log = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-spirit-install-instmgr-oper:summary'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.log is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                    return meta._meta_table['SoftwareInstall.OperationLogs.OperationLog.Summary']['meta_info']
+
+
+            class Detail(object):
+                """
+                Show detailed log file for the specified
+                install ID
+                
+                .. attribute:: log
+                
+                	log
+                	**type**\: str
+                
+                
+
+                """
+
+                _prefix = 'spirit-install-instmgr-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.log = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-spirit-install-instmgr-oper:detail'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.log is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                    return meta._meta_table['SoftwareInstall.OperationLogs.OperationLog.Detail']['meta_info']
+
+            @property
+            def _common_path(self):
+                if self.log_id is None:
+                    raise YPYDataValidationError('Key property log_id is None')
+
+                return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:operation-logs/Cisco-IOS-XR-spirit-install-instmgr-oper:operation-log[Cisco-IOS-XR-spirit-install-instmgr-oper:log-id = ' + str(self.log_id) + ']'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.log_id is not None:
+                    return True
+
+                if self.summary is not None and self.summary._has_data():
+                    return True
+
+                if self.detail is not None and self.detail._has_data():
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.OperationLogs.OperationLog']['meta_info']
 
         @property
         def _common_path(self):
 
-            return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:prepare'
+            return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:operation-logs'
 
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
@@ -2242,15 +2326,17 @@ class SoftwareInstall(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.log is not None:
-                return True
+            if self.operation_log is not None:
+                for child_ref in self.operation_log:
+                    if child_ref._has_data():
+                        return True
 
             return False
 
         @staticmethod
         def _meta_info():
             from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-            return meta._meta_table['SoftwareInstall.Prepare']['meta_info']
+            return meta._meta_table['SoftwareInstall.OperationLogs']['meta_info']
 
 
     class Repository(object):
@@ -2258,15 +2344,15 @@ class SoftwareInstall(object):
         Show packages stored in install software
         repositories
         
-        .. attribute:: all
-        
-        	Show contents of all install software repositories
-        	**type**\: :py:class:`All <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Repository.All>`
-        
         .. attribute:: xr
         
         	Show install software repository for XR
         	**type**\: :py:class:`Xr <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Repository.Xr>`
+        
+        .. attribute:: all
+        
+        	Show contents of all install software repositories
+        	**type**\: :py:class:`All <ydk.models.spirit.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Repository.All>`
         
         
 
@@ -2277,10 +2363,53 @@ class SoftwareInstall(object):
 
         def __init__(self):
             self.parent = None
-            self.all = SoftwareInstall.Repository.All()
-            self.all.parent = self
             self.xr = SoftwareInstall.Repository.Xr()
             self.xr.parent = self
+            self.all = SoftwareInstall.Repository.All()
+            self.all.parent = self
+
+
+        class Xr(object):
+            """
+            Show install software repository for XR
+            
+            .. attribute:: log
+            
+            	log
+            	**type**\: str
+            
+            
+
+            """
+
+            _prefix = 'spirit-install-instmgr-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.log = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:repository/Cisco-IOS-XR-spirit-install-instmgr-oper:xr'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.log is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.Repository.Xr']['meta_info']
 
 
         class All(object):
@@ -2326,49 +2455,6 @@ class SoftwareInstall(object):
                 from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
                 return meta._meta_table['SoftwareInstall.Repository.All']['meta_info']
 
-
-        class Xr(object):
-            """
-            Show install software repository for XR
-            
-            .. attribute:: log
-            
-            	log
-            	**type**\: str
-            
-            
-
-            """
-
-            _prefix = 'spirit-install-instmgr-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.log = None
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:repository/Cisco-IOS-XR-spirit-install-instmgr-oper:xr'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.log is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-                return meta._meta_table['SoftwareInstall.Repository.Xr']['meta_info']
-
         @property
         def _common_path(self):
 
@@ -2381,10 +2467,10 @@ class SoftwareInstall(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.all is not None and self.all._has_data():
+            if self.xr is not None and self.xr._has_data():
                 return True
 
-            if self.xr is not None and self.xr._has_data():
+            if self.all is not None and self.all._has_data():
                 return True
 
             return False
@@ -2393,92 +2479,6 @@ class SoftwareInstall(object):
         def _meta_info():
             from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
             return meta._meta_table['SoftwareInstall.Repository']['meta_info']
-
-
-    class Request(object):
-        """
-        Show current request
-        
-        .. attribute:: log
-        
-        	log
-        	**type**\: str
-        
-        
-
-        """
-
-        _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.log = None
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:request'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.log is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-            return meta._meta_table['SoftwareInstall.Request']['meta_info']
-
-
-    class Version(object):
-        """
-        Show install version
-        
-        .. attribute:: log
-        
-        	log
-        	**type**\: str
-        
-        
-
-        """
-
-        _prefix = 'spirit-install-instmgr-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.log = None
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:version'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.log is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.spirit._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
-            return meta._meta_table['SoftwareInstall.Version']['meta_info']
 
     @property
     def _common_path(self):
@@ -2492,43 +2492,43 @@ class SoftwareInstall(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.active is not None and self.active._has_data():
-            return True
-
-        if self.all_operations_log is not None and self.all_operations_log._has_data():
-            return True
-
-        if self.committed is not None and self.committed._has_data():
-            return True
-
         if self.files is not None and self.files._has_data():
-            return True
-
-        if self.inactive is not None and self.inactive._has_data():
-            return True
-
-        if self.issu is not None and self.issu._has_data():
             return True
 
         if self.last_n_operation_logs is not None and self.last_n_operation_logs._has_data():
             return True
 
-        if self.operation_logs is not None and self.operation_logs._has_data():
-            return True
-
-        if self.packages is not None and self.packages._has_data():
-            return True
-
         if self.prepare is not None and self.prepare._has_data():
             return True
 
-        if self.repository is not None and self.repository._has_data():
+        if self.active is not None and self.active._has_data():
+            return True
+
+        if self.version is not None and self.version._has_data():
+            return True
+
+        if self.inactive is not None and self.inactive._has_data():
             return True
 
         if self.request is not None and self.request._has_data():
             return True
 
-        if self.version is not None and self.version._has_data():
+        if self.issu is not None and self.issu._has_data():
+            return True
+
+        if self.committed is not None and self.committed._has_data():
+            return True
+
+        if self.all_operations_log is not None and self.all_operations_log._has_data():
+            return True
+
+        if self.packages is not None and self.packages._has_data():
+            return True
+
+        if self.operation_logs is not None and self.operation_logs._has_data():
+            return True
+
+        if self.repository is not None and self.repository._has_data():
             return True
 
         return False

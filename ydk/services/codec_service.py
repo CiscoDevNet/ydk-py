@@ -30,8 +30,8 @@ class CodecService(Service):
     def encode(self, encoder, entity):
         assert encoder is not None, 'Encoder should be valid object'
         MetaService.normalize_meta([], entity)
-        return encoder.encode(entity)
+        return encoder._encode(entity)
 
     def decode(self, decoder, payload):
         assert decoder is not None, 'Decoder should be valid object'
-        return decoder.decode(payload)
+        return decoder._decode(payload)

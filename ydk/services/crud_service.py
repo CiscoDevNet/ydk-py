@@ -52,7 +52,7 @@ class CRUDService(Service):
                   
                   
         """
-        MetaService.normalize_meta(provider.get_capabilities(), entity)
+        MetaService.normalize_meta(provider._get_capabilities(), entity)
         self._execute_crud_operation_on_provider(provider, entity, 'CREATE', False)
 
     def delete(self, provider, entity):
@@ -73,7 +73,7 @@ class CRUDService(Service):
               or if there isn't enough information in the entity to prepare the message (missing keys for example)
                   
         """
-        MetaService.normalize_meta(provider.get_capabilities(), entity)
+        MetaService.normalize_meta(provider._get_capabilities(), entity)
         self._execute_crud_operation_on_provider(provider, entity, 'DELETE', False)
 
     def update(self, provider, entity):
@@ -99,7 +99,7 @@ class CRUDService(Service):
         # first read the object
         if self._entity_exists(provider, entity):
             # read has succeeded so do an edit-config
-            MetaService.normalize_meta(provider.get_capabilities(), entity)
+            MetaService.normalize_meta(provider._get_capabilities(), entity)
             self._execute_crud_operation_on_provider(provider, entity, 'UPDATE', False)
 
     def read(self, provider, read_filter, only_config=False):
@@ -127,7 +127,7 @@ class CRUDService(Service):
                   - if the type to be returned cannot be determined.
                   
         """
-        MetaService.normalize_meta(provider.get_capabilities(), read_filter)
+        MetaService.normalize_meta(provider._get_capabilities(), read_filter)
         self._perform_read_filter_check(read_filter)
         payload = self._execute_crud_operation_on_provider(provider, read_filter, 'READ', only_config)
 

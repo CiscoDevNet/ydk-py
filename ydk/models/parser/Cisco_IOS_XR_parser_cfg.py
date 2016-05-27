@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -29,25 +29,25 @@ class Parser(object):
     """
     Parser configuration
     
+    .. attribute:: indentation
+    
+    	indentation tracking
+    	**type**\: :py:class:`Indentation <ydk.models.parser.Cisco_IOS_XR_parser_cfg.Parser.Indentation>`
+    
     .. attribute:: alias
     
     	Alias for command mapping
     	**type**\: :py:class:`Alias <ydk.models.parser.Cisco_IOS_XR_parser_cfg.Parser.Alias>`
-    
-    .. attribute:: configuration
-    
-    	cli configuration services
-    	**type**\: :py:class:`Configuration <ydk.models.parser.Cisco_IOS_XR_parser_cfg.Parser.Configuration>`
     
     .. attribute:: history
     
     	cli commands history
     	**type**\: :py:class:`History <ydk.models.parser.Cisco_IOS_XR_parser_cfg.Parser.History>`
     
-    .. attribute:: indentation
+    .. attribute:: configuration
     
-    	indentation tracking
-    	**type**\: :py:class:`Indentation <ydk.models.parser.Cisco_IOS_XR_parser_cfg.Parser.Indentation>`
+    	cli configuration services
+    	**type**\: :py:class:`Configuration <ydk.models.parser.Cisco_IOS_XR_parser_cfg.Parser.Configuration>`
     
     .. attribute:: submode_exit
     
@@ -62,36 +62,26 @@ class Parser(object):
     _revision = '2015-06-02'
 
     def __init__(self):
-        self.alias = Parser.Alias()
-        self.alias.parent = self
-        self.configuration = Parser.Configuration()
-        self.configuration.parent = self
-        self.history = Parser.History()
-        self.history.parent = self
         self.indentation = Parser.Indentation()
         self.indentation.parent = self
+        self.alias = Parser.Alias()
+        self.alias.parent = self
+        self.history = Parser.History()
+        self.history.parent = self
+        self.configuration = Parser.Configuration()
+        self.configuration.parent = self
         self.submode_exit = Parser.SubmodeExit()
         self.submode_exit.parent = self
 
 
-    class Alias(object):
+    class Indentation(object):
         """
-        Alias for command mapping
+        indentation tracking
         
-        .. attribute:: alls
+        .. attribute:: indentation_disable
         
-        	Table of all aliases configured
-        	**type**\: :py:class:`Alls <ydk.models.parser.Cisco_IOS_XR_parser_cfg.Parser.Alias.Alls>`
-        
-        .. attribute:: configurations
-        
-        	Configuration command alias
-        	**type**\: :py:class:`Configurations <ydk.models.parser.Cisco_IOS_XR_parser_cfg.Parser.Alias.Configurations>`
-        
-        .. attribute:: execs
-        
-        	Exec command alias
-        	**type**\: :py:class:`Execs <ydk.models.parser.Cisco_IOS_XR_parser_cfg.Parser.Alias.Execs>`
+        	disable the indentation
+        	**type**\: bool
         
         
 
@@ -102,22 +92,75 @@ class Parser(object):
 
         def __init__(self):
             self.parent = None
-            self.alls = Parser.Alias.Alls()
-            self.alls.parent = self
-            self.configurations = Parser.Alias.Configurations()
-            self.configurations.parent = self
+            self.indentation_disable = None
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-parser-cfg:parser/Cisco-IOS-XR-parser-cfg:indentation'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.indentation_disable is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.parser._meta import _Cisco_IOS_XR_parser_cfg as meta
+            return meta._meta_table['Parser.Indentation']['meta_info']
+
+
+    class Alias(object):
+        """
+        Alias for command mapping
+        
+        .. attribute:: execs
+        
+        	Exec command alias
+        	**type**\: :py:class:`Execs <ydk.models.parser.Cisco_IOS_XR_parser_cfg.Parser.Alias.Execs>`
+        
+        .. attribute:: configurations
+        
+        	Configuration command alias
+        	**type**\: :py:class:`Configurations <ydk.models.parser.Cisco_IOS_XR_parser_cfg.Parser.Alias.Configurations>`
+        
+        .. attribute:: alls
+        
+        	Table of all aliases configured
+        	**type**\: :py:class:`Alls <ydk.models.parser.Cisco_IOS_XR_parser_cfg.Parser.Alias.Alls>`
+        
+        
+
+        """
+
+        _prefix = 'parser-cfg'
+        _revision = '2015-06-02'
+
+        def __init__(self):
+            self.parent = None
             self.execs = Parser.Alias.Execs()
             self.execs.parent = self
+            self.configurations = Parser.Alias.Configurations()
+            self.configurations.parent = self
+            self.alls = Parser.Alias.Alls()
+            self.alls.parent = self
 
 
-        class Alls(object):
+        class Execs(object):
             """
-            Table of all aliases configured
+            Exec command alias
             
-            .. attribute:: all
+            .. attribute:: exec_
             
-            	Alias name to command mapping
-            	**type**\: list of :py:class:`All <ydk.models.parser.Cisco_IOS_XR_parser_cfg.Parser.Alias.Alls.All>`
+            	Exec alias name
+            	**type**\: list of :py:class:`Exec <ydk.models.parser.Cisco_IOS_XR_parser_cfg.Parser.Alias.Execs.Exec>`
             
             
 
@@ -128,25 +171,25 @@ class Parser(object):
 
             def __init__(self):
                 self.parent = None
-                self.all = YList()
-                self.all.parent = self
-                self.all.name = 'all'
+                self.exec_ = YList()
+                self.exec_.parent = self
+                self.exec_.name = 'exec_'
 
 
-            class All(object):
+            class Exec(object):
                 """
-                Alias name to command mapping
+                Exec alias name
                 
-                .. attribute:: identifier
+                .. attribute:: identifier  <key>
                 
-                	Alias name
+                	Exec Alias name
                 	**type**\: str
                 
                 	**range:** 0..30
                 
                 .. attribute:: identifier_xr
                 
-                	The actual command
+                	Aliased exec command
                 	**type**\: str
                 
                 
@@ -166,7 +209,7 @@ class Parser(object):
                     if self.identifier is None:
                         raise YPYDataValidationError('Key property identifier is None')
 
-                    return '/Cisco-IOS-XR-parser-cfg:parser/Cisco-IOS-XR-parser-cfg:alias/Cisco-IOS-XR-parser-cfg:alls/Cisco-IOS-XR-parser-cfg:all[Cisco-IOS-XR-parser-cfg:identifier = ' + str(self.identifier) + ']'
+                    return '/Cisco-IOS-XR-parser-cfg:parser/Cisco-IOS-XR-parser-cfg:alias/Cisco-IOS-XR-parser-cfg:execs/Cisco-IOS-XR-parser-cfg:exec[Cisco-IOS-XR-parser-cfg:identifier = ' + str(self.identifier) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -186,12 +229,12 @@ class Parser(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.parser._meta import _Cisco_IOS_XR_parser_cfg as meta
-                    return meta._meta_table['Parser.Alias.Alls.All']['meta_info']
+                    return meta._meta_table['Parser.Alias.Execs.Exec']['meta_info']
 
             @property
             def _common_path(self):
 
-                return '/Cisco-IOS-XR-parser-cfg:parser/Cisco-IOS-XR-parser-cfg:alias/Cisco-IOS-XR-parser-cfg:alls'
+                return '/Cisco-IOS-XR-parser-cfg:parser/Cisco-IOS-XR-parser-cfg:alias/Cisco-IOS-XR-parser-cfg:execs'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
@@ -200,8 +243,8 @@ class Parser(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.all is not None:
-                    for child_ref in self.all:
+                if self.exec_ is not None:
+                    for child_ref in self.exec_:
                         if child_ref._has_data():
                             return True
 
@@ -210,7 +253,7 @@ class Parser(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.parser._meta import _Cisco_IOS_XR_parser_cfg as meta
-                return meta._meta_table['Parser.Alias.Alls']['meta_info']
+                return meta._meta_table['Parser.Alias.Execs']['meta_info']
 
 
         class Configurations(object):
@@ -240,7 +283,7 @@ class Parser(object):
                 """
                 Configuration Alias name
                 
-                .. attribute:: identifier
+                .. attribute:: identifier  <key>
                 
                 	Configuration alias name
                 	**type**\: str
@@ -316,14 +359,14 @@ class Parser(object):
                 return meta._meta_table['Parser.Alias.Configurations']['meta_info']
 
 
-        class Execs(object):
+        class Alls(object):
             """
-            Exec command alias
+            Table of all aliases configured
             
-            .. attribute:: exec_
+            .. attribute:: all
             
-            	Exec alias name
-            	**type**\: list of :py:class:`Exec <ydk.models.parser.Cisco_IOS_XR_parser_cfg.Parser.Alias.Execs.Exec>`
+            	Alias name to command mapping
+            	**type**\: list of :py:class:`All <ydk.models.parser.Cisco_IOS_XR_parser_cfg.Parser.Alias.Alls.All>`
             
             
 
@@ -334,25 +377,25 @@ class Parser(object):
 
             def __init__(self):
                 self.parent = None
-                self.exec_ = YList()
-                self.exec_.parent = self
-                self.exec_.name = 'exec_'
+                self.all = YList()
+                self.all.parent = self
+                self.all.name = 'all'
 
 
-            class Exec(object):
+            class All(object):
                 """
-                Exec alias name
+                Alias name to command mapping
                 
-                .. attribute:: identifier
+                .. attribute:: identifier  <key>
                 
-                	Exec Alias name
+                	Alias name
                 	**type**\: str
                 
                 	**range:** 0..30
                 
                 .. attribute:: identifier_xr
                 
-                	Aliased exec command
+                	The actual command
                 	**type**\: str
                 
                 
@@ -372,7 +415,7 @@ class Parser(object):
                     if self.identifier is None:
                         raise YPYDataValidationError('Key property identifier is None')
 
-                    return '/Cisco-IOS-XR-parser-cfg:parser/Cisco-IOS-XR-parser-cfg:alias/Cisco-IOS-XR-parser-cfg:execs/Cisco-IOS-XR-parser-cfg:exec[Cisco-IOS-XR-parser-cfg:identifier = ' + str(self.identifier) + ']'
+                    return '/Cisco-IOS-XR-parser-cfg:parser/Cisco-IOS-XR-parser-cfg:alias/Cisco-IOS-XR-parser-cfg:alls/Cisco-IOS-XR-parser-cfg:all[Cisco-IOS-XR-parser-cfg:identifier = ' + str(self.identifier) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -392,12 +435,12 @@ class Parser(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.parser._meta import _Cisco_IOS_XR_parser_cfg as meta
-                    return meta._meta_table['Parser.Alias.Execs.Exec']['meta_info']
+                    return meta._meta_table['Parser.Alias.Alls.All']['meta_info']
 
             @property
             def _common_path(self):
 
-                return '/Cisco-IOS-XR-parser-cfg:parser/Cisco-IOS-XR-parser-cfg:alias/Cisco-IOS-XR-parser-cfg:execs'
+                return '/Cisco-IOS-XR-parser-cfg:parser/Cisco-IOS-XR-parser-cfg:alias/Cisco-IOS-XR-parser-cfg:alls'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
@@ -406,8 +449,8 @@ class Parser(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.exec_ is not None:
-                    for child_ref in self.exec_:
+                if self.all is not None:
+                    for child_ref in self.all:
                         if child_ref._has_data():
                             return True
 
@@ -416,7 +459,7 @@ class Parser(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.parser._meta import _Cisco_IOS_XR_parser_cfg as meta
-                return meta._meta_table['Parser.Alias.Execs']['meta_info']
+                return meta._meta_table['Parser.Alias.Alls']['meta_info']
 
         @property
         def _common_path(self):
@@ -430,13 +473,13 @@ class Parser(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.alls is not None and self.alls._has_data():
+            if self.execs is not None and self.execs._has_data():
                 return True
 
             if self.configurations is not None and self.configurations._has_data():
                 return True
 
-            if self.execs is not None and self.execs._has_data():
+            if self.alls is not None and self.alls._has_data():
                 return True
 
             return False
@@ -445,6 +488,51 @@ class Parser(object):
         def _meta_info():
             from ydk.models.parser._meta import _Cisco_IOS_XR_parser_cfg as meta
             return meta._meta_table['Parser.Alias']['meta_info']
+
+
+    class History(object):
+        """
+        cli commands history
+        
+        .. attribute:: size
+        
+        	maximum number of commands in history
+        	**type**\: int
+        
+        	**range:** 1000..5000
+        
+        
+
+        """
+
+        _prefix = 'parser-cfg'
+        _revision = '2015-06-02'
+
+        def __init__(self):
+            self.parent = None
+            self.size = None
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-parser-cfg:parser/Cisco-IOS-XR-parser-cfg:history'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.size is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.parser._meta import _Cisco_IOS_XR_parser_cfg as meta
+            return meta._meta_table['Parser.History']['meta_info']
 
 
     class Configuration(object):
@@ -534,94 +622,6 @@ class Parser(object):
             return meta._meta_table['Parser.Configuration']['meta_info']
 
 
-    class History(object):
-        """
-        cli commands history
-        
-        .. attribute:: size
-        
-        	maximum number of commands in history
-        	**type**\: int
-        
-        	**range:** 1000..5000
-        
-        
-
-        """
-
-        _prefix = 'parser-cfg'
-        _revision = '2015-06-02'
-
-        def __init__(self):
-            self.parent = None
-            self.size = None
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-parser-cfg:parser/Cisco-IOS-XR-parser-cfg:history'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.size is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.parser._meta import _Cisco_IOS_XR_parser_cfg as meta
-            return meta._meta_table['Parser.History']['meta_info']
-
-
-    class Indentation(object):
-        """
-        indentation tracking
-        
-        .. attribute:: indentation_disable
-        
-        	disable the indentation
-        	**type**\: bool
-        
-        
-
-        """
-
-        _prefix = 'parser-cfg'
-        _revision = '2015-06-02'
-
-        def __init__(self):
-            self.parent = None
-            self.indentation_disable = None
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-parser-cfg:parser/Cisco-IOS-XR-parser-cfg:indentation'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.indentation_disable is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.parser._meta import _Cisco_IOS_XR_parser_cfg as meta
-            return meta._meta_table['Parser.Indentation']['meta_info']
-
-
     class SubmodeExit(object):
         """
         Exit submode when only '!' seen in interactive
@@ -677,16 +677,16 @@ class Parser(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.alias is not None and self.alias._has_data():
+        if self.indentation is not None and self.indentation._has_data():
             return True
 
-        if self.configuration is not None and self.configuration._has_data():
+        if self.alias is not None and self.alias._has_data():
             return True
 
         if self.history is not None and self.history._has_data():
             return True
 
-        if self.indentation is not None and self.indentation._has_data():
+        if self.configuration is not None and self.configuration._has_data():
             return True
 
         if self.submode_exit is not None and self.submode_exit._has_data():

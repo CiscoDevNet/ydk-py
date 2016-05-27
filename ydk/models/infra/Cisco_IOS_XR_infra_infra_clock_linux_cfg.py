@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -49,9 +49,9 @@ class Clock(object):
         """
         Configure time zone
         
-        .. attribute:: area_name
+        .. attribute:: time_zone_name
         
-        	Area File in zoneinfo package
+        	Name of time zone
         	**type**\: str
         
         .. attribute:: _is_presence
@@ -59,9 +59,9 @@ class Clock(object):
         	Is present if this instance represents presence container else not
         	**type**\: bool
         
-        .. attribute:: time_zone_name
+        .. attribute:: area_name
         
-        	Name of time zone
+        	Area File in zoneinfo package
         	**type**\: str
         
         .. attribute:: _is_presence
@@ -80,8 +80,8 @@ class Clock(object):
 
         def __init__(self):
             self.parent = None
-            self.area_name = None
             self.time_zone_name = None
+            self.area_name = None
 
         @property
         def _common_path(self):
@@ -95,10 +95,10 @@ class Clock(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.area_name is not None:
+            if self.time_zone_name is not None:
                 return True
 
-            if self.time_zone_name is not None:
+            if self.area_name is not None:
                 return True
 
             return False

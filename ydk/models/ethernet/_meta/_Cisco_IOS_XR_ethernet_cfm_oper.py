@@ -7,7 +7,7 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
@@ -412,49 +412,528 @@ _meta_table = {
             'metric-one-way-flr-sd':'METRIC_ONE_WAY_FLR_SD',
             'metric-one-way-flr-ds':'METRIC_ONE_WAY_FLR_DS',
         }, 'Cisco-IOS-XR-ethernet-cfm-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper']),
-    'Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId',
+    'Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects' : {
+        'meta_info' : _MetaInfoClass('Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects',
             False, 
             [
-            _MetaInfoClassMember('bridge-domain-id-format', REFERENCE_ENUM_CLASS, 'CfmBagBdidFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagBdidFmtEnum', 
+            _MetaInfoClassMember('loss-threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Bridge domain identifier format
+                '''                Timed out (loss threshold exceeded)
                 ''',
-                'bridge_domain_id_format',
+                'loss_threshold_exceeded',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ce-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Local Customer Edge Identifier (CE-ID)
-                ''',
-                'ce_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('group', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('invalid-level', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Name of the Bridge/XConnect Group
+                '''                Invalid level
                 ''',
-                'group',
+                'invalid_level',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('invalid-maid', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Name of the Bridge Domain/XConnect
+                '''                Invalid MAID
                 ''',
-                'name',
+                'invalid_maid',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('remote-ce-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Remote Customer Edge Identifier (CE-ID)
+            _MetaInfoClassMember('invalid-ccm-interval', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Invalid CCM interval
                 ''',
-                'remote_ce_id',
+                'invalid_ccm_interval',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('received-our-mac', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Loop detected (our MAC address received)
+                ''',
+                'received_our_mac',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('received-our-mep-id', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Configuration Error (our MEP ID received)
+                ''',
+                'received_our_mep_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('received-rdi', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Remote defection indication received
+                ''',
+                'received_rdi',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
-            'bridge-domain-id',
+            'remote-meps-defects',
             _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
     },
-    'Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError',
+    'Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects' : {
+        'meta_info' : _MetaInfoClass('Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects',
+            False, 
+            [
+            _MetaInfoClassMember('remote-meps-defects', REFERENCE_CLASS, 'RemoteMepsDefects' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects', 
+                [], [], 
+                '''                Defects detected from remote MEPs
+                ''',
+                'remote_meps_defects',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('ais-received', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                AIS or LCK received
+                ''',
+                'ais_received',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('peer-meps-that-timed-out', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of peer MEPs that have timed out
+                ''',
+                'peer_meps_that_timed_out',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('missing', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of missing peer MEPs
+                ''',
+                'missing',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('auto-missing', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of missing auto cross-check MEPs
+                ''',
+                'auto_missing',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('unexpected', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of unexpected peer MEPs
+                ''',
+                'unexpected',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('local-port-status', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The local port or interface is down
+                ''',
+                'local_port_status',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('peer-port-status', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                A peer port or interface is down
+                ''',
+                'peer_port_status',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'defects',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted' : {
+        'meta_info' : _MetaInfoClass('Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted',
+            False, 
+            [
+            _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Seconds
+                ''',
+                'seconds',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Nanoseconds
+                ''',
+                'nanoseconds',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'last-started',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics' : {
+        'meta_info' : _MetaInfoClass('Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics',
+            False, 
+            [
+            _MetaInfoClassMember('defects', REFERENCE_CLASS, 'Defects' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects', 
+                [], [], 
+                '''                Defects detected
+                ''',
+                'defects',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('last-started', REFERENCE_CLASS, 'LastStarted' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted', 
+                [], [], 
+                '''                Time elapsed since sending last started
+                ''',
+                'last_started',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'CfmBagDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagDirectionEnum', 
+                [], [], 
+                '''                Direction of AIS packets
+                ''',
+                'direction',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('lowest-level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
+                [], [], 
+                '''                Level of the lowest MEP transmitting AIS
+                ''',
+                'lowest_level',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('transmission-level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
+                [], [], 
+                '''                Level that AIS packets are transmitted on
+                ''',
+                'transmission_level',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('transmission-interval', REFERENCE_ENUM_CLASS, 'CfmBagAisIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagAisIntervalEnum', 
+                [], [], 
+                '''                Interval at which AIS packets are transmitted
+                ''',
+                'transmission_interval',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('sent-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Total number of packets sent by the transmitting
+                MEP
+                ''',
+                'sent_packets',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('via-level', REFERENCE_LEAFLIST, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
+                [], [], 
+                '''                Levels of other MEPs receiving AIS
+                ''',
+                'via_level',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'statistics',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Nodes.Node.InterfaceAises.InterfaceAis' : {
+        'meta_info' : _MetaInfoClass('Cfm.Nodes.Node.InterfaceAises.InterfaceAis',
+            False, 
+            [
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface
+                ''',
+                'interface_name',
+                'Cisco-IOS-XR-ethernet-cfm-oper', True),
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'CfmAisDirEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmAisDirEnum', 
+                [], [], 
+                '''                AIS Direction
+                ''',
+                'direction',
+                'Cisco-IOS-XR-ethernet-cfm-oper', True),
+            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics', 
+                [], [], 
+                '''                AIS statistics
+                ''',
+                'statistics',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface
+                ''',
+                'interface',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('interface-state', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                IM Interface state
+                ''',
+                'interface_state',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('interworking-state', REFERENCE_ENUM_CLASS, 'CfmBagIwStateEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagIwStateEnum', 
+                [], [], 
+                '''                Interface interworking state
+                ''',
+                'interworking_state',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('stp-state', REFERENCE_ENUM_CLASS, 'CfmBagStpStateEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagStpStateEnum', 
+                [], [], 
+                '''                STP state
+                ''',
+                'stp_state',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'interface-ais',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Nodes.Node.InterfaceAises' : {
+        'meta_info' : _MetaInfoClass('Cfm.Nodes.Node.InterfaceAises',
+            False, 
+            [
+            _MetaInfoClassMember('interface-ais', REFERENCE_LIST, 'InterfaceAis' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Nodes.Node.InterfaceAises.InterfaceAis', 
+                [], [], 
+                '''                AIS statistics for a particular interface
+                ''',
+                'interface_ais',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'interface-aises',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics' : {
+        'meta_info' : _MetaInfoClass('Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics',
+            False, 
+            [
+            _MetaInfoClassMember('malformed-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of malformed packets received at this EFP
+                ''',
+                'malformed_packets',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of packets dropped at this EFP
+                ''',
+                'dropped_packets',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('last-malformed-opcode', REFERENCE_ENUM_CLASS, 'CfmBagOpcodeEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagOpcodeEnum', 
+                [], [], 
+                '''                Opcode for last malformed packet
+                ''',
+                'last_malformed_opcode',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('last-malformed-reason', REFERENCE_ENUM_CLASS, 'CfmPmPktActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPktActionEnum', 
+                [], [], 
+                '''                Reason last malformed packet was malformed
+                ''',
+                'last_malformed_reason',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'statistics',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic' : {
+        'meta_info' : _MetaInfoClass('Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic',
+            False, 
+            [
+            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface
+                ''',
+                'interface',
+                'Cisco-IOS-XR-ethernet-cfm-oper', True),
+            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics', 
+                [], [], 
+                '''                EFP statistics
+                ''',
+                'statistics',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('interface-xr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface
+                ''',
+                'interface_xr',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'interface-statistic',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Nodes.Node.InterfaceStatistics' : {
+        'meta_info' : _MetaInfoClass('Cfm.Nodes.Node.InterfaceStatistics',
+            False, 
+            [
+            _MetaInfoClassMember('interface-statistic', REFERENCE_LIST, 'InterfaceStatistic' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic', 
+                [], [], 
+                '''                Counters for a particular interface
+                ''',
+                'interface_statistic',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'interface-statistics',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Nodes.Node.Summary' : {
+        'meta_info' : _MetaInfoClass('Cfm.Nodes.Node.Summary',
+            False, 
+            [
+            _MetaInfoClassMember('domains', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The number of domains in the CFM database.
+                ''',
+                'domains',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('services', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The number of services in the CFM database.
+                ''',
+                'services',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('ccm-rate', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The combined rate of CCMs on this card.
+                ''',
+                'ccm_rate',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('local-meps', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The number of local MEPs in the CFM database.
+                ''',
+                'local_meps',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('operational-local-meps', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The number of operational local MEPs.
+                ''',
+                'operational_local_meps',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('down-meps', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The number of down-MEPs.
+                ''',
+                'down_meps',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('up-meps', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The number of up-MEPs.
+                ''',
+                'up_meps',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('offloaded', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The number of MEPs for which CCM processing has
+                been offloaded.
+                ''',
+                'offloaded',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('offloaded-at3-3ms', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The number of MEPs offloaded with CCMs at 3.3ms
+                intervals.
+                ''',
+                'offloaded_at3_3ms',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('offloaded-at10ms', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The number of MEPs offloaded with CCMs at 10ms
+                intervals.
+                ''',
+                'offloaded_at10ms',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('disabled-misconfigured', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The number of local MEPs disabled due to
+                configuration errors.
+                ''',
+                'disabled_misconfigured',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('disabled-out-of-resources', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The number of local MEPs disabled due to lack of
+                resources.
+                ''',
+                'disabled_out_of_resources',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('disabled-operational-error', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The number of local MEPs disabled due to
+                operational errors.
+                ''',
+                'disabled_operational_error',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('peer-meps', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The number of peer MEPs.
+                ''',
+                'peer_meps',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('operational-peer-meps', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The number of operational peer MEPs recorded in
+                the CFM database.
+                ''',
+                'operational_peer_meps',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('peer-meps-with-defects', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The number of peer MEPs with defects.
+                ''',
+                'peer_meps_with_defects',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('peer-meps-without-defects', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The number of peer MEPs without defects.
+                ''',
+                'peer_meps_without_defects',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('peer-meps-timed-out', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The number of peer MEPs that have timed out.
+                ''',
+                'peer_meps_timed_out',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('mips', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The number of MIPs
+                ''',
+                'mips',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('interfaces', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The number of interfaces running CFM.
+                ''',
+                'interfaces',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('bridge-domains-and-xconnects', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number or bridge domains and crossconnects.
+                ''',
+                'bridge_domains_and_xconnects',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('traceroute-cache-entries', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of traceroute cache entries.
+                ''',
+                'traceroute_cache_entries',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('traceroute-cache-replies', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of traceroute cache replies.
+                ''',
+                'traceroute_cache_replies',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('ccm-learning-db-entries', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of entries in the CCM learning database.
+                ''',
+                'ccm_learning_db_entries',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('issu-role', REFERENCE_ENUM_CLASS, 'CfmBagIssuRoleEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagIssuRoleEnum', 
+                [], [], 
+                '''                ISSU Role of CFM-D, if any.
+                ''',
+                'issu_role',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('bnm-enabled-links', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of BNM Enabled Links
+                ''',
+                'bnm_enabled_links',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'summary',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase' : {
+        'meta_info' : _MetaInfoClass('Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase',
             False, 
             [
             _MetaInfoClassMember('domain', ATTRIBUTE, 'str' , None, None, 
@@ -469,64 +948,134 @@ _meta_table = {
                 ''',
                 'service',
                 'Cisco-IOS-XR-ethernet-cfm-oper', True),
-            _MetaInfoClassMember('bridge-domain-id', REFERENCE_CLASS, 'BridgeDomainId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId', 
-                [], [], 
-                '''                BD/XC ID, or Service name if the Service is
-                'down-only'
+            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC Address
                 ''',
-                'bridge_domain_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('bridge-domain-is-configured', ATTRIBUTE, 'bool' , None, None, 
+                'mac_address',
+                'Cisco-IOS-XR-ethernet-cfm-oper', True),
+            _MetaInfoClassMember('domain-xr', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                The BD/XC is configured globally
+                '''                Maintenance domain name
                 ''',
-                'bridge_domain_is_configured',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('domain-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Domain name
-                ''',
-                'domain_name',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('l2-fib-download-error', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The BD/XC could not be downloaded to L2FIB
-                ''',
-                'l2_fib_download_error',
+                'domain_xr',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
                 [], [], 
-                '''                Level
+                '''                Maintenance level
                 ''',
                 'level',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('service-name', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('service-xr', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Service name
+                '''                Maintenance association name
                 ''',
-                'service_name',
+                'service_xr',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('source-mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                Source MAC address
+                ''',
+                'source_mac_address',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('ingress-interface', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                The XID of the ingress interface for the CCM
+                ''',
+                'ingress_interface',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('stale', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The XID is stale and may have been reused for a
+                different interface
+                ''',
+                'stale',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('ingress-interface-string', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                String representation of the Bridge Domain or
+                Cross-Connect associated with the ingress XID
+                ''',
+                'ingress_interface_string',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
-            'global-configuration-error',
+            'ccm-learning-database',
             _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
     },
-    'Cfm.Global.GlobalConfigurationErrors' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.GlobalConfigurationErrors',
+    'Cfm.Nodes.Node.CcmLearningDatabases' : {
+        'meta_info' : _MetaInfoClass('Cfm.Nodes.Node.CcmLearningDatabases',
             False, 
             [
-            _MetaInfoClassMember('global-configuration-error', REFERENCE_LIST, 'GlobalConfigurationError' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError', 
+            _MetaInfoClassMember('ccm-learning-database', REFERENCE_LIST, 'CcmLearningDatabase' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase', 
                 [], [], 
-                '''                Information about a particular configuration
-                error
+                '''                CCM Learning Database entry
                 ''',
-                'global_configuration_error',
+                'ccm_learning_database',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
-            'global-configuration-errors',
+            'ccm-learning-databases',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Nodes.Node' : {
+        'meta_info' : _MetaInfoClass('Cfm.Nodes.Node',
+            False, 
+            [
+            _MetaInfoClassMember('node', ATTRIBUTE, 'str' , None, None, 
+                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                '''                Node
+                ''',
+                'node',
+                'Cisco-IOS-XR-ethernet-cfm-oper', True),
+            _MetaInfoClassMember('interface-aises', REFERENCE_CLASS, 'InterfaceAises' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Nodes.Node.InterfaceAises', 
+                [], [], 
+                '''                Interface AIS table
+                ''',
+                'interface_aises',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('interface-statistics', REFERENCE_CLASS, 'InterfaceStatistics' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Nodes.Node.InterfaceStatistics', 
+                [], [], 
+                '''                Interface Statistics table
+                ''',
+                'interface_statistics',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('summary', REFERENCE_CLASS, 'Summary' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Nodes.Node.Summary', 
+                [], [], 
+                '''                Summary
+                ''',
+                'summary',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('ccm-learning-databases', REFERENCE_CLASS, 'CcmLearningDatabases' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Nodes.Node.CcmLearningDatabases', 
+                [], [], 
+                '''                CCMLearningDatabase table
+                ''',
+                'ccm_learning_databases',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'node',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Nodes' : {
+        'meta_info' : _MetaInfoClass('Cfm.Nodes',
+            False, 
+            [
+            _MetaInfoClassMember('node', REFERENCE_LIST, 'Node' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Nodes.Node', 
+                [], [], 
+                '''                Node-specific data for a particular node
+                ''',
+                'node',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'nodes',
             _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
@@ -535,18 +1084,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.BasicOptions',
             False, 
             [
+            _MetaInfoClassMember('is-auto', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Traceroute was initiated automatically
+                ''',
+                'is_auto',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('fdb-only', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Only use the Filtering Database for forwarding
                 lookups
                 ''',
                 'fdb_only',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('is-auto', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Traceroute was initiated automatically
-                ''',
-                'is_auto',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -559,17 +1108,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.ExploratoryOptions',
             False, 
             [
-            _MetaInfoClassMember('delay-constant-factor', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Constant Factor for delay calculations
-                ''',
-                'delay_constant_factor',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('delay-model', REFERENCE_ENUM_CLASS, 'CfmPmEltDelayModelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmEltDelayModelEnum', 
                 [], [], 
                 '''                Delay model for delay calculations
                 ''',
                 'delay_model',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('delay-constant-factor', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Constant Factor for delay calculations
+                ''',
+                'delay_constant_factor',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('reply-filter', REFERENCE_ENUM_CLASS, 'CfmPmElmReplyFilterEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmElmReplyFilterEnum', 
                 [], [], 
@@ -617,11 +1166,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation',
             False, 
             [
-            _MetaInfoClassMember('directed-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                Directed MAC address
+            _MetaInfoClassMember('options', REFERENCE_CLASS, 'Options' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options', 
+                [], [], 
+                '''                Options affecting traceroute behavior
                 ''',
-                'directed_mac_address',
+                'options',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('domain', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -629,23 +1178,23 @@ _meta_table = {
                 ''',
                 'domain',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('service', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Service name
+                ''',
+                'service',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
                 [], [], 
                 '''                Maintenance level
                 ''',
                 'level',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('options', REFERENCE_CLASS, 'Options' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options', 
-                [], [], 
-                '''                Options affecting traceroute behavior
+            _MetaInfoClassMember('source-mep-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Source MEP ID
                 ''',
-                'options',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('service', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Service name
-                ''',
-                'service',
+                'source_mep_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
@@ -659,17 +1208,17 @@ _meta_table = {
                 ''',
                 'source_mac_address',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('source-mep-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Source MEP ID
-                ''',
-                'source_mep_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('target-mac-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                Target MAC address
                 ''',
                 'target_mac_address',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('directed-mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                Directed MAC address
+                ''',
+                'directed_mac_address',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('target-mep-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -683,17 +1232,17 @@ _meta_table = {
                 ''',
                 'timestamp',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('transaction-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Transaction ID
-                ''',
-                'transaction_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('ttl', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
                 '''                Time to live
                 ''',
                 'ttl',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('transaction-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Transaction ID
+                ''',
+                'transaction_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -712,11 +1261,11 @@ _meta_table = {
                 ''',
                 'domain',
                 'Cisco-IOS-XR-ethernet-cfm-oper', True),
-            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface
+            _MetaInfoClassMember('service', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Service (Maintenance Association)
                 ''',
-                'interface',
+                'service',
                 'Cisco-IOS-XR-ethernet-cfm-oper', True),
             _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
                 [(1, 8191)], [], 
@@ -724,11 +1273,11 @@ _meta_table = {
                 ''',
                 'mep_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', True),
-            _MetaInfoClassMember('service', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Service (Maintenance Association)
+            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface
                 ''',
-                'service',
+                'interface',
                 'Cisco-IOS-XR-ethernet-cfm-oper', True),
             _MetaInfoClassMember('transaction-id', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
@@ -736,18 +1285,18 @@ _meta_table = {
                 ''',
                 'transaction_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', True),
+            _MetaInfoClassMember('traceroute-information', REFERENCE_CLASS, 'TracerouteInformation' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation', 
+                [], [], 
+                '''                Information about the traceroute operation
+                ''',
+                'traceroute_information',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('time-left', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Time (in seconds) before the traceroute
                 completes
                 ''',
                 'time_left',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('traceroute-information', REFERENCE_CLASS, 'TracerouteInformation' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation', 
-                [], [], 
-                '''                Information about the traceroute operation
-                ''',
-                'traceroute_information',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -774,648 +1323,6 @@ _meta_table = {
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
     },
-    'Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart',
-            False, 
-            [
-            _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Nanoseconds
-                ''',
-                'nanoseconds',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Seconds
-                ''',
-                'seconds',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'receiving-start',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart',
-            False, 
-            [
-            _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Nanoseconds
-                ''',
-                'nanoseconds',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Seconds
-                ''',
-                'seconds',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'sending-start',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.LocalMeps.LocalMep.AisStatistics' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.LocalMeps.LocalMep.AisStatistics',
-            False, 
-            [
-            _MetaInfoClassMember('interval', REFERENCE_ENUM_CLASS, 'CfmBagAisIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagAisIntervalEnum', 
-                [], [], 
-                '''                AIS transmission interval
-                ''',
-                'interval',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('last-interval', REFERENCE_ENUM_CLASS, 'CfmBagAisIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagAisIntervalEnum', 
-                [], [], 
-                '''                The interval of the last received AIS packet
-                ''',
-                'last_interval',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('last-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                Source MAC address of the last received AIS
-                packet
-                ''',
-                'last_mac_address',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
-                [], [], 
-                '''                AIS transmission level
-                ''',
-                'level',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('receiving-ais', REFERENCE_ENUM_CLASS, 'CfmPmAisReceiveEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmAisReceiveEnum', 
-                [], [], 
-                '''                Details of how the signal is being received
-                ''',
-                'receiving_ais',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('receiving-start', REFERENCE_CLASS, 'ReceivingStart' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart', 
-                [], [], 
-                '''                Time elapsed since AIS receiving started
-                ''',
-                'receiving_start',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('sending-ais', REFERENCE_ENUM_CLASS, 'CfmPmAisTransmitEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmAisTransmitEnum', 
-                [], [], 
-                '''                Details of how AIS is being transmitted
-                ''',
-                'sending_ais',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('sending-start', REFERENCE_CLASS, 'SendingStart' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart', 
-                [], [], 
-                '''                Time elapsed since AIS sending started
-                ''',
-                'sending_start',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'ais-statistics',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects',
-            False, 
-            [
-            _MetaInfoClassMember('invalid-ccm-interval', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Invalid CCM interval
-                ''',
-                'invalid_ccm_interval',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('invalid-level', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Invalid level
-                ''',
-                'invalid_level',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('invalid-maid', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Invalid MAID
-                ''',
-                'invalid_maid',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('loss-threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Timed out (loss threshold exceeded)
-                ''',
-                'loss_threshold_exceeded',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('received-our-mac', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Loop detected (our MAC address received)
-                ''',
-                'received_our_mac',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('received-our-mep-id', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Configuration Error (our MEP ID received)
-                ''',
-                'received_our_mep_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('received-rdi', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Remote defection indication received
-                ''',
-                'received_rdi',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'remote-meps-defects',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.LocalMeps.LocalMep.Defects' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.LocalMeps.LocalMep.Defects',
-            False, 
-            [
-            _MetaInfoClassMember('ais-received', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                AIS or LCK received
-                ''',
-                'ais_received',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('auto-missing', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of missing auto cross-check MEPs
-                ''',
-                'auto_missing',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('local-port-status', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The local port or interface is down
-                ''',
-                'local_port_status',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('missing', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of missing peer MEPs
-                ''',
-                'missing',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('peer-meps-that-timed-out', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of peer MEPs that have timed out
-                ''',
-                'peer_meps_that_timed_out',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('peer-port-status', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                A peer port or interface is down
-                ''',
-                'peer_port_status',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('remote-meps-defects', REFERENCE_CLASS, 'RemoteMepsDefects' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects', 
-                [], [], 
-                '''                Defects detected from remote MEPs
-                ''',
-                'remote_meps_defects',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('unexpected', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of unexpected peer MEPs
-                ''',
-                'unexpected',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'defects',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.LocalMeps.LocalMep.Statistics' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.LocalMeps.LocalMep.Statistics',
-            False, 
-            [
-            _MetaInfoClassMember('ai-ss-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of AIS messages received
-                ''',
-                'ai_ss_received',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ai-ss-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of AIS messages sent
-                ''',
-                'ai_ss_sent',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('bn-ms-discarded', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of BNM messages discarded
-                ''',
-                'bn_ms_discarded',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('bn-ms-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of BNM messages received
-                ''',
-                'bn_ms_received',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ccms-discarded', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of CCMs discarded because maximum MEPs
-                limit was reached
-                ''',
-                'ccms_discarded',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ccms-out-of-sequence', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of CCMs received out-of-sequence
-                ''',
-                'ccms_out_of_sequence',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ccms-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of CCMs received
-                ''',
-                'ccms_received',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ccms-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of CCMs sent
-                ''',
-                'ccms_sent',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('dm-ms-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of DMM messages received
-                ''',
-                'dm_ms_received',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('dm-ms-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of DMM messages sent
-                ''',
-                'dm_ms_sent',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('dm-rs-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of DMR messages received
-                ''',
-                'dm_rs_received',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('dm-rs-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of DMR messages sent
-                ''',
-                'dm_rs_sent',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('lb-ms-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of LBMs received
-                ''',
-                'lb_ms_received',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('lb-ms-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of LBMs sent
-                ''',
-                'lb_ms_sent',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('lb-rs-bad-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of LBRs received with non-matching
-                user-specified data
-                ''',
-                'lb_rs_bad_data',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('lb-rs-out-of-sequence', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of LBRs received out-of-sequence
-                ''',
-                'lb_rs_out_of_sequence',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('lb-rs-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of LBRs received
-                ''',
-                'lb_rs_received',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('lb-rs-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of LBRs sent
-                ''',
-                'lb_rs_sent',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('lc-ks-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of LCK messages received
-                ''',
-                'lc_ks_received',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('lm-ms-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of LMM messages received
-                ''',
-                'lm_ms_received',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('lm-ms-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of LMM messages sent
-                ''',
-                'lm_ms_sent',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('lm-rs-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of LMR messages received
-                ''',
-                'lm_rs_received',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('lm-rs-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of LMR messages sent
-                ''',
-                'lm_rs_sent',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('lt-rs-received-unexpected', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of unexpected LTRs received
-                ''',
-                'lt_rs_received_unexpected',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('sl-ms-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of SLM messages received
-                ''',
-                'sl_ms_received',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('sl-ms-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of SLM messages sent
-                ''',
-                'sl_ms_sent',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('sl-rs-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of SLR messages received
-                ''',
-                'sl_rs_received',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('sl-rs-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of SLR messages sent
-                ''',
-                'sl_rs_sent',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'statistics',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.LocalMeps.LocalMep' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.LocalMeps.LocalMep',
-            False, 
-            [
-            _MetaInfoClassMember('domain', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Maintenance Domain
-                ''',
-                'domain',
-                'Cisco-IOS-XR-ethernet-cfm-oper', True),
-            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface
-                ''',
-                'interface',
-                'Cisco-IOS-XR-ethernet-cfm-oper', True),
-            _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 8191)], [], 
-                '''                MEP ID
-                ''',
-                'mep_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', True),
-            _MetaInfoClassMember('service', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Service (Maintenance Association)
-                ''',
-                'service',
-                'Cisco-IOS-XR-ethernet-cfm-oper', True),
-            _MetaInfoClassMember('ais-statistics', REFERENCE_CLASS, 'AisStatistics' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.LocalMeps.LocalMep.AisStatistics', 
-                [], [], 
-                '''                MEP AIS statistics
-                ''',
-                'ais_statistics',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ccm-generation-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                CCM generation enabled
-                ''',
-                'ccm_generation_enabled',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ccm-interval', REFERENCE_ENUM_CLASS, 'CfmBagCcmIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagCcmIntervalEnum', 
-                [], [], 
-                '''                The interval between CCMs
-                ''',
-                'ccm_interval',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ccm-offload', REFERENCE_ENUM_CLASS, 'CfmBagCcmOffloadEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagCcmOffloadEnum', 
-                [], [], 
-                '''                Offload status of CCM processing
-                ''',
-                'ccm_offload',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('cos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                CoS bits the MEP will use for sent packets, if
-                configured
-                ''',
-                'cos',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('cross-connect-ccm-defect', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                A cross-connect CCM error has been reported
-                ''',
-                'cross_connect_ccm_defect',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('defects', REFERENCE_CLASS, 'Defects' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.LocalMeps.LocalMep.Defects', 
-                [], [], 
-                '''                Defects detected from peer MEPs
-                ''',
-                'defects',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('domain-xr', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Maintenance domain name
-                ''',
-                'domain_xr',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('efd-triggered', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                EFD triggered on the interface
-                ''',
-                'efd_triggered',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('error-ccm-defect', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                A CCM error has been reported
-                ''',
-                'error_ccm_defect',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('fault-notification-state', REFERENCE_ENUM_CLASS, 'CfmPmMepFngStateEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmMepFngStateEnum', 
-                [], [], 
-                '''                Fault Notification Generation state
-                ''',
-                'fault_notification_state',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('highest-defect', REFERENCE_ENUM_CLASS, 'CfmPmMepDefectEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmMepDefectEnum', 
-                [], [], 
-                '''                Highest-priority defect present since last FNG
-                reset
-                ''',
-                'highest_defect',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('interface-state', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                IM Interface state
-                ''',
-                'interface_state',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('interface-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface
-                ''',
-                'interface_xr',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('interworking-state', REFERENCE_ENUM_CLASS, 'CfmBagIwStateEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagIwStateEnum', 
-                [], [], 
-                '''                Interface interworking state
-                ''',
-                'interworking_state',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
-                [], [], 
-                '''                Maintenance level
-                ''',
-                'level',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                MAC address
-                ''',
-                'mac_address',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mac-status-defect', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                A peer MEP port or interface status error has
-                been reported
-                ''',
-                'mac_status_defect',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mep-direction', REFERENCE_ENUM_CLASS, 'CfmBagDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagDirectionEnum', 
-                [], [], 
-                '''                MEP facing direction
-                ''',
-                'mep_direction',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mep-id-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                MEP ID
-                ''',
-                'mep_id_xr',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('next-lbm-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Next Transaction ID to be sent in a Loopback
-                Message
-                ''',
-                'next_lbm_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('next-ltm-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Next Transaction ID to be sent in a Linktrace
-                Message
-                ''',
-                'next_ltm_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('peer-mep-ccm-defect', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                A peer MEP CCM error has been reported
-                ''',
-                'peer_mep_ccm_defect',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('peer-meps-detected', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of peer MEPs detected
-                ''',
-                'peer_meps_detected',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('peer-meps-with-errors-detected', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of peer MEPs detected with errors
-                ''',
-                'peer_meps_with_errors_detected',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('rdi-defect', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                A peer MEP RDI defect has been reported
-                ''',
-                'rdi_defect',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('remote-defect', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Remote defect indicated
-                ''',
-                'remote_defect',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('service-xr', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Service name
-                ''',
-                'service_xr',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('standby', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The MEP is on a standby bundle interface
-                ''',
-                'standby',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.LocalMeps.LocalMep.Statistics', 
-                [], [], 
-                '''                MEP statistics
-                ''',
-                'statistics',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('stp-state', REFERENCE_ENUM_CLASS, 'CfmBagStpStateEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagStpStateEnum', 
-                [], [], 
-                '''                STP state
-                ''',
-                'stp_state',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'local-mep',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.LocalMeps' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.LocalMeps',
-            False, 
-            [
-            _MetaInfoClassMember('local-mep', REFERENCE_LIST, 'LocalMep' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.LocalMeps.LocalMep', 
-                [], [], 
-                '''                Information about a particular local MEP
-                ''',
-                'local_mep',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'local-meps',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
     'Cfm.Global.MaintenancePoints.MaintenancePoint.MaintenancePoint' : {
         'meta_info' : _MetaInfoClass('Cfm.Global.MaintenancePoints.MaintenancePoint.MaintenancePoint',
             False, 
@@ -1426,17 +1333,23 @@ _meta_table = {
                 ''',
                 'domain_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface
-                ''',
-                'interface',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
                 [], [], 
                 '''                Domain level
                 ''',
                 'level',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('service-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Service name
+                ''',
+                'service_name',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface
+                ''',
+                'interface',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('maintenance-point-type', REFERENCE_ENUM_CLASS, 'CfmMaMpVarietyEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmMaMpVarietyEnum', 
                 [], [], 
@@ -1449,12 +1362,6 @@ _meta_table = {
                 '''                MEP ID
                 ''',
                 'mep_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('service-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Service name
-                ''',
-                'service_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -1473,24 +1380,18 @@ _meta_table = {
                 ''',
                 'domain',
                 'Cisco-IOS-XR-ethernet-cfm-oper', True),
-            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface
-                ''',
-                'interface',
-                'Cisco-IOS-XR-ethernet-cfm-oper', True),
             _MetaInfoClassMember('service', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Service (Maintenance Association)
                 ''',
                 'service',
                 'Cisco-IOS-XR-ethernet-cfm-oper', True),
-            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                MAC Address
+            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface
                 ''',
-                'mac_address',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+                'interface',
+                'Cisco-IOS-XR-ethernet-cfm-oper', True),
             _MetaInfoClassMember('maintenance-point', REFERENCE_CLASS, 'MaintenancePoint' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.MaintenancePoints.MaintenancePoint.MaintenancePoint', 
                 [], [], 
                 '''                Maintenance Point
@@ -1502,6 +1403,12 @@ _meta_table = {
                 '''                MEP error flag
                 ''',
                 'mep_has_error',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC Address
+                ''',
+                'mac_address',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -1528,482 +1435,15 @@ _meta_table = {
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
     },
-    'Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain',
-            False, 
-            [
-            _MetaInfoClassMember('bridge-domain-id-format', REFERENCE_ENUM_CLASS, 'CfmBagBdidFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagBdidFmtEnum', 
-                [], [], 
-                '''                Bridge domain identifier format
-                ''',
-                'bridge_domain_id_format',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ce-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Local Customer Edge Identifier (CE-ID)
-                ''',
-                'ce_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('group', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Name of the Bridge/XConnect Group
-                ''',
-                'group',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Name of the Bridge Domain/XConnect
-                ''',
-                'name',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('remote-ce-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Remote Customer Edge Identifier (CE-ID)
-                ''',
-                'remote_ce_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'interface-bridge-domain',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep',
-            False, 
-            [
-            _MetaInfoClassMember('domain-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Domain name
-                ''',
-                'domain_name',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface
-                ''',
-                'interface',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
-                [], [], 
-                '''                Domain level
-                ''',
-                'level',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('maintenance-point-type', REFERENCE_ENUM_CLASS, 'CfmMaMpVarietyEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmMaMpVarietyEnum', 
-                [], [], 
-                '''                Type of Maintenance Point
-                ''',
-                'maintenance_point_type',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                MEP ID
-                ''',
-                'mep_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('service-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Service name
-                ''',
-                'service_name',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'mep',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement',
-            False, 
-            [
-            _MetaInfoClassMember('controller', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Controller
-                ''',
-                'controller',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('responder', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Responder
-                ''',
-                'responder',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'delay-measurement',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback',
-            False, 
-            [
-            _MetaInfoClassMember('controller', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Controller
-                ''',
-                'controller',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('responder', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Responder
-                ''',
-                'responder',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'loopback',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement',
-            False, 
-            [
-            _MetaInfoClassMember('controller', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Controller
-                ''',
-                'controller',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('responder', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Responder
-                ''',
-                'responder',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'synthetic-loss-measurement',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities',
-            False, 
-            [
-            _MetaInfoClassMember('delay-measurement', REFERENCE_CLASS, 'DelayMeasurement' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement', 
-                [], [], 
-                '''                Delay Measurement
-                ''',
-                'delay_measurement',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('loopback', REFERENCE_CLASS, 'Loopback' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback', 
-                [], [], 
-                '''                Loopback
-                ''',
-                'loopback',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('synthetic-loss-measurement', REFERENCE_CLASS, 'SyntheticLossMeasurement' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement', 
-                [], [], 
-                '''                Synthetic Loss Measurement
-                ''',
-                'synthetic_loss_measurement',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'satellite-capabilities',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain',
-            False, 
-            [
-            _MetaInfoClassMember('bridge-domain-id-format', REFERENCE_ENUM_CLASS, 'CfmBagBdidFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagBdidFmtEnum', 
-                [], [], 
-                '''                Bridge domain identifier format
-                ''',
-                'bridge_domain_id_format',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ce-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Local Customer Edge Identifier (CE-ID)
-                ''',
-                'ce_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('group', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Name of the Bridge/XConnect Group
-                ''',
-                'group',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Name of the Bridge Domain/XConnect
-                ''',
-                'name',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('remote-ce-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Remote Customer Edge Identifier (CE-ID)
-                ''',
-                'remote_ce_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'service-bridge-domain',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.MepConfigurationErrors.MepConfigurationError' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.MepConfigurationErrors.MepConfigurationError',
-            False, 
-            [
-            _MetaInfoClassMember('domain', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Maintenance Domain
-                ''',
-                'domain',
-                'Cisco-IOS-XR-ethernet-cfm-oper', True),
-            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface
-                ''',
-                'interface',
-                'Cisco-IOS-XR-ethernet-cfm-oper', True),
-            _MetaInfoClassMember('service', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Service (Maintenance Association)
-                ''',
-                'service',
-                'Cisco-IOS-XR-ethernet-cfm-oper', True),
-            _MetaInfoClassMember('ais-configured', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                AIS is configured on the same interface as the
-                down MEP
-                ''',
-                'ais_configured',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('bridge-domain-mismatch', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The MEP's EFP is not in the Service's Bridge
-                Domain
-                ''',
-                'bridge_domain_mismatch',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('bridge-domain-not-in-bd-infra', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                A BD/XC specified in the MEG config, but it does
-                not exist globally.
-                ''',
-                'bridge_domain_not_in_bd_infra',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('bundle-level0', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The MEP is configured in a domain at level 0, on
-                a bundle interface or sub-interface.  This is
-                not supported
-                ''',
-                'bundle_level0',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ccm-interval', REFERENCE_ENUM_CLASS, 'CfmBagCcmIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagCcmIntervalEnum', 
-                [], [], 
-                '''                Interval between CCMs sent on this MEP.
-                ''',
-                'ccm_interval',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ccm-interval-not-supported', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                CCM Interval is less than minimum interval
-                supported by hardware
-                ''',
-                'ccm_interval_not_supported',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('interface-bridge-domain', REFERENCE_CLASS, 'InterfaceBridgeDomain' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain', 
-                [], [], 
-                '''                ID of the BD/XC that the MEP's EFP is in, if any
-                ''',
-                'interface_bridge_domain',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('level-conflict', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Another MEP facing in the same direction is at
-                the same Maintenance Level
-                ''',
-                'level_conflict',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mep', REFERENCE_CLASS, 'Mep' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep', 
-                [], [], 
-                '''                The MEP that has errors
-                ''',
-                'mep',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('no-domain', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The MEP's Domain is not configured
-                ''',
-                'no_domain',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('no-interface-type', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                We haven't yet been able to look up the
-                interface type to find whether the interface is
-                a bundle.
-                ''',
-                'no_interface_type',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('no-mlacp', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The EFP is a bundle and the mLACP mode is not
-                yet known.
-                ''',
-                'no_mlacp',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('no-service', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The MEP's Service is not configured
-                ''',
-                'no_service',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('no-valid-mac-address', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The EFP doesn't have a valid MAC address yet.
-                This will also get set if the MAC address we
-                have is a multicast address.
-                ''',
-                'no_valid_mac_address',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('not-in-im', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The EFP has been deleted from IM.
-                ''',
-                'not_in_im',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('offload-mep-direction-not-supported', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The MEP direction does not support offload.
-                ''',
-                'offload_mep_direction_not_supported',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('offload-multiple-local-mep', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Multiple offloaded MEPs on the same interface
-                are not supported.
-                ''',
-                'offload_multiple_local_mep',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('offload-multiple-peer-meps', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The MEP should be offloaded but multiple
-                crosscheck MEPs have been configured, and this
-                is not supported.
-                ''',
-                'offload_multiple_peer_meps',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('offload-no-cross-check', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The MEP should be offloaded but crosscheck has
-                not been configured.
-                ''',
-                'offload_no_cross_check',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('offload-out-of-resources', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Offload resource limits have been exceeded
-                ''',
-                'offload_out_of_resources',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('satellite-capabilities', REFERENCE_CLASS, 'SatelliteCapabilities' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities', 
-                [], [], 
-                '''                Satellite Capabilities
-                ''',
-                'satellite_capabilities',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('satellite-error-string', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Error string returned from satellite
-                ''',
-                'satellite_error_string',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('satellite-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                ID of the satellite
-                ''',
-                'satellite_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('satellite-limitation', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                A satellite limitation is preventing MEP being
-                offloaded to satellite.
-                ''',
-                'satellite_limitation',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('service-bridge-domain', REFERENCE_CLASS, 'ServiceBridgeDomain' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain', 
-                [], [], 
-                '''                BD/XC ID for the MEP's Service, or Service name
-                if the Service is 'down-only'
-                ''',
-                'service_bridge_domain',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('sla-delay-measurement-operations-disabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                In-progress Ethernet SLA delay measurement
-                operations are disabled due to satellite having
-                delay measurement responder-only capabilities.
-                ''',
-                'sla_delay_measurement_operations_disabled',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('sla-loopback-operations-disabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                In-progress Ethernet SLA loopback operations are
-                disabled due to satellite having loopback
-                responder-only capabilities.
-                ''',
-                'sla_loopback_operations_disabled',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('sla-synthetic-loss-operations-disabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                In-progress Ethernet SLA synthetic loss
-                measurement operations are disabled due to
-                satellite having synthetic loss measurement
-                responder-only capabilities.
-                ''',
-                'sla_synthetic_loss_operations_disabled',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'mep-configuration-error',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.MepConfigurationErrors' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.MepConfigurationErrors',
-            False, 
-            [
-            _MetaInfoClassMember('mep-configuration-error', REFERENCE_LIST, 'MepConfigurationError' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.MepConfigurationErrors.MepConfigurationError', 
-                [], [], 
-                '''                Information about a particular configuration
-                error
-                ''',
-                'mep_configuration_error',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'mep-configuration-errors',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
     'Cfm.Global.PeerMeps.PeerMep.PeerMep.ErrorState' : {
         'meta_info' : _MetaInfoClass('Cfm.Global.PeerMeps.PeerMep.PeerMep.ErrorState',
             False, 
             [
-            _MetaInfoClassMember('invalid-ccm-interval', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('loss-threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Invalid CCM interval
+                '''                Timed out (loss threshold exceeded)
                 ''',
-                'invalid_ccm_interval',
+                'loss_threshold_exceeded',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('invalid-level', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2017,11 +1457,11 @@ _meta_table = {
                 ''',
                 'invalid_maid',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('loss-threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('invalid-ccm-interval', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Timed out (loss threshold exceeded)
+                '''                Invalid CCM interval
                 ''',
-                'loss_threshold_exceeded',
+                'invalid_ccm_interval',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('received-our-mac', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2048,21 +1488,44 @@ _meta_table = {
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
     },
+    'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastUpDownTime' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.PeerMeps.PeerMep.PeerMep.LastUpDownTime',
+            False, 
+            [
+            _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Seconds
+                ''',
+                'seconds',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Nanoseconds
+                ''',
+                'nanoseconds',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'last-up-down-time',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
     'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.Mdid.MacName' : {
         'meta_info' : _MetaInfoClass('Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.Mdid.MacName',
             False, 
             [
-            _MetaInfoClassMember('integer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Integer
-                ''',
-                'integer',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'mac_address',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('integer', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Integer
+                ''',
+                'integer',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -2075,23 +1538,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.Mdid',
             False, 
             [
-            _MetaInfoClassMember('dns-like-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                DNS-like name
-                ''',
-                'dns_like_name',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('mac-name', REFERENCE_CLASS, 'MacName' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.Mdid.MacName', 
                 [], [], 
                 '''                MAC address name
                 ''',
                 'mac_name',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mdid-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Hex data
-                ''',
-                'mdid_data',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('mdid-format-value', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -2099,11 +1550,23 @@ _meta_table = {
                 ''',
                 'mdid_format_value',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('dns-like-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                DNS-like name
+                ''',
+                'dns_like_name',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('string-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                String name
                 ''',
                 'string_name',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('mdid-data', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Hex data
+                ''',
+                'mdid_data',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -2116,17 +1579,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName',
             False, 
             [
-            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                VPN index
-                ''',
-                'index',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('oui', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                VPN authority organizationally-unique ID
                 ''',
                 'oui',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                VPN index
+                ''',
+                'index',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -2139,23 +1602,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.ShortMaName',
             False, 
             [
-            _MetaInfoClassMember('icc-based', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('vpn-id-name', REFERENCE_CLASS, 'VpnIdName' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName', 
                 [], [], 
-                '''                ICC-based format
+                '''                VPN ID name
                 ''',
-                'icc_based',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('integer-name', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Unsigned integer name
-                ''',
-                'integer_name',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('short-ma-name-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Hex data
-                ''',
-                'short_ma_name_data',
+                'vpn_id_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('short-ma-name-format-value', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -2163,23 +1614,35 @@ _meta_table = {
                 ''',
                 'short_ma_name_format_value',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('string-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                String name
-                ''',
-                'string_name',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('vlan-id-name', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                VLAN ID name
                 ''',
                 'vlan_id_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('vpn-id-name', REFERENCE_CLASS, 'VpnIdName' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName', 
+            _MetaInfoClassMember('string-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                VPN ID name
+                '''                String name
                 ''',
-                'vpn_id_name',
+                'string_name',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('integer-name', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Unsigned integer name
+                ''',
+                'integer_name',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('icc-based', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                ICC-based format
+                ''',
+                'icc_based',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('short-ma-name-data', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Hex data
+                ''',
+                'short_ma_name_data',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -2192,11 +1655,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header',
             False, 
             [
-            _MetaInfoClassMember('interval', REFERENCE_ENUM_CLASS, 'CfmBagCcmIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagCcmIntervalEnum', 
+            _MetaInfoClassMember('mdid', REFERENCE_CLASS, 'Mdid' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.Mdid', 
                 [], [], 
-                '''                CCM interval
+                '''                MDID
                 ''',
-                'interval',
+                'mdid',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('short-ma-name', REFERENCE_CLASS, 'ShortMaName' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.ShortMaName', 
+                [], [], 
+                '''                Short MA Name
+                ''',
+                'short_ma_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
                 [], [], 
@@ -2204,23 +1673,17 @@ _meta_table = {
                 ''',
                 'level',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mdid', REFERENCE_CLASS, 'Mdid' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.Mdid', 
-                [], [], 
-                '''                MDID
+            _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Version
                 ''',
-                'mdid',
+                'version',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mdid-format', REFERENCE_ENUM_CLASS, 'CfmBagMdidFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdidFmtEnum', 
+            _MetaInfoClassMember('interval', REFERENCE_ENUM_CLASS, 'CfmBagCcmIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagCcmIntervalEnum', 
                 [], [], 
-                '''                MDID Format
+                '''                CCM interval
                 ''',
-                'mdid_format',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                MEP ID
-                ''',
-                'mep_id',
+                'interval',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('rdi', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2234,11 +1697,17 @@ _meta_table = {
                 ''',
                 'sequence_number',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('short-ma-name', REFERENCE_CLASS, 'ShortMaName' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.ShortMaName', 
-                [], [], 
-                '''                Short MA Name
+            _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                MEP ID
                 ''',
-                'short_ma_name',
+                'mep_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('mdid-format', REFERENCE_ENUM_CLASS, 'CfmBagMdidFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdidFmtEnum', 
+                [], [], 
+                '''                MDID Format
+                ''',
+                'mdid_format',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('short-ma-name-format', REFERENCE_ENUM_CLASS, 'CfmBagSmanFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagSmanFmtEnum', 
                 [], [], 
@@ -2246,15 +1715,108 @@ _meta_table = {
                 ''',
                 'short_ma_name_format',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Version
-                ''',
-                'version',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
             'header',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue',
+            False, 
+            [
+            _MetaInfoClassMember('chassis-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmtEnum', 
+                [], [], 
+                '''                ChassisIDFormat
+                ''',
+                'chassis_id_format',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('chassis-id-string', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Chassis ID String
+                ''',
+                'chassis_id_string',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('chassis-id-mac', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                Chassis ID MAC Address
+                ''',
+                'chassis_id_mac',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('chassis-id-raw', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Raw Chassis ID
+                ''',
+                'chassis_id_raw',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'chassis-id-value',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId',
+            False, 
+            [
+            _MetaInfoClassMember('chassis-id-value', REFERENCE_CLASS, 'ChassisIdValue' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue', 
+                [], [], 
+                '''                Chassis ID (Current)
+                ''',
+                'chassis_id_value',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('chassis-id-type', REFERENCE_ENUM_CLASS, 'CfmPmChassisIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmChassisIdFmtEnum', 
+                [], [], 
+                '''                Chassis ID Type
+                ''',
+                'chassis_id_type',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('chassis-id-type-value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Chassis ID Type
+                ''',
+                'chassis_id_type_value',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('chassis-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Chassis ID (Deprecated)
+                ''',
+                'chassis_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'chassis-id',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId',
+            False, 
+            [
+            _MetaInfoClassMember('chassis-id', REFERENCE_CLASS, 'ChassisId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId', 
+                [], [], 
+                '''                Chassis ID
+                ''',
+                'chassis_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('management-address-domain', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Management address domain
+                ''',
+                'management_address_domain',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('management-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Management address
+                ''',
+                'management_address',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'sender-id',
             _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
@@ -2305,105 +1867,6 @@ _meta_table = {
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
     },
-    'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue',
-            False, 
-            [
-            _MetaInfoClassMember('chassis-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmtEnum', 
-                [], [], 
-                '''                ChassisIDFormat
-                ''',
-                'chassis_id_format',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('chassis-id-mac', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                Chassis ID MAC Address
-                ''',
-                'chassis_id_mac',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('chassis-id-raw', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Raw Chassis ID
-                ''',
-                'chassis_id_raw',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('chassis-id-string', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Chassis ID String
-                ''',
-                'chassis_id_string',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'chassis-id-value',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId',
-            False, 
-            [
-            _MetaInfoClassMember('chassis-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Chassis ID (Deprecated)
-                ''',
-                'chassis_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('chassis-id-type', REFERENCE_ENUM_CLASS, 'CfmPmChassisIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmChassisIdFmtEnum', 
-                [], [], 
-                '''                Chassis ID Type
-                ''',
-                'chassis_id_type',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('chassis-id-type-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Chassis ID Type
-                ''',
-                'chassis_id_type_value',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('chassis-id-value', REFERENCE_CLASS, 'ChassisIdValue' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue', 
-                [], [], 
-                '''                Chassis ID (Current)
-                ''',
-                'chassis_id_value',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'chassis-id',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId',
-            False, 
-            [
-            _MetaInfoClassMember('chassis-id', REFERENCE_CLASS, 'ChassisId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId', 
-                [], [], 
-                '''                Chassis ID
-                ''',
-                'chassis_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('management-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Management address
-                ''',
-                'management_address',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('management-address-domain', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Management address domain
-                ''',
-                'management_address_domain',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'sender-id',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
     'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.UnknownTlv' : {
         'meta_info' : _MetaInfoClass('Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.UnknownTlv',
             False, 
@@ -2431,23 +1894,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived',
             False, 
             [
-            _MetaInfoClassMember('additional-interface-status', REFERENCE_ENUM_CLASS, 'CfmPmAddlIntfStatusEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmAddlIntfStatusEnum', 
-                [], [], 
-                '''                Additional interface status
-                ''',
-                'additional_interface_status',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('header', REFERENCE_CLASS, 'Header' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header', 
                 [], [], 
                 '''                Frame header
                 ''',
                 'header',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('interface-status', REFERENCE_ENUM_CLASS, 'CfmPmIntfStatusEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIntfStatusEnum', 
+            _MetaInfoClassMember('sender-id', REFERENCE_CLASS, 'SenderId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId', 
                 [], [], 
-                '''                Interface status
+                '''                Sender ID TLV
                 ''',
-                'interface_status',
+                'sender_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('mep-name', REFERENCE_CLASS, 'MepName' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.MepName', 
                 [], [], 
@@ -2455,17 +1912,23 @@ _meta_table = {
                 ''',
                 'mep_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('organization-specific-tlv', REFERENCE_LIST, 'OrganizationSpecificTlv' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.OrganizationSpecificTlv', 
-                [], [], 
-                '''                Organizational-specific TLVs
-                ''',
-                'organization_specific_tlv',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('port-status', REFERENCE_ENUM_CLASS, 'CfmPmPortStatusEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPortStatusEnum', 
                 [], [], 
                 '''                Port status
                 ''',
                 'port_status',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('interface-status', REFERENCE_ENUM_CLASS, 'CfmPmIntfStatusEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIntfStatusEnum', 
+                [], [], 
+                '''                Interface status
+                ''',
+                'interface_status',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('additional-interface-status', REFERENCE_ENUM_CLASS, 'CfmPmAddlIntfStatusEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmAddlIntfStatusEnum', 
+                [], [], 
+                '''                Additional interface status
+                ''',
+                'additional_interface_status',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('raw-data', ATTRIBUTE, 'str' , None, None, 
                 [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
@@ -2473,11 +1936,11 @@ _meta_table = {
                 ''',
                 'raw_data',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('sender-id', REFERENCE_CLASS, 'SenderId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId', 
+            _MetaInfoClassMember('organization-specific-tlv', REFERENCE_LIST, 'OrganizationSpecificTlv' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.OrganizationSpecificTlv', 
                 [], [], 
-                '''                Sender ID TLV
+                '''                Organizational-specific TLVs
                 ''',
-                'sender_id',
+                'organization_specific_tlv',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('unknown-tlv', REFERENCE_LIST, 'UnknownTlv' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.UnknownTlv', 
                 [], [], 
@@ -2492,44 +1955,21 @@ _meta_table = {
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
     },
-    'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastUpDownTime' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.PeerMeps.PeerMep.PeerMep.LastUpDownTime',
-            False, 
-            [
-            _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Nanoseconds
-                ''',
-                'nanoseconds',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Seconds
-                ''',
-                'seconds',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'last-up-down-time',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
     'Cfm.Global.PeerMeps.PeerMep.PeerMep.Statistics.LastCcmReceivedTime' : {
         'meta_info' : _MetaInfoClass('Cfm.Global.PeerMeps.PeerMep.PeerMep.Statistics.LastCcmReceivedTime',
             False, 
             [
-            _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Nanoseconds
-                ''',
-                'nanoseconds',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Seconds
                 ''',
                 'seconds',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Nanoseconds
+                ''',
+                'nanoseconds',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -2542,17 +1982,35 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.PeerMeps.PeerMep.PeerMep.Statistics',
             False, 
             [
-            _MetaInfoClassMember('ccms-invalid-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of CCMs received with an invalid interval
+            _MetaInfoClassMember('last-ccm-received-time', REFERENCE_CLASS, 'LastCcmReceivedTime' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep.Statistics.LastCcmReceivedTime', 
+                [], [], 
+                '''                Elapsed time since last CCM received
                 ''',
-                'ccms_invalid_interval',
+                'last_ccm_received_time',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('ccms-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of CCMs received
+                ''',
+                'ccms_received',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('ccms-wrong-level', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of CCMs received with an invalid level
+                ''',
+                'ccms_wrong_level',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('ccms-invalid-maid', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Number of CCMs received with an invalid MAID
                 ''',
                 'ccms_invalid_maid',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('ccms-invalid-interval', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of CCMs received with an invalid interval
+                ''',
+                'ccms_invalid_interval',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('ccms-invalid-source-mac-address', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
@@ -2567,12 +2025,6 @@ _meta_table = {
                 ''',
                 'ccms_our_mep_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ccms-out-of-sequence', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of CCMs received out-of-sequence
-                ''',
-                'ccms_out_of_sequence',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('ccms-rdi', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Number of CCMs received with the Remote Defect
@@ -2580,23 +2032,11 @@ _meta_table = {
                 ''',
                 'ccms_rdi',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ccms-received', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('ccms-out-of-sequence', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
-                '''                Number of CCMs received
+                '''                Number of CCMs received out-of-sequence
                 ''',
-                'ccms_received',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ccms-wrong-level', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of CCMs received with an invalid level
-                ''',
-                'ccms_wrong_level',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('last-ccm-received-time', REFERENCE_CLASS, 'LastCcmReceivedTime' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep.Statistics.LastCcmReceivedTime', 
-                [], [], 
-                '''                Elapsed time since last CCM received
-                ''',
-                'last_ccm_received_time',
+                'ccms_out_of_sequence',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('last-ccm-sequence-number', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -2615,29 +2055,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.PeerMeps.PeerMep.PeerMep',
             False, 
             [
-            _MetaInfoClassMember('ccm-offload', REFERENCE_ENUM_CLASS, 'CfmBagCcmOffloadEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagCcmOffloadEnum', 
-                [], [], 
-                '''                Offload status of received CCM handling
-                ''',
-                'ccm_offload',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('cross-check-state', REFERENCE_ENUM_CLASS, 'CfmPmRmepXcStateEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmRmepXcStateEnum', 
-                [], [], 
-                '''                Cross-check state
-                ''',
-                'cross_check_state',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('error-state', REFERENCE_CLASS, 'ErrorState' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep.ErrorState', 
                 [], [], 
                 '''                Error state
                 ''',
                 'error_state',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('last-ccm-received', REFERENCE_CLASS, 'LastCcmReceived' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived', 
-                [], [], 
-                '''                Last CCM received from the peer MEP
-                ''',
-                'last_ccm_received',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('last-up-down-time', REFERENCE_CLASS, 'LastUpDownTime' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastUpDownTime', 
                 [], [], 
@@ -2646,11 +2068,17 @@ _meta_table = {
                 ''',
                 'last_up_down_time',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                MAC address
+            _MetaInfoClassMember('last-ccm-received', REFERENCE_CLASS, 'LastCcmReceived' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived', 
+                [], [], 
+                '''                Last CCM received from the peer MEP
                 ''',
-                'mac_address',
+                'last_ccm_received',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep.Statistics', 
+                [], [], 
+                '''                Peer MEP statistics
+                ''',
+                'statistics',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -2658,17 +2086,29 @@ _meta_table = {
                 ''',
                 'mep_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC address
+                ''',
+                'mac_address',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('cross-check-state', REFERENCE_ENUM_CLASS, 'CfmPmRmepXcStateEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmRmepXcStateEnum', 
+                [], [], 
+                '''                Cross-check state
+                ''',
+                'cross_check_state',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('peer-mep-state', REFERENCE_ENUM_CLASS, 'CfmPmRmepStateEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmRmepStateEnum', 
                 [], [], 
                 '''                State of the peer MEP state machine
                 ''',
                 'peer_mep_state',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep.Statistics', 
+            _MetaInfoClassMember('ccm-offload', REFERENCE_ENUM_CLASS, 'CfmBagCcmOffloadEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagCcmOffloadEnum', 
                 [], [], 
-                '''                Peer MEP statistics
+                '''                Offload status of received CCM handling
                 ''',
-                'statistics',
+                'ccm_offload',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -2687,11 +2127,11 @@ _meta_table = {
                 ''',
                 'domain',
                 'Cisco-IOS-XR-ethernet-cfm-oper', True),
-            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface
+            _MetaInfoClassMember('service', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Service (Maintenance Association)
                 ''',
-                'interface',
+                'service',
                 'Cisco-IOS-XR-ethernet-cfm-oper', True),
             _MetaInfoClassMember('local-mep-id', ATTRIBUTE, 'int' , None, None, 
                 [(1, 8191)], [], 
@@ -2699,11 +2139,11 @@ _meta_table = {
                 ''',
                 'local_mep_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', True),
-            _MetaInfoClassMember('peer-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                Peer MAC address
+            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface
                 ''',
-                'peer_mac_address',
+                'interface',
                 'Cisco-IOS-XR-ethernet-cfm-oper', True),
             _MetaInfoClassMember('peer-mep-id', ATTRIBUTE, 'int' , None, None, 
                 [(1, 8191)], [], 
@@ -2711,23 +2151,29 @@ _meta_table = {
                 ''',
                 'peer_mep_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', True),
-            _MetaInfoClassMember('service', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Service (Maintenance Association)
+            _MetaInfoClassMember('peer-mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                Peer MAC address
                 ''',
-                'service',
+                'peer_mac_address',
                 'Cisco-IOS-XR-ethernet-cfm-oper', True),
+            _MetaInfoClassMember('peer-mep', REFERENCE_CLASS, 'PeerMep' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep', 
+                [], [], 
+                '''                Peer MEP
+                ''',
+                'peer_mep',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('domain-xr', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Maintenance domain name
                 ''',
                 'domain_xr',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('interface-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface
+            _MetaInfoClassMember('service-xr', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Service name
                 ''',
-                'interface_xr',
+                'service_xr',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
                 [], [], 
@@ -2735,29 +2181,23 @@ _meta_table = {
                 ''',
                 'level',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mep-direction', REFERENCE_ENUM_CLASS, 'CfmBagDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagDirectionEnum', 
-                [], [], 
-                '''                MEP facing direction
-                ''',
-                'mep_direction',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                MEP ID
                 ''',
                 'mep_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('peer-mep', REFERENCE_CLASS, 'PeerMep' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps.PeerMep.PeerMep', 
-                [], [], 
-                '''                Peer MEP
+            _MetaInfoClassMember('interface-xr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface
                 ''',
-                'peer_mep',
+                'interface_xr',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('service-xr', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('mep-direction', REFERENCE_ENUM_CLASS, 'CfmBagDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagDirectionEnum', 
                 [], [], 
-                '''                Service name
+                '''                MEP facing direction
                 ''',
-                'service_xr',
+                'mep_direction',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('standby', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2790,1243 +2230,588 @@ _meta_table = {
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
     },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header',
+    'Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId',
             False, 
             [
-            _MetaInfoClassMember('delay-model', REFERENCE_ENUM_CLASS, 'CfmPmEltDelayModelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmEltDelayModelEnum', 
+            _MetaInfoClassMember('bridge-domain-id-format', REFERENCE_ENUM_CLASS, 'CfmBagBdidFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagBdidFmtEnum', 
                 [], [], 
-                '''                Delay Model
+                '''                Bridge domain identifier format
                 ''',
-                'delay_model',
+                'bridge_domain_id_format',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('forwarded', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('group', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                ELR was forwarded
+                '''                Name of the Bridge/XConnect Group
                 ''',
-                'forwarded',
+                'group',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the Bridge Domain/XConnect
+                ''',
+                'name',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('ce-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Local Customer Edge Identifier (CE-ID)
+                ''',
+                'ce_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('remote-ce-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Remote Customer Edge Identifier (CE-ID)
+                ''',
+                'remote_ce_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'bridge-domain-id',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError',
+            False, 
+            [
+            _MetaInfoClassMember('domain', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Maintenance Domain
+                ''',
+                'domain',
+                'Cisco-IOS-XR-ethernet-cfm-oper', True),
+            _MetaInfoClassMember('service', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Service (Maintenance Association)
+                ''',
+                'service',
+                'Cisco-IOS-XR-ethernet-cfm-oper', True),
+            _MetaInfoClassMember('bridge-domain-id', REFERENCE_CLASS, 'BridgeDomainId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId', 
+                [], [], 
+                '''                BD/XC ID, or Service name if the Service is
+                'down-only'
+                ''',
+                'bridge_domain_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('domain-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Domain name
+                ''',
+                'domain_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
                 [], [], 
-                '''                MD level
+                '''                Level
                 ''',
                 'level',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('next-hop-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Next Hop Timeout, in seconds
-                ''',
-                'next_hop_timeout',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('relay-action', REFERENCE_ENUM_CLASS, 'CfmPmElrRelayActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmElrRelayActionEnum', 
+            _MetaInfoClassMember('service-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Relay action
+                '''                Service name
                 ''',
-                'relay_action',
+                'service_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('reply-filter-unknown', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('bridge-domain-is-configured', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Reply Filter unrecognized
+                '''                The BD/XC is configured globally
                 ''',
-                'reply_filter_unknown',
+                'bridge_domain_is_configured',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('terminal-mep', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('l2-fib-download-error', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Terminal MEP reached
+                '''                The BD/XC could not be downloaded to L2FIB
                 ''',
-                'terminal_mep',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('transaction-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Transaction ID
-                ''',
-                'transaction_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ttl', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                TTL
-                ''',
-                'ttl',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Version
-                ''',
-                'version',
+                'l2_fib_download_error',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
-            'header',
+            'global-configuration-error',
             _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
     },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId',
+    'Cfm.Global.GlobalConfigurationErrors' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.GlobalConfigurationErrors',
             False, 
             [
-            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                MAC address
+            _MetaInfoClassMember('global-configuration-error', REFERENCE_LIST, 'GlobalConfigurationError' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError', 
+                [], [], 
+                '''                Information about a particular configuration
+                error
                 ''',
-                'mac_address',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Unique ID
-                ''',
-                'unique_id',
+                'global_configuration_error',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
-            'egress-id',
+            'global-configuration-errors',
             _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
     },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop',
+    'Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep',
             False, 
             [
-            _MetaInfoClassMember('egress-id', REFERENCE_CLASS, 'EgressId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId', 
+            _MetaInfoClassMember('domain-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Egress ID
+                '''                Domain name
                 ''',
-                'egress_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('host-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Hostname
-                ''',
-                'host_name',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('last-hop-format', REFERENCE_ENUM_CLASS, 'CfmPmLastHopFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmLastHopFmtEnum', 
-                [], [], 
-                '''                LastHopFormat
-                ''',
-                'last_hop_format',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'last-hop',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv',
-            False, 
-            [
-            _MetaInfoClassMember('oui', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Organizationally-unique ID
-                ''',
-                'oui',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('subtype', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Subtype of TLV
-                ''',
-                'subtype',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('value', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Binary data in TLV
-                ''',
-                'value',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'organization-specific-tlv',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId',
-            False, 
-            [
-            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                MAC address
-                ''',
-                'mac_address',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Unique ID
-                ''',
-                'unique_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'last-egress-id',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId',
-            False, 
-            [
-            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                MAC address
-                ''',
-                'mac_address',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Unique ID
-                ''',
-                'unique_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'next-egress-id',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue',
-            False, 
-            [
-            _MetaInfoClassMember('port-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmtEnum', 
-                [], [], 
-                '''                PortIDFormat
-                ''',
-                'port_id_format',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-mac', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                Port ID MAC Address
-                ''',
-                'port_id_mac',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-raw', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Raw Port ID
-                ''',
-                'port_id_raw',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-string', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Port ID String
-                ''',
-                'port_id_string',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'port-id-value',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId',
-            False, 
-            [
-            _MetaInfoClassMember('port-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Port ID (Deprecated)
-                ''',
-                'port_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-type', REFERENCE_ENUM_CLASS, 'CfmPmPortIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPortIdFmtEnum', 
-                [], [], 
-                '''                Port ID type
-                ''',
-                'port_id_type',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-type-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Port ID type value
-                ''',
-                'port_id_type_value',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-value', REFERENCE_CLASS, 'PortIdValue' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue', 
-                [], [], 
-                '''                Port ID (Current)
-                ''',
-                'port_id_value',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'port-id',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress',
-            False, 
-            [
-            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'CfmPmElrEgressActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmElrEgressActionEnum', 
-                [], [], 
-                '''                Reply egress action
-                ''',
-                'action',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('last-egress-id', REFERENCE_CLASS, 'LastEgressId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId', 
-                [], [], 
-                '''                Last Egress ID
-                ''',
-                'last_egress_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                MAC address of egress interface
-                ''',
-                'mac_address',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('next-egress-id', REFERENCE_CLASS, 'NextEgressId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId', 
-                [], [], 
-                '''                Next Egress ID
-                ''',
-                'next_egress_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id', REFERENCE_CLASS, 'PortId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId', 
-                [], [], 
-                '''                Port ID
-                ''',
-                'port_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'reply-egress',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId',
-            False, 
-            [
-            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                MAC address
-                ''',
-                'mac_address',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Unique ID
-                ''',
-                'unique_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'last-egress-id',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId',
-            False, 
-            [
-            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                MAC address
-                ''',
-                'mac_address',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Unique ID
-                ''',
-                'unique_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'next-egress-id',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue',
-            False, 
-            [
-            _MetaInfoClassMember('port-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmtEnum', 
-                [], [], 
-                '''                PortIDFormat
-                ''',
-                'port_id_format',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-mac', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                Port ID MAC Address
-                ''',
-                'port_id_mac',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-raw', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Raw Port ID
-                ''',
-                'port_id_raw',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-string', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Port ID String
-                ''',
-                'port_id_string',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'port-id-value',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId',
-            False, 
-            [
-            _MetaInfoClassMember('port-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Port ID (Deprecated)
-                ''',
-                'port_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-type', REFERENCE_ENUM_CLASS, 'CfmPmPortIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPortIdFmtEnum', 
-                [], [], 
-                '''                Port ID type
-                ''',
-                'port_id_type',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-type-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Port ID type value
-                ''',
-                'port_id_type_value',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-value', REFERENCE_CLASS, 'PortIdValue' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue', 
-                [], [], 
-                '''                Port ID (Current)
-                ''',
-                'port_id_value',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'port-id',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress',
-            False, 
-            [
-            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'CfmPmElrIngressActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmElrIngressActionEnum', 
-                [], [], 
-                '''                ELR Reply ingress action
-                ''',
-                'action',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('last-egress-id', REFERENCE_CLASS, 'LastEgressId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId', 
-                [], [], 
-                '''                Last egress ID
-                ''',
-                'last_egress_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                MAC address
-                ''',
-                'mac_address',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('next-egress-id', REFERENCE_CLASS, 'NextEgressId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId', 
-                [], [], 
-                '''                Next egress ID
-                ''',
-                'next_egress_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id', REFERENCE_CLASS, 'PortId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId', 
-                [], [], 
-                '''                Port ID
-                ''',
-                'port_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'reply-ingress',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue',
-            False, 
-            [
-            _MetaInfoClassMember('chassis-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmtEnum', 
-                [], [], 
-                '''                ChassisIDFormat
-                ''',
-                'chassis_id_format',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('chassis-id-mac', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                Chassis ID MAC Address
-                ''',
-                'chassis_id_mac',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('chassis-id-raw', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Raw Chassis ID
-                ''',
-                'chassis_id_raw',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('chassis-id-string', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Chassis ID String
-                ''',
-                'chassis_id_string',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'chassis-id-value',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId',
-            False, 
-            [
-            _MetaInfoClassMember('chassis-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Chassis ID (Deprecated)
-                ''',
-                'chassis_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('chassis-id-type', REFERENCE_ENUM_CLASS, 'CfmPmChassisIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmChassisIdFmtEnum', 
-                [], [], 
-                '''                Chassis ID Type
-                ''',
-                'chassis_id_type',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('chassis-id-type-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Chassis ID Type
-                ''',
-                'chassis_id_type_value',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('chassis-id-value', REFERENCE_CLASS, 'ChassisIdValue' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue', 
-                [], [], 
-                '''                Chassis ID (Current)
-                ''',
-                'chassis_id_value',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'chassis-id',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId',
-            False, 
-            [
-            _MetaInfoClassMember('chassis-id', REFERENCE_CLASS, 'ChassisId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId', 
-                [], [], 
-                '''                Chassis ID
-                ''',
-                'chassis_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('management-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Management address
-                ''',
-                'management_address',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('management-address-domain', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Management address domain
-                ''',
-                'management_address_domain',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'sender-id',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv',
-            False, 
-            [
-            _MetaInfoClassMember('typecode', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Type code of TLV
-                ''',
-                'typecode',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('value', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Binary data in TLV
-                ''',
-                'value',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'unknown-tlv',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply',
-            False, 
-            [
-            _MetaInfoClassMember('header', REFERENCE_CLASS, 'Header' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header', 
-                [], [], 
-                '''                Frame header
-                ''',
-                'header',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('last-hop', REFERENCE_CLASS, 'LastHop' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop', 
-                [], [], 
-                '''                Last hop ID
-                ''',
-                'last_hop',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('organization-specific-tlv', REFERENCE_LIST, 'OrganizationSpecificTlv' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv', 
-                [], [], 
-                '''                Organizational-specific TLVs
-                ''',
-                'organization_specific_tlv',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('raw-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Undecoded frame
-                ''',
-                'raw_data',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('reply-egress', REFERENCE_CLASS, 'ReplyEgress' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress', 
-                [], [], 
-                '''                Reply egress TLV
-                ''',
-                'reply_egress',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('reply-ingress', REFERENCE_CLASS, 'ReplyIngress' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress', 
-                [], [], 
-                '''                Reply ingress TLV
-                ''',
-                'reply_ingress',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('sender-id', REFERENCE_CLASS, 'SenderId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId', 
-                [], [], 
-                '''                Sender ID TLV
-                ''',
-                'sender_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('unknown-tlv', REFERENCE_LIST, 'UnknownTlv' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv', 
-                [], [], 
-                '''                Unknown TLVs
-                ''',
-                'unknown_tlv',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'exploratory-linktrace-reply',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId',
-            False, 
-            [
-            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                MAC address
-                ''',
-                'mac_address',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Unique ID
-                ''',
-                'unique_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'last-egress-id',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId',
-            False, 
-            [
-            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                MAC address
-                ''',
-                'mac_address',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Unique ID
-                ''',
-                'unique_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'next-egress-id',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId',
-            False, 
-            [
-            _MetaInfoClassMember('last-egress-id', REFERENCE_CLASS, 'LastEgressId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId', 
-                [], [], 
-                '''                Last egress ID
-                ''',
-                'last_egress_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('next-egress-id', REFERENCE_CLASS, 'NextEgressId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId', 
-                [], [], 
-                '''                Next egress ID
-                ''',
-                'next_egress_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'egress-id',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header',
-            False, 
-            [
-            _MetaInfoClassMember('forwarded', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                LTR was forwarded
-                ''',
-                'forwarded',
+                'domain_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
                 [], [], 
-                '''                MD level
+                '''                Domain level
                 ''',
                 'level',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('relay-action', REFERENCE_ENUM_CLASS, 'CfmPmRelayActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmRelayActionEnum', 
+            _MetaInfoClassMember('service-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Relay action
+                '''                Service name
                 ''',
-                'relay_action',
+                'service_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('terminal-mep', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface
+                ''',
+                'interface',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('maintenance-point-type', REFERENCE_ENUM_CLASS, 'CfmMaMpVarietyEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmMaMpVarietyEnum', 
                 [], [], 
-                '''                Terminal MEP reached
+                '''                Type of Maintenance Point
                 ''',
-                'terminal_mep',
+                'maintenance_point_type',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('transaction-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Transaction ID
-                ''',
-                'transaction_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ttl', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                TTL
-                ''',
-                'ttl',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('use-fdb-only', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Use filtering DB only
-                ''',
-                'use_fdb_only',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Version
-                ''',
-                'version',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'header',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId',
-            False, 
-            [
-            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                MAC address
-                ''',
-                'mac_address',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
-                '''                Unique ID
+                '''                MEP ID
                 ''',
-                'unique_id',
+                'mep_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
-            'egress-id',
+            'mep',
             _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
     },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop',
+    'Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain',
             False, 
             [
-            _MetaInfoClassMember('egress-id', REFERENCE_CLASS, 'EgressId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId', 
+            _MetaInfoClassMember('bridge-domain-id-format', REFERENCE_ENUM_CLASS, 'CfmBagBdidFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagBdidFmtEnum', 
                 [], [], 
-                '''                Egress ID
+                '''                Bridge domain identifier format
                 ''',
-                'egress_id',
+                'bridge_domain_id_format',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('host-name', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('group', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Hostname
+                '''                Name of the Bridge/XConnect Group
                 ''',
-                'host_name',
+                'group',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('last-hop-format', REFERENCE_ENUM_CLASS, 'CfmPmLastHopFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmLastHopFmtEnum', 
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                LastHopFormat
+                '''                Name of the Bridge Domain/XConnect
                 ''',
-                'last_hop_format',
+                'name',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('ce-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Local Customer Edge Identifier (CE-ID)
+                ''',
+                'ce_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('remote-ce-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Remote Customer Edge Identifier (CE-ID)
+                ''',
+                'remote_ce_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
-            'last-hop',
+            'service-bridge-domain',
             _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
     },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv',
+    'Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain',
             False, 
             [
-            _MetaInfoClassMember('oui', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Organizationally-unique ID
+            _MetaInfoClassMember('bridge-domain-id-format', REFERENCE_ENUM_CLASS, 'CfmBagBdidFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagBdidFmtEnum', 
+                [], [], 
+                '''                Bridge domain identifier format
                 ''',
-                'oui',
+                'bridge_domain_id_format',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('subtype', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Subtype of TLV
+            _MetaInfoClassMember('group', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the Bridge/XConnect Group
                 ''',
-                'subtype',
+                'group',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('value', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Binary data in TLV
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the Bridge Domain/XConnect
                 ''',
-                'value',
+                'name',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('ce-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Local Customer Edge Identifier (CE-ID)
+                ''',
+                'ce_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('remote-ce-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Remote Customer Edge Identifier (CE-ID)
+                ''',
+                'remote_ce_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
-            'organization-specific-tlv',
+            'interface-bridge-domain',
             _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
     },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue',
+    'Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback',
             False, 
             [
-            _MetaInfoClassMember('port-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmtEnum', 
+            _MetaInfoClassMember('responder', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                PortIDFormat
+                '''                Responder
                 ''',
-                'port_id_format',
+                'responder',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-mac', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                Port ID MAC Address
-                ''',
-                'port_id_mac',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-raw', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Raw Port ID
-                ''',
-                'port_id_raw',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-string', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('controller', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Port ID String
+                '''                Controller
                 ''',
-                'port_id_string',
+                'controller',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
-            'port-id-value',
+            'loopback',
             _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
     },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId',
+    'Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement',
             False, 
             [
-            _MetaInfoClassMember('port-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Port ID (Deprecated)
-                ''',
-                'port_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-type', REFERENCE_ENUM_CLASS, 'CfmPmPortIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPortIdFmtEnum', 
+            _MetaInfoClassMember('responder', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Port ID type
+                '''                Responder
                 ''',
-                'port_id_type',
+                'responder',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-type-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Port ID type value
-                ''',
-                'port_id_type_value',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-value', REFERENCE_CLASS, 'PortIdValue' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue', 
+            _MetaInfoClassMember('controller', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Port ID (Current)
+                '''                Controller
                 ''',
-                'port_id_value',
+                'controller',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
-            'port-id',
+            'delay-measurement',
             _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
     },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress',
+    'Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement',
             False, 
             [
-            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'CfmPmEgressActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmEgressActionEnum', 
+            _MetaInfoClassMember('responder', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Reply egress action
+                '''                Responder
                 ''',
-                'action',
+                'responder',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                MAC address
-                ''',
-                'mac_address',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id', REFERENCE_CLASS, 'PortId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId', 
+            _MetaInfoClassMember('controller', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Port ID
+                '''                Controller
                 ''',
-                'port_id',
+                'controller',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
-            'reply-egress',
+            'synthetic-loss-measurement',
             _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
     },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue',
+    'Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities',
             False, 
             [
-            _MetaInfoClassMember('port-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmtEnum', 
+            _MetaInfoClassMember('loopback', REFERENCE_CLASS, 'Loopback' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback', 
                 [], [], 
-                '''                PortIDFormat
+                '''                Loopback
                 ''',
-                'port_id_format',
+                'loopback',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-mac', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                Port ID MAC Address
-                ''',
-                'port_id_mac',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-raw', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Raw Port ID
-                ''',
-                'port_id_raw',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-string', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('delay-measurement', REFERENCE_CLASS, 'DelayMeasurement' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement', 
                 [], [], 
-                '''                Port ID String
+                '''                Delay Measurement
                 ''',
-                'port_id_string',
+                'delay_measurement',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('synthetic-loss-measurement', REFERENCE_CLASS, 'SyntheticLossMeasurement' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement', 
+                [], [], 
+                '''                Synthetic Loss Measurement
+                ''',
+                'synthetic_loss_measurement',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
-            'port-id-value',
+            'satellite-capabilities',
             _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
     },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId',
+    'Cfm.Global.MepConfigurationErrors.MepConfigurationError' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.MepConfigurationErrors.MepConfigurationError',
             False, 
             [
-            _MetaInfoClassMember('port-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Port ID (Deprecated)
-                ''',
-                'port_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-type', REFERENCE_ENUM_CLASS, 'CfmPmPortIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPortIdFmtEnum', 
+            _MetaInfoClassMember('domain', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Port ID type
+                '''                Maintenance Domain
                 ''',
-                'port_id_type',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-type-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Port ID type value
-                ''',
-                'port_id_type_value',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id-value', REFERENCE_CLASS, 'PortIdValue' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue', 
+                'domain',
+                'Cisco-IOS-XR-ethernet-cfm-oper', True),
+            _MetaInfoClassMember('service', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Port ID (Current)
+                '''                Service (Maintenance Association)
                 ''',
-                'port_id_value',
+                'service',
+                'Cisco-IOS-XR-ethernet-cfm-oper', True),
+            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface
+                ''',
+                'interface',
+                'Cisco-IOS-XR-ethernet-cfm-oper', True),
+            _MetaInfoClassMember('mep', REFERENCE_CLASS, 'Mep' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep', 
+                [], [], 
+                '''                The MEP that has errors
+                ''',
+                'mep',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('service-bridge-domain', REFERENCE_CLASS, 'ServiceBridgeDomain' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain', 
+                [], [], 
+                '''                BD/XC ID for the MEP's Service, or Service name
+                if the Service is 'down-only'
+                ''',
+                'service_bridge_domain',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('interface-bridge-domain', REFERENCE_CLASS, 'InterfaceBridgeDomain' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain', 
+                [], [], 
+                '''                ID of the BD/XC that the MEP's EFP is in, if any
+                ''',
+                'interface_bridge_domain',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('satellite-capabilities', REFERENCE_CLASS, 'SatelliteCapabilities' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities', 
+                [], [], 
+                '''                Satellite Capabilities
+                ''',
+                'satellite_capabilities',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('ccm-interval', REFERENCE_ENUM_CLASS, 'CfmBagCcmIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagCcmIntervalEnum', 
+                [], [], 
+                '''                Interval between CCMs sent on this MEP.
+                ''',
+                'ccm_interval',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('no-domain', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The MEP's Domain is not configured
+                ''',
+                'no_domain',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('no-service', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The MEP's Service is not configured
+                ''',
+                'no_service',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('bridge-domain-mismatch', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The MEP's EFP is not in the Service's Bridge
+                Domain
+                ''',
+                'bridge_domain_mismatch',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('level-conflict', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Another MEP facing in the same direction is at
+                the same Maintenance Level
+                ''',
+                'level_conflict',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('ccm-interval-not-supported', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                CCM Interval is less than minimum interval
+                supported by hardware
+                ''',
+                'ccm_interval_not_supported',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('offload-out-of-resources', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Offload resource limits have been exceeded
+                ''',
+                'offload_out_of_resources',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('offload-multiple-local-mep', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Multiple offloaded MEPs on the same interface
+                are not supported.
+                ''',
+                'offload_multiple_local_mep',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('offload-no-cross-check', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The MEP should be offloaded but crosscheck has
+                not been configured.
+                ''',
+                'offload_no_cross_check',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('offload-multiple-peer-meps', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The MEP should be offloaded but multiple
+                crosscheck MEPs have been configured, and this
+                is not supported.
+                ''',
+                'offload_multiple_peer_meps',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('offload-mep-direction-not-supported', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The MEP direction does not support offload.
+                ''',
+                'offload_mep_direction_not_supported',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('ais-configured', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                AIS is configured on the same interface as the
+                down MEP
+                ''',
+                'ais_configured',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('bundle-level0', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The MEP is configured in a domain at level 0, on
+                a bundle interface or sub-interface.  This is
+                not supported
+                ''',
+                'bundle_level0',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('bridge-domain-not-in-bd-infra', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                A BD/XC specified in the MEG config, but it does
+                not exist globally.
+                ''',
+                'bridge_domain_not_in_bd_infra',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('satellite-limitation', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                A satellite limitation is preventing MEP being
+                offloaded to satellite.
+                ''',
+                'satellite_limitation',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('sla-loopback-operations-disabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                In-progress Ethernet SLA loopback operations are
+                disabled due to satellite having loopback
+                responder-only capabilities.
+                ''',
+                'sla_loopback_operations_disabled',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('sla-synthetic-loss-operations-disabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                In-progress Ethernet SLA synthetic loss
+                measurement operations are disabled due to
+                satellite having synthetic loss measurement
+                responder-only capabilities.
+                ''',
+                'sla_synthetic_loss_operations_disabled',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('sla-delay-measurement-operations-disabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                In-progress Ethernet SLA delay measurement
+                operations are disabled due to satellite having
+                delay measurement responder-only capabilities.
+                ''',
+                'sla_delay_measurement_operations_disabled',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('no-valid-mac-address', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The EFP doesn't have a valid MAC address yet.
+                This will also get set if the MAC address we
+                have is a multicast address.
+                ''',
+                'no_valid_mac_address',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('no-interface-type', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                We haven't yet been able to look up the
+                interface type to find whether the interface is
+                a bundle.
+                ''',
+                'no_interface_type',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('not-in-im', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The EFP has been deleted from IM.
+                ''',
+                'not_in_im',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('no-mlacp', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The EFP is a bundle and the mLACP mode is not
+                yet known.
+                ''',
+                'no_mlacp',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('satellite-error-string', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Error string returned from satellite
+                ''',
+                'satellite_error_string',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('satellite-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                ID of the satellite
+                ''',
+                'satellite_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
-            'port-id',
+            'mep-configuration-error',
             _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
     },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress',
+    'Cfm.Global.MepConfigurationErrors' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.MepConfigurationErrors',
             False, 
             [
-            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'CfmPmIngressActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIngressActionEnum', 
+            _MetaInfoClassMember('mep-configuration-error', REFERENCE_LIST, 'MepConfigurationError' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.MepConfigurationErrors.MepConfigurationError', 
                 [], [], 
-                '''                Reply ingress action
+                '''                Information about a particular configuration
+                error
                 ''',
-                'action',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                MAC address
-                ''',
-                'mac_address',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('port-id', REFERENCE_CLASS, 'PortId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId', 
-                [], [], 
-                '''                Port ID
-                ''',
-                'port_id',
+                'mep_configuration_error',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
-            'reply-ingress',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue',
-            False, 
-            [
-            _MetaInfoClassMember('chassis-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmtEnum', 
-                [], [], 
-                '''                ChassisIDFormat
-                ''',
-                'chassis_id_format',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('chassis-id-mac', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                Chassis ID MAC Address
-                ''',
-                'chassis_id_mac',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('chassis-id-raw', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Raw Chassis ID
-                ''',
-                'chassis_id_raw',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('chassis-id-string', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Chassis ID String
-                ''',
-                'chassis_id_string',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'chassis-id-value',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId',
-            False, 
-            [
-            _MetaInfoClassMember('chassis-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Chassis ID (Deprecated)
-                ''',
-                'chassis_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('chassis-id-type', REFERENCE_ENUM_CLASS, 'CfmPmChassisIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmChassisIdFmtEnum', 
-                [], [], 
-                '''                Chassis ID Type
-                ''',
-                'chassis_id_type',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('chassis-id-type-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Chassis ID Type
-                ''',
-                'chassis_id_type_value',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('chassis-id-value', REFERENCE_CLASS, 'ChassisIdValue' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue', 
-                [], [], 
-                '''                Chassis ID (Current)
-                ''',
-                'chassis_id_value',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'chassis-id',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId',
-            False, 
-            [
-            _MetaInfoClassMember('chassis-id', REFERENCE_CLASS, 'ChassisId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId', 
-                [], [], 
-                '''                Chassis ID
-                ''',
-                'chassis_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('management-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Management address
-                ''',
-                'management_address',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('management-address-domain', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Management address domain
-                ''',
-                'management_address_domain',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'sender-id',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv',
-            False, 
-            [
-            _MetaInfoClassMember('typecode', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                Type code of TLV
-                ''',
-                'typecode',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('value', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Binary data in TLV
-                ''',
-                'value',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'unknown-tlv',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply',
-            False, 
-            [
-            _MetaInfoClassMember('egress-id', REFERENCE_CLASS, 'EgressId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId', 
-                [], [], 
-                '''                Egress ID TLV
-                ''',
-                'egress_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('header', REFERENCE_CLASS, 'Header' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header', 
-                [], [], 
-                '''                Frame header
-                ''',
-                'header',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('last-hop', REFERENCE_CLASS, 'LastHop' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop', 
-                [], [], 
-                '''                Last hop ID
-                ''',
-                'last_hop',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('organization-specific-tlv', REFERENCE_LIST, 'OrganizationSpecificTlv' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv', 
-                [], [], 
-                '''                Organizational-specific TLVs
-                ''',
-                'organization_specific_tlv',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('raw-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Undecoded frame
-                ''',
-                'raw_data',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('reply-egress', REFERENCE_CLASS, 'ReplyEgress' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress', 
-                [], [], 
-                '''                Reply egress TLV
-                ''',
-                'reply_egress',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('reply-ingress', REFERENCE_CLASS, 'ReplyIngress' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress', 
-                [], [], 
-                '''                Reply ingress TLV
-                ''',
-                'reply_ingress',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('sender-id', REFERENCE_CLASS, 'SenderId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId', 
-                [], [], 
-                '''                Sender ID TLV
-                ''',
-                'sender_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('unknown-tlv', REFERENCE_LIST, 'UnknownTlv' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv', 
-                [], [], 
-                '''                Unknown TLVs
-                ''',
-                'unknown_tlv',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'linktrace-reply',
+            'mep-configuration-errors',
             _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
@@ -4035,18 +2820,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.BasicOptions',
             False, 
             [
+            _MetaInfoClassMember('is-auto', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Traceroute was initiated automatically
+                ''',
+                'is_auto',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('fdb-only', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Only use the Filtering Database for forwarding
                 lookups
                 ''',
                 'fdb_only',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('is-auto', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Traceroute was initiated automatically
-                ''',
-                'is_auto',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -4059,17 +2844,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.ExploratoryOptions',
             False, 
             [
-            _MetaInfoClassMember('delay-constant-factor', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Constant Factor for delay calculations
-                ''',
-                'delay_constant_factor',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('delay-model', REFERENCE_ENUM_CLASS, 'CfmPmEltDelayModelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmEltDelayModelEnum', 
                 [], [], 
                 '''                Delay model for delay calculations
                 ''',
                 'delay_model',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('delay-constant-factor', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Constant Factor for delay calculations
+                ''',
+                'delay_constant_factor',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('reply-filter', REFERENCE_ENUM_CLASS, 'CfmPmElmReplyFilterEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmElmReplyFilterEnum', 
                 [], [], 
@@ -4117,11 +2902,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation',
             False, 
             [
-            _MetaInfoClassMember('directed-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                Directed MAC address
+            _MetaInfoClassMember('options', REFERENCE_CLASS, 'Options' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options', 
+                [], [], 
+                '''                Options affecting traceroute behavior
                 ''',
-                'directed_mac_address',
+                'options',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('domain', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -4129,23 +2914,23 @@ _meta_table = {
                 ''',
                 'domain',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('service', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Service name
+                ''',
+                'service',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
                 [], [], 
                 '''                Maintenance level
                 ''',
                 'level',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('options', REFERENCE_CLASS, 'Options' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options', 
-                [], [], 
-                '''                Options affecting traceroute behavior
+            _MetaInfoClassMember('source-mep-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Source MEP ID
                 ''',
-                'options',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('service', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Service name
-                ''',
-                'service',
+                'source_mep_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
@@ -4159,17 +2944,17 @@ _meta_table = {
                 ''',
                 'source_mac_address',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('source-mep-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Source MEP ID
-                ''',
-                'source_mep_id',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('target-mac-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                Target MAC address
                 ''',
                 'target_mac_address',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('directed-mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                Directed MAC address
+                ''',
+                'directed_mac_address',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('target-mep-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
@@ -4183,6 +2968,59 @@ _meta_table = {
                 ''',
                 'timestamp',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('ttl', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Time to live
+                ''',
+                'ttl',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('transaction-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Transaction ID
+                ''',
+                'transaction_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'traceroute-information',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header',
+            False, 
+            [
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
+                [], [], 
+                '''                MD level
+                ''',
+                'level',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Version
+                ''',
+                'version',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('use-fdb-only', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Use filtering DB only
+                ''',
+                'use_fdb_only',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('forwarded', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                LTR was forwarded
+                ''',
+                'forwarded',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('terminal-mep', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Terminal MEP reached
+                ''',
+                'terminal_mep',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('transaction-id', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Transaction ID
@@ -4191,13 +3029,1201 @@ _meta_table = {
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('ttl', ATTRIBUTE, 'int' , None, None, 
                 [(0, 255)], [], 
-                '''                Time to live
+                '''                TTL
                 ''',
                 'ttl',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('relay-action', REFERENCE_ENUM_CLASS, 'CfmPmRelayActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmRelayActionEnum', 
+                [], [], 
+                '''                Relay action
+                ''',
+                'relay_action',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
-            'traceroute-information',
+            'header',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue',
+            False, 
+            [
+            _MetaInfoClassMember('chassis-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmtEnum', 
+                [], [], 
+                '''                ChassisIDFormat
+                ''',
+                'chassis_id_format',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('chassis-id-string', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Chassis ID String
+                ''',
+                'chassis_id_string',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('chassis-id-mac', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                Chassis ID MAC Address
+                ''',
+                'chassis_id_mac',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('chassis-id-raw', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Raw Chassis ID
+                ''',
+                'chassis_id_raw',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'chassis-id-value',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId',
+            False, 
+            [
+            _MetaInfoClassMember('chassis-id-value', REFERENCE_CLASS, 'ChassisIdValue' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue', 
+                [], [], 
+                '''                Chassis ID (Current)
+                ''',
+                'chassis_id_value',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('chassis-id-type', REFERENCE_ENUM_CLASS, 'CfmPmChassisIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmChassisIdFmtEnum', 
+                [], [], 
+                '''                Chassis ID Type
+                ''',
+                'chassis_id_type',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('chassis-id-type-value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Chassis ID Type
+                ''',
+                'chassis_id_type_value',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('chassis-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Chassis ID (Deprecated)
+                ''',
+                'chassis_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'chassis-id',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId',
+            False, 
+            [
+            _MetaInfoClassMember('chassis-id', REFERENCE_CLASS, 'ChassisId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId', 
+                [], [], 
+                '''                Chassis ID
+                ''',
+                'chassis_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('management-address-domain', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Management address domain
+                ''',
+                'management_address_domain',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('management-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Management address
+                ''',
+                'management_address',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'sender-id',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId',
+            False, 
+            [
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Unique ID
+                ''',
+                'unique_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC address
+                ''',
+                'mac_address',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'last-egress-id',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId',
+            False, 
+            [
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Unique ID
+                ''',
+                'unique_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC address
+                ''',
+                'mac_address',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'next-egress-id',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId',
+            False, 
+            [
+            _MetaInfoClassMember('last-egress-id', REFERENCE_CLASS, 'LastEgressId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId', 
+                [], [], 
+                '''                Last egress ID
+                ''',
+                'last_egress_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('next-egress-id', REFERENCE_CLASS, 'NextEgressId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId', 
+                [], [], 
+                '''                Next egress ID
+                ''',
+                'next_egress_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'egress-id',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue',
+            False, 
+            [
+            _MetaInfoClassMember('port-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmtEnum', 
+                [], [], 
+                '''                PortIDFormat
+                ''',
+                'port_id_format',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('port-id-string', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Port ID String
+                ''',
+                'port_id_string',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('port-id-mac', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                Port ID MAC Address
+                ''',
+                'port_id_mac',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('port-id-raw', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Raw Port ID
+                ''',
+                'port_id_raw',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'port-id-value',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId',
+            False, 
+            [
+            _MetaInfoClassMember('port-id-value', REFERENCE_CLASS, 'PortIdValue' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue', 
+                [], [], 
+                '''                Port ID (Current)
+                ''',
+                'port_id_value',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('port-id-type', REFERENCE_ENUM_CLASS, 'CfmPmPortIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPortIdFmtEnum', 
+                [], [], 
+                '''                Port ID type
+                ''',
+                'port_id_type',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('port-id-type-value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Port ID type value
+                ''',
+                'port_id_type_value',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('port-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Port ID (Deprecated)
+                ''',
+                'port_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'port-id',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress',
+            False, 
+            [
+            _MetaInfoClassMember('port-id', REFERENCE_CLASS, 'PortId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId', 
+                [], [], 
+                '''                Port ID
+                ''',
+                'port_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'CfmPmIngressActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIngressActionEnum', 
+                [], [], 
+                '''                Reply ingress action
+                ''',
+                'action',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC address
+                ''',
+                'mac_address',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'reply-ingress',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue',
+            False, 
+            [
+            _MetaInfoClassMember('port-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmtEnum', 
+                [], [], 
+                '''                PortIDFormat
+                ''',
+                'port_id_format',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('port-id-string', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Port ID String
+                ''',
+                'port_id_string',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('port-id-mac', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                Port ID MAC Address
+                ''',
+                'port_id_mac',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('port-id-raw', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Raw Port ID
+                ''',
+                'port_id_raw',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'port-id-value',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId',
+            False, 
+            [
+            _MetaInfoClassMember('port-id-value', REFERENCE_CLASS, 'PortIdValue' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue', 
+                [], [], 
+                '''                Port ID (Current)
+                ''',
+                'port_id_value',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('port-id-type', REFERENCE_ENUM_CLASS, 'CfmPmPortIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPortIdFmtEnum', 
+                [], [], 
+                '''                Port ID type
+                ''',
+                'port_id_type',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('port-id-type-value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Port ID type value
+                ''',
+                'port_id_type_value',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('port-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Port ID (Deprecated)
+                ''',
+                'port_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'port-id',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress',
+            False, 
+            [
+            _MetaInfoClassMember('port-id', REFERENCE_CLASS, 'PortId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId', 
+                [], [], 
+                '''                Port ID
+                ''',
+                'port_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'CfmPmEgressActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmEgressActionEnum', 
+                [], [], 
+                '''                Reply egress action
+                ''',
+                'action',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC address
+                ''',
+                'mac_address',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'reply-egress',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId',
+            False, 
+            [
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Unique ID
+                ''',
+                'unique_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC address
+                ''',
+                'mac_address',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'egress-id',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop',
+            False, 
+            [
+            _MetaInfoClassMember('egress-id', REFERENCE_CLASS, 'EgressId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId', 
+                [], [], 
+                '''                Egress ID
+                ''',
+                'egress_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('last-hop-format', REFERENCE_ENUM_CLASS, 'CfmPmLastHopFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmLastHopFmtEnum', 
+                [], [], 
+                '''                LastHopFormat
+                ''',
+                'last_hop_format',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('host-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Hostname
+                ''',
+                'host_name',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'last-hop',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv',
+            False, 
+            [
+            _MetaInfoClassMember('oui', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Organizationally-unique ID
+                ''',
+                'oui',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('subtype', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Subtype of TLV
+                ''',
+                'subtype',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('value', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Binary data in TLV
+                ''',
+                'value',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'organization-specific-tlv',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv',
+            False, 
+            [
+            _MetaInfoClassMember('typecode', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Type code of TLV
+                ''',
+                'typecode',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('value', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Binary data in TLV
+                ''',
+                'value',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'unknown-tlv',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply',
+            False, 
+            [
+            _MetaInfoClassMember('header', REFERENCE_CLASS, 'Header' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header', 
+                [], [], 
+                '''                Frame header
+                ''',
+                'header',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('sender-id', REFERENCE_CLASS, 'SenderId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId', 
+                [], [], 
+                '''                Sender ID TLV
+                ''',
+                'sender_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('egress-id', REFERENCE_CLASS, 'EgressId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId', 
+                [], [], 
+                '''                Egress ID TLV
+                ''',
+                'egress_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('reply-ingress', REFERENCE_CLASS, 'ReplyIngress' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress', 
+                [], [], 
+                '''                Reply ingress TLV
+                ''',
+                'reply_ingress',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('reply-egress', REFERENCE_CLASS, 'ReplyEgress' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress', 
+                [], [], 
+                '''                Reply egress TLV
+                ''',
+                'reply_egress',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('last-hop', REFERENCE_CLASS, 'LastHop' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop', 
+                [], [], 
+                '''                Last hop ID
+                ''',
+                'last_hop',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('raw-data', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Undecoded frame
+                ''',
+                'raw_data',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('organization-specific-tlv', REFERENCE_LIST, 'OrganizationSpecificTlv' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv', 
+                [], [], 
+                '''                Organizational-specific TLVs
+                ''',
+                'organization_specific_tlv',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('unknown-tlv', REFERENCE_LIST, 'UnknownTlv' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv', 
+                [], [], 
+                '''                Unknown TLVs
+                ''',
+                'unknown_tlv',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'linktrace-reply',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header',
+            False, 
+            [
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
+                [], [], 
+                '''                MD level
+                ''',
+                'level',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Version
+                ''',
+                'version',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('forwarded', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                ELR was forwarded
+                ''',
+                'forwarded',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('terminal-mep', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Terminal MEP reached
+                ''',
+                'terminal_mep',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('reply-filter-unknown', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Reply Filter unrecognized
+                ''',
+                'reply_filter_unknown',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('transaction-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Transaction ID
+                ''',
+                'transaction_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('ttl', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                TTL
+                ''',
+                'ttl',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('relay-action', REFERENCE_ENUM_CLASS, 'CfmPmElrRelayActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmElrRelayActionEnum', 
+                [], [], 
+                '''                Relay action
+                ''',
+                'relay_action',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('next-hop-timeout', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Next Hop Timeout, in seconds
+                ''',
+                'next_hop_timeout',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('delay-model', REFERENCE_ENUM_CLASS, 'CfmPmEltDelayModelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmEltDelayModelEnum', 
+                [], [], 
+                '''                Delay Model
+                ''',
+                'delay_model',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'header',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue',
+            False, 
+            [
+            _MetaInfoClassMember('chassis-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmtEnum', 
+                [], [], 
+                '''                ChassisIDFormat
+                ''',
+                'chassis_id_format',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('chassis-id-string', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Chassis ID String
+                ''',
+                'chassis_id_string',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('chassis-id-mac', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                Chassis ID MAC Address
+                ''',
+                'chassis_id_mac',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('chassis-id-raw', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Raw Chassis ID
+                ''',
+                'chassis_id_raw',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'chassis-id-value',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId',
+            False, 
+            [
+            _MetaInfoClassMember('chassis-id-value', REFERENCE_CLASS, 'ChassisIdValue' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue', 
+                [], [], 
+                '''                Chassis ID (Current)
+                ''',
+                'chassis_id_value',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('chassis-id-type', REFERENCE_ENUM_CLASS, 'CfmPmChassisIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmChassisIdFmtEnum', 
+                [], [], 
+                '''                Chassis ID Type
+                ''',
+                'chassis_id_type',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('chassis-id-type-value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Chassis ID Type
+                ''',
+                'chassis_id_type_value',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('chassis-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Chassis ID (Deprecated)
+                ''',
+                'chassis_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'chassis-id',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId',
+            False, 
+            [
+            _MetaInfoClassMember('chassis-id', REFERENCE_CLASS, 'ChassisId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId', 
+                [], [], 
+                '''                Chassis ID
+                ''',
+                'chassis_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('management-address-domain', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Management address domain
+                ''',
+                'management_address_domain',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('management-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Management address
+                ''',
+                'management_address',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'sender-id',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId',
+            False, 
+            [
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Unique ID
+                ''',
+                'unique_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC address
+                ''',
+                'mac_address',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'last-egress-id',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId',
+            False, 
+            [
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Unique ID
+                ''',
+                'unique_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC address
+                ''',
+                'mac_address',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'next-egress-id',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue',
+            False, 
+            [
+            _MetaInfoClassMember('port-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmtEnum', 
+                [], [], 
+                '''                PortIDFormat
+                ''',
+                'port_id_format',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('port-id-string', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Port ID String
+                ''',
+                'port_id_string',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('port-id-mac', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                Port ID MAC Address
+                ''',
+                'port_id_mac',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('port-id-raw', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Raw Port ID
+                ''',
+                'port_id_raw',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'port-id-value',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId',
+            False, 
+            [
+            _MetaInfoClassMember('port-id-value', REFERENCE_CLASS, 'PortIdValue' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue', 
+                [], [], 
+                '''                Port ID (Current)
+                ''',
+                'port_id_value',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('port-id-type', REFERENCE_ENUM_CLASS, 'CfmPmPortIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPortIdFmtEnum', 
+                [], [], 
+                '''                Port ID type
+                ''',
+                'port_id_type',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('port-id-type-value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Port ID type value
+                ''',
+                'port_id_type_value',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('port-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Port ID (Deprecated)
+                ''',
+                'port_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'port-id',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress',
+            False, 
+            [
+            _MetaInfoClassMember('last-egress-id', REFERENCE_CLASS, 'LastEgressId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId', 
+                [], [], 
+                '''                Last egress ID
+                ''',
+                'last_egress_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('next-egress-id', REFERENCE_CLASS, 'NextEgressId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId', 
+                [], [], 
+                '''                Next egress ID
+                ''',
+                'next_egress_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('port-id', REFERENCE_CLASS, 'PortId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId', 
+                [], [], 
+                '''                Port ID
+                ''',
+                'port_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'CfmPmElrIngressActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmElrIngressActionEnum', 
+                [], [], 
+                '''                ELR Reply ingress action
+                ''',
+                'action',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC address
+                ''',
+                'mac_address',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'reply-ingress',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId',
+            False, 
+            [
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Unique ID
+                ''',
+                'unique_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC address
+                ''',
+                'mac_address',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'last-egress-id',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId',
+            False, 
+            [
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Unique ID
+                ''',
+                'unique_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC address
+                ''',
+                'mac_address',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'next-egress-id',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue',
+            False, 
+            [
+            _MetaInfoClassMember('port-id-format', REFERENCE_ENUM_CLASS, 'CfmPmIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmtEnum', 
+                [], [], 
+                '''                PortIDFormat
+                ''',
+                'port_id_format',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('port-id-string', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Port ID String
+                ''',
+                'port_id_string',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('port-id-mac', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                Port ID MAC Address
+                ''',
+                'port_id_mac',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('port-id-raw', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Raw Port ID
+                ''',
+                'port_id_raw',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'port-id-value',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId',
+            False, 
+            [
+            _MetaInfoClassMember('port-id-value', REFERENCE_CLASS, 'PortIdValue' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue', 
+                [], [], 
+                '''                Port ID (Current)
+                ''',
+                'port_id_value',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('port-id-type', REFERENCE_ENUM_CLASS, 'CfmPmPortIdFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPortIdFmtEnum', 
+                [], [], 
+                '''                Port ID type
+                ''',
+                'port_id_type',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('port-id-type-value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Port ID type value
+                ''',
+                'port_id_type_value',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('port-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Port ID (Deprecated)
+                ''',
+                'port_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'port-id',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress',
+            False, 
+            [
+            _MetaInfoClassMember('last-egress-id', REFERENCE_CLASS, 'LastEgressId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId', 
+                [], [], 
+                '''                Last Egress ID
+                ''',
+                'last_egress_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('next-egress-id', REFERENCE_CLASS, 'NextEgressId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId', 
+                [], [], 
+                '''                Next Egress ID
+                ''',
+                'next_egress_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('port-id', REFERENCE_CLASS, 'PortId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId', 
+                [], [], 
+                '''                Port ID
+                ''',
+                'port_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('action', REFERENCE_ENUM_CLASS, 'CfmPmElrEgressActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmElrEgressActionEnum', 
+                [], [], 
+                '''                Reply egress action
+                ''',
+                'action',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC address of egress interface
+                ''',
+                'mac_address',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'reply-egress',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId',
+            False, 
+            [
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Unique ID
+                ''',
+                'unique_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC address
+                ''',
+                'mac_address',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'egress-id',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop',
+            False, 
+            [
+            _MetaInfoClassMember('egress-id', REFERENCE_CLASS, 'EgressId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId', 
+                [], [], 
+                '''                Egress ID
+                ''',
+                'egress_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('last-hop-format', REFERENCE_ENUM_CLASS, 'CfmPmLastHopFmtEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmLastHopFmtEnum', 
+                [], [], 
+                '''                LastHopFormat
+                ''',
+                'last_hop_format',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('host-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Hostname
+                ''',
+                'host_name',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'last-hop',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv',
+            False, 
+            [
+            _MetaInfoClassMember('oui', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Organizationally-unique ID
+                ''',
+                'oui',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('subtype', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Subtype of TLV
+                ''',
+                'subtype',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('value', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Binary data in TLV
+                ''',
+                'value',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'organization-specific-tlv',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv',
+            False, 
+            [
+            _MetaInfoClassMember('typecode', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                Type code of TLV
+                ''',
+                'typecode',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('value', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Binary data in TLV
+                ''',
+                'value',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'unknown-tlv',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply',
+            False, 
+            [
+            _MetaInfoClassMember('header', REFERENCE_CLASS, 'Header' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header', 
+                [], [], 
+                '''                Frame header
+                ''',
+                'header',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('sender-id', REFERENCE_CLASS, 'SenderId' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId', 
+                [], [], 
+                '''                Sender ID TLV
+                ''',
+                'sender_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('reply-ingress', REFERENCE_CLASS, 'ReplyIngress' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress', 
+                [], [], 
+                '''                Reply ingress TLV
+                ''',
+                'reply_ingress',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('reply-egress', REFERENCE_CLASS, 'ReplyEgress' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress', 
+                [], [], 
+                '''                Reply egress TLV
+                ''',
+                'reply_egress',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('last-hop', REFERENCE_CLASS, 'LastHop' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop', 
+                [], [], 
+                '''                Last hop ID
+                ''',
+                'last_hop',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('raw-data', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Undecoded frame
+                ''',
+                'raw_data',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('organization-specific-tlv', REFERENCE_LIST, 'OrganizationSpecificTlv' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv', 
+                [], [], 
+                '''                Organizational-specific TLVs
+                ''',
+                'organization_specific_tlv',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('unknown-tlv', REFERENCE_LIST, 'UnknownTlv' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv', 
+                [], [], 
+                '''                Unknown TLVs
+                ''',
+                'unknown_tlv',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'exploratory-linktrace-reply',
             _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
@@ -4212,11 +4238,11 @@ _meta_table = {
                 ''',
                 'domain',
                 'Cisco-IOS-XR-ethernet-cfm-oper', True),
-            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface
+            _MetaInfoClassMember('service', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Service (Maintenance Association)
                 ''',
-                'interface',
+                'service',
                 'Cisco-IOS-XR-ethernet-cfm-oper', True),
             _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
                 [(1, 8191)], [], 
@@ -4224,11 +4250,11 @@ _meta_table = {
                 ''',
                 'mep_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', True),
-            _MetaInfoClassMember('service', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Service (Maintenance Association)
+            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface
                 ''',
-                'service',
+                'interface',
                 'Cisco-IOS-XR-ethernet-cfm-oper', True),
             _MetaInfoClassMember('transaction-id', ATTRIBUTE, 'int' , None, None, 
                 [(-2147483648, 2147483647)], [], 
@@ -4236,17 +4262,11 @@ _meta_table = {
                 ''',
                 'transaction_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', True),
-            _MetaInfoClassMember('exploratory-linktrace-reply', REFERENCE_LIST, 'ExploratoryLinktraceReply' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply', 
+            _MetaInfoClassMember('traceroute-information', REFERENCE_CLASS, 'TracerouteInformation' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation', 
                 [], [], 
-                '''                Received exploratory linktrace replies
+                '''                Information about the traceroute operation
                 ''',
-                'exploratory_linktrace_reply',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('linktrace-reply', REFERENCE_LIST, 'LinktraceReply' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply', 
-                [], [], 
-                '''                Received linktrace replies
-                ''',
-                'linktrace_reply',
+                'traceroute_information',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('replies-dropped', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -4254,11 +4274,17 @@ _meta_table = {
                 ''',
                 'replies_dropped',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('traceroute-information', REFERENCE_CLASS, 'TracerouteInformation' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation', 
+            _MetaInfoClassMember('linktrace-reply', REFERENCE_LIST, 'LinktraceReply' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply', 
                 [], [], 
-                '''                Information about the traceroute operation
+                '''                Received linktrace replies
                 ''',
-                'traceroute_information',
+                'linktrace_reply',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('exploratory-linktrace-reply', REFERENCE_LIST, 'ExploratoryLinktraceReply' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply', 
+                [], [], 
+                '''                Received exploratory linktrace replies
+                ''',
+                'exploratory_linktrace_reply',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -4285,158 +4311,302 @@ _meta_table = {
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
     },
-    'Cfm.Global' : {
-        'meta_info' : _MetaInfoClass('Cfm.Global',
+    'Cfm.Global.LocalMeps.LocalMep.Statistics' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.LocalMeps.LocalMep.Statistics',
             False, 
             [
-            _MetaInfoClassMember('global-configuration-errors', REFERENCE_CLASS, 'GlobalConfigurationErrors' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.GlobalConfigurationErrors', 
-                [], [], 
-                '''                Global configuration errors table
+            _MetaInfoClassMember('ccms-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of CCMs sent
                 ''',
-                'global_configuration_errors',
+                'ccms_sent',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('incomplete-traceroutes', REFERENCE_CLASS, 'IncompleteTraceroutes' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.IncompleteTraceroutes', 
-                [], [], 
-                '''                Incomplete Traceroute table
+            _MetaInfoClassMember('ccms-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of CCMs received
                 ''',
-                'incomplete_traceroutes',
+                'ccms_received',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('local-meps', REFERENCE_CLASS, 'LocalMeps' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.LocalMeps', 
-                [], [], 
-                '''                Local MEPs table
+            _MetaInfoClassMember('ccms-out-of-sequence', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of CCMs received out-of-sequence
                 ''',
-                'local_meps',
+                'ccms_out_of_sequence',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('maintenance-points', REFERENCE_CLASS, 'MaintenancePoints' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.MaintenancePoints', 
-                [], [], 
-                '''                Maintenance Points table
+            _MetaInfoClassMember('ccms-discarded', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of CCMs discarded because maximum MEPs
+                limit was reached
                 ''',
-                'maintenance_points',
+                'ccms_discarded',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mep-configuration-errors', REFERENCE_CLASS, 'MepConfigurationErrors' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.MepConfigurationErrors', 
-                [], [], 
-                '''                MEP configuration errors table
+            _MetaInfoClassMember('lb-ms-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of LBMs sent
                 ''',
-                'mep_configuration_errors',
+                'lb_ms_sent',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('peer-meps', REFERENCE_CLASS, 'PeerMeps' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps', 
-                [], [], 
-                '''                Peer MEPs table
+            _MetaInfoClassMember('lb-rs-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of LBRs sent
                 ''',
-                'peer_meps',
+                'lb_rs_sent',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('traceroute-caches', REFERENCE_CLASS, 'TracerouteCaches' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches', 
-                [], [], 
-                '''                Traceroute Cache table
+            _MetaInfoClassMember('lb-rs-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of LBRs received
                 ''',
-                'traceroute_caches',
+                'lb_rs_received',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('lb-rs-out-of-sequence', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of LBRs received out-of-sequence
+                ''',
+                'lb_rs_out_of_sequence',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('lb-rs-bad-data', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of LBRs received with non-matching
+                user-specified data
+                ''',
+                'lb_rs_bad_data',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('lb-ms-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of LBMs received
+                ''',
+                'lb_ms_received',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('lt-rs-received-unexpected', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of unexpected LTRs received
+                ''',
+                'lt_rs_received_unexpected',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('ai-ss-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of AIS messages sent
+                ''',
+                'ai_ss_sent',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('ai-ss-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of AIS messages received
+                ''',
+                'ai_ss_received',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('lc-ks-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of LCK messages received
+                ''',
+                'lc_ks_received',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('dm-ms-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of DMM messages sent
+                ''',
+                'dm_ms_sent',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('dm-ms-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of DMM messages received
+                ''',
+                'dm_ms_received',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('dm-rs-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of DMR messages sent
+                ''',
+                'dm_rs_sent',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('dm-rs-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of DMR messages received
+                ''',
+                'dm_rs_received',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('sl-ms-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of SLM messages sent
+                ''',
+                'sl_ms_sent',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('sl-ms-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of SLM messages received
+                ''',
+                'sl_ms_received',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('sl-rs-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of SLR messages sent
+                ''',
+                'sl_rs_sent',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('sl-rs-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of SLR messages received
+                ''',
+                'sl_rs_received',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('lm-ms-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of LMM messages sent
+                ''',
+                'lm_ms_sent',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('lm-ms-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of LMM messages received
+                ''',
+                'lm_ms_received',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('lm-rs-sent', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of LMR messages sent
+                ''',
+                'lm_rs_sent',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('lm-rs-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of LMR messages received
+                ''',
+                'lm_rs_received',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('bn-ms-received', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of BNM messages received
+                ''',
+                'bn_ms_received',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('bn-ms-discarded', ATTRIBUTE, 'int' , None, None, 
+                [(0, 18446744073709551615L)], [], 
+                '''                Number of BNM messages discarded
+                ''',
+                'bn_ms_discarded',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
-            'global',
+            'statistics',
             _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
     },
-    'Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase' : {
-        'meta_info' : _MetaInfoClass('Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase',
+    'Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart',
             False, 
             [
-            _MetaInfoClassMember('domain', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Maintenance Domain
-                ''',
-                'domain',
-                'Cisco-IOS-XR-ethernet-cfm-oper', True),
-            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                MAC Address
-                ''',
-                'mac_address',
-                'Cisco-IOS-XR-ethernet-cfm-oper', True),
-            _MetaInfoClassMember('service', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Service (Maintenance Association)
-                ''',
-                'service',
-                'Cisco-IOS-XR-ethernet-cfm-oper', True),
-            _MetaInfoClassMember('domain-xr', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Maintenance domain name
-                ''',
-                'domain_xr',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ingress-interface', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                The XID of the ingress interface for the CCM
+                '''                Seconds
                 ''',
-                'ingress_interface',
+                'seconds',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ingress-interface-string', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                String representation of the Bridge Domain or
-                Cross-Connect associated with the ingress XID
+            _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Nanoseconds
                 ''',
-                'ingress_interface_string',
+                'nanoseconds',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'sending-start',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart',
+            False, 
+            [
+            _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Seconds
+                ''',
+                'seconds',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Nanoseconds
+                ''',
+                'nanoseconds',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-oper',
+            'receiving-start',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
+        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
+        ),
+    },
+    'Cfm.Global.LocalMeps.LocalMep.AisStatistics' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.LocalMeps.LocalMep.AisStatistics',
+            False, 
+            [
+            _MetaInfoClassMember('sending-start', REFERENCE_CLASS, 'SendingStart' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart', 
+                [], [], 
+                '''                Time elapsed since AIS sending started
+                ''',
+                'sending_start',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('receiving-start', REFERENCE_CLASS, 'ReceivingStart' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart', 
+                [], [], 
+                '''                Time elapsed since AIS receiving started
+                ''',
+                'receiving_start',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
                 [], [], 
-                '''                Maintenance level
+                '''                AIS transmission level
                 ''',
                 'level',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('service-xr', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('interval', REFERENCE_ENUM_CLASS, 'CfmBagAisIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagAisIntervalEnum', 
                 [], [], 
-                '''                Maintenance association name
+                '''                AIS transmission interval
                 ''',
-                'service_xr',
+                'interval',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('source-mac-address', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('sending-ais', REFERENCE_ENUM_CLASS, 'CfmPmAisTransmitEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmAisTransmitEnum', 
+                [], [], 
+                '''                Details of how AIS is being transmitted
+                ''',
+                'sending_ais',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('receiving-ais', REFERENCE_ENUM_CLASS, 'CfmPmAisReceiveEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmAisReceiveEnum', 
+                [], [], 
+                '''                Details of how the signal is being received
+                ''',
+                'receiving_ais',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('last-interval', REFERENCE_ENUM_CLASS, 'CfmBagAisIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagAisIntervalEnum', 
+                [], [], 
+                '''                The interval of the last received AIS packet
+                ''',
+                'last_interval',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('last-mac-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                Source MAC address
+                '''                Source MAC address of the last received AIS
+                packet
                 ''',
-                'source_mac_address',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('stale', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The XID is stale and may have been reused for a
-                different interface
-                ''',
-                'stale',
+                'last_mac_address',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
-            'ccm-learning-database',
+            'ais-statistics',
             _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
     },
-    'Cfm.Nodes.Node.CcmLearningDatabases' : {
-        'meta_info' : _MetaInfoClass('Cfm.Nodes.Node.CcmLearningDatabases',
+    'Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects',
             False, 
             [
-            _MetaInfoClassMember('ccm-learning-database', REFERENCE_LIST, 'CcmLearningDatabase' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase', 
+            _MetaInfoClassMember('loss-threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                CCM Learning Database entry
+                '''                Timed out (loss threshold exceeded)
                 ''',
-                'ccm_learning_database',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'ccm-learning-databases',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects' : {
-        'meta_info' : _MetaInfoClass('Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects',
-            False, 
-            [
-            _MetaInfoClassMember('invalid-ccm-interval', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Invalid CCM interval
-                ''',
-                'invalid_ccm_interval',
+                'loss_threshold_exceeded',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('invalid-level', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4450,11 +4620,11 @@ _meta_table = {
                 ''',
                 'invalid_maid',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('loss-threshold-exceeded', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('invalid-ccm-interval', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Timed out (loss threshold exceeded)
+                '''                Invalid CCM interval
                 ''',
-                'loss_threshold_exceeded',
+                'invalid_ccm_interval',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('received-our-mac', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4481,33 +4651,21 @@ _meta_table = {
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
     },
-    'Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects' : {
-        'meta_info' : _MetaInfoClass('Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects',
+    'Cfm.Global.LocalMeps.LocalMep.Defects' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.LocalMeps.LocalMep.Defects',
             False, 
             [
+            _MetaInfoClassMember('remote-meps-defects', REFERENCE_CLASS, 'RemoteMepsDefects' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects', 
+                [], [], 
+                '''                Defects detected from remote MEPs
+                ''',
+                'remote_meps_defects',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('ais-received', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                AIS or LCK received
                 ''',
                 'ais_received',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('auto-missing', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of missing auto cross-check MEPs
-                ''',
-                'auto_missing',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('local-port-status', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The local port or interface is down
-                ''',
-                'local_port_status',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('missing', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of missing peer MEPs
-                ''',
-                'missing',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('peer-meps-that-timed-out', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -4515,23 +4673,35 @@ _meta_table = {
                 ''',
                 'peer_meps_that_timed_out',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('peer-port-status', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                A peer port or interface is down
+            _MetaInfoClassMember('missing', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of missing peer MEPs
                 ''',
-                'peer_port_status',
+                'missing',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('remote-meps-defects', REFERENCE_CLASS, 'RemoteMepsDefects' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects', 
-                [], [], 
-                '''                Defects detected from remote MEPs
+            _MetaInfoClassMember('auto-missing', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of missing auto cross-check MEPs
                 ''',
-                'remote_meps_defects',
+                'auto_missing',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('unexpected', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of unexpected peer MEPs
                 ''',
                 'unexpected',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('local-port-status', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The local port or interface is down
+                ''',
+                'local_port_status',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('peer-port-status', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                A peer port or interface is down
+                ''',
+                'peer_port_status',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -4540,110 +4710,81 @@ _meta_table = {
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
     },
-    'Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted' : {
-        'meta_info' : _MetaInfoClass('Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted',
+    'Cfm.Global.LocalMeps.LocalMep' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.LocalMeps.LocalMep',
             False, 
             [
-            _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Nanoseconds
-                ''',
-                'nanoseconds',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Seconds
-                ''',
-                'seconds',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'last-started',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics' : {
-        'meta_info' : _MetaInfoClass('Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics',
-            False, 
-            [
-            _MetaInfoClassMember('defects', REFERENCE_CLASS, 'Defects' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects', 
+            _MetaInfoClassMember('domain', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Defects detected
+                '''                Maintenance Domain
                 ''',
-                'defects',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'CfmBagDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagDirectionEnum', 
-                [], [], 
-                '''                Direction of AIS packets
-                ''',
-                'direction',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('last-started', REFERENCE_CLASS, 'LastStarted' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted', 
-                [], [], 
-                '''                Time elapsed since sending last started
-                ''',
-                'last_started',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('lowest-level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
-                [], [], 
-                '''                Level of the lowest MEP transmitting AIS
-                ''',
-                'lowest_level',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('sent-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Total number of packets sent by the transmitting
-                MEP
-                ''',
-                'sent_packets',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('transmission-interval', REFERENCE_ENUM_CLASS, 'CfmBagAisIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagAisIntervalEnum', 
-                [], [], 
-                '''                Interval at which AIS packets are transmitted
-                ''',
-                'transmission_interval',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('transmission-level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
-                [], [], 
-                '''                Level that AIS packets are transmitted on
-                ''',
-                'transmission_level',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('via-level', REFERENCE_LEAFLIST, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
-                [], [], 
-                '''                Levels of other MEPs receiving AIS
-                ''',
-                'via_level',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'statistics',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Nodes.Node.InterfaceAises.InterfaceAis' : {
-        'meta_info' : _MetaInfoClass('Cfm.Nodes.Node.InterfaceAises.InterfaceAis',
-            False, 
-            [
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'CfmAisDirEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmAisDirEnum', 
-                [], [], 
-                '''                AIS Direction
-                ''',
-                'direction',
+                'domain',
                 'Cisco-IOS-XR-ethernet-cfm-oper', True),
-            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface
+            _MetaInfoClassMember('service', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Service (Maintenance Association)
                 ''',
-                'interface_name',
+                'service',
+                'Cisco-IOS-XR-ethernet-cfm-oper', True),
+            _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
+                [(1, 8191)], [], 
+                '''                MEP ID
+                ''',
+                'mep_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', True),
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface',
+                'Cisco-IOS-XR-ethernet-cfm-oper', True),
+            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.LocalMeps.LocalMep.Statistics', 
+                [], [], 
+                '''                MEP statistics
+                ''',
+                'statistics',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('ais-statistics', REFERENCE_CLASS, 'AisStatistics' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.LocalMeps.LocalMep.AisStatistics', 
+                [], [], 
+                '''                MEP AIS statistics
+                ''',
+                'ais_statistics',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('defects', REFERENCE_CLASS, 'Defects' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.LocalMeps.LocalMep.Defects', 
+                [], [], 
+                '''                Defects detected from peer MEPs
+                ''',
+                'defects',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('domain-xr', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Maintenance domain name
+                ''',
+                'domain_xr',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('service-xr', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Service name
+                ''',
+                'service_xr',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'CfmBagMdLevelEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevelEnum', 
+                [], [], 
+                '''                Maintenance level
+                ''',
+                'level',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('mep-id-xr', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                MEP ID
+                ''',
+                'mep_id_xr',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('interface-xr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface
+                ''',
+                'interface_xr',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('interface-state', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -4657,351 +4798,210 @@ _meta_table = {
                 ''',
                 'interworking_state',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics', 
-                [], [], 
-                '''                AIS statistics
-                ''',
-                'statistics',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('stp-state', REFERENCE_ENUM_CLASS, 'CfmBagStpStateEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagStpStateEnum', 
                 [], [], 
                 '''                STP state
                 ''',
                 'stp_state',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('mep-direction', REFERENCE_ENUM_CLASS, 'CfmBagDirectionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagDirectionEnum', 
+                [], [], 
+                '''                MEP facing direction
+                ''',
+                'mep_direction',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC address
+                ''',
+                'mac_address',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('peer-meps-detected', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of peer MEPs detected
+                ''',
+                'peer_meps_detected',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('peer-meps-with-errors-detected', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of peer MEPs detected with errors
+                ''',
+                'peer_meps_with_errors_detected',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('remote-defect', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Remote defect indicated
+                ''',
+                'remote_defect',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('fault-notification-state', REFERENCE_ENUM_CLASS, 'CfmPmMepFngStateEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmMepFngStateEnum', 
+                [], [], 
+                '''                Fault Notification Generation state
+                ''',
+                'fault_notification_state',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('ccm-generation-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                CCM generation enabled
+                ''',
+                'ccm_generation_enabled',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('ccm-interval', REFERENCE_ENUM_CLASS, 'CfmBagCcmIntervalEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagCcmIntervalEnum', 
+                [], [], 
+                '''                The interval between CCMs
+                ''',
+                'ccm_interval',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('ccm-offload', REFERENCE_ENUM_CLASS, 'CfmBagCcmOffloadEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagCcmOffloadEnum', 
+                [], [], 
+                '''                Offload status of CCM processing
+                ''',
+                'ccm_offload',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('highest-defect', REFERENCE_ENUM_CLASS, 'CfmPmMepDefectEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmMepDefectEnum', 
+                [], [], 
+                '''                Highest-priority defect present since last FNG
+                reset
+                ''',
+                'highest_defect',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('rdi-defect', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                A peer MEP RDI defect has been reported
+                ''',
+                'rdi_defect',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('mac-status-defect', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                A peer MEP port or interface status error has
+                been reported
+                ''',
+                'mac_status_defect',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('peer-mep-ccm-defect', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                A peer MEP CCM error has been reported
+                ''',
+                'peer_mep_ccm_defect',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('error-ccm-defect', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                A CCM error has been reported
+                ''',
+                'error_ccm_defect',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('cross-connect-ccm-defect', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                A cross-connect CCM error has been reported
+                ''',
+                'cross_connect_ccm_defect',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('next-lbm-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Next Transaction ID to be sent in a Loopback
+                Message
+                ''',
+                'next_lbm_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('next-ltm-id', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Next Transaction ID to be sent in a Linktrace
+                Message
+                ''',
+                'next_ltm_id',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('cos', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                CoS bits the MEP will use for sent packets, if
+                configured
+                ''',
+                'cos',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('efd-triggered', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                EFD triggered on the interface
+                ''',
+                'efd_triggered',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('standby', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                The MEP is on a standby bundle interface
+                ''',
+                'standby',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
-            'interface-ais',
+            'local-mep',
             _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
     },
-    'Cfm.Nodes.Node.InterfaceAises' : {
-        'meta_info' : _MetaInfoClass('Cfm.Nodes.Node.InterfaceAises',
+    'Cfm.Global.LocalMeps' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global.LocalMeps',
             False, 
             [
-            _MetaInfoClassMember('interface-ais', REFERENCE_LIST, 'InterfaceAis' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Nodes.Node.InterfaceAises.InterfaceAis', 
+            _MetaInfoClassMember('local-mep', REFERENCE_LIST, 'LocalMep' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.LocalMeps.LocalMep', 
                 [], [], 
-                '''                AIS statistics for a particular interface
+                '''                Information about a particular local MEP
                 ''',
-                'interface_ais',
+                'local_mep',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
-            'interface-aises',
+            'local-meps',
             _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
     },
-    'Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics' : {
-        'meta_info' : _MetaInfoClass('Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics',
+    'Cfm.Global' : {
+        'meta_info' : _MetaInfoClass('Cfm.Global',
             False, 
             [
-            _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of packets dropped at this EFP
-                ''',
-                'dropped_packets',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('last-malformed-opcode', REFERENCE_ENUM_CLASS, 'CfmBagOpcodeEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagOpcodeEnum', 
+            _MetaInfoClassMember('incomplete-traceroutes', REFERENCE_CLASS, 'IncompleteTraceroutes' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.IncompleteTraceroutes', 
                 [], [], 
-                '''                Opcode for last malformed packet
+                '''                Incomplete Traceroute table
                 ''',
-                'last_malformed_opcode',
+                'incomplete_traceroutes',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('last-malformed-reason', REFERENCE_ENUM_CLASS, 'CfmPmPktActionEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPktActionEnum', 
+            _MetaInfoClassMember('maintenance-points', REFERENCE_CLASS, 'MaintenancePoints' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.MaintenancePoints', 
                 [], [], 
-                '''                Reason last malformed packet was malformed
+                '''                Maintenance Points table
                 ''',
-                'last_malformed_reason',
+                'maintenance_points',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('malformed-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18446744073709551615L)], [], 
-                '''                Number of malformed packets received at this EFP
-                ''',
-                'malformed_packets',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'statistics',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic' : {
-        'meta_info' : _MetaInfoClass('Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic',
-            False, 
-            [
-            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface
-                ''',
-                'interface',
-                'Cisco-IOS-XR-ethernet-cfm-oper', True),
-            _MetaInfoClassMember('interface-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface
-                ''',
-                'interface_xr',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics', 
+            _MetaInfoClassMember('peer-meps', REFERENCE_CLASS, 'PeerMeps' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.PeerMeps', 
                 [], [], 
-                '''                EFP statistics
-                ''',
-                'statistics',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'interface-statistic',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Nodes.Node.InterfaceStatistics' : {
-        'meta_info' : _MetaInfoClass('Cfm.Nodes.Node.InterfaceStatistics',
-            False, 
-            [
-            _MetaInfoClassMember('interface-statistic', REFERENCE_LIST, 'InterfaceStatistic' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic', 
-                [], [], 
-                '''                Counters for a particular interface
-                ''',
-                'interface_statistic',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'interface-statistics',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Nodes.Node.Summary' : {
-        'meta_info' : _MetaInfoClass('Cfm.Nodes.Node.Summary',
-            False, 
-            [
-            _MetaInfoClassMember('bnm-enabled-links', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of BNM Enabled Links
-                ''',
-                'bnm_enabled_links',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('bridge-domains-and-xconnects', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number or bridge domains and crossconnects.
-                ''',
-                'bridge_domains_and_xconnects',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ccm-learning-db-entries', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of entries in the CCM learning database.
-                ''',
-                'ccm_learning_db_entries',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('ccm-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The combined rate of CCMs on this card.
-                ''',
-                'ccm_rate',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('disabled-misconfigured', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The number of local MEPs disabled due to
-                configuration errors.
-                ''',
-                'disabled_misconfigured',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('disabled-operational-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The number of local MEPs disabled due to
-                operational errors.
-                ''',
-                'disabled_operational_error',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('disabled-out-of-resources', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The number of local MEPs disabled due to lack of
-                resources.
-                ''',
-                'disabled_out_of_resources',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('domains', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The number of domains in the CFM database.
-                ''',
-                'domains',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('down-meps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The number of down-MEPs.
-                ''',
-                'down_meps',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('interfaces', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The number of interfaces running CFM.
-                ''',
-                'interfaces',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('issu-role', REFERENCE_ENUM_CLASS, 'CfmBagIssuRoleEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagIssuRoleEnum', 
-                [], [], 
-                '''                ISSU Role of CFM-D, if any.
-                ''',
-                'issu_role',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('local-meps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The number of local MEPs in the CFM database.
-                ''',
-                'local_meps',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('mips', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The number of MIPs
-                ''',
-                'mips',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('offloaded', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The number of MEPs for which CCM processing has
-                been offloaded.
-                ''',
-                'offloaded',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('offloaded-at10ms', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The number of MEPs offloaded with CCMs at 10ms
-                intervals.
-                ''',
-                'offloaded_at10ms',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('offloaded-at3-3ms', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The number of MEPs offloaded with CCMs at 3.3ms
-                intervals.
-                ''',
-                'offloaded_at3_3ms',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('operational-local-meps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The number of operational local MEPs.
-                ''',
-                'operational_local_meps',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('operational-peer-meps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The number of operational peer MEPs recorded in
-                the CFM database.
-                ''',
-                'operational_peer_meps',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('peer-meps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The number of peer MEPs.
+                '''                Peer MEPs table
                 ''',
                 'peer_meps',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('peer-meps-timed-out', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The number of peer MEPs that have timed out.
+            _MetaInfoClassMember('global-configuration-errors', REFERENCE_CLASS, 'GlobalConfigurationErrors' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.GlobalConfigurationErrors', 
+                [], [], 
+                '''                Global configuration errors table
                 ''',
-                'peer_meps_timed_out',
+                'global_configuration_errors',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('peer-meps-with-defects', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The number of peer MEPs with defects.
+            _MetaInfoClassMember('mep-configuration-errors', REFERENCE_CLASS, 'MepConfigurationErrors' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.MepConfigurationErrors', 
+                [], [], 
+                '''                MEP configuration errors table
                 ''',
-                'peer_meps_with_defects',
+                'mep_configuration_errors',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('peer-meps-without-defects', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The number of peer MEPs without defects.
+            _MetaInfoClassMember('traceroute-caches', REFERENCE_CLASS, 'TracerouteCaches' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.TracerouteCaches', 
+                [], [], 
+                '''                Traceroute Cache table
                 ''',
-                'peer_meps_without_defects',
+                'traceroute_caches',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('services', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The number of services in the CFM database.
+            _MetaInfoClassMember('local-meps', REFERENCE_CLASS, 'LocalMeps' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global.LocalMeps', 
+                [], [], 
+                '''                Local MEPs table
                 ''',
-                'services',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('traceroute-cache-entries', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of traceroute cache entries.
-                ''',
-                'traceroute_cache_entries',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('traceroute-cache-replies', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of traceroute cache replies.
-                ''',
-                'traceroute_cache_replies',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('up-meps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                The number of up-MEPs.
-                ''',
-                'up_meps',
+                'local_meps',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
-            'summary',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Nodes.Node' : {
-        'meta_info' : _MetaInfoClass('Cfm.Nodes.Node',
-            False, 
-            [
-            _MetaInfoClassMember('node', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
-                '''                Node
-                ''',
-                'node',
-                'Cisco-IOS-XR-ethernet-cfm-oper', True),
-            _MetaInfoClassMember('ccm-learning-databases', REFERENCE_CLASS, 'CcmLearningDatabases' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Nodes.Node.CcmLearningDatabases', 
-                [], [], 
-                '''                CCMLearningDatabase table
-                ''',
-                'ccm_learning_databases',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('interface-aises', REFERENCE_CLASS, 'InterfaceAises' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Nodes.Node.InterfaceAises', 
-                [], [], 
-                '''                Interface AIS table
-                ''',
-                'interface_aises',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('interface-statistics', REFERENCE_CLASS, 'InterfaceStatistics' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Nodes.Node.InterfaceStatistics', 
-                [], [], 
-                '''                Interface Statistics table
-                ''',
-                'interface_statistics',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            _MetaInfoClassMember('summary', REFERENCE_CLASS, 'Summary' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Nodes.Node.Summary', 
-                [], [], 
-                '''                Summary
-                ''',
-                'summary',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'node',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
-        'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
-        ),
-    },
-    'Cfm.Nodes' : {
-        'meta_info' : _MetaInfoClass('Cfm.Nodes',
-            False, 
-            [
-            _MetaInfoClassMember('node', REFERENCE_LIST, 'Node' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Nodes.Node', 
-                [], [], 
-                '''                Node-specific data for a particular node
-                ''',
-                'node',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-oper',
-            'nodes',
+            'global',
             _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-oper'],
         'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper'
         ),
@@ -5010,17 +5010,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Cfm',
             False, 
             [
-            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global', 
-                [], [], 
-                '''                Global operational data
-                ''',
-                'global_',
-                'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('nodes', REFERENCE_CLASS, 'Nodes' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Nodes', 
                 [], [], 
                 '''                Node table for node-specific operational data
                 ''',
                 'nodes',
+                'Cisco-IOS-XR-ethernet-cfm-oper', False),
+            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global' , 'ydk.models.ethernet.Cisco_IOS_XR_ethernet_cfm_oper', 'Cfm.Global', 
+                [], [], 
+                '''                Global operational data
+                ''',
+                'global_',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-cfm-oper',
@@ -5030,98 +5030,6 @@ _meta_table = {
         ),
     },
 }
-_meta_table['Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId']['meta_info'].parent =_meta_table['Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError']['meta_info']
-_meta_table['Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError']['meta_info'].parent =_meta_table['Cfm.Global.GlobalConfigurationErrors']['meta_info']
-_meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.BasicOptions']['meta_info'].parent =_meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options']['meta_info']
-_meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.ExploratoryOptions']['meta_info'].parent =_meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options']['meta_info']
-_meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options']['meta_info'].parent =_meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation']['meta_info']
-_meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation']['meta_info'].parent =_meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute']['meta_info']
-_meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute']['meta_info'].parent =_meta_table['Cfm.Global.IncompleteTraceroutes']['meta_info']
-_meta_table['Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart']['meta_info'].parent =_meta_table['Cfm.Global.LocalMeps.LocalMep.AisStatistics']['meta_info']
-_meta_table['Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart']['meta_info'].parent =_meta_table['Cfm.Global.LocalMeps.LocalMep.AisStatistics']['meta_info']
-_meta_table['Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects']['meta_info'].parent =_meta_table['Cfm.Global.LocalMeps.LocalMep.Defects']['meta_info']
-_meta_table['Cfm.Global.LocalMeps.LocalMep.AisStatistics']['meta_info'].parent =_meta_table['Cfm.Global.LocalMeps.LocalMep']['meta_info']
-_meta_table['Cfm.Global.LocalMeps.LocalMep.Defects']['meta_info'].parent =_meta_table['Cfm.Global.LocalMeps.LocalMep']['meta_info']
-_meta_table['Cfm.Global.LocalMeps.LocalMep.Statistics']['meta_info'].parent =_meta_table['Cfm.Global.LocalMeps.LocalMep']['meta_info']
-_meta_table['Cfm.Global.LocalMeps.LocalMep']['meta_info'].parent =_meta_table['Cfm.Global.LocalMeps']['meta_info']
-_meta_table['Cfm.Global.MaintenancePoints.MaintenancePoint.MaintenancePoint']['meta_info'].parent =_meta_table['Cfm.Global.MaintenancePoints.MaintenancePoint']['meta_info']
-_meta_table['Cfm.Global.MaintenancePoints.MaintenancePoint']['meta_info'].parent =_meta_table['Cfm.Global.MaintenancePoints']['meta_info']
-_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement']['meta_info'].parent =_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities']['meta_info']
-_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback']['meta_info'].parent =_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities']['meta_info']
-_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement']['meta_info'].parent =_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities']['meta_info']
-_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain']['meta_info'].parent =_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError']['meta_info']
-_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep']['meta_info'].parent =_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError']['meta_info']
-_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities']['meta_info'].parent =_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError']['meta_info']
-_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain']['meta_info'].parent =_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError']['meta_info']
-_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError']['meta_info'].parent =_meta_table['Cfm.Global.MepConfigurationErrors']['meta_info']
-_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.Mdid.MacName']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.Mdid']['meta_info']
-_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.ShortMaName']['meta_info']
-_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.Mdid']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header']['meta_info']
-_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.ShortMaName']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header']['meta_info']
-_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId']['meta_info']
-_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId']['meta_info']
-_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived']['meta_info']
-_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.MepName']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived']['meta_info']
-_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.OrganizationSpecificTlv']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived']['meta_info']
-_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived']['meta_info']
-_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.UnknownTlv']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived']['meta_info']
-_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.Statistics.LastCcmReceivedTime']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.Statistics']['meta_info']
-_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.ErrorState']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep']['meta_info']
-_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep']['meta_info']
-_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastUpDownTime']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep']['meta_info']
-_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.Statistics']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep']['meta_info']
-_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep']['meta_info']
-_meta_table['Cfm.Global.PeerMeps.PeerMep']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.BasicOptions']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.ExploratoryOptions']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches']['meta_info']
-_meta_table['Cfm.Global.GlobalConfigurationErrors']['meta_info'].parent =_meta_table['Cfm.Global']['meta_info']
-_meta_table['Cfm.Global.IncompleteTraceroutes']['meta_info'].parent =_meta_table['Cfm.Global']['meta_info']
-_meta_table['Cfm.Global.LocalMeps']['meta_info'].parent =_meta_table['Cfm.Global']['meta_info']
-_meta_table['Cfm.Global.MaintenancePoints']['meta_info'].parent =_meta_table['Cfm.Global']['meta_info']
-_meta_table['Cfm.Global.MepConfigurationErrors']['meta_info'].parent =_meta_table['Cfm.Global']['meta_info']
-_meta_table['Cfm.Global.PeerMeps']['meta_info'].parent =_meta_table['Cfm.Global']['meta_info']
-_meta_table['Cfm.Global.TracerouteCaches']['meta_info'].parent =_meta_table['Cfm.Global']['meta_info']
-_meta_table['Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase']['meta_info'].parent =_meta_table['Cfm.Nodes.Node.CcmLearningDatabases']['meta_info']
 _meta_table['Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects']['meta_info'].parent =_meta_table['Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects']['meta_info']
 _meta_table['Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects']['meta_info'].parent =_meta_table['Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics']['meta_info']
 _meta_table['Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted']['meta_info'].parent =_meta_table['Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics']['meta_info']
@@ -5129,10 +5037,102 @@ _meta_table['Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics']['meta_info'
 _meta_table['Cfm.Nodes.Node.InterfaceAises.InterfaceAis']['meta_info'].parent =_meta_table['Cfm.Nodes.Node.InterfaceAises']['meta_info']
 _meta_table['Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics']['meta_info'].parent =_meta_table['Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic']['meta_info']
 _meta_table['Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic']['meta_info'].parent =_meta_table['Cfm.Nodes.Node.InterfaceStatistics']['meta_info']
-_meta_table['Cfm.Nodes.Node.CcmLearningDatabases']['meta_info'].parent =_meta_table['Cfm.Nodes.Node']['meta_info']
+_meta_table['Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase']['meta_info'].parent =_meta_table['Cfm.Nodes.Node.CcmLearningDatabases']['meta_info']
 _meta_table['Cfm.Nodes.Node.InterfaceAises']['meta_info'].parent =_meta_table['Cfm.Nodes.Node']['meta_info']
 _meta_table['Cfm.Nodes.Node.InterfaceStatistics']['meta_info'].parent =_meta_table['Cfm.Nodes.Node']['meta_info']
 _meta_table['Cfm.Nodes.Node.Summary']['meta_info'].parent =_meta_table['Cfm.Nodes.Node']['meta_info']
+_meta_table['Cfm.Nodes.Node.CcmLearningDatabases']['meta_info'].parent =_meta_table['Cfm.Nodes.Node']['meta_info']
 _meta_table['Cfm.Nodes.Node']['meta_info'].parent =_meta_table['Cfm.Nodes']['meta_info']
-_meta_table['Cfm.Global']['meta_info'].parent =_meta_table['Cfm']['meta_info']
+_meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.BasicOptions']['meta_info'].parent =_meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options']['meta_info']
+_meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.ExploratoryOptions']['meta_info'].parent =_meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options']['meta_info']
+_meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options']['meta_info'].parent =_meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation']['meta_info']
+_meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation']['meta_info'].parent =_meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute']['meta_info']
+_meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute']['meta_info'].parent =_meta_table['Cfm.Global.IncompleteTraceroutes']['meta_info']
+_meta_table['Cfm.Global.MaintenancePoints.MaintenancePoint.MaintenancePoint']['meta_info'].parent =_meta_table['Cfm.Global.MaintenancePoints.MaintenancePoint']['meta_info']
+_meta_table['Cfm.Global.MaintenancePoints.MaintenancePoint']['meta_info'].parent =_meta_table['Cfm.Global.MaintenancePoints']['meta_info']
+_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.Mdid.MacName']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.Mdid']['meta_info']
+_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.ShortMaName']['meta_info']
+_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.Mdid']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header']['meta_info']
+_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.ShortMaName']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header']['meta_info']
+_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId']['meta_info']
+_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId']['meta_info']
+_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived']['meta_info']
+_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived']['meta_info']
+_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.MepName']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived']['meta_info']
+_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.OrganizationSpecificTlv']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived']['meta_info']
+_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.UnknownTlv']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived']['meta_info']
+_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.Statistics.LastCcmReceivedTime']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.Statistics']['meta_info']
+_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.ErrorState']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep']['meta_info']
+_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastUpDownTime']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep']['meta_info']
+_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep']['meta_info']
+_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.Statistics']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep']['meta_info']
+_meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps.PeerMep']['meta_info']
+_meta_table['Cfm.Global.PeerMeps.PeerMep']['meta_info'].parent =_meta_table['Cfm.Global.PeerMeps']['meta_info']
+_meta_table['Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId']['meta_info'].parent =_meta_table['Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError']['meta_info']
+_meta_table['Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError']['meta_info'].parent =_meta_table['Cfm.Global.GlobalConfigurationErrors']['meta_info']
+_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback']['meta_info'].parent =_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities']['meta_info']
+_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement']['meta_info'].parent =_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities']['meta_info']
+_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement']['meta_info'].parent =_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities']['meta_info']
+_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep']['meta_info'].parent =_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError']['meta_info']
+_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain']['meta_info'].parent =_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError']['meta_info']
+_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain']['meta_info'].parent =_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError']['meta_info']
+_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities']['meta_info'].parent =_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError']['meta_info']
+_meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError']['meta_info'].parent =_meta_table['Cfm.Global.MepConfigurationErrors']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.BasicOptions']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.ExploratoryOptions']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches.TracerouteCache']['meta_info'].parent =_meta_table['Cfm.Global.TracerouteCaches']['meta_info']
+_meta_table['Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart']['meta_info'].parent =_meta_table['Cfm.Global.LocalMeps.LocalMep.AisStatistics']['meta_info']
+_meta_table['Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart']['meta_info'].parent =_meta_table['Cfm.Global.LocalMeps.LocalMep.AisStatistics']['meta_info']
+_meta_table['Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects']['meta_info'].parent =_meta_table['Cfm.Global.LocalMeps.LocalMep.Defects']['meta_info']
+_meta_table['Cfm.Global.LocalMeps.LocalMep.Statistics']['meta_info'].parent =_meta_table['Cfm.Global.LocalMeps.LocalMep']['meta_info']
+_meta_table['Cfm.Global.LocalMeps.LocalMep.AisStatistics']['meta_info'].parent =_meta_table['Cfm.Global.LocalMeps.LocalMep']['meta_info']
+_meta_table['Cfm.Global.LocalMeps.LocalMep.Defects']['meta_info'].parent =_meta_table['Cfm.Global.LocalMeps.LocalMep']['meta_info']
+_meta_table['Cfm.Global.LocalMeps.LocalMep']['meta_info'].parent =_meta_table['Cfm.Global.LocalMeps']['meta_info']
+_meta_table['Cfm.Global.IncompleteTraceroutes']['meta_info'].parent =_meta_table['Cfm.Global']['meta_info']
+_meta_table['Cfm.Global.MaintenancePoints']['meta_info'].parent =_meta_table['Cfm.Global']['meta_info']
+_meta_table['Cfm.Global.PeerMeps']['meta_info'].parent =_meta_table['Cfm.Global']['meta_info']
+_meta_table['Cfm.Global.GlobalConfigurationErrors']['meta_info'].parent =_meta_table['Cfm.Global']['meta_info']
+_meta_table['Cfm.Global.MepConfigurationErrors']['meta_info'].parent =_meta_table['Cfm.Global']['meta_info']
+_meta_table['Cfm.Global.TracerouteCaches']['meta_info'].parent =_meta_table['Cfm.Global']['meta_info']
+_meta_table['Cfm.Global.LocalMeps']['meta_info'].parent =_meta_table['Cfm.Global']['meta_info']
 _meta_table['Cfm.Nodes']['meta_info'].parent =_meta_table['Cfm']['meta_info']
+_meta_table['Cfm.Global']['meta_info'].parent =_meta_table['Cfm']['meta_info']

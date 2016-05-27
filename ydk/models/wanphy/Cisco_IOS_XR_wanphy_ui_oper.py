@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -127,7 +127,7 @@ class Wanphy(object):
             """
             WANPHY controller operational data
             
-            .. attribute:: controller_name
+            .. attribute:: controller_name  <key>
             
             	Controller name
             	**type**\: str
@@ -162,26 +162,40 @@ class Wanphy(object):
                 	Configuration Mode
                 	**type**\: :py:class:`WanphyModeInfoEnum <ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_oper.WanphyModeInfoEnum>`
                 
+                .. attribute:: port_state
+                
+                	Port State
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: section_lof
+                
+                	Section LOF
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: section_los
+                
+                	Section LOS
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: section_bip
+                
+                	Section BIP(B1)
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
                 .. attribute:: line_ais
                 
                 	Line AIS
                 	**type**\: int
                 
                 	**range:** 0..4294967295
-                
-                .. attribute:: line_bip
-                
-                	Line BIP(B2) 
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: line_febe
-                
-                	Line FEBE
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
                 
                 .. attribute:: line_rdi
                 
@@ -190,10 +204,19 @@ class Wanphy(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: operational_mode
+                .. attribute:: line_febe
                 
-                	Operational Mode
-                	**type**\: :py:class:`WanphyModeInfoEnum <ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_oper.WanphyModeInfoEnum>`
+                	Line FEBE
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: line_bip
+                
+                	Line BIP(B2) 
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
                 
                 .. attribute:: path_ais
                 
@@ -202,16 +225,23 @@ class Wanphy(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: path_bip
+                .. attribute:: path_rdi
                 
-                	Path BIP(B3)
+                	Path RDI
                 	**type**\: int
                 
-                	**range:** 0..18446744073709551615
+                	**range:** 0..4294967295
                 
                 .. attribute:: path_febe
                 
                 	Path FEBE
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: path_bip
+                
+                	Path BIP(B3)
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
@@ -230,13 +260,6 @@ class Wanphy(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: path_nse
-                
-                	Path NSE
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
                 .. attribute:: path_pse
                 
                 	Path PSE
@@ -244,16 +267,134 @@ class Wanphy(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: path_rdi
+                .. attribute:: path_nse
                 
-                	Path RDI
+                	Path NSE
                 	**type**\: int
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: port_state
+                .. attribute:: wis_alarms_ser
                 
-                	Port State
+                	WIS Alarms SER
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: wis_alarms_felcdp
+                
+                	WIS Alarms FELCDP
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: wis_alarms_feaisp
+                
+                	WIS Alarms FEAISP
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: wis_alarms_wlos
+                
+                	WIS Alarms WLOS
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: wis_alarms_plcd
+                
+                	WIS Alarms PLCD
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: wis_alarms_lfebip
+                
+                	WIS Alarms LFEBIP
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: wis_alarms_pbec
+                
+                	WIS Alarms PBEC
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: wis_alarms_plmp
+                
+                	WIS Alarms PLMP
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: sf_ber_threshold
+                
+                	BER thresholds\: SF. Value 'd' in 10e\-%d
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: sd_ber_threshold
+                
+                	BER thresholds\: SD. Value 'd' in 10e\-%d
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: sf_ber_report
+                
+                	SF\_BER Report
+                	**type**\: :py:class:`WanphyAlarmRepStatusEnum <ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_oper.WanphyAlarmRepStatusEnum>`
+                
+                .. attribute:: sd_ber_report
+                
+                	SD\_BER Report
+                	**type**\: :py:class:`WanphyAlarmRepStatusEnum <ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_oper.WanphyAlarmRepStatusEnum>`
+                
+                .. attribute:: operational_mode
+                
+                	Operational Mode
+                	**type**\: :py:class:`WanphyModeInfoEnum <ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_oper.WanphyModeInfoEnum>`
+                
+                .. attribute:: remote_ip
+                
+                	Remote IP Address
+                	**type**\: str
+                
+                .. attribute:: register_p_febe
+                
+                	Register P\_FEBE
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: register_l_fe_bip
+                
+                	Register L\_FE\_BIP
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: register_l_bip
+                
+                	Register L\_BIP
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: register_p_bec
+                
+                	Register P\_BEC
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: register_s_bip
+                
+                	Register S\_BIP
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -314,147 +455,6 @@ class Wanphy(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: register_l_bip
-                
-                	Register L\_BIP
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: register_l_fe_bip
-                
-                	Register L\_FE\_BIP
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: register_p_bec
-                
-                	Register P\_BEC
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: register_p_febe
-                
-                	Register P\_FEBE
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: register_s_bip
-                
-                	Register S\_BIP
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: remote_ip
-                
-                	Remote IP Address
-                	**type**\: str
-                
-                .. attribute:: sd_ber_report
-                
-                	SD\_BER Report
-                	**type**\: :py:class:`WanphyAlarmRepStatusEnum <ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_oper.WanphyAlarmRepStatusEnum>`
-                
-                .. attribute:: sd_ber_threshold
-                
-                	BER thresholds\: SD. Value 'd' in 10e\-%d
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: section_bip
-                
-                	Section BIP(B1)
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: section_lof
-                
-                	Section LOF
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: section_los
-                
-                	Section LOS
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: sf_ber_report
-                
-                	SF\_BER Report
-                	**type**\: :py:class:`WanphyAlarmRepStatusEnum <ydk.models.wanphy.Cisco_IOS_XR_wanphy_ui_oper.WanphyAlarmRepStatusEnum>`
-                
-                .. attribute:: sf_ber_threshold
-                
-                	BER thresholds\: SF. Value 'd' in 10e\-%d
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: wis_alarms_feaisp
-                
-                	WIS Alarms FEAISP
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: wis_alarms_felcdp
-                
-                	WIS Alarms FELCDP
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: wis_alarms_lfebip
-                
-                	WIS Alarms LFEBIP
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: wis_alarms_pbec
-                
-                	WIS Alarms PBEC
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: wis_alarms_plcd
-                
-                	WIS Alarms PLCD
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: wis_alarms_plmp
-                
-                	WIS Alarms PLMP
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: wis_alarms_ser
-                
-                	WIS Alarms SER
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: wis_alarms_wlos
-                
-                	WIS Alarms WLOS
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
                 
 
                 """
@@ -465,20 +465,41 @@ class Wanphy(object):
                 def __init__(self):
                     self.parent = None
                     self.admin_mode = None
+                    self.port_state = None
+                    self.section_lof = None
+                    self.section_los = None
+                    self.section_bip = None
                     self.line_ais = None
-                    self.line_bip = None
-                    self.line_febe = None
                     self.line_rdi = None
-                    self.operational_mode = None
+                    self.line_febe = None
+                    self.line_bip = None
                     self.path_ais = None
-                    self.path_bip = None
+                    self.path_rdi = None
                     self.path_febe = None
+                    self.path_bip = None
                     self.path_lop = None
                     self.path_newptr = None
-                    self.path_nse = None
                     self.path_pse = None
-                    self.path_rdi = None
-                    self.port_state = None
+                    self.path_nse = None
+                    self.wis_alarms_ser = None
+                    self.wis_alarms_felcdp = None
+                    self.wis_alarms_feaisp = None
+                    self.wis_alarms_wlos = None
+                    self.wis_alarms_plcd = None
+                    self.wis_alarms_lfebip = None
+                    self.wis_alarms_pbec = None
+                    self.wis_alarms_plmp = None
+                    self.sf_ber_threshold = None
+                    self.sd_ber_threshold = None
+                    self.sf_ber_report = None
+                    self.sd_ber_report = None
+                    self.operational_mode = None
+                    self.remote_ip = None
+                    self.register_p_febe = None
+                    self.register_l_fe_bip = None
+                    self.register_l_bip = None
+                    self.register_p_bec = None
+                    self.register_s_bip = None
                     self.register_j1_rx0 = None
                     self.register_j1_rx1 = None
                     self.register_j1_rx2 = None
@@ -487,27 +508,6 @@ class Wanphy(object):
                     self.register_j1_rx5 = None
                     self.register_j1_rx6 = None
                     self.register_j1_rx7 = None
-                    self.register_l_bip = None
-                    self.register_l_fe_bip = None
-                    self.register_p_bec = None
-                    self.register_p_febe = None
-                    self.register_s_bip = None
-                    self.remote_ip = None
-                    self.sd_ber_report = None
-                    self.sd_ber_threshold = None
-                    self.section_bip = None
-                    self.section_lof = None
-                    self.section_los = None
-                    self.sf_ber_report = None
-                    self.sf_ber_threshold = None
-                    self.wis_alarms_feaisp = None
-                    self.wis_alarms_felcdp = None
-                    self.wis_alarms_lfebip = None
-                    self.wis_alarms_pbec = None
-                    self.wis_alarms_plcd = None
-                    self.wis_alarms_plmp = None
-                    self.wis_alarms_ser = None
-                    self.wis_alarms_wlos = None
 
                 @property
                 def _common_path(self):
@@ -526,28 +526,40 @@ class Wanphy(object):
                     if self.admin_mode is not None:
                         return True
 
+                    if self.port_state is not None:
+                        return True
+
+                    if self.section_lof is not None:
+                        return True
+
+                    if self.section_los is not None:
+                        return True
+
+                    if self.section_bip is not None:
+                        return True
+
                     if self.line_ais is not None:
-                        return True
-
-                    if self.line_bip is not None:
-                        return True
-
-                    if self.line_febe is not None:
                         return True
 
                     if self.line_rdi is not None:
                         return True
 
-                    if self.operational_mode is not None:
+                    if self.line_febe is not None:
+                        return True
+
+                    if self.line_bip is not None:
                         return True
 
                     if self.path_ais is not None:
                         return True
 
-                    if self.path_bip is not None:
+                    if self.path_rdi is not None:
                         return True
 
                     if self.path_febe is not None:
+                        return True
+
+                    if self.path_bip is not None:
                         return True
 
                     if self.path_lop is not None:
@@ -556,16 +568,67 @@ class Wanphy(object):
                     if self.path_newptr is not None:
                         return True
 
-                    if self.path_nse is not None:
-                        return True
-
                     if self.path_pse is not None:
                         return True
 
-                    if self.path_rdi is not None:
+                    if self.path_nse is not None:
                         return True
 
-                    if self.port_state is not None:
+                    if self.wis_alarms_ser is not None:
+                        return True
+
+                    if self.wis_alarms_felcdp is not None:
+                        return True
+
+                    if self.wis_alarms_feaisp is not None:
+                        return True
+
+                    if self.wis_alarms_wlos is not None:
+                        return True
+
+                    if self.wis_alarms_plcd is not None:
+                        return True
+
+                    if self.wis_alarms_lfebip is not None:
+                        return True
+
+                    if self.wis_alarms_pbec is not None:
+                        return True
+
+                    if self.wis_alarms_plmp is not None:
+                        return True
+
+                    if self.sf_ber_threshold is not None:
+                        return True
+
+                    if self.sd_ber_threshold is not None:
+                        return True
+
+                    if self.sf_ber_report is not None:
+                        return True
+
+                    if self.sd_ber_report is not None:
+                        return True
+
+                    if self.operational_mode is not None:
+                        return True
+
+                    if self.remote_ip is not None:
+                        return True
+
+                    if self.register_p_febe is not None:
+                        return True
+
+                    if self.register_l_fe_bip is not None:
+                        return True
+
+                    if self.register_l_bip is not None:
+                        return True
+
+                    if self.register_p_bec is not None:
+                        return True
+
+                    if self.register_s_bip is not None:
                         return True
 
                     if self.register_j1_rx0 is not None:
@@ -590,69 +653,6 @@ class Wanphy(object):
                         return True
 
                     if self.register_j1_rx7 is not None:
-                        return True
-
-                    if self.register_l_bip is not None:
-                        return True
-
-                    if self.register_l_fe_bip is not None:
-                        return True
-
-                    if self.register_p_bec is not None:
-                        return True
-
-                    if self.register_p_febe is not None:
-                        return True
-
-                    if self.register_s_bip is not None:
-                        return True
-
-                    if self.remote_ip is not None:
-                        return True
-
-                    if self.sd_ber_report is not None:
-                        return True
-
-                    if self.sd_ber_threshold is not None:
-                        return True
-
-                    if self.section_bip is not None:
-                        return True
-
-                    if self.section_lof is not None:
-                        return True
-
-                    if self.section_los is not None:
-                        return True
-
-                    if self.sf_ber_report is not None:
-                        return True
-
-                    if self.sf_ber_threshold is not None:
-                        return True
-
-                    if self.wis_alarms_feaisp is not None:
-                        return True
-
-                    if self.wis_alarms_felcdp is not None:
-                        return True
-
-                    if self.wis_alarms_lfebip is not None:
-                        return True
-
-                    if self.wis_alarms_pbec is not None:
-                        return True
-
-                    if self.wis_alarms_plcd is not None:
-                        return True
-
-                    if self.wis_alarms_plmp is not None:
-                        return True
-
-                    if self.wis_alarms_ser is not None:
-                        return True
-
-                    if self.wis_alarms_wlos is not None:
                         return True
 
                     return False

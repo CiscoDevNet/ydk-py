@@ -23,7 +23,7 @@ from lxml import etree
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LEAFLIST, \
             REFERENCE_LIST, REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, \
             REFERENCE_BITS, REFERENCE_UNION
-from ydk.types import Empty, Decimal64
+from ydk.types import Empty, Decimal64, YLeafList, YListItem
 from ydk.models import _yang_ns
 from ydk.services.meta_service import MetaService
 
@@ -54,8 +54,13 @@ class XmlDecoder(object):
 
     @classmethod
     def _to_real_union_type_helper(self, rt, member, entity):
+        potential_str_value = ''
         for contained_member in member.members:
-            if contained_member.mtype == REFERENCE_ENUM_CLASS:
+            if contained_member.mtype == REFERENCE_UNION:
+                return XmlDecoder._to_real_union_type_helper(rt, contained_member, entity)
+            elif contained_member.mtype == REFERENCE_LEAFLIST:
+                return XmlDecoder._to_real_list_type(rt, contained_member, entity)
+            elif contained_member.mtype == REFERENCE_ENUM_CLASS:
                 exec_import = 'from ' + contained_member.pmodule_name + ' import ' + contained_member.clazz_name.split('.')[0]
                 exec exec_import
                 # first get the enum_class
@@ -102,21 +107,27 @@ class XmlDecoder(object):
                 else:
                     return True
             elif contained_member.ptype == 'str':
+                if is_digit(rt[0].text):
+                    potential_str_value = rt[0].text
+                    continue
                 return rt[0].text
-            elif contained_member.ptype == 'long' and rt[0].text is not None and rt[0].text.isdigit():
+            elif contained_member.ptype == 'long' and rt[0].text is not None and is_digit(rt[0].text):
                 return long(rt[0].text)
-            elif contained_member.ptype == 'int' and rt[0].text is not None and rt[0].text.isdigit():
+            elif contained_member.ptype == 'int' and rt[0].text is not None and is_digit(rt[0].text):
                 return int(rt[0].text)
             elif contained_member.ptype == 'Decimal64' and rt[0].text is not None:
                 try:
                     float(rt[0].text)
                     return Decimal64(rt[0].text)
                 except ValueError:
-                    ydk_logger = logging.getLogger('ydk')
+                    ydk_logger = logging.getLogger('ydk.providers.NetconfServiceProvider')
                     ydk_logger.error('Got a ValueError converting a Decimal64 type to float')
                 pass
             elif contained_member.ptype == 'Empty' and rt[0].text is None:
                 return Empty()
+
+        if len(potential_str_value) > 0:
+            return potential_str_value
 
         return None
 
@@ -127,7 +138,10 @@ class XmlDecoder(object):
         if text is None:
             return Empty()
         elif _type == 'int':
-            return int(text)
+            if is_digit(text):
+                return int(text)
+            else:
+                return text
         elif _type == 'str':
             return text
         elif _type == 'bool':
@@ -146,8 +160,11 @@ class XmlDecoder(object):
 
     @classmethod
     def _to_real_list_type(self, elems, member, entity):
+
         if isinstance(elems, list):
-            results = []
+            results = YLeafList()
+            results.parent = entity
+            results.name = member.presentation_name
             for elem in elems:
                 result = XmlDecoder._to_real_type_helper(elem, member, entity)
                 results.append(result)
@@ -368,3 +385,11 @@ def payload_convert(payload):
         rt_new.append(ch)
 
     return etree.tostring(rt_new, pretty_print=True)
+
+def is_digit(n):
+    try:
+        int(n)
+        return True
+    except ValueError:
+        return  False
+

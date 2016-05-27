@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -73,7 +73,7 @@ class SdrInventoryVm(object):
             """
             Node name
             
-            .. attribute:: name
+            .. attribute:: name  <key>
             
             	Node name
             	**type**\: str
@@ -126,12 +126,19 @@ class SdrInventoryVm(object):
                     """
                     VM information for a node
                     
-                    .. attribute:: name
+                    .. attribute:: name  <key>
                     
                     	Node name
                     	**type**\: str
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                    
+                    .. attribute:: valid
+                    
+                    	valid flag
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: card_type
                     
@@ -147,19 +154,12 @@ class SdrInventoryVm(object):
                     
                     	**range:** 0..32
                     
-                    .. attribute:: node_ip
+                    .. attribute:: nodeid
                     
-                    	node IP address
+                    	node ID
                     	**type**\: int
                     
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: node_ipv4_string
-                    
-                    	node IPv4 address string
-                    	**type**\: str
-                    
-                    	**range:** 0..16
+                    	**range:** \-2147483648..2147483647
                     
                     .. attribute:: node_name
                     
@@ -167,27 +167,6 @@ class SdrInventoryVm(object):
                     	**type**\: str
                     
                     	**range:** 0..32
-                    
-                    .. attribute:: node_sw_state
-                    
-                    	current software state
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: node_sw_state_string
-                    
-                    	current software state string
-                    	**type**\: str
-                    
-                    	**range:** 0..32
-                    
-                    .. attribute:: nodeid
-                    
-                    	node ID
-                    	**type**\: int
-                    
-                    	**range:** \-2147483648..2147483647
                     
                     .. attribute:: partner_id
                     
@@ -199,20 +178,6 @@ class SdrInventoryVm(object):
                     .. attribute:: partner_name
                     
                     	partner name string
-                    	**type**\: str
-                    
-                    	**range:** 0..32
-                    
-                    .. attribute:: prev_sw_state
-                    
-                    	previous software state
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: previous_sw_state_string
-                    
-                    	previous software state string
                     	**type**\: str
                     
                     	**range:** 0..32
@@ -231,12 +196,47 @@ class SdrInventoryVm(object):
                     
                     	**range:** 0..32
                     
-                    .. attribute:: valid
+                    .. attribute:: node_sw_state
                     
-                    	valid flag
+                    	current software state
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: node_sw_state_string
+                    
+                    	current software state string
+                    	**type**\: str
+                    
+                    	**range:** 0..32
+                    
+                    .. attribute:: prev_sw_state
+                    
+                    	previous software state
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: previous_sw_state_string
+                    
+                    	previous software state string
+                    	**type**\: str
+                    
+                    	**range:** 0..32
+                    
+                    .. attribute:: node_ip
+                    
+                    	node IP address
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: node_ipv4_string
+                    
+                    	node IPv4 address string
+                    	**type**\: str
+                    
+                    	**range:** 0..16
                     
                     
 
@@ -248,21 +248,21 @@ class SdrInventoryVm(object):
                     def __init__(self):
                         self.parent = None
                         self.name = None
+                        self.valid = None
                         self.card_type = None
                         self.card_type_string = None
-                        self.node_ip = None
-                        self.node_ipv4_string = None
-                        self.node_name = None
-                        self.node_sw_state = None
-                        self.node_sw_state_string = None
                         self.nodeid = None
+                        self.node_name = None
                         self.partner_id = None
                         self.partner_name = None
-                        self.prev_sw_state = None
-                        self.previous_sw_state_string = None
                         self.red_state = None
                         self.redundancy_state_string = None
-                        self.valid = None
+                        self.node_sw_state = None
+                        self.node_sw_state_string = None
+                        self.prev_sw_state = None
+                        self.previous_sw_state_string = None
+                        self.node_ip = None
+                        self.node_ipv4_string = None
 
                     @property
                     def _common_path(self):
@@ -283,28 +283,19 @@ class SdrInventoryVm(object):
                         if self.name is not None:
                             return True
 
+                        if self.valid is not None:
+                            return True
+
                         if self.card_type is not None:
                             return True
 
                         if self.card_type_string is not None:
                             return True
 
-                        if self.node_ip is not None:
-                            return True
-
-                        if self.node_ipv4_string is not None:
+                        if self.nodeid is not None:
                             return True
 
                         if self.node_name is not None:
-                            return True
-
-                        if self.node_sw_state is not None:
-                            return True
-
-                        if self.node_sw_state_string is not None:
-                            return True
-
-                        if self.nodeid is not None:
                             return True
 
                         if self.partner_id is not None:
@@ -313,19 +304,28 @@ class SdrInventoryVm(object):
                         if self.partner_name is not None:
                             return True
 
-                        if self.prev_sw_state is not None:
-                            return True
-
-                        if self.previous_sw_state_string is not None:
-                            return True
-
                         if self.red_state is not None:
                             return True
 
                         if self.redundancy_state_string is not None:
                             return True
 
-                        if self.valid is not None:
+                        if self.node_sw_state is not None:
+                            return True
+
+                        if self.node_sw_state_string is not None:
+                            return True
+
+                        if self.prev_sw_state is not None:
+                            return True
+
+                        if self.previous_sw_state_string is not None:
+                            return True
+
+                        if self.node_ip is not None:
+                            return True
+
+                        if self.node_ipv4_string is not None:
                             return True
 
                         return False

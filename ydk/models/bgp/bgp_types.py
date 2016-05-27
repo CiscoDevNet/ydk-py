@@ -12,7 +12,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -244,9 +244,9 @@ class BgpWellKnownStdCommunity_Identity(object):
         return meta._meta_table['BgpWellKnownStdCommunity_Identity']['meta_info']
 
 
-class AddPaths_Identity(BgpCapability_Identity):
+class L2VpnVpls_Identity(AfiSafiType_Identity):
     """
-    BGP add\-paths
+    BGP\-signalled VPLS (AFI,SAFI = 25,65)
     
     
 
@@ -256,17 +256,17 @@ class AddPaths_Identity(BgpCapability_Identity):
     _revision = '2015-05-15'
 
     def __init__(self):
-        BgpCapability_Identity.__init__(self)
+        AfiSafiType_Identity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.bgp._meta import _bgp_types as meta
-        return meta._meta_table['AddPaths_Identity']['meta_info']
+        return meta._meta_table['L2VpnVpls_Identity']['meta_info']
 
 
-class Asn32_Identity(BgpCapability_Identity):
+class L3VpnIpv6Unicast_Identity(AfiSafiType_Identity):
     """
-    4\-byte (32\-bit) AS number functionality
+    Unicast IPv6 MPLS L3VPN (AFI,SAFI = 2,128)
     
     
 
@@ -276,32 +276,12 @@ class Asn32_Identity(BgpCapability_Identity):
     _revision = '2015-05-15'
 
     def __init__(self):
-        BgpCapability_Identity.__init__(self)
+        AfiSafiType_Identity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.bgp._meta import _bgp_types as meta
-        return meta._meta_table['Asn32_Identity']['meta_info']
-
-
-class GracefulRestart_Identity(BgpCapability_Identity):
-    """
-    Graceful restart functionality
-    
-    
-
-    """
-
-    _prefix = 'bgp-types'
-    _revision = '2015-05-15'
-
-    def __init__(self):
-        BgpCapability_Identity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.bgp._meta import _bgp_types as meta
-        return meta._meta_table['GracefulRestart_Identity']['meta_info']
+        return meta._meta_table['L3VpnIpv6Unicast_Identity']['meta_info']
 
 
 class Internet_Identity(BgpWellKnownStdCommunity_Identity):
@@ -325,9 +305,9 @@ class Internet_Identity(BgpWellKnownStdCommunity_Identity):
         return meta._meta_table['Internet_Identity']['meta_info']
 
 
-class Ipv4LabelledUnicast_Identity(AfiSafiType_Identity):
+class AddPaths_Identity(BgpCapability_Identity):
     """
-    Labelled IPv4 unicast (AFI,SAFI = 1,4)
+    BGP add\-paths
     
     
 
@@ -337,17 +317,17 @@ class Ipv4LabelledUnicast_Identity(AfiSafiType_Identity):
     _revision = '2015-05-15'
 
     def __init__(self):
-        AfiSafiType_Identity.__init__(self)
+        BgpCapability_Identity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.bgp._meta import _bgp_types as meta
-        return meta._meta_table['Ipv4LabelledUnicast_Identity']['meta_info']
+        return meta._meta_table['AddPaths_Identity']['meta_info']
 
 
-class Ipv4Unicast_Identity(AfiSafiType_Identity):
+class GracefulRestart_Identity(BgpCapability_Identity):
     """
-    IPv4 unicast (AFI,SAFI = 1,1)
+    Graceful restart functionality
     
     
 
@@ -357,12 +337,12 @@ class Ipv4Unicast_Identity(AfiSafiType_Identity):
     _revision = '2015-05-15'
 
     def __init__(self):
-        AfiSafiType_Identity.__init__(self)
+        BgpCapability_Identity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.bgp._meta import _bgp_types as meta
-        return meta._meta_table['Ipv4Unicast_Identity']['meta_info']
+        return meta._meta_table['GracefulRestart_Identity']['meta_info']
 
 
 class Ipv6LabelledUnicast_Identity(AfiSafiType_Identity):
@@ -385,9 +365,9 @@ class Ipv6LabelledUnicast_Identity(AfiSafiType_Identity):
         return meta._meta_table['Ipv6LabelledUnicast_Identity']['meta_info']
 
 
-class Ipv6Unicast_Identity(AfiSafiType_Identity):
+class RouteRefresh_Identity(BgpCapability_Identity):
     """
-    IPv6 unicast (AFI,SAFI = 2,1)
+    The BGP route\-refresh functionality
     
     
 
@@ -397,17 +377,19 @@ class Ipv6Unicast_Identity(AfiSafiType_Identity):
     _revision = '2015-05-15'
 
     def __init__(self):
-        AfiSafiType_Identity.__init__(self)
+        BgpCapability_Identity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.bgp._meta import _bgp_types as meta
-        return meta._meta_table['Ipv6Unicast_Identity']['meta_info']
+        return meta._meta_table['RouteRefresh_Identity']['meta_info']
 
 
-class L2VpnEvpn_Identity(AfiSafiType_Identity):
+class No_Export_Subconfed_Identity(BgpWellKnownStdCommunity_Identity):
     """
-    BGP MPLS Based Ethernet VPN (AFI,SAFI = 25,70)
+    All NLRI received carrying this community must not be
+    advertised to external BGP peers \- including over confederation
+    sub\-AS boundaries. This community has a value of 0xFFFFFF03.
     
     
 
@@ -417,52 +399,12 @@ class L2VpnEvpn_Identity(AfiSafiType_Identity):
     _revision = '2015-05-15'
 
     def __init__(self):
-        AfiSafiType_Identity.__init__(self)
+        BgpWellKnownStdCommunity_Identity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.bgp._meta import _bgp_types as meta
-        return meta._meta_table['L2VpnEvpn_Identity']['meta_info']
-
-
-class L2VpnVpls_Identity(AfiSafiType_Identity):
-    """
-    BGP\-signalled VPLS (AFI,SAFI = 25,65)
-    
-    
-
-    """
-
-    _prefix = 'bgp-types'
-    _revision = '2015-05-15'
-
-    def __init__(self):
-        AfiSafiType_Identity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.bgp._meta import _bgp_types as meta
-        return meta._meta_table['L2VpnVpls_Identity']['meta_info']
-
-
-class L3VpnIpv4Multicast_Identity(AfiSafiType_Identity):
-    """
-    Multicast IPv4 MPLS L3VPN (AFI,SAFI = 1,129)
-    
-    
-
-    """
-
-    _prefix = 'bgp-types'
-    _revision = '2015-05-15'
-
-    def __init__(self):
-        AfiSafiType_Identity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.bgp._meta import _bgp_types as meta
-        return meta._meta_table['L3VpnIpv4Multicast_Identity']['meta_info']
+        return meta._meta_table['No_Export_Subconfed_Identity']['meta_info']
 
 
 class L3VpnIpv4Unicast_Identity(AfiSafiType_Identity):
@@ -505,9 +447,12 @@ class L3VpnIpv6Multicast_Identity(AfiSafiType_Identity):
         return meta._meta_table['L3VpnIpv6Multicast_Identity']['meta_info']
 
 
-class L3VpnIpv6Unicast_Identity(AfiSafiType_Identity):
+class No_Export_Identity(BgpWellKnownStdCommunity_Identity):
     """
-    Unicast IPv6 MPLS L3VPN (AFI,SAFI = 2,128)
+    Do not export NLRI received carrying this community outside
+    the bounds of this autonomous system, or this confederation if
+    the local autonomous system is a confederation member AS. This
+    community has a value of 0xFFFFFF01.
     
     
 
@@ -517,32 +462,12 @@ class L3VpnIpv6Unicast_Identity(AfiSafiType_Identity):
     _revision = '2015-05-15'
 
     def __init__(self):
-        AfiSafiType_Identity.__init__(self)
+        BgpWellKnownStdCommunity_Identity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.bgp._meta import _bgp_types as meta
-        return meta._meta_table['L3VpnIpv6Unicast_Identity']['meta_info']
-
-
-class Mpbgp_Identity(BgpCapability_Identity):
-    """
-    Multi\-protocol extensions to BGP
-    
-    
-
-    """
-
-    _prefix = 'bgp-types'
-    _revision = '2015-05-15'
-
-    def __init__(self):
-        BgpCapability_Identity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.bgp._meta import _bgp_types as meta
-        return meta._meta_table['Mpbgp_Identity']['meta_info']
+        return meta._meta_table['No_Export_Identity']['meta_info']
 
 
 class No_Advertise_Identity(BgpWellKnownStdCommunity_Identity):
@@ -567,12 +492,9 @@ class No_Advertise_Identity(BgpWellKnownStdCommunity_Identity):
         return meta._meta_table['No_Advertise_Identity']['meta_info']
 
 
-class No_Export_Identity(BgpWellKnownStdCommunity_Identity):
+class L3VpnIpv4Multicast_Identity(AfiSafiType_Identity):
     """
-    Do not export NLRI received carrying this community outside
-    the bounds of this autonomous system, or this confederation if
-    the local autonomous system is a confederation member AS. This
-    community has a value of 0xFFFFFF01.
+    Multicast IPv4 MPLS L3VPN (AFI,SAFI = 1,129)
     
     
 
@@ -582,19 +504,17 @@ class No_Export_Identity(BgpWellKnownStdCommunity_Identity):
     _revision = '2015-05-15'
 
     def __init__(self):
-        BgpWellKnownStdCommunity_Identity.__init__(self)
+        AfiSafiType_Identity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.bgp._meta import _bgp_types as meta
-        return meta._meta_table['No_Export_Identity']['meta_info']
+        return meta._meta_table['L3VpnIpv4Multicast_Identity']['meta_info']
 
 
-class No_Export_Subconfed_Identity(BgpWellKnownStdCommunity_Identity):
+class Asn32_Identity(BgpCapability_Identity):
     """
-    All NLRI received carrying this community must not be
-    advertised to external BGP peers \- including over confederation
-    sub\-AS boundaries. This community has a value of 0xFFFFFF03.
+    4\-byte (32\-bit) AS number functionality
     
     
 
@@ -604,12 +524,92 @@ class No_Export_Subconfed_Identity(BgpWellKnownStdCommunity_Identity):
     _revision = '2015-05-15'
 
     def __init__(self):
-        BgpWellKnownStdCommunity_Identity.__init__(self)
+        BgpCapability_Identity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.bgp._meta import _bgp_types as meta
-        return meta._meta_table['No_Export_Subconfed_Identity']['meta_info']
+        return meta._meta_table['Asn32_Identity']['meta_info']
+
+
+class Mpbgp_Identity(BgpCapability_Identity):
+    """
+    Multi\-protocol extensions to BGP
+    
+    
+
+    """
+
+    _prefix = 'bgp-types'
+    _revision = '2015-05-15'
+
+    def __init__(self):
+        BgpCapability_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.bgp._meta import _bgp_types as meta
+        return meta._meta_table['Mpbgp_Identity']['meta_info']
+
+
+class Ipv6Unicast_Identity(AfiSafiType_Identity):
+    """
+    IPv6 unicast (AFI,SAFI = 2,1)
+    
+    
+
+    """
+
+    _prefix = 'bgp-types'
+    _revision = '2015-05-15'
+
+    def __init__(self):
+        AfiSafiType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.bgp._meta import _bgp_types as meta
+        return meta._meta_table['Ipv6Unicast_Identity']['meta_info']
+
+
+class Ipv4LabelledUnicast_Identity(AfiSafiType_Identity):
+    """
+    Labelled IPv4 unicast (AFI,SAFI = 1,4)
+    
+    
+
+    """
+
+    _prefix = 'bgp-types'
+    _revision = '2015-05-15'
+
+    def __init__(self):
+        AfiSafiType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.bgp._meta import _bgp_types as meta
+        return meta._meta_table['Ipv4LabelledUnicast_Identity']['meta_info']
+
+
+class Ipv4Unicast_Identity(AfiSafiType_Identity):
+    """
+    IPv4 unicast (AFI,SAFI = 1,1)
+    
+    
+
+    """
+
+    _prefix = 'bgp-types'
+    _revision = '2015-05-15'
+
+    def __init__(self):
+        AfiSafiType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.bgp._meta import _bgp_types as meta
+        return meta._meta_table['Ipv4Unicast_Identity']['meta_info']
 
 
 class Nopeer_Identity(BgpWellKnownStdCommunity_Identity):
@@ -636,9 +636,9 @@ class Nopeer_Identity(BgpWellKnownStdCommunity_Identity):
         return meta._meta_table['Nopeer_Identity']['meta_info']
 
 
-class RouteRefresh_Identity(BgpCapability_Identity):
+class L2VpnEvpn_Identity(AfiSafiType_Identity):
     """
-    The BGP route\-refresh functionality
+    BGP MPLS Based Ethernet VPN (AFI,SAFI = 25,70)
     
     
 
@@ -648,11 +648,11 @@ class RouteRefresh_Identity(BgpCapability_Identity):
     _revision = '2015-05-15'
 
     def __init__(self):
-        BgpCapability_Identity.__init__(self)
+        AfiSafiType_Identity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.bgp._meta import _bgp_types as meta
-        return meta._meta_table['RouteRefresh_Identity']['meta_info']
+        return meta._meta_table['L2VpnEvpn_Identity']['meta_info']
 
 

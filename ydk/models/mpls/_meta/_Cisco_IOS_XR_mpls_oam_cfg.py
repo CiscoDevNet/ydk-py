@@ -7,7 +7,7 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
@@ -52,11 +52,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsOam',
             False, 
             [
-            _MetaInfoClassMember('disable-vendor-extension', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('reply-mode', REFERENCE_CLASS, 'ReplyMode' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_oam_cfg', 'MplsOam.ReplyMode', 
                 [], [], 
-                '''                Disable vendor extension
+                '''                Echo request reply mode attributes
                 ''',
-                'disable_vendor_extension',
+                'reply_mode',
                 'Cisco-IOS-XR-mpls-oam-cfg', False),
             _MetaInfoClassMember('enable-oam', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -67,11 +67,11 @@ _meta_table = {
                 ''',
                 'enable_oam',
                 'Cisco-IOS-XR-mpls-oam-cfg', False),
-            _MetaInfoClassMember('reply-mode', REFERENCE_CLASS, 'ReplyMode' , 'ydk.models.mpls.Cisco_IOS_XR_mpls_oam_cfg', 'MplsOam.ReplyMode', 
+            _MetaInfoClassMember('disable-vendor-extension', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Echo request reply mode attributes
+                '''                Disable vendor extension
                 ''',
-                'reply_mode',
+                'disable_vendor_extension',
                 'Cisco-IOS-XR-mpls-oam-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-oam-cfg',

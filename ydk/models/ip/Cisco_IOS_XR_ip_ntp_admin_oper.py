@@ -19,7 +19,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -329,7 +329,7 @@ class Ntp(object):
             """
             NTP operational data for a particular rack
             
-            .. attribute:: number
+            .. attribute:: number  <key>
             
             	The rack number
             	**type**\: int
@@ -382,7 +382,7 @@ class Ntp(object):
                     """
                     NTP operational data for a particular slot
                     
-                    .. attribute:: number
+                    .. attribute:: number  <key>
                     
                     	The slot number
                     	**type**\: int
@@ -436,12 +436,17 @@ class Ntp(object):
                             NTP operational data for a particular
                             instance
                             
-                            .. attribute:: number
+                            .. attribute:: number  <key>
                             
                             	The instance number
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: status
+                            
+                            	Status of NTP peer(s)
+                            	**type**\: :py:class:`Status <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status>`
                             
                             .. attribute:: associations
                             
@@ -453,11 +458,6 @@ class Ntp(object):
                             	NTP Associations Detail information
                             	**type**\: :py:class:`AssociationsDetail <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail>`
                             
-                            .. attribute:: status
-                            
-                            	Status of NTP peer(s)
-                            	**type**\: :py:class:`Status <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status>`
-                            
                             
 
                             """
@@ -468,12 +468,506 @@ class Ntp(object):
                             def __init__(self):
                                 self.parent = None
                                 self.number = None
+                                self.status = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status()
+                                self.status.parent = self
                                 self.associations = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations()
                                 self.associations.parent = self
                                 self.associations_detail = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail()
                                 self.associations_detail.parent = self
-                                self.status = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status()
-                                self.status.parent = self
+
+
+                            class Status(object):
+                                """
+                                Status of NTP peer(s)
+                                
+                                .. attribute:: sys_ref_time
+                                
+                                	Reference time
+                                	**type**\: :py:class:`SysRefTime <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime>`
+                                
+                                .. attribute:: sys_drift
+                                
+                                	System Drift
+                                	**type**\: :py:class:`SysDrift <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift>`
+                                
+                                .. attribute:: is_ntp_enabled
+                                
+                                	Is NTP enabled
+                                	**type**\: bool
+                                
+                                .. attribute:: sys_dispersion
+                                
+                                	Peer dispersion
+                                	**type**\: str
+                                
+                                .. attribute:: sys_offset
+                                
+                                	Clock offset
+                                	**type**\: str
+                                
+                                .. attribute:: clock_period
+                                
+                                	Clock period in nanosecs
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: sys_leap
+                                
+                                	leap
+                                	**type**\: :py:class:`NtpLeapEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLeapEnum>`
+                                
+                                .. attribute:: sys_precision
+                                
+                                	Precision
+                                	**type**\: int
+                                
+                                	**range:** \-128..127
+                                
+                                .. attribute:: sys_stratum
+                                
+                                	Stratum
+                                	**type**\: int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: sys_ref_id
+                                
+                                	Reference clock ID
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: sys_root_delay
+                                
+                                	Root delay
+                                	**type**\: str
+                                
+                                .. attribute:: sys_root_dispersion
+                                
+                                	Root dispersion
+                                	**type**\: str
+                                
+                                .. attribute:: loop_filter_state
+                                
+                                	Loop Filter State
+                                	**type**\: :py:class:`NtpLoopFilterStateEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLoopFilterStateEnum>`
+                                
+                                .. attribute:: poll_interval
+                                
+                                	Peer poll interval
+                                	**type**\: int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: is_updated
+                                
+                                	Is clock updated
+                                	**type**\: :py:class:`ClockUpdateNodeEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.ClockUpdateNodeEnum>`
+                                
+                                .. attribute:: last_update
+                                
+                                	Last Update
+                                	**type**\: int
+                                
+                                	**range:** \-2147483648..2147483647
+                                
+                                
+
+                                """
+
+                                _prefix = 'ip-ntp-admin-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.sys_ref_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime()
+                                    self.sys_ref_time.parent = self
+                                    self.sys_drift = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift()
+                                    self.sys_drift.parent = self
+                                    self.is_ntp_enabled = None
+                                    self.sys_dispersion = None
+                                    self.sys_offset = None
+                                    self.clock_period = None
+                                    self.sys_leap = None
+                                    self.sys_precision = None
+                                    self.sys_stratum = None
+                                    self.sys_ref_id = None
+                                    self.sys_root_delay = None
+                                    self.sys_root_dispersion = None
+                                    self.loop_filter_state = None
+                                    self.poll_interval = None
+                                    self.is_updated = None
+                                    self.last_update = None
+
+
+                                class SysRefTime(object):
+                                    """
+                                    Reference time
+                                    
+                                    .. attribute:: sec
+                                    
+                                    	Second part in 64\-bit NTP timestamp
+                                    	**type**\: :py:class:`Sec <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec>`
+                                    
+                                    .. attribute:: frac_secs
+                                    
+                                    	Fractional part in 64\-bit NTP timestamp
+                                    	**type**\: :py:class:`FracSecs <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ip-ntp-admin-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec()
+                                        self.sec.parent = self
+                                        self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs()
+                                        self.frac_secs.parent = self
+
+
+                                    class Sec(object):
+                                        """
+                                        Second part in 64\-bit NTP timestamp
+                                        
+                                        .. attribute:: int
+                                        
+                                        	Integer format in NTP reference code
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ip-ntp-admin-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.int = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:sec'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.int is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                            return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec']['meta_info']
+
+
+                                    class FracSecs(object):
+                                        """
+                                        Fractional part in 64\-bit NTP timestamp
+                                        
+                                        .. attribute:: frac
+                                        
+                                        	Fractional format in NTP reference code
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ip-ntp-admin-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.frac = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:frac-secs'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.frac is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                            return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:sys-ref-time'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.sec is not None and self.sec._has_data():
+                                            return True
+
+                                        if self.frac_secs is not None and self.frac_secs._has_data():
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                        return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime']['meta_info']
+
+
+                                class SysDrift(object):
+                                    """
+                                    System Drift
+                                    
+                                    .. attribute:: sec
+                                    
+                                    	Second part in 64\-bit NTP timestamp
+                                    	**type**\: :py:class:`Sec <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec>`
+                                    
+                                    .. attribute:: frac_secs
+                                    
+                                    	Fractional part in 64\-bit NTP timestamp
+                                    	**type**\: :py:class:`FracSecs <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ip-ntp-admin-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec()
+                                        self.sec.parent = self
+                                        self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs()
+                                        self.frac_secs.parent = self
+
+
+                                    class Sec(object):
+                                        """
+                                        Second part in 64\-bit NTP timestamp
+                                        
+                                        .. attribute:: int
+                                        
+                                        	Integer format in NTP reference code
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ip-ntp-admin-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.int = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:sec'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.int is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                            return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec']['meta_info']
+
+
+                                    class FracSecs(object):
+                                        """
+                                        Fractional part in 64\-bit NTP timestamp
+                                        
+                                        .. attribute:: frac
+                                        
+                                        	Fractional format in NTP reference code
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ip-ntp-admin-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.frac = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:frac-secs'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.frac is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                            return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:sys-drift'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.sec is not None and self.sec._has_data():
+                                            return True
+
+                                        if self.frac_secs is not None and self.frac_secs._has_data():
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                        return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:status'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.sys_ref_time is not None and self.sys_ref_time._has_data():
+                                        return True
+
+                                    if self.sys_drift is not None and self.sys_drift._has_data():
+                                        return True
+
+                                    if self.is_ntp_enabled is not None:
+                                        return True
+
+                                    if self.sys_dispersion is not None:
+                                        return True
+
+                                    if self.sys_offset is not None:
+                                        return True
+
+                                    if self.clock_period is not None:
+                                        return True
+
+                                    if self.sys_leap is not None:
+                                        return True
+
+                                    if self.sys_precision is not None:
+                                        return True
+
+                                    if self.sys_stratum is not None:
+                                        return True
+
+                                    if self.sys_ref_id is not None:
+                                        return True
+
+                                    if self.sys_root_delay is not None:
+                                        return True
+
+                                    if self.sys_root_dispersion is not None:
+                                        return True
+
+                                    if self.loop_filter_state is not None:
+                                        return True
+
+                                    if self.poll_interval is not None:
+                                        return True
+
+                                    if self.is_updated is not None:
+                                        return True
+
+                                    if self.last_update is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                    return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status']['meta_info']
 
 
                             class Associations(object):
@@ -485,15 +979,15 @@ class Ntp(object):
                                 	Is NTP enabled
                                 	**type**\: bool
                                 
-                                .. attribute:: peer_summary_info
-                                
-                                	Peer info
-                                	**type**\: list of :py:class:`PeerSummaryInfo <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo>`
-                                
                                 .. attribute:: sys_leap
                                 
                                 	Leap
                                 	**type**\: :py:class:`NtpLeapEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLeapEnum>`
+                                
+                                .. attribute:: peer_summary_info
+                                
+                                	Peer info
+                                	**type**\: list of :py:class:`PeerSummaryInfo <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo>`
                                 
                                 
 
@@ -505,10 +999,10 @@ class Ntp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.is_ntp_enabled = None
+                                    self.sys_leap = None
                                     self.peer_summary_info = YList()
                                     self.peer_summary_info.parent = self
                                     self.peer_summary_info.name = 'peer_summary_info'
-                                    self.sys_leap = None
 
 
                                 class PeerSummaryInfo(object):
@@ -545,54 +1039,20 @@ class Ntp(object):
                                         """
                                         Common peer info
                                         
-                                        .. attribute:: address
-                                        
-                                        	Peer Address
-                                        	**type**\: str
-                                        
-                                        .. attribute:: delay
-                                        
-                                        	Peer delay
-                                        	**type**\: str
-                                        
-                                        .. attribute:: dispersion
-                                        
-                                        	Peer dispersion
-                                        	**type**\: str
-                                        
                                         .. attribute:: host_mode
                                         
                                         	Association mode with this peer
                                         	**type**\: :py:class:`NtpModeEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpModeEnum>`
-                                        
-                                        .. attribute:: host_poll
-                                        
-                                        	Host poll
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..255
                                         
                                         .. attribute:: is_configured
                                         
                                         	Is configured
                                         	**type**\: bool
                                         
-                                        .. attribute:: is_sys_peer
+                                        .. attribute:: address
                                         
-                                        	Indicates whether this is syspeer
-                                        	**type**\: bool
-                                        
-                                        .. attribute:: offset
-                                        
-                                        	Peer offset
+                                        	Peer Address
                                         	**type**\: str
-                                        
-                                        .. attribute:: reachability
-                                        
-                                        	Reachability
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..255
                                         
                                         .. attribute:: reference_id
                                         
@@ -601,10 +1061,19 @@ class Ntp(object):
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        .. attribute:: status
+                                        .. attribute:: host_poll
                                         
-                                        	Peer status
-                                        	**type**\: :py:class:`NtpPeerStatusEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpPeerStatusEnum>`
+                                        	Host poll
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..255
+                                        
+                                        .. attribute:: reachability
+                                        
+                                        	Reachability
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..255
                                         
                                         .. attribute:: stratum
                                         
@@ -612,6 +1081,31 @@ class Ntp(object):
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        .. attribute:: status
+                                        
+                                        	Peer status
+                                        	**type**\: :py:class:`NtpPeerStatusEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpPeerStatusEnum>`
+                                        
+                                        .. attribute:: delay
+                                        
+                                        	Peer delay
+                                        	**type**\: str
+                                        
+                                        .. attribute:: offset
+                                        
+                                        	Peer offset
+                                        	**type**\: str
+                                        
+                                        .. attribute:: dispersion
+                                        
+                                        	Peer dispersion
+                                        	**type**\: str
+                                        
+                                        .. attribute:: is_sys_peer
+                                        
+                                        	Indicates whether this is syspeer
+                                        	**type**\: bool
                                         
                                         
 
@@ -622,18 +1116,18 @@ class Ntp(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.address = None
-                                            self.delay = None
-                                            self.dispersion = None
                                             self.host_mode = None
-                                            self.host_poll = None
                                             self.is_configured = None
-                                            self.is_sys_peer = None
-                                            self.offset = None
-                                            self.reachability = None
+                                            self.address = None
                                             self.reference_id = None
-                                            self.status = None
+                                            self.host_poll = None
+                                            self.reachability = None
                                             self.stratum = None
+                                            self.status = None
+                                            self.delay = None
+                                            self.offset = None
+                                            self.dispersion = None
+                                            self.is_sys_peer = None
 
                                         @property
                                         def _common_path(self):
@@ -649,40 +1143,40 @@ class Ntp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.address is not None:
-                                                return True
-
-                                            if self.delay is not None:
-                                                return True
-
-                                            if self.dispersion is not None:
-                                                return True
-
                                             if self.host_mode is not None:
-                                                return True
-
-                                            if self.host_poll is not None:
                                                 return True
 
                                             if self.is_configured is not None:
                                                 return True
 
-                                            if self.is_sys_peer is not None:
-                                                return True
-
-                                            if self.offset is not None:
-                                                return True
-
-                                            if self.reachability is not None:
+                                            if self.address is not None:
                                                 return True
 
                                             if self.reference_id is not None:
                                                 return True
 
-                                            if self.status is not None:
+                                            if self.host_poll is not None:
+                                                return True
+
+                                            if self.reachability is not None:
                                                 return True
 
                                             if self.stratum is not None:
+                                                return True
+
+                                            if self.status is not None:
+                                                return True
+
+                                            if self.delay is not None:
+                                                return True
+
+                                            if self.offset is not None:
+                                                return True
+
+                                            if self.dispersion is not None:
+                                                return True
+
+                                            if self.is_sys_peer is not None:
                                                 return True
 
                                             return False
@@ -736,13 +1230,13 @@ class Ntp(object):
                                     if self.is_ntp_enabled is not None:
                                         return True
 
+                                    if self.sys_leap is not None:
+                                        return True
+
                                     if self.peer_summary_info is not None:
                                         for child_ref in self.peer_summary_info:
                                             if child_ref._has_data():
                                                 return True
-
-                                    if self.sys_leap is not None:
-                                        return True
 
                                     return False
 
@@ -761,15 +1255,15 @@ class Ntp(object):
                                 	Is NTP enabled
                                 	**type**\: bool
                                 
-                                .. attribute:: peer_detail_info
-                                
-                                	Peer info
-                                	**type**\: list of :py:class:`PeerDetailInfo <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo>`
-                                
                                 .. attribute:: sys_leap
                                 
                                 	Leap
                                 	**type**\: :py:class:`NtpLeapEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLeapEnum>`
+                                
+                                .. attribute:: peer_detail_info
+                                
+                                	Peer info
+                                	**type**\: list of :py:class:`PeerDetailInfo <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo>`
                                 
                                 
 
@@ -781,52 +1275,45 @@ class Ntp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.is_ntp_enabled = None
+                                    self.sys_leap = None
                                     self.peer_detail_info = YList()
                                     self.peer_detail_info.parent = self
                                     self.peer_detail_info.name = 'peer_detail_info'
-                                    self.sys_leap = None
 
 
                                 class PeerDetailInfo(object):
                                     """
                                     Peer info
                                     
-                                    .. attribute:: filter_detail
+                                    .. attribute:: peer_info_common
                                     
-                                    	Filter Details
-                                    	**type**\: list of :py:class:`FilterDetail <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.FilterDetail>`
+                                    	Common peer info
+                                    	**type**\: :py:class:`PeerInfoCommon <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon>`
                                     
-                                    .. attribute:: filter_index
+                                    .. attribute:: ref_time
                                     
-                                    	Index into filter shift register
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: is_authenticated
-                                    
-                                    	Is authenticated
-                                    	**type**\: bool
-                                    
-                                    .. attribute:: is_ref_clock
-                                    
-                                    	Is refclock
-                                    	**type**\: bool
-                                    
-                                    .. attribute:: leap
-                                    
-                                    	Leap
-                                    	**type**\: :py:class:`NtpLeapEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLeapEnum>`
+                                    	Reference time
+                                    	**type**\: :py:class:`RefTime <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime>`
                                     
                                     .. attribute:: originate_time
                                     
                                     	Originate timestamp
                                     	**type**\: :py:class:`OriginateTime <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime>`
                                     
-                                    .. attribute:: peer_info_common
+                                    .. attribute:: receive_time
                                     
-                                    	Common peer info
-                                    	**type**\: :py:class:`PeerInfoCommon <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon>`
+                                    	Receive timestamp
+                                    	**type**\: :py:class:`ReceiveTime <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime>`
+                                    
+                                    .. attribute:: transmit_time
+                                    
+                                    	Transmit timestamp
+                                    	**type**\: :py:class:`TransmitTime <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime>`
+                                    
+                                    .. attribute:: leap
+                                    
+                                    	Leap
+                                    	**type**\: :py:class:`NtpLeapEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLeapEnum>`
                                     
                                     .. attribute:: peer_mode
                                     
@@ -840,22 +1327,15 @@ class Ntp(object):
                                     
                                     	**range:** 0..255
                                     
-                                    .. attribute:: precision
+                                    .. attribute:: is_ref_clock
                                     
-                                    	Precision
-                                    	**type**\: int
+                                    	Is refclock
+                                    	**type**\: bool
                                     
-                                    	**range:** \-128..127
+                                    .. attribute:: is_authenticated
                                     
-                                    .. attribute:: receive_time
-                                    
-                                    	Receive timestamp
-                                    	**type**\: :py:class:`ReceiveTime <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime>`
-                                    
-                                    .. attribute:: ref_time
-                                    
-                                    	Reference time
-                                    	**type**\: :py:class:`RefTime <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime>`
+                                    	Is authenticated
+                                    	**type**\: bool
                                     
                                     .. attribute:: root_delay
                                     
@@ -872,10 +1352,12 @@ class Ntp(object):
                                     	Synch distance
                                     	**type**\: str
                                     
-                                    .. attribute:: transmit_time
+                                    .. attribute:: precision
                                     
-                                    	Transmit timestamp
-                                    	**type**\: :py:class:`TransmitTime <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime>`
+                                    	Precision
+                                    	**type**\: int
+                                    
+                                    	**range:** \-128..127
                                     
                                     .. attribute:: version
                                     
@@ -883,6 +1365,18 @@ class Ntp(object):
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    .. attribute:: filter_index
+                                    
+                                    	Index into filter shift register
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: filter_detail
+                                    
+                                    	Filter Details
+                                    	**type**\: list of :py:class:`FilterDetail <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.FilterDetail>`
                                     
                                     
 
@@ -893,297 +1387,50 @@ class Ntp(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.filter_detail = YList()
-                                        self.filter_detail.parent = self
-                                        self.filter_detail.name = 'filter_detail'
-                                        self.filter_index = None
-                                        self.is_authenticated = None
-                                        self.is_ref_clock = None
-                                        self.leap = None
-                                        self.originate_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime()
-                                        self.originate_time.parent = self
                                         self.peer_info_common = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon()
                                         self.peer_info_common.parent = self
-                                        self.peer_mode = None
-                                        self.poll_interval = None
-                                        self.precision = None
-                                        self.receive_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime()
-                                        self.receive_time.parent = self
                                         self.ref_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime()
                                         self.ref_time.parent = self
+                                        self.originate_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime()
+                                        self.originate_time.parent = self
+                                        self.receive_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime()
+                                        self.receive_time.parent = self
+                                        self.transmit_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime()
+                                        self.transmit_time.parent = self
+                                        self.leap = None
+                                        self.peer_mode = None
+                                        self.poll_interval = None
+                                        self.is_ref_clock = None
+                                        self.is_authenticated = None
                                         self.root_delay = None
                                         self.root_dispersion = None
                                         self.synch_distance = None
-                                        self.transmit_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime()
-                                        self.transmit_time.parent = self
+                                        self.precision = None
                                         self.version = None
-
-
-                                    class FilterDetail(object):
-                                        """
-                                        Filter Details
-                                        
-                                        .. attribute:: filter_delay
-                                        
-                                        	filter delay
-                                        	**type**\: str
-                                        
-                                        .. attribute:: filter_disp
-                                        
-                                        	filter disp
-                                        	**type**\: str
-                                        
-                                        .. attribute:: filter_offset
-                                        
-                                        	filter offset
-                                        	**type**\: str
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ip-ntp-admin-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.filter_delay = None
-                                            self.filter_disp = None
-                                            self.filter_offset = None
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:filter-detail'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return False
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.filter_delay is not None:
-                                                return True
-
-                                            if self.filter_disp is not None:
-                                                return True
-
-                                            if self.filter_offset is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
-                                            return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.FilterDetail']['meta_info']
-
-
-                                    class OriginateTime(object):
-                                        """
-                                        Originate timestamp
-                                        
-                                        .. attribute:: frac_secs
-                                        
-                                        	Fractional part in 64\-bit NTP timestamp
-                                        	**type**\: :py:class:`FracSecs <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs>`
-                                        
-                                        .. attribute:: sec
-                                        
-                                        	Second part in 64\-bit NTP timestamp
-                                        	**type**\: :py:class:`Sec <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec>`
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ip-ntp-admin-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs()
-                                            self.frac_secs.parent = self
-                                            self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec()
-                                            self.sec.parent = self
-
-
-                                        class FracSecs(object):
-                                            """
-                                            Fractional part in 64\-bit NTP timestamp
-                                            
-                                            .. attribute:: frac
-                                            
-                                            	Fractional format in NTP reference code
-                                            	**type**\: int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ip-ntp-admin-oper'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.frac = None
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:frac-secs'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return False
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.frac is not None:
-                                                    return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
-                                                return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs']['meta_info']
-
-
-                                        class Sec(object):
-                                            """
-                                            Second part in 64\-bit NTP timestamp
-                                            
-                                            .. attribute:: int
-                                            
-                                            	Integer format in NTP reference code
-                                            	**type**\: int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ip-ntp-admin-oper'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.int = None
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:sec'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return False
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.int is not None:
-                                                    return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
-                                                return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec']['meta_info']
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:originate-time'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return False
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.frac_secs is not None and self.frac_secs._has_data():
-                                                return True
-
-                                            if self.sec is not None and self.sec._has_data():
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
-                                            return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime']['meta_info']
+                                        self.filter_index = None
+                                        self.filter_detail = YList()
+                                        self.filter_detail.parent = self
+                                        self.filter_detail.name = 'filter_detail'
 
 
                                     class PeerInfoCommon(object):
                                         """
                                         Common peer info
                                         
-                                        .. attribute:: address
-                                        
-                                        	Peer Address
-                                        	**type**\: str
-                                        
-                                        .. attribute:: delay
-                                        
-                                        	Peer delay
-                                        	**type**\: str
-                                        
-                                        .. attribute:: dispersion
-                                        
-                                        	Peer dispersion
-                                        	**type**\: str
-                                        
                                         .. attribute:: host_mode
                                         
                                         	Association mode with this peer
                                         	**type**\: :py:class:`NtpModeEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpModeEnum>`
-                                        
-                                        .. attribute:: host_poll
-                                        
-                                        	Host poll
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..255
                                         
                                         .. attribute:: is_configured
                                         
                                         	Is configured
                                         	**type**\: bool
                                         
-                                        .. attribute:: is_sys_peer
+                                        .. attribute:: address
                                         
-                                        	Indicates whether this is syspeer
-                                        	**type**\: bool
-                                        
-                                        .. attribute:: offset
-                                        
-                                        	Peer offset
+                                        	Peer Address
                                         	**type**\: str
-                                        
-                                        .. attribute:: reachability
-                                        
-                                        	Reachability
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..255
                                         
                                         .. attribute:: reference_id
                                         
@@ -1192,10 +1439,19 @@ class Ntp(object):
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
-                                        .. attribute:: status
+                                        .. attribute:: host_poll
                                         
-                                        	Peer status
-                                        	**type**\: :py:class:`NtpPeerStatusEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpPeerStatusEnum>`
+                                        	Host poll
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..255
+                                        
+                                        .. attribute:: reachability
+                                        
+                                        	Reachability
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..255
                                         
                                         .. attribute:: stratum
                                         
@@ -1203,6 +1459,31 @@ class Ntp(object):
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        .. attribute:: status
+                                        
+                                        	Peer status
+                                        	**type**\: :py:class:`NtpPeerStatusEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpPeerStatusEnum>`
+                                        
+                                        .. attribute:: delay
+                                        
+                                        	Peer delay
+                                        	**type**\: str
+                                        
+                                        .. attribute:: offset
+                                        
+                                        	Peer offset
+                                        	**type**\: str
+                                        
+                                        .. attribute:: dispersion
+                                        
+                                        	Peer dispersion
+                                        	**type**\: str
+                                        
+                                        .. attribute:: is_sys_peer
+                                        
+                                        	Indicates whether this is syspeer
+                                        	**type**\: bool
                                         
                                         
 
@@ -1213,18 +1494,18 @@ class Ntp(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.address = None
-                                            self.delay = None
-                                            self.dispersion = None
                                             self.host_mode = None
-                                            self.host_poll = None
                                             self.is_configured = None
-                                            self.is_sys_peer = None
-                                            self.offset = None
-                                            self.reachability = None
+                                            self.address = None
                                             self.reference_id = None
-                                            self.status = None
+                                            self.host_poll = None
+                                            self.reachability = None
                                             self.stratum = None
+                                            self.status = None
+                                            self.delay = None
+                                            self.offset = None
+                                            self.dispersion = None
+                                            self.is_sys_peer = None
 
                                         @property
                                         def _common_path(self):
@@ -1240,40 +1521,40 @@ class Ntp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.address is not None:
-                                                return True
-
-                                            if self.delay is not None:
-                                                return True
-
-                                            if self.dispersion is not None:
-                                                return True
-
                                             if self.host_mode is not None:
-                                                return True
-
-                                            if self.host_poll is not None:
                                                 return True
 
                                             if self.is_configured is not None:
                                                 return True
 
-                                            if self.is_sys_peer is not None:
-                                                return True
-
-                                            if self.offset is not None:
-                                                return True
-
-                                            if self.reachability is not None:
+                                            if self.address is not None:
                                                 return True
 
                                             if self.reference_id is not None:
                                                 return True
 
-                                            if self.status is not None:
+                                            if self.host_poll is not None:
+                                                return True
+
+                                            if self.reachability is not None:
                                                 return True
 
                                             if self.stratum is not None:
+                                                return True
+
+                                            if self.status is not None:
+                                                return True
+
+                                            if self.delay is not None:
+                                                return True
+
+                                            if self.offset is not None:
+                                                return True
+
+                                            if self.dispersion is not None:
+                                                return True
+
+                                            if self.is_sys_peer is not None:
                                                 return True
 
                                             return False
@@ -1284,170 +1565,20 @@ class Ntp(object):
                                             return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon']['meta_info']
 
 
-                                    class ReceiveTime(object):
-                                        """
-                                        Receive timestamp
-                                        
-                                        .. attribute:: frac_secs
-                                        
-                                        	Fractional part in 64\-bit NTP timestamp
-                                        	**type**\: :py:class:`FracSecs <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs>`
-                                        
-                                        .. attribute:: sec
-                                        
-                                        	Second part in 64\-bit NTP timestamp
-                                        	**type**\: :py:class:`Sec <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec>`
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ip-ntp-admin-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs()
-                                            self.frac_secs.parent = self
-                                            self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec()
-                                            self.sec.parent = self
-
-
-                                        class FracSecs(object):
-                                            """
-                                            Fractional part in 64\-bit NTP timestamp
-                                            
-                                            .. attribute:: frac
-                                            
-                                            	Fractional format in NTP reference code
-                                            	**type**\: int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ip-ntp-admin-oper'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.frac = None
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:frac-secs'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return False
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.frac is not None:
-                                                    return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
-                                                return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs']['meta_info']
-
-
-                                        class Sec(object):
-                                            """
-                                            Second part in 64\-bit NTP timestamp
-                                            
-                                            .. attribute:: int
-                                            
-                                            	Integer format in NTP reference code
-                                            	**type**\: int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ip-ntp-admin-oper'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.int = None
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:sec'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return False
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.int is not None:
-                                                    return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
-                                                return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec']['meta_info']
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:receive-time'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return False
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.frac_secs is not None and self.frac_secs._has_data():
-                                                return True
-
-                                            if self.sec is not None and self.sec._has_data():
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
-                                            return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime']['meta_info']
-
-
                                     class RefTime(object):
                                         """
                                         Reference time
-                                        
-                                        .. attribute:: frac_secs
-                                        
-                                        	Fractional part in 64\-bit NTP timestamp
-                                        	**type**\: :py:class:`FracSecs <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs>`
                                         
                                         .. attribute:: sec
                                         
                                         	Second part in 64\-bit NTP timestamp
                                         	**type**\: :py:class:`Sec <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.Sec>`
                                         
+                                        .. attribute:: frac_secs
+                                        
+                                        	Fractional part in 64\-bit NTP timestamp
+                                        	**type**\: :py:class:`FracSecs <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs>`
+                                        
                                         
 
                                         """
@@ -1457,57 +1588,10 @@ class Ntp(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs()
-                                            self.frac_secs.parent = self
                                             self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.Sec()
                                             self.sec.parent = self
-
-
-                                        class FracSecs(object):
-                                            """
-                                            Fractional part in 64\-bit NTP timestamp
-                                            
-                                            .. attribute:: frac
-                                            
-                                            	Fractional format in NTP reference code
-                                            	**type**\: int
-                                            
-                                            	**range:** 0..4294967295
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ip-ntp-admin-oper'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.frac = None
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:frac-secs'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return False
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.frac is not None:
-                                                    return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
-                                                return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs']['meta_info']
+                                            self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs()
+                                            self.frac_secs.parent = self
 
 
                                         class Sec(object):
@@ -1556,6 +1640,53 @@ class Ntp(object):
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
                                                 return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.Sec']['meta_info']
 
+
+                                        class FracSecs(object):
+                                            """
+                                            Fractional part in 64\-bit NTP timestamp
+                                            
+                                            .. attribute:: frac
+                                            
+                                            	Fractional format in NTP reference code
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ip-ntp-admin-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.frac = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:frac-secs'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.frac is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                                return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs']['meta_info']
+
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
@@ -1570,10 +1701,10 @@ class Ntp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.frac_secs is not None and self.frac_secs._has_data():
+                                            if self.sec is not None and self.sec._has_data():
                                                 return True
 
-                                            if self.sec is not None and self.sec._has_data():
+                                            if self.frac_secs is not None and self.frac_secs._has_data():
                                                 return True
 
                                             return False
@@ -1584,19 +1715,19 @@ class Ntp(object):
                                             return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime']['meta_info']
 
 
-                                    class TransmitTime(object):
+                                    class OriginateTime(object):
                                         """
-                                        Transmit timestamp
-                                        
-                                        .. attribute:: frac_secs
-                                        
-                                        	Fractional part in 64\-bit NTP timestamp
-                                        	**type**\: :py:class:`FracSecs <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs>`
+                                        Originate timestamp
                                         
                                         .. attribute:: sec
                                         
                                         	Second part in 64\-bit NTP timestamp
-                                        	**type**\: :py:class:`Sec <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec>`
+                                        	**type**\: :py:class:`Sec <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec>`
+                                        
+                                        .. attribute:: frac_secs
+                                        
+                                        	Fractional part in 64\-bit NTP timestamp
+                                        	**type**\: :py:class:`FracSecs <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs>`
                                         
                                         
 
@@ -1607,10 +1738,57 @@ class Ntp(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs()
-                                            self.frac_secs.parent = self
-                                            self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec()
+                                            self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec()
                                             self.sec.parent = self
+                                            self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs()
+                                            self.frac_secs.parent = self
+
+
+                                        class Sec(object):
+                                            """
+                                            Second part in 64\-bit NTP timestamp
+                                            
+                                            .. attribute:: int
+                                            
+                                            	Integer format in NTP reference code
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ip-ntp-admin-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.int = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:sec'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.int is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                                return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec']['meta_info']
 
 
                                         class FracSecs(object):
@@ -1657,7 +1835,213 @@ class Ntp(object):
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
-                                                return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs']['meta_info']
+                                                return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:originate-time'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.sec is not None and self.sec._has_data():
+                                                return True
+
+                                            if self.frac_secs is not None and self.frac_secs._has_data():
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                            return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime']['meta_info']
+
+
+                                    class ReceiveTime(object):
+                                        """
+                                        Receive timestamp
+                                        
+                                        .. attribute:: sec
+                                        
+                                        	Second part in 64\-bit NTP timestamp
+                                        	**type**\: :py:class:`Sec <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec>`
+                                        
+                                        .. attribute:: frac_secs
+                                        
+                                        	Fractional part in 64\-bit NTP timestamp
+                                        	**type**\: :py:class:`FracSecs <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ip-ntp-admin-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec()
+                                            self.sec.parent = self
+                                            self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs()
+                                            self.frac_secs.parent = self
+
+
+                                        class Sec(object):
+                                            """
+                                            Second part in 64\-bit NTP timestamp
+                                            
+                                            .. attribute:: int
+                                            
+                                            	Integer format in NTP reference code
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ip-ntp-admin-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.int = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:sec'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.int is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                                return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec']['meta_info']
+
+
+                                        class FracSecs(object):
+                                            """
+                                            Fractional part in 64\-bit NTP timestamp
+                                            
+                                            .. attribute:: frac
+                                            
+                                            	Fractional format in NTP reference code
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ip-ntp-admin-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.frac = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:frac-secs'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.frac is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                                return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:receive-time'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.sec is not None and self.sec._has_data():
+                                                return True
+
+                                            if self.frac_secs is not None and self.frac_secs._has_data():
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                            return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime']['meta_info']
+
+
+                                    class TransmitTime(object):
+                                        """
+                                        Transmit timestamp
+                                        
+                                        .. attribute:: sec
+                                        
+                                        	Second part in 64\-bit NTP timestamp
+                                        	**type**\: :py:class:`Sec <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec>`
+                                        
+                                        .. attribute:: frac_secs
+                                        
+                                        	Fractional part in 64\-bit NTP timestamp
+                                        	**type**\: :py:class:`FracSecs <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ip-ntp-admin-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec()
+                                            self.sec.parent = self
+                                            self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs()
+                                            self.frac_secs.parent = self
 
 
                                         class Sec(object):
@@ -1706,6 +2090,53 @@ class Ntp(object):
                                                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
                                                 return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec']['meta_info']
 
+
+                                        class FracSecs(object):
+                                            """
+                                            Fractional part in 64\-bit NTP timestamp
+                                            
+                                            .. attribute:: frac
+                                            
+                                            	Fractional format in NTP reference code
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ip-ntp-admin-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.frac = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:frac-secs'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.frac is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                                return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs']['meta_info']
+
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
@@ -1720,10 +2151,10 @@ class Ntp(object):
                                         def _has_data(self):
                                             if not self.is_config():
                                                 return False
-                                            if self.frac_secs is not None and self.frac_secs._has_data():
+                                            if self.sec is not None and self.sec._has_data():
                                                 return True
 
-                                            if self.sec is not None and self.sec._has_data():
+                                            if self.frac_secs is not None and self.frac_secs._has_data():
                                                 return True
 
                                             return False
@@ -1732,6 +2163,69 @@ class Ntp(object):
                                         def _meta_info():
                                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
                                             return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime']['meta_info']
+
+
+                                    class FilterDetail(object):
+                                        """
+                                        Filter Details
+                                        
+                                        .. attribute:: filter_delay
+                                        
+                                        	filter delay
+                                        	**type**\: str
+                                        
+                                        .. attribute:: filter_offset
+                                        
+                                        	filter offset
+                                        	**type**\: str
+                                        
+                                        .. attribute:: filter_disp
+                                        
+                                        	filter disp
+                                        	**type**\: str
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ip-ntp-admin-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.filter_delay = None
+                                            self.filter_offset = None
+                                            self.filter_disp = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:filter-detail'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.filter_delay is not None:
+                                                return True
+
+                                            if self.filter_offset is not None:
+                                                return True
+
+                                            if self.filter_disp is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
+                                            return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.FilterDetail']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -1747,27 +2241,22 @@ class Ntp(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.filter_detail is not None:
-                                            for child_ref in self.filter_detail:
-                                                if child_ref._has_data():
-                                                    return True
-
-                                        if self.filter_index is not None:
+                                        if self.peer_info_common is not None and self.peer_info_common._has_data():
                                             return True
 
-                                        if self.is_authenticated is not None:
-                                            return True
-
-                                        if self.is_ref_clock is not None:
-                                            return True
-
-                                        if self.leap is not None:
+                                        if self.ref_time is not None and self.ref_time._has_data():
                                             return True
 
                                         if self.originate_time is not None and self.originate_time._has_data():
                                             return True
 
-                                        if self.peer_info_common is not None and self.peer_info_common._has_data():
+                                        if self.receive_time is not None and self.receive_time._has_data():
+                                            return True
+
+                                        if self.transmit_time is not None and self.transmit_time._has_data():
+                                            return True
+
+                                        if self.leap is not None:
                                             return True
 
                                         if self.peer_mode is not None:
@@ -1776,13 +2265,10 @@ class Ntp(object):
                                         if self.poll_interval is not None:
                                             return True
 
-                                        if self.precision is not None:
+                                        if self.is_ref_clock is not None:
                                             return True
 
-                                        if self.receive_time is not None and self.receive_time._has_data():
-                                            return True
-
-                                        if self.ref_time is not None and self.ref_time._has_data():
+                                        if self.is_authenticated is not None:
                                             return True
 
                                         if self.root_delay is not None:
@@ -1794,11 +2280,19 @@ class Ntp(object):
                                         if self.synch_distance is not None:
                                             return True
 
-                                        if self.transmit_time is not None and self.transmit_time._has_data():
+                                        if self.precision is not None:
                                             return True
 
                                         if self.version is not None:
                                             return True
+
+                                        if self.filter_index is not None:
+                                            return True
+
+                                        if self.filter_detail is not None:
+                                            for child_ref in self.filter_detail:
+                                                if child_ref._has_data():
+                                                    return True
 
                                         return False
 
@@ -1824,13 +2318,13 @@ class Ntp(object):
                                     if self.is_ntp_enabled is not None:
                                         return True
 
+                                    if self.sys_leap is not None:
+                                        return True
+
                                     if self.peer_detail_info is not None:
                                         for child_ref in self.peer_detail_info:
                                             if child_ref._has_data():
                                                 return True
-
-                                    if self.sys_leap is not None:
-                                        return True
 
                                     return False
 
@@ -1838,500 +2332,6 @@ class Ntp(object):
                                 def _meta_info():
                                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
                                     return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail']['meta_info']
-
-
-                            class Status(object):
-                                """
-                                Status of NTP peer(s)
-                                
-                                .. attribute:: clock_period
-                                
-                                	Clock period in nanosecs
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: is_ntp_enabled
-                                
-                                	Is NTP enabled
-                                	**type**\: bool
-                                
-                                .. attribute:: is_updated
-                                
-                                	Is clock updated
-                                	**type**\: :py:class:`ClockUpdateNodeEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.ClockUpdateNodeEnum>`
-                                
-                                .. attribute:: last_update
-                                
-                                	Last Update
-                                	**type**\: int
-                                
-                                	**range:** \-2147483648..2147483647
-                                
-                                .. attribute:: loop_filter_state
-                                
-                                	Loop Filter State
-                                	**type**\: :py:class:`NtpLoopFilterStateEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLoopFilterStateEnum>`
-                                
-                                .. attribute:: poll_interval
-                                
-                                	Peer poll interval
-                                	**type**\: int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: sys_dispersion
-                                
-                                	Peer dispersion
-                                	**type**\: str
-                                
-                                .. attribute:: sys_drift
-                                
-                                	System Drift
-                                	**type**\: :py:class:`SysDrift <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift>`
-                                
-                                .. attribute:: sys_leap
-                                
-                                	leap
-                                	**type**\: :py:class:`NtpLeapEnum <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLeapEnum>`
-                                
-                                .. attribute:: sys_offset
-                                
-                                	Clock offset
-                                	**type**\: str
-                                
-                                .. attribute:: sys_precision
-                                
-                                	Precision
-                                	**type**\: int
-                                
-                                	**range:** \-128..127
-                                
-                                .. attribute:: sys_ref_id
-                                
-                                	Reference clock ID
-                                	**type**\: str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: sys_ref_time
-                                
-                                	Reference time
-                                	**type**\: :py:class:`SysRefTime <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime>`
-                                
-                                .. attribute:: sys_root_delay
-                                
-                                	Root delay
-                                	**type**\: str
-                                
-                                .. attribute:: sys_root_dispersion
-                                
-                                	Root dispersion
-                                	**type**\: str
-                                
-                                .. attribute:: sys_stratum
-                                
-                                	Stratum
-                                	**type**\: int
-                                
-                                	**range:** 0..255
-                                
-                                
-
-                                """
-
-                                _prefix = 'ip-ntp-admin-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.clock_period = None
-                                    self.is_ntp_enabled = None
-                                    self.is_updated = None
-                                    self.last_update = None
-                                    self.loop_filter_state = None
-                                    self.poll_interval = None
-                                    self.sys_dispersion = None
-                                    self.sys_drift = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift()
-                                    self.sys_drift.parent = self
-                                    self.sys_leap = None
-                                    self.sys_offset = None
-                                    self.sys_precision = None
-                                    self.sys_ref_id = None
-                                    self.sys_ref_time = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime()
-                                    self.sys_ref_time.parent = self
-                                    self.sys_root_delay = None
-                                    self.sys_root_dispersion = None
-                                    self.sys_stratum = None
-
-
-                                class SysDrift(object):
-                                    """
-                                    System Drift
-                                    
-                                    .. attribute:: frac_secs
-                                    
-                                    	Fractional part in 64\-bit NTP timestamp
-                                    	**type**\: :py:class:`FracSecs <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs>`
-                                    
-                                    .. attribute:: sec
-                                    
-                                    	Second part in 64\-bit NTP timestamp
-                                    	**type**\: :py:class:`Sec <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ip-ntp-admin-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs()
-                                        self.frac_secs.parent = self
-                                        self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec()
-                                        self.sec.parent = self
-
-
-                                    class FracSecs(object):
-                                        """
-                                        Fractional part in 64\-bit NTP timestamp
-                                        
-                                        .. attribute:: frac
-                                        
-                                        	Fractional format in NTP reference code
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ip-ntp-admin-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.frac = None
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:frac-secs'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return False
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.frac is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
-                                            return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs']['meta_info']
-
-
-                                    class Sec(object):
-                                        """
-                                        Second part in 64\-bit NTP timestamp
-                                        
-                                        .. attribute:: int
-                                        
-                                        	Integer format in NTP reference code
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ip-ntp-admin-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.int = None
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:sec'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return False
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.int is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
-                                            return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec']['meta_info']
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:sys-drift'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.frac_secs is not None and self.frac_secs._has_data():
-                                            return True
-
-                                        if self.sec is not None and self.sec._has_data():
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
-                                        return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift']['meta_info']
-
-
-                                class SysRefTime(object):
-                                    """
-                                    Reference time
-                                    
-                                    .. attribute:: frac_secs
-                                    
-                                    	Fractional part in 64\-bit NTP timestamp
-                                    	**type**\: :py:class:`FracSecs <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs>`
-                                    
-                                    .. attribute:: sec
-                                    
-                                    	Second part in 64\-bit NTP timestamp
-                                    	**type**\: :py:class:`Sec <ydk.models.ip.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ip-ntp-admin-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.frac_secs = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs()
-                                        self.frac_secs.parent = self
-                                        self.sec = Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec()
-                                        self.sec.parent = self
-
-
-                                    class FracSecs(object):
-                                        """
-                                        Fractional part in 64\-bit NTP timestamp
-                                        
-                                        .. attribute:: frac
-                                        
-                                        	Fractional format in NTP reference code
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ip-ntp-admin-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.frac = None
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:frac-secs'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return False
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.frac is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
-                                            return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs']['meta_info']
-
-
-                                    class Sec(object):
-                                        """
-                                        Second part in 64\-bit NTP timestamp
-                                        
-                                        .. attribute:: int
-                                        
-                                        	Integer format in NTP reference code
-                                        	**type**\: int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ip-ntp-admin-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.int = None
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:sec'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return False
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.int is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
-                                            return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec']['meta_info']
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:sys-ref-time'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.frac_secs is not None and self.frac_secs._has_data():
-                                            return True
-
-                                        if self.sec is not None and self.sec._has_data():
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
-                                        return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-ntp-admin-oper:status'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.clock_period is not None:
-                                        return True
-
-                                    if self.is_ntp_enabled is not None:
-                                        return True
-
-                                    if self.is_updated is not None:
-                                        return True
-
-                                    if self.last_update is not None:
-                                        return True
-
-                                    if self.loop_filter_state is not None:
-                                        return True
-
-                                    if self.poll_interval is not None:
-                                        return True
-
-                                    if self.sys_dispersion is not None:
-                                        return True
-
-                                    if self.sys_drift is not None and self.sys_drift._has_data():
-                                        return True
-
-                                    if self.sys_leap is not None:
-                                        return True
-
-                                    if self.sys_offset is not None:
-                                        return True
-
-                                    if self.sys_precision is not None:
-                                        return True
-
-                                    if self.sys_ref_id is not None:
-                                        return True
-
-                                    if self.sys_ref_time is not None and self.sys_ref_time._has_data():
-                                        return True
-
-                                    if self.sys_root_delay is not None:
-                                        return True
-
-                                    if self.sys_root_dispersion is not None:
-                                        return True
-
-                                    if self.sys_stratum is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ip._meta import _Cisco_IOS_XR_ip_ntp_admin_oper as meta
-                                    return meta._meta_table['Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -2352,13 +2352,13 @@ class Ntp(object):
                                 if self.number is not None:
                                     return True
 
+                                if self.status is not None and self.status._has_data():
+                                    return True
+
                                 if self.associations is not None and self.associations._has_data():
                                     return True
 
                                 if self.associations_detail is not None and self.associations_detail._has_data():
-                                    return True
-
-                                if self.status is not None and self.status._has_data():
                                     return True
 
                                 return False

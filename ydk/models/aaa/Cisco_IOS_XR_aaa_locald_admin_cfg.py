@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -73,10 +73,15 @@ class Aaa(object):
             """
             Admin Username
             
-            .. attribute:: name
+            .. attribute:: name  <key>
             
             	Username
             	**type**\: str
+            
+            .. attribute:: usergroup_under_usernames
+            
+            	Specify the usergroup to which this admin user belongs
+            	**type**\: :py:class:`UsergroupUnderUsernames <ydk.models.aaa.Cisco_IOS_XR_aaa_locald_admin_cfg.Aaa.Usernames.Username.UsergroupUnderUsernames>`
             
             .. attribute:: secret
             
@@ -84,11 +89,6 @@ class Aaa(object):
             	**type**\: str
             
             	**pattern:** (!.+)\|([^!].+)
-            
-            .. attribute:: usergroup_under_usernames
-            
-            	Specify the usergroup to which this admin user belongs
-            	**type**\: :py:class:`UsergroupUnderUsernames <ydk.models.aaa.Cisco_IOS_XR_aaa_locald_admin_cfg.Aaa.Usernames.Username.UsergroupUnderUsernames>`
             
             
 
@@ -100,9 +100,9 @@ class Aaa(object):
             def __init__(self):
                 self.parent = None
                 self.name = None
-                self.secret = None
                 self.usergroup_under_usernames = Aaa.Usernames.Username.UsergroupUnderUsernames()
                 self.usergroup_under_usernames.parent = self
+                self.secret = None
 
 
             class UsergroupUnderUsernames(object):
@@ -133,7 +133,7 @@ class Aaa(object):
                     """
                     Name of the usergroup
                     
-                    .. attribute:: name
+                    .. attribute:: name  <key>
                     
                     	Name of the usergroup
                     	**type**\: str
@@ -220,10 +220,10 @@ class Aaa(object):
                 if self.name is not None:
                     return True
 
-                if self.secret is not None:
+                if self.usergroup_under_usernames is not None and self.usergroup_under_usernames._has_data():
                     return True
 
-                if self.usergroup_under_usernames is not None and self.usergroup_under_usernames._has_data():
+                if self.secret is not None:
                     return True
 
                 return False

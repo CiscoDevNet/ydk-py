@@ -19,8 +19,9 @@
    
 """
 from ydk.errors import YPYDataValidationError
-from ydk.types import YList, READ, DELETE
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST, REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
+from ydk.types import YList, READ, DELETE, YListItem, YLeafList
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST, \
+    REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 from .service import Service
 
 
@@ -29,15 +30,38 @@ class MetaService(Service):
 
     @classmethod
     def normalize_meta(cls, capabilities, entity):
+        """ Get meta information from entity._meta_info(), modify and inject i_meta attribute back to entity.
+
+            Args:
+                cls: First argument for class method
+                capabilities: List of capabilities get from provider
+                entity: An instance of YDK object
+
+            Returns:
+                entity: An instance of YDK object
+
+            Raises:
+                `YPYDataValidationError <ydk.errors.html#ydk.errors.YPYDataValidationError>`_ if try to access an unsupported feature.
+
+        """
         deviation_tables = MetaService.get_active_deviation_tables(capabilities, entity)
         MetaService.inject_imeta(entity, deviation_tables)
         return entity
 
     @classmethod
     def get_active_deviation_tables(cls, capabilities, entity):
-        """ Return active deviation tables """
-        active_dmodule_names = get_active_deviation_module_names(capabilities, entity)
+        """ Return active deviation tables
 
+            Args:
+                cls: First argument for class method
+                capabilities: List of capabilities get from provider
+                enttiy: An instance of YDk object
+
+            Returns:
+                deviation_tables: A dictionary for deviation tables
+
+        """
+        active_dmodule_names = get_active_deviation_module_names(capabilities, entity)
         deviation_tables = {}
         active_pmodule_names = [name.replace('-', '_') for name in active_dmodule_names]
         for pname in active_pmodule_names:
@@ -50,19 +74,39 @@ class MetaService(Service):
 
     @classmethod
     def inject_imeta(cls, entity, deviation_tables):
-        if len(deviation_tables) == 0:
-            inject_imeta_helper(entity, deviation_tables)
+        """ Inject i_meta to entity using existing deviation table
+
+            Args:
+                cls: First argument for class method
+                deviation_tables: A dictionary of existing deviation tables
+
+        """
+        if isinstance(entity, YList) or isinstance(entity, YLeafList):
+            entity = entity.parent
+            MetaService.inject_imeta(entity, deviation_tables)
         else:
-            for deviation_table in deviation_tables.values():
-                inject_imeta_helper(entity, deviation_table)
+            if len(deviation_tables) == 0:
+                inject_imeta_helper(entity, deviation_tables)
+            else:
+                for deviation_table in deviation_tables.values():
+                    inject_imeta_helper(entity, deviation_table)
+
+    # inject meta preamble
 
 
 
 def get_active_deviation_module_names(capabilities, entity):
     """ Return active deviation module names """
-
-    entity_module_name = entity._meta_info().module_name
+    # entity could be a list
     active_dmodule_names = []
+    if isinstance(entity, YList) or isinstance(entity, YLeafList) or isinstance(entity, YListItem):
+        if entity and hasattr(entity, '_meta_info'):
+            entity_module_name = entity[0]._meta_info().module_name
+        else:
+            return active_dmodule_names
+    else:
+        entity_module_name = entity._meta_info().module_name
+
 
     def parse_uri(uri):
         if "?" in uri:
@@ -97,7 +141,7 @@ def modify_member_meta(full_name, deviation_table, member):
     for key, val in key_vals:
         if key == 'config':
             # ignore config change
-            raise YPYDataValidationError
+            raise YPYDataValidationError("Ignore config change at the moment")
         if key == 'type' and deviation_typ == 'replace':
             # should only appear once per deviation
             member = val
@@ -106,17 +150,26 @@ def modify_member_meta(full_name, deviation_table, member):
             try:
                 setattr(member, '_%s' % key, val)
             except:
-                raise YPYDataValidationError
-        else:
+                raise YPYDataValidationError(
+                    "Key {} not found in {}".format(member.presentation_name))
+        elif key != 'default':
+            # TODO: other keyword not necessary to modify in client side
             try:
                 delattr(member, '_%s' % key)
             except:
-                raise YPYDataValidationError
+                raise YPYDataValidationError(
+                    "Key {} not found in {}".format(member.presentation_name))
     return member
 
 
 def inject_imeta_helper(entity, deviation_table, parent=None):
     """ Inject i_meta field to entity """
+    # leaflist could be a lsit a primitive types
+    if isinstance(entity, YListItem):
+        entity = entity.item
+        if not hasattr(entity, '_meta_info'):
+            return
+
     if not hasattr(entity, 'i_meta'):
         meta = entity._meta_info()
         new_meta = copy_meta(meta)
@@ -142,8 +195,7 @@ def inject_imeta_helper(entity, deviation_table, parent=None):
                     isinstance(value, READ) or isinstance(value, DELETE):
                     pass
                 else:
-                    # attempt to configure not supported node
-                    raise YPYDataValidationError
+                    raise YPYDataValidationError("Attempt to configure not supported node")
         else:
             new_member = member
         if new_member is not None:

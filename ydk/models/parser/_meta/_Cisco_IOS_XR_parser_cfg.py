@@ -7,89 +7,26 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'Parser.Alias.Alls.All' : {
-        'meta_info' : _MetaInfoClass('Parser.Alias.Alls.All',
+    'Parser.Indentation' : {
+        'meta_info' : _MetaInfoClass('Parser.Indentation',
             False, 
             [
-            _MetaInfoClassMember('identifier', ATTRIBUTE, 'str' , None, None, 
-                [(0, 30)], [], 
-                '''                Alias name
-                ''',
-                'identifier',
-                'Cisco-IOS-XR-parser-cfg', True),
-            _MetaInfoClassMember('identifier-xr', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('indentation-disable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                The actual command
+                '''                disable the indentation
                 ''',
-                'identifier_xr',
+                'indentation_disable',
                 'Cisco-IOS-XR-parser-cfg', False),
             ],
             'Cisco-IOS-XR-parser-cfg',
-            'all',
-            _yang_ns._namespaces['Cisco-IOS-XR-parser-cfg'],
-        'ydk.models.parser.Cisco_IOS_XR_parser_cfg'
-        ),
-    },
-    'Parser.Alias.Alls' : {
-        'meta_info' : _MetaInfoClass('Parser.Alias.Alls',
-            False, 
-            [
-            _MetaInfoClassMember('all', REFERENCE_LIST, 'All' , 'ydk.models.parser.Cisco_IOS_XR_parser_cfg', 'Parser.Alias.Alls.All', 
-                [], [], 
-                '''                Alias name to command mapping
-                ''',
-                'all',
-                'Cisco-IOS-XR-parser-cfg', False),
-            ],
-            'Cisco-IOS-XR-parser-cfg',
-            'alls',
-            _yang_ns._namespaces['Cisco-IOS-XR-parser-cfg'],
-        'ydk.models.parser.Cisco_IOS_XR_parser_cfg'
-        ),
-    },
-    'Parser.Alias.Configurations.Configuration' : {
-        'meta_info' : _MetaInfoClass('Parser.Alias.Configurations.Configuration',
-            False, 
-            [
-            _MetaInfoClassMember('identifier', ATTRIBUTE, 'str' , None, None, 
-                [(0, 30)], [], 
-                '''                Configuration alias name
-                ''',
-                'identifier',
-                'Cisco-IOS-XR-parser-cfg', True),
-            _MetaInfoClassMember('identifier-xr', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Aliased config command
-                ''',
-                'identifier_xr',
-                'Cisco-IOS-XR-parser-cfg', False),
-            ],
-            'Cisco-IOS-XR-parser-cfg',
-            'configuration',
-            _yang_ns._namespaces['Cisco-IOS-XR-parser-cfg'],
-        'ydk.models.parser.Cisco_IOS_XR_parser_cfg'
-        ),
-    },
-    'Parser.Alias.Configurations' : {
-        'meta_info' : _MetaInfoClass('Parser.Alias.Configurations',
-            False, 
-            [
-            _MetaInfoClassMember('configuration', REFERENCE_LIST, 'Configuration' , 'ydk.models.parser.Cisco_IOS_XR_parser_cfg', 'Parser.Alias.Configurations.Configuration', 
-                [], [], 
-                '''                Configuration Alias name
-                ''',
-                'configuration',
-                'Cisco-IOS-XR-parser-cfg', False),
-            ],
-            'Cisco-IOS-XR-parser-cfg',
-            'configurations',
+            'indentation',
             _yang_ns._namespaces['Cisco-IOS-XR-parser-cfg'],
         'ydk.models.parser.Cisco_IOS_XR_parser_cfg'
         ),
@@ -134,15 +71,95 @@ _meta_table = {
         'ydk.models.parser.Cisco_IOS_XR_parser_cfg'
         ),
     },
+    'Parser.Alias.Configurations.Configuration' : {
+        'meta_info' : _MetaInfoClass('Parser.Alias.Configurations.Configuration',
+            False, 
+            [
+            _MetaInfoClassMember('identifier', ATTRIBUTE, 'str' , None, None, 
+                [(0, 30)], [], 
+                '''                Configuration alias name
+                ''',
+                'identifier',
+                'Cisco-IOS-XR-parser-cfg', True),
+            _MetaInfoClassMember('identifier-xr', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Aliased config command
+                ''',
+                'identifier_xr',
+                'Cisco-IOS-XR-parser-cfg', False),
+            ],
+            'Cisco-IOS-XR-parser-cfg',
+            'configuration',
+            _yang_ns._namespaces['Cisco-IOS-XR-parser-cfg'],
+        'ydk.models.parser.Cisco_IOS_XR_parser_cfg'
+        ),
+    },
+    'Parser.Alias.Configurations' : {
+        'meta_info' : _MetaInfoClass('Parser.Alias.Configurations',
+            False, 
+            [
+            _MetaInfoClassMember('configuration', REFERENCE_LIST, 'Configuration' , 'ydk.models.parser.Cisco_IOS_XR_parser_cfg', 'Parser.Alias.Configurations.Configuration', 
+                [], [], 
+                '''                Configuration Alias name
+                ''',
+                'configuration',
+                'Cisco-IOS-XR-parser-cfg', False),
+            ],
+            'Cisco-IOS-XR-parser-cfg',
+            'configurations',
+            _yang_ns._namespaces['Cisco-IOS-XR-parser-cfg'],
+        'ydk.models.parser.Cisco_IOS_XR_parser_cfg'
+        ),
+    },
+    'Parser.Alias.Alls.All' : {
+        'meta_info' : _MetaInfoClass('Parser.Alias.Alls.All',
+            False, 
+            [
+            _MetaInfoClassMember('identifier', ATTRIBUTE, 'str' , None, None, 
+                [(0, 30)], [], 
+                '''                Alias name
+                ''',
+                'identifier',
+                'Cisco-IOS-XR-parser-cfg', True),
+            _MetaInfoClassMember('identifier-xr', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                The actual command
+                ''',
+                'identifier_xr',
+                'Cisco-IOS-XR-parser-cfg', False),
+            ],
+            'Cisco-IOS-XR-parser-cfg',
+            'all',
+            _yang_ns._namespaces['Cisco-IOS-XR-parser-cfg'],
+        'ydk.models.parser.Cisco_IOS_XR_parser_cfg'
+        ),
+    },
+    'Parser.Alias.Alls' : {
+        'meta_info' : _MetaInfoClass('Parser.Alias.Alls',
+            False, 
+            [
+            _MetaInfoClassMember('all', REFERENCE_LIST, 'All' , 'ydk.models.parser.Cisco_IOS_XR_parser_cfg', 'Parser.Alias.Alls.All', 
+                [], [], 
+                '''                Alias name to command mapping
+                ''',
+                'all',
+                'Cisco-IOS-XR-parser-cfg', False),
+            ],
+            'Cisco-IOS-XR-parser-cfg',
+            'alls',
+            _yang_ns._namespaces['Cisco-IOS-XR-parser-cfg'],
+        'ydk.models.parser.Cisco_IOS_XR_parser_cfg'
+        ),
+    },
     'Parser.Alias' : {
         'meta_info' : _MetaInfoClass('Parser.Alias',
             False, 
             [
-            _MetaInfoClassMember('alls', REFERENCE_CLASS, 'Alls' , 'ydk.models.parser.Cisco_IOS_XR_parser_cfg', 'Parser.Alias.Alls', 
+            _MetaInfoClassMember('execs', REFERENCE_CLASS, 'Execs' , 'ydk.models.parser.Cisco_IOS_XR_parser_cfg', 'Parser.Alias.Execs', 
                 [], [], 
-                '''                Table of all aliases configured
+                '''                Exec command alias
                 ''',
-                'alls',
+                'execs',
                 'Cisco-IOS-XR-parser-cfg', False),
             _MetaInfoClassMember('configurations', REFERENCE_CLASS, 'Configurations' , 'ydk.models.parser.Cisco_IOS_XR_parser_cfg', 'Parser.Alias.Configurations', 
                 [], [], 
@@ -150,15 +167,32 @@ _meta_table = {
                 ''',
                 'configurations',
                 'Cisco-IOS-XR-parser-cfg', False),
-            _MetaInfoClassMember('execs', REFERENCE_CLASS, 'Execs' , 'ydk.models.parser.Cisco_IOS_XR_parser_cfg', 'Parser.Alias.Execs', 
+            _MetaInfoClassMember('alls', REFERENCE_CLASS, 'Alls' , 'ydk.models.parser.Cisco_IOS_XR_parser_cfg', 'Parser.Alias.Alls', 
                 [], [], 
-                '''                Exec command alias
+                '''                Table of all aliases configured
                 ''',
-                'execs',
+                'alls',
                 'Cisco-IOS-XR-parser-cfg', False),
             ],
             'Cisco-IOS-XR-parser-cfg',
             'alias',
+            _yang_ns._namespaces['Cisco-IOS-XR-parser-cfg'],
+        'ydk.models.parser.Cisco_IOS_XR_parser_cfg'
+        ),
+    },
+    'Parser.History' : {
+        'meta_info' : _MetaInfoClass('Parser.History',
+            False, 
+            [
+            _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
+                [(1000, 5000)], [], 
+                '''                maximum number of commands in history
+                ''',
+                'size',
+                'Cisco-IOS-XR-parser-cfg', False),
+            ],
+            'Cisco-IOS-XR-parser-cfg',
+            'history',
             _yang_ns._namespaces['Cisco-IOS-XR-parser-cfg'],
         'ydk.models.parser.Cisco_IOS_XR_parser_cfg'
         ),
@@ -197,40 +231,6 @@ _meta_table = {
         'ydk.models.parser.Cisco_IOS_XR_parser_cfg'
         ),
     },
-    'Parser.History' : {
-        'meta_info' : _MetaInfoClass('Parser.History',
-            False, 
-            [
-            _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(1000, 5000)], [], 
-                '''                maximum number of commands in history
-                ''',
-                'size',
-                'Cisco-IOS-XR-parser-cfg', False),
-            ],
-            'Cisco-IOS-XR-parser-cfg',
-            'history',
-            _yang_ns._namespaces['Cisco-IOS-XR-parser-cfg'],
-        'ydk.models.parser.Cisco_IOS_XR_parser_cfg'
-        ),
-    },
-    'Parser.Indentation' : {
-        'meta_info' : _MetaInfoClass('Parser.Indentation',
-            False, 
-            [
-            _MetaInfoClassMember('indentation-disable', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                disable the indentation
-                ''',
-                'indentation_disable',
-                'Cisco-IOS-XR-parser-cfg', False),
-            ],
-            'Cisco-IOS-XR-parser-cfg',
-            'indentation',
-            _yang_ns._namespaces['Cisco-IOS-XR-parser-cfg'],
-        'ydk.models.parser.Cisco_IOS_XR_parser_cfg'
-        ),
-    },
     'Parser.SubmodeExit' : {
         'meta_info' : _MetaInfoClass('Parser.SubmodeExit',
             False, 
@@ -252,17 +252,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Parser',
             False, 
             [
+            _MetaInfoClassMember('indentation', REFERENCE_CLASS, 'Indentation' , 'ydk.models.parser.Cisco_IOS_XR_parser_cfg', 'Parser.Indentation', 
+                [], [], 
+                '''                indentation tracking
+                ''',
+                'indentation',
+                'Cisco-IOS-XR-parser-cfg', False),
             _MetaInfoClassMember('alias', REFERENCE_CLASS, 'Alias' , 'ydk.models.parser.Cisco_IOS_XR_parser_cfg', 'Parser.Alias', 
                 [], [], 
                 '''                Alias for command mapping
                 ''',
                 'alias',
-                'Cisco-IOS-XR-parser-cfg', False),
-            _MetaInfoClassMember('configuration', REFERENCE_CLASS, 'Configuration' , 'ydk.models.parser.Cisco_IOS_XR_parser_cfg', 'Parser.Configuration', 
-                [], [], 
-                '''                cli configuration services
-                ''',
-                'configuration',
                 'Cisco-IOS-XR-parser-cfg', False),
             _MetaInfoClassMember('history', REFERENCE_CLASS, 'History' , 'ydk.models.parser.Cisco_IOS_XR_parser_cfg', 'Parser.History', 
                 [], [], 
@@ -270,11 +270,11 @@ _meta_table = {
                 ''',
                 'history',
                 'Cisco-IOS-XR-parser-cfg', False),
-            _MetaInfoClassMember('indentation', REFERENCE_CLASS, 'Indentation' , 'ydk.models.parser.Cisco_IOS_XR_parser_cfg', 'Parser.Indentation', 
+            _MetaInfoClassMember('configuration', REFERENCE_CLASS, 'Configuration' , 'ydk.models.parser.Cisco_IOS_XR_parser_cfg', 'Parser.Configuration', 
                 [], [], 
-                '''                indentation tracking
+                '''                cli configuration services
                 ''',
-                'indentation',
+                'configuration',
                 'Cisco-IOS-XR-parser-cfg', False),
             _MetaInfoClassMember('submode-exit', REFERENCE_CLASS, 'SubmodeExit' , 'ydk.models.parser.Cisco_IOS_XR_parser_cfg', 'Parser.SubmodeExit', 
                 [], [], 
@@ -291,15 +291,15 @@ _meta_table = {
         ),
     },
 }
-_meta_table['Parser.Alias.Alls.All']['meta_info'].parent =_meta_table['Parser.Alias.Alls']['meta_info']
-_meta_table['Parser.Alias.Configurations.Configuration']['meta_info'].parent =_meta_table['Parser.Alias.Configurations']['meta_info']
 _meta_table['Parser.Alias.Execs.Exec']['meta_info'].parent =_meta_table['Parser.Alias.Execs']['meta_info']
-_meta_table['Parser.Alias.Alls']['meta_info'].parent =_meta_table['Parser.Alias']['meta_info']
-_meta_table['Parser.Alias.Configurations']['meta_info'].parent =_meta_table['Parser.Alias']['meta_info']
+_meta_table['Parser.Alias.Configurations.Configuration']['meta_info'].parent =_meta_table['Parser.Alias.Configurations']['meta_info']
+_meta_table['Parser.Alias.Alls.All']['meta_info'].parent =_meta_table['Parser.Alias.Alls']['meta_info']
 _meta_table['Parser.Alias.Execs']['meta_info'].parent =_meta_table['Parser.Alias']['meta_info']
+_meta_table['Parser.Alias.Configurations']['meta_info'].parent =_meta_table['Parser.Alias']['meta_info']
+_meta_table['Parser.Alias.Alls']['meta_info'].parent =_meta_table['Parser.Alias']['meta_info']
 _meta_table['Parser.Configuration.Disable']['meta_info'].parent =_meta_table['Parser.Configuration']['meta_info']
-_meta_table['Parser.Alias']['meta_info'].parent =_meta_table['Parser']['meta_info']
-_meta_table['Parser.Configuration']['meta_info'].parent =_meta_table['Parser']['meta_info']
-_meta_table['Parser.History']['meta_info'].parent =_meta_table['Parser']['meta_info']
 _meta_table['Parser.Indentation']['meta_info'].parent =_meta_table['Parser']['meta_info']
+_meta_table['Parser.Alias']['meta_info'].parent =_meta_table['Parser']['meta_info']
+_meta_table['Parser.History']['meta_info'].parent =_meta_table['Parser']['meta_info']
+_meta_table['Parser.Configuration']['meta_info'].parent =_meta_table['Parser']['meta_info']
 _meta_table['Parser.SubmodeExit']['meta_info'].parent =_meta_table['Parser']['meta_info']

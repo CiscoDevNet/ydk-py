@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -51,7 +51,7 @@ class FileSystem(object):
         """
         Node ID
         
-        .. attribute:: node_name
+        .. attribute:: node_name  <key>
         
         	Node name
         	**type**\: str
@@ -82,9 +82,9 @@ class FileSystem(object):
             """
             Available file systems
             
-            .. attribute:: flags
+            .. attribute:: size
             
-            	Flags of file system
+            	Size of the file system in bytes
             	**type**\: str
             
             .. attribute:: free
@@ -92,19 +92,19 @@ class FileSystem(object):
             	Free space in the file system in bytes
             	**type**\: str
             
-            .. attribute:: prefixes
-            
-            	Prefixes of file system
-            	**type**\: str
-            
-            .. attribute:: size
-            
-            	Size of the file system in bytes
-            	**type**\: str
-            
             .. attribute:: type
             
             	Type of file system
+            	**type**\: str
+            
+            .. attribute:: flags
+            
+            	Flags of file system
+            	**type**\: str
+            
+            .. attribute:: prefixes
+            
+            	Prefixes of file system
             	**type**\: str
             
             
@@ -116,11 +116,11 @@ class FileSystem(object):
 
             def __init__(self):
                 self.parent = None
-                self.flags = None
-                self.free = None
-                self.prefixes = None
                 self.size = None
+                self.free = None
                 self.type = None
+                self.flags = None
+                self.prefixes = None
 
             @property
             def _common_path(self):
@@ -136,19 +136,19 @@ class FileSystem(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.flags is not None:
+                if self.size is not None:
                     return True
 
                 if self.free is not None:
                     return True
 
-                if self.prefixes is not None:
-                    return True
-
-                if self.size is not None:
-                    return True
-
                 if self.type is not None:
+                    return True
+
+                if self.flags is not None:
+                    return True
+
+                if self.prefixes is not None:
                     return True
 
                 return False

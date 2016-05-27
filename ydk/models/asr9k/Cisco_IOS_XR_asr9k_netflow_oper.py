@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -197,17 +197,17 @@ class NetFlow(object):
                 """
                 Flow exporter map information
                 
-                .. attribute:: exporter_name
+                .. attribute:: exporter_name  <key>
                 
                 	Exporter name
                 	**type**\: str
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
-                .. attribute:: collector
+                .. attribute:: version
                 
-                	Export collector array
-                	**type**\: list of :py:class:`Collector <ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Collector>`
+                	Export version data
+                	**type**\: :py:class:`Version <ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version>`
                 
                 .. attribute:: id
                 
@@ -221,10 +221,10 @@ class NetFlow(object):
                 	Name of the flow exporter map
                 	**type**\: str
                 
-                .. attribute:: version
+                .. attribute:: collector
                 
-                	Export version data
-                	**type**\: :py:class:`Version <ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version>`
+                	Export collector array
+                	**type**\: list of :py:class:`Collector <ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Collector>`
                 
                 
 
@@ -236,13 +236,282 @@ class NetFlow(object):
                 def __init__(self):
                     self.parent = None
                     self.exporter_name = None
+                    self.version = NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version()
+                    self.version.parent = self
+                    self.id = None
+                    self.name = None
                     self.collector = YList()
                     self.collector.parent = self
                     self.collector.name = 'collector'
-                    self.id = None
-                    self.name = None
-                    self.version = NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version()
-                    self.version.parent = self
+
+
+                class Version(object):
+                    """
+                    Export version data
+                    
+                    .. attribute:: version9
+                    
+                    	version9
+                    	**type**\: :py:class:`Version9 <ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Version9>`
+                    
+                    .. attribute:: ipfix
+                    
+                    	ipfix
+                    	**type**\: :py:class:`Ipfix <ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Ipfix>`
+                    
+                    .. attribute:: version
+                    
+                    	version
+                    	**type**\: :py:class:`NfmgrFemEdmExpVerEnum <ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper.NfmgrFemEdmExpVerEnum>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'asr9k-netflow-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.version9 = NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Version9()
+                        self.version9.parent = self
+                        self.ipfix = NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Ipfix()
+                        self.ipfix.parent = self
+                        self.version = None
+
+
+                    class Version9(object):
+                        """
+                        version9
+                        
+                        .. attribute:: sampler_table_export_timeout
+                        
+                        	Sampler table export timeout in seconds
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: interface_table_export_timeout
+                        
+                        	Interface table export timeout in seconds
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: vrf_table_export_timeout
+                        
+                        	VRF table export timeout in seconds
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: options_template_export_timeout
+                        
+                        	Options template export timeout in seconds
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: data_template_export_timeout
+                        
+                        	Data template export timeout in seconds
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: common_template_export_timeout
+                        
+                        	Common template export timeout in seconds
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'asr9k-netflow-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.sampler_table_export_timeout = None
+                            self.interface_table_export_timeout = None
+                            self.vrf_table_export_timeout = None
+                            self.options_template_export_timeout = None
+                            self.data_template_export_timeout = None
+                            self.common_template_export_timeout = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-asr9k-netflow-oper:version9'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.sampler_table_export_timeout is not None:
+                                return True
+
+                            if self.interface_table_export_timeout is not None:
+                                return True
+
+                            if self.vrf_table_export_timeout is not None:
+                                return True
+
+                            if self.options_template_export_timeout is not None:
+                                return True
+
+                            if self.data_template_export_timeout is not None:
+                                return True
+
+                            if self.common_template_export_timeout is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.asr9k._meta import _Cisco_IOS_XR_asr9k_netflow_oper as meta
+                            return meta._meta_table['NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Version9']['meta_info']
+
+
+                    class Ipfix(object):
+                        """
+                        ipfix
+                        
+                        .. attribute:: sampler_table_export_timeout
+                        
+                        	Sampler table export timeout in seconds
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: interface_table_export_timeout
+                        
+                        	Interface table export timeout in seconds
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: vrf_table_export_timeout
+                        
+                        	VRF table export timeout in seconds
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: options_template_export_timeout
+                        
+                        	Options template export timeout in seconds
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: data_template_export_timeout
+                        
+                        	Data template export timeout in seconds
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: common_template_export_timeout
+                        
+                        	Common template export timeout in seconds
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'asr9k-netflow-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.sampler_table_export_timeout = None
+                            self.interface_table_export_timeout = None
+                            self.vrf_table_export_timeout = None
+                            self.options_template_export_timeout = None
+                            self.data_template_export_timeout = None
+                            self.common_template_export_timeout = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-asr9k-netflow-oper:ipfix'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.sampler_table_export_timeout is not None:
+                                return True
+
+                            if self.interface_table_export_timeout is not None:
+                                return True
+
+                            if self.vrf_table_export_timeout is not None:
+                                return True
+
+                            if self.options_template_export_timeout is not None:
+                                return True
+
+                            if self.data_template_export_timeout is not None:
+                                return True
+
+                            if self.common_template_export_timeout is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.asr9k._meta import _Cisco_IOS_XR_asr9k_netflow_oper as meta
+                            return meta._meta_table['NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Ipfix']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-asr9k-netflow-oper:version'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.version9 is not None and self.version9._has_data():
+                            return True
+
+                        if self.ipfix is not None and self.ipfix._has_data():
+                            return True
+
+                        if self.version is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.asr9k._meta import _Cisco_IOS_XR_asr9k_netflow_oper as meta
+                        return meta._meta_table['NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version']['meta_info']
 
 
                 class Collector(object):
@@ -254,12 +523,20 @@ class NetFlow(object):
                     	Destination IPv4 address in AAA.BBB.CCC.DDD format
                     	**type**\: str
                     
-                    .. attribute:: destination_port
+                    .. attribute:: source_address
                     
-                    	Transport destination port number
-                    	**type**\: int
+                    	Source IPv4 address in AAA.BBB.CCC.DDD format
+                    	**type**\: str
                     
-                    	**range:** 0..65535
+                    .. attribute:: vrf_name
+                    
+                    	VRF name
+                    	**type**\: str
+                    
+                    .. attribute:: source_interface
+                    
+                    	Source interface name
+                    	**type**\: str
                     
                     .. attribute:: dscp
                     
@@ -268,25 +545,17 @@ class NetFlow(object):
                     
                     	**range:** 0..255
                     
-                    .. attribute:: source_address
-                    
-                    	Source IPv4 address in AAA.BBB.CCC.DDD format
-                    	**type**\: str
-                    
-                    .. attribute:: source_interface
-                    
-                    	Source interface name
-                    	**type**\: str
-                    
                     .. attribute:: transport_protocol
                     
                     	Transport protocol
                     	**type**\: :py:class:`NfmgrFemEdmTransProtoEnum <ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper.NfmgrFemEdmTransProtoEnum>`
                     
-                    .. attribute:: vrf_name
+                    .. attribute:: destination_port
                     
-                    	VRF name
-                    	**type**\: str
+                    	Transport destination port number
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
                     
                     
 
@@ -298,12 +567,12 @@ class NetFlow(object):
                     def __init__(self):
                         self.parent = None
                         self.destination_address = None
-                        self.destination_port = None
-                        self.dscp = None
                         self.source_address = None
-                        self.source_interface = None
-                        self.transport_protocol = None
                         self.vrf_name = None
+                        self.source_interface = None
+                        self.dscp = None
+                        self.transport_protocol = None
+                        self.destination_port = None
 
                     @property
                     def _common_path(self):
@@ -322,22 +591,22 @@ class NetFlow(object):
                         if self.destination_address is not None:
                             return True
 
-                        if self.destination_port is not None:
-                            return True
-
-                        if self.dscp is not None:
-                            return True
-
                         if self.source_address is not None:
+                            return True
+
+                        if self.vrf_name is not None:
                             return True
 
                         if self.source_interface is not None:
                             return True
 
+                        if self.dscp is not None:
+                            return True
+
                         if self.transport_protocol is not None:
                             return True
 
-                        if self.vrf_name is not None:
+                        if self.destination_port is not None:
                             return True
 
                         return False
@@ -346,275 +615,6 @@ class NetFlow(object):
                     def _meta_info():
                         from ydk.models.asr9k._meta import _Cisco_IOS_XR_asr9k_netflow_oper as meta
                         return meta._meta_table['NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Collector']['meta_info']
-
-
-                class Version(object):
-                    """
-                    Export version data
-                    
-                    .. attribute:: ipfix
-                    
-                    	ipfix
-                    	**type**\: :py:class:`Ipfix <ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Ipfix>`
-                    
-                    .. attribute:: version
-                    
-                    	version
-                    	**type**\: :py:class:`NfmgrFemEdmExpVerEnum <ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper.NfmgrFemEdmExpVerEnum>`
-                    
-                    .. attribute:: version9
-                    
-                    	version9
-                    	**type**\: :py:class:`Version9 <ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Version9>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'asr9k-netflow-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.ipfix = NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Ipfix()
-                        self.ipfix.parent = self
-                        self.version = None
-                        self.version9 = NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Version9()
-                        self.version9.parent = self
-
-
-                    class Ipfix(object):
-                        """
-                        ipfix
-                        
-                        .. attribute:: common_template_export_timeout
-                        
-                        	Common template export timeout in seconds
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: data_template_export_timeout
-                        
-                        	Data template export timeout in seconds
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: interface_table_export_timeout
-                        
-                        	Interface table export timeout in seconds
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: options_template_export_timeout
-                        
-                        	Options template export timeout in seconds
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: sampler_table_export_timeout
-                        
-                        	Sampler table export timeout in seconds
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: vrf_table_export_timeout
-                        
-                        	VRF table export timeout in seconds
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'asr9k-netflow-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.common_template_export_timeout = None
-                            self.data_template_export_timeout = None
-                            self.interface_table_export_timeout = None
-                            self.options_template_export_timeout = None
-                            self.sampler_table_export_timeout = None
-                            self.vrf_table_export_timeout = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-asr9k-netflow-oper:ipfix'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.common_template_export_timeout is not None:
-                                return True
-
-                            if self.data_template_export_timeout is not None:
-                                return True
-
-                            if self.interface_table_export_timeout is not None:
-                                return True
-
-                            if self.options_template_export_timeout is not None:
-                                return True
-
-                            if self.sampler_table_export_timeout is not None:
-                                return True
-
-                            if self.vrf_table_export_timeout is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.asr9k._meta import _Cisco_IOS_XR_asr9k_netflow_oper as meta
-                            return meta._meta_table['NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Ipfix']['meta_info']
-
-
-                    class Version9(object):
-                        """
-                        version9
-                        
-                        .. attribute:: common_template_export_timeout
-                        
-                        	Common template export timeout in seconds
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: data_template_export_timeout
-                        
-                        	Data template export timeout in seconds
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: interface_table_export_timeout
-                        
-                        	Interface table export timeout in seconds
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: options_template_export_timeout
-                        
-                        	Options template export timeout in seconds
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: sampler_table_export_timeout
-                        
-                        	Sampler table export timeout in seconds
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: vrf_table_export_timeout
-                        
-                        	VRF table export timeout in seconds
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'asr9k-netflow-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.common_template_export_timeout = None
-                            self.data_template_export_timeout = None
-                            self.interface_table_export_timeout = None
-                            self.options_template_export_timeout = None
-                            self.sampler_table_export_timeout = None
-                            self.vrf_table_export_timeout = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-asr9k-netflow-oper:version9'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.common_template_export_timeout is not None:
-                                return True
-
-                            if self.data_template_export_timeout is not None:
-                                return True
-
-                            if self.interface_table_export_timeout is not None:
-                                return True
-
-                            if self.options_template_export_timeout is not None:
-                                return True
-
-                            if self.sampler_table_export_timeout is not None:
-                                return True
-
-                            if self.vrf_table_export_timeout is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.asr9k._meta import _Cisco_IOS_XR_asr9k_netflow_oper as meta
-                            return meta._meta_table['NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Version9']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-asr9k-netflow-oper:version'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.ipfix is not None and self.ipfix._has_data():
-                            return True
-
-                        if self.version is not None:
-                            return True
-
-                        if self.version9 is not None and self.version9._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.asr9k._meta import _Cisco_IOS_XR_asr9k_netflow_oper as meta
-                        return meta._meta_table['NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -633,10 +633,8 @@ class NetFlow(object):
                     if self.exporter_name is not None:
                         return True
 
-                    if self.collector is not None:
-                        for child_ref in self.collector:
-                            if child_ref._has_data():
-                                return True
+                    if self.version is not None and self.version._has_data():
+                        return True
 
                     if self.id is not None:
                         return True
@@ -644,8 +642,10 @@ class NetFlow(object):
                     if self.name is not None:
                         return True
 
-                    if self.version is not None and self.version._has_data():
-                        return True
+                    if self.collector is not None:
+                        for child_ref in self.collector:
+                            if child_ref._has_data():
+                                return True
 
                     return False
 
@@ -706,57 +706,12 @@ class NetFlow(object):
                 """
                 Flow monitor map information
                 
-                .. attribute:: monitor_name
+                .. attribute:: monitor_name  <key>
                 
                 	Monitor name
                 	**type**\: str
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: cache_active_timeout
-                
-                	Cache active flow timeout in seconds
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: cache_aging_mode
-                
-                	Aging mode for flow cache
-                	**type**\: str
-                
-                .. attribute:: cache_inactive_timeout
-                
-                	Cache inactive flow timeout in seconds
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: cache_max_entry
-                
-                	Max num of entries in flow cache
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: cache_timeout_rate_limit
-                
-                	Maximum number of entries to age each second
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: cache_update_timeout
-                
-                	Cache update timeout in seconds
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: exporter
-                
-                	Name of the flow exporters used by the flow monitor
-                	**type**\: list of :py:class:`Exporter <ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowMonitorMaps.FlowMonitorMap.Exporter>`
                 
                 .. attribute:: id
                 
@@ -770,9 +725,54 @@ class NetFlow(object):
                 	Name of the flow monitor map
                 	**type**\: str
                 
+                .. attribute:: record_map
+                
+                	Name of the flow record map
+                	**type**\: str
+                
+                .. attribute:: cache_aging_mode
+                
+                	Aging mode for flow cache
+                	**type**\: str
+                
                 .. attribute:: number_of_labels
                 
                 	Number of MPLS labels in key
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: cache_max_entry
+                
+                	Max num of entries in flow cache
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: cache_active_timeout
+                
+                	Cache active flow timeout in seconds
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: cache_inactive_timeout
+                
+                	Cache inactive flow timeout in seconds
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: cache_update_timeout
+                
+                	Cache update timeout in seconds
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: cache_timeout_rate_limit
+                
+                	Maximum number of entries to age each second
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -784,10 +784,10 @@ class NetFlow(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: record_map
+                .. attribute:: exporter
                 
-                	Name of the flow record map
-                	**type**\: str
+                	Name of the flow exporters used by the flow monitor
+                	**type**\: list of :py:class:`Exporter <ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowMonitorMaps.FlowMonitorMap.Exporter>`
                 
                 
 
@@ -799,20 +799,20 @@ class NetFlow(object):
                 def __init__(self):
                     self.parent = None
                     self.monitor_name = None
-                    self.cache_active_timeout = None
+                    self.id = None
+                    self.name = None
+                    self.record_map = None
                     self.cache_aging_mode = None
-                    self.cache_inactive_timeout = None
+                    self.number_of_labels = None
                     self.cache_max_entry = None
-                    self.cache_timeout_rate_limit = None
+                    self.cache_active_timeout = None
+                    self.cache_inactive_timeout = None
                     self.cache_update_timeout = None
+                    self.cache_timeout_rate_limit = None
+                    self.options = None
                     self.exporter = YList()
                     self.exporter.parent = self
                     self.exporter.name = 'exporter'
-                    self.id = None
-                    self.name = None
-                    self.number_of_labels = None
-                    self.options = None
-                    self.record_map = None
 
 
                 class Exporter(object):
@@ -877,43 +877,43 @@ class NetFlow(object):
                     if self.monitor_name is not None:
                         return True
 
-                    if self.cache_active_timeout is not None:
-                        return True
-
-                    if self.cache_aging_mode is not None:
-                        return True
-
-                    if self.cache_inactive_timeout is not None:
-                        return True
-
-                    if self.cache_max_entry is not None:
-                        return True
-
-                    if self.cache_timeout_rate_limit is not None:
-                        return True
-
-                    if self.cache_update_timeout is not None:
-                        return True
-
-                    if self.exporter is not None:
-                        for child_ref in self.exporter:
-                            if child_ref._has_data():
-                                return True
-
                     if self.id is not None:
                         return True
 
                     if self.name is not None:
                         return True
 
+                    if self.record_map is not None:
+                        return True
+
+                    if self.cache_aging_mode is not None:
+                        return True
+
                     if self.number_of_labels is not None:
+                        return True
+
+                    if self.cache_max_entry is not None:
+                        return True
+
+                    if self.cache_active_timeout is not None:
+                        return True
+
+                    if self.cache_inactive_timeout is not None:
+                        return True
+
+                    if self.cache_update_timeout is not None:
+                        return True
+
+                    if self.cache_timeout_rate_limit is not None:
                         return True
 
                     if self.options is not None:
                         return True
 
-                    if self.record_map is not None:
-                        return True
+                    if self.exporter is not None:
+                        for child_ref in self.exporter:
+                            if child_ref._has_data():
+                                return True
 
                     return False
 
@@ -974,7 +974,7 @@ class NetFlow(object):
                 """
                 Flow sampler map information
                 
-                .. attribute:: sampler_name
+                .. attribute:: sampler_name  <key>
                 
                 	Sampler name
                 	**type**\: str
@@ -1126,7 +1126,7 @@ class NetFlow(object):
             NetFlow statistics information for a particular
             node
             
-            .. attribute:: node
+            .. attribute:: node  <key>
             
             	Node location
             	**type**\: str
@@ -1185,6 +1185,48 @@ class NetFlow(object):
                     """
                     Statistics information
                     
+                    .. attribute:: ipv4_ingress_flows
+                    
+                    	IPv4 ingress flows
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: ipv4_egress_flows
+                    
+                    	IPv4 egress flows
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: ipv6_ingress_flows
+                    
+                    	IPv6 ingress flows
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: ipv6_egress_flows
+                    
+                    	IPv6 egress flows
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: mpls_ingress_flows
+                    
+                    	MPLS ingress flows
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: mpls_egress_flows
+                    
+                    	MPLS egress flows
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
                     .. attribute:: drops_no_space
                     
                     	Drops (no space)
@@ -1199,63 +1241,9 @@ class NetFlow(object):
                     
                     	**range:** 0..18446744073709551615
                     
-                    .. attribute:: flow_packet_counts
+                    .. attribute:: unknown_ingress_flows
                     
-                    	Number of Rxed Flow Packets
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: ipv4_egress_flows
-                    
-                    	IPv4 egress flows
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: ipv4_ingress_flows
-                    
-                    	IPv4 ingress flows
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: ipv6_egress_flows
-                    
-                    	IPv6 egress flows
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: ipv6_ingress_flows
-                    
-                    	IPv6 ingress flows
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: last_cleared
-                    
-                    	Last time Statistics cleared in 'Mon Jan 1 12\:00 \:00 2xxx' format
-                    	**type**\: str
-                    
-                    .. attribute:: mpls_egress_flows
-                    
-                    	MPLS egress flows
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: mpls_ingress_flows
-                    
-                    	MPLS ingress flows
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: spp_rx_counts
-                    
-                    	Number of Rxed SPP Packets
+                    	Unknown ingress flows
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
@@ -1267,19 +1255,31 @@ class NetFlow(object):
                     
                     	**range:** 0..18446744073709551615
                     
-                    .. attribute:: unknown_ingress_flows
-                    
-                    	Unknown ingress flows
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
-                    
                     .. attribute:: waiting_servers
                     
                     	Number of waiting servers
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: spp_rx_counts
+                    
+                    	Number of Rxed SPP Packets
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: flow_packet_counts
+                    
+                    	Number of Rxed Flow Packets
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: last_cleared
+                    
+                    	Last time Statistics cleared in 'Mon Jan 1 12\:00 \:00 2xxx' format
+                    	**type**\: str
                     
                     
 
@@ -1290,20 +1290,20 @@ class NetFlow(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.ipv4_ingress_flows = None
+                        self.ipv4_egress_flows = None
+                        self.ipv6_ingress_flows = None
+                        self.ipv6_egress_flows = None
+                        self.mpls_ingress_flows = None
+                        self.mpls_egress_flows = None
                         self.drops_no_space = None
                         self.drops_others = None
-                        self.flow_packet_counts = None
-                        self.ipv4_egress_flows = None
-                        self.ipv4_ingress_flows = None
-                        self.ipv6_egress_flows = None
-                        self.ipv6_ingress_flows = None
-                        self.last_cleared = None
-                        self.mpls_egress_flows = None
-                        self.mpls_ingress_flows = None
-                        self.spp_rx_counts = None
-                        self.unknown_egress_flows = None
                         self.unknown_ingress_flows = None
+                        self.unknown_egress_flows = None
                         self.waiting_servers = None
+                        self.spp_rx_counts = None
+                        self.flow_packet_counts = None
+                        self.last_cleared = None
 
                     @property
                     def _common_path(self):
@@ -1319,46 +1319,46 @@ class NetFlow(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self.ipv4_ingress_flows is not None:
+                            return True
+
+                        if self.ipv4_egress_flows is not None:
+                            return True
+
+                        if self.ipv6_ingress_flows is not None:
+                            return True
+
+                        if self.ipv6_egress_flows is not None:
+                            return True
+
+                        if self.mpls_ingress_flows is not None:
+                            return True
+
+                        if self.mpls_egress_flows is not None:
+                            return True
+
                         if self.drops_no_space is not None:
                             return True
 
                         if self.drops_others is not None:
                             return True
 
-                        if self.flow_packet_counts is not None:
-                            return True
-
-                        if self.ipv4_egress_flows is not None:
-                            return True
-
-                        if self.ipv4_ingress_flows is not None:
-                            return True
-
-                        if self.ipv6_egress_flows is not None:
-                            return True
-
-                        if self.ipv6_ingress_flows is not None:
-                            return True
-
-                        if self.last_cleared is not None:
-                            return True
-
-                        if self.mpls_egress_flows is not None:
-                            return True
-
-                        if self.mpls_ingress_flows is not None:
-                            return True
-
-                        if self.spp_rx_counts is not None:
+                        if self.unknown_ingress_flows is not None:
                             return True
 
                         if self.unknown_egress_flows is not None:
                             return True
 
-                        if self.unknown_ingress_flows is not None:
+                        if self.waiting_servers is not None:
                             return True
 
-                        if self.waiting_servers is not None:
+                        if self.spp_rx_counts is not None:
+                            return True
+
+                        if self.flow_packet_counts is not None:
+                            return True
+
+                        if self.last_cleared is not None:
                             return True
 
                         return False
@@ -1442,7 +1442,7 @@ class NetFlow(object):
                         """
                         Exporter information
                         
-                        .. attribute:: exporter_name
+                        .. attribute:: exporter_name  <key>
                         
                         	Exporter name
                         	**type**\: str
@@ -1495,10 +1495,10 @@ class NetFlow(object):
                                 """
                                 Array of flow exporters
                                 
-                                .. attribute:: collector
+                                .. attribute:: name
                                 
-                                	Statistics of all collectors
-                                	**type**\: list of :py:class:`Collector <ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector>`
+                                	Exporter name
+                                	**type**\: str
                                 
                                 .. attribute:: memory_usage
                                 
@@ -1507,15 +1507,15 @@ class NetFlow(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: name
-                                
-                                	Exporter name
-                                	**type**\: str
-                                
                                 .. attribute:: used_by_flow_monitor
                                 
                                 	List of flow monitors that use the exporter
                                 	**type**\: list of str
+                                
+                                .. attribute:: collector
+                                
+                                	Statistics of all collectors
+                                	**type**\: list of :py:class:`Collector <ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector>`
                                 
                                 
 
@@ -1526,21 +1526,90 @@ class NetFlow(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.name = None
+                                    self.memory_usage = None
+                                    self.used_by_flow_monitor = YLeafList()
+                                    self.used_by_flow_monitor.parent = self
+                                    self.used_by_flow_monitor.name = 'used_by_flow_monitor'
                                     self.collector = YList()
                                     self.collector.parent = self
                                     self.collector.name = 'collector'
-                                    self.memory_usage = None
-                                    self.name = None
-                                    self.used_by_flow_monitor = []
 
 
                                 class Collector(object):
                                     """
                                     Statistics of all collectors
                                     
-                                    .. attribute:: bytes_dropped
+                                    .. attribute:: destination_address
                                     
-                                    	Bytes dropped
+                                    	Destination address
+                                    	**type**\: :py:class:`DestinationAddress <ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector.DestinationAddress>`
+                                    
+                                    .. attribute:: source_address
+                                    
+                                    	Source address
+                                    	**type**\: :py:class:`SourceAddress <ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector.SourceAddress>`
+                                    
+                                    .. attribute:: exporter_state
+                                    
+                                    	Exporter state
+                                    	**type**\: str
+                                    
+                                    .. attribute:: vrf_name
+                                    
+                                    	VRF Name
+                                    	**type**\: str
+                                    
+                                    .. attribute:: destination_port
+                                    
+                                    	Destination port number
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    .. attribute:: souce_port
+                                    
+                                    	Source port number
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    .. attribute:: transport_protocol
+                                    
+                                    	Transport protocol
+                                    	**type**\: str
+                                    
+                                    .. attribute:: packets_sent
+                                    
+                                    	Packets sent
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: flows_sent
+                                    
+                                    	Flows sent
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: templates_sent
+                                    
+                                    	Templates sent
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: option_templates_sent
+                                    
+                                    	Option templates sent
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: option_data_sent
+                                    
+                                    	Option data sent
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
@@ -1552,33 +1621,37 @@ class NetFlow(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
-                                    .. attribute:: destination_address
+                                    .. attribute:: flow_bytes_sent
                                     
-                                    	Destination address
-                                    	**type**\: :py:class:`DestinationAddress <ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector.DestinationAddress>`
-                                    
-                                    .. attribute:: destination_port
-                                    
-                                    	Destination port number
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..65535
-                                    
-                                    .. attribute:: exporter_state
-                                    
-                                    	Exporter state
-                                    	**type**\: str
-                                    
-                                    .. attribute:: flow_bytes_dropped
-                                    
-                                    	Flow bytes dropped
+                                    	Flow bytes sent
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
                                     
-                                    .. attribute:: flow_bytes_sent
+                                    .. attribute:: template_bytes_sent
                                     
-                                    	Flow bytes sent
+                                    	Template bytes sent
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: option_template_bytes_sent
+                                    
+                                    	Option template bytes sent
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: option_data_bytes_sent
+                                    
+                                    	Option data bytes sent
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: packets_dropped
+                                    
+                                    	Packets dropped
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
@@ -1590,9 +1663,65 @@ class NetFlow(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
-                                    .. attribute:: flows_sent
+                                    .. attribute:: templates_dropped
                                     
-                                    	Flows sent
+                                    	Templates dropped
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: option_templates_dropped
+                                    
+                                    	Option templates dropped
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: option_data_dropped
+                                    
+                                    	Option data dropped
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: bytes_dropped
+                                    
+                                    	Bytes dropped
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: flow_bytes_dropped
+                                    
+                                    	Flow bytes dropped
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: template_bytes_dropped
+                                    
+                                    	Template bytes dropped
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: option_template_bytes_dropped
+                                    
+                                    	Option template bytes dropped
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: option_data_bytes_dropped
+                                    
+                                    	Option data dropped
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: last_hour_packest_sent
+                                    
+                                    	Total packets exported over the last one hour
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
@@ -1611,9 +1740,9 @@ class NetFlow(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
-                                    .. attribute:: last_hour_packest_sent
+                                    .. attribute:: last_minute_packets
                                     
-                                    	Total packets exported over the last one hour
+                                    	Total packets exported over the last one minute
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
@@ -1632,9 +1761,9 @@ class NetFlow(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
-                                    .. attribute:: last_minute_packets
+                                    .. attribute:: last_second_packets_sent
                                     
-                                    	Total packets exported over the last one minute
+                                    	Total packets exported over the last one second
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
@@ -1653,133 +1782,6 @@ class NetFlow(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
-                                    .. attribute:: last_second_packets_sent
-                                    
-                                    	Total packets exported over the last one second
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: option_data_bytes_dropped
-                                    
-                                    	Option data dropped
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: option_data_bytes_sent
-                                    
-                                    	Option data bytes sent
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: option_data_dropped
-                                    
-                                    	Option data dropped
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: option_data_sent
-                                    
-                                    	Option data sent
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: option_template_bytes_dropped
-                                    
-                                    	Option template bytes dropped
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: option_template_bytes_sent
-                                    
-                                    	Option template bytes sent
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: option_templates_dropped
-                                    
-                                    	Option templates dropped
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: option_templates_sent
-                                    
-                                    	Option templates sent
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: packets_dropped
-                                    
-                                    	Packets dropped
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: packets_sent
-                                    
-                                    	Packets sent
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: souce_port
-                                    
-                                    	Source port number
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..65535
-                                    
-                                    .. attribute:: source_address
-                                    
-                                    	Source address
-                                    	**type**\: :py:class:`SourceAddress <ydk.models.asr9k.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector.SourceAddress>`
-                                    
-                                    .. attribute:: template_bytes_dropped
-                                    
-                                    	Template bytes dropped
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: template_bytes_sent
-                                    
-                                    	Template bytes sent
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: templates_dropped
-                                    
-                                    	Templates dropped
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: templates_sent
-                                    
-                                    	Templates sent
-                                    	**type**\: int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: transport_protocol
-                                    
-                                    	Transport protocol
-                                    	**type**\: str
-                                    
-                                    .. attribute:: vrf_name
-                                    
-                                    	VRF Name
-                                    	**type**\: str
-                                    
                                     
 
                                     """
@@ -1789,44 +1791,44 @@ class NetFlow(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.bytes_dropped = None
-                                        self.bytes_sent = None
                                         self.destination_address = NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector.DestinationAddress()
                                         self.destination_address.parent = self
-                                        self.destination_port = None
-                                        self.exporter_state = None
-                                        self.flow_bytes_dropped = None
-                                        self.flow_bytes_sent = None
-                                        self.flows_dropped = None
-                                        self.flows_sent = None
-                                        self.last_hour_bytes_sent = None
-                                        self.last_hour_flows_sent = None
-                                        self.last_hour_packest_sent = None
-                                        self.last_minute_bytes_sent = None
-                                        self.last_minute_flows_sent = None
-                                        self.last_minute_packets = None
-                                        self.last_second_bytes_sent = None
-                                        self.last_second_flows_sent = None
-                                        self.last_second_packets_sent = None
-                                        self.option_data_bytes_dropped = None
-                                        self.option_data_bytes_sent = None
-                                        self.option_data_dropped = None
-                                        self.option_data_sent = None
-                                        self.option_template_bytes_dropped = None
-                                        self.option_template_bytes_sent = None
-                                        self.option_templates_dropped = None
-                                        self.option_templates_sent = None
-                                        self.packets_dropped = None
-                                        self.packets_sent = None
-                                        self.souce_port = None
                                         self.source_address = NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector.SourceAddress()
                                         self.source_address.parent = self
-                                        self.template_bytes_dropped = None
-                                        self.template_bytes_sent = None
-                                        self.templates_dropped = None
-                                        self.templates_sent = None
-                                        self.transport_protocol = None
+                                        self.exporter_state = None
                                         self.vrf_name = None
+                                        self.destination_port = None
+                                        self.souce_port = None
+                                        self.transport_protocol = None
+                                        self.packets_sent = None
+                                        self.flows_sent = None
+                                        self.templates_sent = None
+                                        self.option_templates_sent = None
+                                        self.option_data_sent = None
+                                        self.bytes_sent = None
+                                        self.flow_bytes_sent = None
+                                        self.template_bytes_sent = None
+                                        self.option_template_bytes_sent = None
+                                        self.option_data_bytes_sent = None
+                                        self.packets_dropped = None
+                                        self.flows_dropped = None
+                                        self.templates_dropped = None
+                                        self.option_templates_dropped = None
+                                        self.option_data_dropped = None
+                                        self.bytes_dropped = None
+                                        self.flow_bytes_dropped = None
+                                        self.template_bytes_dropped = None
+                                        self.option_template_bytes_dropped = None
+                                        self.option_data_bytes_dropped = None
+                                        self.last_hour_packest_sent = None
+                                        self.last_hour_bytes_sent = None
+                                        self.last_hour_flows_sent = None
+                                        self.last_minute_packets = None
+                                        self.last_minute_bytes_sent = None
+                                        self.last_minute_flows_sent = None
+                                        self.last_second_packets_sent = None
+                                        self.last_second_bytes_sent = None
+                                        self.last_second_flows_sent = None
 
 
                                     class DestinationAddress(object):
@@ -1976,31 +1978,88 @@ class NetFlow(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.bytes_dropped is not None:
-                                            return True
-
-                                        if self.bytes_sent is not None:
-                                            return True
-
                                         if self.destination_address is not None and self.destination_address._has_data():
                                             return True
 
-                                        if self.destination_port is not None:
+                                        if self.source_address is not None and self.source_address._has_data():
                                             return True
 
                                         if self.exporter_state is not None:
                                             return True
 
-                                        if self.flow_bytes_dropped is not None:
+                                        if self.vrf_name is not None:
+                                            return True
+
+                                        if self.destination_port is not None:
+                                            return True
+
+                                        if self.souce_port is not None:
+                                            return True
+
+                                        if self.transport_protocol is not None:
+                                            return True
+
+                                        if self.packets_sent is not None:
+                                            return True
+
+                                        if self.flows_sent is not None:
+                                            return True
+
+                                        if self.templates_sent is not None:
+                                            return True
+
+                                        if self.option_templates_sent is not None:
+                                            return True
+
+                                        if self.option_data_sent is not None:
+                                            return True
+
+                                        if self.bytes_sent is not None:
                                             return True
 
                                         if self.flow_bytes_sent is not None:
                                             return True
 
+                                        if self.template_bytes_sent is not None:
+                                            return True
+
+                                        if self.option_template_bytes_sent is not None:
+                                            return True
+
+                                        if self.option_data_bytes_sent is not None:
+                                            return True
+
+                                        if self.packets_dropped is not None:
+                                            return True
+
                                         if self.flows_dropped is not None:
                                             return True
 
-                                        if self.flows_sent is not None:
+                                        if self.templates_dropped is not None:
+                                            return True
+
+                                        if self.option_templates_dropped is not None:
+                                            return True
+
+                                        if self.option_data_dropped is not None:
+                                            return True
+
+                                        if self.bytes_dropped is not None:
+                                            return True
+
+                                        if self.flow_bytes_dropped is not None:
+                                            return True
+
+                                        if self.template_bytes_dropped is not None:
+                                            return True
+
+                                        if self.option_template_bytes_dropped is not None:
+                                            return True
+
+                                        if self.option_data_bytes_dropped is not None:
+                                            return True
+
+                                        if self.last_hour_packest_sent is not None:
                                             return True
 
                                         if self.last_hour_bytes_sent is not None:
@@ -2009,7 +2068,7 @@ class NetFlow(object):
                                         if self.last_hour_flows_sent is not None:
                                             return True
 
-                                        if self.last_hour_packest_sent is not None:
+                                        if self.last_minute_packets is not None:
                                             return True
 
                                         if self.last_minute_bytes_sent is not None:
@@ -2018,70 +2077,13 @@ class NetFlow(object):
                                         if self.last_minute_flows_sent is not None:
                                             return True
 
-                                        if self.last_minute_packets is not None:
+                                        if self.last_second_packets_sent is not None:
                                             return True
 
                                         if self.last_second_bytes_sent is not None:
                                             return True
 
                                         if self.last_second_flows_sent is not None:
-                                            return True
-
-                                        if self.last_second_packets_sent is not None:
-                                            return True
-
-                                        if self.option_data_bytes_dropped is not None:
-                                            return True
-
-                                        if self.option_data_bytes_sent is not None:
-                                            return True
-
-                                        if self.option_data_dropped is not None:
-                                            return True
-
-                                        if self.option_data_sent is not None:
-                                            return True
-
-                                        if self.option_template_bytes_dropped is not None:
-                                            return True
-
-                                        if self.option_template_bytes_sent is not None:
-                                            return True
-
-                                        if self.option_templates_dropped is not None:
-                                            return True
-
-                                        if self.option_templates_sent is not None:
-                                            return True
-
-                                        if self.packets_dropped is not None:
-                                            return True
-
-                                        if self.packets_sent is not None:
-                                            return True
-
-                                        if self.souce_port is not None:
-                                            return True
-
-                                        if self.source_address is not None and self.source_address._has_data():
-                                            return True
-
-                                        if self.template_bytes_dropped is not None:
-                                            return True
-
-                                        if self.template_bytes_sent is not None:
-                                            return True
-
-                                        if self.templates_dropped is not None:
-                                            return True
-
-                                        if self.templates_sent is not None:
-                                            return True
-
-                                        if self.transport_protocol is not None:
-                                            return True
-
-                                        if self.vrf_name is not None:
                                             return True
 
                                         return False
@@ -2105,20 +2107,20 @@ class NetFlow(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.collector is not None:
-                                        for child_ref in self.collector:
-                                            if child_ref._has_data():
-                                                return True
-
-                                    if self.memory_usage is not None:
+                                    if self.name is not None:
                                         return True
 
-                                    if self.name is not None:
+                                    if self.memory_usage is not None:
                                         return True
 
                                     if self.used_by_flow_monitor is not None:
                                         for child in self.used_by_flow_monitor:
                                             if child is not None:
+                                                return True
+
+                                    if self.collector is not None:
+                                        for child_ref in self.collector:
+                                            if child_ref._has_data():
                                                 return True
 
                                     return False

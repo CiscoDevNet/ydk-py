@@ -22,7 +22,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -155,40 +155,40 @@ class Rsvp(object):
     """
     Global RSVP configuration commands
     
-    .. attribute:: authentication
+    .. attribute:: neighbors
     
-    	Configure RSVP authentication
-    	**type**\: :py:class:`Authentication <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Authentication>`
+    	RSVP Neighbor Table
+    	**type**\: :py:class:`Neighbors <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Neighbors>`
     
     .. attribute:: controllers
     
     	Controller table
     	**type**\: :py:class:`Controllers <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Controllers>`
     
-    .. attribute:: global_bandwidth
-    
-    	Configure Global Bandwidth Parameters
-    	**type**\: :py:class:`GlobalBandwidth <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.GlobalBandwidth>`
-    
     .. attribute:: global_logging
     
     	Global Logging
     	**type**\: :py:class:`GlobalLogging <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.GlobalLogging>`
+    
+    .. attribute:: global_bandwidth
+    
+    	Configure Global Bandwidth Parameters
+    	**type**\: :py:class:`GlobalBandwidth <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.GlobalBandwidth>`
     
     .. attribute:: interfaces
     
     	Interface table
     	**type**\: :py:class:`Interfaces <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces>`
     
-    .. attribute:: neighbors
-    
-    	RSVP Neighbor Table
-    	**type**\: :py:class:`Neighbors <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Neighbors>`
-    
     .. attribute:: signalling
     
     	Configure Global RSVP signalling parameters
     	**type**\: :py:class:`Signalling <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling>`
+    
+    .. attribute:: authentication
+    
+    	Configure RSVP authentication
+    	**type**\: :py:class:`Authentication <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Authentication>`
     
     
 
@@ -198,46 +198,30 @@ class Rsvp(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.authentication = Rsvp.Authentication()
-        self.authentication.parent = self
-        self.controllers = Rsvp.Controllers()
-        self.controllers.parent = self
-        self.global_bandwidth = Rsvp.GlobalBandwidth()
-        self.global_bandwidth.parent = self
-        self.global_logging = Rsvp.GlobalLogging()
-        self.global_logging.parent = self
-        self.interfaces = Rsvp.Interfaces()
-        self.interfaces.parent = self
         self.neighbors = Rsvp.Neighbors()
         self.neighbors.parent = self
+        self.controllers = Rsvp.Controllers()
+        self.controllers.parent = self
+        self.global_logging = Rsvp.GlobalLogging()
+        self.global_logging.parent = self
+        self.global_bandwidth = Rsvp.GlobalBandwidth()
+        self.global_bandwidth.parent = self
+        self.interfaces = Rsvp.Interfaces()
+        self.interfaces.parent = self
         self.signalling = Rsvp.Signalling()
         self.signalling.parent = self
+        self.authentication = Rsvp.Authentication()
+        self.authentication.parent = self
 
 
-    class Authentication(object):
+    class Neighbors(object):
         """
-        Configure RSVP authentication
+        RSVP Neighbor Table
         
-        .. attribute:: key_chain
+        .. attribute:: neighbor
         
-        	Key chain to authenticate RSVP signalling messages
-        	**type**\: str
-        
-        	**range:** 0..32
-        
-        .. attribute:: life_time
-        
-        	Life time (in seconds) for each security association
-        	**type**\: int
-        
-        	**range:** 30..86400
-        
-        .. attribute:: window_size
-        
-        	Window\-size to limit number of out\-of\-order messages
-        	**type**\: int
-        
-        	**range:** 1..64
+        	RSVP neighbor configuration
+        	**type**\: list of :py:class:`Neighbor <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Neighbors.Neighbor>`
         
         
 
@@ -248,14 +232,140 @@ class Rsvp(object):
 
         def __init__(self):
             self.parent = None
-            self.key_chain = None
-            self.life_time = None
-            self.window_size = None
+            self.neighbor = YList()
+            self.neighbor.parent = self
+            self.neighbor.name = 'neighbor'
+
+
+        class Neighbor(object):
+            """
+            RSVP neighbor configuration
+            
+            .. attribute:: neighbor  <key>
+            
+            	Neighbor IP address
+            	**type**\: str
+            
+            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            .. attribute:: authentication
+            
+            	Configure RSVP authentication
+            	**type**\: :py:class:`Authentication <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Neighbors.Neighbor.Authentication>`
+            
+            
+
+            """
+
+            _prefix = 'ip-rsvp-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.neighbor = None
+                self.authentication = Rsvp.Neighbors.Neighbor.Authentication()
+                self.authentication.parent = self
+
+
+            class Authentication(object):
+                """
+                Configure RSVP authentication
+                
+                .. attribute:: life_time
+                
+                	Life time (in seconds) for each security association
+                	**type**\: int
+                
+                	**range:** 30..86400
+                
+                .. attribute:: window_size
+                
+                	Window\-size to limit number of out\-of\-order messages
+                	**type**\: int
+                
+                	**range:** 1..64
+                
+                .. attribute:: key_chain
+                
+                	Key chain to authenticate RSVP signalling messages
+                	**type**\: str
+                
+                	**range:** 0..32
+                
+                
+
+                """
+
+                _prefix = 'ip-rsvp-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.life_time = None
+                    self.window_size = None
+                    self.key_chain = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ip-rsvp-cfg:authentication'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.life_time is not None:
+                        return True
+
+                    if self.window_size is not None:
+                        return True
+
+                    if self.key_chain is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                    return meta._meta_table['Rsvp.Neighbors.Neighbor.Authentication']['meta_info']
+
+            @property
+            def _common_path(self):
+                if self.neighbor is None:
+                    raise YPYDataValidationError('Key property neighbor is None')
+
+                return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:neighbors/Cisco-IOS-XR-ip-rsvp-cfg:neighbor[Cisco-IOS-XR-ip-rsvp-cfg:neighbor = ' + str(self.neighbor) + ']'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.neighbor is not None:
+                    return True
+
+                if self.authentication is not None and self.authentication._has_data():
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                return meta._meta_table['Rsvp.Neighbors.Neighbor']['meta_info']
 
         @property
         def _common_path(self):
 
-            return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:authentication'
+            return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:neighbors'
 
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
@@ -264,21 +374,17 @@ class Rsvp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.key_chain is not None:
-                return True
-
-            if self.life_time is not None:
-                return True
-
-            if self.window_size is not None:
-                return True
+            if self.neighbor is not None:
+                for child_ref in self.neighbor:
+                    if child_ref._has_data():
+                        return True
 
             return False
 
         @staticmethod
         def _meta_info():
             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-            return meta._meta_table['Rsvp.Authentication']['meta_info']
+            return meta._meta_table['Rsvp.Neighbors']['meta_info']
 
 
     class Controllers(object):
@@ -308,7 +414,7 @@ class Rsvp(object):
             """
             Controller configuration
             
-            .. attribute:: controller_name
+            .. attribute:: controller_name  <key>
             
             	Name of controller
             	**type**\: str
@@ -498,6 +604,58 @@ class Rsvp(object):
             return meta._meta_table['Rsvp.Controllers']['meta_info']
 
 
+    class GlobalLogging(object):
+        """
+        Global Logging
+        
+        .. attribute:: log_nsr_status
+        
+        	Enable NSR Status Logging
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
+        .. attribute:: log_issu_status
+        
+        	Enable ISSU Status Logging
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        
+        
+
+        """
+
+        _prefix = 'ip-rsvp-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.log_nsr_status = None
+            self.log_issu_status = None
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:global-logging'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.log_nsr_status is not None:
+                return True
+
+            if self.log_issu_status is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+            return meta._meta_table['Rsvp.GlobalLogging']['meta_info']
+
+
     class GlobalBandwidth(object):
         """
         Configure Global Bandwidth Parameters
@@ -554,6 +712,13 @@ class Rsvp(object):
                 Configure global default MAM I/F percent
                 bandwidth parameters
                 
+                .. attribute:: max_res_percent
+                
+                	Default maximum reservable I/F % B/W 
+                	**type**\: int
+                
+                	**range:** 0..10000
+                
                 .. attribute:: bc0_percent
                 
                 	Default BC0 pool I/F % B/W 
@@ -568,13 +733,6 @@ class Rsvp(object):
                 
                 	**range:** 0..10000
                 
-                .. attribute:: max_res_percent
-                
-                	Default maximum reservable I/F % B/W 
-                	**type**\: int
-                
-                	**range:** 0..10000
-                
                 
 
                 """
@@ -584,9 +742,9 @@ class Rsvp(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.max_res_percent = None
                     self.bc0_percent = None
                     self.bc1_percent = None
-                    self.max_res_percent = None
 
                 @property
                 def _common_path(self):
@@ -600,13 +758,13 @@ class Rsvp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.max_res_percent is not None:
+                        return True
+
                     if self.bc0_percent is not None:
                         return True
 
                     if self.bc1_percent is not None:
-                        return True
-
-                    if self.max_res_percent is not None:
                         return True
 
                     return False
@@ -721,58 +879,6 @@ class Rsvp(object):
             return meta._meta_table['Rsvp.GlobalBandwidth']['meta_info']
 
 
-    class GlobalLogging(object):
-        """
-        Global Logging
-        
-        .. attribute:: log_issu_status
-        
-        	Enable ISSU Status Logging
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-        
-        .. attribute:: log_nsr_status
-        
-        	Enable NSR Status Logging
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
-        
-        
-
-        """
-
-        _prefix = 'ip-rsvp-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.log_issu_status = None
-            self.log_nsr_status = None
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:global-logging'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.log_issu_status is not None:
-                return True
-
-            if self.log_nsr_status is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-            return meta._meta_table['Rsvp.GlobalLogging']['meta_info']
-
-
     class Interfaces(object):
         """
         Interface table
@@ -800,17 +906,17 @@ class Rsvp(object):
             """
             Interface configuration
             
-            .. attribute:: name
+            .. attribute:: name  <key>
             
             	Name of interface
             	**type**\: str
             
             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
-            .. attribute:: authentication
+            .. attribute:: if_signalling
             
-            	Configure RSVP authentication
-            	**type**\: :py:class:`Authentication <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.Authentication>`
+            	Configure RSVP signalling parameters
+            	**type**\: :py:class:`IfSignalling <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.IfSignalling>`
             
             .. attribute:: bandwidth
             
@@ -822,10 +928,10 @@ class Rsvp(object):
             	Enable RSVP on an interface
             	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
-            .. attribute:: if_signalling
+            .. attribute:: authentication
             
-            	Configure RSVP signalling parameters
-            	**type**\: :py:class:`IfSignalling <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.IfSignalling>`
+            	Configure RSVP authentication
+            	**type**\: :py:class:`Authentication <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.Authentication>`
             
             
 
@@ -837,337 +943,28 @@ class Rsvp(object):
             def __init__(self):
                 self.parent = None
                 self.name = None
-                self.authentication = Rsvp.Interfaces.Interface.Authentication()
-                self.authentication.parent = self
+                self.if_signalling = Rsvp.Interfaces.Interface.IfSignalling()
+                self.if_signalling.parent = self
                 self.bandwidth = Rsvp.Interfaces.Interface.Bandwidth()
                 self.bandwidth.parent = self
                 self.enable = None
-                self.if_signalling = Rsvp.Interfaces.Interface.IfSignalling()
-                self.if_signalling.parent = self
-
-
-            class Authentication(object):
-                """
-                Configure RSVP authentication
-                
-                .. attribute:: key_chain
-                
-                	Key chain to authenticate RSVP signalling messages
-                	**type**\: str
-                
-                	**range:** 0..32
-                
-                .. attribute:: life_time
-                
-                	Life time (in seconds) for each security association
-                	**type**\: int
-                
-                	**range:** 30..86400
-                
-                .. attribute:: window_size
-                
-                	Window\-size to limit number of out\-of\-order messages
-                	**type**\: int
-                
-                	**range:** 1..64
-                
-                
-
-                """
-
-                _prefix = 'ip-rsvp-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.key_chain = None
-                    self.life_time = None
-                    self.window_size = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-rsvp-cfg:authentication'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.key_chain is not None:
-                        return True
-
-                    if self.life_time is not None:
-                        return True
-
-                    if self.window_size is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                    return meta._meta_table['Rsvp.Interfaces.Interface.Authentication']['meta_info']
-
-
-            class Bandwidth(object):
-                """
-                Configure Bandwidth
-                
-                .. attribute:: mam
-                
-                	Configure MAM bandwidth parameters
-                	**type**\: :py:class:`Mam <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.Bandwidth.Mam>`
-                
-                .. attribute:: rdm
-                
-                	Configure RDM bandwidth parameters
-                	**type**\: :py:class:`Rdm <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.Bandwidth.Rdm>`
-                
-                
-
-                """
-
-                _prefix = 'ip-rsvp-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.mam = Rsvp.Interfaces.Interface.Bandwidth.Mam()
-                    self.mam.parent = self
-                    self.rdm = Rsvp.Interfaces.Interface.Bandwidth.Rdm()
-                    self.rdm.parent = self
-
-
-                class Mam(object):
-                    """
-                    Configure MAM bandwidth parameters
-                    
-                    .. attribute:: bandwidth_mode
-                    
-                    	Absolute or Percentage bandwidth mode
-                    	**type**\: :py:class:`RsvpBwCfgEnum <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBwCfgEnum>`
-                    
-                    .. attribute:: bc0_bandwidth
-                    
-                    	Reservable bandwidth in BC0 (Kbps or percent of physical bandwidth)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: bc1_bandwidth
-                    
-                    	Reservable bandwidth in BC1 (Kbps or percent of physical bandwidth)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: max_resv_bandwidth
-                    
-                    	Maximum reservable bandwidth (Kbps or percent of physical bandwidth)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: max_resv_flow
-                    
-                    	Largest reservable flow (Kbps or percent of physical bandwidth)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-rsvp-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.bandwidth_mode = None
-                        self.bc0_bandwidth = None
-                        self.bc1_bandwidth = None
-                        self.max_resv_bandwidth = None
-                        self.max_resv_flow = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-rsvp-cfg:mam'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.bandwidth_mode is not None:
-                            return True
-
-                        if self.bc0_bandwidth is not None:
-                            return True
-
-                        if self.bc1_bandwidth is not None:
-                            return True
-
-                        if self.max_resv_bandwidth is not None:
-                            return True
-
-                        if self.max_resv_flow is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                        return meta._meta_table['Rsvp.Interfaces.Interface.Bandwidth.Mam']['meta_info']
-
-
-                class Rdm(object):
-                    """
-                    Configure RDM bandwidth parameters
-                    
-                    .. attribute:: bandwidth_mode
-                    
-                    	Absolute or Percentage bandwidth mode
-                    	**type**\: :py:class:`RsvpBwCfgEnum <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBwCfgEnum>`
-                    
-                    .. attribute:: bc0_bandwidth
-                    
-                    	Reservable bandwidth in BC0 (Kbps or percent of physical bandwidth)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: bc0_keyword
-                    
-                    	Set requests should always use BC0
-                    	**type**\: :py:class:`RsvpBc0Enum <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBc0Enum>`
-                    
-                    .. attribute:: bc1_bandwidth
-                    
-                    	Reservable bandwidth in BC1 (Kbps or percent of physical bandwidth)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: bc1_keyword
-                    
-                    	Set requests should always use BC1
-                    	**type**\: :py:class:`RsvpBc1Enum <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBc1Enum>`
-                    
-                    .. attribute:: max_resv_flow
-                    
-                    	Largest reservable flow (Kbps or percent of physical bandwidth)
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: rdm_keyword
-                    
-                    	Set requests should always use RDM
-                    	**type**\: :py:class:`RsvpRdmEnum <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.RsvpRdmEnum>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-rsvp-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.bandwidth_mode = None
-                        self.bc0_bandwidth = None
-                        self.bc0_keyword = None
-                        self.bc1_bandwidth = None
-                        self.bc1_keyword = None
-                        self.max_resv_flow = None
-                        self.rdm_keyword = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-rsvp-cfg:rdm'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.bandwidth_mode is not None:
-                            return True
-
-                        if self.bc0_bandwidth is not None:
-                            return True
-
-                        if self.bc0_keyword is not None:
-                            return True
-
-                        if self.bc1_bandwidth is not None:
-                            return True
-
-                        if self.bc1_keyword is not None:
-                            return True
-
-                        if self.max_resv_flow is not None:
-                            return True
-
-                        if self.rdm_keyword is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                        return meta._meta_table['Rsvp.Interfaces.Interface.Bandwidth.Rdm']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-rsvp-cfg:bandwidth'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.mam is not None and self.mam._has_data():
-                        return True
-
-                    if self.rdm is not None and self.rdm._has_data():
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                    return meta._meta_table['Rsvp.Interfaces.Interface.Bandwidth']['meta_info']
+                self.authentication = Rsvp.Interfaces.Interface.Authentication()
+                self.authentication.parent = self
 
 
             class IfSignalling(object):
                 """
                 Configure RSVP signalling parameters
+                
+                .. attribute:: refresh_reduction
+                
+                	Configure RSVP Refresh Reduction parameters
+                	**type**\: :py:class:`RefreshReduction <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction>`
+                
+                .. attribute:: interval_rate
+                
+                	Configure number of messages to be sent per interval
+                	**type**\: :py:class:`IntervalRate <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.IfSignalling.IntervalRate>`
                 
                 .. attribute:: dscp
                 
@@ -1176,16 +973,6 @@ class Rsvp(object):
                 
                 	**range:** 0..63
                 
-                .. attribute:: hello_graceful_restart_if_based
-                
-                	Enable IF\-based Hello adjacency on a RSVP interface
-                	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: interval_rate
-                
-                	Configure number of messages to be sent per interval
-                	**type**\: :py:class:`IntervalRate <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.IfSignalling.IntervalRate>`
-                
                 .. attribute:: missed_messages
                 
                 	Configure max number of consecutive missed messages for state expiry
@@ -1193,10 +980,10 @@ class Rsvp(object):
                 
                 	**range:** 1..8
                 
-                .. attribute:: out_of_band
+                .. attribute:: hello_graceful_restart_if_based
                 
-                	Configure RSVP out\-of\-band signalling parameters
-                	**type**\: :py:class:`OutOfBand <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.IfSignalling.OutOfBand>`
+                	Enable IF\-based Hello adjacency on a RSVP interface
+                	**type**\: :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: pacing
                 
@@ -1210,10 +997,10 @@ class Rsvp(object):
                 
                 	**range:** 10..180
                 
-                .. attribute:: refresh_reduction
+                .. attribute:: out_of_band
                 
-                	Configure RSVP Refresh Reduction parameters
-                	**type**\: :py:class:`RefreshReduction <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction>`
+                	Configure RSVP out\-of\-band signalling parameters
+                	**type**\: :py:class:`OutOfBand <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.IfSignalling.OutOfBand>`
                 
                 
 
@@ -1224,37 +1011,67 @@ class Rsvp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.dscp = None
-                    self.hello_graceful_restart_if_based = None
-                    self.interval_rate = Rsvp.Interfaces.Interface.IfSignalling.IntervalRate()
-                    self.interval_rate.parent = self
-                    self.missed_messages = None
-                    self.out_of_band = Rsvp.Interfaces.Interface.IfSignalling.OutOfBand()
-                    self.out_of_band.parent = self
-                    self.pacing = None
-                    self.refresh_interval = None
                     self.refresh_reduction = Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction()
                     self.refresh_reduction.parent = self
+                    self.interval_rate = Rsvp.Interfaces.Interface.IfSignalling.IntervalRate()
+                    self.interval_rate.parent = self
+                    self.dscp = None
+                    self.missed_messages = None
+                    self.hello_graceful_restart_if_based = None
+                    self.pacing = None
+                    self.refresh_interval = None
+                    self.out_of_band = Rsvp.Interfaces.Interface.IfSignalling.OutOfBand()
+                    self.out_of_band.parent = self
 
 
-                class IntervalRate(object):
+                class RefreshReduction(object):
                     """
-                    Configure number of messages to be sent per
-                    interval
+                    Configure RSVP Refresh Reduction parameters
                     
-                    .. attribute:: interval_size
+                    .. attribute:: disable
                     
-                    	Size of an interval (milliseconds)
+                    	Disable refresh reduction
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: reliable_ack_max_size
+                    
+                    	Configure max size of a single RSVP ACK message
                     	**type**\: int
                     
-                    	**range:** 250..2000
+                    	**range:** 20..65000
                     
-                    .. attribute:: messages_per_interval
+                    .. attribute:: reliable_ack_hold_time
                     
-                    	Number of messages to be sent per interval
+                    	Configure hold time for sending RSVP ACK message(s)
                     	**type**\: int
                     
-                    	**range:** 1..500
+                    	**range:** 100..5000
+                    
+                    .. attribute:: reliable_retransmit_time
+                    
+                    	Configure min delay to wait for an ACK before a retransmit
+                    	**type**\: int
+                    
+                    	**range:** 100..10000
+                    
+                    .. attribute:: reliable_s_refresh
+                    
+                    	Configure use of reliable messaging for summary refresh
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: summary_max_size
+                    
+                    	Configure max size of a single RSVP summary refresh message
+                    	**type**\: int
+                    
+                    	**range:** 20..65000
+                    
+                    .. attribute:: bundle_message_max_size
+                    
+                    	Configure maximum size of a single RSVP Bundle message
+                    	**type**\: int
+                    
+                    	**range:** 512..65000
                     
                     
 
@@ -1265,8 +1082,87 @@ class Rsvp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.interval_size = None
+                        self.disable = None
+                        self.reliable_ack_max_size = None
+                        self.reliable_ack_hold_time = None
+                        self.reliable_retransmit_time = None
+                        self.reliable_s_refresh = None
+                        self.summary_max_size = None
+                        self.bundle_message_max_size = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ip-rsvp-cfg:refresh-reduction'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.disable is not None:
+                            return True
+
+                        if self.reliable_ack_max_size is not None:
+                            return True
+
+                        if self.reliable_ack_hold_time is not None:
+                            return True
+
+                        if self.reliable_retransmit_time is not None:
+                            return True
+
+                        if self.reliable_s_refresh is not None:
+                            return True
+
+                        if self.summary_max_size is not None:
+                            return True
+
+                        if self.bundle_message_max_size is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                        return meta._meta_table['Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction']['meta_info']
+
+
+                class IntervalRate(object):
+                    """
+                    Configure number of messages to be sent per
+                    interval
+                    
+                    .. attribute:: messages_per_interval
+                    
+                    	Number of messages to be sent per interval
+                    	**type**\: int
+                    
+                    	**range:** 1..500
+                    
+                    .. attribute:: interval_size
+                    
+                    	Size of an interval (milliseconds)
+                    	**type**\: int
+                    
+                    	**range:** 250..2000
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-rsvp-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
                         self.messages_per_interval = None
+                        self.interval_size = None
 
                     @property
                     def _common_path(self):
@@ -1282,10 +1178,10 @@ class Rsvp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.interval_size is not None:
+                        if self.messages_per_interval is not None:
                             return True
 
-                        if self.messages_per_interval is not None:
+                        if self.interval_size is not None:
                             return True
 
                         return False
@@ -1353,115 +1249,6 @@ class Rsvp(object):
                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
                         return meta._meta_table['Rsvp.Interfaces.Interface.IfSignalling.OutOfBand']['meta_info']
 
-
-                class RefreshReduction(object):
-                    """
-                    Configure RSVP Refresh Reduction parameters
-                    
-                    .. attribute:: bundle_message_max_size
-                    
-                    	Configure maximum size of a single RSVP Bundle message
-                    	**type**\: int
-                    
-                    	**range:** 512..65000
-                    
-                    .. attribute:: disable
-                    
-                    	Disable refresh reduction
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                    
-                    .. attribute:: reliable_ack_hold_time
-                    
-                    	Configure hold time for sending RSVP ACK message(s)
-                    	**type**\: int
-                    
-                    	**range:** 100..5000
-                    
-                    .. attribute:: reliable_ack_max_size
-                    
-                    	Configure max size of a single RSVP ACK message
-                    	**type**\: int
-                    
-                    	**range:** 20..65000
-                    
-                    .. attribute:: reliable_retransmit_time
-                    
-                    	Configure min delay to wait for an ACK before a retransmit
-                    	**type**\: int
-                    
-                    	**range:** 100..10000
-                    
-                    .. attribute:: reliable_s_refresh
-                    
-                    	Configure use of reliable messaging for summary refresh
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-                    
-                    .. attribute:: summary_max_size
-                    
-                    	Configure max size of a single RSVP summary refresh message
-                    	**type**\: int
-                    
-                    	**range:** 20..65000
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-rsvp-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.bundle_message_max_size = None
-                        self.disable = None
-                        self.reliable_ack_hold_time = None
-                        self.reliable_ack_max_size = None
-                        self.reliable_retransmit_time = None
-                        self.reliable_s_refresh = None
-                        self.summary_max_size = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-rsvp-cfg:refresh-reduction'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.bundle_message_max_size is not None:
-                            return True
-
-                        if self.disable is not None:
-                            return True
-
-                        if self.reliable_ack_hold_time is not None:
-                            return True
-
-                        if self.reliable_ack_max_size is not None:
-                            return True
-
-                        if self.reliable_retransmit_time is not None:
-                            return True
-
-                        if self.reliable_s_refresh is not None:
-                            return True
-
-                        if self.summary_max_size is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                        return meta._meta_table['Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction']['meta_info']
-
                 @property
                 def _common_path(self):
                     if self.parent is None:
@@ -1476,19 +1263,19 @@ class Rsvp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.dscp is not None:
-                        return True
-
-                    if self.hello_graceful_restart_if_based is not None:
+                    if self.refresh_reduction is not None and self.refresh_reduction._has_data():
                         return True
 
                     if self.interval_rate is not None and self.interval_rate._has_data():
                         return True
 
+                    if self.dscp is not None:
+                        return True
+
                     if self.missed_messages is not None:
                         return True
 
-                    if self.out_of_band is not None and self.out_of_band._has_data():
+                    if self.hello_graceful_restart_if_based is not None:
                         return True
 
                     if self.pacing is not None:
@@ -1497,7 +1284,7 @@ class Rsvp(object):
                     if self.refresh_interval is not None:
                         return True
 
-                    if self.refresh_reduction is not None and self.refresh_reduction._has_data():
+                    if self.out_of_band is not None and self.out_of_band._has_data():
                         return True
 
                     return False
@@ -1506,6 +1293,325 @@ class Rsvp(object):
                 def _meta_info():
                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
                     return meta._meta_table['Rsvp.Interfaces.Interface.IfSignalling']['meta_info']
+
+
+            class Bandwidth(object):
+                """
+                Configure Bandwidth
+                
+                .. attribute:: mam
+                
+                	Configure MAM bandwidth parameters
+                	**type**\: :py:class:`Mam <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.Bandwidth.Mam>`
+                
+                .. attribute:: rdm
+                
+                	Configure RDM bandwidth parameters
+                	**type**\: :py:class:`Rdm <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Interfaces.Interface.Bandwidth.Rdm>`
+                
+                
+
+                """
+
+                _prefix = 'ip-rsvp-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.mam = Rsvp.Interfaces.Interface.Bandwidth.Mam()
+                    self.mam.parent = self
+                    self.rdm = Rsvp.Interfaces.Interface.Bandwidth.Rdm()
+                    self.rdm.parent = self
+
+
+                class Mam(object):
+                    """
+                    Configure MAM bandwidth parameters
+                    
+                    .. attribute:: max_resv_bandwidth
+                    
+                    	Maximum reservable bandwidth (Kbps or percent of physical bandwidth)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: max_resv_flow
+                    
+                    	Largest reservable flow (Kbps or percent of physical bandwidth)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: bc0_bandwidth
+                    
+                    	Reservable bandwidth in BC0 (Kbps or percent of physical bandwidth)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: bc1_bandwidth
+                    
+                    	Reservable bandwidth in BC1 (Kbps or percent of physical bandwidth)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: bandwidth_mode
+                    
+                    	Absolute or Percentage bandwidth mode
+                    	**type**\: :py:class:`RsvpBwCfgEnum <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBwCfgEnum>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-rsvp-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.max_resv_bandwidth = None
+                        self.max_resv_flow = None
+                        self.bc0_bandwidth = None
+                        self.bc1_bandwidth = None
+                        self.bandwidth_mode = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ip-rsvp-cfg:mam'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.max_resv_bandwidth is not None:
+                            return True
+
+                        if self.max_resv_flow is not None:
+                            return True
+
+                        if self.bc0_bandwidth is not None:
+                            return True
+
+                        if self.bc1_bandwidth is not None:
+                            return True
+
+                        if self.bandwidth_mode is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                        return meta._meta_table['Rsvp.Interfaces.Interface.Bandwidth.Mam']['meta_info']
+
+
+                class Rdm(object):
+                    """
+                    Configure RDM bandwidth parameters
+                    
+                    .. attribute:: max_resv_flow
+                    
+                    	Largest reservable flow (Kbps or percent of physical bandwidth)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: bc0_bandwidth
+                    
+                    	Reservable bandwidth in BC0 (Kbps or percent of physical bandwidth)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: bc1_bandwidth
+                    
+                    	Reservable bandwidth in BC1 (Kbps or percent of physical bandwidth)
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: rdm_keyword
+                    
+                    	Set requests should always use RDM
+                    	**type**\: :py:class:`RsvpRdmEnum <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.RsvpRdmEnum>`
+                    
+                    .. attribute:: bc0_keyword
+                    
+                    	Set requests should always use BC0
+                    	**type**\: :py:class:`RsvpBc0Enum <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBc0Enum>`
+                    
+                    .. attribute:: bc1_keyword
+                    
+                    	Set requests should always use BC1
+                    	**type**\: :py:class:`RsvpBc1Enum <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBc1Enum>`
+                    
+                    .. attribute:: bandwidth_mode
+                    
+                    	Absolute or Percentage bandwidth mode
+                    	**type**\: :py:class:`RsvpBwCfgEnum <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBwCfgEnum>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-rsvp-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.max_resv_flow = None
+                        self.bc0_bandwidth = None
+                        self.bc1_bandwidth = None
+                        self.rdm_keyword = None
+                        self.bc0_keyword = None
+                        self.bc1_keyword = None
+                        self.bandwidth_mode = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ip-rsvp-cfg:rdm'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.max_resv_flow is not None:
+                            return True
+
+                        if self.bc0_bandwidth is not None:
+                            return True
+
+                        if self.bc1_bandwidth is not None:
+                            return True
+
+                        if self.rdm_keyword is not None:
+                            return True
+
+                        if self.bc0_keyword is not None:
+                            return True
+
+                        if self.bc1_keyword is not None:
+                            return True
+
+                        if self.bandwidth_mode is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                        return meta._meta_table['Rsvp.Interfaces.Interface.Bandwidth.Rdm']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ip-rsvp-cfg:bandwidth'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.mam is not None and self.mam._has_data():
+                        return True
+
+                    if self.rdm is not None and self.rdm._has_data():
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                    return meta._meta_table['Rsvp.Interfaces.Interface.Bandwidth']['meta_info']
+
+
+            class Authentication(object):
+                """
+                Configure RSVP authentication
+                
+                .. attribute:: life_time
+                
+                	Life time (in seconds) for each security association
+                	**type**\: int
+                
+                	**range:** 30..86400
+                
+                .. attribute:: window_size
+                
+                	Window\-size to limit number of out\-of\-order messages
+                	**type**\: int
+                
+                	**range:** 1..64
+                
+                .. attribute:: key_chain
+                
+                	Key chain to authenticate RSVP signalling messages
+                	**type**\: str
+                
+                	**range:** 0..32
+                
+                
+
+                """
+
+                _prefix = 'ip-rsvp-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.life_time = None
+                    self.window_size = None
+                    self.key_chain = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ip-rsvp-cfg:authentication'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.life_time is not None:
+                        return True
+
+                    if self.window_size is not None:
+                        return True
+
+                    if self.key_chain is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                    return meta._meta_table['Rsvp.Interfaces.Interface.Authentication']['meta_info']
 
             @property
             def _common_path(self):
@@ -1524,7 +1630,7 @@ class Rsvp(object):
                 if self.name is not None:
                     return True
 
-                if self.authentication is not None and self.authentication._has_data():
+                if self.if_signalling is not None and self.if_signalling._has_data():
                     return True
 
                 if self.bandwidth is not None and self.bandwidth._has_data():
@@ -1533,7 +1639,7 @@ class Rsvp(object):
                 if self.enable is not None:
                     return True
 
-                if self.if_signalling is not None and self.if_signalling._has_data():
+                if self.authentication is not None and self.authentication._has_data():
                     return True
 
                 return False
@@ -1568,187 +1674,9 @@ class Rsvp(object):
             return meta._meta_table['Rsvp.Interfaces']['meta_info']
 
 
-    class Neighbors(object):
-        """
-        RSVP Neighbor Table
-        
-        .. attribute:: neighbor
-        
-        	RSVP neighbor configuration
-        	**type**\: list of :py:class:`Neighbor <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Neighbors.Neighbor>`
-        
-        
-
-        """
-
-        _prefix = 'ip-rsvp-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.neighbor = YList()
-            self.neighbor.parent = self
-            self.neighbor.name = 'neighbor'
-
-
-        class Neighbor(object):
-            """
-            RSVP neighbor configuration
-            
-            .. attribute:: neighbor
-            
-            	Neighbor IP address
-            	**type**\: str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-            
-            .. attribute:: authentication
-            
-            	Configure RSVP authentication
-            	**type**\: :py:class:`Authentication <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Neighbors.Neighbor.Authentication>`
-            
-            
-
-            """
-
-            _prefix = 'ip-rsvp-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.neighbor = None
-                self.authentication = Rsvp.Neighbors.Neighbor.Authentication()
-                self.authentication.parent = self
-
-
-            class Authentication(object):
-                """
-                Configure RSVP authentication
-                
-                .. attribute:: key_chain
-                
-                	Key chain to authenticate RSVP signalling messages
-                	**type**\: str
-                
-                	**range:** 0..32
-                
-                .. attribute:: life_time
-                
-                	Life time (in seconds) for each security association
-                	**type**\: int
-                
-                	**range:** 30..86400
-                
-                .. attribute:: window_size
-                
-                	Window\-size to limit number of out\-of\-order messages
-                	**type**\: int
-                
-                	**range:** 1..64
-                
-                
-
-                """
-
-                _prefix = 'ip-rsvp-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.key_chain = None
-                    self.life_time = None
-                    self.window_size = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-rsvp-cfg:authentication'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.key_chain is not None:
-                        return True
-
-                    if self.life_time is not None:
-                        return True
-
-                    if self.window_size is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                    return meta._meta_table['Rsvp.Neighbors.Neighbor.Authentication']['meta_info']
-
-            @property
-            def _common_path(self):
-                if self.neighbor is None:
-                    raise YPYDataValidationError('Key property neighbor is None')
-
-                return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:neighbors/Cisco-IOS-XR-ip-rsvp-cfg:neighbor[Cisco-IOS-XR-ip-rsvp-cfg:neighbor = ' + str(self.neighbor) + ']'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.neighbor is not None:
-                    return True
-
-                if self.authentication is not None and self.authentication._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                return meta._meta_table['Rsvp.Neighbors.Neighbor']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:neighbors'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.neighbor is not None:
-                for child_ref in self.neighbor:
-                    if child_ref._has_data():
-                        return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-            return meta._meta_table['Rsvp.Neighbors']['meta_info']
-
-
     class Signalling(object):
         """
         Configure Global RSVP signalling parameters
-        
-        .. attribute:: checksum
-        
-        	RSVP message checksum computation
-        	**type**\: :py:class:`Checksum <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.Checksum>`
         
         .. attribute:: global_out_of_band
         
@@ -1760,12 +1688,20 @@ class Rsvp(object):
         	Configure RSVP Graceful\-Restart parameters
         	**type**\: :py:class:`GracefulRestart <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.GracefulRestart>`
         
-        .. attribute:: hello_graceful_restart_interval
+        .. attribute:: prefix_filtering
         
-        	Configure interval between successive Hello messages
-        	**type**\: int
+        	Configure prefix filtering parameters
+        	**type**\: :py:class:`PrefixFiltering <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.PrefixFiltering>`
         
-        	**range:** 3000..30000
+        .. attribute:: pesr
+        
+        	Sending Path Error with State\-Removal flag
+        	**type**\: :py:class:`Pesr <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.Pesr>`
+        
+        .. attribute:: checksum
+        
+        	RSVP message checksum computation
+        	**type**\: :py:class:`Checksum <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.Checksum>`
         
         .. attribute:: hello_graceful_restart_misses
         
@@ -1774,15 +1710,12 @@ class Rsvp(object):
         
         	**range:** 1..10
         
-        .. attribute:: pesr
+        .. attribute:: hello_graceful_restart_interval
         
-        	Sending Path Error with State\-Removal flag
-        	**type**\: :py:class:`Pesr <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.Pesr>`
+        	Configure interval between successive Hello messages
+        	**type**\: int
         
-        .. attribute:: prefix_filtering
-        
-        	Configure prefix filtering parameters
-        	**type**\: :py:class:`PrefixFiltering <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.PrefixFiltering>`
+        	**range:** 3000..30000
         
         
 
@@ -1793,61 +1726,18 @@ class Rsvp(object):
 
         def __init__(self):
             self.parent = None
-            self.checksum = Rsvp.Signalling.Checksum()
-            self.checksum.parent = self
             self.global_out_of_band = Rsvp.Signalling.GlobalOutOfBand()
             self.global_out_of_band.parent = self
             self.graceful_restart = Rsvp.Signalling.GracefulRestart()
             self.graceful_restart.parent = self
-            self.hello_graceful_restart_interval = None
-            self.hello_graceful_restart_misses = None
-            self.pesr = Rsvp.Signalling.Pesr()
-            self.pesr.parent = self
             self.prefix_filtering = Rsvp.Signalling.PrefixFiltering()
             self.prefix_filtering.parent = self
-
-
-        class Checksum(object):
-            """
-            RSVP message checksum computation
-            
-            .. attribute:: disable
-            
-            	Disable RSVP message checksum computation
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'ip-rsvp-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.disable = None
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:signalling/Cisco-IOS-XR-ip-rsvp-cfg:checksum'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.disable is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                return meta._meta_table['Rsvp.Signalling.Checksum']['meta_info']
+            self.pesr = Rsvp.Signalling.Pesr()
+            self.pesr.parent = self
+            self.checksum = Rsvp.Signalling.Checksum()
+            self.checksum.parent = self
+            self.hello_graceful_restart_misses = None
+            self.hello_graceful_restart_interval = None
 
 
         class GlobalOutOfBand(object):
@@ -1949,52 +1839,14 @@ class Rsvp(object):
                 return meta._meta_table['Rsvp.Signalling.GracefulRestart']['meta_info']
 
 
-        class Pesr(object):
-            """
-            Sending Path Error with State\-Removal flag
-            
-            .. attribute:: disable
-            
-            	Disable RSVP PESR
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
-            
-
-            """
-
-            _prefix = 'ip-rsvp-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.disable = None
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:signalling/Cisco-IOS-XR-ip-rsvp-cfg:pesr'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.disable is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                return meta._meta_table['Rsvp.Signalling.Pesr']['meta_info']
-
-
         class PrefixFiltering(object):
             """
             Configure prefix filtering parameters
+            
+            .. attribute:: default_deny_action
+            
+            	Configure RSVP behaviour for scenarios where ACL match yields a default (implicit) deny
+            	**type**\: :py:class:`DefaultDenyAction <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.PrefixFiltering.DefaultDenyAction>`
             
             .. attribute:: acl
             
@@ -2003,11 +1855,6 @@ class Rsvp(object):
             
             	**range:** 0..65
             
-            .. attribute:: default_deny_action
-            
-            	Configure RSVP behaviour for scenarios where ACL match yields a default (implicit) deny
-            	**type**\: :py:class:`DefaultDenyAction <ydk.models.ip.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.PrefixFiltering.DefaultDenyAction>`
-            
             
 
             """
@@ -2017,9 +1864,9 @@ class Rsvp(object):
 
             def __init__(self):
                 self.parent = None
-                self.acl = None
                 self.default_deny_action = Rsvp.Signalling.PrefixFiltering.DefaultDenyAction()
                 self.default_deny_action.parent = self
+                self.acl = None
 
 
             class DefaultDenyAction(object):
@@ -2077,10 +1924,10 @@ class Rsvp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.acl is not None:
+                if self.default_deny_action is not None and self.default_deny_action._has_data():
                     return True
 
-                if self.default_deny_action is not None and self.default_deny_action._has_data():
+                if self.acl is not None:
                     return True
 
                 return False
@@ -2089,6 +1936,92 @@ class Rsvp(object):
             def _meta_info():
                 from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
                 return meta._meta_table['Rsvp.Signalling.PrefixFiltering']['meta_info']
+
+
+        class Pesr(object):
+            """
+            Sending Path Error with State\-Removal flag
+            
+            .. attribute:: disable
+            
+            	Disable RSVP PESR
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'ip-rsvp-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.disable = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:signalling/Cisco-IOS-XR-ip-rsvp-cfg:pesr'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.disable is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                return meta._meta_table['Rsvp.Signalling.Pesr']['meta_info']
+
+
+        class Checksum(object):
+            """
+            RSVP message checksum computation
+            
+            .. attribute:: disable
+            
+            	Disable RSVP message checksum computation
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'ip-rsvp-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.disable = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:signalling/Cisco-IOS-XR-ip-rsvp-cfg:checksum'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.disable is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+                return meta._meta_table['Rsvp.Signalling.Checksum']['meta_info']
 
         @property
         def _common_path(self):
@@ -2102,25 +2035,25 @@ class Rsvp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.checksum is not None and self.checksum._has_data():
-                return True
-
             if self.global_out_of_band is not None and self.global_out_of_band._has_data():
                 return True
 
             if self.graceful_restart is not None and self.graceful_restart._has_data():
                 return True
 
-            if self.hello_graceful_restart_interval is not None:
-                return True
-
-            if self.hello_graceful_restart_misses is not None:
+            if self.prefix_filtering is not None and self.prefix_filtering._has_data():
                 return True
 
             if self.pesr is not None and self.pesr._has_data():
                 return True
 
-            if self.prefix_filtering is not None and self.prefix_filtering._has_data():
+            if self.checksum is not None and self.checksum._has_data():
+                return True
+
+            if self.hello_graceful_restart_misses is not None:
+                return True
+
+            if self.hello_graceful_restart_interval is not None:
                 return True
 
             return False
@@ -2129,6 +2062,73 @@ class Rsvp(object):
         def _meta_info():
             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
             return meta._meta_table['Rsvp.Signalling']['meta_info']
+
+
+    class Authentication(object):
+        """
+        Configure RSVP authentication
+        
+        .. attribute:: life_time
+        
+        	Life time (in seconds) for each security association
+        	**type**\: int
+        
+        	**range:** 30..86400
+        
+        .. attribute:: window_size
+        
+        	Window\-size to limit number of out\-of\-order messages
+        	**type**\: int
+        
+        	**range:** 1..64
+        
+        .. attribute:: key_chain
+        
+        	Key chain to authenticate RSVP signalling messages
+        	**type**\: str
+        
+        	**range:** 0..32
+        
+        
+
+        """
+
+        _prefix = 'ip-rsvp-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.life_time = None
+            self.window_size = None
+            self.key_chain = None
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:authentication'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.life_time is not None:
+                return True
+
+            if self.window_size is not None:
+                return True
+
+            if self.key_chain is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
+            return meta._meta_table['Rsvp.Authentication']['meta_info']
 
     @property
     def _common_path(self):
@@ -2142,25 +2142,25 @@ class Rsvp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.authentication is not None and self.authentication._has_data():
+        if self.neighbors is not None and self.neighbors._has_data():
             return True
 
         if self.controllers is not None and self.controllers._has_data():
             return True
 
-        if self.global_bandwidth is not None and self.global_bandwidth._has_data():
+        if self.global_logging is not None and self.global_logging._has_data():
             return True
 
-        if self.global_logging is not None and self.global_logging._has_data():
+        if self.global_bandwidth is not None and self.global_bandwidth._has_data():
             return True
 
         if self.interfaces is not None and self.interfaces._has_data():
             return True
 
-        if self.neighbors is not None and self.neighbors._has_data():
+        if self.signalling is not None and self.signalling._has_data():
             return True
 
-        if self.signalling is not None and self.signalling._has_data():
+        if self.authentication is not None and self.authentication._has_data():
             return True
 
         return False

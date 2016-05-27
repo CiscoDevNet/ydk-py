@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -74,7 +74,7 @@ class PfilterMa(object):
             PfilterMa operational data for a particular
             node
             
-            .. attribute:: node_name
+            .. attribute:: node_name  <key>
             
             	The node
             	**type**\: str
@@ -104,15 +104,15 @@ class PfilterMa(object):
                 """
                 Operational data for pfilter
                 
-                .. attribute:: ipv4
-                
-                	Operational data for pfilter
-                	**type**\: :py:class:`Ipv4 <ydk.models.ip.Cisco_IOS_XR_ip_pfilter_oper.PfilterMa.Nodes.Node.Process.Ipv4>`
-                
                 .. attribute:: ipv6
                 
                 	Operational data for pfilter
                 	**type**\: :py:class:`Ipv6 <ydk.models.ip.Cisco_IOS_XR_ip_pfilter_oper.PfilterMa.Nodes.Node.Process.Ipv6>`
+                
+                .. attribute:: ipv4
+                
+                	Operational data for pfilter
+                	**type**\: :py:class:`Ipv4 <ydk.models.ip.Cisco_IOS_XR_ip_pfilter_oper.PfilterMa.Nodes.Node.Process.Ipv4>`
                 
                 
 
@@ -123,163 +123,10 @@ class PfilterMa(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.ipv4 = PfilterMa.Nodes.Node.Process.Ipv4()
-                    self.ipv4.parent = self
                     self.ipv6 = PfilterMa.Nodes.Node.Process.Ipv6()
                     self.ipv6.parent = self
-
-
-                class Ipv4(object):
-                    """
-                    Operational data for pfilter
-                    
-                    .. attribute:: interfaces
-                    
-                    	Operational data for pfilter
-                    	**type**\: :py:class:`Interfaces <ydk.models.ip.Cisco_IOS_XR_ip_pfilter_oper.PfilterMa.Nodes.Node.Process.Ipv4.Interfaces>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-pfilter-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.interfaces = PfilterMa.Nodes.Node.Process.Ipv4.Interfaces()
-                        self.interfaces.parent = self
-
-
-                    class Interfaces(object):
-                        """
-                        Operational data for pfilter
-                        
-                        .. attribute:: interface
-                        
-                        	Operational data for pfilter
-                        	**type**\: list of :py:class:`Interface <ydk.models.ip.Cisco_IOS_XR_ip_pfilter_oper.PfilterMa.Nodes.Node.Process.Ipv4.Interfaces.Interface>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ip-pfilter-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.interface = YList()
-                            self.interface.parent = self
-                            self.interface.name = 'interface'
-
-
-                        class Interface(object):
-                            """
-                            Operational data for pfilter
-                            
-                            .. attribute:: interface_name
-                            
-                            	Name of the interface
-                            	**type**\: str
-                            
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                            
-                            .. attribute:: acl_information
-                            
-                            	Interface ACL Details
-                            	**type**\: str
-                            
-                            
-
-                            """
-
-                            _prefix = 'ip-pfilter-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.interface_name = None
-                                self.acl_information = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                                if self.interface_name is None:
-                                    raise YPYDataValidationError('Key property interface_name is None')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-oper:interface[Cisco-IOS-XR-ip-pfilter-oper:interface-name = ' + str(self.interface_name) + ']'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.interface_name is not None:
-                                    return True
-
-                                if self.acl_information is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.ip._meta import _Cisco_IOS_XR_ip_pfilter_oper as meta
-                                return meta._meta_table['PfilterMa.Nodes.Node.Process.Ipv4.Interfaces.Interface']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-oper:interfaces'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.interface is not None:
-                                for child_ref in self.interface:
-                                    if child_ref._has_data():
-                                        return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_pfilter_oper as meta
-                            return meta._meta_table['PfilterMa.Nodes.Node.Process.Ipv4.Interfaces']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-oper:ipv4'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.interfaces is not None and self.interfaces._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.ip._meta import _Cisco_IOS_XR_ip_pfilter_oper as meta
-                        return meta._meta_table['PfilterMa.Nodes.Node.Process.Ipv4']['meta_info']
+                    self.ipv4 = PfilterMa.Nodes.Node.Process.Ipv4()
+                    self.ipv4.parent = self
 
 
                 class Ipv6(object):
@@ -331,7 +178,7 @@ class PfilterMa(object):
                             """
                             Operational data for pfilter
                             
-                            .. attribute:: interface_name
+                            .. attribute:: interface_name  <key>
                             
                             	Name of the interface
                             	**type**\: str
@@ -434,6 +281,159 @@ class PfilterMa(object):
                         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_pfilter_oper as meta
                         return meta._meta_table['PfilterMa.Nodes.Node.Process.Ipv6']['meta_info']
 
+
+                class Ipv4(object):
+                    """
+                    Operational data for pfilter
+                    
+                    .. attribute:: interfaces
+                    
+                    	Operational data for pfilter
+                    	**type**\: :py:class:`Interfaces <ydk.models.ip.Cisco_IOS_XR_ip_pfilter_oper.PfilterMa.Nodes.Node.Process.Ipv4.Interfaces>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-pfilter-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.interfaces = PfilterMa.Nodes.Node.Process.Ipv4.Interfaces()
+                        self.interfaces.parent = self
+
+
+                    class Interfaces(object):
+                        """
+                        Operational data for pfilter
+                        
+                        .. attribute:: interface
+                        
+                        	Operational data for pfilter
+                        	**type**\: list of :py:class:`Interface <ydk.models.ip.Cisco_IOS_XR_ip_pfilter_oper.PfilterMa.Nodes.Node.Process.Ipv4.Interfaces.Interface>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ip-pfilter-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.interface = YList()
+                            self.interface.parent = self
+                            self.interface.name = 'interface'
+
+
+                        class Interface(object):
+                            """
+                            Operational data for pfilter
+                            
+                            .. attribute:: interface_name  <key>
+                            
+                            	Name of the interface
+                            	**type**\: str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: acl_information
+                            
+                            	Interface ACL Details
+                            	**type**\: str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ip-pfilter-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.interface_name = None
+                                self.acl_information = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                                if self.interface_name is None:
+                                    raise YPYDataValidationError('Key property interface_name is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-oper:interface[Cisco-IOS-XR-ip-pfilter-oper:interface-name = ' + str(self.interface_name) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.interface_name is not None:
+                                    return True
+
+                                if self.acl_information is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.ip._meta import _Cisco_IOS_XR_ip_pfilter_oper as meta
+                                return meta._meta_table['PfilterMa.Nodes.Node.Process.Ipv4.Interfaces.Interface']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-oper:interfaces'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.interface is not None:
+                                for child_ref in self.interface:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_pfilter_oper as meta
+                            return meta._meta_table['PfilterMa.Nodes.Node.Process.Ipv4.Interfaces']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-oper:ipv4'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.interfaces is not None and self.interfaces._has_data():
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.ip._meta import _Cisco_IOS_XR_ip_pfilter_oper as meta
+                        return meta._meta_table['PfilterMa.Nodes.Node.Process.Ipv4']['meta_info']
+
                 @property
                 def _common_path(self):
                     if self.parent is None:
@@ -448,10 +448,10 @@ class PfilterMa(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.ipv4 is not None and self.ipv4._has_data():
+                    if self.ipv6 is not None and self.ipv6._has_data():
                         return True
 
-                    if self.ipv6 is not None and self.ipv6._has_data():
+                    if self.ipv4 is not None and self.ipv4._has_data():
                         return True
 
                     return False

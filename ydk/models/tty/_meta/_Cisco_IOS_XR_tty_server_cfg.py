@@ -7,79 +7,56 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
 from ydk.models import _yang_ns
 
 _meta_table = {
-    'Tty.TtyLines.TtyLine.Aaa.Accounting' : {
-        'meta_info' : _MetaInfoClass('Tty.TtyLines.TtyLine.Aaa.Accounting',
+    'Tty.TtyLines.TtyLine.General' : {
+        'meta_info' : _MetaInfoClass('Tty.TtyLines.TtyLine.General',
             False, 
             [
-            _MetaInfoClassMember('commands', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                For exec (shell) configuration
+            _MetaInfoClassMember('length', ATTRIBUTE, 'int' , None, None, 
+                [(0, 512)], [], 
+                '''                Number of lines on a screen.
                 ''',
-                'commands',
+                'length',
                 'Cisco-IOS-XR-tty-server-cfg', False),
-            _MetaInfoClassMember('exec', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                For starting an exec (shell)
+            _MetaInfoClassMember('absolute-timeout', ATTRIBUTE, 'int' , None, None, 
+                [(0, 10000)], [], 
+                '''                Absolute timeout for line disconnection
                 ''',
-                'exec_',
+                'absolute_timeout',
+                'Cisco-IOS-XR-tty-server-cfg', False),
+            _MetaInfoClassMember('width', ATTRIBUTE, 'int' , None, None, 
+                [(0, 512)], [], 
+                '''                Number of characters on a screen line.
+                ''',
+                'width',
                 'Cisco-IOS-XR-tty-server-cfg', False),
             ],
             'Cisco-IOS-XR-tty-server-cfg',
-            'accounting',
+            'general',
             _yang_ns._namespaces['Cisco-IOS-XR-tty-server-cfg'],
         'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg'
         ),
     },
-    'Tty.TtyLines.TtyLine.Aaa.Authentication' : {
-        'meta_info' : _MetaInfoClass('Tty.TtyLines.TtyLine.Aaa.Authentication',
+    'Tty.TtyLines.TtyLine.Telnet' : {
+        'meta_info' : _MetaInfoClass('Tty.TtyLines.TtyLine.Telnet',
             False, 
             [
-            _MetaInfoClassMember('login', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('transparent', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Authentication list name
+                '''                Send a CR as a CR followed by a NULL instead
+                of a CRfollowed by a LF
                 ''',
-                'login',
+                'transparent',
                 'Cisco-IOS-XR-tty-server-cfg', False),
             ],
             'Cisco-IOS-XR-tty-server-cfg',
-            'authentication',
-            _yang_ns._namespaces['Cisco-IOS-XR-tty-server-cfg'],
-        'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg'
-        ),
-    },
-    'Tty.TtyLines.TtyLine.Aaa.Authorization' : {
-        'meta_info' : _MetaInfoClass('Tty.TtyLines.TtyLine.Aaa.Authorization',
-            False, 
-            [
-            _MetaInfoClassMember('commands', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                For exec (shell) configuration
-                ''',
-                'commands',
-                'Cisco-IOS-XR-tty-server-cfg', False),
-            _MetaInfoClassMember('event-manager', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Specify 'default' or use an authorization
-                list with this name
-                ''',
-                'event_manager',
-                'Cisco-IOS-XR-tty-server-cfg', False),
-            _MetaInfoClassMember('exec', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                For starting an exec (shell)
-                ''',
-                'exec_',
-                'Cisco-IOS-XR-tty-server-cfg', False),
-            ],
-            'Cisco-IOS-XR-tty-server-cfg',
-            'authorization',
+            'telnet',
             _yang_ns._namespaces['Cisco-IOS-XR-tty-server-cfg'],
         'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg'
         ),
@@ -125,15 +102,91 @@ _meta_table = {
         'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg'
         ),
     },
+    'Tty.TtyLines.TtyLine.Aaa.Authorization' : {
+        'meta_info' : _MetaInfoClass('Tty.TtyLines.TtyLine.Aaa.Authorization',
+            False, 
+            [
+            _MetaInfoClassMember('exec', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                For starting an exec (shell)
+                ''',
+                'exec_',
+                'Cisco-IOS-XR-tty-server-cfg', False),
+            _MetaInfoClassMember('event-manager', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Specify 'default' or use an authorization
+                list with this name
+                ''',
+                'event_manager',
+                'Cisco-IOS-XR-tty-server-cfg', False),
+            _MetaInfoClassMember('commands', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                For exec (shell) configuration
+                ''',
+                'commands',
+                'Cisco-IOS-XR-tty-server-cfg', False),
+            ],
+            'Cisco-IOS-XR-tty-server-cfg',
+            'authorization',
+            _yang_ns._namespaces['Cisco-IOS-XR-tty-server-cfg'],
+        'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg'
+        ),
+    },
+    'Tty.TtyLines.TtyLine.Aaa.Authentication' : {
+        'meta_info' : _MetaInfoClass('Tty.TtyLines.TtyLine.Aaa.Authentication',
+            False, 
+            [
+            _MetaInfoClassMember('login', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Authentication list name
+                ''',
+                'login',
+                'Cisco-IOS-XR-tty-server-cfg', False),
+            ],
+            'Cisco-IOS-XR-tty-server-cfg',
+            'authentication',
+            _yang_ns._namespaces['Cisco-IOS-XR-tty-server-cfg'],
+        'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg'
+        ),
+    },
+    'Tty.TtyLines.TtyLine.Aaa.Accounting' : {
+        'meta_info' : _MetaInfoClass('Tty.TtyLines.TtyLine.Aaa.Accounting',
+            False, 
+            [
+            _MetaInfoClassMember('exec', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                For starting an exec (shell)
+                ''',
+                'exec_',
+                'Cisco-IOS-XR-tty-server-cfg', False),
+            _MetaInfoClassMember('commands', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                For exec (shell) configuration
+                ''',
+                'commands',
+                'Cisco-IOS-XR-tty-server-cfg', False),
+            ],
+            'Cisco-IOS-XR-tty-server-cfg',
+            'accounting',
+            _yang_ns._namespaces['Cisco-IOS-XR-tty-server-cfg'],
+        'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg'
+        ),
+    },
     'Tty.TtyLines.TtyLine.Aaa' : {
         'meta_info' : _MetaInfoClass('Tty.TtyLines.TtyLine.Aaa',
             False, 
             [
-            _MetaInfoClassMember('accounting', REFERENCE_CLASS, 'Accounting' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.Aaa.Accounting', 
+            _MetaInfoClassMember('user-groups', REFERENCE_CLASS, 'UserGroups' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.Aaa.UserGroups', 
                 [], [], 
-                '''                Accounting parameters
+                '''                Users characteristics
                 ''',
-                'accounting',
+                'user_groups',
+                'Cisco-IOS-XR-tty-server-cfg', False),
+            _MetaInfoClassMember('authorization', REFERENCE_CLASS, 'Authorization' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.Aaa.Authorization', 
+                [], [], 
+                '''                Authorization parameters
+                ''',
+                'authorization',
                 'Cisco-IOS-XR-tty-server-cfg', False),
             _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.Aaa.Authentication', 
                 [], [], 
@@ -141,11 +194,11 @@ _meta_table = {
                 ''',
                 'authentication',
                 'Cisco-IOS-XR-tty-server-cfg', False),
-            _MetaInfoClassMember('authorization', REFERENCE_CLASS, 'Authorization' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.Aaa.Authorization', 
+            _MetaInfoClassMember('accounting', REFERENCE_CLASS, 'Accounting' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.Aaa.Accounting', 
                 [], [], 
-                '''                Authorization parameters
+                '''                Accounting parameters
                 ''',
-                'authorization',
+                'accounting',
                 'Cisco-IOS-XR-tty-server-cfg', False),
             _MetaInfoClassMember('login-timeout', ATTRIBUTE, 'int' , None, None, 
                 [(0, 300)], [], 
@@ -154,227 +207,22 @@ _meta_table = {
                 ''',
                 'login_timeout',
                 'Cisco-IOS-XR-tty-server-cfg', False),
-            _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Configure the password for the user
-                ''',
-                'password',
-                'Cisco-IOS-XR-tty-server-cfg', False),
             _MetaInfoClassMember('secret', ATTRIBUTE, 'str' , None, None, 
                 [], ['(!.+)|([^!].+)'], 
                 '''                Configure a secure one way encrypted password
                 ''',
                 'secret',
                 'Cisco-IOS-XR-tty-server-cfg', False),
-            _MetaInfoClassMember('user-groups', REFERENCE_CLASS, 'UserGroups' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.Aaa.UserGroups', 
-                [], [], 
-                '''                Users characteristics
+            _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
+                [], ['(!.+)|([^!].+)'], 
+                '''                Configure the password for the user
                 ''',
-                'user_groups',
+                'password',
                 'Cisco-IOS-XR-tty-server-cfg', False),
             ],
             'Cisco-IOS-XR-tty-server-cfg',
             'aaa',
             _yang_ns._namespaces['Cisco-IOS-XR-tty-server-cfg'],
-        'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg'
-        ),
-    },
-    'Tty.TtyLines.TtyLine.Connection.SessionTimeout' : {
-        'meta_info' : _MetaInfoClass('Tty.TtyLines.TtyLine.Connection.SessionTimeout',
-            False, 
-            [
-            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'TtySessionTimeoutDirectionEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtySessionTimeoutDirectionEnum', 
-                [], [], 
-                '''                Include output traffic as well as input
-                traffic
-                ''',
-                'direction',
-                'Cisco-IOS-XR-tty-management-cfg', False),
-            _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 35791)], [], 
-                '''                Session timeout interval in minutes
-                ''',
-                'timeout',
-                'Cisco-IOS-XR-tty-management-cfg', False),
-            ],
-            'Cisco-IOS-XR-tty-management-cfg',
-            'session-timeout',
-            _yang_ns._namespaces['Cisco-IOS-XR-tty-management-cfg'],
-        'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg'
-        ),
-    },
-    'Tty.TtyLines.TtyLine.Connection.TransportInput' : {
-        'meta_info' : _MetaInfoClass('Tty.TtyLines.TtyLine.Connection.TransportInput',
-            False, 
-            [
-            _MetaInfoClassMember('none', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Not used
-                ''',
-                'none',
-                'Cisco-IOS-XR-tty-management-cfg', False),
-            _MetaInfoClassMember('protocol1', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolEnum', 
-                [], [], 
-                '''                Transport protocol1
-                ''',
-                'protocol1',
-                'Cisco-IOS-XR-tty-management-cfg', False),
-            _MetaInfoClassMember('protocol2', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolEnum', 
-                [], [], 
-                '''                Transport protocol2
-                ''',
-                'protocol2',
-                'Cisco-IOS-XR-tty-management-cfg', False),
-            _MetaInfoClassMember('select', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolSelectEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolSelectEnum', 
-                [], [], 
-                '''                Choose transport protocols
-                ''',
-                'select',
-                'Cisco-IOS-XR-tty-management-cfg', False),
-            ],
-            'Cisco-IOS-XR-tty-management-cfg',
-            'transport-input',
-            _yang_ns._namespaces['Cisco-IOS-XR-tty-management-cfg'],
-        'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg'
-        ),
-    },
-    'Tty.TtyLines.TtyLine.Connection.TransportOutput' : {
-        'meta_info' : _MetaInfoClass('Tty.TtyLines.TtyLine.Connection.TransportOutput',
-            False, 
-            [
-            _MetaInfoClassMember('none', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Not used
-                ''',
-                'none',
-                'Cisco-IOS-XR-tty-management-cfg', False),
-            _MetaInfoClassMember('protocol1', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolEnum', 
-                [], [], 
-                '''                Transport protocol1
-                ''',
-                'protocol1',
-                'Cisco-IOS-XR-tty-management-cfg', False),
-            _MetaInfoClassMember('protocol2', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolEnum', 
-                [], [], 
-                '''                Transport protocol2
-                ''',
-                'protocol2',
-                'Cisco-IOS-XR-tty-management-cfg', False),
-            _MetaInfoClassMember('select', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolSelectEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolSelectEnum', 
-                [], [], 
-                '''                Choose transport protocols
-                ''',
-                'select',
-                'Cisco-IOS-XR-tty-management-cfg', False),
-            ],
-            'Cisco-IOS-XR-tty-management-cfg',
-            'transport-output',
-            _yang_ns._namespaces['Cisco-IOS-XR-tty-management-cfg'],
-        'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg'
-        ),
-    },
-    'Tty.TtyLines.TtyLine.Connection' : {
-        'meta_info' : _MetaInfoClass('Tty.TtyLines.TtyLine.Connection',
-            False, 
-            [
-            _MetaInfoClassMember('acl-in', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                ACL to filter ingoing connections
-                ''',
-                'acl_in',
-                'Cisco-IOS-XR-tty-management-cfg', False),
-            _MetaInfoClassMember('acl-out', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                ACL to filter outgoing connections
-                ''',
-                'acl_out',
-                'Cisco-IOS-XR-tty-management-cfg', False),
-            _MetaInfoClassMember('cli-white-space-completion', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Command completion on whitespace
-                ''',
-                'cli_white_space_completion',
-                'Cisco-IOS-XR-tty-management-cfg', False),
-            _MetaInfoClassMember('disconnect-character', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Disconnect character's decimal equivalent value
-                or Character 
-                ''',
-                'disconnect_character',
-                'Cisco-IOS-XR-tty-management-cfg', False, [
-                    _MetaInfoClassMember('disconnect-character', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\p{IsBasicLatin}|\\p{IsLatin-1Supplement})*'], 
-                        '''                        Disconnect character's decimal equivalent value
-                        or Character 
-                        ''',
-                        'disconnect_character',
-                        'Cisco-IOS-XR-tty-management-cfg', False),
-                    _MetaInfoClassMember('disconnect-character', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 255)], [], 
-                        '''                        Disconnect character's decimal equivalent value
-                        or Character 
-                        ''',
-                        'disconnect_character',
-                        'Cisco-IOS-XR-tty-management-cfg', False),
-                ]),
-            _MetaInfoClassMember('escape-character', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Escape character or ASCII decimal equivalent
-                value orspecial strings NONE,DEFAULT,BREAK
-                ''',
-                'escape_character',
-                'Cisco-IOS-XR-tty-management-cfg', False, [
-                    _MetaInfoClassMember('escape-character', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((\\p{IsBasicLatin}|\\p{IsLatin-1Supplement})*)|(DEFAULT)|(BREAK)|(NONE)'], 
-                        '''                        Escape character or ASCII decimal equivalent
-                        value orspecial strings NONE,DEFAULT,BREAK
-                        ''',
-                        'escape_character',
-                        'Cisco-IOS-XR-tty-management-cfg', False),
-                    _MetaInfoClassMember('escape-character', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 255)], [], 
-                        '''                        Escape character or ASCII decimal equivalent
-                        value orspecial strings NONE,DEFAULT,BREAK
-                        ''',
-                        'escape_character',
-                        'Cisco-IOS-XR-tty-management-cfg', False),
-                ]),
-            _MetaInfoClassMember('session-limit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 20)], [], 
-                '''                The number of outgoing connections
-                ''',
-                'session_limit',
-                'Cisco-IOS-XR-tty-management-cfg', False),
-            _MetaInfoClassMember('session-timeout', REFERENCE_CLASS, 'SessionTimeout' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.Connection.SessionTimeout', 
-                [], [], 
-                '''                Interval for closing connection when there is
-                no input traffic
-                ''',
-                'session_timeout',
-                'Cisco-IOS-XR-tty-management-cfg', False),
-            _MetaInfoClassMember('transport-input', REFERENCE_CLASS, 'TransportInput' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.Connection.TransportInput', 
-                [], [], 
-                '''                Protocols to use when connecting to the
-                terminal server
-                ''',
-                'transport_input',
-                'Cisco-IOS-XR-tty-management-cfg', False),
-            _MetaInfoClassMember('transport-output', REFERENCE_CLASS, 'TransportOutput' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.Connection.TransportOutput', 
-                [], [], 
-                '''                Protocols to use for outgoing connections
-                ''',
-                'transport_output',
-                'Cisco-IOS-XR-tty-management-cfg', False),
-            _MetaInfoClassMember('transport-preferred', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolEnum', 
-                [], [], 
-                '''                The preferred protocol to use
-                ''',
-                'transport_preferred',
-                'Cisco-IOS-XR-tty-management-cfg', False),
-            ],
-            'Cisco-IOS-XR-tty-management-cfg',
-            'connection',
-            _yang_ns._namespaces['Cisco-IOS-XR-tty-management-cfg'],
         'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg'
         ),
     },
@@ -405,6 +253,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Tty.TtyLines.TtyLine.Exec',
             False, 
             [
+            _MetaInfoClassMember('timeout', REFERENCE_CLASS, 'Timeout' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.Exec.Timeout', 
+                [], [], 
+                '''                EXEC Timeout
+                ''',
+                'timeout',
+                'Cisco-IOS-XR-tty-server-cfg', False),
             _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                'True' to Enable & 'False' to Disable time
@@ -412,16 +266,209 @@ _meta_table = {
                 ''',
                 'time_stamp',
                 'Cisco-IOS-XR-tty-server-cfg', False),
-            _MetaInfoClassMember('timeout', REFERENCE_CLASS, 'Timeout' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.Exec.Timeout', 
-                [], [], 
-                '''                EXEC Timeout
-                ''',
-                'timeout',
-                'Cisco-IOS-XR-tty-server-cfg', False),
             ],
             'Cisco-IOS-XR-tty-server-cfg',
             'exec',
             _yang_ns._namespaces['Cisco-IOS-XR-tty-server-cfg'],
+        'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg'
+        ),
+    },
+    'Tty.TtyLines.TtyLine.Connection.TransportInput' : {
+        'meta_info' : _MetaInfoClass('Tty.TtyLines.TtyLine.Connection.TransportInput',
+            False, 
+            [
+            _MetaInfoClassMember('select', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolSelectEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolSelectEnum', 
+                [], [], 
+                '''                Choose transport protocols
+                ''',
+                'select',
+                'Cisco-IOS-XR-tty-management-cfg', False),
+            _MetaInfoClassMember('protocol1', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolEnum', 
+                [], [], 
+                '''                Transport protocol1
+                ''',
+                'protocol1',
+                'Cisco-IOS-XR-tty-management-cfg', False),
+            _MetaInfoClassMember('protocol2', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolEnum', 
+                [], [], 
+                '''                Transport protocol2
+                ''',
+                'protocol2',
+                'Cisco-IOS-XR-tty-management-cfg', False),
+            _MetaInfoClassMember('none', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Not used
+                ''',
+                'none',
+                'Cisco-IOS-XR-tty-management-cfg', False),
+            ],
+            'Cisco-IOS-XR-tty-management-cfg',
+            'transport-input',
+            _yang_ns._namespaces['Cisco-IOS-XR-tty-management-cfg'],
+        'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg'
+        ),
+    },
+    'Tty.TtyLines.TtyLine.Connection.TransportOutput' : {
+        'meta_info' : _MetaInfoClass('Tty.TtyLines.TtyLine.Connection.TransportOutput',
+            False, 
+            [
+            _MetaInfoClassMember('select', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolSelectEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolSelectEnum', 
+                [], [], 
+                '''                Choose transport protocols
+                ''',
+                'select',
+                'Cisco-IOS-XR-tty-management-cfg', False),
+            _MetaInfoClassMember('protocol1', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolEnum', 
+                [], [], 
+                '''                Transport protocol1
+                ''',
+                'protocol1',
+                'Cisco-IOS-XR-tty-management-cfg', False),
+            _MetaInfoClassMember('protocol2', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolEnum', 
+                [], [], 
+                '''                Transport protocol2
+                ''',
+                'protocol2',
+                'Cisco-IOS-XR-tty-management-cfg', False),
+            _MetaInfoClassMember('none', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                Not used
+                ''',
+                'none',
+                'Cisco-IOS-XR-tty-management-cfg', False),
+            ],
+            'Cisco-IOS-XR-tty-management-cfg',
+            'transport-output',
+            _yang_ns._namespaces['Cisco-IOS-XR-tty-management-cfg'],
+        'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg'
+        ),
+    },
+    'Tty.TtyLines.TtyLine.Connection.SessionTimeout' : {
+        'meta_info' : _MetaInfoClass('Tty.TtyLines.TtyLine.Connection.SessionTimeout',
+            False, 
+            [
+            _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
+                [(0, 35791)], [], 
+                '''                Session timeout interval in minutes
+                ''',
+                'timeout',
+                'Cisco-IOS-XR-tty-management-cfg', False),
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'TtySessionTimeoutDirectionEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtySessionTimeoutDirectionEnum', 
+                [], [], 
+                '''                Include output traffic as well as input
+                traffic
+                ''',
+                'direction',
+                'Cisco-IOS-XR-tty-management-cfg', False),
+            ],
+            'Cisco-IOS-XR-tty-management-cfg',
+            'session-timeout',
+            _yang_ns._namespaces['Cisco-IOS-XR-tty-management-cfg'],
+        'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg'
+        ),
+    },
+    'Tty.TtyLines.TtyLine.Connection' : {
+        'meta_info' : _MetaInfoClass('Tty.TtyLines.TtyLine.Connection',
+            False, 
+            [
+            _MetaInfoClassMember('transport-input', REFERENCE_CLASS, 'TransportInput' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.Connection.TransportInput', 
+                [], [], 
+                '''                Protocols to use when connecting to the
+                terminal server
+                ''',
+                'transport_input',
+                'Cisco-IOS-XR-tty-management-cfg', False),
+            _MetaInfoClassMember('transport-output', REFERENCE_CLASS, 'TransportOutput' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.Connection.TransportOutput', 
+                [], [], 
+                '''                Protocols to use for outgoing connections
+                ''',
+                'transport_output',
+                'Cisco-IOS-XR-tty-management-cfg', False),
+            _MetaInfoClassMember('session-timeout', REFERENCE_CLASS, 'SessionTimeout' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.Connection.SessionTimeout', 
+                [], [], 
+                '''                Interval for closing connection when there is
+                no input traffic
+                ''',
+                'session_timeout',
+                'Cisco-IOS-XR-tty-management-cfg', False),
+            _MetaInfoClassMember('disconnect-character', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Disconnect character's decimal equivalent value
+                or Character 
+                ''',
+                'disconnect_character',
+                'Cisco-IOS-XR-tty-management-cfg', False, [
+                    _MetaInfoClassMember('disconnect-character', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(\\p{IsBasicLatin}|\\p{IsLatin-1Supplement})*'], 
+                        '''                        Disconnect character's decimal equivalent value
+                        or Character 
+                        ''',
+                        'disconnect_character',
+                        'Cisco-IOS-XR-tty-management-cfg', False),
+                    _MetaInfoClassMember('disconnect-character', ATTRIBUTE, 'int' , None, None, 
+                        [(0, 255)], [], 
+                        '''                        Disconnect character's decimal equivalent value
+                        or Character 
+                        ''',
+                        'disconnect_character',
+                        'Cisco-IOS-XR-tty-management-cfg', False),
+                ]),
+            _MetaInfoClassMember('acl-in', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                ACL to filter ingoing connections
+                ''',
+                'acl_in',
+                'Cisco-IOS-XR-tty-management-cfg', False),
+            _MetaInfoClassMember('acl-out', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                ACL to filter outgoing connections
+                ''',
+                'acl_out',
+                'Cisco-IOS-XR-tty-management-cfg', False),
+            _MetaInfoClassMember('cli-white-space-completion', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Command completion on whitespace
+                ''',
+                'cli_white_space_completion',
+                'Cisco-IOS-XR-tty-management-cfg', False),
+            _MetaInfoClassMember('session-limit', ATTRIBUTE, 'int' , None, None, 
+                [(0, 20)], [], 
+                '''                The number of outgoing connections
+                ''',
+                'session_limit',
+                'Cisco-IOS-XR-tty-management-cfg', False),
+            _MetaInfoClassMember('escape-character', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Escape character or ASCII decimal equivalent
+                value orspecial strings NONE,DEFAULT,BREAK
+                ''',
+                'escape_character',
+                'Cisco-IOS-XR-tty-management-cfg', False, [
+                    _MetaInfoClassMember('escape-character', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((\\p{IsBasicLatin}|\\p{IsLatin-1Supplement})*)|(DEFAULT)|(BREAK)|(NONE)'], 
+                        '''                        Escape character or ASCII decimal equivalent
+                        value orspecial strings NONE,DEFAULT,BREAK
+                        ''',
+                        'escape_character',
+                        'Cisco-IOS-XR-tty-management-cfg', False),
+                    _MetaInfoClassMember('escape-character', ATTRIBUTE, 'int' , None, None, 
+                        [(0, 255)], [], 
+                        '''                        Escape character or ASCII decimal equivalent
+                        value orspecial strings NONE,DEFAULT,BREAK
+                        ''',
+                        'escape_character',
+                        'Cisco-IOS-XR-tty-management-cfg', False),
+                ]),
+            _MetaInfoClassMember('transport-preferred', REFERENCE_ENUM_CLASS, 'TtyTransportProtocolEnum' , 'ydk.models.tty.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolEnum', 
+                [], [], 
+                '''                The preferred protocol to use
+                ''',
+                'transport_preferred',
+                'Cisco-IOS-XR-tty-management-cfg', False),
+            ],
+            'Cisco-IOS-XR-tty-management-cfg',
+            'connection',
+            _yang_ns._namespaces['Cisco-IOS-XR-tty-management-cfg'],
         'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg'
         ),
     },
@@ -442,53 +489,6 @@ _meta_table = {
         'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg'
         ),
     },
-    'Tty.TtyLines.TtyLine.General' : {
-        'meta_info' : _MetaInfoClass('Tty.TtyLines.TtyLine.General',
-            False, 
-            [
-            _MetaInfoClassMember('absolute-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 10000)], [], 
-                '''                Absolute timeout for line disconnection
-                ''',
-                'absolute_timeout',
-                'Cisco-IOS-XR-tty-server-cfg', False),
-            _MetaInfoClassMember('length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 512)], [], 
-                '''                Number of lines on a screen.
-                ''',
-                'length',
-                'Cisco-IOS-XR-tty-server-cfg', False),
-            _MetaInfoClassMember('width', ATTRIBUTE, 'int' , None, None, 
-                [(0, 512)], [], 
-                '''                Number of characters on a screen line.
-                ''',
-                'width',
-                'Cisco-IOS-XR-tty-server-cfg', False),
-            ],
-            'Cisco-IOS-XR-tty-server-cfg',
-            'general',
-            _yang_ns._namespaces['Cisco-IOS-XR-tty-server-cfg'],
-        'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg'
-        ),
-    },
-    'Tty.TtyLines.TtyLine.Telnet' : {
-        'meta_info' : _MetaInfoClass('Tty.TtyLines.TtyLine.Telnet',
-            False, 
-            [
-            _MetaInfoClassMember('transparent', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Send a CR as a CR followed by a NULL instead
-                of a CRfollowed by a LF
-                ''',
-                'transparent',
-                'Cisco-IOS-XR-tty-server-cfg', False),
-            ],
-            'Cisco-IOS-XR-tty-server-cfg',
-            'telnet',
-            _yang_ns._namespaces['Cisco-IOS-XR-tty-server-cfg'],
-        'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg'
-        ),
-    },
     'Tty.TtyLines.TtyLine' : {
         'meta_info' : _MetaInfoClass('Tty.TtyLines.TtyLine',
             False, 
@@ -499,31 +499,6 @@ _meta_table = {
                 ''',
                 'name',
                 'Cisco-IOS-XR-tty-server-cfg', True),
-            _MetaInfoClassMember('aaa', REFERENCE_CLASS, 'Aaa' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.Aaa', 
-                [], [], 
-                '''                Container class for AAA related TTY
-                configuration
-                ''',
-                'aaa',
-                'Cisco-IOS-XR-tty-server-cfg', False),
-            _MetaInfoClassMember('connection', REFERENCE_CLASS, 'Connection' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.Connection', 
-                [], [], 
-                '''                Management connection configuration
-                ''',
-                'connection',
-                'Cisco-IOS-XR-tty-management-cfg', False),
-            _MetaInfoClassMember('exec', REFERENCE_CLASS, 'Exec' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.Exec', 
-                [], [], 
-                '''                EXEC timeout and timestamp configurtion
-                ''',
-                'exec_',
-                'Cisco-IOS-XR-tty-server-cfg', False),
-            _MetaInfoClassMember('exec-mode', REFERENCE_CLASS, 'ExecMode' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.ExecMode', 
-                [], [], 
-                '''                Exec Mode Pager  configurtion
-                ''',
-                'exec_mode',
-                'Cisco-IOS-XR-tty-management-cfg', False),
             _MetaInfoClassMember('general', REFERENCE_CLASS, 'General' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.General', 
                 [], [], 
                 '''                TTY line general configuration
@@ -536,6 +511,31 @@ _meta_table = {
                 ''',
                 'telnet',
                 'Cisco-IOS-XR-tty-server-cfg', False),
+            _MetaInfoClassMember('aaa', REFERENCE_CLASS, 'Aaa' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.Aaa', 
+                [], [], 
+                '''                Container class for AAA related TTY
+                configuration
+                ''',
+                'aaa',
+                'Cisco-IOS-XR-tty-server-cfg', False),
+            _MetaInfoClassMember('exec', REFERENCE_CLASS, 'Exec' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.Exec', 
+                [], [], 
+                '''                EXEC timeout and timestamp configurtion
+                ''',
+                'exec_',
+                'Cisco-IOS-XR-tty-server-cfg', False),
+            _MetaInfoClassMember('connection', REFERENCE_CLASS, 'Connection' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.Connection', 
+                [], [], 
+                '''                Management connection configuration
+                ''',
+                'connection',
+                'Cisco-IOS-XR-tty-management-cfg', False),
+            _MetaInfoClassMember('exec-mode', REFERENCE_CLASS, 'ExecMode' , 'ydk.models.tty.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.ExecMode', 
+                [], [], 
+                '''                Exec Mode Pager  configurtion
+                ''',
+                'exec_mode',
+                'Cisco-IOS-XR-tty-management-cfg', False),
             ],
             'Cisco-IOS-XR-tty-server-cfg',
             'tty-line',
@@ -582,19 +582,19 @@ _meta_table = {
     },
 }
 _meta_table['Tty.TtyLines.TtyLine.Aaa.UserGroups.UserGroup']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine.Aaa.UserGroups']['meta_info']
-_meta_table['Tty.TtyLines.TtyLine.Aaa.Accounting']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine.Aaa']['meta_info']
-_meta_table['Tty.TtyLines.TtyLine.Aaa.Authentication']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine.Aaa']['meta_info']
-_meta_table['Tty.TtyLines.TtyLine.Aaa.Authorization']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine.Aaa']['meta_info']
 _meta_table['Tty.TtyLines.TtyLine.Aaa.UserGroups']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine.Aaa']['meta_info']
-_meta_table['Tty.TtyLines.TtyLine.Connection.SessionTimeout']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine.Connection']['meta_info']
+_meta_table['Tty.TtyLines.TtyLine.Aaa.Authorization']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine.Aaa']['meta_info']
+_meta_table['Tty.TtyLines.TtyLine.Aaa.Authentication']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine.Aaa']['meta_info']
+_meta_table['Tty.TtyLines.TtyLine.Aaa.Accounting']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine.Aaa']['meta_info']
+_meta_table['Tty.TtyLines.TtyLine.Exec.Timeout']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine.Exec']['meta_info']
 _meta_table['Tty.TtyLines.TtyLine.Connection.TransportInput']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine.Connection']['meta_info']
 _meta_table['Tty.TtyLines.TtyLine.Connection.TransportOutput']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine.Connection']['meta_info']
-_meta_table['Tty.TtyLines.TtyLine.Exec.Timeout']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine.Exec']['meta_info']
-_meta_table['Tty.TtyLines.TtyLine.Aaa']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine']['meta_info']
-_meta_table['Tty.TtyLines.TtyLine.Connection']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine']['meta_info']
-_meta_table['Tty.TtyLines.TtyLine.Exec']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine']['meta_info']
-_meta_table['Tty.TtyLines.TtyLine.ExecMode']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine']['meta_info']
+_meta_table['Tty.TtyLines.TtyLine.Connection.SessionTimeout']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine.Connection']['meta_info']
 _meta_table['Tty.TtyLines.TtyLine.General']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine']['meta_info']
 _meta_table['Tty.TtyLines.TtyLine.Telnet']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine']['meta_info']
+_meta_table['Tty.TtyLines.TtyLine.Aaa']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine']['meta_info']
+_meta_table['Tty.TtyLines.TtyLine.Exec']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine']['meta_info']
+_meta_table['Tty.TtyLines.TtyLine.Connection']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine']['meta_info']
+_meta_table['Tty.TtyLines.TtyLine.ExecMode']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine']['meta_info']
 _meta_table['Tty.TtyLines.TtyLine']['meta_info'].parent =_meta_table['Tty.TtyLines']['meta_info']
 _meta_table['Tty.TtyLines']['meta_info'].parent =_meta_table['Tty']['meta_info']

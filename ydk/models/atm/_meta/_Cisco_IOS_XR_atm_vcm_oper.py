@@ -7,7 +7,7 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
@@ -120,6 +120,227 @@ _meta_table = {
             'unknown':'UNKNOWN',
             'not-supported':'NOT_SUPPORTED',
         }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
+    'AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData' : {
+        'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData',
+            False, 
+            [
+            _MetaInfoClassMember('local-max-cells-packed-per-packet', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Local configuration of maximum number of cells
+                to be packed per packet
+                ''',
+                'local_max_cells_packed_per_packet',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('negotiated-max-cells-packed-per-packet', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Negotiated value of maximum number of cells to
+                be packed per packed
+                ''',
+                'negotiated_max_cells_packed_per_packet',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('max-cell-packed-timeout', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Maximum cell packing timeout inmicro seconds
+                ''',
+                'max_cell_packed_timeout',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            ],
+            'Cisco-IOS-XR-atm-vcm-oper',
+            'cell-packing-data',
+            _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper'],
+        'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper'
+        ),
+    },
+    'AtmVcm.Nodes.Node.Vcs.Vc' : {
+        'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.Vcs.Vc',
+            False, 
+            [
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface name
+                ''',
+                'interface_name',
+                'Cisco-IOS-XR-atm-vcm-oper', True),
+            _MetaInfoClassMember('vpi', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4095)], [], 
+                '''                VPI
+                ''',
+                'vpi',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('vci', ATTRIBUTE, 'int' , None, None, 
+                [(1, 65535)], [], 
+                '''                VCI
+                ''',
+                'vci',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('cell-packing-data', REFERENCE_CLASS, 'CellPackingData' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData', 
+                [], [], 
+                '''                Cell packing specific data
+                ''',
+                'cell_packing_data',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('main-interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Main Interface handle
+                ''',
+                'main_interface',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('sub-interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Subinterface handle
+                ''',
+                'sub_interface',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('vc-interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                VC Interfcace handle
+                ''',
+                'vc_interface',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('vpi-xr', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                VC VPI value
+                ''',
+                'vpi_xr',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('vci-xr', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                VC VCI value
+                ''',
+                'vci_xr',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'VcEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcEnum', 
+                [], [], 
+                '''                VC Type
+                ''',
+                'type',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'VcEncapEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcEncapEnum', 
+                [], [], 
+                '''                Encapsulation type
+                ''',
+                'encapsulation',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('shape', REFERENCE_ENUM_CLASS, 'VcTrafShapingEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcTrafShapingEnum', 
+                [], [], 
+                '''                ATM VC traffic shaping type
+                ''',
+                'shape',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('peak-cell-rate', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Peak cell rate in Kbps
+                ''',
+                'peak_cell_rate',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('sustained-cell-rate', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Sustained cell rate in Kbps
+                ''',
+                'sustained_cell_rate',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('burst-rate', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Burst size in cells
+                ''',
+                'burst_rate',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('encaps-inherit-level', REFERENCE_ENUM_CLASS, 'VcInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcInheritLevelEnum', 
+                [], [], 
+                '''                Encapsulation inherit level - identifies if
+                encapsulation is set to default, configured on
+                the VC, or inherited from the vcclass.
+                ''',
+                'encaps_inherit_level',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('qos-inherit-level', REFERENCE_ENUM_CLASS, 'VcInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcInheritLevelEnum', 
+                [], [], 
+                '''                Quality of Service inherit level - identifies if
+                QoS is set to default, configured on the VC, or
+                inherited from the vcclass.
+                ''',
+                'qos_inherit_level',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('transmit-mtu', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Transmit MTU
+                ''',
+                'transmit_mtu',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('receive-mtu', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Receive MTU
+                ''',
+                'receive_mtu',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('vc-onvp-tunnel', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                VC on VP-tunnel flag
+                ''',
+                'vc_onvp_tunnel',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('vc-on-p2p-sub-interface', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                VC on Point-to-point Sub-interface
+                ''',
+                'vc_on_p2p_sub_interface',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('oper-status', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE value indicates that the VC is
+                operationally UP
+                ''',
+                'oper_status',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('amin-status', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE value indicates that the VC is
+                administratively UP
+                ''',
+                'amin_status',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('internal-state', REFERENCE_ENUM_CLASS, 'VcStateEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcStateEnum', 
+                [], [], 
+                '''                VC Internal state
+                ''',
+                'internal_state',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('last-state-change-time', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Time when VC was last changed
+                ''',
+                'last_state_change_time',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('test-mode', REFERENCE_ENUM_CLASS, 'VcTestModeEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcTestModeEnum', 
+                [], [], 
+                '''                VC test mode
+                ''',
+                'test_mode',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            ],
+            'Cisco-IOS-XR-atm-vcm-oper',
+            'vc',
+            _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper'],
+        'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper'
+        ),
+    },
+    'AtmVcm.Nodes.Node.Vcs' : {
+        'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.Vcs',
+            False, 
+            [
+            _MetaInfoClassMember('vc', REFERENCE_LIST, 'Vc' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.Vcs.Vc', 
+                [], [], 
+                '''                All VC information on a node
+                ''',
+                'vc',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            ],
+            'Cisco-IOS-XR-atm-vcm-oper',
+            'vcs',
+            _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper'],
+        'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper'
+        ),
+    },
     'AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking' : {
         'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking',
             False, 
@@ -131,18 +352,18 @@ _meta_table = {
                 ''',
                 'local_max_cells_packed_per_packet',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('max-cell-packed-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Maximum cell packing timeout inmicro seconds
-                ''',
-                'max_cell_packed_timeout',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('negotiated-max-cells-packed-per-packet', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Negotiated value of maximum number of cells to
                 be packed per packed
                 ''',
                 'negotiated_max_cells_packed_per_packet',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('max-cell-packed-timeout', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Maximum cell packing timeout inmicro seconds
+                ''',
+                'max_cell_packed_timeout',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             ],
             'Cisco-IOS-XR-atm-vcm-oper',
@@ -155,18 +376,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.CellPacks.CellPack',
             False, 
             [
-            _MetaInfoClassMember('cell-packing', REFERENCE_CLASS, 'CellPacking' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking', 
-                [], [], 
-                '''                Cell packing specific data
-                ''',
-                'cell_packing',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('cell-packing-mode', REFERENCE_ENUM_CLASS, 'VcCellPackingModeEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcCellPackingModeEnum', 
-                [], [], 
-                '''                ATM cell packing mode
-                ''',
-                'cell_packing_mode',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
@@ -179,6 +388,36 @@ _meta_table = {
                 ''',
                 'pci',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('cell-packing', REFERENCE_CLASS, 'CellPacking' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking', 
+                [], [], 
+                '''                Cell packing specific data
+                ''',
+                'cell_packing',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('sub-interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Sub-interface name
+                ''',
+                'sub_interface_name',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('cell-packing-mode', REFERENCE_ENUM_CLASS, 'VcCellPackingModeEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcCellPackingModeEnum', 
+                [], [], 
+                '''                ATM cell packing mode
+                ''',
+                'cell_packing_mode',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('vpi', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                VPI
+                ''',
+                'vpi',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('vci', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                VCI
+                ''',
+                'vci',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('received-average-cells-packets', ATTRIBUTE, 'int' , None, None, 
                 [(0, 18446744073709551615L)], [], 
                 '''                Average cells/packets received
@@ -190,24 +429,6 @@ _meta_table = {
                 '''                Average cells/packets sent
                 ''',
                 'sent_cells_packets',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('sub-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Sub-interface name
-                ''',
-                'sub_interface_name',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('vci', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                VCI
-                ''',
-                'vci',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('vpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                VPI
-                ''',
-                'vpi',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             ],
             'Cisco-IOS-XR-atm-vcm-oper',
@@ -233,213 +454,217 @@ _meta_table = {
         'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper'
         ),
     },
-    'AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi' : {
-        'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi',
+    'AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData' : {
+        'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData',
             False, 
             [
-            _MetaInfoClassMember('ais-rdi-inherit-level', REFERENCE_ENUM_CLASS, 'ClassLinkOamInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'ClassLinkOamInheritLevelEnum', 
-                [], [], 
-                '''                AIS RDI inherit level
+            _MetaInfoClassMember('local-max-cells-packed-per-packet', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Local configuration of maximum number of cells
+                to be packed per packet
                 ''',
-                'ais_rdi_inherit_level',
+                'local_max_cells_packed_per_packet',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('ais-rdi-up-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                AIS RDI up count
+            _MetaInfoClassMember('negotiated-max-cells-packed-per-packet', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Negotiated value of maximum number of cells to
+                be packed per packed
                 ''',
-                'ais_rdi_up_count',
+                'negotiated_max_cells_packed_per_packet',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('ais-rdi-up-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Time (in seconds) with no AIS/RDI cells before
-                declaring a VC as up
+            _MetaInfoClassMember('max-cell-packed-timeout', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Maximum cell packing timeout inmicro seconds
                 ''',
-                'ais_rdi_up_time',
+                'max_cell_packed_timeout',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             ],
             'Cisco-IOS-XR-atm-vcm-oper',
-            'ais-rdi',
+            'cell-packing-data',
             _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper'],
         'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper'
         ),
     },
-    'AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation' : {
-        'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation',
+    'AtmVcm.Nodes.Node.Pvps.Pvp' : {
+        'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.Pvps.Pvp',
             False, 
             [
-            _MetaInfoClassMember('encapsulation-inherit-level', REFERENCE_ENUM_CLASS, 'VcInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcInheritLevelEnum', 
-                [], [], 
-                '''                Encapsulation inherit level
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface name
                 ''',
-                'encapsulation_inherit_level',
+                'interface_name',
+                'Cisco-IOS-XR-atm-vcm-oper', True),
+            _MetaInfoClassMember('vpi', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                VPI
+                ''',
+                'vpi',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('encapsulation-type', REFERENCE_ENUM_CLASS, 'VcEncapEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcEncapEnum', 
+            _MetaInfoClassMember('cell-packing-data', REFERENCE_CLASS, 'CellPackingData' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData', 
+                [], [], 
+                '''                Cell packing specific data
+                ''',
+                'cell_packing_data',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('main-interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Main Interface handle
+                ''',
+                'main_interface',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('sub-interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Subinterface handle
+                ''',
+                'sub_interface',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('vc-interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                VC Interfcace handle
+                ''',
+                'vc_interface',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('vpi-xr', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                VC VPI value
+                ''',
+                'vpi_xr',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('vci-xr', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                VC VCI value
+                ''',
+                'vci_xr',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'VcEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcEnum', 
+                [], [], 
+                '''                VC Type
+                ''',
+                'type',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'VcEncapEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcEncapEnum', 
                 [], [], 
                 '''                Encapsulation type
                 ''',
-                'encapsulation_type',
+                'encapsulation',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            ],
-            'Cisco-IOS-XR-atm-vcm-oper',
-            'class-link-encapsulation',
-            _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper'],
-        'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper'
-        ),
-    },
-    'AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping' : {
-        'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping',
-            False, 
-            [
-            _MetaInfoClassMember('average-output-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Average output rate
-                ''',
-                'average_output_rate',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('burst-output-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Burst output rate
-                ''',
-                'burst_output_rate',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('peak-output-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Peak output rate in Kbps
-                ''',
-                'peak_output_rate',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('shaping-inherit-level', REFERENCE_ENUM_CLASS, 'VcInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcInheritLevelEnum', 
-                [], [], 
-                '''                Shaping inherit level
-                ''',
-                'shaping_inherit_level',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('shaping-type', REFERENCE_ENUM_CLASS, 'VcTrafShapingEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcTrafShapingEnum', 
+            _MetaInfoClassMember('shape', REFERENCE_ENUM_CLASS, 'VcTrafShapingEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcTrafShapingEnum', 
                 [], [], 
                 '''                ATM VC traffic shaping type
                 ''',
-                'shaping_type',
+                'shape',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('peak-cell-rate', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Peak cell rate in Kbps
+                ''',
+                'peak_cell_rate',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('sustained-cell-rate', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Sustained cell rate in Kbps
+                ''',
+                'sustained_cell_rate',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('burst-rate', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Burst size in cells
+                ''',
+                'burst_rate',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('encaps-inherit-level', REFERENCE_ENUM_CLASS, 'VcInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcInheritLevelEnum', 
+                [], [], 
+                '''                Encapsulation inherit level - identifies if
+                encapsulation is set to default, configured on
+                the VC, or inherited from the vcclass.
+                ''',
+                'encaps_inherit_level',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('qos-inherit-level', REFERENCE_ENUM_CLASS, 'VcInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcInheritLevelEnum', 
+                [], [], 
+                '''                Quality of Service inherit level - identifies if
+                QoS is set to default, configured on the VC, or
+                inherited from the vcclass.
+                ''',
+                'qos_inherit_level',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('transmit-mtu', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Transmit MTU
+                ''',
+                'transmit_mtu',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('receive-mtu', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Receive MTU
+                ''',
+                'receive_mtu',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('vc-onvp-tunnel', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                VC on VP-tunnel flag
+                ''',
+                'vc_onvp_tunnel',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('vc-on-p2p-sub-interface', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                VC on Point-to-point Sub-interface
+                ''',
+                'vc_on_p2p_sub_interface',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('oper-status', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE value indicates that the VC is
+                operationally UP
+                ''',
+                'oper_status',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('amin-status', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE value indicates that the VC is
+                administratively UP
+                ''',
+                'amin_status',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('internal-state', REFERENCE_ENUM_CLASS, 'VcStateEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcStateEnum', 
+                [], [], 
+                '''                VC Internal state
+                ''',
+                'internal_state',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('last-state-change-time', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Time when VC was last changed
+                ''',
+                'last_state_change_time',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('test-mode', REFERENCE_ENUM_CLASS, 'VcTestModeEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcTestModeEnum', 
+                [], [], 
+                '''                VC test mode
+                ''',
+                'test_mode',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             ],
             'Cisco-IOS-XR-atm-vcm-oper',
-            'class-link-shaping',
+            'pvp',
             _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper'],
         'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper'
         ),
     },
-    'AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc' : {
-        'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc',
+    'AtmVcm.Nodes.Node.Pvps' : {
+        'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.Pvps',
             False, 
             [
-            _MetaInfoClassMember('ais-rdi-failure', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('pvp', REFERENCE_LIST, 'Pvp' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.Pvps.Pvp', 
                 [], [], 
-                '''                AIS RDI failure
+                '''                All L2 PVP information on a node
                 ''',
-                'ais_rdi_failure',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('keep-vc-up', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Keep vc up
-                ''',
-                'keep_vc_up',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('manage-inherit-level', REFERENCE_ENUM_CLASS, 'ClassLinkOamInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'ClassLinkOamInheritLevelEnum', 
-                [], [], 
-                '''                Manage inherit level
-                ''',
-                'manage_inherit_level',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('manage-level', REFERENCE_ENUM_CLASS, 'VcManageLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcManageLevelEnum', 
-                [], [], 
-                '''                Manage Level
-                ''',
-                'manage_level',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('pvc-frequency', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                PVC Frequency
-                ''',
-                'pvc_frequency',
+                'pvp',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             ],
             'Cisco-IOS-XR-atm-vcm-oper',
-            'oam-pvc',
-            _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper'],
-        'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper'
-        ),
-    },
-    'AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry' : {
-        'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry',
-            False, 
-            [
-            _MetaInfoClassMember('down-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Down Count
-                ''',
-                'down_count',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('retry-frequency', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Retry frequency
-                ''',
-                'retry_frequency',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('retry-inherit-level', REFERENCE_ENUM_CLASS, 'ClassLinkOamInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'ClassLinkOamInheritLevelEnum', 
-                [], [], 
-                '''                Retry inherit level
-                ''',
-                'retry_inherit_level',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('retry-up-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Retry Count
-                ''',
-                'retry_up_count',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            ],
-            'Cisco-IOS-XR-atm-vcm-oper',
-            'oam-retry',
-            _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper'],
-        'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper'
-        ),
-    },
-    'AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig' : {
-        'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig',
-            False, 
-            [
-            _MetaInfoClassMember('ais-rdi', REFERENCE_CLASS, 'AisRdi' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi', 
-                [], [], 
-                '''                AIS RDI details of a VC class
-                ''',
-                'ais_rdi',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('class-link-encapsulation', REFERENCE_CLASS, 'ClassLinkEncapsulation' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation', 
-                [], [], 
-                '''                Encapsulation details of VC class
-                ''',
-                'class_link_encapsulation',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('class-link-shaping', REFERENCE_CLASS, 'ClassLinkShaping' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping', 
-                [], [], 
-                '''                Traffic Shaping detail of VC class
-                ''',
-                'class_link_shaping',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('oam-pvc', REFERENCE_CLASS, 'OamPvc' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc', 
-                [], [], 
-                '''                OAM PVC details of VC class
-                ''',
-                'oam_pvc',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('oam-retry', REFERENCE_CLASS, 'OamRetry' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry', 
-                [], [], 
-                '''                OAM Retry details of VC class
-                ''',
-                'oam_retry',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            ],
-            'Cisco-IOS-XR-atm-vcm-oper',
-            'oam-config',
+            'pvps',
             _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper'],
         'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper'
         ),
@@ -467,6 +692,217 @@ _meta_table = {
         'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper'
         ),
     },
+    'AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping' : {
+        'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping',
+            False, 
+            [
+            _MetaInfoClassMember('shaping-type', REFERENCE_ENUM_CLASS, 'VcTrafShapingEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcTrafShapingEnum', 
+                [], [], 
+                '''                ATM VC traffic shaping type
+                ''',
+                'shaping_type',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('peak-output-rate', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Peak output rate in Kbps
+                ''',
+                'peak_output_rate',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('average-output-rate', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Average output rate
+                ''',
+                'average_output_rate',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('burst-output-rate', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Burst output rate
+                ''',
+                'burst_output_rate',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('shaping-inherit-level', REFERENCE_ENUM_CLASS, 'VcInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcInheritLevelEnum', 
+                [], [], 
+                '''                Shaping inherit level
+                ''',
+                'shaping_inherit_level',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            ],
+            'Cisco-IOS-XR-atm-vcm-oper',
+            'class-link-shaping',
+            _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper'],
+        'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper'
+        ),
+    },
+    'AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation' : {
+        'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation',
+            False, 
+            [
+            _MetaInfoClassMember('encapsulation-type', REFERENCE_ENUM_CLASS, 'VcEncapEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcEncapEnum', 
+                [], [], 
+                '''                Encapsulation type
+                ''',
+                'encapsulation_type',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('encapsulation-inherit-level', REFERENCE_ENUM_CLASS, 'VcInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcInheritLevelEnum', 
+                [], [], 
+                '''                Encapsulation inherit level
+                ''',
+                'encapsulation_inherit_level',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            ],
+            'Cisco-IOS-XR-atm-vcm-oper',
+            'class-link-encapsulation',
+            _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper'],
+        'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper'
+        ),
+    },
+    'AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc' : {
+        'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc',
+            False, 
+            [
+            _MetaInfoClassMember('manage-level', REFERENCE_ENUM_CLASS, 'VcManageLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcManageLevelEnum', 
+                [], [], 
+                '''                Manage Level
+                ''',
+                'manage_level',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('pvc-frequency', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                PVC Frequency
+                ''',
+                'pvc_frequency',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('keep-vc-up', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Keep vc up
+                ''',
+                'keep_vc_up',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('ais-rdi-failure', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                AIS RDI failure
+                ''',
+                'ais_rdi_failure',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('manage-inherit-level', REFERENCE_ENUM_CLASS, 'ClassLinkOamInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'ClassLinkOamInheritLevelEnum', 
+                [], [], 
+                '''                Manage inherit level
+                ''',
+                'manage_inherit_level',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            ],
+            'Cisco-IOS-XR-atm-vcm-oper',
+            'oam-pvc',
+            _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper'],
+        'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper'
+        ),
+    },
+    'AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry' : {
+        'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry',
+            False, 
+            [
+            _MetaInfoClassMember('retry-up-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Retry Count
+                ''',
+                'retry_up_count',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('down-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Down Count
+                ''',
+                'down_count',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('retry-frequency', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Retry frequency
+                ''',
+                'retry_frequency',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('retry-inherit-level', REFERENCE_ENUM_CLASS, 'ClassLinkOamInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'ClassLinkOamInheritLevelEnum', 
+                [], [], 
+                '''                Retry inherit level
+                ''',
+                'retry_inherit_level',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            ],
+            'Cisco-IOS-XR-atm-vcm-oper',
+            'oam-retry',
+            _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper'],
+        'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper'
+        ),
+    },
+    'AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi' : {
+        'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi',
+            False, 
+            [
+            _MetaInfoClassMember('ais-rdi-up-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                AIS RDI up count
+                ''',
+                'ais_rdi_up_count',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('ais-rdi-up-time', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Time (in seconds) with no AIS/RDI cells before
+                declaring a VC as up
+                ''',
+                'ais_rdi_up_time',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('ais-rdi-inherit-level', REFERENCE_ENUM_CLASS, 'ClassLinkOamInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'ClassLinkOamInheritLevelEnum', 
+                [], [], 
+                '''                AIS RDI inherit level
+                ''',
+                'ais_rdi_inherit_level',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            ],
+            'Cisco-IOS-XR-atm-vcm-oper',
+            'ais-rdi',
+            _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper'],
+        'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper'
+        ),
+    },
+    'AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig' : {
+        'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig',
+            False, 
+            [
+            _MetaInfoClassMember('class-link-shaping', REFERENCE_CLASS, 'ClassLinkShaping' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping', 
+                [], [], 
+                '''                Traffic Shaping detail of VC class
+                ''',
+                'class_link_shaping',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('class-link-encapsulation', REFERENCE_CLASS, 'ClassLinkEncapsulation' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation', 
+                [], [], 
+                '''                Encapsulation details of VC class
+                ''',
+                'class_link_encapsulation',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('oam-pvc', REFERENCE_CLASS, 'OamPvc' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc', 
+                [], [], 
+                '''                OAM PVC details of VC class
+                ''',
+                'oam_pvc',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('oam-retry', REFERENCE_CLASS, 'OamRetry' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry', 
+                [], [], 
+                '''                OAM Retry details of VC class
+                ''',
+                'oam_retry',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('ais-rdi', REFERENCE_CLASS, 'AisRdi' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi', 
+                [], [], 
+                '''                AIS RDI details of a VC class
+                ''',
+                'ais_rdi',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            ],
+            'Cisco-IOS-XR-atm-vcm-oper',
+            'oam-config',
+            _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper'],
+        'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper'
+        ),
+    },
     'AtmVcm.Nodes.Node.ClassLinks.ClassLink' : {
         'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.ClassLinks.ClassLink',
             False, 
@@ -477,6 +913,18 @@ _meta_table = {
                 ''',
                 'vpi',
                 'Cisco-IOS-XR-atm-vcm-oper', True),
+            _MetaInfoClassMember('vci', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                VCI
+                ''',
+                'vci',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('vc-class-not-supported', REFERENCE_CLASS, 'VcClassNotSupported' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported', 
+                [], [], 
+                '''                Not supported VC class
+                ''',
+                'vc_class_not_supported',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('oam-config', REFERENCE_CLASS, 'OamConfig' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig', 
                 [], [], 
                 '''                Oam values for class link
@@ -488,18 +936,6 @@ _meta_table = {
                 '''                Sub-interface handle
                 ''',
                 'sub_interface_name',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('vc-class-not-supported', REFERENCE_CLASS, 'VcClassNotSupported' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported', 
-                [], [], 
-                '''                Not supported VC class
-                ''',
-                'vc_class_not_supported',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('vci', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                VCI
-                ''',
-                'vci',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             ],
             'Cisco-IOS-XR-atm-vcm-oper',
@@ -536,18 +972,18 @@ _meta_table = {
                 ''',
                 'local_max_cells_packed_per_packet',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('max-cell-packed-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Maximum cell packing timeout inmicro seconds
-                ''',
-                'max_cell_packed_timeout',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('negotiated-max-cells-packed-per-packet', ATTRIBUTE, 'int' , None, None, 
                 [(0, 65535)], [], 
                 '''                Negotiated value of maximum number of cells to
                 be packed per packed
                 ''',
                 'negotiated_max_cells_packed_per_packet',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('max-cell-packed-timeout', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Maximum cell packing timeout inmicro seconds
+                ''',
+                'max_cell_packed_timeout',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             ],
             'Cisco-IOS-XR-atm-vcm-oper',
@@ -572,53 +1008,11 @@ _meta_table = {
                 ''',
                 'cell_packing_data',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('configured-layer2pv-cs', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('ilmi-vpi', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
-                '''                Number of Layer 2 PVCs configured
+                '''                ILMI VPI
                 ''',
-                'configured_layer2pv_cs',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('configured-layer2pv-ps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of Layer 2 PVPs configured
-                ''',
-                'configured_layer2pv_ps',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('configured-layer3pv-cs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of Layer 3 PVCs configured
-                ''',
-                'configured_layer3pv_cs',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('configured-layer3vp-tunnels', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of Layer 3 VP tunnels configured
-                ''',
-                'configured_layer3vp_tunnels',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('currently-failing-layer2pv-cs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of currently failing Layer 2 PVCs
-                ''',
-                'currently_failing_layer2pv_cs',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('currently-failing-layer2pv-ps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of currently failing Layer 2 PVPs
-                ''',
-                'currently_failing_layer2pv_ps',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('currently-failing-layer3pv-cs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of currently failing Layer 3 PVCs
-                ''',
-                'currently_failing_layer3pv_cs',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('currently-failing-layer3vp-tunnels', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of currently failing Layer 3 VP tunnels
-                ''',
-                'currently_failing_layer3vp_tunnels',
+                'ilmi_vpi',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('ilmi-vci', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -626,36 +1020,35 @@ _meta_table = {
                 ''',
                 'ilmi_vci',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('ilmi-vpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                ILMI VPI
-                ''',
-                'ilmi_vpi',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('l2-cell-packing-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Number of L2 attachment circuits with the cell
-                packing feature enabled on this main interface
-                ''',
-                'l2_cell_packing_count',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('main-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Main Interface handle
-                ''',
-                'main_interface',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('port-type', REFERENCE_ENUM_CLASS, 'VcmPortEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcmPortEnum', 
-                [], [], 
-                '''                ATM interface port type
-                ''',
-                'port_type',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('pvc-failures', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of PVC Failures
                 ''',
                 'pvc_failures',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('currently-failing-layer2pv-ps', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of currently failing Layer 2 PVPs
+                ''',
+                'currently_failing_layer2pv_ps',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('currently-failing-layer2pv-cs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of currently failing Layer 2 PVCs
+                ''',
+                'currently_failing_layer2pv_cs',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('currently-failing-layer3vp-tunnels', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of currently failing Layer 3 VP tunnels
+                ''',
+                'currently_failing_layer3vp_tunnels',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('currently-failing-layer3pv-cs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of currently failing Layer 3 PVCs
+                ''',
+                'currently_failing_layer3pv_cs',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('pvc-failures-trap-enable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -668,6 +1061,49 @@ _meta_table = {
                 '''                PVC trap notification interval
                 ''',
                 'pvc_notification_interval',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('configured-layer2pv-ps', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of Layer 2 PVPs configured
+                ''',
+                'configured_layer2pv_ps',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('configured-layer2pv-cs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of Layer 2 PVCs configured
+                ''',
+                'configured_layer2pv_cs',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('configured-layer3vp-tunnels', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of Layer 3 VP tunnels configured
+                ''',
+                'configured_layer3vp_tunnels',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('configured-layer3pv-cs', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Number of Layer 3 PVCs configured
+                ''',
+                'configured_layer3pv_cs',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('port-type', REFERENCE_ENUM_CLASS, 'VcmPortEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcmPortEnum', 
+                [], [], 
+                '''                ATM interface port type
+                ''',
+                'port_type',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('main-interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Main Interface handle
+                ''',
+                'main_interface',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('l2-cell-packing-count', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                Number of L2 attachment circuits with the cell
+                packing feature enabled on this main interface
+                ''',
+                'l2_cell_packing_count',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             ],
             'Cisco-IOS-XR-atm-vcm-oper',
@@ -693,442 +1129,6 @@ _meta_table = {
         'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper'
         ),
     },
-    'AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData' : {
-        'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData',
-            False, 
-            [
-            _MetaInfoClassMember('local-max-cells-packed-per-packet', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Local configuration of maximum number of cells
-                to be packed per packet
-                ''',
-                'local_max_cells_packed_per_packet',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('max-cell-packed-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Maximum cell packing timeout inmicro seconds
-                ''',
-                'max_cell_packed_timeout',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('negotiated-max-cells-packed-per-packet', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Negotiated value of maximum number of cells to
-                be packed per packed
-                ''',
-                'negotiated_max_cells_packed_per_packet',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            ],
-            'Cisco-IOS-XR-atm-vcm-oper',
-            'cell-packing-data',
-            _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper'],
-        'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper'
-        ),
-    },
-    'AtmVcm.Nodes.Node.Pvps.Pvp' : {
-        'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.Pvps.Pvp',
-            False, 
-            [
-            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface name
-                ''',
-                'interface_name',
-                'Cisco-IOS-XR-atm-vcm-oper', True),
-            _MetaInfoClassMember('amin-status', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE value indicates that the VC is
-                administratively UP
-                ''',
-                'amin_status',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('burst-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Burst size in cells
-                ''',
-                'burst_rate',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('cell-packing-data', REFERENCE_CLASS, 'CellPackingData' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData', 
-                [], [], 
-                '''                Cell packing specific data
-                ''',
-                'cell_packing_data',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('encaps-inherit-level', REFERENCE_ENUM_CLASS, 'VcInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcInheritLevelEnum', 
-                [], [], 
-                '''                Encapsulation inherit level - identifies if
-                encapsulation is set to default, configured on
-                the VC, or inherited from the vcclass.
-                ''',
-                'encaps_inherit_level',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'VcEncapEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcEncapEnum', 
-                [], [], 
-                '''                Encapsulation type
-                ''',
-                'encapsulation',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('internal-state', REFERENCE_ENUM_CLASS, 'VcStateEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcStateEnum', 
-                [], [], 
-                '''                VC Internal state
-                ''',
-                'internal_state',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('last-state-change-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Time when VC was last changed
-                ''',
-                'last_state_change_time',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('main-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Main Interface handle
-                ''',
-                'main_interface',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('oper-status', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE value indicates that the VC is
-                operationally UP
-                ''',
-                'oper_status',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('peak-cell-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Peak cell rate in Kbps
-                ''',
-                'peak_cell_rate',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('qos-inherit-level', REFERENCE_ENUM_CLASS, 'VcInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcInheritLevelEnum', 
-                [], [], 
-                '''                Quality of Service inherit level - identifies if
-                QoS is set to default, configured on the VC, or
-                inherited from the vcclass.
-                ''',
-                'qos_inherit_level',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('receive-mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Receive MTU
-                ''',
-                'receive_mtu',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('shape', REFERENCE_ENUM_CLASS, 'VcTrafShapingEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcTrafShapingEnum', 
-                [], [], 
-                '''                ATM VC traffic shaping type
-                ''',
-                'shape',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('sub-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Subinterface handle
-                ''',
-                'sub_interface',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('sustained-cell-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Sustained cell rate in Kbps
-                ''',
-                'sustained_cell_rate',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('test-mode', REFERENCE_ENUM_CLASS, 'VcTestModeEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcTestModeEnum', 
-                [], [], 
-                '''                VC test mode
-                ''',
-                'test_mode',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('transmit-mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Transmit MTU
-                ''',
-                'transmit_mtu',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'VcEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcEnum', 
-                [], [], 
-                '''                VC Type
-                ''',
-                'type',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('vc-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                VC Interfcace handle
-                ''',
-                'vc_interface',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('vc-on-p2p-sub-interface', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                VC on Point-to-point Sub-interface
-                ''',
-                'vc_on_p2p_sub_interface',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('vc-onvp-tunnel', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                VC on VP-tunnel flag
-                ''',
-                'vc_onvp_tunnel',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('vci-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                VC VCI value
-                ''',
-                'vci_xr',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('vpi', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                VPI
-                ''',
-                'vpi',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('vpi-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                VC VPI value
-                ''',
-                'vpi_xr',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            ],
-            'Cisco-IOS-XR-atm-vcm-oper',
-            'pvp',
-            _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper'],
-        'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper'
-        ),
-    },
-    'AtmVcm.Nodes.Node.Pvps' : {
-        'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.Pvps',
-            False, 
-            [
-            _MetaInfoClassMember('pvp', REFERENCE_LIST, 'Pvp' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.Pvps.Pvp', 
-                [], [], 
-                '''                All L2 PVP information on a node
-                ''',
-                'pvp',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            ],
-            'Cisco-IOS-XR-atm-vcm-oper',
-            'pvps',
-            _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper'],
-        'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper'
-        ),
-    },
-    'AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData' : {
-        'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData',
-            False, 
-            [
-            _MetaInfoClassMember('local-max-cells-packed-per-packet', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Local configuration of maximum number of cells
-                to be packed per packet
-                ''',
-                'local_max_cells_packed_per_packet',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('max-cell-packed-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Maximum cell packing timeout inmicro seconds
-                ''',
-                'max_cell_packed_timeout',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('negotiated-max-cells-packed-per-packet', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                Negotiated value of maximum number of cells to
-                be packed per packed
-                ''',
-                'negotiated_max_cells_packed_per_packet',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            ],
-            'Cisco-IOS-XR-atm-vcm-oper',
-            'cell-packing-data',
-            _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper'],
-        'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper'
-        ),
-    },
-    'AtmVcm.Nodes.Node.Vcs.Vc' : {
-        'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.Vcs.Vc',
-            False, 
-            [
-            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface name
-                ''',
-                'interface_name',
-                'Cisco-IOS-XR-atm-vcm-oper', True),
-            _MetaInfoClassMember('amin-status', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE value indicates that the VC is
-                administratively UP
-                ''',
-                'amin_status',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('burst-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Burst size in cells
-                ''',
-                'burst_rate',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('cell-packing-data', REFERENCE_CLASS, 'CellPackingData' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData', 
-                [], [], 
-                '''                Cell packing specific data
-                ''',
-                'cell_packing_data',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('encaps-inherit-level', REFERENCE_ENUM_CLASS, 'VcInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcInheritLevelEnum', 
-                [], [], 
-                '''                Encapsulation inherit level - identifies if
-                encapsulation is set to default, configured on
-                the VC, or inherited from the vcclass.
-                ''',
-                'encaps_inherit_level',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'VcEncapEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcEncapEnum', 
-                [], [], 
-                '''                Encapsulation type
-                ''',
-                'encapsulation',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('internal-state', REFERENCE_ENUM_CLASS, 'VcStateEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcStateEnum', 
-                [], [], 
-                '''                VC Internal state
-                ''',
-                'internal_state',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('last-state-change-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Time when VC was last changed
-                ''',
-                'last_state_change_time',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('main-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Main Interface handle
-                ''',
-                'main_interface',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('oper-status', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE value indicates that the VC is
-                operationally UP
-                ''',
-                'oper_status',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('peak-cell-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Peak cell rate in Kbps
-                ''',
-                'peak_cell_rate',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('qos-inherit-level', REFERENCE_ENUM_CLASS, 'VcInheritLevelEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcInheritLevelEnum', 
-                [], [], 
-                '''                Quality of Service inherit level - identifies if
-                QoS is set to default, configured on the VC, or
-                inherited from the vcclass.
-                ''',
-                'qos_inherit_level',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('receive-mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Receive MTU
-                ''',
-                'receive_mtu',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('shape', REFERENCE_ENUM_CLASS, 'VcTrafShapingEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcTrafShapingEnum', 
-                [], [], 
-                '''                ATM VC traffic shaping type
-                ''',
-                'shape',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('sub-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Subinterface handle
-                ''',
-                'sub_interface',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('sustained-cell-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Sustained cell rate in Kbps
-                ''',
-                'sustained_cell_rate',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('test-mode', REFERENCE_ENUM_CLASS, 'VcTestModeEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcTestModeEnum', 
-                [], [], 
-                '''                VC test mode
-                ''',
-                'test_mode',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('transmit-mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Transmit MTU
-                ''',
-                'transmit_mtu',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'VcEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VcEnum', 
-                [], [], 
-                '''                VC Type
-                ''',
-                'type',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('vc-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                VC Interfcace handle
-                ''',
-                'vc_interface',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('vc-on-p2p-sub-interface', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                VC on Point-to-point Sub-interface
-                ''',
-                'vc_on_p2p_sub_interface',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('vc-onvp-tunnel', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                VC on VP-tunnel flag
-                ''',
-                'vc_onvp_tunnel',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('vci', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
-                '''                VCI
-                ''',
-                'vci',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('vci-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                VC VCI value
-                ''',
-                'vci_xr',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('vpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4095)], [], 
-                '''                VPI
-                ''',
-                'vpi',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('vpi-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                VC VPI value
-                ''',
-                'vpi_xr',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            ],
-            'Cisco-IOS-XR-atm-vcm-oper',
-            'vc',
-            _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper'],
-        'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper'
-        ),
-    },
-    'AtmVcm.Nodes.Node.Vcs' : {
-        'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.Vcs',
-            False, 
-            [
-            _MetaInfoClassMember('vc', REFERENCE_LIST, 'Vc' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.Vcs.Vc', 
-                [], [], 
-                '''                All VC information on a node
-                ''',
-                'vc',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            ],
-            'Cisco-IOS-XR-atm-vcm-oper',
-            'vcs',
-            _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper'],
-        'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper'
-        ),
-    },
     'AtmVcm.Nodes.Node.VpTunnels.VpTunnel' : {
         'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.VpTunnels.VpTunnel',
             False, 
@@ -1139,12 +1139,47 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-atm-vcm-oper', True),
-            _MetaInfoClassMember('amin-status', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE value indicates that the VP is
-                administratively UP
+            _MetaInfoClassMember('vpi', ATTRIBUTE, 'int' , None, None, 
+                [(-2147483648, 2147483647)], [], 
+                '''                VPI
                 ''',
-                'amin_status',
+                'vpi',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('main-interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Main Interface handle
+                ''',
+                'main_interface',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('vp-interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                VP Interfcace handle
+                ''',
+                'vp_interface',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('vpi-xr', ATTRIBUTE, 'int' , None, None, 
+                [(0, 65535)], [], 
+                '''                VP-Tunnel VPI value
+                ''',
+                'vpi_xr',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('shape', REFERENCE_ENUM_CLASS, 'VpTrafShapingEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VpTrafShapingEnum', 
+                [], [], 
+                '''                ATM VP traffic shaping type
+                ''',
+                'shape',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('peak-cell-rate', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Peak cell rate in Kbps
+                ''',
+                'peak_cell_rate',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('sustained-cell-rate', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Sustained cell rate in Kbps
+                ''',
+                'sustained_cell_rate',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('burst-rate', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -1152,17 +1187,31 @@ _meta_table = {
                 ''',
                 'burst_rate',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('f4oam-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                F4OAM Enabled flag
+                ''',
+                'f4oam_enabled',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('data-vc-count', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
                 '''                Number of Data PVCs under this VP-tunnel
                 ''',
                 'data_vc_count',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('f4oam-enabled', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('oper-status', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                F4OAM Enabled flag
+                '''                TRUE value indicates that the VP is
+                operationally UP
                 ''',
-                'f4oam_enabled',
+                'oper_status',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('amin-status', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE value indicates that the VP is
+                administratively UP
+                ''',
+                'amin_status',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('internal-state', REFERENCE_ENUM_CLASS, 'VpStateEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VpStateEnum', 
                 [], [], 
@@ -1175,55 +1224,6 @@ _meta_table = {
                 '''                Time when VP-Tunnel state was last changed
                 ''',
                 'last_vp_state_change_time',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('main-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Main Interface handle
-                ''',
-                'main_interface',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('oper-status', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                TRUE value indicates that the VP is
-                operationally UP
-                ''',
-                'oper_status',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('peak-cell-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Peak cell rate in Kbps
-                ''',
-                'peak_cell_rate',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('shape', REFERENCE_ENUM_CLASS, 'VpTrafShapingEnum' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'VpTrafShapingEnum', 
-                [], [], 
-                '''                ATM VP traffic shaping type
-                ''',
-                'shape',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('sustained-cell-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Sustained cell rate in Kbps
-                ''',
-                'sustained_cell_rate',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('vp-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                VP Interfcace handle
-                ''',
-                'vp_interface',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('vpi', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                VPI
-                ''',
-                'vpi',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('vpi-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                VP-Tunnel VPI value
-                ''',
-                'vpi_xr',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             ],
             'Cisco-IOS-XR-atm-vcm-oper',
@@ -1259,11 +1259,23 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-atm-vcm-oper', True),
+            _MetaInfoClassMember('vcs', REFERENCE_CLASS, 'Vcs' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.Vcs', 
+                [], [], 
+                '''                Contains all VC information for node
+                ''',
+                'vcs',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('cell-packs', REFERENCE_CLASS, 'CellPacks' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.CellPacks', 
                 [], [], 
                 '''                Contains all cell packing information for node
                 ''',
                 'cell_packs',
+                'Cisco-IOS-XR-atm-vcm-oper', False),
+            _MetaInfoClassMember('pvps', REFERENCE_CLASS, 'Pvps' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.Pvps', 
+                [], [], 
+                '''                Contains all L2 PVP information for node
+                ''',
+                'pvps',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('class-links', REFERENCE_CLASS, 'ClassLinks' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.ClassLinks', 
                 [], [], 
@@ -1276,18 +1288,6 @@ _meta_table = {
                 '''                Contains all Interface information for node
                 ''',
                 'interfaces',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('pvps', REFERENCE_CLASS, 'Pvps' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.Pvps', 
-                [], [], 
-                '''                Contains all L2 PVP information for node
-                ''',
-                'pvps',
-                'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('vcs', REFERENCE_CLASS, 'Vcs' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.Vcs', 
-                [], [], 
-                '''                Contains all VC information for node
-                ''',
-                'vcs',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('vp-tunnels', REFERENCE_CLASS, 'VpTunnels' , 'ydk.models.atm.Cisco_IOS_XR_atm_vcm_oper', 'AtmVcm.Nodes.Node.VpTunnels', 
                 [], [], 
@@ -1338,28 +1338,28 @@ _meta_table = {
         ),
     },
 }
+_meta_table['AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node.Vcs.Vc']['meta_info']
+_meta_table['AtmVcm.Nodes.Node.Vcs.Vc']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node.Vcs']['meta_info']
 _meta_table['AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node.CellPacks.CellPack']['meta_info']
 _meta_table['AtmVcm.Nodes.Node.CellPacks.CellPack']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node.CellPacks']['meta_info']
-_meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig']['meta_info']
-_meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig']['meta_info']
+_meta_table['AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node.Pvps.Pvp']['meta_info']
+_meta_table['AtmVcm.Nodes.Node.Pvps.Pvp']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node.Pvps']['meta_info']
 _meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig']['meta_info']
+_meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig']['meta_info']
 _meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig']['meta_info']
 _meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig']['meta_info']
-_meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink']['meta_info']
+_meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig']['meta_info']
 _meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink']['meta_info']
+_meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink']['meta_info']
 _meta_table['AtmVcm.Nodes.Node.ClassLinks.ClassLink']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node.ClassLinks']['meta_info']
 _meta_table['AtmVcm.Nodes.Node.Interfaces.Interface.CellPackingData']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node.Interfaces.Interface']['meta_info']
 _meta_table['AtmVcm.Nodes.Node.Interfaces.Interface']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node.Interfaces']['meta_info']
-_meta_table['AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node.Pvps.Pvp']['meta_info']
-_meta_table['AtmVcm.Nodes.Node.Pvps.Pvp']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node.Pvps']['meta_info']
-_meta_table['AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node.Vcs.Vc']['meta_info']
-_meta_table['AtmVcm.Nodes.Node.Vcs.Vc']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node.Vcs']['meta_info']
 _meta_table['AtmVcm.Nodes.Node.VpTunnels.VpTunnel']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node.VpTunnels']['meta_info']
+_meta_table['AtmVcm.Nodes.Node.Vcs']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node']['meta_info']
 _meta_table['AtmVcm.Nodes.Node.CellPacks']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node']['meta_info']
+_meta_table['AtmVcm.Nodes.Node.Pvps']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node']['meta_info']
 _meta_table['AtmVcm.Nodes.Node.ClassLinks']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node']['meta_info']
 _meta_table['AtmVcm.Nodes.Node.Interfaces']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node']['meta_info']
-_meta_table['AtmVcm.Nodes.Node.Pvps']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node']['meta_info']
-_meta_table['AtmVcm.Nodes.Node.Vcs']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node']['meta_info']
 _meta_table['AtmVcm.Nodes.Node.VpTunnels']['meta_info'].parent =_meta_table['AtmVcm.Nodes.Node']['meta_info']
 _meta_table['AtmVcm.Nodes.Node']['meta_info'].parent =_meta_table['AtmVcm.Nodes']['meta_info']
 _meta_table['AtmVcm.Nodes']['meta_info'].parent =_meta_table['AtmVcm']['meta_info']

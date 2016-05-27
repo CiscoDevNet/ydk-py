@@ -1,20 +1,3 @@
-
-#  ----------------------------------------------------------------
-# Copyright 2016 Cisco Systems
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#    http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# ------------------------------------------------------------------
-
 _global_Cisco_IOS_XR_Ethernet_SPAN_cfg_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-Ethernet-SPAN-cfg'
 _global_Cisco_IOS_XR_Ethernet_SPAN_datatypes_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-Ethernet-SPAN-datatypes'
 _global_Cisco_IOS_XR_Ethernet_SPAN_oper_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-Ethernet-SPAN-oper'
@@ -241,6 +224,7 @@ _global_Cisco_IOS_XR_wdsysmon_fd_oper_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-
 _global_bgp_nsp = 'http://openconfig.net/yang/bgp'
 _global_bgp_multiprotocol_nsp = 'http://openconfig.net/yang/bgp-multiprotocol'
 _global_bgp_operational_nsp = 'http://openconfig.net/yang/bgp-operational'
+_global_bgp_policy_nsp = 'http://openconfig.net/yang/bgp-policy'
 _global_bgp_types_nsp = 'http://openconfig.net/yang/bgp-types'
 _global_iana_crypt_hash_nsp = 'urn:ietf:params:xml:ns:yang:iana-crypt-hash'
 _global_iana_if_type_nsp = 'urn:ietf:params:xml:ns:yang:iana-if-type'
@@ -274,6 +258,172 @@ _global_openconfig_types_nsp = 'http://openconfig.net/yang/openconfig-types'
 _global_openconfig_vlan_nsp = 'http://openconfig.net/yang/vlan'
 _global_policy_types_nsp = 'http://openconfig.net/yang/policy-types'
 _global_routing_policy_nsp = 'http://openconfig.net/yang/routing-policy'
+_global_Cisco_IOS_XR_Ethernet_SPAN_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-Ethernet-SPAN-oper'
+_global_Cisco_IOS_XR_Ethernet_SPAN_oper_sub2_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-Ethernet-SPAN-oper'
+_global_Cisco_IOS_XR_Ethernet_SPAN_oper_sub3_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-Ethernet-SPAN-oper'
+_global_Cisco_IOS_XR_aaa_locald_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-aaa-locald-oper'
+_global_Cisco_IOS_XR_aaa_protocol_radius_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-aaa-protocol-radius-oper'
+_global_Cisco_IOS_XR_aaa_protocol_radius_oper_sub2_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-aaa-protocol-radius-oper'
+_global_Cisco_IOS_XR_aaa_tacacs_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-aaa-tacacs-oper'
+_global_Cisco_IOS_XR_asr9k_netflow_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-asr9k-netflow-oper'
+_global_Cisco_IOS_XR_asr9k_netflow_oper_sub2_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-asr9k-netflow-oper'
+_global_Cisco_IOS_XR_asr9k_netflow_oper_sub3_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-asr9k-netflow-oper'
+_global_Cisco_IOS_XR_asr9k_netflow_oper_sub4_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-asr9k-netflow-oper'
+_global_Cisco_IOS_XR_asr9k_netflow_oper_sub5_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-asr9k-netflow-oper'
+_global_Cisco_IOS_XR_atm_vcm_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-atm-vcm-oper'
+_global_Cisco_IOS_XR_atm_vcm_oper_sub2_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-atm-vcm-oper'
+_global_Cisco_IOS_XR_atm_vcm_oper_sub3_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-atm-vcm-oper'
+_global_Cisco_IOS_XR_atm_vcm_oper_sub4_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-atm-vcm-oper'
+_global_Cisco_IOS_XR_bundlemgr_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-bundlemgr-oper'
+_global_Cisco_IOS_XR_bundlemgr_oper_sub2_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-bundlemgr-oper'
+_global_Cisco_IOS_XR_cdp_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-cdp-oper'
+_global_Cisco_IOS_XR_clns_isis_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-clns-isis-oper'
+_global_Cisco_IOS_XR_cmproxy_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-cmproxy-oper'
+_global_Cisco_IOS_XR_controller_optics_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-controller-optics-oper'
+_global_Cisco_IOS_XR_controller_otu_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-controller-otu-oper'
+_global_Cisco_IOS_XR_crypto_sam_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-crypto-sam-oper'
+_global_Cisco_IOS_XR_crypto_ssh_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-crypto-ssh-oper'
+_global_Cisco_IOS_XR_dnx_driver_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-dnx-driver-oper'
+_global_Cisco_IOS_XR_dnx_netflow_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-dnx-netflow-oper'
+_global_Cisco_IOS_XR_dnx_netflow_oper_sub2_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-dnx-netflow-oper'
+_global_Cisco_IOS_XR_dnx_netflow_oper_sub3_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-dnx-netflow-oper'
+_global_Cisco_IOS_XR_dnx_netflow_oper_sub4_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-dnx-netflow-oper'
+_global_Cisco_IOS_XR_dnx_netflow_oper_sub5_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-dnx-netflow-oper'
+_global_Cisco_IOS_XR_drivers_media_eth_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-drivers-media-eth-oper'
+_global_Cisco_IOS_XR_ethernet_cfm_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ethernet-cfm-oper'
+_global_Cisco_IOS_XR_ethernet_cfm_oper_sub2_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ethernet-cfm-oper'
+_global_Cisco_IOS_XR_ethernet_cfm_oper_sub3_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ethernet-cfm-oper'
+_global_Cisco_IOS_XR_ethernet_cfm_oper_sub4_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ethernet-cfm-oper'
+_global_Cisco_IOS_XR_ethernet_link_oam_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ethernet-link-oam-oper'
+_global_Cisco_IOS_XR_ethernet_lldp_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ethernet-lldp-oper'
+_global_Cisco_IOS_XR_fib_common_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-fib-common-oper'
+_global_Cisco_IOS_XR_fib_common_oper_sub2_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-fib-common-oper'
+_global_Cisco_IOS_XR_fib_common_oper_sub3_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-fib-common-oper'
+_global_Cisco_IOS_XR_fib_common_oper_sub4_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-fib-common-oper'
+_global_Cisco_IOS_XR_fretta_bcm_dpa_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-fretta-bcm-dpa-oper'
+_global_Cisco_IOS_XR_ha_eem_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ha-eem-oper'
+_global_Cisco_IOS_XR_icpe_infra_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-icpe-infra-oper'
+_global_Cisco_IOS_XR_icpe_infra_oper_sub2_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-icpe-infra-oper'
+_global_Cisco_IOS_XR_icpe_infra_oper_sub3_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-icpe-infra-oper'
+_global_Cisco_IOS_XR_icpe_infra_oper_sub4_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-icpe-infra-oper'
+_global_Cisco_IOS_XR_icpe_infra_oper_sub5_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-icpe-infra-oper'
+_global_Cisco_IOS_XR_icpe_infra_oper_sub6_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-icpe-infra-oper'
+_global_Cisco_IOS_XR_icpe_infra_oper_sub7_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-icpe-infra-oper'
+_global_Cisco_IOS_XR_ifmgr_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ifmgr-oper'
+_global_Cisco_IOS_XR_ifmgr_oper_sub2_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ifmgr-oper'
+_global_Cisco_IOS_XR_infra_alarm_logger_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-infra-alarm-logger-oper'
+_global_Cisco_IOS_XR_infra_objmgr_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-infra-objmgr-oper'
+_global_Cisco_IOS_XR_infra_policymgr_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-infra-policymgr-oper'
+_global_Cisco_IOS_XR_infra_policymgr_oper_sub2_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-infra-policymgr-oper'
+_global_Cisco_IOS_XR_infra_rcmd_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-infra-rcmd-oper'
+_global_Cisco_IOS_XR_infra_rmf_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-infra-rmf-oper'
+_global_Cisco_IOS_XR_infra_rsi_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-infra-rsi-oper'
+_global_Cisco_IOS_XR_infra_rsi_oper_sub2_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-infra-rsi-oper'
+_global_Cisco_IOS_XR_infra_statsd_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-infra-statsd-oper'
+_global_Cisco_IOS_XR_infra_syslog_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-infra-syslog-oper'
+_global_Cisco_IOS_XR_invmgr_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-invmgr-oper'
+_global_Cisco_IOS_XR_invmgr_oper_sub2_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-invmgr-oper'
+_global_Cisco_IOS_XR_invmgr_oper_sub3_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-invmgr-oper'
+_global_Cisco_IOS_XR_invmgr_oper_sub4_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-invmgr-oper'
+_global_Cisco_IOS_XR_ip_bfd_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-bfd-oper'
+_global_Cisco_IOS_XR_ip_domain_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-domain-oper'
+_global_Cisco_IOS_XR_ip_iep_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-iep-oper'
+_global_Cisco_IOS_XR_ip_ntp_admin_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-ntp-admin-oper'
+_global_Cisco_IOS_XR_ip_ntp_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-ntp-oper'
+_global_Cisco_IOS_XR_ip_rib_ipv4_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-rib-ipv4-oper'
+_global_Cisco_IOS_XR_ip_rib_ipv6_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-rib-ipv6-oper'
+_global_Cisco_IOS_XR_ip_rsvp_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-rsvp-oper'
+_global_Cisco_IOS_XR_ip_tcp_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-tcp-oper'
+_global_Cisco_IOS_XR_ip_tcp_oper_sub2_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-tcp-oper'
+_global_Cisco_IOS_XR_ip_tcp_oper_sub3_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-tcp-oper'
+_global_Cisco_IOS_XR_ip_tcp_oper_sub4_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-tcp-oper'
+_global_Cisco_IOS_XR_ip_tcp_oper_sub5_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-tcp-oper'
+_global_Cisco_IOS_XR_ip_udp_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-udp-oper'
+_global_Cisco_IOS_XR_ip_udp_oper_sub2_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-udp-oper'
+_global_Cisco_IOS_XR_ip_udp_oper_sub3_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-udp-oper'
+_global_Cisco_IOS_XR_ip_udp_oper_sub4_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-udp-oper'
+_global_Cisco_IOS_XR_ipv4_ace_cfg_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-acl-cfg'
+_global_Cisco_IOS_XR_ipv4_acl_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-acl-oper'
+_global_Cisco_IOS_XR_ipv4_arp_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-arp-oper'
+_global_Cisco_IOS_XR_ipv4_arp_oper_sub2_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-arp-oper'
+_global_Cisco_IOS_XR_ipv4_bgp_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-bgp-oper'
+_global_Cisco_IOS_XR_ipv4_io_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-oper'
+_global_Cisco_IOS_XR_ipv4_io_oper_sub2_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-oper'
+_global_Cisco_IOS_XR_ipv4_ma_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-ma-oper'
+_global_Cisco_IOS_XR_ipv4_ospf_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-ospf-oper'
+_global_Cisco_IOS_XR_ipv6_ace_cfg_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv6-acl-cfg'
+_global_Cisco_IOS_XR_ipv6_acl_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv6-acl-oper'
+_global_Cisco_IOS_XR_ipv6_io_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv6-io-oper'
+_global_Cisco_IOS_XR_ipv6_ma_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv6-ma-oper'
+_global_Cisco_IOS_XR_ipv6_nd_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv6-nd-oper'
+_global_Cisco_IOS_XR_ipv6_new_dhcpv6d_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper'
+_global_Cisco_IOS_XR_ipv6_ospfv3_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv6-ospfv3-oper'
+_global_Cisco_IOS_XR_l2_eth_infra_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-l2-eth-infra-oper'
+_global_Cisco_IOS_XR_l2_eth_infra_oper_sub2_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-l2-eth-infra-oper'
+_global_Cisco_IOS_XR_l2_eth_infra_oper_sub3_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-l2-eth-infra-oper'
+_global_Cisco_IOS_XR_l2vpn_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-l2vpn-oper'
+_global_Cisco_IOS_XR_l2vpn_oper_sub2_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-l2vpn-oper'
+_global_Cisco_IOS_XR_l2vpn_oper_sub3_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-l2vpn-oper'
+_global_Cisco_IOS_XR_l2vpn_oper_sub4_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-l2vpn-oper'
+_global_Cisco_IOS_XR_lib_keychain_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-lib-keychain-oper'
+_global_Cisco_IOS_XR_lib_mpp_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-lib-mpp-oper'
+_global_Cisco_IOS_XR_linux_os_reboot_history_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-linux-os-reboot-history-oper'
+_global_Cisco_IOS_XR_man_xml_ttyagent_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-man-xml-ttyagent-oper'
+_global_Cisco_IOS_XR_mpls_ldp_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-ldp-oper'
+_global_Cisco_IOS_XR_mpls_ldp_oper_sub2_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-ldp-oper'
+_global_Cisco_IOS_XR_mpls_lsd_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-lsd-oper'
+_global_Cisco_IOS_XR_mpls_static_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-static-oper'
+_global_Cisco_IOS_XR_mpls_te_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-te-oper'
+_global_Cisco_IOS_XR_mpls_te_oper_sub2_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-te-oper'
+_global_Cisco_IOS_XR_mpls_te_oper_sub3_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-te-oper'
+_global_Cisco_IOS_XR_mpls_te_oper_sub4_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-te-oper'
+_global_Cisco_IOS_XR_mpls_te_oper_sub5_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-te-oper'
+_global_Cisco_IOS_XR_mpls_te_oper_sub6_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-te-oper'
+_global_Cisco_IOS_XR_mpls_te_oper_sub7_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-te-oper'
+_global_Cisco_IOS_XR_mpls_te_oper_sub8_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-te-oper'
+_global_Cisco_IOS_XR_ncs1k_mxp_headless_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ncs1k-mxp-headless-oper'
+_global_Cisco_IOS_XR_ncs1k_mxp_lldp_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ncs1k-mxp-lldp-oper'
+_global_Cisco_IOS_XR_ncs1k_mxp_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ncs1k-mxp-oper'
+_global_Cisco_IOS_XR_ncs5500_pi_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ncs5500-pi-oper'
+_global_Cisco_IOS_XR_ncs5500_qos_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ncs5500-qos-oper'
+_global_Cisco_IOS_XR_ncs5500_qos_oper_sub2_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-ncs5500-qos-oper'
+_global_Cisco_IOS_XR_nto_misc_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-nto-misc-oper'
+_global_Cisco_IOS_XR_nto_misc_shprocmem_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-nto-misc-shprocmem-oper'
+_global_Cisco_IOS_XR_pbr_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-pbr-oper'
+_global_Cisco_IOS_XR_pfi_im_cmd_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-pfi-im-cmd-oper'
+_global_Cisco_IOS_XR_pfi_im_cmd_oper_sub2_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-pfi-im-cmd-oper'
+_global_Cisco_IOS_XR_plat_chas_invmgr_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-plat-chas-invmgr-oper'
+_global_Cisco_IOS_XR_plat_chas_invmgr_oper_sub2_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-plat-chas-invmgr-oper'
+_global_Cisco_IOS_XR_pmengine_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-pmengine-oper'
+_global_Cisco_IOS_XR_policy_repository_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-policy-repository-oper'
+_global_Cisco_IOS_XR_procmem_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-procmem-oper'
+_global_Cisco_IOS_XR_qos_ma_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-qos-ma-oper'
+_global_Cisco_IOS_XR_rgmgr_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-rgmgr-oper'
+_global_Cisco_IOS_XR_sdr_invmgr_diag_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-sdr-invmgr-diag-oper'
+_global_Cisco_IOS_XR_segment_routing_ms_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-segment-routing-ms-oper'
+_global_Cisco_IOS_XR_shellutil_filesystem_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-shellutil-filesystem-oper'
+_global_Cisco_IOS_XR_shellutil_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-shellutil-oper'
+_global_Cisco_IOS_XR_snmp_agent_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-snmp-agent-oper'
+_global_Cisco_IOS_XR_snmp_agent_oper_sub2_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-snmp-agent-oper'
+_global_Cisco_IOS_XR_snmp_agent_oper_sub3_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-snmp-agent-oper'
+_global_Cisco_IOS_XR_snmp_agent_oper_sub4_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-snmp-agent-oper'
+_global_Cisco_IOS_XR_snmp_agent_oper_sub5_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-snmp-agent-oper'
+_global_Cisco_IOS_XR_snmp_agent_oper_sub6_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-snmp-agent-oper'
+_global_Cisco_IOS_XR_snmp_ifmib_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-snmp-ifmib-oper'
+_global_Cisco_IOS_XR_spirit_install_instmgr_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-spirit-install-instmgr-oper'
+_global_Cisco_IOS_XR_spirit_install_instmgr_oper_sub2_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-spirit-install-instmgr-oper'
+_global_Cisco_IOS_XR_tty_management_cmd_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-tty-management-cmd-oper'
+_global_Cisco_IOS_XR_tty_management_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-tty-management-oper'
+_global_Cisco_IOS_XR_tty_server_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-tty-server-oper'
+_global_Cisco_IOS_XR_tty_server_oper_sub2_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-tty-server-oper'
+_global_Cisco_IOS_XR_tty_server_oper_sub3_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-tty-server-oper'
+_global_Cisco_IOS_XR_tty_server_oper_sub4_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-tty-server-oper'
+_global_Cisco_IOS_XR_tty_server_oper_sub5_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-tty-server-oper'
+_global_Cisco_IOS_XR_wanphy_ui_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-wanphy-ui-oper'
+_global_Cisco_IOS_XR_wdsysmon_fd_oper_sub1_nsp = 'http://cisco.com/ns/yang/Cisco-IOS-XR-wdsysmon-fd-oper'
+_global_openconfig_mpls_igp_nsp = 'http://openconfig.net/yang/mpls'
+_global_openconfig_mpls_static_nsp = 'http://openconfig.net/yang/mpls'
+_global_openconfig_mpls_te_nsp = 'http://openconfig.net/yang/mpls'
 _namespaces = { \
     'Cisco-IOS-XR-Ethernet-SPAN-cfg' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-Ethernet-SPAN-cfg', 
     'Cisco-IOS-XR-Ethernet-SPAN-datatypes' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-Ethernet-SPAN-datatypes', 
@@ -501,6 +651,7 @@ _namespaces = { \
     'bgp' : 'http://openconfig.net/yang/bgp', 
     'bgp-multiprotocol' : 'http://openconfig.net/yang/bgp-multiprotocol', 
     'bgp-operational' : 'http://openconfig.net/yang/bgp-operational', 
+    'bgp-policy' : 'http://openconfig.net/yang/bgp-policy', 
     'bgp-types' : 'http://openconfig.net/yang/bgp-types', 
     'iana-crypt-hash' : 'urn:ietf:params:xml:ns:yang:iana-crypt-hash', 
     'iana-if-type' : 'urn:ietf:params:xml:ns:yang:iana-if-type', 
@@ -534,6 +685,172 @@ _namespaces = { \
     'openconfig-vlan' : 'http://openconfig.net/yang/vlan', 
     'policy-types' : 'http://openconfig.net/yang/policy-types', 
     'routing-policy' : 'http://openconfig.net/yang/routing-policy', 
+    'Cisco-IOS-XR-Ethernet-SPAN-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-Ethernet-SPAN-oper', 
+    'Cisco-IOS-XR-Ethernet-SPAN-oper-sub2' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-Ethernet-SPAN-oper', 
+    'Cisco-IOS-XR-Ethernet-SPAN-oper-sub3' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-Ethernet-SPAN-oper', 
+    'Cisco-IOS-XR-aaa-locald-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-aaa-locald-oper', 
+    'Cisco-IOS-XR-aaa-protocol-radius-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-aaa-protocol-radius-oper', 
+    'Cisco-IOS-XR-aaa-protocol-radius-oper-sub2' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-aaa-protocol-radius-oper', 
+    'Cisco-IOS-XR-aaa-tacacs-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-aaa-tacacs-oper', 
+    'Cisco-IOS-XR-asr9k-netflow-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-asr9k-netflow-oper', 
+    'Cisco-IOS-XR-asr9k-netflow-oper-sub2' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-asr9k-netflow-oper', 
+    'Cisco-IOS-XR-asr9k-netflow-oper-sub3' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-asr9k-netflow-oper', 
+    'Cisco-IOS-XR-asr9k-netflow-oper-sub4' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-asr9k-netflow-oper', 
+    'Cisco-IOS-XR-asr9k-netflow-oper-sub5' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-asr9k-netflow-oper', 
+    'Cisco-IOS-XR-atm-vcm-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-atm-vcm-oper', 
+    'Cisco-IOS-XR-atm-vcm-oper-sub2' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-atm-vcm-oper', 
+    'Cisco-IOS-XR-atm-vcm-oper-sub3' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-atm-vcm-oper', 
+    'Cisco-IOS-XR-atm-vcm-oper-sub4' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-atm-vcm-oper', 
+    'Cisco-IOS-XR-bundlemgr-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-bundlemgr-oper', 
+    'Cisco-IOS-XR-bundlemgr-oper-sub2' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-bundlemgr-oper', 
+    'Cisco-IOS-XR-cdp-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-cdp-oper', 
+    'Cisco-IOS-XR-clns-isis-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-clns-isis-oper', 
+    'Cisco-IOS-XR-cmproxy-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-cmproxy-oper', 
+    'Cisco-IOS-XR-controller-optics-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-controller-optics-oper', 
+    'Cisco-IOS-XR-controller-otu-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-controller-otu-oper', 
+    'Cisco-IOS-XR-crypto-sam-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-crypto-sam-oper', 
+    'Cisco-IOS-XR-crypto-ssh-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-crypto-ssh-oper', 
+    'Cisco-IOS-XR-dnx-driver-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-dnx-driver-oper', 
+    'Cisco-IOS-XR-dnx-netflow-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-dnx-netflow-oper', 
+    'Cisco-IOS-XR-dnx-netflow-oper-sub2' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-dnx-netflow-oper', 
+    'Cisco-IOS-XR-dnx-netflow-oper-sub3' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-dnx-netflow-oper', 
+    'Cisco-IOS-XR-dnx-netflow-oper-sub4' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-dnx-netflow-oper', 
+    'Cisco-IOS-XR-dnx-netflow-oper-sub5' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-dnx-netflow-oper', 
+    'Cisco-IOS-XR-drivers-media-eth-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-drivers-media-eth-oper', 
+    'Cisco-IOS-XR-ethernet-cfm-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ethernet-cfm-oper', 
+    'Cisco-IOS-XR-ethernet-cfm-oper-sub2' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ethernet-cfm-oper', 
+    'Cisco-IOS-XR-ethernet-cfm-oper-sub3' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ethernet-cfm-oper', 
+    'Cisco-IOS-XR-ethernet-cfm-oper-sub4' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ethernet-cfm-oper', 
+    'Cisco-IOS-XR-ethernet-link-oam-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ethernet-link-oam-oper', 
+    'Cisco-IOS-XR-ethernet-lldp-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ethernet-lldp-oper', 
+    'Cisco-IOS-XR-fib-common-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-fib-common-oper', 
+    'Cisco-IOS-XR-fib-common-oper-sub2' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-fib-common-oper', 
+    'Cisco-IOS-XR-fib-common-oper-sub3' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-fib-common-oper', 
+    'Cisco-IOS-XR-fib-common-oper-sub4' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-fib-common-oper', 
+    'Cisco-IOS-XR-fretta-bcm-dpa-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-fretta-bcm-dpa-oper', 
+    'Cisco-IOS-XR-ha-eem-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ha-eem-oper', 
+    'Cisco-IOS-XR-icpe-infra-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-icpe-infra-oper', 
+    'Cisco-IOS-XR-icpe-infra-oper-sub2' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-icpe-infra-oper', 
+    'Cisco-IOS-XR-icpe-infra-oper-sub3' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-icpe-infra-oper', 
+    'Cisco-IOS-XR-icpe-infra-oper-sub4' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-icpe-infra-oper', 
+    'Cisco-IOS-XR-icpe-infra-oper-sub5' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-icpe-infra-oper', 
+    'Cisco-IOS-XR-icpe-infra-oper-sub6' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-icpe-infra-oper', 
+    'Cisco-IOS-XR-icpe-infra-oper-sub7' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-icpe-infra-oper', 
+    'Cisco-IOS-XR-ifmgr-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ifmgr-oper', 
+    'Cisco-IOS-XR-ifmgr-oper-sub2' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ifmgr-oper', 
+    'Cisco-IOS-XR-infra-alarm-logger-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-infra-alarm-logger-oper', 
+    'Cisco-IOS-XR-infra-objmgr-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-infra-objmgr-oper', 
+    'Cisco-IOS-XR-infra-policymgr-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-infra-policymgr-oper', 
+    'Cisco-IOS-XR-infra-policymgr-oper-sub2' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-infra-policymgr-oper', 
+    'Cisco-IOS-XR-infra-rcmd-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-infra-rcmd-oper', 
+    'Cisco-IOS-XR-infra-rmf-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-infra-rmf-oper', 
+    'Cisco-IOS-XR-infra-rsi-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-infra-rsi-oper', 
+    'Cisco-IOS-XR-infra-rsi-oper-sub2' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-infra-rsi-oper', 
+    'Cisco-IOS-XR-infra-statsd-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-infra-statsd-oper', 
+    'Cisco-IOS-XR-infra-syslog-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-infra-syslog-oper', 
+    'Cisco-IOS-XR-invmgr-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-invmgr-oper', 
+    'Cisco-IOS-XR-invmgr-oper-sub2' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-invmgr-oper', 
+    'Cisco-IOS-XR-invmgr-oper-sub3' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-invmgr-oper', 
+    'Cisco-IOS-XR-invmgr-oper-sub4' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-invmgr-oper', 
+    'Cisco-IOS-XR-ip-bfd-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-bfd-oper', 
+    'Cisco-IOS-XR-ip-domain-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-domain-oper', 
+    'Cisco-IOS-XR-ip-iep-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-iep-oper', 
+    'Cisco-IOS-XR-ip-ntp-admin-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-ntp-admin-oper', 
+    'Cisco-IOS-XR-ip-ntp-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-ntp-oper', 
+    'Cisco-IOS-XR-ip-rib-ipv4-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-rib-ipv4-oper', 
+    'Cisco-IOS-XR-ip-rib-ipv6-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-rib-ipv6-oper', 
+    'Cisco-IOS-XR-ip-rsvp-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-rsvp-oper', 
+    'Cisco-IOS-XR-ip-tcp-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-tcp-oper', 
+    'Cisco-IOS-XR-ip-tcp-oper-sub2' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-tcp-oper', 
+    'Cisco-IOS-XR-ip-tcp-oper-sub3' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-tcp-oper', 
+    'Cisco-IOS-XR-ip-tcp-oper-sub4' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-tcp-oper', 
+    'Cisco-IOS-XR-ip-tcp-oper-sub5' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-tcp-oper', 
+    'Cisco-IOS-XR-ip-udp-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-udp-oper', 
+    'Cisco-IOS-XR-ip-udp-oper-sub2' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-udp-oper', 
+    'Cisco-IOS-XR-ip-udp-oper-sub3' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-udp-oper', 
+    'Cisco-IOS-XR-ip-udp-oper-sub4' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ip-udp-oper', 
+    'Cisco-IOS-XR-ipv4-ace-cfg' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-acl-cfg', 
+    'Cisco-IOS-XR-ipv4-acl-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-acl-oper', 
+    'Cisco-IOS-XR-ipv4-arp-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-arp-oper', 
+    'Cisco-IOS-XR-ipv4-arp-oper-sub2' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-arp-oper', 
+    'Cisco-IOS-XR-ipv4-bgp-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-bgp-oper', 
+    'Cisco-IOS-XR-ipv4-io-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-oper', 
+    'Cisco-IOS-XR-ipv4-io-oper-sub2' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-oper', 
+    'Cisco-IOS-XR-ipv4-ma-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-ma-oper', 
+    'Cisco-IOS-XR-ipv4-ospf-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-ospf-oper', 
+    'Cisco-IOS-XR-ipv6-ace-cfg' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv6-acl-cfg', 
+    'Cisco-IOS-XR-ipv6-acl-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv6-acl-oper', 
+    'Cisco-IOS-XR-ipv6-io-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv6-io-oper', 
+    'Cisco-IOS-XR-ipv6-ma-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv6-ma-oper', 
+    'Cisco-IOS-XR-ipv6-nd-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv6-nd-oper', 
+    'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', 
+    'Cisco-IOS-XR-ipv6-ospfv3-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ipv6-ospfv3-oper', 
+    'Cisco-IOS-XR-l2-eth-infra-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-l2-eth-infra-oper', 
+    'Cisco-IOS-XR-l2-eth-infra-oper-sub2' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-l2-eth-infra-oper', 
+    'Cisco-IOS-XR-l2-eth-infra-oper-sub3' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-l2-eth-infra-oper', 
+    'Cisco-IOS-XR-l2vpn-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-l2vpn-oper', 
+    'Cisco-IOS-XR-l2vpn-oper-sub2' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-l2vpn-oper', 
+    'Cisco-IOS-XR-l2vpn-oper-sub3' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-l2vpn-oper', 
+    'Cisco-IOS-XR-l2vpn-oper-sub4' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-l2vpn-oper', 
+    'Cisco-IOS-XR-lib-keychain-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-lib-keychain-oper', 
+    'Cisco-IOS-XR-lib-mpp-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-lib-mpp-oper', 
+    'Cisco-IOS-XR-linux-os-reboot-history-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-linux-os-reboot-history-oper', 
+    'Cisco-IOS-XR-man-xml-ttyagent-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-man-xml-ttyagent-oper', 
+    'Cisco-IOS-XR-mpls-ldp-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-ldp-oper', 
+    'Cisco-IOS-XR-mpls-ldp-oper-sub2' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-ldp-oper', 
+    'Cisco-IOS-XR-mpls-lsd-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-lsd-oper', 
+    'Cisco-IOS-XR-mpls-static-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-static-oper', 
+    'Cisco-IOS-XR-mpls-te-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-te-oper', 
+    'Cisco-IOS-XR-mpls-te-oper-sub2' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-te-oper', 
+    'Cisco-IOS-XR-mpls-te-oper-sub3' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-te-oper', 
+    'Cisco-IOS-XR-mpls-te-oper-sub4' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-te-oper', 
+    'Cisco-IOS-XR-mpls-te-oper-sub5' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-te-oper', 
+    'Cisco-IOS-XR-mpls-te-oper-sub6' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-te-oper', 
+    'Cisco-IOS-XR-mpls-te-oper-sub7' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-te-oper', 
+    'Cisco-IOS-XR-mpls-te-oper-sub8' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-te-oper', 
+    'Cisco-IOS-XR-ncs1k-mxp-headless-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ncs1k-mxp-headless-oper', 
+    'Cisco-IOS-XR-ncs1k-mxp-lldp-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ncs1k-mxp-lldp-oper', 
+    'Cisco-IOS-XR-ncs1k-mxp-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ncs1k-mxp-oper', 
+    'Cisco-IOS-XR-ncs5500-pi-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ncs5500-pi-oper', 
+    'Cisco-IOS-XR-ncs5500-qos-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ncs5500-qos-oper', 
+    'Cisco-IOS-XR-ncs5500-qos-oper-sub2' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-ncs5500-qos-oper', 
+    'Cisco-IOS-XR-nto-misc-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-nto-misc-oper', 
+    'Cisco-IOS-XR-nto-misc-shprocmem-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-nto-misc-shprocmem-oper', 
+    'Cisco-IOS-XR-pbr-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-pbr-oper', 
+    'Cisco-IOS-XR-pfi-im-cmd-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-pfi-im-cmd-oper', 
+    'Cisco-IOS-XR-pfi-im-cmd-oper-sub2' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-pfi-im-cmd-oper', 
+    'Cisco-IOS-XR-plat-chas-invmgr-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-plat-chas-invmgr-oper', 
+    'Cisco-IOS-XR-plat-chas-invmgr-oper-sub2' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-plat-chas-invmgr-oper', 
+    'Cisco-IOS-XR-pmengine-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-pmengine-oper', 
+    'Cisco-IOS-XR-policy-repository-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-policy-repository-oper', 
+    'Cisco-IOS-XR-procmem-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-procmem-oper', 
+    'Cisco-IOS-XR-qos-ma-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-qos-ma-oper', 
+    'Cisco-IOS-XR-rgmgr-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-rgmgr-oper', 
+    'Cisco-IOS-XR-sdr-invmgr-diag-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-sdr-invmgr-diag-oper', 
+    'Cisco-IOS-XR-segment-routing-ms-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-segment-routing-ms-oper', 
+    'Cisco-IOS-XR-shellutil-filesystem-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-shellutil-filesystem-oper', 
+    'Cisco-IOS-XR-shellutil-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-shellutil-oper', 
+    'Cisco-IOS-XR-snmp-agent-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-snmp-agent-oper', 
+    'Cisco-IOS-XR-snmp-agent-oper-sub2' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-snmp-agent-oper', 
+    'Cisco-IOS-XR-snmp-agent-oper-sub3' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-snmp-agent-oper', 
+    'Cisco-IOS-XR-snmp-agent-oper-sub4' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-snmp-agent-oper', 
+    'Cisco-IOS-XR-snmp-agent-oper-sub5' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-snmp-agent-oper', 
+    'Cisco-IOS-XR-snmp-agent-oper-sub6' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-snmp-agent-oper', 
+    'Cisco-IOS-XR-snmp-ifmib-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-snmp-ifmib-oper', 
+    'Cisco-IOS-XR-spirit-install-instmgr-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-spirit-install-instmgr-oper', 
+    'Cisco-IOS-XR-spirit-install-instmgr-oper-sub2' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-spirit-install-instmgr-oper', 
+    'Cisco-IOS-XR-tty-management-cmd-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-tty-management-cmd-oper', 
+    'Cisco-IOS-XR-tty-management-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-tty-management-oper', 
+    'Cisco-IOS-XR-tty-server-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-tty-server-oper', 
+    'Cisco-IOS-XR-tty-server-oper-sub2' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-tty-server-oper', 
+    'Cisco-IOS-XR-tty-server-oper-sub3' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-tty-server-oper', 
+    'Cisco-IOS-XR-tty-server-oper-sub4' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-tty-server-oper', 
+    'Cisco-IOS-XR-tty-server-oper-sub5' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-tty-server-oper', 
+    'Cisco-IOS-XR-wanphy-ui-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-wanphy-ui-oper', 
+    'Cisco-IOS-XR-wdsysmon-fd-oper-sub1' : 'http://cisco.com/ns/yang/Cisco-IOS-XR-wdsysmon-fd-oper', 
+    'openconfig-mpls-igp' : 'http://openconfig.net/yang/mpls', 
+    'openconfig-mpls-static' : 'http://openconfig.net/yang/mpls', 
+    'openconfig-mpls-te' : 'http://openconfig.net/yang/mpls', 
 }
 
 _identity_map = { \

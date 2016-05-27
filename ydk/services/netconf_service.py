@@ -22,8 +22,11 @@ from .executor_service import ExecutorService
 from .service import Service
 from enum import Enum
 from ydk.errors import YPYDataValidationError
-from ydk.models.ietf import ietf_netconf
-from ydk.models.ietf import ietf_netconf_with_defaults
+try:
+    from ydk.models.ietf import ietf_netconf
+    from ydk.models.ietf import ietf_netconf_with_defaults
+except:
+    pass 
 from ydk.types import Empty
 
 

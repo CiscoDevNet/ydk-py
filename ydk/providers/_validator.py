@@ -21,11 +21,12 @@
 """
 from ._value_encoder import ValueEncoder
 from ydk.errors import YPYDataValidationError, YPYError
-from ydk.types import READ, DELETE, Decimal64, Empty, YList
+from ydk.types import READ, DELETE, Decimal64, Empty, YList, YLeafList, YListItem
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_ENUM_CLASS, REFERENCE_LIST, \
             REFERENCE_LEAFLIST, REFERENCE_IDENTITY_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 import logging
+import re
 
 
 def validate_entity(entity, optype):
@@ -69,6 +70,8 @@ def _dm_validate_value(meta, value, parent, optype, i_errors):
     # return value#pass
     if value is None:
         return value
+    elif isinstance(value, YListItem):
+        value = value.item
 
     if meta._ptype == 'Empty':
         exec 'from ydk.types import Empty'
@@ -177,7 +180,7 @@ def _dm_validate_value(meta, value, parent, optype, i_errors):
     elif meta._ptype is 'int':
         return value
 
-    elif type(value) == list and meta.mtype == REFERENCE_LEAFLIST:
+    elif isinstance(value, YLeafList) and meta.mtype == REFERENCE_LEAFLIST:
         # A leaf list.
         min_elements = meta.min_elements if meta.min_elements else 0
         max_elements = meta.max_elements if meta.max_elements else float('inf')

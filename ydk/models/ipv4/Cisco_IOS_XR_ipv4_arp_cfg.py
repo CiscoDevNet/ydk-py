@@ -24,7 +24,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -152,6 +152,237 @@ class Arp(object):
         return meta._meta_table['Arp']['meta_info']
 
 
+class Arpgmp(object):
+    """
+    arpgmp
+    
+    .. attribute:: vrf
+    
+    	Per VRF configuration, for the default VRF use 'default'
+    	**type**\: list of :py:class:`Vrf <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.Arpgmp.Vrf>`
+    
+    
+
+    """
+
+    _prefix = 'ipv4-arp-cfg'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        self.vrf = YList()
+        self.vrf.parent = self
+        self.vrf.name = 'vrf'
+
+
+    class Vrf(object):
+        """
+        Per VRF configuration, for the default VRF use
+        'default'
+        
+        .. attribute:: vrf_name  <key>
+        
+        	VRF name
+        	**type**\: str
+        
+        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+        
+        .. attribute:: entries
+        
+        	ARP static and alias entry configuration
+        	**type**\: :py:class:`Entries <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.Arpgmp.Vrf.Entries>`
+        
+        
+
+        """
+
+        _prefix = 'ipv4-arp-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.vrf_name = None
+            self.entries = Arpgmp.Vrf.Entries()
+            self.entries.parent = self
+
+
+        class Entries(object):
+            """
+            ARP static and alias entry configuration
+            
+            .. attribute:: entry
+            
+            	ARP static and alias entry configuration item
+            	**type**\: list of :py:class:`Entry <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.Arpgmp.Vrf.Entries.Entry>`
+            
+            
+
+            """
+
+            _prefix = 'ipv4-arp-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.entry = YList()
+                self.entry.parent = self
+                self.entry.name = 'entry'
+
+
+            class Entry(object):
+                """
+                ARP static and alias entry configuration item
+                
+                .. attribute:: address  <key>
+                
+                	IP Address
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                .. attribute:: mac_address
+                
+                	MAC Address
+                	**type**\: str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
+                .. attribute:: encapsulation
+                
+                	Encapsulation type
+                	**type**\: :py:class:`ArpEncapEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.ArpEncapEnum>`
+                
+                .. attribute:: entry_type
+                
+                	Entry type
+                	**type**\: :py:class:`ArpEntryEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.ArpEntryEnum>`
+                
+                
+
+                """
+
+                _prefix = 'ipv4-arp-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.address = None
+                    self.mac_address = None
+                    self.encapsulation = None
+                    self.entry_type = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                    if self.address is None:
+                        raise YPYDataValidationError('Key property address is None')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-arp-cfg:entry[Cisco-IOS-XR-ipv4-arp-cfg:address = ' + str(self.address) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.address is not None:
+                        return True
+
+                    if self.mac_address is not None:
+                        return True
+
+                    if self.encapsulation is not None:
+                        return True
+
+                    if self.entry_type is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
+                    return meta._meta_table['Arpgmp.Vrf.Entries.Entry']['meta_info']
+
+            @property
+            def _common_path(self):
+                if self.parent is None:
+                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-arp-cfg:entries'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.entry is not None:
+                    for child_ref in self.entry:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
+                return meta._meta_table['Arpgmp.Vrf.Entries']['meta_info']
+
+        @property
+        def _common_path(self):
+            if self.vrf_name is None:
+                raise YPYDataValidationError('Key property vrf_name is None')
+
+            return '/Cisco-IOS-XR-ipv4-arp-cfg:arpgmp/Cisco-IOS-XR-ipv4-arp-cfg:vrf[Cisco-IOS-XR-ipv4-arp-cfg:vrf-name = ' + str(self.vrf_name) + ']'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.vrf_name is not None:
+                return True
+
+            if self.entries is not None and self.entries._has_data():
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
+            return meta._meta_table['Arpgmp.Vrf']['meta_info']
+
+    @property
+    def _common_path(self):
+
+        return '/Cisco-IOS-XR-ipv4-arp-cfg:arpgmp'
+
+    def is_config(self):
+        ''' Returns True if this instance represents config data else returns False '''
+        return True
+
+    def _has_data(self):
+        if not self.is_config():
+            return False
+        if self.vrf is not None:
+            for child_ref in self.vrf:
+                if child_ref._has_data():
+                    return True
+
+        return False
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
+        return meta._meta_table['Arpgmp']['meta_info']
+
+
 class ArpRedundancy(object):
     """
     arp redundancy
@@ -176,20 +407,20 @@ class ArpRedundancy(object):
         """
         Configure parameter for ARP Geo redundancy
         
-        .. attribute:: enable
+        .. attribute:: groups
         
-        	Enable Configure parameter for ARP Geo redundancy. Deletion of this object also causes deletion of all associated objects under ArpRedundancy
-        	**type**\: :py:class:`Empty <ydk.types.Empty>`
+        	Table of Group
+        	**type**\: :py:class:`Groups <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups>`
         
         .. attribute:: _is_presence
         
         	Is present if this instance represents presence container else not
         	**type**\: bool
         
-        .. attribute:: groups
+        .. attribute:: enable
         
-        	Table of Group
-        	**type**\: :py:class:`Groups <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups>`
+        	Enable Configure parameter for ARP Geo redundancy. Deletion of this object also causes deletion of all associated objects under ArpRedundancy
+        	**type**\: :py:class:`Empty <ydk.types.Empty>`
         
         .. attribute:: _is_presence
         
@@ -207,9 +438,9 @@ class ArpRedundancy(object):
 
         def __init__(self):
             self.parent = None
-            self.enable = None
             self.groups = ArpRedundancy.Redundancy.Groups()
             self.groups.parent = self
+            self.enable = None
 
 
         class Groups(object):
@@ -239,22 +470,22 @@ class ArpRedundancy(object):
                 """
                 None
                 
-                .. attribute:: group_id
+                .. attribute:: group_id  <key>
                 
                 	Group ID
                 	**type**\: int
                 
                 	**range:** 1..32
                 
-                .. attribute:: interface_list
-                
-                	List of Interfaces for this Group
-                	**type**\: :py:class:`InterfaceList <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups.Group.InterfaceList>`
-                
                 .. attribute:: peers
                 
                 	Table of Peer
                 	**type**\: :py:class:`Peers <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups.Group.Peers>`
+                
+                .. attribute:: interface_list
+                
+                	List of Interfaces for this Group
+                	**type**\: :py:class:`InterfaceList <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups.Group.InterfaceList>`
                 
                 .. attribute:: source_interface
                 
@@ -273,30 +504,138 @@ class ArpRedundancy(object):
                 def __init__(self):
                     self.parent = None
                     self.group_id = None
-                    self.interface_list = None
                     self.peers = ArpRedundancy.Redundancy.Groups.Group.Peers()
                     self.peers.parent = self
+                    self.interface_list = None
                     self.source_interface = None
+
+
+                class Peers(object):
+                    """
+                    Table of Peer
+                    
+                    .. attribute:: peer
+                    
+                    	None
+                    	**type**\: list of :py:class:`Peer <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups.Group.Peers.Peer>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-arp-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.peer = YList()
+                        self.peer.parent = self
+                        self.peer.name = 'peer'
+
+
+                    class Peer(object):
+                        """
+                        None
+                        
+                        .. attribute:: prefix_string  <key>
+                        
+                        	Neighbor IPv4 address
+                        	**type**\: one of the below types:
+                        
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        
+                        ----
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        
+                        ----
+                        
+
+                        """
+
+                        _prefix = 'ipv4-arp-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.prefix_string = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+                            if self.prefix_string is None:
+                                raise YPYDataValidationError('Key property prefix_string is None')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-arp-cfg:peer[Cisco-IOS-XR-ipv4-arp-cfg:prefix-string = ' + str(self.prefix_string) + ']'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.prefix_string is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
+                            return meta._meta_table['ArpRedundancy.Redundancy.Groups.Group.Peers.Peer']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-arp-cfg:peers'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.peer is not None:
+                            for child_ref in self.peer:
+                                if child_ref._has_data():
+                                    return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
+                        return meta._meta_table['ArpRedundancy.Redundancy.Groups.Group.Peers']['meta_info']
 
 
                 class InterfaceList(object):
                     """
                     List of Interfaces for this Group
                     
-                    .. attribute:: enable
+                    .. attribute:: interfaces
                     
-                    	Enable List of Interfaces for this Group. Deletion of this object also causes deletion of all associated objects under InterfaceList
-                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+                    	Table of Interface
+                    	**type**\: :py:class:`Interfaces <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces>`
                     
                     .. attribute:: _is_presence
                     
                     	Is present if this instance represents presence container else not
                     	**type**\: bool
                     
-                    .. attribute:: interfaces
+                    .. attribute:: enable
                     
-                    	Table of Interface
-                    	**type**\: :py:class:`Interfaces <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces>`
+                    	Enable List of Interfaces for this Group. Deletion of this object also causes deletion of all associated objects under InterfaceList
+                    	**type**\: :py:class:`Empty <ydk.types.Empty>`
                     
                     .. attribute:: _is_presence
                     
@@ -314,9 +653,9 @@ class ArpRedundancy(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.enable = None
                         self.interfaces = ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces()
                         self.interfaces.parent = self
+                        self.enable = None
 
 
                     class Interfaces(object):
@@ -346,7 +685,7 @@ class ArpRedundancy(object):
                             """
                             Interface for this Group
                             
-                            .. attribute:: interface_name
+                            .. attribute:: interface_name  <key>
                             
                             	Interface name
                             	**type**\: str
@@ -441,10 +780,10 @@ class ArpRedundancy(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.enable is not None:
+                        if self.interfaces is not None and self.interfaces._has_data():
                             return True
 
-                        if self.interfaces is not None and self.interfaces._has_data():
+                        if self.enable is not None:
                             return True
 
                         return False
@@ -453,102 +792,6 @@ class ArpRedundancy(object):
                     def _meta_info():
                         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
                         return meta._meta_table['ArpRedundancy.Redundancy.Groups.Group.InterfaceList']['meta_info']
-
-
-                class Peers(object):
-                    """
-                    Table of Peer
-                    
-                    .. attribute:: peer
-                    
-                    	None
-                    	**type**\: list of :py:class:`Peer <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.ArpRedundancy.Redundancy.Groups.Group.Peers.Peer>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-arp-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.peer = YList()
-                        self.peer.parent = self
-                        self.peer.name = 'peer'
-
-
-                    class Peer(object):
-                        """
-                        None
-                        
-                        .. attribute:: prefix_string
-                        
-                        	Neighbor IPv4 address
-                        	**type**\: one of { str | str }
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv4-arp-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.prefix_string = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                            if self.prefix_string is None:
-                                raise YPYDataValidationError('Key property prefix_string is None')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-arp-cfg:peer[Cisco-IOS-XR-ipv4-arp-cfg:prefix-string = ' + str(self.prefix_string) + ']'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.prefix_string is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
-                            return meta._meta_table['ArpRedundancy.Redundancy.Groups.Group.Peers.Peer']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-arp-cfg:peers'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.peer is not None:
-                            for child_ref in self.peer:
-                                if child_ref._has_data():
-                                    return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
-                        return meta._meta_table['ArpRedundancy.Redundancy.Groups.Group.Peers']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -567,10 +810,10 @@ class ArpRedundancy(object):
                     if self.group_id is not None:
                         return True
 
-                    if self.interface_list is not None and self.interface_list._has_data():
+                    if self.peers is not None and self.peers._has_data():
                         return True
 
-                    if self.peers is not None and self.peers._has_data():
+                    if self.interface_list is not None and self.interface_list._has_data():
                         return True
 
                     if self.source_interface is not None:
@@ -619,10 +862,10 @@ class ArpRedundancy(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.enable is not None:
+            if self.groups is not None and self.groups._has_data():
                 return True
 
-            if self.groups is not None and self.groups._has_data():
+            if self.enable is not None:
                 return True
 
             return False
@@ -653,236 +896,5 @@ class ArpRedundancy(object):
     def _meta_info():
         from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
         return meta._meta_table['ArpRedundancy']['meta_info']
-
-
-class Arpgmp(object):
-    """
-    arpgmp
-    
-    .. attribute:: vrf
-    
-    	Per VRF configuration, for the default VRF use 'default'
-    	**type**\: list of :py:class:`Vrf <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.Arpgmp.Vrf>`
-    
-    
-
-    """
-
-    _prefix = 'ipv4-arp-cfg'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        self.vrf = YList()
-        self.vrf.parent = self
-        self.vrf.name = 'vrf'
-
-
-    class Vrf(object):
-        """
-        Per VRF configuration, for the default VRF use
-        'default'
-        
-        .. attribute:: vrf_name
-        
-        	VRF name
-        	**type**\: str
-        
-        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-        
-        .. attribute:: entries
-        
-        	ARP static and alias entry configuration
-        	**type**\: :py:class:`Entries <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.Arpgmp.Vrf.Entries>`
-        
-        
-
-        """
-
-        _prefix = 'ipv4-arp-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.vrf_name = None
-            self.entries = Arpgmp.Vrf.Entries()
-            self.entries.parent = self
-
-
-        class Entries(object):
-            """
-            ARP static and alias entry configuration
-            
-            .. attribute:: entry
-            
-            	ARP static and alias entry configuration item
-            	**type**\: list of :py:class:`Entry <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.Arpgmp.Vrf.Entries.Entry>`
-            
-            
-
-            """
-
-            _prefix = 'ipv4-arp-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.entry = YList()
-                self.entry.parent = self
-                self.entry.name = 'entry'
-
-
-            class Entry(object):
-                """
-                ARP static and alias entry configuration item
-                
-                .. attribute:: address
-                
-                	IP Address
-                	**type**\: str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: encapsulation
-                
-                	Encapsulation type
-                	**type**\: :py:class:`ArpEncapEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.ArpEncapEnum>`
-                
-                .. attribute:: entry_type
-                
-                	Entry type
-                	**type**\: :py:class:`ArpEntryEnum <ydk.models.ipv4.Cisco_IOS_XR_ipv4_arp_cfg.ArpEntryEnum>`
-                
-                .. attribute:: mac_address
-                
-                	MAC Address
-                	**type**\: str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
-                
-
-                """
-
-                _prefix = 'ipv4-arp-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.address = None
-                    self.encapsulation = None
-                    self.entry_type = None
-                    self.mac_address = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-                    if self.address is None:
-                        raise YPYDataValidationError('Key property address is None')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-arp-cfg:entry[Cisco-IOS-XR-ipv4-arp-cfg:address = ' + str(self.address) + ']'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.address is not None:
-                        return True
-
-                    if self.encapsulation is not None:
-                        return True
-
-                    if self.entry_type is not None:
-                        return True
-
-                    if self.mac_address is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
-                    return meta._meta_table['Arpgmp.Vrf.Entries.Entry']['meta_info']
-
-            @property
-            def _common_path(self):
-                if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-arp-cfg:entries'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.entry is not None:
-                    for child_ref in self.entry:
-                        if child_ref._has_data():
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
-                return meta._meta_table['Arpgmp.Vrf.Entries']['meta_info']
-
-        @property
-        def _common_path(self):
-            if self.vrf_name is None:
-                raise YPYDataValidationError('Key property vrf_name is None')
-
-            return '/Cisco-IOS-XR-ipv4-arp-cfg:arpgmp/Cisco-IOS-XR-ipv4-arp-cfg:vrf[Cisco-IOS-XR-ipv4-arp-cfg:vrf-name = ' + str(self.vrf_name) + ']'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.vrf_name is not None:
-                return True
-
-            if self.entries is not None and self.entries._has_data():
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
-            return meta._meta_table['Arpgmp.Vrf']['meta_info']
-
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-ipv4-arp-cfg:arpgmp'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
-        if not self.is_config():
-            return False
-        if self.vrf is not None:
-            for child_ref in self.vrf:
-                if child_ref._has_data():
-                    return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ipv4._meta import _Cisco_IOS_XR_ipv4_arp_cfg as meta
-        return meta._meta_table['Arpgmp']['meta_info']
 
 

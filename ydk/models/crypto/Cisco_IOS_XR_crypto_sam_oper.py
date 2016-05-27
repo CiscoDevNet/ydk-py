@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -282,35 +282,35 @@ class Sam(object):
     Software authentication manager certificate
     information
     
-    .. attribute:: certificate_revocation_list_summary
+    .. attribute:: system_information
     
-    	Certificate revocation list summary information 
-    	**type**\: :py:class:`CertificateRevocationListSummary <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocationListSummary>`
-    
-    .. attribute:: certificate_revocations
-    
-    	Certificate revocation list index table information
-    	**type**\: :py:class:`CertificateRevocations <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations>`
-    
-    .. attribute:: devices
-    
-    	Certificate device table information
-    	**type**\: :py:class:`Devices <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices>`
+    	SAM system information
+    	**type**\: :py:class:`SystemInformation <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.Sam.SystemInformation>`
     
     .. attribute:: log_contents
     
     	SAM log content table information
     	**type**\: :py:class:`LogContents <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.Sam.LogContents>`
     
+    .. attribute:: devices
+    
+    	Certificate device table information
+    	**type**\: :py:class:`Devices <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices>`
+    
     .. attribute:: packages
     
     	SAM certificate information  package
     	**type**\: :py:class:`Packages <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.Sam.Packages>`
     
-    .. attribute:: system_information
+    .. attribute:: certificate_revocations
     
-    	SAM system information
-    	**type**\: :py:class:`SystemInformation <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.Sam.SystemInformation>`
+    	Certificate revocation list index table information
+    	**type**\: :py:class:`CertificateRevocations <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations>`
+    
+    .. attribute:: certificate_revocation_list_summary
+    
+    	Certificate revocation list summary information 
+    	**type**\: :py:class:`CertificateRevocationListSummary <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocationListSummary>`
     
     
 
@@ -320,40 +320,40 @@ class Sam(object):
     _revision = '2015-01-07'
 
     def __init__(self):
-        self.certificate_revocation_list_summary = Sam.CertificateRevocationListSummary()
-        self.certificate_revocation_list_summary.parent = self
-        self.certificate_revocations = Sam.CertificateRevocations()
-        self.certificate_revocations.parent = self
-        self.devices = Sam.Devices()
-        self.devices.parent = self
-        self.log_contents = Sam.LogContents()
-        self.log_contents.parent = self
-        self.packages = Sam.Packages()
-        self.packages.parent = self
         self.system_information = Sam.SystemInformation()
         self.system_information.parent = self
+        self.log_contents = Sam.LogContents()
+        self.log_contents.parent = self
+        self.devices = Sam.Devices()
+        self.devices.parent = self
+        self.packages = Sam.Packages()
+        self.packages.parent = self
+        self.certificate_revocations = Sam.CertificateRevocations()
+        self.certificate_revocations.parent = self
+        self.certificate_revocation_list_summary = Sam.CertificateRevocationListSummary()
+        self.certificate_revocation_list_summary.parent = self
 
 
-    class CertificateRevocationListSummary(object):
+    class SystemInformation(object):
         """
-        Certificate revocation list summary information 
+        SAM system information
         
-        .. attribute:: crl_index
+        .. attribute:: is_running
         
-        	 CRL index
+        	True if SAM status information runs
+        	**type**\: bool
+        
+        .. attribute:: prompt_interval
+        
+        	Prompt interval atreboot time in seconds
         	**type**\: int
         
-        	**range:** 0..65535
+        	**range:** 0..4294967295
         
-        .. attribute:: issuer
+        .. attribute:: is_default_response
         
-        	Issuer name
-        	**type**\: :py:class:`Issuer <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocationListSummary.Issuer>`
-        
-        .. attribute:: updates
-        
-        	Updated time of CRL is displayed
-        	**type**\: str
+        	True if promptdefault response is true
+        	**type**\: bool
         
         
 
@@ -364,76 +364,14 @@ class Sam(object):
 
         def __init__(self):
             self.parent = None
-            self.crl_index = None
-            self.issuer = Sam.CertificateRevocationListSummary.Issuer()
-            self.issuer.parent = self
-            self.updates = None
-
-
-        class Issuer(object):
-            """
-            Issuer name
-            
-            .. attribute:: common_name
-            
-            	Common name
-            	**type**\: str
-            
-            .. attribute:: country
-            
-            	Country
-            	**type**\: str
-            
-            .. attribute:: organization
-            
-            	Organization
-            	**type**\: str
-            
-            
-
-            """
-
-            _prefix = 'crypto-sam-oper'
-            _revision = '2015-01-07'
-
-            def __init__(self):
-                self.parent = None
-                self.common_name = None
-                self.country = None
-                self.organization = None
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-crypto-sam-oper:sam/Cisco-IOS-XR-crypto-sam-oper:certificate-revocation-list-summary/Cisco-IOS-XR-crypto-sam-oper:issuer'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.common_name is not None:
-                    return True
-
-                if self.country is not None:
-                    return True
-
-                if self.organization is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
-                return meta._meta_table['Sam.CertificateRevocationListSummary.Issuer']['meta_info']
+            self.is_running = None
+            self.prompt_interval = None
+            self.is_default_response = None
 
         @property
         def _common_path(self):
 
-            return '/Cisco-IOS-XR-crypto-sam-oper:sam/Cisco-IOS-XR-crypto-sam-oper:certificate-revocation-list-summary'
+            return '/Cisco-IOS-XR-crypto-sam-oper:sam/Cisco-IOS-XR-crypto-sam-oper:system-information'
 
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
@@ -442,13 +380,13 @@ class Sam(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.crl_index is not None:
+            if self.is_running is not None:
                 return True
 
-            if self.issuer is not None and self.issuer._has_data():
+            if self.prompt_interval is not None:
                 return True
 
-            if self.updates is not None:
+            if self.is_default_response is not None:
                 return True
 
             return False
@@ -456,18 +394,17 @@ class Sam(object):
         @staticmethod
         def _meta_info():
             from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
-            return meta._meta_table['Sam.CertificateRevocationListSummary']['meta_info']
+            return meta._meta_table['Sam.SystemInformation']['meta_info']
 
 
-    class CertificateRevocations(object):
+    class LogContents(object):
         """
-        Certificate revocation list index table
-        information
+        SAM log content table information
         
-        .. attribute:: certificate_revocation
+        .. attribute:: log_content
         
-        	Certificate revocation list index information
-        	**type**\: list of :py:class:`CertificateRevocation <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations.CertificateRevocation>`
+        	Number of lines for SAM log message
+        	**type**\: list of :py:class:`LogContent <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.Sam.LogContents.LogContent>`
         
         
 
@@ -478,26 +415,40 @@ class Sam(object):
 
         def __init__(self):
             self.parent = None
-            self.certificate_revocation = YList()
-            self.certificate_revocation.parent = self
-            self.certificate_revocation.name = 'certificate_revocation'
+            self.log_content = YList()
+            self.log_content.parent = self
+            self.log_content.name = 'log_content'
 
 
-        class CertificateRevocation(object):
+        class LogContent(object):
             """
-            Certificate revocation list index information
+            Number of lines for SAM log message
             
-            .. attribute:: crl_index
+            .. attribute:: number_of_lines  <key>
             
-            	CRL index
+            	Number of lines
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
             
-            .. attribute:: certificate_revocation_list_detail
+            .. attribute:: total_entries
             
-            	Certificate revocation list detail information
-            	**type**\: :py:class:`CertificateRevocationListDetail <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail>`
+            	Total log entries available
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: entries_shown
+            
+            	Total entries shown
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: logs
+            
+            	SAM logs
+            	**type**\: list of :py:class:`Logs <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.Sam.LogContents.LogContent.Logs>`
             
             
 
@@ -508,31 +459,76 @@ class Sam(object):
 
             def __init__(self):
                 self.parent = None
-                self.crl_index = None
-                self.certificate_revocation_list_detail = Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail()
-                self.certificate_revocation_list_detail.parent = self
+                self.number_of_lines = None
+                self.total_entries = None
+                self.entries_shown = None
+                self.logs = YList()
+                self.logs.parent = self
+                self.logs.name = 'logs'
 
 
-            class CertificateRevocationListDetail(object):
+            class Logs(object):
                 """
-                Certificate revocation list detail information
+                SAM logs
                 
-                .. attribute:: crl_index
+                .. attribute:: time
                 
-                	 CRL index
+                	Log time
+                	**type**\: str
+                
+                .. attribute:: code
+                
+                	Log code
+                	**type**\: :py:class:`LogCodeEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.LogCodeEnum>`
+                
+                .. attribute:: target_device
+                
+                	Target device
+                	**type**\: str
+                
+                .. attribute:: index
+                
+                	Device index
                 	**type**\: int
                 
-                	**range:** 0..65535
+                	**range:** 0..4294967295
+                
+                .. attribute:: error
+                
+                	Log error message
+                	**type**\: :py:class:`LogErrorEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.LogErrorEnum>`
                 
                 .. attribute:: issuer
                 
-                	Issuer name
-                	**type**\: :py:class:`Issuer <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail.Issuer>`
+                	Issuer of the certificate
+                	**type**\: :py:class:`CertificateIssuerEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.CertificateIssuerEnum>`
                 
-                .. attribute:: updates
+                .. attribute:: serial_no
                 
-                	Updated time of CRL is displayed
+                	Serial number
                 	**type**\: str
+                
+                .. attribute:: sam_table_index
+                
+                	SAM table index
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: update_time
+                
+                	Last update time of the certificate
+                	**type**\: str
+                
+                .. attribute:: source_device
+                
+                	source device name
+                	**type**\: str
+                
+                .. attribute:: table
+                
+                	Log table information
+                	**type**\: :py:class:`LogTablesEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.LogTablesEnum>`
                 
                 
 
@@ -543,80 +539,24 @@ class Sam(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.crl_index = None
-                    self.issuer = Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail.Issuer()
-                    self.issuer.parent = self
-                    self.updates = None
-
-
-                class Issuer(object):
-                    """
-                    Issuer name
-                    
-                    .. attribute:: common_name
-                    
-                    	Common name
-                    	**type**\: str
-                    
-                    .. attribute:: country
-                    
-                    	Country
-                    	**type**\: str
-                    
-                    .. attribute:: organization
-                    
-                    	Organization
-                    	**type**\: str
-                    
-                    
-
-                    """
-
-                    _prefix = 'crypto-sam-oper'
-                    _revision = '2015-01-07'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.common_name = None
-                        self.country = None
-                        self.organization = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-crypto-sam-oper:issuer'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.common_name is not None:
-                            return True
-
-                        if self.country is not None:
-                            return True
-
-                        if self.organization is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
-                        return meta._meta_table['Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail.Issuer']['meta_info']
+                    self.time = None
+                    self.code = None
+                    self.target_device = None
+                    self.index = None
+                    self.error = None
+                    self.issuer = None
+                    self.serial_no = None
+                    self.sam_table_index = None
+                    self.update_time = None
+                    self.source_device = None
+                    self.table = None
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
                         raise YPYDataValidationError('parent is not set . Cannot derive path.')
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-crypto-sam-oper:certificate-revocation-list-detail'
+                    return self.parent._common_path +'/Cisco-IOS-XR-crypto-sam-oper:logs'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -625,13 +565,37 @@ class Sam(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.crl_index is not None:
+                    if self.time is not None:
                         return True
 
-                    if self.issuer is not None and self.issuer._has_data():
+                    if self.code is not None:
                         return True
 
-                    if self.updates is not None:
+                    if self.target_device is not None:
+                        return True
+
+                    if self.index is not None:
+                        return True
+
+                    if self.error is not None:
+                        return True
+
+                    if self.issuer is not None:
+                        return True
+
+                    if self.serial_no is not None:
+                        return True
+
+                    if self.sam_table_index is not None:
+                        return True
+
+                    if self.update_time is not None:
+                        return True
+
+                    if self.source_device is not None:
+                        return True
+
+                    if self.table is not None:
                         return True
 
                     return False
@@ -639,14 +603,14 @@ class Sam(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
-                    return meta._meta_table['Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail']['meta_info']
+                    return meta._meta_table['Sam.LogContents.LogContent.Logs']['meta_info']
 
             @property
             def _common_path(self):
-                if self.crl_index is None:
-                    raise YPYDataValidationError('Key property crl_index is None')
+                if self.number_of_lines is None:
+                    raise YPYDataValidationError('Key property number_of_lines is None')
 
-                return '/Cisco-IOS-XR-crypto-sam-oper:sam/Cisco-IOS-XR-crypto-sam-oper:certificate-revocations/Cisco-IOS-XR-crypto-sam-oper:certificate-revocation[Cisco-IOS-XR-crypto-sam-oper:crl-index = ' + str(self.crl_index) + ']'
+                return '/Cisco-IOS-XR-crypto-sam-oper:sam/Cisco-IOS-XR-crypto-sam-oper:log-contents/Cisco-IOS-XR-crypto-sam-oper:log-content[Cisco-IOS-XR-crypto-sam-oper:number-of-lines = ' + str(self.number_of_lines) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
@@ -655,23 +619,31 @@ class Sam(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.crl_index is not None:
+                if self.number_of_lines is not None:
                     return True
 
-                if self.certificate_revocation_list_detail is not None and self.certificate_revocation_list_detail._has_data():
+                if self.total_entries is not None:
                     return True
+
+                if self.entries_shown is not None:
+                    return True
+
+                if self.logs is not None:
+                    for child_ref in self.logs:
+                        if child_ref._has_data():
+                            return True
 
                 return False
 
             @staticmethod
             def _meta_info():
                 from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
-                return meta._meta_table['Sam.CertificateRevocations.CertificateRevocation']['meta_info']
+                return meta._meta_table['Sam.LogContents.LogContent']['meta_info']
 
         @property
         def _common_path(self):
 
-            return '/Cisco-IOS-XR-crypto-sam-oper:sam/Cisco-IOS-XR-crypto-sam-oper:certificate-revocations'
+            return '/Cisco-IOS-XR-crypto-sam-oper:sam/Cisco-IOS-XR-crypto-sam-oper:log-contents'
 
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
@@ -680,8 +652,8 @@ class Sam(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.certificate_revocation is not None:
-                for child_ref in self.certificate_revocation:
+            if self.log_content is not None:
+                for child_ref in self.log_content:
                     if child_ref._has_data():
                         return True
 
@@ -690,7 +662,7 @@ class Sam(object):
         @staticmethod
         def _meta_info():
             from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
-            return meta._meta_table['Sam.CertificateRevocations']['meta_info']
+            return meta._meta_table['Sam.LogContents']['meta_info']
 
 
     class Devices(object):
@@ -720,7 +692,7 @@ class Sam(object):
             """
             Certificate table device information
             
-            .. attribute:: device_name
+            .. attribute:: device_name  <key>
             
             	Specify device name
             	**type**\: str
@@ -784,17 +756,17 @@ class Sam(object):
                     	Certificate flags
                     	**type**\: :py:class:`CertificateFlags <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.Brief.CertificateFlags>`
                     
+                    .. attribute:: location
+                    
+                    	Certificate location
+                    	**type**\: str
+                    
                     .. attribute:: certificate_index
                     
                     	Certificate index
                     	**type**\: int
                     
                     	**range:** 0..65535
-                    
-                    .. attribute:: location
-                    
-                    	Certificate location
-                    	**type**\: str
                     
                     
 
@@ -807,17 +779,17 @@ class Sam(object):
                         self.parent = None
                         self.certificate_flags = Sam.Devices.Device.Certificate.Brief.CertificateFlags()
                         self.certificate_flags.parent = self
-                        self.certificate_index = None
                         self.location = None
+                        self.certificate_index = None
 
 
                     class CertificateFlags(object):
                         """
                         Certificate flags
                         
-                        .. attribute:: is_expired
+                        .. attribute:: is_trusted
                         
-                        	Expired flag
+                        	Trusted flag
                         	**type**\: bool
                         
                         .. attribute:: is_revoked
@@ -825,9 +797,9 @@ class Sam(object):
                         	Revoked flag
                         	**type**\: bool
                         
-                        .. attribute:: is_trusted
+                        .. attribute:: is_expired
                         
-                        	Trusted flag
+                        	Expired flag
                         	**type**\: bool
                         
                         .. attribute:: is_validated
@@ -844,9 +816,9 @@ class Sam(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.is_expired = None
-                            self.is_revoked = None
                             self.is_trusted = None
+                            self.is_revoked = None
+                            self.is_expired = None
                             self.is_validated = None
 
                         @property
@@ -863,13 +835,13 @@ class Sam(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.is_expired is not None:
+                            if self.is_trusted is not None:
                                 return True
 
                             if self.is_revoked is not None:
                                 return True
 
-                            if self.is_trusted is not None:
+                            if self.is_expired is not None:
                                 return True
 
                             if self.is_validated is not None:
@@ -899,10 +871,10 @@ class Sam(object):
                         if self.certificate_flags is not None and self.certificate_flags._has_data():
                             return True
 
-                        if self.certificate_index is not None:
+                        if self.location is not None:
                             return True
 
-                        if self.location is not None:
+                        if self.certificate_index is not None:
                             return True
 
                         return False
@@ -940,7 +912,7 @@ class Sam(object):
                         """
                         Certificate detail index information
                         
-                        .. attribute:: index
+                        .. attribute:: index  <key>
                         
                         	Specify certificate index
                         	**type**\: int
@@ -975,17 +947,17 @@ class Sam(object):
                             	Certificate flags
                             	**type**\: :py:class:`CertificateFlags <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail.CertificateFlags>`
                             
+                            .. attribute:: location
+                            
+                            	Certificate location
+                            	**type**\: str
+                            
                             .. attribute:: certificate_index
                             
                             	Certificate index
                             	**type**\: int
                             
                             	**range:** 0..65535
-                            
-                            .. attribute:: location
-                            
-                            	Certificate location
-                            	**type**\: str
                             
                             
 
@@ -998,17 +970,17 @@ class Sam(object):
                                 self.parent = None
                                 self.certificate_flags = Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail.CertificateFlags()
                                 self.certificate_flags.parent = self
-                                self.certificate_index = None
                                 self.location = None
+                                self.certificate_index = None
 
 
                             class CertificateFlags(object):
                                 """
                                 Certificate flags
                                 
-                                .. attribute:: is_expired
+                                .. attribute:: is_trusted
                                 
-                                	Expired flag
+                                	Trusted flag
                                 	**type**\: bool
                                 
                                 .. attribute:: is_revoked
@@ -1016,9 +988,9 @@ class Sam(object):
                                 	Revoked flag
                                 	**type**\: bool
                                 
-                                .. attribute:: is_trusted
+                                .. attribute:: is_expired
                                 
-                                	Trusted flag
+                                	Expired flag
                                 	**type**\: bool
                                 
                                 .. attribute:: is_validated
@@ -1035,9 +1007,9 @@ class Sam(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.is_expired = None
-                                    self.is_revoked = None
                                     self.is_trusted = None
+                                    self.is_revoked = None
+                                    self.is_expired = None
                                     self.is_validated = None
 
                                 @property
@@ -1054,13 +1026,13 @@ class Sam(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.is_expired is not None:
+                                    if self.is_trusted is not None:
                                         return True
 
                                     if self.is_revoked is not None:
                                         return True
 
-                                    if self.is_trusted is not None:
+                                    if self.is_expired is not None:
                                         return True
 
                                     if self.is_validated is not None:
@@ -1090,10 +1062,10 @@ class Sam(object):
                                 if self.certificate_flags is not None and self.certificate_flags._has_data():
                                     return True
 
-                                if self.certificate_index is not None:
+                                if self.location is not None:
                                     return True
 
-                                if self.location is not None:
+                                if self.certificate_index is not None:
                                     return True
 
                                 return False
@@ -1237,274 +1209,6 @@ class Sam(object):
             return meta._meta_table['Sam.Devices']['meta_info']
 
 
-    class LogContents(object):
-        """
-        SAM log content table information
-        
-        .. attribute:: log_content
-        
-        	Number of lines for SAM log message
-        	**type**\: list of :py:class:`LogContent <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.Sam.LogContents.LogContent>`
-        
-        
-
-        """
-
-        _prefix = 'crypto-sam-oper'
-        _revision = '2015-01-07'
-
-        def __init__(self):
-            self.parent = None
-            self.log_content = YList()
-            self.log_content.parent = self
-            self.log_content.name = 'log_content'
-
-
-        class LogContent(object):
-            """
-            Number of lines for SAM log message
-            
-            .. attribute:: number_of_lines
-            
-            	Number of lines
-            	**type**\: int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: entries_shown
-            
-            	Total entries shown
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: logs
-            
-            	SAM logs
-            	**type**\: list of :py:class:`Logs <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.Sam.LogContents.LogContent.Logs>`
-            
-            .. attribute:: total_entries
-            
-            	Total log entries available
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            
-
-            """
-
-            _prefix = 'crypto-sam-oper'
-            _revision = '2015-01-07'
-
-            def __init__(self):
-                self.parent = None
-                self.number_of_lines = None
-                self.entries_shown = None
-                self.logs = YList()
-                self.logs.parent = self
-                self.logs.name = 'logs'
-                self.total_entries = None
-
-
-            class Logs(object):
-                """
-                SAM logs
-                
-                .. attribute:: code
-                
-                	Log code
-                	**type**\: :py:class:`LogCodeEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.LogCodeEnum>`
-                
-                .. attribute:: error
-                
-                	Log error message
-                	**type**\: :py:class:`LogErrorEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.LogErrorEnum>`
-                
-                .. attribute:: index
-                
-                	Device index
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: issuer
-                
-                	Issuer of the certificate
-                	**type**\: :py:class:`CertificateIssuerEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.CertificateIssuerEnum>`
-                
-                .. attribute:: sam_table_index
-                
-                	SAM table index
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: serial_no
-                
-                	Serial number
-                	**type**\: str
-                
-                .. attribute:: source_device
-                
-                	source device name
-                	**type**\: str
-                
-                .. attribute:: table
-                
-                	Log table information
-                	**type**\: :py:class:`LogTablesEnum <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.LogTablesEnum>`
-                
-                .. attribute:: target_device
-                
-                	Target device
-                	**type**\: str
-                
-                .. attribute:: time
-                
-                	Log time
-                	**type**\: str
-                
-                .. attribute:: update_time
-                
-                	Last update time of the certificate
-                	**type**\: str
-                
-                
-
-                """
-
-                _prefix = 'crypto-sam-oper'
-                _revision = '2015-01-07'
-
-                def __init__(self):
-                    self.parent = None
-                    self.code = None
-                    self.error = None
-                    self.index = None
-                    self.issuer = None
-                    self.sam_table_index = None
-                    self.serial_no = None
-                    self.source_device = None
-                    self.table = None
-                    self.target_device = None
-                    self.time = None
-                    self.update_time = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-crypto-sam-oper:logs'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.code is not None:
-                        return True
-
-                    if self.error is not None:
-                        return True
-
-                    if self.index is not None:
-                        return True
-
-                    if self.issuer is not None:
-                        return True
-
-                    if self.sam_table_index is not None:
-                        return True
-
-                    if self.serial_no is not None:
-                        return True
-
-                    if self.source_device is not None:
-                        return True
-
-                    if self.table is not None:
-                        return True
-
-                    if self.target_device is not None:
-                        return True
-
-                    if self.time is not None:
-                        return True
-
-                    if self.update_time is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
-                    return meta._meta_table['Sam.LogContents.LogContent.Logs']['meta_info']
-
-            @property
-            def _common_path(self):
-                if self.number_of_lines is None:
-                    raise YPYDataValidationError('Key property number_of_lines is None')
-
-                return '/Cisco-IOS-XR-crypto-sam-oper:sam/Cisco-IOS-XR-crypto-sam-oper:log-contents/Cisco-IOS-XR-crypto-sam-oper:log-content[Cisco-IOS-XR-crypto-sam-oper:number-of-lines = ' + str(self.number_of_lines) + ']'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.number_of_lines is not None:
-                    return True
-
-                if self.entries_shown is not None:
-                    return True
-
-                if self.logs is not None:
-                    for child_ref in self.logs:
-                        if child_ref._has_data():
-                            return True
-
-                if self.total_entries is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
-                return meta._meta_table['Sam.LogContents.LogContent']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-crypto-sam-oper:sam/Cisco-IOS-XR-crypto-sam-oper:log-contents'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.log_content is not None:
-                for child_ref in self.log_content:
-                    if child_ref._has_data():
-                        return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
-            return meta._meta_table['Sam.LogContents']['meta_info']
-
-
     class Packages(object):
         """
         SAM certificate information  package
@@ -1533,7 +1237,7 @@ class Sam(object):
             SAM certificate information for a specific
             package
             
-            .. attribute:: package_name
+            .. attribute:: package_name  <key>
             
             	Specify package name
             	**type**\: str
@@ -1543,17 +1247,17 @@ class Sam(object):
             	Certificate flags
             	**type**\: :py:class:`CertificateFlags <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.Sam.Packages.Package.CertificateFlags>`
             
+            .. attribute:: location
+            
+            	Certificate location
+            	**type**\: str
+            
             .. attribute:: certificate_index
             
             	Certificate index
             	**type**\: int
             
             	**range:** 0..65535
-            
-            .. attribute:: location
-            
-            	Certificate location
-            	**type**\: str
             
             
 
@@ -1567,17 +1271,17 @@ class Sam(object):
                 self.package_name = None
                 self.certificate_flags = Sam.Packages.Package.CertificateFlags()
                 self.certificate_flags.parent = self
-                self.certificate_index = None
                 self.location = None
+                self.certificate_index = None
 
 
             class CertificateFlags(object):
                 """
                 Certificate flags
                 
-                .. attribute:: is_expired
+                .. attribute:: is_trusted
                 
-                	Expired flag
+                	Trusted flag
                 	**type**\: bool
                 
                 .. attribute:: is_revoked
@@ -1585,9 +1289,9 @@ class Sam(object):
                 	Revoked flag
                 	**type**\: bool
                 
-                .. attribute:: is_trusted
+                .. attribute:: is_expired
                 
-                	Trusted flag
+                	Expired flag
                 	**type**\: bool
                 
                 .. attribute:: is_validated
@@ -1604,9 +1308,9 @@ class Sam(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.is_expired = None
-                    self.is_revoked = None
                     self.is_trusted = None
+                    self.is_revoked = None
+                    self.is_expired = None
                     self.is_validated = None
 
                 @property
@@ -1623,13 +1327,13 @@ class Sam(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.is_expired is not None:
+                    if self.is_trusted is not None:
                         return True
 
                     if self.is_revoked is not None:
                         return True
 
-                    if self.is_trusted is not None:
+                    if self.is_expired is not None:
                         return True
 
                     if self.is_validated is not None:
@@ -1662,10 +1366,10 @@ class Sam(object):
                 if self.certificate_flags is not None and self.certificate_flags._has_data():
                     return True
 
-                if self.certificate_index is not None:
+                if self.location is not None:
                     return True
 
-                if self.location is not None:
+                if self.certificate_index is not None:
                     return True
 
                 return False
@@ -1700,26 +1404,15 @@ class Sam(object):
             return meta._meta_table['Sam.Packages']['meta_info']
 
 
-    class SystemInformation(object):
+    class CertificateRevocations(object):
         """
-        SAM system information
+        Certificate revocation list index table
+        information
         
-        .. attribute:: is_default_response
+        .. attribute:: certificate_revocation
         
-        	True if promptdefault response is true
-        	**type**\: bool
-        
-        .. attribute:: is_running
-        
-        	True if SAM status information runs
-        	**type**\: bool
-        
-        .. attribute:: prompt_interval
-        
-        	Prompt interval atreboot time in seconds
-        	**type**\: int
-        
-        	**range:** 0..4294967295
+        	Certificate revocation list index information
+        	**type**\: list of :py:class:`CertificateRevocation <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations.CertificateRevocation>`
         
         
 
@@ -1730,14 +1423,200 @@ class Sam(object):
 
         def __init__(self):
             self.parent = None
-            self.is_default_response = None
-            self.is_running = None
-            self.prompt_interval = None
+            self.certificate_revocation = YList()
+            self.certificate_revocation.parent = self
+            self.certificate_revocation.name = 'certificate_revocation'
+
+
+        class CertificateRevocation(object):
+            """
+            Certificate revocation list index information
+            
+            .. attribute:: crl_index  <key>
+            
+            	CRL index
+            	**type**\: int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: certificate_revocation_list_detail
+            
+            	Certificate revocation list detail information
+            	**type**\: :py:class:`CertificateRevocationListDetail <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail>`
+            
+            
+
+            """
+
+            _prefix = 'crypto-sam-oper'
+            _revision = '2015-01-07'
+
+            def __init__(self):
+                self.parent = None
+                self.crl_index = None
+                self.certificate_revocation_list_detail = Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail()
+                self.certificate_revocation_list_detail.parent = self
+
+
+            class CertificateRevocationListDetail(object):
+                """
+                Certificate revocation list detail information
+                
+                .. attribute:: issuer
+                
+                	Issuer name
+                	**type**\: :py:class:`Issuer <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail.Issuer>`
+                
+                .. attribute:: crl_index
+                
+                	 CRL index
+                	**type**\: int
+                
+                	**range:** 0..65535
+                
+                .. attribute:: updates
+                
+                	Updated time of CRL is displayed
+                	**type**\: str
+                
+                
+
+                """
+
+                _prefix = 'crypto-sam-oper'
+                _revision = '2015-01-07'
+
+                def __init__(self):
+                    self.parent = None
+                    self.issuer = Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail.Issuer()
+                    self.issuer.parent = self
+                    self.crl_index = None
+                    self.updates = None
+
+
+                class Issuer(object):
+                    """
+                    Issuer name
+                    
+                    .. attribute:: common_name
+                    
+                    	Common name
+                    	**type**\: str
+                    
+                    .. attribute:: organization
+                    
+                    	Organization
+                    	**type**\: str
+                    
+                    .. attribute:: country
+                    
+                    	Country
+                    	**type**\: str
+                    
+                    
+
+                    """
+
+                    _prefix = 'crypto-sam-oper'
+                    _revision = '2015-01-07'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.common_name = None
+                        self.organization = None
+                        self.country = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-crypto-sam-oper:issuer'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.common_name is not None:
+                            return True
+
+                        if self.organization is not None:
+                            return True
+
+                        if self.country is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+                        return meta._meta_table['Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail.Issuer']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-crypto-sam-oper:certificate-revocation-list-detail'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.issuer is not None and self.issuer._has_data():
+                        return True
+
+                    if self.crl_index is not None:
+                        return True
+
+                    if self.updates is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+                    return meta._meta_table['Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail']['meta_info']
+
+            @property
+            def _common_path(self):
+                if self.crl_index is None:
+                    raise YPYDataValidationError('Key property crl_index is None')
+
+                return '/Cisco-IOS-XR-crypto-sam-oper:sam/Cisco-IOS-XR-crypto-sam-oper:certificate-revocations/Cisco-IOS-XR-crypto-sam-oper:certificate-revocation[Cisco-IOS-XR-crypto-sam-oper:crl-index = ' + str(self.crl_index) + ']'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.crl_index is not None:
+                    return True
+
+                if self.certificate_revocation_list_detail is not None and self.certificate_revocation_list_detail._has_data():
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+                return meta._meta_table['Sam.CertificateRevocations.CertificateRevocation']['meta_info']
 
         @property
         def _common_path(self):
 
-            return '/Cisco-IOS-XR-crypto-sam-oper:sam/Cisco-IOS-XR-crypto-sam-oper:system-information'
+            return '/Cisco-IOS-XR-crypto-sam-oper:sam/Cisco-IOS-XR-crypto-sam-oper:certificate-revocations'
 
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
@@ -1746,13 +1625,134 @@ class Sam(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.is_default_response is not None:
+            if self.certificate_revocation is not None:
+                for child_ref in self.certificate_revocation:
+                    if child_ref._has_data():
+                        return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+            return meta._meta_table['Sam.CertificateRevocations']['meta_info']
+
+
+    class CertificateRevocationListSummary(object):
+        """
+        Certificate revocation list summary information 
+        
+        .. attribute:: issuer
+        
+        	Issuer name
+        	**type**\: :py:class:`Issuer <ydk.models.crypto.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocationListSummary.Issuer>`
+        
+        .. attribute:: crl_index
+        
+        	 CRL index
+        	**type**\: int
+        
+        	**range:** 0..65535
+        
+        .. attribute:: updates
+        
+        	Updated time of CRL is displayed
+        	**type**\: str
+        
+        
+
+        """
+
+        _prefix = 'crypto-sam-oper'
+        _revision = '2015-01-07'
+
+        def __init__(self):
+            self.parent = None
+            self.issuer = Sam.CertificateRevocationListSummary.Issuer()
+            self.issuer.parent = self
+            self.crl_index = None
+            self.updates = None
+
+
+        class Issuer(object):
+            """
+            Issuer name
+            
+            .. attribute:: common_name
+            
+            	Common name
+            	**type**\: str
+            
+            .. attribute:: organization
+            
+            	Organization
+            	**type**\: str
+            
+            .. attribute:: country
+            
+            	Country
+            	**type**\: str
+            
+            
+
+            """
+
+            _prefix = 'crypto-sam-oper'
+            _revision = '2015-01-07'
+
+            def __init__(self):
+                self.parent = None
+                self.common_name = None
+                self.organization = None
+                self.country = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-crypto-sam-oper:sam/Cisco-IOS-XR-crypto-sam-oper:certificate-revocation-list-summary/Cisco-IOS-XR-crypto-sam-oper:issuer'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.common_name is not None:
+                    return True
+
+                if self.organization is not None:
+                    return True
+
+                if self.country is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
+                return meta._meta_table['Sam.CertificateRevocationListSummary.Issuer']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-crypto-sam-oper:sam/Cisco-IOS-XR-crypto-sam-oper:certificate-revocation-list-summary'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.issuer is not None and self.issuer._has_data():
                 return True
 
-            if self.is_running is not None:
+            if self.crl_index is not None:
                 return True
 
-            if self.prompt_interval is not None:
+            if self.updates is not None:
                 return True
 
             return False
@@ -1760,7 +1760,7 @@ class Sam(object):
         @staticmethod
         def _meta_info():
             from ydk.models.crypto._meta import _Cisco_IOS_XR_crypto_sam_oper as meta
-            return meta._meta_table['Sam.SystemInformation']['meta_info']
+            return meta._meta_table['Sam.CertificateRevocationListSummary']['meta_info']
 
     @property
     def _common_path(self):
@@ -1774,22 +1774,22 @@ class Sam(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.certificate_revocation_list_summary is not None and self.certificate_revocation_list_summary._has_data():
-            return True
-
-        if self.certificate_revocations is not None and self.certificate_revocations._has_data():
-            return True
-
-        if self.devices is not None and self.devices._has_data():
+        if self.system_information is not None and self.system_information._has_data():
             return True
 
         if self.log_contents is not None and self.log_contents._has_data():
             return True
 
+        if self.devices is not None and self.devices._has_data():
+            return True
+
         if self.packages is not None and self.packages._has_data():
             return True
 
-        if self.system_information is not None and self.system_information._has_data():
+        if self.certificate_revocations is not None and self.certificate_revocations._has_data():
+            return True
+
+        if self.certificate_revocation_list_summary is not None and self.certificate_revocation_list_summary._has_data():
             return True
 
         return False

@@ -7,7 +7,7 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYDataValidationError
@@ -50,122 +50,8 @@ _meta_table = {
             'delete':'DELETE',
             'remove':'REMOVE',
         }, 'ietf-netconf', _yang_ns._namespaces['ietf-netconf']),
-    'CancelCommitRpc.Input' : {
-        'meta_info' : _MetaInfoClass('CancelCommitRpc.Input',
-            False, 
-            [
-            _MetaInfoClassMember('persist-id', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                This parameter is given in order to cancel a persistent
-                confirmed commit.  The value must be equal to the value
-                given in the 'persist' parameter to the <commit> operation.
-                If it does not match, the operation fails with an
-                'invalid-value' error.
-                ''',
-                'persist_id',
-                'ietf-netconf', False),
-            ],
-            'ietf-netconf',
-            'input',
-            _yang_ns._namespaces['ietf-netconf'],
-        'ydk.models.ietf.ietf_netconf'
-        ),
-    },
-    'CancelCommitRpc' : {
-        'meta_info' : _MetaInfoClass('CancelCommitRpc',
-            False, 
-            [
-            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.ietf.ietf_netconf', 'CancelCommitRpc.Input', 
-                [], [], 
-                '''                ''',
-                'input',
-                'ietf-netconf', False),
-            ],
-            'ietf-netconf',
-            'cancel-commit',
-            _yang_ns._namespaces['ietf-netconf'],
-        'ydk.models.ietf.ietf_netconf'
-        ),
-    },
-    'CloseSessionRpc' : {
-        'meta_info' : _MetaInfoClass('CloseSessionRpc',
-            False, 
-            [
-            ],
-            'ietf-netconf',
-            'close-session',
-            _yang_ns._namespaces['ietf-netconf'],
-        'ydk.models.ietf.ietf_netconf'
-        ),
-    },
-    'CommitRpc.Input' : {
-        'meta_info' : _MetaInfoClass('CommitRpc.Input',
-            False, 
-            [
-            _MetaInfoClassMember('confirmed', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Requests a confirmed commit.
-                ''',
-                'confirmed',
-                'ietf-netconf', False),
-            _MetaInfoClassMember('confirm-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
-                '''                The timeout interval for a confirmed commit.
-                ''',
-                'confirm_timeout',
-                'ietf-netconf', False),
-            _MetaInfoClassMember('persist', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                This parameter is used to make a confirmed commit
-                persistent.  A persistent confirmed commit is not aborted
-                if the NETCONF session terminates.  The only way to abort
-                a persistent confirmed commit is to let the timer expire,
-                or to use the <cancel-commit> operation.
-                
-                The value of this parameter is a token that must be given
-                in the 'persist-id' parameter of <commit> or
-                <cancel-commit> operations in order to confirm or cancel
-                the persistent confirmed commit.
-                
-                The token should be a random string.
-                ''',
-                'persist',
-                'ietf-netconf', False),
-            _MetaInfoClassMember('persist-id', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                This parameter is given in order to commit a persistent
-                confirmed commit.  The value must be equal to the value
-                given in the 'persist' parameter to the <commit> operation.
-                If it does not match, the operation fails with an
-                'invalid-value' error.
-                ''',
-                'persist_id',
-                'ietf-netconf', False),
-            ],
-            'ietf-netconf',
-            'input',
-            _yang_ns._namespaces['ietf-netconf'],
-        'ydk.models.ietf.ietf_netconf'
-        ),
-    },
-    'CommitRpc' : {
-        'meta_info' : _MetaInfoClass('CommitRpc',
-            False, 
-            [
-            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.ietf.ietf_netconf', 'CommitRpc.Input', 
-                [], [], 
-                '''                ''',
-                'input',
-                'ietf-netconf', False),
-            ],
-            'ietf-netconf',
-            'commit',
-            _yang_ns._namespaces['ietf-netconf'],
-        'ydk.models.ietf.ietf_netconf'
-        ),
-    },
-    'CopyConfigRpc.Input.Source' : {
-        'meta_info' : _MetaInfoClass('CopyConfigRpc.Input.Source',
+    'GetConfigRpc.Input.Source' : {
+        'meta_info' : _MetaInfoClass('GetConfigRpc.Input.Source',
             False, 
             [
             _MetaInfoClassMember('candidate', ATTRIBUTE, 'Empty' , None, None, 
@@ -183,22 +69,11 @@ _meta_table = {
             _MetaInfoClassMember('startup', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                The startup configuration is the config source.
+                This is optional-to-implement on the server because
+                not all servers will support filtering for this
+                datastore.
                 ''',
                 'startup',
-                'ietf-netconf', False),
-            _MetaInfoClassMember('url', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                The URL-based configuration is the config source.
-                ''',
-                'url',
-                'ietf-netconf', False),
-            _MetaInfoClassMember('config', ANYXML_CLASS, 'object' , None, None, 
-                [], [], 
-                '''                Inline Config content: <config> element.  Represents
-                an entire configuration datastore, not
-                a subset of the running datastore.
-                ''',
-                'config',
                 'ietf-netconf', False),
             ],
             'ietf-netconf',
@@ -207,57 +82,21 @@ _meta_table = {
         'ydk.models.ietf.ietf_netconf'
         ),
     },
-    'CopyConfigRpc.Input.Target' : {
-        'meta_info' : _MetaInfoClass('CopyConfigRpc.Input.Target',
+    'GetConfigRpc.Input' : {
+        'meta_info' : _MetaInfoClass('GetConfigRpc.Input',
             False, 
             [
-            _MetaInfoClassMember('candidate', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('source', REFERENCE_CLASS, 'Source' , 'ydk.models.ietf.ietf_netconf', 'GetConfigRpc.Input.Source', 
                 [], [], 
-                '''                The candidate configuration is the config target.
-                ''',
-                'candidate',
-                'ietf-netconf', False),
-            _MetaInfoClassMember('running', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                The running configuration is the config target.
-                This is optional-to-implement on the server.
-                ''',
-                'running',
-                'ietf-netconf', False),
-            _MetaInfoClassMember('startup', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                The startup configuration is the config target.
-                ''',
-                'startup',
-                'ietf-netconf', False),
-            _MetaInfoClassMember('url', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                The URL-based configuration is the config target.
-                ''',
-                'url',
-                'ietf-netconf', False),
-            ],
-            'ietf-netconf',
-            'target',
-            _yang_ns._namespaces['ietf-netconf'],
-        'ydk.models.ietf.ietf_netconf'
-        ),
-    },
-    'CopyConfigRpc.Input' : {
-        'meta_info' : _MetaInfoClass('CopyConfigRpc.Input',
-            False, 
-            [
-            _MetaInfoClassMember('target', REFERENCE_CLASS, 'Target' , 'ydk.models.ietf.ietf_netconf', 'CopyConfigRpc.Input.Target', 
-                [], [], 
-                '''                Particular configuration to copy to.
-                ''',
-                'target',
-                'ietf-netconf', False),
-            _MetaInfoClassMember('source', REFERENCE_CLASS, 'Source' , 'ydk.models.ietf.ietf_netconf', 'CopyConfigRpc.Input.Source', 
-                [], [], 
-                '''                Particular configuration to copy from.
+                '''                Particular configuration to retrieve.
                 ''',
                 'source',
+                'ietf-netconf', False),
+            _MetaInfoClassMember('filter', ANYXML_CLASS, 'object' , None, None, 
+                [], [], 
+                '''                Subtree or XPath filter to use.
+                ''',
+                'filter',
                 'ietf-netconf', False),
             _MetaInfoClassMember('with-defaults', REFERENCE_ENUM_CLASS, 'WithDefaultsModeEnum' , 'ydk.models.ietf.ietf_netconf_with_defaults', 'WithDefaultsModeEnum', 
                 [], [], 
@@ -272,85 +111,42 @@ _meta_table = {
         'ydk.models.ietf.ietf_netconf'
         ),
     },
-    'CopyConfigRpc' : {
-        'meta_info' : _MetaInfoClass('CopyConfigRpc',
+    'GetConfigRpc.Output' : {
+        'meta_info' : _MetaInfoClass('GetConfigRpc.Output',
             False, 
             [
-            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.ietf.ietf_netconf', 'CopyConfigRpc.Input', 
+            _MetaInfoClassMember('data', ANYXML_CLASS, 'object' , None, None, 
+                [], [], 
+                '''                Copy of the source datastore subset that matched
+                the filter criteria (if any).  An empty data container
+                indicates that the request did not produce any results.
+                ''',
+                'data',
+                'ietf-netconf', False),
+            ],
+            'ietf-netconf',
+            'output',
+            _yang_ns._namespaces['ietf-netconf'],
+        'ydk.models.ietf.ietf_netconf'
+        ),
+    },
+    'GetConfigRpc' : {
+        'meta_info' : _MetaInfoClass('GetConfigRpc',
+            False, 
+            [
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.ietf.ietf_netconf', 'GetConfigRpc.Input', 
                 [], [], 
                 '''                ''',
                 'input',
                 'ietf-netconf', False),
-            ],
-            'ietf-netconf',
-            'copy-config',
-            _yang_ns._namespaces['ietf-netconf'],
-        'ydk.models.ietf.ietf_netconf'
-        ),
-    },
-    'DeleteConfigRpc.Input.Target' : {
-        'meta_info' : _MetaInfoClass('DeleteConfigRpc.Input.Target',
-            False, 
-            [
-            _MetaInfoClassMember('startup', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                The startup configuration is the config target.
-                ''',
-                'startup',
-                'ietf-netconf', False),
-            _MetaInfoClassMember('url', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                The URL-based configuration is the config target.
-                ''',
-                'url',
-                'ietf-netconf', False),
-            ],
-            'ietf-netconf',
-            'target',
-            _yang_ns._namespaces['ietf-netconf'],
-        'ydk.models.ietf.ietf_netconf'
-        ),
-    },
-    'DeleteConfigRpc.Input' : {
-        'meta_info' : _MetaInfoClass('DeleteConfigRpc.Input',
-            False, 
-            [
-            _MetaInfoClassMember('target', REFERENCE_CLASS, 'Target' , 'ydk.models.ietf.ietf_netconf', 'DeleteConfigRpc.Input.Target', 
-                [], [], 
-                '''                Particular configuration to delete.
-                ''',
-                'target',
-                'ietf-netconf', False),
-            ],
-            'ietf-netconf',
-            'input',
-            _yang_ns._namespaces['ietf-netconf'],
-        'ydk.models.ietf.ietf_netconf'
-        ),
-    },
-    'DeleteConfigRpc' : {
-        'meta_info' : _MetaInfoClass('DeleteConfigRpc',
-            False, 
-            [
-            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.ietf.ietf_netconf', 'DeleteConfigRpc.Input', 
+            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.ietf.ietf_netconf', 'GetConfigRpc.Output', 
                 [], [], 
                 '''                ''',
-                'input',
+                'output',
                 'ietf-netconf', False),
             ],
             'ietf-netconf',
-            'delete-config',
-            _yang_ns._namespaces['ietf-netconf'],
-        'ydk.models.ietf.ietf_netconf'
-        ),
-    },
-    'DiscardChangesRpc' : {
-        'meta_info' : _MetaInfoClass('DiscardChangesRpc',
-            False, 
-            [
-            ],
-            'ietf-netconf',
-            'discard-changes',
+            'get-config',
             _yang_ns._namespaces['ietf-netconf'],
         'ydk.models.ietf.ietf_netconf'
         ),
@@ -459,8 +255,44 @@ _meta_table = {
         'ydk.models.ietf.ietf_netconf'
         ),
     },
-    'GetConfigRpc.Input.Source' : {
-        'meta_info' : _MetaInfoClass('GetConfigRpc.Input.Source',
+    'CopyConfigRpc.Input.Target' : {
+        'meta_info' : _MetaInfoClass('CopyConfigRpc.Input.Target',
+            False, 
+            [
+            _MetaInfoClassMember('candidate', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                The candidate configuration is the config target.
+                ''',
+                'candidate',
+                'ietf-netconf', False),
+            _MetaInfoClassMember('running', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                The running configuration is the config target.
+                This is optional-to-implement on the server.
+                ''',
+                'running',
+                'ietf-netconf', False),
+            _MetaInfoClassMember('startup', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                The startup configuration is the config target.
+                ''',
+                'startup',
+                'ietf-netconf', False),
+            _MetaInfoClassMember('url', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                The URL-based configuration is the config target.
+                ''',
+                'url',
+                'ietf-netconf', False),
+            ],
+            'ietf-netconf',
+            'target',
+            _yang_ns._namespaces['ietf-netconf'],
+        'ydk.models.ietf.ietf_netconf'
+        ),
+    },
+    'CopyConfigRpc.Input.Source' : {
+        'meta_info' : _MetaInfoClass('CopyConfigRpc.Input.Source',
             False, 
             [
             _MetaInfoClassMember('candidate', ATTRIBUTE, 'Empty' , None, None, 
@@ -478,11 +310,22 @@ _meta_table = {
             _MetaInfoClassMember('startup', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                The startup configuration is the config source.
-                This is optional-to-implement on the server because
-                not all servers will support filtering for this
-                datastore.
                 ''',
                 'startup',
+                'ietf-netconf', False),
+            _MetaInfoClassMember('url', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                The URL-based configuration is the config source.
+                ''',
+                'url',
+                'ietf-netconf', False),
+            _MetaInfoClassMember('config', ANYXML_CLASS, 'object' , None, None, 
+                [], [], 
+                '''                Inline Config content: <config> element.  Represents
+                an entire configuration datastore, not
+                a subset of the running datastore.
+                ''',
+                'config',
                 'ietf-netconf', False),
             ],
             'ietf-netconf',
@@ -491,22 +334,22 @@ _meta_table = {
         'ydk.models.ietf.ietf_netconf'
         ),
     },
-    'GetConfigRpc.Input' : {
-        'meta_info' : _MetaInfoClass('GetConfigRpc.Input',
+    'CopyConfigRpc.Input' : {
+        'meta_info' : _MetaInfoClass('CopyConfigRpc.Input',
             False, 
             [
-            _MetaInfoClassMember('source', REFERENCE_CLASS, 'Source' , 'ydk.models.ietf.ietf_netconf', 'GetConfigRpc.Input.Source', 
+            _MetaInfoClassMember('target', REFERENCE_CLASS, 'Target' , 'ydk.models.ietf.ietf_netconf', 'CopyConfigRpc.Input.Target', 
                 [], [], 
-                '''                Particular configuration to retrieve.
+                '''                Particular configuration to copy to.
+                ''',
+                'target',
+                'ietf-netconf', False),
+            _MetaInfoClassMember('source', REFERENCE_CLASS, 'Source' , 'ydk.models.ietf.ietf_netconf', 'CopyConfigRpc.Input.Source', 
+                [], [], 
+                '''                Particular configuration to copy from.
                 ''',
                 'source',
                 'ietf-netconf', False),
-            _MetaInfoClassMember('filter', ANYXML_CLASS, 'object' , None, None, 
-                [], [], 
-                '''                Subtree or XPath filter to use.
-                ''',
-                'filter',
-                'ietf-netconf', False),
             _MetaInfoClassMember('with-defaults', REFERENCE_ENUM_CLASS, 'WithDefaultsModeEnum' , 'ydk.models.ietf.ietf_netconf_with_defaults', 'WithDefaultsModeEnum', 
                 [], [], 
                 '''                The explicit defaults processing mode requested.
@@ -520,120 +363,54 @@ _meta_table = {
         'ydk.models.ietf.ietf_netconf'
         ),
     },
-    'GetConfigRpc.Output' : {
-        'meta_info' : _MetaInfoClass('GetConfigRpc.Output',
+    'CopyConfigRpc' : {
+        'meta_info' : _MetaInfoClass('CopyConfigRpc',
             False, 
             [
-            _MetaInfoClassMember('data', ANYXML_CLASS, 'object' , None, None, 
-                [], [], 
-                '''                Copy of the source datastore subset that matched
-                the filter criteria (if any).  An empty data container
-                indicates that the request did not produce any results.
-                ''',
-                'data',
-                'ietf-netconf', False),
-            ],
-            'ietf-netconf',
-            'output',
-            _yang_ns._namespaces['ietf-netconf'],
-        'ydk.models.ietf.ietf_netconf'
-        ),
-    },
-    'GetConfigRpc' : {
-        'meta_info' : _MetaInfoClass('GetConfigRpc',
-            False, 
-            [
-            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.ietf.ietf_netconf', 'GetConfigRpc.Input', 
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.ietf.ietf_netconf', 'CopyConfigRpc.Input', 
                 [], [], 
                 '''                ''',
                 'input',
                 'ietf-netconf', False),
-            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.ietf.ietf_netconf', 'GetConfigRpc.Output', 
-                [], [], 
-                '''                ''',
-                'output',
-                'ietf-netconf', False),
             ],
             'ietf-netconf',
-            'get-config',
+            'copy-config',
             _yang_ns._namespaces['ietf-netconf'],
         'ydk.models.ietf.ietf_netconf'
         ),
     },
-    'GetRpc.Input' : {
-        'meta_info' : _MetaInfoClass('GetRpc.Input',
+    'DeleteConfigRpc.Input.Target' : {
+        'meta_info' : _MetaInfoClass('DeleteConfigRpc.Input.Target',
             False, 
             [
-            _MetaInfoClassMember('filter', ANYXML_CLASS, 'object' , None, None, 
+            _MetaInfoClassMember('startup', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                This parameter specifies the portion of the system
-                configuration and state data to retrieve.
+                '''                The startup configuration is the config target.
                 ''',
-                'filter',
+                'startup',
                 'ietf-netconf', False),
-            _MetaInfoClassMember('with-defaults', REFERENCE_ENUM_CLASS, 'WithDefaultsModeEnum' , 'ydk.models.ietf.ietf_netconf_with_defaults', 'WithDefaultsModeEnum', 
+            _MetaInfoClassMember('url', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                The explicit defaults processing mode requested.
+                '''                The URL-based configuration is the config target.
                 ''',
-                'with_defaults',
-                'ietf-netconf-with-defaults', False),
+                'url',
+                'ietf-netconf', False),
             ],
             'ietf-netconf',
-            'input',
+            'target',
             _yang_ns._namespaces['ietf-netconf'],
         'ydk.models.ietf.ietf_netconf'
         ),
     },
-    'GetRpc.Output' : {
-        'meta_info' : _MetaInfoClass('GetRpc.Output',
+    'DeleteConfigRpc.Input' : {
+        'meta_info' : _MetaInfoClass('DeleteConfigRpc.Input',
             False, 
             [
-            _MetaInfoClassMember('data', ANYXML_CLASS, 'object' , None, None, 
+            _MetaInfoClassMember('target', REFERENCE_CLASS, 'Target' , 'ydk.models.ietf.ietf_netconf', 'DeleteConfigRpc.Input.Target', 
                 [], [], 
-                '''                Copy of the running datastore subset and/or state
-                data that matched the filter criteria (if any).
-                An empty data container indicates that the request did not
-                produce any results.
+                '''                Particular configuration to delete.
                 ''',
-                'data',
-                'ietf-netconf', False),
-            ],
-            'ietf-netconf',
-            'output',
-            _yang_ns._namespaces['ietf-netconf'],
-        'ydk.models.ietf.ietf_netconf'
-        ),
-    },
-    'GetRpc' : {
-        'meta_info' : _MetaInfoClass('GetRpc',
-            False, 
-            [
-            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.ietf.ietf_netconf', 'GetRpc.Input', 
-                [], [], 
-                '''                ''',
-                'input',
-                'ietf-netconf', False),
-            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.ietf.ietf_netconf', 'GetRpc.Output', 
-                [], [], 
-                '''                ''',
-                'output',
-                'ietf-netconf', False),
-            ],
-            'ietf-netconf',
-            'get',
-            _yang_ns._namespaces['ietf-netconf'],
-        'ydk.models.ietf.ietf_netconf'
-        ),
-    },
-    'KillSessionRpc.Input' : {
-        'meta_info' : _MetaInfoClass('KillSessionRpc.Input',
-            False, 
-            [
-            _MetaInfoClassMember('session-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
-                '''                Particular session to kill.
-                ''',
-                'session_id',
+                'target',
                 'ietf-netconf', False),
             ],
             'ietf-netconf',
@@ -642,18 +419,18 @@ _meta_table = {
         'ydk.models.ietf.ietf_netconf'
         ),
     },
-    'KillSessionRpc' : {
-        'meta_info' : _MetaInfoClass('KillSessionRpc',
+    'DeleteConfigRpc' : {
+        'meta_info' : _MetaInfoClass('DeleteConfigRpc',
             False, 
             [
-            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.ietf.ietf_netconf', 'KillSessionRpc.Input', 
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.ietf.ietf_netconf', 'DeleteConfigRpc.Input', 
                 [], [], 
                 '''                ''',
                 'input',
                 'ietf-netconf', False),
             ],
             'ietf-netconf',
-            'kill-session',
+            'delete-config',
             _yang_ns._namespaces['ietf-netconf'],
         'ydk.models.ietf.ietf_netconf'
         ),
@@ -782,6 +559,229 @@ _meta_table = {
         'ydk.models.ietf.ietf_netconf'
         ),
     },
+    'GetRpc.Input' : {
+        'meta_info' : _MetaInfoClass('GetRpc.Input',
+            False, 
+            [
+            _MetaInfoClassMember('filter', ANYXML_CLASS, 'object' , None, None, 
+                [], [], 
+                '''                This parameter specifies the portion of the system
+                configuration and state data to retrieve.
+                ''',
+                'filter',
+                'ietf-netconf', False),
+            _MetaInfoClassMember('with-defaults', REFERENCE_ENUM_CLASS, 'WithDefaultsModeEnum' , 'ydk.models.ietf.ietf_netconf_with_defaults', 'WithDefaultsModeEnum', 
+                [], [], 
+                '''                The explicit defaults processing mode requested.
+                ''',
+                'with_defaults',
+                'ietf-netconf-with-defaults', False),
+            ],
+            'ietf-netconf',
+            'input',
+            _yang_ns._namespaces['ietf-netconf'],
+        'ydk.models.ietf.ietf_netconf'
+        ),
+    },
+    'GetRpc.Output' : {
+        'meta_info' : _MetaInfoClass('GetRpc.Output',
+            False, 
+            [
+            _MetaInfoClassMember('data', ANYXML_CLASS, 'object' , None, None, 
+                [], [], 
+                '''                Copy of the running datastore subset and/or state
+                data that matched the filter criteria (if any).
+                An empty data container indicates that the request did not
+                produce any results.
+                ''',
+                'data',
+                'ietf-netconf', False),
+            ],
+            'ietf-netconf',
+            'output',
+            _yang_ns._namespaces['ietf-netconf'],
+        'ydk.models.ietf.ietf_netconf'
+        ),
+    },
+    'GetRpc' : {
+        'meta_info' : _MetaInfoClass('GetRpc',
+            False, 
+            [
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.ietf.ietf_netconf', 'GetRpc.Input', 
+                [], [], 
+                '''                ''',
+                'input',
+                'ietf-netconf', False),
+            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.ietf.ietf_netconf', 'GetRpc.Output', 
+                [], [], 
+                '''                ''',
+                'output',
+                'ietf-netconf', False),
+            ],
+            'ietf-netconf',
+            'get',
+            _yang_ns._namespaces['ietf-netconf'],
+        'ydk.models.ietf.ietf_netconf'
+        ),
+    },
+    'CloseSessionRpc' : {
+        'meta_info' : _MetaInfoClass('CloseSessionRpc',
+            False, 
+            [
+            ],
+            'ietf-netconf',
+            'close-session',
+            _yang_ns._namespaces['ietf-netconf'],
+        'ydk.models.ietf.ietf_netconf'
+        ),
+    },
+    'KillSessionRpc.Input' : {
+        'meta_info' : _MetaInfoClass('KillSessionRpc.Input',
+            False, 
+            [
+            _MetaInfoClassMember('session-id', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4294967295)], [], 
+                '''                Particular session to kill.
+                ''',
+                'session_id',
+                'ietf-netconf', False),
+            ],
+            'ietf-netconf',
+            'input',
+            _yang_ns._namespaces['ietf-netconf'],
+        'ydk.models.ietf.ietf_netconf'
+        ),
+    },
+    'KillSessionRpc' : {
+        'meta_info' : _MetaInfoClass('KillSessionRpc',
+            False, 
+            [
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.ietf.ietf_netconf', 'KillSessionRpc.Input', 
+                [], [], 
+                '''                ''',
+                'input',
+                'ietf-netconf', False),
+            ],
+            'ietf-netconf',
+            'kill-session',
+            _yang_ns._namespaces['ietf-netconf'],
+        'ydk.models.ietf.ietf_netconf'
+        ),
+    },
+    'CommitRpc.Input' : {
+        'meta_info' : _MetaInfoClass('CommitRpc.Input',
+            False, 
+            [
+            _MetaInfoClassMember('confirmed', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Requests a confirmed commit.
+                ''',
+                'confirmed',
+                'ietf-netconf', False),
+            _MetaInfoClassMember('confirm-timeout', ATTRIBUTE, 'int' , None, None, 
+                [(1, 4294967295)], [], 
+                '''                The timeout interval for a confirmed commit.
+                ''',
+                'confirm_timeout',
+                'ietf-netconf', False),
+            _MetaInfoClassMember('persist', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                This parameter is used to make a confirmed commit
+                persistent.  A persistent confirmed commit is not aborted
+                if the NETCONF session terminates.  The only way to abort
+                a persistent confirmed commit is to let the timer expire,
+                or to use the <cancel-commit> operation.
+                
+                The value of this parameter is a token that must be given
+                in the 'persist-id' parameter of <commit> or
+                <cancel-commit> operations in order to confirm or cancel
+                the persistent confirmed commit.
+                
+                The token should be a random string.
+                ''',
+                'persist',
+                'ietf-netconf', False),
+            _MetaInfoClassMember('persist-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                This parameter is given in order to commit a persistent
+                confirmed commit.  The value must be equal to the value
+                given in the 'persist' parameter to the <commit> operation.
+                If it does not match, the operation fails with an
+                'invalid-value' error.
+                ''',
+                'persist_id',
+                'ietf-netconf', False),
+            ],
+            'ietf-netconf',
+            'input',
+            _yang_ns._namespaces['ietf-netconf'],
+        'ydk.models.ietf.ietf_netconf'
+        ),
+    },
+    'CommitRpc' : {
+        'meta_info' : _MetaInfoClass('CommitRpc',
+            False, 
+            [
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.ietf.ietf_netconf', 'CommitRpc.Input', 
+                [], [], 
+                '''                ''',
+                'input',
+                'ietf-netconf', False),
+            ],
+            'ietf-netconf',
+            'commit',
+            _yang_ns._namespaces['ietf-netconf'],
+        'ydk.models.ietf.ietf_netconf'
+        ),
+    },
+    'DiscardChangesRpc' : {
+        'meta_info' : _MetaInfoClass('DiscardChangesRpc',
+            False, 
+            [
+            ],
+            'ietf-netconf',
+            'discard-changes',
+            _yang_ns._namespaces['ietf-netconf'],
+        'ydk.models.ietf.ietf_netconf'
+        ),
+    },
+    'CancelCommitRpc.Input' : {
+        'meta_info' : _MetaInfoClass('CancelCommitRpc.Input',
+            False, 
+            [
+            _MetaInfoClassMember('persist-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                This parameter is given in order to cancel a persistent
+                confirmed commit.  The value must be equal to the value
+                given in the 'persist' parameter to the <commit> operation.
+                If it does not match, the operation fails with an
+                'invalid-value' error.
+                ''',
+                'persist_id',
+                'ietf-netconf', False),
+            ],
+            'ietf-netconf',
+            'input',
+            _yang_ns._namespaces['ietf-netconf'],
+        'ydk.models.ietf.ietf_netconf'
+        ),
+    },
+    'CancelCommitRpc' : {
+        'meta_info' : _MetaInfoClass('CancelCommitRpc',
+            False, 
+            [
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.ietf.ietf_netconf', 'CancelCommitRpc.Input', 
+                [], [], 
+                '''                ''',
+                'input',
+                'ietf-netconf', False),
+            ],
+            'ietf-netconf',
+            'cancel-commit',
+            _yang_ns._namespaces['ietf-netconf'],
+        'ydk.models.ietf.ietf_netconf'
+        ),
+    },
     'ValidateRpc.Input.Source' : {
         'meta_info' : _MetaInfoClass('ValidateRpc.Input.Source',
             False, 
@@ -859,24 +859,24 @@ _meta_table = {
         ),
     },
 }
-_meta_table['CancelCommitRpc.Input']['meta_info'].parent =_meta_table['CancelCommitRpc']['meta_info']
-_meta_table['CommitRpc.Input']['meta_info'].parent =_meta_table['CommitRpc']['meta_info']
-_meta_table['CopyConfigRpc.Input.Source']['meta_info'].parent =_meta_table['CopyConfigRpc.Input']['meta_info']
-_meta_table['CopyConfigRpc.Input.Target']['meta_info'].parent =_meta_table['CopyConfigRpc.Input']['meta_info']
-_meta_table['CopyConfigRpc.Input']['meta_info'].parent =_meta_table['CopyConfigRpc']['meta_info']
-_meta_table['DeleteConfigRpc.Input.Target']['meta_info'].parent =_meta_table['DeleteConfigRpc.Input']['meta_info']
-_meta_table['DeleteConfigRpc.Input']['meta_info'].parent =_meta_table['DeleteConfigRpc']['meta_info']
-_meta_table['EditConfigRpc.Input.Target']['meta_info'].parent =_meta_table['EditConfigRpc.Input']['meta_info']
-_meta_table['EditConfigRpc.Input']['meta_info'].parent =_meta_table['EditConfigRpc']['meta_info']
 _meta_table['GetConfigRpc.Input.Source']['meta_info'].parent =_meta_table['GetConfigRpc.Input']['meta_info']
 _meta_table['GetConfigRpc.Input']['meta_info'].parent =_meta_table['GetConfigRpc']['meta_info']
 _meta_table['GetConfigRpc.Output']['meta_info'].parent =_meta_table['GetConfigRpc']['meta_info']
-_meta_table['GetRpc.Input']['meta_info'].parent =_meta_table['GetRpc']['meta_info']
-_meta_table['GetRpc.Output']['meta_info'].parent =_meta_table['GetRpc']['meta_info']
-_meta_table['KillSessionRpc.Input']['meta_info'].parent =_meta_table['KillSessionRpc']['meta_info']
+_meta_table['EditConfigRpc.Input.Target']['meta_info'].parent =_meta_table['EditConfigRpc.Input']['meta_info']
+_meta_table['EditConfigRpc.Input']['meta_info'].parent =_meta_table['EditConfigRpc']['meta_info']
+_meta_table['CopyConfigRpc.Input.Target']['meta_info'].parent =_meta_table['CopyConfigRpc.Input']['meta_info']
+_meta_table['CopyConfigRpc.Input.Source']['meta_info'].parent =_meta_table['CopyConfigRpc.Input']['meta_info']
+_meta_table['CopyConfigRpc.Input']['meta_info'].parent =_meta_table['CopyConfigRpc']['meta_info']
+_meta_table['DeleteConfigRpc.Input.Target']['meta_info'].parent =_meta_table['DeleteConfigRpc.Input']['meta_info']
+_meta_table['DeleteConfigRpc.Input']['meta_info'].parent =_meta_table['DeleteConfigRpc']['meta_info']
 _meta_table['LockRpc.Input.Target']['meta_info'].parent =_meta_table['LockRpc.Input']['meta_info']
 _meta_table['LockRpc.Input']['meta_info'].parent =_meta_table['LockRpc']['meta_info']
 _meta_table['UnlockRpc.Input.Target']['meta_info'].parent =_meta_table['UnlockRpc.Input']['meta_info']
 _meta_table['UnlockRpc.Input']['meta_info'].parent =_meta_table['UnlockRpc']['meta_info']
+_meta_table['GetRpc.Input']['meta_info'].parent =_meta_table['GetRpc']['meta_info']
+_meta_table['GetRpc.Output']['meta_info'].parent =_meta_table['GetRpc']['meta_info']
+_meta_table['KillSessionRpc.Input']['meta_info'].parent =_meta_table['KillSessionRpc']['meta_info']
+_meta_table['CommitRpc.Input']['meta_info'].parent =_meta_table['CommitRpc']['meta_info']
+_meta_table['CancelCommitRpc.Input']['meta_info'].parent =_meta_table['CancelCommitRpc']['meta_info']
 _meta_table['ValidateRpc.Input.Source']['meta_info'].parent =_meta_table['ValidateRpc.Input']['meta_info']
 _meta_table['ValidateRpc.Input']['meta_info'].parent =_meta_table['ValidateRpc']['meta_info']

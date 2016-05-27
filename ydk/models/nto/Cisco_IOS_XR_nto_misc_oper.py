@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -73,7 +73,7 @@ class MemorySummary(object):
             """
             Name of nodes
             
-            .. attribute:: node_name
+            .. attribute:: node_name  <key>
             
             	Node name
             	**type**\: str
@@ -103,48 +103,6 @@ class MemorySummary(object):
                 """
                 Memory summary information for a specific node
                 
-                .. attribute:: boot_ram_size
-                
-                	Boot RAM size in bytes
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: flash_system
-                
-                	Flash System size in bytes
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: free_application_memory
-                
-                	Application memory available in bytes
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: free_physical_memory
-                
-                	Physical memory available in bytes
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: image_memory
-                
-                	Image memory size in bytes
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: io_memory
-                
-                	IO memory size in bytes
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
                 .. attribute:: page_size
                 
                 	Page size in bytes
@@ -159,9 +117,9 @@ class MemorySummary(object):
                 
                 	**range:** 0..18446744073709551615
                 
-                .. attribute:: reserved_memory
+                .. attribute:: free_physical_memory
                 
-                	Reserved memory size in bytes
+                	Physical memory available in bytes
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
@@ -169,6 +127,48 @@ class MemorySummary(object):
                 .. attribute:: system_ram_memory
                 
                 	Application memory size in bytes
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: free_application_memory
+                
+                	Application memory available in bytes
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: image_memory
+                
+                	Image memory size in bytes
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: boot_ram_size
+                
+                	Boot RAM size in bytes
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: reserved_memory
+                
+                	Reserved memory size in bytes
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: io_memory
+                
+                	IO memory size in bytes
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: flash_system
+                
+                	Flash System size in bytes
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
@@ -182,16 +182,16 @@ class MemorySummary(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.boot_ram_size = None
-                    self.flash_system = None
-                    self.free_application_memory = None
-                    self.free_physical_memory = None
-                    self.image_memory = None
-                    self.io_memory = None
                     self.page_size = None
                     self.ram_memory = None
-                    self.reserved_memory = None
+                    self.free_physical_memory = None
                     self.system_ram_memory = None
+                    self.free_application_memory = None
+                    self.image_memory = None
+                    self.boot_ram_size = None
+                    self.reserved_memory = None
+                    self.io_memory = None
+                    self.flash_system = None
 
                 @property
                 def _common_path(self):
@@ -207,34 +207,34 @@ class MemorySummary(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.boot_ram_size is not None:
-                        return True
-
-                    if self.flash_system is not None:
-                        return True
-
-                    if self.free_application_memory is not None:
-                        return True
-
-                    if self.free_physical_memory is not None:
-                        return True
-
-                    if self.image_memory is not None:
-                        return True
-
-                    if self.io_memory is not None:
-                        return True
-
                     if self.page_size is not None:
                         return True
 
                     if self.ram_memory is not None:
                         return True
 
-                    if self.reserved_memory is not None:
+                    if self.free_physical_memory is not None:
                         return True
 
                     if self.system_ram_memory is not None:
+                        return True
+
+                    if self.free_application_memory is not None:
+                        return True
+
+                    if self.image_memory is not None:
+                        return True
+
+                    if self.boot_ram_size is not None:
+                        return True
+
+                    if self.reserved_memory is not None:
+                        return True
+
+                    if self.io_memory is not None:
+                        return True
+
+                    if self.flash_system is not None:
                         return True
 
                     return False

@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -50,22 +50,22 @@ class NetconfYang(object):
         """
         NETCONF YANG agent configuration commands
         
-        .. attribute:: rate_limit
+        .. attribute:: ssh
         
-        	Number of bytes to process per sec
-        	**type**\: int
-        
-        	**range:** 4096..4294967295
+        	NETCONF YANG agent over SSH connection
+        	**type**\: :py:class:`Ssh <ydk.models.man.Cisco_IOS_XR_man_netconf_cfg.NetconfYang.Agent.Ssh>`
         
         .. attribute:: session
         
         	Session settings
         	**type**\: :py:class:`Session <ydk.models.man.Cisco_IOS_XR_man_netconf_cfg.NetconfYang.Agent.Session>`
         
-        .. attribute:: ssh
+        .. attribute:: rate_limit
         
-        	NETCONF YANG agent over SSH connection
-        	**type**\: :py:class:`Ssh <ydk.models.man.Cisco_IOS_XR_man_netconf_cfg.NetconfYang.Agent.Ssh>`
+        	Number of bytes to process per sec
+        	**type**\: int
+        
+        	**range:** 4096..4294967295
         
         
 
@@ -76,78 +76,11 @@ class NetconfYang(object):
 
         def __init__(self):
             self.parent = None
-            self.rate_limit = None
-            self.session = NetconfYang.Agent.Session()
-            self.session.parent = self
             self.ssh = NetconfYang.Agent.Ssh()
             self.ssh.parent = self
-
-
-        class Session(object):
-            """
-            Session settings
-            
-            .. attribute:: absolute_timeout
-            
-            	Absolute timeout in minutes
-            	**type**\: int
-            
-            	**range:** 1..1440
-            
-            .. attribute:: idle_timeout
-            
-            	Non\-active session lifetime
-            	**type**\: int
-            
-            	**range:** 1..1440
-            
-            .. attribute:: limit
-            
-            	Count of allowable concurrent netconf\-yang sessions
-            	**type**\: int
-            
-            	**range:** 1..1024
-            
-            
-
-            """
-
-            _prefix = 'man-netconf-cfg'
-            _revision = '2015-07-30'
-
-            def __init__(self):
-                self.parent = None
-                self.absolute_timeout = None
-                self.idle_timeout = None
-                self.limit = None
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-man-netconf-cfg:netconf-yang/Cisco-IOS-XR-man-netconf-cfg:agent/Cisco-IOS-XR-man-netconf-cfg:session'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.absolute_timeout is not None:
-                    return True
-
-                if self.idle_timeout is not None:
-                    return True
-
-                if self.limit is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.man._meta import _Cisco_IOS_XR_man_netconf_cfg as meta
-                return meta._meta_table['NetconfYang.Agent.Session']['meta_info']
+            self.session = NetconfYang.Agent.Session()
+            self.session.parent = self
+            self.rate_limit = None
 
 
         class Ssh(object):
@@ -192,6 +125,73 @@ class NetconfYang(object):
                 from ydk.models.man._meta import _Cisco_IOS_XR_man_netconf_cfg as meta
                 return meta._meta_table['NetconfYang.Agent.Ssh']['meta_info']
 
+
+        class Session(object):
+            """
+            Session settings
+            
+            .. attribute:: limit
+            
+            	Count of allowable concurrent netconf\-yang sessions
+            	**type**\: int
+            
+            	**range:** 1..1024
+            
+            .. attribute:: absolute_timeout
+            
+            	Absolute timeout in minutes
+            	**type**\: int
+            
+            	**range:** 1..1440
+            
+            .. attribute:: idle_timeout
+            
+            	Non\-active session lifetime
+            	**type**\: int
+            
+            	**range:** 1..1440
+            
+            
+
+            """
+
+            _prefix = 'man-netconf-cfg'
+            _revision = '2015-07-30'
+
+            def __init__(self):
+                self.parent = None
+                self.limit = None
+                self.absolute_timeout = None
+                self.idle_timeout = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-man-netconf-cfg:netconf-yang/Cisco-IOS-XR-man-netconf-cfg:agent/Cisco-IOS-XR-man-netconf-cfg:session'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.limit is not None:
+                    return True
+
+                if self.absolute_timeout is not None:
+                    return True
+
+                if self.idle_timeout is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.man._meta import _Cisco_IOS_XR_man_netconf_cfg as meta
+                return meta._meta_table['NetconfYang.Agent.Session']['meta_info']
+
         @property
         def _common_path(self):
 
@@ -204,13 +204,13 @@ class NetconfYang(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.rate_limit is not None:
+            if self.ssh is not None and self.ssh._has_data():
                 return True
 
             if self.session is not None and self.session._has_data():
                 return True
 
-            if self.ssh is not None and self.ssh._has_data():
+            if self.rate_limit is not None:
                 return True
 
             return False

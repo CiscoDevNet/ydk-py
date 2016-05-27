@@ -7,7 +7,7 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
@@ -39,6 +39,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SpanMonitorSession.Sessions.Session.Destination',
             False, 
             [
+            _MetaInfoClassMember('destination-type', REFERENCE_ENUM_CLASS, 'SpanDestinationEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg', 'SpanDestinationEnum', 
+                [], [], 
+                '''                Specify the type of destination
+                ''',
+                'destination_type',
+                'Cisco-IOS-XR-Ethernet-SPAN-cfg', False),
             _MetaInfoClassMember('destination-interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Specify the destination interface name
@@ -57,12 +63,6 @@ _meta_table = {
                 ''',
                 'destination_ipv6_address',
                 'Cisco-IOS-XR-Ethernet-SPAN-cfg', False),
-            _MetaInfoClassMember('destination-type', REFERENCE_ENUM_CLASS, 'SpanDestinationEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg', 'SpanDestinationEnum', 
-                [], [], 
-                '''                Specify the type of destination
-                ''',
-                'destination_type',
-                'Cisco-IOS-XR-Ethernet-SPAN-cfg', False),
             ],
             'Cisco-IOS-XR-Ethernet-SPAN-cfg',
             'destination',
@@ -80,18 +80,18 @@ _meta_table = {
                 ''',
                 'session',
                 'Cisco-IOS-XR-Ethernet-SPAN-cfg', True),
+            _MetaInfoClassMember('destination', REFERENCE_CLASS, 'Destination' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg', 'SpanMonitorSession.Sessions.Session.Destination', 
+                [], [], 
+                '''                Specify a destination
+                ''',
+                'destination',
+                'Cisco-IOS-XR-Ethernet-SPAN-cfg', False),
             _MetaInfoClassMember('class', REFERENCE_ENUM_CLASS, 'SpanSessionClassEnum' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_datatypes', 'SpanSessionClassEnum', 
                 [], [], 
                 '''                Enable a Monitor Session.  Setting this item
                 causes the Monitor Session to be created.
                 ''',
                 'class_',
-                'Cisco-IOS-XR-Ethernet-SPAN-cfg', False),
-            _MetaInfoClassMember('destination', REFERENCE_CLASS, 'Destination' , 'ydk.models.ethernet.Cisco_IOS_XR_Ethernet_SPAN_cfg', 'SpanMonitorSession.Sessions.Session.Destination', 
-                [], [], 
-                '''                Specify a destination
-                ''',
-                'destination',
                 'Cisco-IOS-XR-Ethernet-SPAN-cfg', False),
             ],
             'Cisco-IOS-XR-Ethernet-SPAN-cfg',

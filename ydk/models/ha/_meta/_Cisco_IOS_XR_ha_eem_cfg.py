@@ -7,7 +7,7 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
@@ -34,46 +34,6 @@ _meta_table = {
             'system':'SYSTEM',
             'user':'USER',
         }, 'Cisco-IOS-XR-ha-eem-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ha-eem-cfg']),
-    'EventManager.Environments.Environment' : {
-        'meta_info' : _MetaInfoClass('EventManager.Environments.Environment',
-            False, 
-            [
-            _MetaInfoClassMember('environment-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                Name of the global variable
-                ''',
-                'environment_name',
-                'Cisco-IOS-XR-ha-eem-cfg', True),
-            _MetaInfoClassMember('environment-value', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Value of the global variable
-                ''',
-                'environment_value',
-                'Cisco-IOS-XR-ha-eem-cfg', False),
-            ],
-            'Cisco-IOS-XR-ha-eem-cfg',
-            'environment',
-            _yang_ns._namespaces['Cisco-IOS-XR-ha-eem-cfg'],
-        'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg'
-        ),
-    },
-    'EventManager.Environments' : {
-        'meta_info' : _MetaInfoClass('EventManager.Environments',
-            False, 
-            [
-            _MetaInfoClassMember('environment', REFERENCE_LIST, 'Environment' , 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg', 'EventManager.Environments.Environment', 
-                [], [], 
-                '''                Name of the global variable
-                ''',
-                'environment',
-                'Cisco-IOS-XR-ha-eem-cfg', False),
-            ],
-            'Cisco-IOS-XR-ha-eem-cfg',
-            'environments',
-            _yang_ns._namespaces['Cisco-IOS-XR-ha-eem-cfg'],
-        'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg'
-        ),
-    },
     'EventManager.Policies.Policy' : {
         'meta_info' : _MetaInfoClass('EventManager.Policies.Policy',
             False, 
@@ -84,17 +44,11 @@ _meta_table = {
                 ''',
                 'policy_name',
                 'Cisco-IOS-XR-ha-eem-cfg', True),
-            _MetaInfoClassMember('check-sum-value', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('username', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                CheckSum Value
+                '''                A configured username
                 ''',
-                'check_sum_value',
-                'Cisco-IOS-XR-ha-eem-cfg', False),
-            _MetaInfoClassMember('checksum-type', REFERENCE_ENUM_CLASS, 'EventManagerChecksumEnum' , 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg', 'EventManagerChecksumEnum', 
-                [], [], 
-                '''                Specify Embedded Event Manager policy checksum
-                ''',
-                'checksum_type',
+                'username',
                 'Cisco-IOS-XR-ha-eem-cfg', False),
             _MetaInfoClassMember('persist-time', ATTRIBUTE, 'int' , None, None, 
                 [(0, 4294967295)], [], 
@@ -103,11 +57,23 @@ _meta_table = {
                 ''',
                 'persist_time',
                 'Cisco-IOS-XR-ha-eem-cfg', False),
-            _MetaInfoClassMember('policy-security-level', REFERENCE_ENUM_CLASS, 'EventManagerPolicySecEnum' , 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg', 'EventManagerPolicySecEnum', 
+            _MetaInfoClassMember('policy-type', REFERENCE_ENUM_CLASS, 'EventManagerPolicyEnum' , 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg', 'EventManagerPolicyEnum', 
                 [], [], 
-                '''                Event Manager policy security Level
+                '''                Event manager type of this policy
                 ''',
-                'policy_security_level',
+                'policy_type',
+                'Cisco-IOS-XR-ha-eem-cfg', False),
+            _MetaInfoClassMember('checksum-type', REFERENCE_ENUM_CLASS, 'EventManagerChecksumEnum' , 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg', 'EventManagerChecksumEnum', 
+                [], [], 
+                '''                Specify Embedded Event Manager policy checksum
+                ''',
+                'checksum_type',
+                'Cisco-IOS-XR-ha-eem-cfg', False),
+            _MetaInfoClassMember('check-sum-value', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                CheckSum Value
+                ''',
+                'check_sum_value',
                 'Cisco-IOS-XR-ha-eem-cfg', False),
             _MetaInfoClassMember('policy-security-mode', REFERENCE_ENUM_CLASS, 'EventManagerPolicyModeEnum' , 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg', 'EventManagerPolicyModeEnum', 
                 [], [], 
@@ -116,17 +82,11 @@ _meta_table = {
                 ''',
                 'policy_security_mode',
                 'Cisco-IOS-XR-ha-eem-cfg', False),
-            _MetaInfoClassMember('policy-type', REFERENCE_ENUM_CLASS, 'EventManagerPolicyEnum' , 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg', 'EventManagerPolicyEnum', 
+            _MetaInfoClassMember('policy-security-level', REFERENCE_ENUM_CLASS, 'EventManagerPolicySecEnum' , 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg', 'EventManagerPolicySecEnum', 
                 [], [], 
-                '''                Event manager type of this policy
+                '''                Event Manager policy security Level
                 ''',
-                'policy_type',
-                'Cisco-IOS-XR-ha-eem-cfg', False),
-            _MetaInfoClassMember('username', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                A configured username
-                ''',
-                'username',
+                'policy_security_level',
                 'Cisco-IOS-XR-ha-eem-cfg', False),
             ],
             'Cisco-IOS-XR-ha-eem-cfg',
@@ -209,21 +169,61 @@ _meta_table = {
         'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg'
         ),
     },
+    'EventManager.Environments.Environment' : {
+        'meta_info' : _MetaInfoClass('EventManager.Environments.Environment',
+            False, 
+            [
+            _MetaInfoClassMember('environment-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Name of the global variable
+                ''',
+                'environment_name',
+                'Cisco-IOS-XR-ha-eem-cfg', True),
+            _MetaInfoClassMember('environment-value', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Value of the global variable
+                ''',
+                'environment_value',
+                'Cisco-IOS-XR-ha-eem-cfg', False),
+            ],
+            'Cisco-IOS-XR-ha-eem-cfg',
+            'environment',
+            _yang_ns._namespaces['Cisco-IOS-XR-ha-eem-cfg'],
+        'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg'
+        ),
+    },
+    'EventManager.Environments' : {
+        'meta_info' : _MetaInfoClass('EventManager.Environments',
+            False, 
+            [
+            _MetaInfoClassMember('environment', REFERENCE_LIST, 'Environment' , 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg', 'EventManager.Environments.Environment', 
+                [], [], 
+                '''                Name of the global variable
+                ''',
+                'environment',
+                'Cisco-IOS-XR-ha-eem-cfg', False),
+            ],
+            'Cisco-IOS-XR-ha-eem-cfg',
+            'environments',
+            _yang_ns._namespaces['Cisco-IOS-XR-ha-eem-cfg'],
+        'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg'
+        ),
+    },
     'EventManager' : {
         'meta_info' : _MetaInfoClass('EventManager',
             False, 
             [
-            _MetaInfoClassMember('directory-user-library', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('policies', REFERENCE_CLASS, 'Policies' , 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg', 'EventManager.Policies', 
                 [], [], 
-                '''                Path of the user policy library directory
+                '''                Register an event manager policy
                 ''',
-                'directory_user_library',
+                'policies',
                 'Cisco-IOS-XR-ha-eem-cfg', False),
-            _MetaInfoClassMember('directory-user-policy', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('scheduler-script', REFERENCE_CLASS, 'SchedulerScript' , 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg', 'EventManager.SchedulerScript', 
                 [], [], 
-                '''                Set event manager user policy directory
+                '''                scheduler classs type
                 ''',
-                'directory_user_policy',
+                'scheduler_script',
                 'Cisco-IOS-XR-ha-eem-cfg', False),
             _MetaInfoClassMember('environments', REFERENCE_CLASS, 'Environments' , 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg', 'EventManager.Environments', 
                 [], [], 
@@ -231,12 +231,6 @@ _meta_table = {
                 manager policies
                 ''',
                 'environments',
-                'Cisco-IOS-XR-ha-eem-cfg', False),
-            _MetaInfoClassMember('policies', REFERENCE_CLASS, 'Policies' , 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg', 'EventManager.Policies', 
-                [], [], 
-                '''                Register an event manager policy
-                ''',
-                'policies',
                 'Cisco-IOS-XR-ha-eem-cfg', False),
             _MetaInfoClassMember('refresh-time', ATTRIBUTE, 'int' , None, None, 
                 [(10, 4294967295)], [], 
@@ -251,11 +245,17 @@ _meta_table = {
                 ''',
                 'schedule_suspend',
                 'Cisco-IOS-XR-ha-eem-cfg', False),
-            _MetaInfoClassMember('scheduler-script', REFERENCE_CLASS, 'SchedulerScript' , 'ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg', 'EventManager.SchedulerScript', 
+            _MetaInfoClassMember('directory-user-policy', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                scheduler classs type
+                '''                Set event manager user policy directory
                 ''',
-                'scheduler_script',
+                'directory_user_policy',
+                'Cisco-IOS-XR-ha-eem-cfg', False),
+            _MetaInfoClassMember('directory-user-library', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Path of the user policy library directory
+                ''',
+                'directory_user_library',
                 'Cisco-IOS-XR-ha-eem-cfg', False),
             ],
             'Cisco-IOS-XR-ha-eem-cfg',
@@ -265,10 +265,10 @@ _meta_table = {
         ),
     },
 }
-_meta_table['EventManager.Environments.Environment']['meta_info'].parent =_meta_table['EventManager.Environments']['meta_info']
 _meta_table['EventManager.Policies.Policy']['meta_info'].parent =_meta_table['EventManager.Policies']['meta_info']
 _meta_table['EventManager.SchedulerScript.ThreadClasses.ThreadClass']['meta_info'].parent =_meta_table['EventManager.SchedulerScript.ThreadClasses']['meta_info']
 _meta_table['EventManager.SchedulerScript.ThreadClasses']['meta_info'].parent =_meta_table['EventManager.SchedulerScript']['meta_info']
-_meta_table['EventManager.Environments']['meta_info'].parent =_meta_table['EventManager']['meta_info']
+_meta_table['EventManager.Environments.Environment']['meta_info'].parent =_meta_table['EventManager.Environments']['meta_info']
 _meta_table['EventManager.Policies']['meta_info'].parent =_meta_table['EventManager']['meta_info']
 _meta_table['EventManager.SchedulerScript']['meta_info'].parent =_meta_table['EventManager']['meta_info']
+_meta_table['EventManager.Environments']['meta_info'].parent =_meta_table['EventManager']['meta_info']

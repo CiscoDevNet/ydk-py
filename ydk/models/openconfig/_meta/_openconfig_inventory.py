@@ -7,7 +7,7 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
@@ -28,6 +28,70 @@ _meta_table = {
             ],
             'openconfig-inventory',
             'config',
+            _yang_ns._namespaces['openconfig-inventory'],
+        'ydk.models.openconfig.openconfig_inventory'
+        ),
+    },
+    'Components.Component.State' : {
+        'meta_info' : _MetaInfoClass('Components.Component.State',
+            False, 
+            [
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Device name for the component -- this may not be a
+                configurable parameter on many implementations
+                ''',
+                'name',
+                'openconfig-inventory', False),
+            _MetaInfoClassMember('type', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Type of component as identified by the system
+                ''',
+                'type',
+                'openconfig-inventory', False, [
+                    _MetaInfoClassMember('type', REFERENCE_IDENTITY_CLASS, 'OpenconfigHardwareComponent_Identity' , 'ydk.models.openconfig.openconfig_inventory_types', 'OpenconfigHardwareComponent_Identity', 
+                        [], [], 
+                        '''                        Type of component as identified by the system
+                        ''',
+                        'type',
+                        'openconfig-inventory', False),
+                    _MetaInfoClassMember('type', REFERENCE_IDENTITY_CLASS, 'OpenconfigSoftwareComponent_Identity' , 'ydk.models.openconfig.openconfig_inventory_types', 'OpenconfigSoftwareComponent_Identity', 
+                        [], [], 
+                        '''                        Type of component as identified by the system
+                        ''',
+                        'type',
+                        'openconfig-inventory', False),
+                ]),
+            _MetaInfoClassMember('id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Unique identifier assigned by the system for the
+                component
+                ''',
+                'id',
+                'openconfig-inventory', False),
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                System-supplied description of the component
+                ''',
+                'description',
+                'openconfig-inventory', False),
+            _MetaInfoClassMember('serial_no', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                System-assigned serial number of the component.
+                ''',
+                'serial_no',
+                'openconfig-inventory', False),
+            _MetaInfoClassMember('part_no', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                System-assigned part number for the component.  This should
+                be present in particular if the component is also an FRU
+                (field replacable unit)
+                ''',
+                'part_no',
+                'openconfig-inventory', False),
+            ],
+            'openconfig-inventory',
+            'state',
             _yang_ns._namespaces['openconfig-inventory'],
         'ydk.models.openconfig.openconfig_inventory'
         ),
@@ -103,12 +167,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Components.Component.Properties.Property.State',
             False, 
             [
-            _MetaInfoClassMember('configurable', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Indication whether the property is user-configurable
-                ''',
-                'configurable',
-                'openconfig-inventory', False),
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                System-supplied name of the property -- this is typically
@@ -165,6 +223,12 @@ _meta_table = {
                         'value',
                         'openconfig-inventory', False),
                 ]),
+            _MetaInfoClassMember('configurable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Indication whether the property is user-configurable
+                ''',
+                'configurable',
+                'openconfig-inventory', False),
             ],
             'openconfig-inventory',
             'state',
@@ -214,70 +278,6 @@ _meta_table = {
             ],
             'openconfig-inventory',
             'properties',
-            _yang_ns._namespaces['openconfig-inventory'],
-        'ydk.models.openconfig.openconfig_inventory'
-        ),
-    },
-    'Components.Component.State' : {
-        'meta_info' : _MetaInfoClass('Components.Component.State',
-            False, 
-            [
-            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                System-supplied description of the component
-                ''',
-                'description',
-                'openconfig-inventory', False),
-            _MetaInfoClassMember('id', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Unique identifier assigned by the system for the
-                component
-                ''',
-                'id',
-                'openconfig-inventory', False),
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Device name for the component -- this may not be a
-                configurable parameter on many implementations
-                ''',
-                'name',
-                'openconfig-inventory', False),
-            _MetaInfoClassMember('part_no', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                System-assigned part number for the component.  This should
-                be present in particular if the component is also an FRU
-                (field replacable unit)
-                ''',
-                'part_no',
-                'openconfig-inventory', False),
-            _MetaInfoClassMember('serial_no', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                System-assigned serial number of the component.
-                ''',
-                'serial_no',
-                'openconfig-inventory', False),
-            _MetaInfoClassMember('type', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Type of component as identified by the system
-                ''',
-                'type',
-                'openconfig-inventory', False, [
-                    _MetaInfoClassMember('type', REFERENCE_IDENTITY_CLASS, 'OpenconfigHardwareComponent_Identity' , 'ydk.models.openconfig.openconfig_inventory_types', 'OpenconfigHardwareComponent_Identity', 
-                        [], [], 
-                        '''                        Type of component as identified by the system
-                        ''',
-                        'type',
-                        'openconfig-inventory', False),
-                    _MetaInfoClassMember('type', REFERENCE_IDENTITY_CLASS, 'OpenconfigSoftwareComponent_Identity' , 'ydk.models.openconfig.openconfig_inventory_types', 'OpenconfigSoftwareComponent_Identity', 
-                        [], [], 
-                        '''                        Type of component as identified by the system
-                        ''',
-                        'type',
-                        'openconfig-inventory', False),
-                ]),
-            ],
-            'openconfig-inventory',
-            'state',
             _yang_ns._namespaces['openconfig-inventory'],
         'ydk.models.openconfig.openconfig_inventory'
         ),
@@ -387,17 +387,17 @@ _meta_table = {
                 ''',
                 'config',
                 'openconfig-inventory', False),
-            _MetaInfoClassMember('properties', REFERENCE_CLASS, 'Properties' , 'ydk.models.openconfig.openconfig_inventory', 'Components.Component.Properties', 
-                [], [], 
-                '''                Enclosing container 
-                ''',
-                'properties',
-                'openconfig-inventory', False),
             _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_inventory', 'Components.Component.State', 
                 [], [], 
                 '''                Operational state data for each component
                 ''',
                 'state',
+                'openconfig-inventory', False),
+            _MetaInfoClassMember('properties', REFERENCE_CLASS, 'Properties' , 'ydk.models.openconfig.openconfig_inventory', 'Components.Component.Properties', 
+                [], [], 
+                '''                Enclosing container 
+                ''',
+                'properties',
                 'openconfig-inventory', False),
             _MetaInfoClassMember('subcomponents', REFERENCE_CLASS, 'Subcomponents' , 'ydk.models.openconfig.openconfig_inventory', 'Components.Component.Subcomponents', 
                 [], [], 
@@ -437,7 +437,7 @@ _meta_table['Components.Component.Subcomponents.Subcomponent.Config']['meta_info
 _meta_table['Components.Component.Subcomponents.Subcomponent.State']['meta_info'].parent =_meta_table['Components.Component.Subcomponents.Subcomponent']['meta_info']
 _meta_table['Components.Component.Subcomponents.Subcomponent']['meta_info'].parent =_meta_table['Components.Component.Subcomponents']['meta_info']
 _meta_table['Components.Component.Config']['meta_info'].parent =_meta_table['Components.Component']['meta_info']
-_meta_table['Components.Component.Properties']['meta_info'].parent =_meta_table['Components.Component']['meta_info']
 _meta_table['Components.Component.State']['meta_info'].parent =_meta_table['Components.Component']['meta_info']
+_meta_table['Components.Component.Properties']['meta_info'].parent =_meta_table['Components.Component']['meta_info']
 _meta_table['Components.Component.Subcomponents']['meta_info'].parent =_meta_table['Components.Component']['meta_info']
 _meta_table['Components.Component']['meta_info'].parent =_meta_table['Components']['meta_info']

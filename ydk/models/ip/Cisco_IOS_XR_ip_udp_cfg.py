@@ -22,7 +22,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -33,15 +33,15 @@ class IpUdp(object):
     """
     Global IP UDP configuration
     
-    .. attribute:: directory
-    
-    	UDP directory details
-    	**type**\: :py:class:`Directory <ydk.models.ip.Cisco_IOS_XR_ip_udp_cfg.IpUdp.Directory>`
-    
     .. attribute:: num_thread
     
     	UDP InQueue and OutQueue threads
     	**type**\: :py:class:`NumThread <ydk.models.ip.Cisco_IOS_XR_ip_udp_cfg.IpUdp.NumThread>`
+    
+    .. attribute:: directory
+    
+    	UDP directory details
+    	**type**\: :py:class:`Directory <ydk.models.ip.Cisco_IOS_XR_ip_udp_cfg.IpUdp.Directory>`
     
     .. attribute:: receive_q
     
@@ -58,91 +58,9 @@ class IpUdp(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.directory = None
         self.num_thread = None
+        self.directory = None
         self.receive_q = None
-
-
-    class Directory(object):
-        """
-        UDP directory details
-        
-        .. attribute:: directoryname
-        
-        	Directory name
-        	**type**\: str
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        .. attribute:: max_file_size_files
-        
-        	Set size of debug files in bytes
-        	**type**\: int
-        
-        	**range:** 1024..4294967295
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        .. attribute:: max_udp_debug_files
-        
-        	Set number of Debug files
-        	**type**\: int
-        
-        	**range:** 1..5000
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        
-
-        This class is a :ref:`presence class<presence-class>`
-
-        """
-
-        _prefix = 'ip-udp-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.directoryname = None
-            self.max_file_size_files = None
-            self.max_udp_debug_files = None
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ip-udp-cfg:ip-udp/Cisco-IOS-XR-ip-udp-cfg:directory'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.directoryname is not None:
-                return True
-
-            if self.max_file_size_files is not None:
-                return True
-
-            if self.max_udp_debug_files is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_udp_cfg as meta
-            return meta._meta_table['IpUdp.Directory']['meta_info']
 
 
     class NumThread(object):
@@ -212,6 +130,88 @@ class IpUdp(object):
             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_udp_cfg as meta
             return meta._meta_table['IpUdp.NumThread']['meta_info']
 
+
+    class Directory(object):
+        """
+        UDP directory details
+        
+        .. attribute:: directoryname
+        
+        	Directory name
+        	**type**\: str
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        .. attribute:: max_udp_debug_files
+        
+        	Set number of Debug files
+        	**type**\: int
+        
+        	**range:** 1..5000
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        .. attribute:: max_file_size_files
+        
+        	Set size of debug files in bytes
+        	**type**\: int
+        
+        	**range:** 1024..4294967295
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        
+
+        This class is a :ref:`presence class<presence-class>`
+
+        """
+
+        _prefix = 'ip-udp-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.directoryname = None
+            self.max_udp_debug_files = None
+            self.max_file_size_files = None
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-ip-udp-cfg:ip-udp/Cisco-IOS-XR-ip-udp-cfg:directory'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.directoryname is not None:
+                return True
+
+            if self.max_udp_debug_files is not None:
+                return True
+
+            if self.max_file_size_files is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_udp_cfg as meta
+            return meta._meta_table['IpUdp.Directory']['meta_info']
+
     @property
     def _common_path(self):
 
@@ -224,10 +224,10 @@ class IpUdp(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.directory is not None and self.directory._has_data():
+        if self.num_thread is not None and self.num_thread._has_data():
             return True
 
-        if self.num_thread is not None and self.num_thread._has_data():
+        if self.directory is not None and self.directory._has_data():
             return True
 
         if self.receive_q is not None:

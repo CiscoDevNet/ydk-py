@@ -7,7 +7,7 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
@@ -19,77 +19,6 @@ _meta_table = {
             'ACCEPT-ROUTE':'ACCEPT_ROUTE',
             'REJECT-ROUTE':'REJECT_ROUTE',
         }, 'routing-policy', _yang_ns._namespaces['routing-policy']),
-    'RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Neighbor' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Neighbor',
-            False, 
-            [
-            _MetaInfoClassMember('address', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                IP address of the neighbor set member
-                ''',
-                'address',
-                'routing-policy', True, [
-                    _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        IP address of the neighbor set member
-                        ''',
-                        'address',
-                        'routing-policy', True),
-                    _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        IP address of the neighbor set member
-                        ''',
-                        'address',
-                        'routing-policy', True),
-                ]),
-            ],
-            'routing-policy',
-            'neighbor',
-            _yang_ns._namespaces['routing-policy'],
-        'ydk.models.routing.routing_policy'
-        ),
-    },
-    'RoutingPolicy.DefinedSets.NeighborSets.NeighborSet' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.DefinedSets.NeighborSets.NeighborSet',
-            False, 
-            [
-            _MetaInfoClassMember('neighbor-set-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                name / label of the neighbor set -- this is used to
-                reference the set in match conditions
-                ''',
-                'neighbor_set_name',
-                'routing-policy', True),
-            _MetaInfoClassMember('neighbor', REFERENCE_LIST, 'Neighbor' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Neighbor', 
-                [], [], 
-                '''                list of addresses that are part of the neighbor set
-                ''',
-                'neighbor',
-                'routing-policy', False),
-            ],
-            'routing-policy',
-            'neighbor-set',
-            _yang_ns._namespaces['routing-policy'],
-        'ydk.models.routing.routing_policy'
-        ),
-    },
-    'RoutingPolicy.DefinedSets.NeighborSets' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.DefinedSets.NeighborSets',
-            False, 
-            [
-            _MetaInfoClassMember('neighbor-set', REFERENCE_LIST, 'NeighborSet' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.DefinedSets.NeighborSets.NeighborSet', 
-                [], [], 
-                '''                Definitions for neighbor sets
-                ''',
-                'neighbor_set',
-                'routing-policy', False),
-            ],
-            'routing-policy',
-            'neighbor-sets',
-            _yang_ns._namespaces['routing-policy'],
-        'ydk.models.routing.routing_policy'
-        ),
-    },
     'RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefix' : {
         'meta_info' : _MetaInfoClass('RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefix',
             False, 
@@ -188,6 +117,77 @@ _meta_table = {
         'ydk.models.routing.routing_policy'
         ),
     },
+    'RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Neighbor' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Neighbor',
+            False, 
+            [
+            _MetaInfoClassMember('address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                IP address of the neighbor set member
+                ''',
+                'address',
+                'routing-policy', True, [
+                    _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP address of the neighbor set member
+                        ''',
+                        'address',
+                        'routing-policy', True),
+                    _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP address of the neighbor set member
+                        ''',
+                        'address',
+                        'routing-policy', True),
+                ]),
+            ],
+            'routing-policy',
+            'neighbor',
+            _yang_ns._namespaces['routing-policy'],
+        'ydk.models.routing.routing_policy'
+        ),
+    },
+    'RoutingPolicy.DefinedSets.NeighborSets.NeighborSet' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.DefinedSets.NeighborSets.NeighborSet',
+            False, 
+            [
+            _MetaInfoClassMember('neighbor-set-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                name / label of the neighbor set -- this is used to
+                reference the set in match conditions
+                ''',
+                'neighbor_set_name',
+                'routing-policy', True),
+            _MetaInfoClassMember('neighbor', REFERENCE_LIST, 'Neighbor' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Neighbor', 
+                [], [], 
+                '''                list of addresses that are part of the neighbor set
+                ''',
+                'neighbor',
+                'routing-policy', False),
+            ],
+            'routing-policy',
+            'neighbor-set',
+            _yang_ns._namespaces['routing-policy'],
+        'ydk.models.routing.routing_policy'
+        ),
+    },
+    'RoutingPolicy.DefinedSets.NeighborSets' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.DefinedSets.NeighborSets',
+            False, 
+            [
+            _MetaInfoClassMember('neighbor-set', REFERENCE_LIST, 'NeighborSet' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.DefinedSets.NeighborSets.NeighborSet', 
+                [], [], 
+                '''                Definitions for neighbor sets
+                ''',
+                'neighbor_set',
+                'routing-policy', False),
+            ],
+            'routing-policy',
+            'neighbor-sets',
+            _yang_ns._namespaces['routing-policy'],
+        'ydk.models.routing.routing_policy'
+        ),
+    },
     'RoutingPolicy.DefinedSets.TagSets.TagSet.Tag' : {
         'meta_info' : _MetaInfoClass('RoutingPolicy.DefinedSets.TagSets.TagSet.Tag',
             False, 
@@ -259,21 +259,218 @@ _meta_table = {
         'ydk.models.routing.routing_policy'
         ),
     },
+    'RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet',
+            False, 
+            [
+            _MetaInfoClassMember('community-set-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                name / label of the community set -- this is used to
+                reference the set in match conditions
+                ''',
+                'community_set_name',
+                'bgp-policy', True),
+            _MetaInfoClassMember('community-member', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                members of the community set
+                ''',
+                'community_member',
+                'bgp-policy', False, [
+                    _MetaInfoClassMember('community-member', REFERENCE_UNION, 'str' , None, None, 
+                        [], [], 
+                        '''                        members of the community set
+                        ''',
+                        'community_member',
+                        'bgp-policy', False, [
+                            _MetaInfoClassMember('community-member', REFERENCE_LEAFLIST, 'int' , None, None, 
+                                [(65536, 4294901759)], [], 
+                                '''                                members of the community set
+                                ''',
+                                'community_member',
+                                'bgp-policy', False),
+                            _MetaInfoClassMember('community-member', REFERENCE_LEAFLIST, 'str' , None, None, 
+                                [], ['([0-9]+:[0-9]+)'], 
+                                '''                                members of the community set
+                                ''',
+                                'community_member',
+                                'bgp-policy', False),
+                        ]),
+                    _MetaInfoClassMember('community-member', REFERENCE_LEAFLIST, 'str' , None, None, 
+                        [], [], 
+                        '''                        members of the community set
+                        ''',
+                        'community_member',
+                        'bgp-policy', False),
+                    _MetaInfoClassMember('community-member', REFERENCE_LEAFLIST, 'str' , None, None, 
+                        [], [], 
+                        '''                        members of the community set
+                        ''',
+                        'community_member',
+                        'bgp-policy', False),
+                ]),
+            ],
+            'bgp-policy',
+            'community-set',
+            _yang_ns._namespaces['bgp-policy'],
+        'ydk.models.routing.routing_policy'
+        ),
+    },
+    'RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets',
+            False, 
+            [
+            _MetaInfoClassMember('community-set', REFERENCE_LIST, 'CommunitySet' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet', 
+                [], [], 
+                '''                Definitions for community sets
+                ''',
+                'community_set',
+                'bgp-policy', False),
+            ],
+            'bgp-policy',
+            'community-sets',
+            _yang_ns._namespaces['bgp-policy'],
+        'ydk.models.routing.routing_policy'
+        ),
+    },
+    'RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet',
+            False, 
+            [
+            _MetaInfoClassMember('ext-community-set-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                name / label of the extended community set -- this is
+                used to reference the set in match conditions
+                ''',
+                'ext_community_set_name',
+                'bgp-policy', True),
+            _MetaInfoClassMember('ext-community-member', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                members of the extended community set
+                ''',
+                'ext_community_member',
+                'bgp-policy', False, [
+                    _MetaInfoClassMember('ext-community-member', REFERENCE_LEAFLIST, 'str' , None, None, 
+                        [], ['([0-9\\.]+(:[0-9]+)?:[0-9]+)'], 
+                        '''                        members of the extended community set
+                        ''',
+                        'ext_community_member',
+                        'bgp-policy', False),
+                    _MetaInfoClassMember('ext-community-member', REFERENCE_LEAFLIST, 'str' , None, None, 
+                        [], [], 
+                        '''                        members of the extended community set
+                        ''',
+                        'ext_community_member',
+                        'bgp-policy', False),
+                ]),
+            ],
+            'bgp-policy',
+            'ext-community-set',
+            _yang_ns._namespaces['bgp-policy'],
+        'ydk.models.routing.routing_policy'
+        ),
+    },
+    'RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets',
+            False, 
+            [
+            _MetaInfoClassMember('ext-community-set', REFERENCE_LIST, 'ExtCommunitySet' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet', 
+                [], [], 
+                '''                Definitions for extended community sets
+                ''',
+                'ext_community_set',
+                'bgp-policy', False),
+            ],
+            'bgp-policy',
+            'ext-community-sets',
+            _yang_ns._namespaces['bgp-policy'],
+        'ydk.models.routing.routing_policy'
+        ),
+    },
+    'RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet',
+            False, 
+            [
+            _MetaInfoClassMember('as-path-set-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                name of the AS path set -- this is used to reference
+                the set in match conditions
+                ''',
+                'as_path_set_name',
+                'bgp-policy', True),
+            _MetaInfoClassMember('as-path-set-member', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                AS path expression -- list of ASes in the set
+                ''',
+                'as_path_set_member',
+                'bgp-policy', False),
+            ],
+            'bgp-policy',
+            'as-path-set',
+            _yang_ns._namespaces['bgp-policy'],
+        'ydk.models.routing.routing_policy'
+        ),
+    },
+    'RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets',
+            False, 
+            [
+            _MetaInfoClassMember('as-path-set', REFERENCE_LIST, 'AsPathSet' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet', 
+                [], [], 
+                '''                Definitions for AS path sets
+                ''',
+                'as_path_set',
+                'bgp-policy', False),
+            ],
+            'bgp-policy',
+            'as-path-sets',
+            _yang_ns._namespaces['bgp-policy'],
+        'ydk.models.routing.routing_policy'
+        ),
+    },
+    'RoutingPolicy.DefinedSets.BgpDefinedSets' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.DefinedSets.BgpDefinedSets',
+            False, 
+            [
+            _MetaInfoClassMember('community-sets', REFERENCE_CLASS, 'CommunitySets' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets', 
+                [], [], 
+                '''                Enclosing container for community sets
+                ''',
+                'community_sets',
+                'bgp-policy', False),
+            _MetaInfoClassMember('ext-community-sets', REFERENCE_CLASS, 'ExtCommunitySets' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets', 
+                [], [], 
+                '''                Enclosing container for extended community sets
+                ''',
+                'ext_community_sets',
+                'bgp-policy', False),
+            _MetaInfoClassMember('as-path-sets', REFERENCE_CLASS, 'AsPathSets' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets', 
+                [], [], 
+                '''                Enclosing container for AS path sets
+                ''',
+                'as_path_sets',
+                'bgp-policy', False),
+            ],
+            'bgp-policy',
+            'bgp-defined-sets',
+            _yang_ns._namespaces['bgp-policy'],
+        'ydk.models.routing.routing_policy'
+        ),
+    },
     'RoutingPolicy.DefinedSets' : {
         'meta_info' : _MetaInfoClass('RoutingPolicy.DefinedSets',
             False, 
             [
-            _MetaInfoClassMember('neighbor-sets', REFERENCE_CLASS, 'NeighborSets' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.DefinedSets.NeighborSets', 
-                [], [], 
-                '''                Enclosing container for defined neighbor sets for matching
-                ''',
-                'neighbor_sets',
-                'routing-policy', False),
             _MetaInfoClassMember('prefix-sets', REFERENCE_CLASS, 'PrefixSets' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.DefinedSets.PrefixSets', 
                 [], [], 
                 '''                Enclosing container for defined prefix sets for matching
                 ''',
                 'prefix_sets',
+                'routing-policy', False),
+            _MetaInfoClassMember('neighbor-sets', REFERENCE_CLASS, 'NeighborSets' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.DefinedSets.NeighborSets', 
+                [], [], 
+                '''                Enclosing container for defined neighbor sets for matching
+                ''',
+                'neighbor_sets',
                 'routing-policy', False),
             _MetaInfoClassMember('tag-sets', REFERENCE_CLASS, 'TagSets' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.DefinedSets.TagSets', 
                 [], [], 
@@ -281,9 +478,398 @@ _meta_table = {
                 ''',
                 'tag_sets',
                 'routing-policy', False),
+            _MetaInfoClassMember('bgp-defined-sets', REFERENCE_CLASS, 'BgpDefinedSets' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.DefinedSets.BgpDefinedSets', 
+                [], [], 
+                '''                BGP-related set definitions for policy match conditions
+                ''',
+                'bgp_defined_sets',
+                'bgp-policy', False),
             ],
             'routing-policy',
             'defined-sets',
+            _yang_ns._namespaces['routing-policy'],
+        'ydk.models.routing.routing_policy'
+        ),
+    },
+    'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet',
+            False, 
+            [
+            _MetaInfoClassMember('prefix-set', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                References a defined prefix set
+                ''',
+                'prefix_set',
+                'routing-policy', False),
+            _MetaInfoClassMember('match-set-options', REFERENCE_ENUM_CLASS, 'MatchSetOptionsRestrictedTypeEnum' , 'ydk.models.policy.policy_types', 'MatchSetOptionsRestrictedTypeEnum', 
+                [], [], 
+                '''                Optional parameter that governs the behaviour of the
+                match operation.  This leaf only supports matching on ANY
+                member of the set or inverting the match.  Matching on ALL is
+                not supported)
+                ''',
+                'match_set_options',
+                'routing-policy', False),
+            ],
+            'routing-policy',
+            'match-prefix-set',
+            _yang_ns._namespaces['routing-policy'],
+        'ydk.models.routing.routing_policy'
+        ),
+    },
+    'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet',
+            False, 
+            [
+            _MetaInfoClassMember('neighbor-set', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                References a defined neighbor set
+                ''',
+                'neighbor_set',
+                'routing-policy', False),
+            _MetaInfoClassMember('match-set-options', REFERENCE_ENUM_CLASS, 'MatchSetOptionsRestrictedTypeEnum' , 'ydk.models.policy.policy_types', 'MatchSetOptionsRestrictedTypeEnum', 
+                [], [], 
+                '''                Optional parameter that governs the behaviour of the
+                match operation.  This leaf only supports matching on ANY
+                member of the set or inverting the match.  Matching on ALL is
+                not supported)
+                ''',
+                'match_set_options',
+                'routing-policy', False),
+            ],
+            'routing-policy',
+            'match-neighbor-set',
+            _yang_ns._namespaces['routing-policy'],
+        'ydk.models.routing.routing_policy'
+        ),
+    },
+    'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet',
+            False, 
+            [
+            _MetaInfoClassMember('tag-set', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                References a defined tag set
+                ''',
+                'tag_set',
+                'routing-policy', False),
+            _MetaInfoClassMember('match-set-options', REFERENCE_ENUM_CLASS, 'MatchSetOptionsRestrictedTypeEnum' , 'ydk.models.policy.policy_types', 'MatchSetOptionsRestrictedTypeEnum', 
+                [], [], 
+                '''                Optional parameter that governs the behaviour of the
+                match operation.  This leaf only supports matching on ANY
+                member of the set or inverting the match.  Matching on ALL is
+                not supported)
+                ''',
+                'match_set_options',
+                'routing-policy', False),
+            ],
+            'routing-policy',
+            'match-tag-set',
+            _yang_ns._namespaces['routing-policy'],
+        'ydk.models.routing.routing_policy'
+        ),
+    },
+    'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions',
+            False, 
+            [
+            ],
+            'routing-policy',
+            'igp-conditions',
+            _yang_ns._namespaces['routing-policy'],
+        'ydk.models.routing.routing_policy'
+        ),
+    },
+    'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet',
+            False, 
+            [
+            _MetaInfoClassMember('community-set', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                References a defined community set
+                ''',
+                'community_set',
+                'bgp-policy', False),
+            _MetaInfoClassMember('match-set-options', REFERENCE_ENUM_CLASS, 'MatchSetOptionsTypeEnum' , 'ydk.models.policy.policy_types', 'MatchSetOptionsTypeEnum', 
+                [], [], 
+                '''                Optional parameter that governs the behaviour of the
+                match operation
+                ''',
+                'match_set_options',
+                'bgp-policy', False),
+            ],
+            'bgp-policy',
+            'match-community-set',
+            _yang_ns._namespaces['bgp-policy'],
+        'ydk.models.routing.routing_policy'
+        ),
+    },
+    'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet',
+            False, 
+            [
+            _MetaInfoClassMember('ext-community-set', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                References a defined extended community set
+                ''',
+                'ext_community_set',
+                'bgp-policy', False),
+            _MetaInfoClassMember('match-set-options', REFERENCE_ENUM_CLASS, 'MatchSetOptionsTypeEnum' , 'ydk.models.policy.policy_types', 'MatchSetOptionsTypeEnum', 
+                [], [], 
+                '''                Optional parameter that governs the behaviour of the
+                match operation
+                ''',
+                'match_set_options',
+                'bgp-policy', False),
+            ],
+            'bgp-policy',
+            'match-ext-community-set',
+            _yang_ns._namespaces['bgp-policy'],
+        'ydk.models.routing.routing_policy'
+        ),
+    },
+    'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet',
+            False, 
+            [
+            _MetaInfoClassMember('as-path-set', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                References a defined AS path set
+                ''',
+                'as_path_set',
+                'bgp-policy', False),
+            _MetaInfoClassMember('match-set-options', REFERENCE_ENUM_CLASS, 'MatchSetOptionsTypeEnum' , 'ydk.models.policy.policy_types', 'MatchSetOptionsTypeEnum', 
+                [], [], 
+                '''                Optional parameter that governs the behaviour of the
+                match operation
+                ''',
+                'match_set_options',
+                'bgp-policy', False),
+            ],
+            'bgp-policy',
+            'match-as-path-set',
+            _yang_ns._namespaces['bgp-policy'],
+        'ydk.models.routing.routing_policy'
+        ),
+    },
+    'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount',
+            False, 
+            [
+            _MetaInfoClassMember('operator', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                type of comparison to be performed
+                ''',
+                'operator',
+                'bgp-policy', False),
+            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                value to compare with the community count
+                ''',
+                'value',
+                'bgp-policy', False),
+            ],
+            'bgp-policy',
+            'community-count',
+            _yang_ns._namespaces['bgp-policy'],
+        'ydk.models.routing.routing_policy'
+        ),
+    },
+    'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength',
+            False, 
+            [
+            _MetaInfoClassMember('operator', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                type of comparison to be performed
+                ''',
+                'operator',
+                'bgp-policy', False),
+            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                value to compare with the community count
+                ''',
+                'value',
+                'bgp-policy', False),
+            ],
+            'bgp-policy',
+            'as-path-length',
+            _yang_ns._namespaces['bgp-policy'],
+        'ydk.models.routing.routing_policy'
+        ),
+    },
+    'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.RouteTypeEnum' : _MetaInfoEnum('RouteTypeEnum', 'ydk.models.routing.routing_policy',
+        {
+            'INTERNAL':'INTERNAL',
+            'EXTERNAL':'EXTERNAL',
+        }, 'bgp-policy', _yang_ns._namespaces['bgp-policy']),
+    'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions',
+            False, 
+            [
+            _MetaInfoClassMember('match-community-set', REFERENCE_CLASS, 'MatchCommunitySet' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet', 
+                [], [], 
+                '''                Match a referenced community-set according to the logic
+                defined in the match-set-options leaf
+                ''',
+                'match_community_set',
+                'bgp-policy', False),
+            _MetaInfoClassMember('match-ext-community-set', REFERENCE_CLASS, 'MatchExtCommunitySet' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet', 
+                [], [], 
+                '''                Match a referenced extended community-set according to the
+                logic defined in the match-set-options leaf
+                ''',
+                'match_ext_community_set',
+                'bgp-policy', False),
+            _MetaInfoClassMember('match-as-path-set', REFERENCE_CLASS, 'MatchAsPathSet' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet', 
+                [], [], 
+                '''                Match a referenced as-path set according to the logic
+                defined in the match-set-options leaf
+                ''',
+                'match_as_path_set',
+                'bgp-policy', False),
+            _MetaInfoClassMember('med-eq', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Condition to check if the received MED value is equal to
+                the specified value
+                ''',
+                'med_eq',
+                'bgp-policy', False),
+            _MetaInfoClassMember('origin-eq', REFERENCE_ENUM_CLASS, 'BgpOriginAttrTypeEnum' , 'ydk.models.bgp.bgp_types', 'BgpOriginAttrTypeEnum', 
+                [], [], 
+                '''                Condition to check if the route origin is equal to the
+                specified value
+                ''',
+                'origin_eq',
+                'bgp-policy', False),
+            _MetaInfoClassMember('next-hop-in', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                List of next hop addresses to check for in the route
+                update
+                ''',
+                'next_hop_in',
+                'bgp-policy', False, [
+                    _MetaInfoClassMember('next-hop-in', REFERENCE_LEAFLIST, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        List of next hop addresses to check for in the route
+                        update
+                        ''',
+                        'next_hop_in',
+                        'bgp-policy', False),
+                    _MetaInfoClassMember('next-hop-in', REFERENCE_LEAFLIST, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        List of next hop addresses to check for in the route
+                        update
+                        ''',
+                        'next_hop_in',
+                        'bgp-policy', False),
+                ]),
+            _MetaInfoClassMember('afi-safi-in', REFERENCE_LIST, 'AfiSafiType_Identity' , 'ydk.models.bgp.bgp_types', 'AfiSafiType_Identity', 
+                [], [], 
+                '''                List of address families which the NLRI may be
+                within
+                ''',
+                'afi_safi_in',
+                'bgp-policy', False),
+            _MetaInfoClassMember('local-pref-eq', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                Condition to check if the local pref attribute is equal to
+                the specified value
+                ''',
+                'local_pref_eq',
+                'bgp-policy', False),
+            _MetaInfoClassMember('community-count', REFERENCE_CLASS, 'CommunityCount' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount', 
+                [], [], 
+                '''                Value and comparison operations for conditions based on the
+                number of communities in the route update
+                ''',
+                'community_count',
+                'bgp-policy', False),
+            _MetaInfoClassMember('as-path-length', REFERENCE_CLASS, 'AsPathLength' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength', 
+                [], [], 
+                '''                Value and comparison operations for conditions based on the
+                length of the AS path in the route update
+                ''',
+                'as_path_length',
+                'bgp-policy', False),
+            _MetaInfoClassMember('route-type', REFERENCE_ENUM_CLASS, 'RouteTypeEnum' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.RouteTypeEnum', 
+                [], [], 
+                '''                Condition to check the route type in the route update
+                ''',
+                'route_type',
+                'bgp-policy', False),
+            ],
+            'bgp-policy',
+            'bgp-conditions',
+            _yang_ns._namespaces['bgp-policy'],
+        'ydk.models.routing.routing_policy'
+        ),
+    },
+    'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions',
+            False, 
+            [
+            _MetaInfoClassMember('call-policy', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Applies the statements from the specified policy
+                definition and then returns control the current
+                policy statement. Note that the called policy may
+                itself call other policies (subject to
+                implementation limitations). This is intended to
+                provide a policy 'subroutine' capability.  The
+                called policy should contain an explicit or a
+                default route disposition that returns an effective
+                true (accept-route) or false (reject-route),
+                otherwise the behavior may be ambiguous and
+                implementation dependent
+                ''',
+                'call_policy',
+                'routing-policy', False),
+            _MetaInfoClassMember('match-prefix-set', REFERENCE_CLASS, 'MatchPrefixSet' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet', 
+                [], [], 
+                '''                Match a referenced prefix-set according to the logic
+                defined in the match-set-options leaf
+                ''',
+                'match_prefix_set',
+                'routing-policy', False),
+            _MetaInfoClassMember('match-neighbor-set', REFERENCE_CLASS, 'MatchNeighborSet' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet', 
+                [], [], 
+                '''                Match a referenced neighbor set according to the logic
+                defined in the match-set-options-leaf
+                ''',
+                'match_neighbor_set',
+                'routing-policy', False),
+            _MetaInfoClassMember('match-tag-set', REFERENCE_CLASS, 'MatchTagSet' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet', 
+                [], [], 
+                '''                Match a referenced tag set according to the logic defined
+                in the match-options-set leaf
+                ''',
+                'match_tag_set',
+                'routing-policy', False),
+            _MetaInfoClassMember('install-protocol-eq', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Condition to check the protocol / method used to install
+                which installed the route into the local routing table
+                ''',
+                'install_protocol_eq',
+                'routing-policy', False),
+            _MetaInfoClassMember('igp-conditions', REFERENCE_CLASS, 'IgpConditions' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions', 
+                [], [], 
+                '''                Policy conditions for IGP attributes
+                ''',
+                'igp_conditions',
+                'routing-policy', False),
+            _MetaInfoClassMember('bgp-conditions', REFERENCE_CLASS, 'BgpConditions' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions', 
+                [], [], 
+                '''                Policy conditions for matching
+                BGP-specific defined sets or comparing BGP-specific
+                attributes
+                ''',
+                'bgp_conditions',
+                'bgp-policy', False),
+            ],
+            'routing-policy',
+            'conditions',
             _yang_ns._namespaces['routing-policy'],
         'ydk.models.routing.routing_policy'
         ),
@@ -318,6 +904,243 @@ _meta_table = {
         'ydk.models.routing.routing_policy'
         ),
     },
+    'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend',
+            False, 
+            [
+            _MetaInfoClassMember('repeat-n', ATTRIBUTE, 'int' , None, None, 
+                [(0, 255)], [], 
+                '''                number of times to prepend the local AS
+                number
+                ''',
+                'repeat_n',
+                'bgp-policy', False),
+            ],
+            'bgp-policy',
+            'set-as-path-prepend',
+            _yang_ns._namespaces['bgp-policy'],
+        'ydk.models.routing.routing_policy'
+        ),
+    },
+    'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity',
+            False, 
+            [
+            _MetaInfoClassMember('communities', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Set the community values for the update inline with
+                a list.
+                ''',
+                'communities',
+                'bgp-policy', False, [
+                    _MetaInfoClassMember('communities', REFERENCE_UNION, 'str' , None, None, 
+                        [], [], 
+                        '''                        Set the community values for the update inline with
+                        a list.
+                        ''',
+                        'communities',
+                        'bgp-policy', False, [
+                            _MetaInfoClassMember('communities', REFERENCE_LEAFLIST, 'int' , None, None, 
+                                [(65536, 4294901759)], [], 
+                                '''                                Set the community values for the update inline with
+                                a list.
+                                ''',
+                                'communities',
+                                'bgp-policy', False),
+                            _MetaInfoClassMember('communities', REFERENCE_LEAFLIST, 'str' , None, None, 
+                                [], ['([0-9]+:[0-9]+)'], 
+                                '''                                Set the community values for the update inline with
+                                a list.
+                                ''',
+                                'communities',
+                                'bgp-policy', False),
+                        ]),
+                    _MetaInfoClassMember('communities', REFERENCE_LEAFLIST, 'str' , None, None, 
+                        [], [], 
+                        '''                        Set the community values for the update inline with
+                        a list.
+                        ''',
+                        'communities',
+                        'bgp-policy', False),
+                ]),
+            _MetaInfoClassMember('community-set-ref', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                References a defined community set by name
+                ''',
+                'community_set_ref',
+                'bgp-policy', False),
+            _MetaInfoClassMember('options', REFERENCE_ENUM_CLASS, 'BgpSetCommunityOptionTypeEnum' , 'ydk.models.bgp.bgp_policy', 'BgpSetCommunityOptionTypeEnum', 
+                [], [], 
+                '''                Options for modifying the community attribute with
+                the specified values.  These options apply to both
+                methods of setting the community attribute.
+                ''',
+                'options',
+                'bgp-policy', False),
+            ],
+            'bgp-policy',
+            'set-community',
+            _yang_ns._namespaces['bgp-policy'],
+        'ydk.models.routing.routing_policy'
+        ),
+    },
+    'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity',
+            False, 
+            [
+            _MetaInfoClassMember('communities', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Set the community values for the update inline with
+                a list.
+                ''',
+                'communities',
+                'bgp-policy', False, [
+                    _MetaInfoClassMember('communities', REFERENCE_LEAFLIST, 'str' , None, None, 
+                        [], ['([0-9\\.]+(:[0-9]+)?:[0-9]+)'], 
+                        '''                        Set the community values for the update inline with
+                        a list.
+                        ''',
+                        'communities',
+                        'bgp-policy', False),
+                    _MetaInfoClassMember('communities', REFERENCE_LEAFLIST, 'str' , None, None, 
+                        [], [], 
+                        '''                        Set the community values for the update inline with
+                        a list.
+                        ''',
+                        'communities',
+                        'bgp-policy', False),
+                ]),
+            _MetaInfoClassMember('ext-community-set-ref', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                References a defined extended community set by
+                name
+                ''',
+                'ext_community_set_ref',
+                'bgp-policy', False),
+            _MetaInfoClassMember('options', REFERENCE_ENUM_CLASS, 'BgpSetCommunityOptionTypeEnum' , 'ydk.models.bgp.bgp_policy', 'BgpSetCommunityOptionTypeEnum', 
+                [], [], 
+                '''                options for modifying the extended community
+                attribute with the specified values. These options
+                apply to both methods of setting the community
+                attribute.
+                ''',
+                'options',
+                'bgp-policy', False),
+            ],
+            'bgp-policy',
+            'set-ext-community',
+            _yang_ns._namespaces['bgp-policy'],
+        'ydk.models.routing.routing_policy'
+        ),
+    },
+    'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions',
+            False, 
+            [
+            _MetaInfoClassMember('set-as-path-prepend', REFERENCE_CLASS, 'SetAsPathPrepend' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend', 
+                [], [], 
+                '''                action to prepend local AS number to the AS-path a
+                specified number of times
+                ''',
+                'set_as_path_prepend',
+                'bgp-policy', False),
+            _MetaInfoClassMember('set-community', REFERENCE_CLASS, 'SetCommunity' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity', 
+                [], [], 
+                '''                action to set the community attributes of the route, along
+                with options to modify how the community is modified
+                ''',
+                'set_community',
+                'bgp-policy', False),
+            _MetaInfoClassMember('set-ext-community', REFERENCE_CLASS, 'SetExtCommunity' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity', 
+                [], [], 
+                '''                Action to set the extended community attributes of the
+                route, along with options to modify how the community is
+                modified
+                ''',
+                'set_ext_community',
+                'bgp-policy', False),
+            _MetaInfoClassMember('set-route-origin', REFERENCE_ENUM_CLASS, 'BgpOriginAttrTypeEnum' , 'ydk.models.bgp.bgp_types', 'BgpOriginAttrTypeEnum', 
+                [], [], 
+                '''                set the origin attribute to the specified
+                value
+                ''',
+                'set_route_origin',
+                'bgp-policy', False),
+            _MetaInfoClassMember('set-local-pref', ATTRIBUTE, 'int' , None, None, 
+                [(0, 4294967295)], [], 
+                '''                set the local pref attribute on the route
+                update
+                ''',
+                'set_local_pref',
+                'bgp-policy', False),
+            _MetaInfoClassMember('set-next-hop', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                set the next-hop attribute in the route update
+                ''',
+                'set_next_hop',
+                'bgp-policy', False, [
+                    _MetaInfoClassMember('set-next-hop', REFERENCE_UNION, 'str' , None, None, 
+                        [], [], 
+                        '''                        set the next-hop attribute in the route update
+                        ''',
+                        'set_next_hop',
+                        'bgp-policy', False, [
+                            _MetaInfoClassMember('set-next-hop', ATTRIBUTE, 'str' , None, None, 
+                                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                                '''                                set the next-hop attribute in the route update
+                                ''',
+                                'set_next_hop',
+                                'bgp-policy', False),
+                            _MetaInfoClassMember('set-next-hop', ATTRIBUTE, 'str' , None, None, 
+                                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                                '''                                set the next-hop attribute in the route update
+                                ''',
+                                'set_next_hop',
+                                'bgp-policy', False),
+                        ]),
+                    _MetaInfoClassMember('set-next-hop', REFERENCE_ENUM_CLASS, 'BgpNextHopTypeEnum' , 'ydk.models.bgp.bgp_policy', 'BgpNextHopTypeEnum', 
+                        [], [], 
+                        '''                        set the next-hop attribute in the route update
+                        ''',
+                        'set_next_hop',
+                        'bgp-policy', False),
+                ]),
+            _MetaInfoClassMember('set-med', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                set the med metric attribute in the route
+                update
+                ''',
+                'set_med',
+                'bgp-policy', False, [
+                    _MetaInfoClassMember('set-med', ATTRIBUTE, 'int' , None, None, 
+                        [(0, 4294967295)], [], 
+                        '''                        set the med metric attribute in the route
+                        update
+                        ''',
+                        'set_med',
+                        'bgp-policy', False),
+                    _MetaInfoClassMember('set-med', ATTRIBUTE, 'str' , None, None, 
+                        [], ['^[+-][0-9]+'], 
+                        '''                        set the med metric attribute in the route
+                        update
+                        ''',
+                        'set_med',
+                        'bgp-policy', False),
+                    _MetaInfoClassMember('set-med', REFERENCE_ENUM_CLASS, 'BgpSetMedTypeEnum' , 'ydk.models.bgp.bgp_policy', 'BgpSetMedTypeEnum', 
+                        [], [], 
+                        '''                        set the med metric attribute in the route
+                        update
+                        ''',
+                        'set_med',
+                        'bgp-policy', False),
+                ]),
+            ],
+            'bgp-policy',
+            'bgp-actions',
+            _yang_ns._namespaces['bgp-policy'],
+        'ydk.models.routing.routing_policy'
+        ),
+    },
     'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions' : {
         'meta_info' : _MetaInfoClass('RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions',
             False, 
@@ -328,6 +1151,12 @@ _meta_table = {
                 ''',
                 'accept_route',
                 'routing-policy', False),
+            _MetaInfoClassMember('reject-route', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                rejects the route
+                ''',
+                'reject_route',
+                'routing-policy', False),
             _MetaInfoClassMember('igp-actions', REFERENCE_CLASS, 'IgpActions' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions', 
                 [], [], 
                 '''                Actions to set IGP route attributes; these actions
@@ -335,165 +1164,16 @@ _meta_table = {
                 ''',
                 'igp_actions',
                 'routing-policy', False),
-            _MetaInfoClassMember('reject-route', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('bgp-actions', REFERENCE_CLASS, 'BgpActions' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions', 
                 [], [], 
-                '''                rejects the route
+                '''                Definitions for policy action statements that
+                change BGP-specific attributes of the route
                 ''',
-                'reject_route',
-                'routing-policy', False),
+                'bgp_actions',
+                'bgp-policy', False),
             ],
             'routing-policy',
             'actions',
-            _yang_ns._namespaces['routing-policy'],
-        'ydk.models.routing.routing_policy'
-        ),
-    },
-    'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions',
-            False, 
-            [
-            ],
-            'routing-policy',
-            'igp-conditions',
-            _yang_ns._namespaces['routing-policy'],
-        'ydk.models.routing.routing_policy'
-        ),
-    },
-    'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet',
-            False, 
-            [
-            _MetaInfoClassMember('match-set-options', REFERENCE_ENUM_CLASS, 'MatchSetOptionsRestrictedTypeEnum' , 'ydk.models.policy.policy_types', 'MatchSetOptionsRestrictedTypeEnum', 
-                [], [], 
-                '''                Optional parameter that governs the behaviour of the
-                match operation.  This leaf only supports matching on ANY
-                member of the set or inverting the match.  Matching on ALL is
-                not supported)
-                ''',
-                'match_set_options',
-                'routing-policy', False),
-            _MetaInfoClassMember('neighbor-set', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                References a defined neighbor set
-                ''',
-                'neighbor_set',
-                'routing-policy', False),
-            ],
-            'routing-policy',
-            'match-neighbor-set',
-            _yang_ns._namespaces['routing-policy'],
-        'ydk.models.routing.routing_policy'
-        ),
-    },
-    'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet',
-            False, 
-            [
-            _MetaInfoClassMember('match-set-options', REFERENCE_ENUM_CLASS, 'MatchSetOptionsRestrictedTypeEnum' , 'ydk.models.policy.policy_types', 'MatchSetOptionsRestrictedTypeEnum', 
-                [], [], 
-                '''                Optional parameter that governs the behaviour of the
-                match operation.  This leaf only supports matching on ANY
-                member of the set or inverting the match.  Matching on ALL is
-                not supported)
-                ''',
-                'match_set_options',
-                'routing-policy', False),
-            _MetaInfoClassMember('prefix-set', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                References a defined prefix set
-                ''',
-                'prefix_set',
-                'routing-policy', False),
-            ],
-            'routing-policy',
-            'match-prefix-set',
-            _yang_ns._namespaces['routing-policy'],
-        'ydk.models.routing.routing_policy'
-        ),
-    },
-    'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet',
-            False, 
-            [
-            _MetaInfoClassMember('match-set-options', REFERENCE_ENUM_CLASS, 'MatchSetOptionsRestrictedTypeEnum' , 'ydk.models.policy.policy_types', 'MatchSetOptionsRestrictedTypeEnum', 
-                [], [], 
-                '''                Optional parameter that governs the behaviour of the
-                match operation.  This leaf only supports matching on ANY
-                member of the set or inverting the match.  Matching on ALL is
-                not supported)
-                ''',
-                'match_set_options',
-                'routing-policy', False),
-            _MetaInfoClassMember('tag-set', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                References a defined tag set
-                ''',
-                'tag_set',
-                'routing-policy', False),
-            ],
-            'routing-policy',
-            'match-tag-set',
-            _yang_ns._namespaces['routing-policy'],
-        'ydk.models.routing.routing_policy'
-        ),
-    },
-    'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions',
-            False, 
-            [
-            _MetaInfoClassMember('call-policy', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Applies the statements from the specified policy
-                definition and then returns control the current
-                policy statement. Note that the called policy may
-                itself call other policies (subject to
-                implementation limitations). This is intended to
-                provide a policy 'subroutine' capability.  The
-                called policy should contain an explicit or a
-                default route disposition that returns an effective
-                true (accept-route) or false (reject-route),
-                otherwise the behavior may be ambiguous and
-                implementation dependent
-                ''',
-                'call_policy',
-                'routing-policy', False),
-            _MetaInfoClassMember('igp-conditions', REFERENCE_CLASS, 'IgpConditions' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions', 
-                [], [], 
-                '''                Policy conditions for IGP attributes
-                ''',
-                'igp_conditions',
-                'routing-policy', False),
-            _MetaInfoClassMember('install-protocol-eq', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Condition to check the protocol / method used to install
-                which installed the route into the local routing table
-                ''',
-                'install_protocol_eq',
-                'routing-policy', False),
-            _MetaInfoClassMember('match-neighbor-set', REFERENCE_CLASS, 'MatchNeighborSet' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet', 
-                [], [], 
-                '''                Match a referenced neighbor set according to the logic
-                defined in the match-set-options-leaf
-                ''',
-                'match_neighbor_set',
-                'routing-policy', False),
-            _MetaInfoClassMember('match-prefix-set', REFERENCE_CLASS, 'MatchPrefixSet' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet', 
-                [], [], 
-                '''                Match a referenced prefix-set according to the logic
-                defined in the match-set-options leaf
-                ''',
-                'match_prefix_set',
-                'routing-policy', False),
-            _MetaInfoClassMember('match-tag-set', REFERENCE_CLASS, 'MatchTagSet' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet', 
-                [], [], 
-                '''                Match a referenced tag set according to the logic defined
-                in the match-options-set leaf
-                ''',
-                'match_tag_set',
-                'routing-policy', False),
-            ],
-            'routing-policy',
-            'conditions',
             _yang_ns._namespaces['routing-policy'],
         'ydk.models.routing.routing_policy'
         ),
@@ -508,19 +1188,19 @@ _meta_table = {
                 ''',
                 'name',
                 'routing-policy', True),
-            _MetaInfoClassMember('actions', REFERENCE_CLASS, 'Actions' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions', 
-                [], [], 
-                '''                Action statements for this policy
-                statement
-                ''',
-                'actions',
-                'routing-policy', False),
             _MetaInfoClassMember('conditions', REFERENCE_CLASS, 'Conditions' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions', 
                 [], [], 
                 '''                Condition statements for this
                 policy statement
                 ''',
                 'conditions',
+                'routing-policy', False),
+            _MetaInfoClassMember('actions', REFERENCE_CLASS, 'Actions' , 'ydk.models.routing.routing_policy', 'RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions', 
+                [], [], 
+                '''                Action statements for this policy
+                statement
+                ''',
+                'actions',
                 'routing-policy', False),
             ],
             'routing-policy',
@@ -619,22 +1299,39 @@ _meta_table = {
         ),
     },
 }
-_meta_table['RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Neighbor']['meta_info'].parent =_meta_table['RoutingPolicy.DefinedSets.NeighborSets.NeighborSet']['meta_info']
-_meta_table['RoutingPolicy.DefinedSets.NeighborSets.NeighborSet']['meta_info'].parent =_meta_table['RoutingPolicy.DefinedSets.NeighborSets']['meta_info']
 _meta_table['RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefix']['meta_info'].parent =_meta_table['RoutingPolicy.DefinedSets.PrefixSets.PrefixSet']['meta_info']
 _meta_table['RoutingPolicy.DefinedSets.PrefixSets.PrefixSet']['meta_info'].parent =_meta_table['RoutingPolicy.DefinedSets.PrefixSets']['meta_info']
+_meta_table['RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Neighbor']['meta_info'].parent =_meta_table['RoutingPolicy.DefinedSets.NeighborSets.NeighborSet']['meta_info']
+_meta_table['RoutingPolicy.DefinedSets.NeighborSets.NeighborSet']['meta_info'].parent =_meta_table['RoutingPolicy.DefinedSets.NeighborSets']['meta_info']
 _meta_table['RoutingPolicy.DefinedSets.TagSets.TagSet.Tag']['meta_info'].parent =_meta_table['RoutingPolicy.DefinedSets.TagSets.TagSet']['meta_info']
 _meta_table['RoutingPolicy.DefinedSets.TagSets.TagSet']['meta_info'].parent =_meta_table['RoutingPolicy.DefinedSets.TagSets']['meta_info']
-_meta_table['RoutingPolicy.DefinedSets.NeighborSets']['meta_info'].parent =_meta_table['RoutingPolicy.DefinedSets']['meta_info']
+_meta_table['RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet']['meta_info'].parent =_meta_table['RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets']['meta_info']
+_meta_table['RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet']['meta_info'].parent =_meta_table['RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets']['meta_info']
+_meta_table['RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet']['meta_info'].parent =_meta_table['RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets']['meta_info']
+_meta_table['RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets']['meta_info'].parent =_meta_table['RoutingPolicy.DefinedSets.BgpDefinedSets']['meta_info']
+_meta_table['RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets']['meta_info'].parent =_meta_table['RoutingPolicy.DefinedSets.BgpDefinedSets']['meta_info']
+_meta_table['RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets']['meta_info'].parent =_meta_table['RoutingPolicy.DefinedSets.BgpDefinedSets']['meta_info']
 _meta_table['RoutingPolicy.DefinedSets.PrefixSets']['meta_info'].parent =_meta_table['RoutingPolicy.DefinedSets']['meta_info']
+_meta_table['RoutingPolicy.DefinedSets.NeighborSets']['meta_info'].parent =_meta_table['RoutingPolicy.DefinedSets']['meta_info']
 _meta_table['RoutingPolicy.DefinedSets.TagSets']['meta_info'].parent =_meta_table['RoutingPolicy.DefinedSets']['meta_info']
-_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions']['meta_info'].parent =_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions']['meta_info']
-_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions']['meta_info'].parent =_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions']['meta_info']
-_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet']['meta_info'].parent =_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions']['meta_info']
+_meta_table['RoutingPolicy.DefinedSets.BgpDefinedSets']['meta_info'].parent =_meta_table['RoutingPolicy.DefinedSets']['meta_info']
+_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet']['meta_info'].parent =_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions']['meta_info']
+_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet']['meta_info'].parent =_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions']['meta_info']
+_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet']['meta_info'].parent =_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions']['meta_info']
+_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount']['meta_info'].parent =_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions']['meta_info']
+_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength']['meta_info'].parent =_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions']['meta_info']
 _meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet']['meta_info'].parent =_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions']['meta_info']
+_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet']['meta_info'].parent =_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions']['meta_info']
 _meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet']['meta_info'].parent =_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions']['meta_info']
-_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions']['meta_info'].parent =_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement']['meta_info']
+_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions']['meta_info'].parent =_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions']['meta_info']
+_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions']['meta_info'].parent =_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions']['meta_info']
+_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend']['meta_info'].parent =_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions']['meta_info']
+_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity']['meta_info'].parent =_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions']['meta_info']
+_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity']['meta_info'].parent =_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions']['meta_info']
+_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions']['meta_info'].parent =_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions']['meta_info']
+_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions']['meta_info'].parent =_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions']['meta_info']
 _meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions']['meta_info'].parent =_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement']['meta_info']
+_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions']['meta_info'].parent =_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement']['meta_info']
 _meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement']['meta_info'].parent =_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements']['meta_info']
 _meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements']['meta_info'].parent =_meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition']['meta_info']
 _meta_table['RoutingPolicy.PolicyDefinitions.PolicyDefinition']['meta_info'].parent =_meta_table['RoutingPolicy.PolicyDefinitions']['meta_info']

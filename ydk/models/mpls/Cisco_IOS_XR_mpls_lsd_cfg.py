@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -66,20 +66,10 @@ class MplsLsd(object):
     """
     MPLS LSD configuration data
     
-    .. attribute:: app_reg_delay_disable
-    
-    	Disable LSD application reg delay
-    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-    
     .. attribute:: label_databases
     
     	Table of label databases
     	**type**\: :py:class:`LabelDatabases <ydk.models.mpls.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.LabelDatabases>`
-    
-    .. attribute:: mpls_entropy_label
-    
-    	Enable MPLS Entropy Label
-    	**type**\: :py:class:`Empty <ydk.types.Empty>`
     
     .. attribute:: mpls_ip_ttl_expiration_pop
     
@@ -87,6 +77,16 @@ class MplsLsd(object):
     	**type**\: int
     
     	**range:** 1..10
+    
+    .. attribute:: app_reg_delay_disable
+    
+    	Disable LSD application reg delay
+    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+    
+    .. attribute:: mpls_entropy_label
+    
+    	Enable MPLS Entropy Label
+    	**type**\: :py:class:`Empty <ydk.types.Empty>`
     
     .. attribute:: mpls_ip_ttl_propagate_disable
     
@@ -101,11 +101,11 @@ class MplsLsd(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.app_reg_delay_disable = None
         self.label_databases = MplsLsd.LabelDatabases()
         self.label_databases.parent = self
-        self.mpls_entropy_label = None
         self.mpls_ip_ttl_expiration_pop = None
+        self.app_reg_delay_disable = None
+        self.mpls_entropy_label = None
         self.mpls_ip_ttl_propagate_disable = None
 
 
@@ -136,7 +136,7 @@ class MplsLsd(object):
             """
             A label database
             
-            .. attribute:: label_database_id
+            .. attribute:: label_database_id  <key>
             
             	Label database identifier
             	**type**\: int
@@ -166,12 +166,12 @@ class MplsLsd(object):
                 """
                 Label range
                 
-                .. attribute:: max_static_value
+                .. attribute:: minvalue
                 
-                	Maximum static label value
+                	Minimum label value
                 	**type**\: int
                 
-                	**range:** 0..1048575
+                	**range:** 16000..1048575
                 
                 .. attribute:: max_value
                 
@@ -187,12 +187,12 @@ class MplsLsd(object):
                 
                 	**range:** 0..1048575
                 
-                .. attribute:: minvalue
+                .. attribute:: max_static_value
                 
-                	Minimum label value
+                	Maximum static label value
                 	**type**\: int
                 
-                	**range:** 16000..1048575
+                	**range:** 0..1048575
                 
                 
 
@@ -203,10 +203,10 @@ class MplsLsd(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.max_static_value = None
+                    self.minvalue = None
                     self.max_value = None
                     self.min_static_value = None
-                    self.minvalue = None
+                    self.max_static_value = None
 
                 @property
                 def _common_path(self):
@@ -222,7 +222,7 @@ class MplsLsd(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.max_static_value is not None:
+                    if self.minvalue is not None:
                         return True
 
                     if self.max_value is not None:
@@ -231,7 +231,7 @@ class MplsLsd(object):
                     if self.min_static_value is not None:
                         return True
 
-                    if self.minvalue is not None:
+                    if self.max_static_value is not None:
                         return True
 
                     return False
@@ -304,16 +304,16 @@ class MplsLsd(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.app_reg_delay_disable is not None:
-            return True
-
         if self.label_databases is not None and self.label_databases._has_data():
             return True
 
-        if self.mpls_entropy_label is not None:
+        if self.mpls_ip_ttl_expiration_pop is not None:
             return True
 
-        if self.mpls_ip_ttl_expiration_pop is not None:
+        if self.app_reg_delay_disable is not None:
+            return True
+
+        if self.mpls_entropy_label is not None:
             return True
 
         if self.mpls_ip_ttl_propagate_disable is not None:

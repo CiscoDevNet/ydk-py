@@ -50,7 +50,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -83,7 +83,7 @@ class Components(object):
         """
         List of components, keyed by component name.
         
-        .. attribute:: name
+        .. attribute:: name  <key>
         
         	References the component name
         	**type**\: str
@@ -93,15 +93,15 @@ class Components(object):
         	Configuration data for each component
         	**type**\: :py:class:`Config <ydk.models.openconfig.openconfig_inventory.Components.Component.Config>`
         
-        .. attribute:: properties
-        
-        	Enclosing container 
-        	**type**\: :py:class:`Properties <ydk.models.openconfig.openconfig_inventory.Components.Component.Properties>`
-        
         .. attribute:: state
         
         	Operational state data for each component
         	**type**\: :py:class:`State <ydk.models.openconfig.openconfig_inventory.Components.Component.State>`
+        
+        .. attribute:: properties
+        
+        	Enclosing container 
+        	**type**\: :py:class:`Properties <ydk.models.openconfig.openconfig_inventory.Components.Component.Properties>`
         
         .. attribute:: subcomponents
         
@@ -120,10 +120,10 @@ class Components(object):
             self.name = None
             self.config = Components.Component.Config()
             self.config.parent = self
-            self.properties = Components.Component.Properties()
-            self.properties.parent = self
             self.state = Components.Component.State()
             self.state.parent = self
+            self.properties = Components.Component.Properties()
+            self.properties.parent = self
             self.subcomponents = Components.Component.Subcomponents()
             self.subcomponents.parent = self
 
@@ -173,6 +173,104 @@ class Components(object):
                 return meta._meta_table['Components.Component.Config']['meta_info']
 
 
+        class State(object):
+            """
+            Operational state data for each component
+            
+            .. attribute:: name
+            
+            	Device name for the component \-\- this may not be a configurable parameter on many implementations
+            	**type**\: str
+            
+            .. attribute:: type
+            
+            	Type of component as identified by the system
+            	**type**\: one of the below types:
+            
+            	**type**\: :py:class:`OpenconfigHardwareComponent_Identity <ydk.models.openconfig.openconfig_inventory_types.OpenconfigHardwareComponent_Identity>`
+            
+            
+            ----
+            	**type**\: :py:class:`OpenconfigSoftwareComponent_Identity <ydk.models.openconfig.openconfig_inventory_types.OpenconfigSoftwareComponent_Identity>`
+            
+            
+            ----
+            .. attribute:: id
+            
+            	Unique identifier assigned by the system for the component
+            	**type**\: str
+            
+            .. attribute:: description
+            
+            	System\-supplied description of the component
+            	**type**\: str
+            
+            .. attribute:: serial_no
+            
+            	System\-assigned serial number of the component
+            	**type**\: str
+            
+            .. attribute:: part_no
+            
+            	System\-assigned part number for the component.  This should be present in particular if the component is also an FRU (field replacable unit)
+            	**type**\: str
+            
+            
+
+            """
+
+            _prefix = 'oc-inv'
+            _revision = '2015-12-18'
+
+            def __init__(self):
+                self.parent = None
+                self.name = None
+                self.type = None
+                self.id = None
+                self.description = None
+                self.serial_no = None
+                self.part_no = None
+
+            @property
+            def _common_path(self):
+                if self.parent is None:
+                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                return self.parent._common_path +'/openconfig-inventory:state'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.name is not None:
+                    return True
+
+                if self.type is not None:
+                    return True
+
+                if self.id is not None:
+                    return True
+
+                if self.description is not None:
+                    return True
+
+                if self.serial_no is not None:
+                    return True
+
+                if self.part_no is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.openconfig._meta import _openconfig_inventory as meta
+                return meta._meta_table['Components.Component.State']['meta_info']
+
+
         class Properties(object):
             """
             Enclosing container 
@@ -200,7 +298,7 @@ class Components(object):
                 """
                 List of system properties for the component
                 
-                .. attribute:: name
+                .. attribute:: name  <key>
                 
                 	Reference to the property name
                 	**type**\: str
@@ -243,8 +341,34 @@ class Components(object):
                     .. attribute:: value
                     
                     	Property values can take on a variety of types.  Signed and unsigned integer types may be provided in smaller sizes, e.g., int8, uint16, etc
-                    	**type**\: one of { str | bool | int | int | :py:class:`Decimal64 <ydk.types.Decimal64>` }
+                    	**type**\: one of the below types:
                     
+                    	**type**\: str
+                    
+                    
+                    ----
+                    	**type**\: bool
+                    
+                    
+                    ----
+                    	**type**\: int
+                    
+                    	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    
+                    ----
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    
+                    ----
+                    	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    
+                    ----
                     
 
                     """
@@ -289,11 +413,6 @@ class Components(object):
                     """
                     Operational state data for each property
                     
-                    .. attribute:: configurable
-                    
-                    	Indication whether the property is user\-configurable
-                    	**type**\: bool
-                    
                     .. attribute:: name
                     
                     	System\-supplied name of the property \-\- this is typically non\-configurable
@@ -302,7 +421,38 @@ class Components(object):
                     .. attribute:: value
                     
                     	Property values can take on a variety of types.  Signed and unsigned integer types may be provided in smaller sizes, e.g., int8, uint16, etc
-                    	**type**\: one of { str | bool | int | int | :py:class:`Decimal64 <ydk.types.Decimal64>` }
+                    	**type**\: one of the below types:
+                    
+                    	**type**\: str
+                    
+                    
+                    ----
+                    	**type**\: bool
+                    
+                    
+                    ----
+                    	**type**\: int
+                    
+                    	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    
+                    ----
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    
+                    ----
+                    	**type**\: :py:class:`Decimal64 <ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    
+                    ----
+                    .. attribute:: configurable
+                    
+                    	Indication whether the property is user\-configurable
+                    	**type**\: bool
                     
                     
 
@@ -313,9 +463,9 @@ class Components(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.configurable = None
                         self.name = None
                         self.value = None
+                        self.configurable = None
 
                     @property
                     def _common_path(self):
@@ -331,13 +481,13 @@ class Components(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.configurable is not None:
-                            return True
-
                         if self.name is not None:
                             return True
 
                         if self.value is not None:
+                            return True
+
+                        if self.configurable is not None:
                             return True
 
                         return False
@@ -406,96 +556,6 @@ class Components(object):
                 return meta._meta_table['Components.Component.Properties']['meta_info']
 
 
-        class State(object):
-            """
-            Operational state data for each component
-            
-            .. attribute:: description
-            
-            	System\-supplied description of the component
-            	**type**\: str
-            
-            .. attribute:: id
-            
-            	Unique identifier assigned by the system for the component
-            	**type**\: str
-            
-            .. attribute:: name
-            
-            	Device name for the component \-\- this may not be a configurable parameter on many implementations
-            	**type**\: str
-            
-            .. attribute:: part_no
-            
-            	System\-assigned part number for the component.  This should be present in particular if the component is also an FRU (field replacable unit)
-            	**type**\: str
-            
-            .. attribute:: serial_no
-            
-            	System\-assigned serial number of the component
-            	**type**\: str
-            
-            .. attribute:: type
-            
-            	Type of component as identified by the system
-            	**type**\: one of { :py:class:`OpenconfigHardwareComponent_Identity <ydk.models.openconfig.openconfig_inventory_types.OpenconfigHardwareComponent_Identity>` | :py:class:`OpenconfigSoftwareComponent_Identity <ydk.models.openconfig.openconfig_inventory_types.OpenconfigSoftwareComponent_Identity>` }
-            
-            
-
-            """
-
-            _prefix = 'oc-inv'
-            _revision = '2015-12-18'
-
-            def __init__(self):
-                self.parent = None
-                self.description = None
-                self.id = None
-                self.name = None
-                self.part_no = None
-                self.serial_no = None
-                self.type = None
-
-            @property
-            def _common_path(self):
-                if self.parent is None:
-                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                return self.parent._common_path +'/openconfig-inventory:state'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.description is not None:
-                    return True
-
-                if self.id is not None:
-                    return True
-
-                if self.name is not None:
-                    return True
-
-                if self.part_no is not None:
-                    return True
-
-                if self.serial_no is not None:
-                    return True
-
-                if self.type is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.openconfig._meta import _openconfig_inventory as meta
-                return meta._meta_table['Components.Component.State']['meta_info']
-
-
         class Subcomponents(object):
             """
             Enclosing container for subcomponent references
@@ -523,7 +583,7 @@ class Components(object):
                 """
                 List of subcomponent references
                 
-                .. attribute:: name
+                .. attribute:: name  <key>
                 
                 	Reference to the subcomponent name
                 	**type**\: str
@@ -730,10 +790,10 @@ class Components(object):
             if self.config is not None and self.config._has_data():
                 return True
 
-            if self.properties is not None and self.properties._has_data():
+            if self.state is not None and self.state._has_data():
                 return True
 
-            if self.state is not None and self.state._has_data():
+            if self.properties is not None and self.properties._has_data():
                 return True
 
             if self.subcomponents is not None and self.subcomponents._has_data():

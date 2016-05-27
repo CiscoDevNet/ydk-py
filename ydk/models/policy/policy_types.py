@@ -12,7 +12,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -99,27 +99,6 @@ class MatchSetOptionsTypeEnum(Enum):
 
 
 
-class AttributeComparison_Identity(object):
-    """
-    base type for supported comparison operators on route
-    attributes
-    
-    
-
-    """
-
-    _prefix = 'ptypes'
-    _revision = '2015-05-15'
-
-    def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.policy._meta import _policy_types as meta
-        return meta._meta_table['AttributeComparison_Identity']['meta_info']
-
-
 class InstallProtocolType_Identity(object):
     """
     Base type for protocols which can install prefixes into the
@@ -141,9 +120,10 @@ class InstallProtocolType_Identity(object):
         return meta._meta_table['InstallProtocolType_Identity']['meta_info']
 
 
-class AttributeEq_Identity(AttributeComparison_Identity):
+class AttributeComparison_Identity(object):
     """
-    == comparison
+    base type for supported comparison operators on route
+    attributes
     
     
 
@@ -153,12 +133,32 @@ class AttributeEq_Identity(AttributeComparison_Identity):
     _revision = '2015-05-15'
 
     def __init__(self):
-        AttributeComparison_Identity.__init__(self)
+        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.policy._meta import _policy_types as meta
-        return meta._meta_table['AttributeEq_Identity']['meta_info']
+        return meta._meta_table['AttributeComparison_Identity']['meta_info']
+
+
+class LocalAggregate_Identity(InstallProtocolType_Identity):
+    """
+    Locally defined aggregate route
+    
+    
+
+    """
+
+    _prefix = 'ptypes'
+    _revision = '2015-05-15'
+
+    def __init__(self):
+        InstallProtocolType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.policy._meta import _policy_types as meta
+        return meta._meta_table['LocalAggregate_Identity']['meta_info']
 
 
 class AttributeGe_Identity(AttributeComparison_Identity):
@@ -181,6 +181,26 @@ class AttributeGe_Identity(AttributeComparison_Identity):
         return meta._meta_table['AttributeGe_Identity']['meta_info']
 
 
+class Ospf3_Identity(InstallProtocolType_Identity):
+    """
+    OSPFv3
+    
+    
+
+    """
+
+    _prefix = 'ptypes'
+    _revision = '2015-05-15'
+
+    def __init__(self):
+        InstallProtocolType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.policy._meta import _policy_types as meta
+        return meta._meta_table['Ospf3_Identity']['meta_info']
+
+
 class AttributeLe_Identity(AttributeComparison_Identity):
     """
     <= comparison
@@ -199,6 +219,46 @@ class AttributeLe_Identity(AttributeComparison_Identity):
     def _meta_info():
         from ydk.models.policy._meta import _policy_types as meta
         return meta._meta_table['AttributeLe_Identity']['meta_info']
+
+
+class AttributeEq_Identity(AttributeComparison_Identity):
+    """
+    == comparison
+    
+    
+
+    """
+
+    _prefix = 'ptypes'
+    _revision = '2015-05-15'
+
+    def __init__(self):
+        AttributeComparison_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.policy._meta import _policy_types as meta
+        return meta._meta_table['AttributeEq_Identity']['meta_info']
+
+
+class Ospf_Identity(InstallProtocolType_Identity):
+    """
+    OSPFv2
+    
+    
+
+    """
+
+    _prefix = 'ptypes'
+    _revision = '2015-05-15'
+
+    def __init__(self):
+        InstallProtocolType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.policy._meta import _policy_types as meta
+        return meta._meta_table['Ospf_Identity']['meta_info']
 
 
 class Bgp_Identity(InstallProtocolType_Identity):
@@ -241,86 +301,6 @@ class DirectlyConnected_Identity(InstallProtocolType_Identity):
         return meta._meta_table['DirectlyConnected_Identity']['meta_info']
 
 
-class Isis_Identity(InstallProtocolType_Identity):
-    """
-    IS\-IS
-    
-    
-
-    """
-
-    _prefix = 'ptypes'
-    _revision = '2015-05-15'
-
-    def __init__(self):
-        InstallProtocolType_Identity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.policy._meta import _policy_types as meta
-        return meta._meta_table['Isis_Identity']['meta_info']
-
-
-class LocalAggregate_Identity(InstallProtocolType_Identity):
-    """
-    Locally defined aggregate route
-    
-    
-
-    """
-
-    _prefix = 'ptypes'
-    _revision = '2015-05-15'
-
-    def __init__(self):
-        InstallProtocolType_Identity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.policy._meta import _policy_types as meta
-        return meta._meta_table['LocalAggregate_Identity']['meta_info']
-
-
-class Ospf3_Identity(InstallProtocolType_Identity):
-    """
-    OSPFv3
-    
-    
-
-    """
-
-    _prefix = 'ptypes'
-    _revision = '2015-05-15'
-
-    def __init__(self):
-        InstallProtocolType_Identity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.policy._meta import _policy_types as meta
-        return meta._meta_table['Ospf3_Identity']['meta_info']
-
-
-class Ospf_Identity(InstallProtocolType_Identity):
-    """
-    OSPFv2
-    
-    
-
-    """
-
-    _prefix = 'ptypes'
-    _revision = '2015-05-15'
-
-    def __init__(self):
-        InstallProtocolType_Identity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.policy._meta import _policy_types as meta
-        return meta._meta_table['Ospf_Identity']['meta_info']
-
-
 class Static_Identity(InstallProtocolType_Identity):
     """
     Locally\-installed static route
@@ -339,5 +319,25 @@ class Static_Identity(InstallProtocolType_Identity):
     def _meta_info():
         from ydk.models.policy._meta import _policy_types as meta
         return meta._meta_table['Static_Identity']['meta_info']
+
+
+class Isis_Identity(InstallProtocolType_Identity):
+    """
+    IS\-IS
+    
+    
+
+    """
+
+    _prefix = 'ptypes'
+    _revision = '2015-05-15'
+
+    def __init__(self):
+        InstallProtocolType_Identity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.policy._meta import _policy_types as meta
+        return meta._meta_table['Isis_Identity']['meta_info']
 
 

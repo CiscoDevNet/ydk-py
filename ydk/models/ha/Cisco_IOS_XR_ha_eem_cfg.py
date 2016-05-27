@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -137,25 +137,20 @@ class EventManager(object):
     """
     Event manager configuration
     
-    .. attribute:: directory_user_library
+    .. attribute:: policies
     
-    	Path of the user policy library directory
-    	**type**\: str
+    	Register an event manager policy
+    	**type**\: :py:class:`Policies <ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg.EventManager.Policies>`
     
-    .. attribute:: directory_user_policy
+    .. attribute:: scheduler_script
     
-    	Set event manager user policy directory
-    	**type**\: str
+    	scheduler classs type
+    	**type**\: :py:class:`SchedulerScript <ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg.EventManager.SchedulerScript>`
     
     .. attribute:: environments
     
     	Set an event manager global variable for event manager policies
     	**type**\: :py:class:`Environments <ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg.EventManager.Environments>`
-    
-    .. attribute:: policies
-    
-    	Register an event manager policy
-    	**type**\: :py:class:`Policies <ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg.EventManager.Policies>`
     
     .. attribute:: refresh_time
     
@@ -169,10 +164,15 @@ class EventManager(object):
     	Enable suspend policy scheduling
     	**type**\: bool
     
-    .. attribute:: scheduler_script
+    .. attribute:: directory_user_policy
     
-    	scheduler classs type
-    	**type**\: :py:class:`SchedulerScript <ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg.EventManager.SchedulerScript>`
+    	Set event manager user policy directory
+    	**type**\: str
+    
+    .. attribute:: directory_user_library
+    
+    	Path of the user policy library directory
+    	**type**\: str
     
     
 
@@ -182,120 +182,16 @@ class EventManager(object):
     _revision = '2015-07-30'
 
     def __init__(self):
-        self.directory_user_library = None
-        self.directory_user_policy = None
-        self.environments = EventManager.Environments()
-        self.environments.parent = self
         self.policies = EventManager.Policies()
         self.policies.parent = self
-        self.refresh_time = None
-        self.schedule_suspend = None
         self.scheduler_script = EventManager.SchedulerScript()
         self.scheduler_script.parent = self
-
-
-    class Environments(object):
-        """
-        Set an event manager global variable for event
-        manager policies
-        
-        .. attribute:: environment
-        
-        	Name of the global variable
-        	**type**\: list of :py:class:`Environment <ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg.EventManager.Environments.Environment>`
-        
-        
-
-        """
-
-        _prefix = 'ha-eem-cfg'
-        _revision = '2015-07-30'
-
-        def __init__(self):
-            self.parent = None
-            self.environment = YList()
-            self.environment.parent = self
-            self.environment.name = 'environment'
-
-
-        class Environment(object):
-            """
-            Name of the global variable
-            
-            .. attribute:: environment_name
-            
-            	Name of the global variable
-            	**type**\: str
-            
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
-            .. attribute:: environment_value
-            
-            	Value of the global variable
-            	**type**\: str
-            
-            
-
-            """
-
-            _prefix = 'ha-eem-cfg'
-            _revision = '2015-07-30'
-
-            def __init__(self):
-                self.parent = None
-                self.environment_name = None
-                self.environment_value = None
-
-            @property
-            def _common_path(self):
-                if self.environment_name is None:
-                    raise YPYDataValidationError('Key property environment_name is None')
-
-                return '/Cisco-IOS-XR-ha-eem-cfg:event-manager/Cisco-IOS-XR-ha-eem-cfg:environments/Cisco-IOS-XR-ha-eem-cfg:environment[Cisco-IOS-XR-ha-eem-cfg:environment-name = ' + str(self.environment_name) + ']'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.environment_name is not None:
-                    return True
-
-                if self.environment_value is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.ha._meta import _Cisco_IOS_XR_ha_eem_cfg as meta
-                return meta._meta_table['EventManager.Environments.Environment']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ha-eem-cfg:event-manager/Cisco-IOS-XR-ha-eem-cfg:environments'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.environment is not None:
-                for child_ref in self.environment:
-                    if child_ref._has_data():
-                        return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.ha._meta import _Cisco_IOS_XR_ha_eem_cfg as meta
-            return meta._meta_table['EventManager.Environments']['meta_info']
+        self.environments = EventManager.Environments()
+        self.environments.parent = self
+        self.refresh_time = None
+        self.schedule_suspend = None
+        self.directory_user_policy = None
+        self.directory_user_library = None
 
 
     class Policies(object):
@@ -325,22 +221,17 @@ class EventManager(object):
             """
             Name of the policy file
             
-            .. attribute:: policy_name
+            .. attribute:: policy_name  <key>
             
             	Name of the policy file
             	**type**\: str
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
-            .. attribute:: check_sum_value
+            .. attribute:: username
             
-            	CheckSum Value
+            	A configured username
             	**type**\: str
-            
-            .. attribute:: checksum_type
-            
-            	Specify Embedded Event Manager policy checksum
-            	**type**\: :py:class:`EventManagerChecksumEnum <ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg.EventManagerChecksumEnum>`
             
             .. attribute:: persist_time
             
@@ -349,25 +240,30 @@ class EventManager(object):
             
             	**range:** 0..4294967295
             
-            .. attribute:: policy_security_level
+            .. attribute:: policy_type
             
-            	Event Manager policy security Level
-            	**type**\: :py:class:`EventManagerPolicySecEnum <ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg.EventManagerPolicySecEnum>`
+            	Event manager type of this policy
+            	**type**\: :py:class:`EventManagerPolicyEnum <ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg.EventManagerPolicyEnum>`
+            
+            .. attribute:: checksum_type
+            
+            	Specify Embedded Event Manager policy checksum
+            	**type**\: :py:class:`EventManagerChecksumEnum <ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg.EventManagerChecksumEnum>`
+            
+            .. attribute:: check_sum_value
+            
+            	CheckSum Value
+            	**type**\: str
             
             .. attribute:: policy_security_mode
             
             	Specify Embedded Event Manager policy security mode
             	**type**\: :py:class:`EventManagerPolicyModeEnum <ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg.EventManagerPolicyModeEnum>`
             
-            .. attribute:: policy_type
+            .. attribute:: policy_security_level
             
-            	Event manager type of this policy
-            	**type**\: :py:class:`EventManagerPolicyEnum <ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg.EventManagerPolicyEnum>`
-            
-            .. attribute:: username
-            
-            	A configured username
-            	**type**\: str
+            	Event Manager policy security Level
+            	**type**\: :py:class:`EventManagerPolicySecEnum <ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg.EventManagerPolicySecEnum>`
             
             
 
@@ -379,13 +275,13 @@ class EventManager(object):
             def __init__(self):
                 self.parent = None
                 self.policy_name = None
-                self.check_sum_value = None
-                self.checksum_type = None
-                self.persist_time = None
-                self.policy_security_level = None
-                self.policy_security_mode = None
-                self.policy_type = None
                 self.username = None
+                self.persist_time = None
+                self.policy_type = None
+                self.checksum_type = None
+                self.check_sum_value = None
+                self.policy_security_mode = None
+                self.policy_security_level = None
 
             @property
             def _common_path(self):
@@ -404,25 +300,25 @@ class EventManager(object):
                 if self.policy_name is not None:
                     return True
 
-                if self.check_sum_value is not None:
-                    return True
-
-                if self.checksum_type is not None:
+                if self.username is not None:
                     return True
 
                 if self.persist_time is not None:
                     return True
 
-                if self.policy_security_level is not None:
+                if self.policy_type is not None:
+                    return True
+
+                if self.checksum_type is not None:
+                    return True
+
+                if self.check_sum_value is not None:
                     return True
 
                 if self.policy_security_mode is not None:
                     return True
 
-                if self.policy_type is not None:
-                    return True
-
-                if self.username is not None:
+                if self.policy_security_level is not None:
                     return True
 
                 return False
@@ -506,7 +402,7 @@ class EventManager(object):
                 """
                 scheduler classs type argument
                 
-                .. attribute:: thread_class_name
+                .. attribute:: thread_class_name  <key>
                 
                 	Name of the global variable
                 	**type**\: str
@@ -605,6 +501,110 @@ class EventManager(object):
             from ydk.models.ha._meta import _Cisco_IOS_XR_ha_eem_cfg as meta
             return meta._meta_table['EventManager.SchedulerScript']['meta_info']
 
+
+    class Environments(object):
+        """
+        Set an event manager global variable for event
+        manager policies
+        
+        .. attribute:: environment
+        
+        	Name of the global variable
+        	**type**\: list of :py:class:`Environment <ydk.models.ha.Cisco_IOS_XR_ha_eem_cfg.EventManager.Environments.Environment>`
+        
+        
+
+        """
+
+        _prefix = 'ha-eem-cfg'
+        _revision = '2015-07-30'
+
+        def __init__(self):
+            self.parent = None
+            self.environment = YList()
+            self.environment.parent = self
+            self.environment.name = 'environment'
+
+
+        class Environment(object):
+            """
+            Name of the global variable
+            
+            .. attribute:: environment_name  <key>
+            
+            	Name of the global variable
+            	**type**\: str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+            
+            .. attribute:: environment_value
+            
+            	Value of the global variable
+            	**type**\: str
+            
+            
+
+            """
+
+            _prefix = 'ha-eem-cfg'
+            _revision = '2015-07-30'
+
+            def __init__(self):
+                self.parent = None
+                self.environment_name = None
+                self.environment_value = None
+
+            @property
+            def _common_path(self):
+                if self.environment_name is None:
+                    raise YPYDataValidationError('Key property environment_name is None')
+
+                return '/Cisco-IOS-XR-ha-eem-cfg:event-manager/Cisco-IOS-XR-ha-eem-cfg:environments/Cisco-IOS-XR-ha-eem-cfg:environment[Cisco-IOS-XR-ha-eem-cfg:environment-name = ' + str(self.environment_name) + ']'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.environment_name is not None:
+                    return True
+
+                if self.environment_value is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.ha._meta import _Cisco_IOS_XR_ha_eem_cfg as meta
+                return meta._meta_table['EventManager.Environments.Environment']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-ha-eem-cfg:event-manager/Cisco-IOS-XR-ha-eem-cfg:environments'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.environment is not None:
+                for child_ref in self.environment:
+                    if child_ref._has_data():
+                        return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.ha._meta import _Cisco_IOS_XR_ha_eem_cfg as meta
+            return meta._meta_table['EventManager.Environments']['meta_info']
+
     @property
     def _common_path(self):
 
@@ -617,16 +617,13 @@ class EventManager(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.directory_user_library is not None:
+        if self.policies is not None and self.policies._has_data():
             return True
 
-        if self.directory_user_policy is not None:
+        if self.scheduler_script is not None and self.scheduler_script._has_data():
             return True
 
         if self.environments is not None and self.environments._has_data():
-            return True
-
-        if self.policies is not None and self.policies._has_data():
             return True
 
         if self.refresh_time is not None:
@@ -635,7 +632,10 @@ class EventManager(object):
         if self.schedule_suspend is not None:
             return True
 
-        if self.scheduler_script is not None and self.scheduler_script._has_data():
+        if self.directory_user_policy is not None:
+            return True
+
+        if self.directory_user_library is not None:
             return True
 
         return False

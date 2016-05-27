@@ -7,7 +7,7 @@ import collections
 from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
 from ydk.errors import YPYError, YPYDataValidationError
@@ -18,11 +18,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('FileSystem.Node.FileSystem',
             False, 
             [
-            _MetaInfoClassMember('flags', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('size', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Flags of file system
+                '''                Size of the file system in bytes
                 ''',
-                'flags',
+                'size',
                 'Cisco-IOS-XR-shellutil-filesystem-oper', False),
             _MetaInfoClassMember('free', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -30,23 +30,23 @@ _meta_table = {
                 ''',
                 'free',
                 'Cisco-IOS-XR-shellutil-filesystem-oper', False),
-            _MetaInfoClassMember('prefixes', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Prefixes of file system
-                ''',
-                'prefixes',
-                'Cisco-IOS-XR-shellutil-filesystem-oper', False),
-            _MetaInfoClassMember('size', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Size of the file system in bytes
-                ''',
-                'size',
-                'Cisco-IOS-XR-shellutil-filesystem-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Type of file system
                 ''',
                 'type',
+                'Cisco-IOS-XR-shellutil-filesystem-oper', False),
+            _MetaInfoClassMember('flags', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Flags of file system
+                ''',
+                'flags',
+                'Cisco-IOS-XR-shellutil-filesystem-oper', False),
+            _MetaInfoClassMember('prefixes', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Prefixes of file system
+                ''',
+                'prefixes',
                 'Cisco-IOS-XR-shellutil-filesystem-oper', False),
             ],
             'Cisco-IOS-XR-shellutil-filesystem-oper',

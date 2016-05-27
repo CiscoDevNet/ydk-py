@@ -19,11 +19,373 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
 
+
+
+class IpTcp(object):
+    """
+    Global IP TCP configuration
+    
+    .. attribute:: directory
+    
+    	TCP directory details
+    	**type**\: :py:class:`Directory <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.IpTcp.Directory>`
+    
+    .. attribute:: throttle
+    
+    	Throttle TCP receive buffer (in percentage)
+    	**type**\: :py:class:`Throttle <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.IpTcp.Throttle>`
+    
+    .. attribute:: num_thread
+    
+    	TCP InQueue and OutQueue threads
+    	**type**\: :py:class:`NumThread <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.IpTcp.NumThread>`
+    
+    .. attribute:: accept_rate
+    
+    	TCP connection accept rate
+    	**type**\: int
+    
+    	**range:** 1..1000
+    
+    .. attribute:: selective_ack
+    
+    	Enable TCP selective\-ACK
+    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+    
+    .. attribute:: window_size
+    
+    	TCP receive window size (bytes)
+    	**type**\: int
+    
+    	**range:** 2048..65535
+    
+    .. attribute:: receive_q
+    
+    	TCP receive Queue Size
+    	**type**\: int
+    
+    	**range:** 40..800
+    
+    .. attribute:: maximum_segment_size
+    
+    	TCP initial maximum segment size
+    	**type**\: int
+    
+    	**range:** 68..10000
+    
+    .. attribute:: syn_wait_time
+    
+    	Time to wait on new TCP connections in seconds
+    	**type**\: int
+    
+    	**range:** 5..30
+    
+    .. attribute:: timestamp
+    
+    	Enable TCP timestamp option
+    	**type**\: :py:class:`Empty <ydk.types.Empty>`
+    
+    .. attribute:: path_mtu_discovery
+    
+    	Aging time; 0 for infinite, and range be (10,30)
+    	**type**\: int
+    
+    	**range:** \-2147483648..2147483647
+    
+    
+
+    """
+
+    _prefix = 'ip-tcp-cfg'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        self.directory = None
+        self.throttle = None
+        self.num_thread = None
+        self.accept_rate = None
+        self.selective_ack = None
+        self.window_size = None
+        self.receive_q = None
+        self.maximum_segment_size = None
+        self.syn_wait_time = None
+        self.timestamp = None
+        self.path_mtu_discovery = None
+
+
+    class Directory(object):
+        """
+        TCP directory details
+        
+        .. attribute:: directoryname
+        
+        	Directory name 
+        	**type**\: str
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        .. attribute:: max_debug_files
+        
+        	Set number of Debug files
+        	**type**\: int
+        
+        	**range:** 1..10000
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        .. attribute:: max_file_size_files
+        
+        	Set size of debug files in bytes
+        	**type**\: int
+        
+        	**range:** 1024..4294967295
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        
+
+        This class is a :ref:`presence class<presence-class>`
+
+        """
+
+        _prefix = 'ip-tcp-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.directoryname = None
+            self.max_debug_files = None
+            self.max_file_size_files = None
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-ip-tcp-cfg:ip-tcp/Cisco-IOS-XR-ip-tcp-cfg:directory'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.directoryname is not None:
+                return True
+
+            if self.max_debug_files is not None:
+                return True
+
+            if self.max_file_size_files is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+            return meta._meta_table['IpTcp.Directory']['meta_info']
+
+
+    class Throttle(object):
+        """
+        Throttle TCP receive buffer (in percentage)
+        
+        .. attribute:: tcpmin_throttle
+        
+        	Min throttle
+        	**type**\: int
+        
+        	**range:** 0..100
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        .. attribute:: tcpmaxthrottle
+        
+        	Max throttle
+        	**type**\: int
+        
+        	**range:** 0..100
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        
+
+        This class is a :ref:`presence class<presence-class>`
+
+        """
+
+        _prefix = 'ip-tcp-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.tcpmin_throttle = None
+            self.tcpmaxthrottle = None
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-ip-tcp-cfg:ip-tcp/Cisco-IOS-XR-ip-tcp-cfg:throttle'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.tcpmin_throttle is not None:
+                return True
+
+            if self.tcpmaxthrottle is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+            return meta._meta_table['IpTcp.Throttle']['meta_info']
+
+
+    class NumThread(object):
+        """
+        TCP InQueue and OutQueue threads
+        
+        .. attribute:: tcp_in_q_threads
+        
+        	InQ Threads
+        	**type**\: int
+        
+        	**range:** 1..16
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        .. attribute:: tcp_out_q_threads
+        
+        	OutQ Threads
+        	**type**\: int
+        
+        	**range:** 1..16
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        
+
+        This class is a :ref:`presence class<presence-class>`
+
+        """
+
+        _prefix = 'ip-tcp-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.tcp_in_q_threads = None
+            self.tcp_out_q_threads = None
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-ip-tcp-cfg:ip-tcp/Cisco-IOS-XR-ip-tcp-cfg:num-thread'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.tcp_in_q_threads is not None:
+                return True
+
+            if self.tcp_out_q_threads is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+            return meta._meta_table['IpTcp.NumThread']['meta_info']
+
+    @property
+    def _common_path(self):
+
+        return '/Cisco-IOS-XR-ip-tcp-cfg:ip-tcp'
+
+    def is_config(self):
+        ''' Returns True if this instance represents config data else returns False '''
+        return True
+
+    def _has_data(self):
+        if not self.is_config():
+            return False
+        if self.directory is not None and self.directory._has_data():
+            return True
+
+        if self.throttle is not None and self.throttle._has_data():
+            return True
+
+        if self.num_thread is not None and self.num_thread._has_data():
+            return True
+
+        if self.accept_rate is not None:
+            return True
+
+        if self.selective_ack is not None:
+            return True
+
+        if self.window_size is not None:
+            return True
+
+        if self.receive_q is not None:
+            return True
+
+        if self.maximum_segment_size is not None:
+            return True
+
+        if self.syn_wait_time is not None:
+            return True
+
+        if self.timestamp is not None:
+            return True
+
+        if self.path_mtu_discovery is not None:
+            return True
+
+        return False
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+        return meta._meta_table['IpTcp']['meta_info']
 
 
 class Ip(object):
@@ -85,15 +447,15 @@ class Ip(object):
             	IPV4 related services
             	**type**\: :py:class:`Ipv4 <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv4>`
             
-            .. attribute:: ipv6
-            
-            	IPV6 related services
-            	**type**\: :py:class:`Ipv6 <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv6>`
-            
             .. attribute:: vrfs
             
             	VRF table
             	**type**\: :py:class:`Vrfs <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs>`
+            
+            .. attribute:: ipv6
+            
+            	IPV6 related services
+            	**type**\: :py:class:`Ipv6 <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv6>`
             
             
 
@@ -106,10 +468,10 @@ class Ip(object):
                 self.parent = None
                 self.ipv4 = Ip.Cinetd.Services.Ipv4()
                 self.ipv4.parent = self
-                self.ipv6 = Ip.Cinetd.Services.Ipv6()
-                self.ipv6.parent = self
                 self.vrfs = Ip.Cinetd.Services.Vrfs()
                 self.vrfs.parent = self
+                self.ipv6 = Ip.Cinetd.Services.Ipv6()
+                self.ipv6.parent = self
 
 
             class Ipv4(object):
@@ -341,160 +703,6 @@ class Ip(object):
                     return meta._meta_table['Ip.Cinetd.Services.Ipv4']['meta_info']
 
 
-            class Ipv6(object):
-                """
-                IPV6 related services
-                
-                .. attribute:: small_servers
-                
-                	Describing IPV4 and IPV6 small servers
-                	**type**\: :py:class:`SmallServers <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv6.SmallServers>`
-                
-                
-
-                """
-
-                _prefix = 'ip-tcp-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.small_servers = Ip.Cinetd.Services.Ipv6.SmallServers()
-                    self.small_servers.parent = self
-
-
-                class SmallServers(object):
-                    """
-                    Describing IPV4 and IPV6 small servers
-                    
-                    .. attribute:: tcp_small_servers
-                    
-                    	Describing TCP related IPV4 and IPV6 small servers
-                    	**type**\: :py:class:`TcpSmallServers <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv6.SmallServers.TcpSmallServers>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-tcp-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.tcp_small_servers = None
-
-
-                    class TcpSmallServers(object):
-                        """
-                        Describing TCP related IPV4 and IPV6 small
-                        servers
-                        
-                        .. attribute:: access_control_list_name
-                        
-                        	Access list
-                        	**type**\: str
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        .. attribute:: small_server
-                        
-                        	Set number of allowable TCP small servers, specify 0 for no\-limit
-                        	**type**\: int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'ip-tcp-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.access_control_list_name = None
-                            self.small_server = None
-
-                        @property
-                        def _common_path(self):
-
-                            return '/Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-tcp-cfg:cinetd/Cisco-IOS-XR-ip-tcp-cfg:services/Cisco-IOS-XR-ip-tcp-cfg:ipv6/Cisco-IOS-XR-ip-tcp-cfg:small-servers/Cisco-IOS-XR-ip-tcp-cfg:tcp-small-servers'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.access_control_list_name is not None:
-                                return True
-
-                            if self.small_server is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                            return meta._meta_table['Ip.Cinetd.Services.Ipv6.SmallServers.TcpSmallServers']['meta_info']
-
-                    @property
-                    def _common_path(self):
-
-                        return '/Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-tcp-cfg:cinetd/Cisco-IOS-XR-ip-tcp-cfg:services/Cisco-IOS-XR-ip-tcp-cfg:ipv6/Cisco-IOS-XR-ip-tcp-cfg:small-servers'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.tcp_small_servers is not None and self.tcp_small_servers._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                        return meta._meta_table['Ip.Cinetd.Services.Ipv6.SmallServers']['meta_info']
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-tcp-cfg:cinetd/Cisco-IOS-XR-ip-tcp-cfg:services/Cisco-IOS-XR-ip-tcp-cfg:ipv6'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.small_servers is not None and self.small_servers._has_data():
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                    return meta._meta_table['Ip.Cinetd.Services.Ipv6']['meta_info']
-
-
             class Vrfs(object):
                 """
                 VRF table
@@ -522,22 +730,22 @@ class Ip(object):
                     """
                     VRF specific data
                     
-                    .. attribute:: vrf_name
+                    .. attribute:: vrf_name  <key>
                     
                     	Name of the VRF instance
                     	**type**\: str
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
-                    .. attribute:: ipv4
-                    
-                    	IPV4 related services
-                    	**type**\: :py:class:`Ipv4 <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv4>`
-                    
                     .. attribute:: ipv6
                     
                     	IPV6 related services
                     	**type**\: :py:class:`Ipv6 <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv6>`
+                    
+                    .. attribute:: ipv4
+                    
+                    	IPV4 related services
+                    	**type**\: :py:class:`Ipv4 <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv4>`
                     
                     
 
@@ -549,322 +757,10 @@ class Ip(object):
                     def __init__(self):
                         self.parent = None
                         self.vrf_name = None
-                        self.ipv4 = Ip.Cinetd.Services.Vrfs.Vrf.Ipv4()
-                        self.ipv4.parent = self
                         self.ipv6 = Ip.Cinetd.Services.Vrfs.Vrf.Ipv6()
                         self.ipv6.parent = self
-
-
-                    class Ipv4(object):
-                        """
-                        IPV4 related services
-                        
-                        .. attribute:: telnet
-                        
-                        	TELNET server configuration commands
-                        	**type**\: :py:class:`Telnet <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet>`
-                        
-                        .. attribute:: tftp
-                        
-                        	TFTP server configuration commands
-                        	**type**\: :py:class:`Tftp <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ip-tcp-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.telnet = Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet()
-                            self.telnet.parent = self
-                            self.tftp = Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp()
-                            self.tftp.parent = self
-
-
-                        class Telnet(object):
-                            """
-                            TELNET server configuration commands
-                            
-                            .. attribute:: tcp
-                            
-                            	TCP details
-                            	**type**\: :py:class:`Tcp <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet.Tcp>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ip-tcp-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.tcp = None
-
-
-                            class Tcp(object):
-                                """
-                                TCP details
-                                
-                                .. attribute:: access_list_name
-                                
-                                	Access list
-                                	**type**\: str
-                                
-                                .. attribute:: _is_presence
-                                
-                                	Is present if this instance represents presence container else not
-                                	**type**\: bool
-                                
-                                .. attribute:: maximum_server
-                                
-                                	Set number of allowable servers
-                                	**type**\: int
-                                
-                                	**range:** 1..100
-                                
-                                .. attribute:: _is_presence
-                                
-                                	Is present if this instance represents presence container else not
-                                	**type**\: bool
-                                
-                                
-
-                                This class is a :ref:`presence class<presence-class>`
-
-                                """
-
-                                _prefix = 'ip-tcp-cfg'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.access_list_name = None
-                                    self.maximum_server = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:tcp'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.access_list_name is not None:
-                                        return True
-
-                                    if self.maximum_server is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                                    return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet.Tcp']['meta_info']
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:telnet'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.tcp is not None and self.tcp._has_data():
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                                return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet']['meta_info']
-
-
-                        class Tftp(object):
-                            """
-                            TFTP server configuration commands
-                            
-                            .. attribute:: udp
-                            
-                            	UDP details
-                            	**type**\: :py:class:`Udp <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp.Udp>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ip-tcp-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.udp = None
-
-
-                            class Udp(object):
-                                """
-                                UDP details
-                                
-                                .. attribute:: access_list_name
-                                
-                                	Access list
-                                	**type**\: str
-                                
-                                .. attribute:: _is_presence
-                                
-                                	Is present if this instance represents presence container else not
-                                	**type**\: bool
-                                
-                                .. attribute:: dscp_value
-                                
-                                	Set IP DSCP (DiffServ CodePoint) for TFTP Server Packets
-                                	**type**\: int
-                                
-                                	**range:** \-2147483648..2147483647
-                                
-                                .. attribute:: _is_presence
-                                
-                                	Is present if this instance represents presence container else not
-                                	**type**\: bool
-                                
-                                .. attribute:: home_directory
-                                
-                                	Specify device name where file is read from (e .g. flash\:)
-                                	**type**\: str
-                                
-                                .. attribute:: _is_presence
-                                
-                                	Is present if this instance represents presence container else not
-                                	**type**\: bool
-                                
-                                .. attribute:: maximum_server
-                                
-                                	Set number of allowable servers, 0 for no\-limit
-                                	**type**\: int
-                                
-                                	**range:** 0..2147483647
-                                
-                                .. attribute:: _is_presence
-                                
-                                	Is present if this instance represents presence container else not
-                                	**type**\: bool
-                                
-                                
-
-                                This class is a :ref:`presence class<presence-class>`
-
-                                """
-
-                                _prefix = 'ip-tcp-cfg'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.access_list_name = None
-                                    self.dscp_value = None
-                                    self.home_directory = None
-                                    self.maximum_server = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:udp'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.access_list_name is not None:
-                                        return True
-
-                                    if self.dscp_value is not None:
-                                        return True
-
-                                    if self.home_directory is not None:
-                                        return True
-
-                                    if self.maximum_server is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                                    return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp.Udp']['meta_info']
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:tftp'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.udp is not None and self.udp._has_data():
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                                return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:ipv4'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.telnet is not None and self.telnet._has_data():
-                                return True
-
-                            if self.tftp is not None and self.tftp._has_data():
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-                            return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv4']['meta_info']
+                        self.ipv4 = Ip.Cinetd.Services.Vrfs.Vrf.Ipv4()
+                        self.ipv4.parent = self
 
 
                     class Ipv6(object):
@@ -1044,12 +940,12 @@ class Ip(object):
                                 	Is present if this instance represents presence container else not
                                 	**type**\: bool
                                 
-                                .. attribute:: dscp_value
+                                .. attribute:: maximum_server
                                 
-                                	Set IP DSCP (DiffServ CodePoint) for TFTP Server Packets
+                                	Set number of allowable servers, 0 for no\-limit
                                 	**type**\: int
                                 
-                                	**range:** \-2147483648..2147483647
+                                	**range:** 0..2147483647
                                 
                                 .. attribute:: _is_presence
                                 
@@ -1066,12 +962,12 @@ class Ip(object):
                                 	Is present if this instance represents presence container else not
                                 	**type**\: bool
                                 
-                                .. attribute:: maximum_server
+                                .. attribute:: dscp_value
                                 
-                                	Set number of allowable servers, 0 for no\-limit
+                                	Set IP DSCP (DiffServ CodePoint) for TFTP Server Packets
                                 	**type**\: int
                                 
-                                	**range:** 0..2147483647
+                                	**range:** \-2147483648..2147483647
                                 
                                 .. attribute:: _is_presence
                                 
@@ -1090,9 +986,9 @@ class Ip(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.access_list_name = None
-                                    self.dscp_value = None
-                                    self.home_directory = None
                                     self.maximum_server = None
+                                    self.home_directory = None
+                                    self.dscp_value = None
 
                                 @property
                                 def _common_path(self):
@@ -1111,13 +1007,13 @@ class Ip(object):
                                     if self.access_list_name is not None:
                                         return True
 
-                                    if self.dscp_value is not None:
+                                    if self.maximum_server is not None:
                                         return True
 
                                     if self.home_directory is not None:
                                         return True
 
-                                    if self.maximum_server is not None:
+                                    if self.dscp_value is not None:
                                         return True
 
                                     return False
@@ -1178,6 +1074,318 @@ class Ip(object):
                             from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
                             return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv6']['meta_info']
 
+
+                    class Ipv4(object):
+                        """
+                        IPV4 related services
+                        
+                        .. attribute:: telnet
+                        
+                        	TELNET server configuration commands
+                        	**type**\: :py:class:`Telnet <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet>`
+                        
+                        .. attribute:: tftp
+                        
+                        	TFTP server configuration commands
+                        	**type**\: :py:class:`Tftp <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ip-tcp-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.telnet = Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet()
+                            self.telnet.parent = self
+                            self.tftp = Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp()
+                            self.tftp.parent = self
+
+
+                        class Telnet(object):
+                            """
+                            TELNET server configuration commands
+                            
+                            .. attribute:: tcp
+                            
+                            	TCP details
+                            	**type**\: :py:class:`Tcp <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet.Tcp>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'ip-tcp-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.tcp = None
+
+
+                            class Tcp(object):
+                                """
+                                TCP details
+                                
+                                .. attribute:: access_list_name
+                                
+                                	Access list
+                                	**type**\: str
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
+                                .. attribute:: maximum_server
+                                
+                                	Set number of allowable servers
+                                	**type**\: int
+                                
+                                	**range:** 1..100
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
+                                
+
+                                This class is a :ref:`presence class<presence-class>`
+
+                                """
+
+                                _prefix = 'ip-tcp-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.access_list_name = None
+                                    self.maximum_server = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:tcp'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.access_list_name is not None:
+                                        return True
+
+                                    if self.maximum_server is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                                    return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet.Tcp']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:telnet'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.tcp is not None and self.tcp._has_data():
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                                return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet']['meta_info']
+
+
+                        class Tftp(object):
+                            """
+                            TFTP server configuration commands
+                            
+                            .. attribute:: udp
+                            
+                            	UDP details
+                            	**type**\: :py:class:`Udp <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp.Udp>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'ip-tcp-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.udp = None
+
+
+                            class Udp(object):
+                                """
+                                UDP details
+                                
+                                .. attribute:: access_list_name
+                                
+                                	Access list
+                                	**type**\: str
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
+                                .. attribute:: maximum_server
+                                
+                                	Set number of allowable servers, 0 for no\-limit
+                                	**type**\: int
+                                
+                                	**range:** 0..2147483647
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
+                                .. attribute:: home_directory
+                                
+                                	Specify device name where file is read from (e .g. flash\:)
+                                	**type**\: str
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
+                                .. attribute:: dscp_value
+                                
+                                	Set IP DSCP (DiffServ CodePoint) for TFTP Server Packets
+                                	**type**\: int
+                                
+                                	**range:** \-2147483648..2147483647
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
+                                
+
+                                This class is a :ref:`presence class<presence-class>`
+
+                                """
+
+                                _prefix = 'ip-tcp-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.access_list_name = None
+                                    self.maximum_server = None
+                                    self.home_directory = None
+                                    self.dscp_value = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:udp'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.access_list_name is not None:
+                                        return True
+
+                                    if self.maximum_server is not None:
+                                        return True
+
+                                    if self.home_directory is not None:
+                                        return True
+
+                                    if self.dscp_value is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                                    return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp.Udp']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:tftp'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.udp is not None and self.udp._has_data():
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                                return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYDataValidationError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-cfg:ipv4'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.telnet is not None and self.telnet._has_data():
+                                return True
+
+                            if self.tftp is not None and self.tftp._has_data():
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                            return meta._meta_table['Ip.Cinetd.Services.Vrfs.Vrf.Ipv4']['meta_info']
+
                     @property
                     def _common_path(self):
                         if self.vrf_name is None:
@@ -1195,10 +1403,10 @@ class Ip(object):
                         if self.vrf_name is not None:
                             return True
 
-                        if self.ipv4 is not None and self.ipv4._has_data():
+                        if self.ipv6 is not None and self.ipv6._has_data():
                             return True
 
-                        if self.ipv6 is not None and self.ipv6._has_data():
+                        if self.ipv4 is not None and self.ipv4._has_data():
                             return True
 
                         return False
@@ -1232,6 +1440,160 @@ class Ip(object):
                     from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
                     return meta._meta_table['Ip.Cinetd.Services.Vrfs']['meta_info']
 
+
+            class Ipv6(object):
+                """
+                IPV6 related services
+                
+                .. attribute:: small_servers
+                
+                	Describing IPV4 and IPV6 small servers
+                	**type**\: :py:class:`SmallServers <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv6.SmallServers>`
+                
+                
+
+                """
+
+                _prefix = 'ip-tcp-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.small_servers = Ip.Cinetd.Services.Ipv6.SmallServers()
+                    self.small_servers.parent = self
+
+
+                class SmallServers(object):
+                    """
+                    Describing IPV4 and IPV6 small servers
+                    
+                    .. attribute:: tcp_small_servers
+                    
+                    	Describing TCP related IPV4 and IPV6 small servers
+                    	**type**\: :py:class:`TcpSmallServers <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv6.SmallServers.TcpSmallServers>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-tcp-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.tcp_small_servers = None
+
+
+                    class TcpSmallServers(object):
+                        """
+                        Describing TCP related IPV4 and IPV6 small
+                        servers
+                        
+                        .. attribute:: access_control_list_name
+                        
+                        	Access list
+                        	**type**\: str
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        .. attribute:: small_server
+                        
+                        	Set number of allowable TCP small servers, specify 0 for no\-limit
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ip-tcp-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.access_control_list_name = None
+                            self.small_server = None
+
+                        @property
+                        def _common_path(self):
+
+                            return '/Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-tcp-cfg:cinetd/Cisco-IOS-XR-ip-tcp-cfg:services/Cisco-IOS-XR-ip-tcp-cfg:ipv6/Cisco-IOS-XR-ip-tcp-cfg:small-servers/Cisco-IOS-XR-ip-tcp-cfg:tcp-small-servers'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.access_control_list_name is not None:
+                                return True
+
+                            if self.small_server is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                            return meta._meta_table['Ip.Cinetd.Services.Ipv6.SmallServers.TcpSmallServers']['meta_info']
+
+                    @property
+                    def _common_path(self):
+
+                        return '/Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-tcp-cfg:cinetd/Cisco-IOS-XR-ip-tcp-cfg:services/Cisco-IOS-XR-ip-tcp-cfg:ipv6/Cisco-IOS-XR-ip-tcp-cfg:small-servers'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.tcp_small_servers is not None and self.tcp_small_servers._has_data():
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                        return meta._meta_table['Ip.Cinetd.Services.Ipv6.SmallServers']['meta_info']
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-ip-tcp-cfg:ip/Cisco-IOS-XR-ip-tcp-cfg:cinetd/Cisco-IOS-XR-ip-tcp-cfg:services/Cisco-IOS-XR-ip-tcp-cfg:ipv6'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.small_servers is not None and self.small_servers._has_data():
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
+                    return meta._meta_table['Ip.Cinetd.Services.Ipv6']['meta_info']
+
             @property
             def _common_path(self):
 
@@ -1247,10 +1609,10 @@ class Ip(object):
                 if self.ipv4 is not None and self.ipv4._has_data():
                     return True
 
-                if self.ipv6 is not None and self.ipv6._has_data():
+                if self.vrfs is not None and self.vrfs._has_data():
                     return True
 
-                if self.vrfs is not None and self.vrfs._has_data():
+                if self.ipv6 is not None and self.ipv6._has_data():
                     return True
 
                 return False
@@ -1310,15 +1672,15 @@ class Ip(object):
             """
             Packets to a specific UDP port
             
-            .. attribute:: disable
-            
-            	Disable IP Forward Protocol UDP
-            	**type**\: :py:class:`Empty <ydk.types.Empty>`
-            
             .. attribute:: ports
             
             	Port configuration
             	**type**\: :py:class:`Ports <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.Ip.ForwardProtocol.Udp.Ports>`
+            
+            .. attribute:: disable
+            
+            	Disable IP Forward Protocol UDP
+            	**type**\: :py:class:`Empty <ydk.types.Empty>`
             
             
 
@@ -1329,9 +1691,9 @@ class Ip(object):
 
             def __init__(self):
                 self.parent = None
-                self.disable = None
                 self.ports = Ip.ForwardProtocol.Udp.Ports()
                 self.ports.parent = self
+                self.disable = None
 
 
             class Ports(object):
@@ -1363,7 +1725,7 @@ class Ip(object):
                     non well\-known ports are disabled by default.
                     It is not allowed to configure the default.
                     
-                    .. attribute:: port_id
+                    .. attribute:: port_id  <key>
                     
                     	Port number
                     	**type**\: int
@@ -1450,10 +1812,10 @@ class Ip(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.disable is not None:
+                if self.ports is not None and self.ports._has_data():
                     return True
 
-                if self.ports is not None and self.ports._has_data():
+                if self.disable is not None:
                     return True
 
                 return False
@@ -1509,367 +1871,5 @@ class Ip(object):
     def _meta_info():
         from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
         return meta._meta_table['Ip']['meta_info']
-
-
-class IpTcp(object):
-    """
-    Global IP TCP configuration
-    
-    .. attribute:: accept_rate
-    
-    	TCP connection accept rate
-    	**type**\: int
-    
-    	**range:** 1..1000
-    
-    .. attribute:: directory
-    
-    	TCP directory details
-    	**type**\: :py:class:`Directory <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.IpTcp.Directory>`
-    
-    .. attribute:: maximum_segment_size
-    
-    	TCP initial maximum segment size
-    	**type**\: int
-    
-    	**range:** 68..10000
-    
-    .. attribute:: num_thread
-    
-    	TCP InQueue and OutQueue threads
-    	**type**\: :py:class:`NumThread <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.IpTcp.NumThread>`
-    
-    .. attribute:: path_mtu_discovery
-    
-    	Aging time; 0 for infinite, and range be (10,30)
-    	**type**\: int
-    
-    	**range:** \-2147483648..2147483647
-    
-    .. attribute:: receive_q
-    
-    	TCP receive Queue Size
-    	**type**\: int
-    
-    	**range:** 40..800
-    
-    .. attribute:: selective_ack
-    
-    	Enable TCP selective\-ACK
-    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-    
-    .. attribute:: syn_wait_time
-    
-    	Time to wait on new TCP connections in seconds
-    	**type**\: int
-    
-    	**range:** 5..30
-    
-    .. attribute:: throttle
-    
-    	Throttle TCP receive buffer (in percentage)
-    	**type**\: :py:class:`Throttle <ydk.models.ip.Cisco_IOS_XR_ip_tcp_cfg.IpTcp.Throttle>`
-    
-    .. attribute:: timestamp
-    
-    	Enable TCP timestamp option
-    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-    
-    .. attribute:: window_size
-    
-    	TCP receive window size (bytes)
-    	**type**\: int
-    
-    	**range:** 2048..65535
-    
-    
-
-    """
-
-    _prefix = 'ip-tcp-cfg'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        self.accept_rate = None
-        self.directory = None
-        self.maximum_segment_size = None
-        self.num_thread = None
-        self.path_mtu_discovery = None
-        self.receive_q = None
-        self.selective_ack = None
-        self.syn_wait_time = None
-        self.throttle = None
-        self.timestamp = None
-        self.window_size = None
-
-
-    class Directory(object):
-        """
-        TCP directory details
-        
-        .. attribute:: directoryname
-        
-        	Directory name 
-        	**type**\: str
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        .. attribute:: max_debug_files
-        
-        	Set number of Debug files
-        	**type**\: int
-        
-        	**range:** 1..10000
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        .. attribute:: max_file_size_files
-        
-        	Set size of debug files in bytes
-        	**type**\: int
-        
-        	**range:** 1024..4294967295
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        
-
-        This class is a :ref:`presence class<presence-class>`
-
-        """
-
-        _prefix = 'ip-tcp-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.directoryname = None
-            self.max_debug_files = None
-            self.max_file_size_files = None
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ip-tcp-cfg:ip-tcp/Cisco-IOS-XR-ip-tcp-cfg:directory'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.directoryname is not None:
-                return True
-
-            if self.max_debug_files is not None:
-                return True
-
-            if self.max_file_size_files is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-            return meta._meta_table['IpTcp.Directory']['meta_info']
-
-
-    class NumThread(object):
-        """
-        TCP InQueue and OutQueue threads
-        
-        .. attribute:: tcp_in_q_threads
-        
-        	InQ Threads
-        	**type**\: int
-        
-        	**range:** 1..16
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        .. attribute:: tcp_out_q_threads
-        
-        	OutQ Threads
-        	**type**\: int
-        
-        	**range:** 1..16
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        
-
-        This class is a :ref:`presence class<presence-class>`
-
-        """
-
-        _prefix = 'ip-tcp-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.tcp_in_q_threads = None
-            self.tcp_out_q_threads = None
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ip-tcp-cfg:ip-tcp/Cisco-IOS-XR-ip-tcp-cfg:num-thread'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.tcp_in_q_threads is not None:
-                return True
-
-            if self.tcp_out_q_threads is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-            return meta._meta_table['IpTcp.NumThread']['meta_info']
-
-
-    class Throttle(object):
-        """
-        Throttle TCP receive buffer (in percentage)
-        
-        .. attribute:: tcpmaxthrottle
-        
-        	Max throttle
-        	**type**\: int
-        
-        	**range:** 0..100
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        .. attribute:: tcpmin_throttle
-        
-        	Min throttle
-        	**type**\: int
-        
-        	**range:** 0..100
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        
-
-        This class is a :ref:`presence class<presence-class>`
-
-        """
-
-        _prefix = 'ip-tcp-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.tcpmaxthrottle = None
-            self.tcpmin_throttle = None
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ip-tcp-cfg:ip-tcp/Cisco-IOS-XR-ip-tcp-cfg:throttle'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.tcpmaxthrottle is not None:
-                return True
-
-            if self.tcpmin_throttle is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-            return meta._meta_table['IpTcp.Throttle']['meta_info']
-
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-ip-tcp-cfg:ip-tcp'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
-        if not self.is_config():
-            return False
-        if self.accept_rate is not None:
-            return True
-
-        if self.directory is not None and self.directory._has_data():
-            return True
-
-        if self.maximum_segment_size is not None:
-            return True
-
-        if self.num_thread is not None and self.num_thread._has_data():
-            return True
-
-        if self.path_mtu_discovery is not None:
-            return True
-
-        if self.receive_q is not None:
-            return True
-
-        if self.selective_ack is not None:
-            return True
-
-        if self.syn_wait_time is not None:
-            return True
-
-        if self.throttle is not None and self.throttle._has_data():
-            return True
-
-        if self.timestamp is not None:
-            return True
-
-        if self.window_size is not None:
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ip._meta import _Cisco_IOS_XR_ip_tcp_cfg as meta
-        return meta._meta_table['IpTcp']['meta_info']
 
 

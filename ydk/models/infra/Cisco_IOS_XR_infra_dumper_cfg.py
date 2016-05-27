@@ -18,7 +18,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -34,15 +34,20 @@ class Exception(object):
     	Preference of the dump location
     	**type**\: :py:class:`Choice1 <ydk.models.infra.Cisco_IOS_XR_infra_dumper_cfg.Exception.Choice1>`
     
+    .. attribute:: choice3
+    
+    	Preference of the dump location
+    	**type**\: :py:class:`Choice3 <ydk.models.infra.Cisco_IOS_XR_infra_dumper_cfg.Exception.Choice3>`
+    
     .. attribute:: choice2
     
     	Preference of the dump location
     	**type**\: :py:class:`Choice2 <ydk.models.infra.Cisco_IOS_XR_infra_dumper_cfg.Exception.Choice2>`
     
-    .. attribute:: choice3
+    .. attribute:: sparse
     
-    	Preference of the dump location
-    	**type**\: :py:class:`Choice3 <ydk.models.infra.Cisco_IOS_XR_infra_dumper_cfg.Exception.Choice3>`
+    	Specify 'true' to enable sparse core dump, 'false' to disable sparse core dump
+    	**type**\: bool
     
     .. attribute:: kernel_debugger
     
@@ -52,11 +57,6 @@ class Exception(object):
     .. attribute:: packet_memory
     
     	Specify 'true' to dump packet memory for all process, 'false' to disable dump of packet memory
-    	**type**\: bool
-    
-    .. attribute:: sparse
-    
-    	Specify 'true' to enable sparse core dump, 'false' to disable sparse core dump
     	**type**\: bool
     
     .. attribute:: sparse_size
@@ -75,11 +75,11 @@ class Exception(object):
 
     def __init__(self):
         self.choice1 = None
-        self.choice2 = None
         self.choice3 = None
+        self.choice2 = None
+        self.sparse = None
         self.kernel_debugger = None
         self.packet_memory = None
-        self.sparse = None
         self.sparse_size = None
 
 
@@ -97,6 +97,30 @@ class Exception(object):
         	Is present if this instance represents presence container else not
         	**type**\: bool
         
+        .. attribute:: lower_limit
+        
+        	Lower limit.  This is required if Filename is specified
+        	**type**\: int
+        
+        	**range:** 0..4
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        .. attribute:: higher_limit
+        
+        	Higher limit.  This is required if Filename is specified
+        	**type**\: int
+        
+        	**range:** 5..64
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: file_path
         
         	Protocol and directory
@@ -117,30 +141,6 @@ class Exception(object):
         	Is present if this instance represents presence container else not
         	**type**\: bool
         
-        .. attribute:: higher_limit
-        
-        	Higher limit.  This is required if Filename is specified
-        	**type**\: int
-        
-        	**range:** 5..64
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        .. attribute:: lower_limit
-        
-        	Lower limit.  This is required if Filename is specified
-        	**type**\: int
-        
-        	**range:** 0..4
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
         
 
         This class is a :ref:`presence class<presence-class>`
@@ -153,10 +153,10 @@ class Exception(object):
         def __init__(self):
             self.parent = None
             self.compress = None
+            self.lower_limit = None
+            self.higher_limit = None
             self.file_path = None
             self.filename = None
-            self.higher_limit = None
-            self.lower_limit = None
 
         @property
         def _common_path(self):
@@ -173,16 +173,16 @@ class Exception(object):
             if self.compress is not None:
                 return True
 
-            if self.file_path is not None:
-                return True
-
-            if self.filename is not None:
+            if self.lower_limit is not None:
                 return True
 
             if self.higher_limit is not None:
                 return True
 
-            if self.lower_limit is not None:
+            if self.file_path is not None:
+                return True
+
+            if self.filename is not None:
                 return True
 
             return False
@@ -191,116 +191,6 @@ class Exception(object):
         def _meta_info():
             from ydk.models.infra._meta import _Cisco_IOS_XR_infra_dumper_cfg as meta
             return meta._meta_table['Exception.Choice1']['meta_info']
-
-
-    class Choice2(object):
-        """
-        Preference of the dump location
-        
-        .. attribute:: compress
-        
-        	Specify 'true' to compress core files dumped on this path, 'false' to not compress
-        	**type**\: bool
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        .. attribute:: file_path
-        
-        	Protocol and directory
-        	**type**\: str
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        .. attribute:: filename
-        
-        	Dump filename
-        	**type**\: str
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        .. attribute:: higher_limit
-        
-        	Higher limit.  This is required if Filename is specified
-        	**type**\: int
-        
-        	**range:** 5..64
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        .. attribute:: lower_limit
-        
-        	Lower limit.  This is required if Filename is specified
-        	**type**\: int
-        
-        	**range:** 0..4
-        
-        .. attribute:: _is_presence
-        
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        
-
-        This class is a :ref:`presence class<presence-class>`
-
-        """
-
-        _prefix = 'infra-dumper-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.compress = None
-            self.file_path = None
-            self.filename = None
-            self.higher_limit = None
-            self.lower_limit = None
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-infra-dumper-cfg:exception/Cisco-IOS-XR-infra-dumper-cfg:choice2'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.compress is not None:
-                return True
-
-            if self.file_path is not None:
-                return True
-
-            if self.filename is not None:
-                return True
-
-            if self.higher_limit is not None:
-                return True
-
-            if self.lower_limit is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.infra._meta import _Cisco_IOS_XR_infra_dumper_cfg as meta
-            return meta._meta_table['Exception.Choice2']['meta_info']
 
 
     class Choice3(object):
@@ -317,6 +207,30 @@ class Exception(object):
         	Is present if this instance represents presence container else not
         	**type**\: bool
         
+        .. attribute:: lower_limit
+        
+        	Lower limit.  This is required if Filename is specified
+        	**type**\: int
+        
+        	**range:** 0..4
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        .. attribute:: higher_limit
+        
+        	Higher limit.  This is required if Filename is specified
+        	**type**\: int
+        
+        	**range:** 5..64
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         .. attribute:: file_path
         
         	Protocol and directory
@@ -337,12 +251,66 @@ class Exception(object):
         	Is present if this instance represents presence container else not
         	**type**\: bool
         
-        .. attribute:: higher_limit
         
-        	Higher limit.  This is required if Filename is specified
-        	**type**\: int
+
+        This class is a :ref:`presence class<presence-class>`
+
+        """
+
+        _prefix = 'infra-dumper-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.compress = None
+            self.lower_limit = None
+            self.higher_limit = None
+            self.file_path = None
+            self.filename = None
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-infra-dumper-cfg:exception/Cisco-IOS-XR-infra-dumper-cfg:choice3'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.compress is not None:
+                return True
+
+            if self.lower_limit is not None:
+                return True
+
+            if self.higher_limit is not None:
+                return True
+
+            if self.file_path is not None:
+                return True
+
+            if self.filename is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.infra._meta import _Cisco_IOS_XR_infra_dumper_cfg as meta
+            return meta._meta_table['Exception.Choice3']['meta_info']
+
+
+    class Choice2(object):
+        """
+        Preference of the dump location
         
-        	**range:** 5..64
+        .. attribute:: compress
+        
+        	Specify 'true' to compress core files dumped on this path, 'false' to not compress
+        	**type**\: bool
         
         .. attribute:: _is_presence
         
@@ -361,6 +329,38 @@ class Exception(object):
         	Is present if this instance represents presence container else not
         	**type**\: bool
         
+        .. attribute:: higher_limit
+        
+        	Higher limit.  This is required if Filename is specified
+        	**type**\: int
+        
+        	**range:** 5..64
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        .. attribute:: file_path
+        
+        	Protocol and directory
+        	**type**\: str
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
+        .. attribute:: filename
+        
+        	Dump filename
+        	**type**\: str
+        
+        .. attribute:: _is_presence
+        
+        	Is present if this instance represents presence container else not
+        	**type**\: bool
+        
         
 
         This class is a :ref:`presence class<presence-class>`
@@ -373,15 +373,15 @@ class Exception(object):
         def __init__(self):
             self.parent = None
             self.compress = None
+            self.lower_limit = None
+            self.higher_limit = None
             self.file_path = None
             self.filename = None
-            self.higher_limit = None
-            self.lower_limit = None
 
         @property
         def _common_path(self):
 
-            return '/Cisco-IOS-XR-infra-dumper-cfg:exception/Cisco-IOS-XR-infra-dumper-cfg:choice3'
+            return '/Cisco-IOS-XR-infra-dumper-cfg:exception/Cisco-IOS-XR-infra-dumper-cfg:choice2'
 
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
@@ -393,16 +393,16 @@ class Exception(object):
             if self.compress is not None:
                 return True
 
-            if self.file_path is not None:
-                return True
-
-            if self.filename is not None:
+            if self.lower_limit is not None:
                 return True
 
             if self.higher_limit is not None:
                 return True
 
-            if self.lower_limit is not None:
+            if self.file_path is not None:
+                return True
+
+            if self.filename is not None:
                 return True
 
             return False
@@ -410,7 +410,7 @@ class Exception(object):
         @staticmethod
         def _meta_info():
             from ydk.models.infra._meta import _Cisco_IOS_XR_infra_dumper_cfg as meta
-            return meta._meta_table['Exception.Choice3']['meta_info']
+            return meta._meta_table['Exception.Choice2']['meta_info']
 
     @property
     def _common_path(self):
@@ -427,19 +427,19 @@ class Exception(object):
         if self.choice1 is not None and self.choice1._has_data():
             return True
 
+        if self.choice3 is not None and self.choice3._has_data():
+            return True
+
         if self.choice2 is not None and self.choice2._has_data():
             return True
 
-        if self.choice3 is not None and self.choice3._has_data():
+        if self.sparse is not None:
             return True
 
         if self.kernel_debugger is not None:
             return True
 
         if self.packet_memory is not None:
-            return True
-
-        if self.sparse is not None:
             return True
 
         if self.sparse_size is not None:

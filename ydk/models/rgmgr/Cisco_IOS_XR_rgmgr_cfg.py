@@ -19,7 +19,7 @@ import collections
 
 from enum import Enum
 
-from ydk.types import Empty, YList, DELETE, Decimal64, FixedBitsDict
+from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYDataValidationError
 
@@ -56,15 +56,15 @@ class RedundancyGroupManager(object):
     	MR\-APS groups
     	**type**\: :py:class:`Aps <ydk.models.rgmgr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Aps>`
     
-    .. attribute:: enable
-    
-    	Enable redundancy group manager
-    	**type**\: :py:class:`Empty <ydk.types.Empty>`
-    
     .. attribute:: iccp
     
     	ICCP configuration
     	**type**\: :py:class:`Iccp <ydk.models.rgmgr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp>`
+    
+    .. attribute:: enable
+    
+    	Enable redundancy group manager
+    	**type**\: :py:class:`Empty <ydk.types.Empty>`
     
     
 
@@ -76,9 +76,9 @@ class RedundancyGroupManager(object):
     def __init__(self):
         self.aps = RedundancyGroupManager.Aps()
         self.aps.parent = self
-        self.enable = None
         self.iccp = RedundancyGroupManager.Iccp()
         self.iccp.parent = self
+        self.enable = None
 
 
     class Aps(object):
@@ -114,19 +114,19 @@ class RedundancyGroupManager(object):
             """
             Default SONET controller backup configuration
             
-            .. attribute:: backup_interface_name
-            
-            	Backup interface name
-            	**type**\: str
-            
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-            
             .. attribute:: next_hop_address
             
             	IPv4 address of remote peer
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            .. attribute:: backup_interface_name
+            
+            	Backup interface name
+            	**type**\: str
+            
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             
 
@@ -137,8 +137,8 @@ class RedundancyGroupManager(object):
 
             def __init__(self):
                 self.parent = None
-                self.backup_interface_name = None
                 self.next_hop_address = None
+                self.backup_interface_name = None
 
             @property
             def _common_path(self):
@@ -152,10 +152,10 @@ class RedundancyGroupManager(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.backup_interface_name is not None:
+                if self.next_hop_address is not None:
                     return True
 
-                if self.next_hop_address is not None:
+                if self.backup_interface_name is not None:
                     return True
 
                 return False
@@ -193,7 +193,7 @@ class RedundancyGroupManager(object):
                 """
                 Redundancy Group Configuration
                 
-                .. attribute:: group_id
+                .. attribute:: group_id  <key>
                 
                 	The redundancy group ID
                 	**type**\: int
@@ -246,16 +246,9 @@ class RedundancyGroupManager(object):
                         """
                         none
                         
-                        .. attribute:: controller_name
+                        .. attribute:: controller_name  <key>
                         
                         	Controller Name
-                        	**type**\: str
-                        
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                        
-                        .. attribute:: backup_interface_name
-                        
-                        	Backup interface name
                         	**type**\: str
                         
                         	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
@@ -267,6 +260,13 @@ class RedundancyGroupManager(object):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        .. attribute:: backup_interface_name
+                        
+                        	Backup interface name
+                        	**type**\: str
+                        
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        
                         
 
                         """
@@ -277,8 +277,8 @@ class RedundancyGroupManager(object):
                         def __init__(self):
                             self.parent = None
                             self.controller_name = None
-                            self.backup_interface_name = None
                             self.next_hop_address = None
+                            self.backup_interface_name = None
 
                         @property
                         def _common_path(self):
@@ -299,10 +299,10 @@ class RedundancyGroupManager(object):
                             if self.controller_name is not None:
                                 return True
 
-                            if self.backup_interface_name is not None:
+                            if self.next_hop_address is not None:
                                 return True
 
-                            if self.next_hop_address is not None:
+                            if self.backup_interface_name is not None:
                                 return True
 
                             return False
@@ -464,7 +464,7 @@ class RedundancyGroupManager(object):
                 """
                 Redundancy Group Configuration
                 
-                .. attribute:: group_number
+                .. attribute:: group_number  <key>
                 
                 	The redundancy icc group number
                 	**type**\: int
@@ -476,17 +476,17 @@ class RedundancyGroupManager(object):
                 	ICCP backbone configuration
                 	**type**\: :py:class:`Backbones <ydk.models.rgmgr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones>`
                 
+                .. attribute:: members
+                
+                	ICCP member configuration
+                	**type**\: :py:class:`Members <ydk.models.rgmgr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members>`
+                
                 .. attribute:: isolation_recovery_delay
                 
                 	ICCP isolation recovery delay
                 	**type**\: int
                 
                 	**range:** 30..600
-                
-                .. attribute:: members
-                
-                	ICCP member configuration
-                	**type**\: :py:class:`Members <ydk.models.rgmgr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members>`
                 
                 .. attribute:: mode
                 
@@ -510,9 +510,9 @@ class RedundancyGroupManager(object):
                     self.group_number = None
                     self.backbones = RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones()
                     self.backbones.parent = self
-                    self.isolation_recovery_delay = None
                     self.members = RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members()
                     self.members.parent = self
+                    self.isolation_recovery_delay = None
                     self.mode = None
                     self.nv_satellite = RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite()
                     self.nv_satellite.parent = self
@@ -545,7 +545,7 @@ class RedundancyGroupManager(object):
                         """
                         ICCP backbone interface configuration
                         
-                        .. attribute:: backbone_name
+                        .. attribute:: backbone_name  <key>
                         
                         	none
                         	**type**\: str
@@ -643,7 +643,7 @@ class RedundancyGroupManager(object):
                         """
                         ICCP member configuration
                         
-                        .. attribute:: neighbor_address
+                        .. attribute:: neighbor_address  <key>
                         
                         	Neighbor IP address
                         	**type**\: str
@@ -780,10 +780,10 @@ class RedundancyGroupManager(object):
                     if self.backbones is not None and self.backbones._has_data():
                         return True
 
-                    if self.isolation_recovery_delay is not None:
+                    if self.members is not None and self.members._has_data():
                         return True
 
-                    if self.members is not None and self.members._has_data():
+                    if self.isolation_recovery_delay is not None:
                         return True
 
                     if self.mode is not None:
@@ -860,10 +860,10 @@ class RedundancyGroupManager(object):
         if self.aps is not None and self.aps._has_data():
             return True
 
-        if self.enable is not None:
+        if self.iccp is not None and self.iccp._has_data():
             return True
 
-        if self.iccp is not None and self.iccp._has_data():
+        if self.enable is not None:
             return True
 
         return False
