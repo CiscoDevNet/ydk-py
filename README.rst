@@ -1,4 +1,5 @@
 .. image::  https://travis-ci.org/CiscoDevNet/ydk-py.svg?branch=master
+    :target: https://travis-ci.org/CiscoDevNet/ydk-py
 
 Getting Started
 ===============
