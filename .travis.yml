@@ -20,3 +20,7 @@ script:
     - PYTHONPATH=`pwd`:$PYTHONPATH
     - python ./samples/bgp_codec.py
 
+notifications:
+  email:
+    recipients:
+      - yang-dk@cisco.com
