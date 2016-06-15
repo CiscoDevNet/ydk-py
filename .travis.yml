@@ -18,5 +18,6 @@ install:
 script:
     - PYTHONPATH=`pwd`:$PYTHONPATH
     - ls -l samples
+    - echo $PYTHONPATH
     - python ./samples/bgp_codec.py
 
