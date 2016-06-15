@@ -21,6 +21,8 @@
 #  open-config bgp yang module.
 #
 
+from ydk.models.bgp import bgp
+from ydk.models.routing.routing_policy import RoutingPolicy
 
 from ydk.providers import CodecServiceProvider
 from ydk.services import CodecService
